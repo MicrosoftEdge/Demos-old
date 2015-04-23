@@ -1,0 +1,49 @@
+.img-responsive {  display: block;  height: auto;  max-width: 100%; }
+
+.sldr {
+  width: 6rem !important;
+}
+
+/* You can add -webkit- and -moz- prefixes for webkit browsers and firefox. */
+.animated-filters {
+  animation: filter-animation 10s infinite;
+}
+.animated-filters2 {
+  animation: filter-animation2 5s infinite;
+}
+
+@keyframes filter-animation {
+  0% {
+    filter: sepia(0) saturate(100%);
+  }
+  15% {
+    filter: sepia(90%) saturate(100%);
+  }
+  30% {
+    filter: sepia(0) saturate(210%) hue-rotate(60deg);
+  }
+  45% {
+    filter: hue-rotate(350deg);
+  }
+  60% {
+    filter: hue-rotate(0deg) invert(90%);
+  }
+  75% {
+    filter: blur(5px) invert(0);
+  }
+  100% {
+    filter: saturate(100%) blur(0);
+  }
+}
+
+@keyframes filter-animation2 {
+  0% {
+    filter: opacity(0);
+  }
+  50% {
+    filter: opacity(100%);
+  }
+  100% {
+    filter: opacity(0);
+  }
+}
