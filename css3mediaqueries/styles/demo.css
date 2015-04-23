@@ -1,0 +1,140 @@
+body {
+	min-width: 100px;
+	max-width: 1500px;
+}
+
+.photo img {
+	margin: 0 auto;
+	width: 90%;
+	max-width: 640px;
+	max-height: 480px;
+}
+
+.smallPhoto,
+.place-title-short,
+#mobile,
+#netbook,
+#widescreen {
+	display: none;
+}
+
+.new {
+	font-weight: bold;
+	color: red;
+}
+
+#demo-details {
+	padding-top: 30px;
+}
+
+.description {
+	height: 50px;
+}
+
+@media (min-width: 950px) {
+	.place {
+		border: thin solid black;
+		width: 46%;
+		padding: 0px 10px 10px 5px;
+		margin: 5px;
+		float: left;
+	}
+	.photo {
+		width: 100%;
+		text-align: center;
+	}
+	.bigPhoto {
+		margin: 0 auto;
+		width: 100%;
+		height: 100%;
+		max-width: 640px;
+		max-height: 480px;
+	}
+	.smallPhoto,
+	.place-title-short {
+		display: none;
+	}
+	.description {
+		margin: 10px;
+	}
+	#widescreen {
+		display: inline;
+		float: left;
+		color: purple;
+		margin-top: 12px;
+	}
+	#demo-content h1 {
+		float: left;
+		margin-top: 0px !important;
+		margin-right: 15px !important;
+		font-weight: bold !important;
+		color: purple;
+	}
+}
+
+@media (min-width: 450px) and (max-width: 950px) {
+	.place-title-long,
+	.bigPhoto,
+	.description {
+		display: none;
+	}
+	.place-title-short,
+	#netbook {
+		display: block;
+	}
+	.place {
+		border: thin solid black;
+		width: 45%;
+		padding: 0px 10px 10px 5px;
+		margin: 5px 2px 5px 2px;
+		float: left;
+		border-radius: 8px;
+	}
+	.smallPhoto {
+		display: block;
+		margin: 0 auto;
+		width: 100%;
+		height: 100%;
+		max-width: 236px;
+		max-height: 220px;
+	}
+	.photo {
+		width: 100%;
+		text-align: center;
+	}
+	#demo-content {
+		min-width: 450px;
+	}
+	#demo-content h1 {
+		font-weight: bold !important;
+		color: Orange;
+	}
+}
+
+@media (max-width: 450px) {
+	.place-title-long,
+	.place-title-short,
+	.description,
+	#demodescription,
+	.bigPhoto,
+	#fullTitle {
+		display: none;
+	}
+	.place {
+		border: none;
+		width: auto;
+		float: left;
+		margin: 5px;
+	}
+	.smallPhoto,
+	#mobile {
+		display: block;
+	}
+	#demo-content h1 {
+		font-size: 17pt;
+		color: navy;
+	}
+	#demo-introduction {
+		display: none;
+	}
+}

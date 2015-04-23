@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- Copyright © Microsoft Corporation. All Rights Reserved. -->
+	<title>CSS3 Media Queries</title>
+    <meta name="description" content="Introduced in IE9, CSS3 Media queries enable you to style a page based on different display surface factors such as width, height, orientation, resolution, etc." />
+    <meta name="keywords" content="css3, media query listeners" />
+    <meta name="og:title" content="Title of the demo in the website" />
+	<link rel="stylesheet" type="text/css" href="./styles/demotemplate.css" />
+	<link rel="stylesheet" type="text/css" href="./styles/demo.css" /> </head>
+
+<body>
+    <div class="container">
+        <h1 id="demo-title">
+            CSS3 Media Queries &amp; Media Query Listeners
+
+        </h1>
+        <div id="demo-introduction">
+            <p>Introduced in IE9, CSS3 Media queries enable you to style a page based on different display surface factors such as width, height, orientation, resolution, etc.</p>
+            <p>
+                <span class="new">New to IE10</span>, <b>Media Query Listeners</b> enable you to execute script in response to a change in a media query. In this demo, script changes the image sources between high and low resolution photos using Media Query Listeners.
+                Mobile browsers only download the low resolution images, while desktops and netbooks download whichever is appropriate for the current window size. Browsers which don't support listeners will download both versions of the images.
+            </p>
+            <p>Change the width of your browser to change the page layout. <a href="#demo-details">See what's new!</a></p>
+        </div>
+        <div id="demo-content">
+            <h1>
+                Cool Travel Photos
+
+            </h1>
+            <h3 id="mobile">
+                Optimized for Mobile!
+
+            </h3>
+            <h3 id="netbook">
+                Optimized for your Netbook!
+
+            </h3>
+            <h3 id="widescreen">
+                Optimized for large screens!
+
+            </h3>
+            <p style="clear: both;"> I took all these photos at different interesting spots while vacationing. Let me know what you think of them. </p>
+            <div class="place" id="tulips">
+                <h2 class="place-title-long">
+                    Skagit Valley Tulip Festival
+
+                </h2>
+                <h2 class="place-title-short">
+                    Skagit Valley
+
+                </h2>
+                <p class="description"> Skagit Valley is located about an hour an a half north of Seattle. April is when the tulips are blooming. There are so many tulips that from a distance the ground looks like it's painted. </p>
+                <div class="photo" id="tulipsphotos"><img src="images\tulips2.jpg" alt="huge field of red tulips with mountains in the background"></div>
+            </div>
+            <div class="place" id="eagle">
+                <h2 class="place-title-long">
+                    Olympic Sculpture Park, The Eagle
+
+                </h2>
+                <h2 class="place-title-short">
+                    The Eagle
+
+                </h2>
+                <p class="description"> The Olympic Sculpture park is one of my favorite places to visit in Seattle. I take all my out of town guests here. I took this photo during the grand opening weekend of the park, January 2007. </p>
+                <div class="photo" id="eaglephotos"><img src="images\eagle2.jpg" alt="Alexander Calder's sculpture the Eagle at dusk, looking out on Eliot bay, lots of people around it."></div>
+            </div>
+            <div class="place" id="grandfather">
+                <h2 class="place-title-long">
+                    Grandfather Mountain, North Carolina
+
+                </h2>
+                <h2 class="place-title-short">
+                    Grandfather Mtn.
+
+                </h2>
+                <p class="description"> This is just a photo of a cool old street sign pointing to Grandfather Mountain in North Carolina. </p>
+                <div class="photo" id="grandfatherphotos"><img src="images\grandfather_mountain2.jpg" alt="huge old yellow street sign which says Grandfather Mountain 6 miles left."></div>
+            </div>
+            <div class="place" id="pink">
+                <h2 class="place-title-long">
+                    The Pink House, Oak Bluffs, MA
+
+                </h2>
+                <h2 class="place-title-short">
+                    The Pink House
+
+                </h2>
+                <p class="description"> This is the Pink House located in the Martha's Vineyard Camp Meeting Association Camp Ground community. The house was build in 1864. It has 2 bedrooms, 770 square feet </p>
+                <div class="photo" id="pinkphotos"><img src="images\pink_house2.jpg" alt="Pink house with white filagree trim.  Some trim in darker shade of pink"></div>
+            </div>
+        </div>
+        <div id="demo-details" style="clear: both">
+            <div>
+                <h3>What's different about this demo for IE10?</h3>
+                <p>
+                    Originally, this demo's HTML contained <code>&lt;img&gt;</code> elements for both the large and small resolution images. <a href="#css3media-queries">CSS3 Media Queries</a> were used to hide and show these images based on the media's dimensions. However,
+                    this means that <i>both</i> the large and small resolution versions of each image were downloaded by the browser.
+                </p>
+                <p>
+                    With <a href="#media-query-listeners">Media Query Listeners</a>, the demo's script can determine the current evaluation of a media query and just download the necessary resolution image. For mobile devices, this could mean you save money on that expensive
+                    data plan by not having to download the large image files!
+                </p>
+                <h3 id="css3media-queries">CSS3 Media Queries</h3>
+                <p>
+                    <a target="_blank" href="http://www.w3.org/TR/css3-mediaqueries/">CSS3 Media Queries</a> enable web authors to selectively style their page based on properties of the media where the page is being displayed. For example, a web author could choose to
+                    style their page differently when it is displayed on the screen versus when it "displayed" on a print medium. Going further, web authors can now choose to style their page differently when it is displayed on a small screen such as a phone versus when
+                    it is displayed on a widescreen monitor.
+                </p>
+                <p> Here is the syntax to use a media query: </p>
+                <blockquote> <code>@media screen and (max-width:400px) { div {border:none;}} </code> </blockquote> In this declaration, screen is the media type and max-width is the media property. The declaration states that the rules inside are only to be applied when the webpage
+                is displaying on a screen with a width of at most 400px. There are many other media properties defined by CSS3 Media queries including width, height, device-width, device-height, orientation, aspect-ratio, device-aspect-ratio, color, color-index, monochrome
+                and resolution and many of these properties accept min or max as a prefix. Media properties can be used together to create very specific queries, for example: <code>screen and (max-width:400px) and (max-height:600px)</code>.
+                <p></p>
+                <p>
+                    This page uses media queries to change the layout of the page based on the width. As you change the width of the page, the media queries change the layout of the page to use more or less columns, longer or shorter titles and larger or smaller images.
+                    The following media queries are defined for this page:
+                </p>
+                <blockquote>
+                    <code>
+
+                        @media (min-width:950px)<br>
+
+                        @media (min-width:450px) and (max-width:950px)<br>
+
+                        @media (max-width:899px)<br>
+
+                        @media (max-width:450px)
+
+                    </code>
+                </blockquote>
+                <p></p>
+                <h3 id="media-query-listeners">Media Query Listeners</h3>
+                <p>
+                    <a target="_blank" href="http://dev.w3.org/csswg/cssom-view/#the-mediaquerylist-interface">CSSOM View</a> provides the ability to evaluate a media query at runtime in script. In the demo, this is used at page load to decide which image resources to
+                    use initially.
+                </p>
+                <blockquote>
+                    <code>
+
+                        var mediaQueryList = window.msMatchMedia("(min-width:950px)");<br>
+
+                        isLargeScreen = mediaQueryList.matches;
+
+                    </code>
+                </blockquote>
+                <p></p>
+                <p>
+                    Additionally, you can register for callbacks ("media query listeners") whenever the evaluation of the media query changes. In the demo, this is used to update which image resources to use whenever the media's dimensions crosses the width threshold
+                    of 950px.
+                </p>
+                <blockquote>
+                    <code>
+
+                        <pre>mediaQueryList.addListener(mediaSizeChange);
+function mediaSizeChange(mediaQueryList)
+{
+    //Executed whenever the media query changes from true to false or vice versa
+    if(mediaQueryList.matches)
+    {
+        showLargeScreen();
+    }else{
+        showSmallScreen();
+    }
+}</pre>
+                    </code>
+                </blockquote> Other possible uses include dynamically loading additional comments on your blog as the window is resized larger or reacting to changes in portrait/landscape orientation.
+                <p></p>
+            </div>
+        </div>
+    </div>
+	<script type="text/javascript" src="scripts/Demo.js"></script>
+</body>
+
+</html>
