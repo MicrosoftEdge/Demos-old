@@ -1,0 +1,65 @@
+#audio-container,
+#for-development {
+	display: none;
+}
+
+button {
+	margin: 10px;
+	padding: 10px;
+}
+
+#score-container {
+	margin-right: 10px;
+	-ms-box-flex: 1;
+}
+
+#score-container svg {
+	width: 97%;
+}
+
+h2.bb-req {
+	float:left;
+	margin-right:20px;
+	margin-bottom:20px;
+}
+
+#play {
+	-ms-box-flex: 0;
+}
+
+#score-play-container {
+	margin-top: 20px;
+	display: -ms-box;
+	-ms-box-align: middle;
+	-ms-box-pack: start;
+	-ms-box-direction: normal;
+	-ms-box-orient: horizontal;
+	-ms-box-line-progression: normal;
+}
+
+#warning {
+	display: none;
+	margin-bottom: 20px;
+}
+
+#xhr-blob-warning {
+	display: none;
+	margin-bottom: 20px;
+	clear: both;
+}
+
+.hidden {
+	display: none;
+}
+
+#play input {
+	border: solid black;
+	border-radius: 5px;
+	padding: 5px;
+	width: 80px;
+	height: 80px;
+}
+
+#piano g rect:hover {
+	fill: gray !important; /* Required so Chrome takes it into account */
+}
