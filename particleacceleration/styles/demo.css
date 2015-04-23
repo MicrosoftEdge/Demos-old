@@ -1,0 +1,97 @@
+body {
+	overflow: hidden;
+	-ms-content-zooming: none;
+	text-align: center;
+	-ms-touch-action: none;
+}
+
+#logo {
+	position: absolute;
+	top: 10px;
+	left: 20px;
+	text-align: left;
+}
+
+#performance-canvas {
+	display: block;
+	position: fixed;
+	left: 0px;
+	width: 100%;
+}
+
+#demo-screenreader-text {
+	display: none;
+}
+
+#not-supported {
+	display: none;
+	top: 100px;
+}
+
+#capture {
+	text-align: center;
+}
+
+#demo-warning {
+	font-family: Segoe UI, Verdana, Arial, Sans-Serif;
+	font-size: 12pt;
+	text-align: center;
+}
+
+#backgradient1 {
+	background-color: #E1E1E1;
+	background-image: -ms-radial-gradient(left top, circle farthest-side, #FFFFFF 0%, #BFBFBF 100%);
+	/* IE10 */
+	
+	background-image: -moz-radial-gradient(left top, circle farthest-side, #FFFFFF 0%, #BFBFBF 100%);
+	/* Mozilla Firefox */
+	
+	background-image: -o-radial-gradient(left top, circle farthest-side, #FFFFFF 0%, #BFBFBF 100%);
+	/* Opera */
+	
+	background-image: -webkit-gradient(radial, left top, 0, left top, 920, color-stop(0, #FFFFFF), color-stop(1, #BFBFBF));
+	/* Webkit (Safari/Chrome 10) */
+	
+	background-image: -webkit-radial-gradient(left top, circle farthest-side, #FFFFFF 0%, #BFBFBF 100%);
+	/* Webkit (Chrome 11+) */
+	
+	background-image: radial-gradient(left top, circle farthest-side, #FFFFFF 0%, #BFBFBF 100%);
+	/* Proposed W3C Markup */
+	
+	z-index: -100;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	display: none;
+}
+
+#backgradient2 {
+	background-color: #E1E1E1;
+	background-image: -ms-radial-gradient(left top, circle farthest-side, #FFFFFF 0%, #BEBEBE 100%);
+	/* IE10 */
+	
+	background-image: -moz-radial-gradient(left top, circle farthest-side, #FFFFFF 0%, #BEBEBE 100%);
+	/* Mozilla Firefox */
+	
+	background-image: -o-radial-gradient(left top, circle farthest-side, #FFFFFF 0%, #BEBEBE 100%);
+	/* Opera */
+	
+	background-image: -webkit-gradient(radial, left top, 0, left top, 920, color-stop(0, #FFFFFF), color-stop(1, #BEBEBE));
+	/* Webkit (Safari/Chrome 10) */
+	
+	background-image: -webkit-radial-gradient(left top, circle farthest-side, #FFFFFF 0%, #BEBEBE 100%);
+	/* Webkit (Chrome 11+) */
+	
+	background-image: radial-gradient(left top, circle farthest-side, #FFFFFF 0%, #BEBEBE 100%);
+	/* Proposed W3C Markup */
+	
+	z-index: -100;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	display: none;
+}
