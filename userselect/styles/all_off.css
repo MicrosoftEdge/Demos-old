@@ -1,0 +1,10 @@
+/* All_off */
+
+#blog,
+#blog input,
+#blog textarea,
+#blog *[contenteditable=true] {
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: -moz-none;
+}

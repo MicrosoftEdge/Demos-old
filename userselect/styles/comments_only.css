@@ -1,0 +1,12 @@
+/* Comments_only */
+
+#blog {
+	-ms-user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+}
+.comment {
+	-ms-user-select: element;
+	-moz-user-select: text;
+	-webkit-user-select: text;
+}

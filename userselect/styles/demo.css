@@ -1,0 +1,40 @@
+pre {
+	display: none;
+}
+button {
+	margin-left: 10px;
+	padding: 3px;
+}
+div + p,
+div + h3 {
+	clear: both;
+}
+#code {
+	margin-top: 20px;
+	/* width:400px;*/
+	
+	height: 200px;
+	border: solid;
+}
+select {
+	width: 320px;
+}
+#controls {
+	padding-bottom: 20px;
+	margin-right: 15px;
+	float: left;
+	width: 320px;
+}
+#sample-content {
+	border-bottom: solid thin;
+}
+.comment img {
+	margin: 5px;
+}
+#blog {
+	/*float:right;*/
+	
+	display: inline-block;
+	min-width: 550px;
+	max-width: 650px;
+}
