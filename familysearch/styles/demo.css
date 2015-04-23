@@ -1,0 +1,14 @@
+/* Your custom CSS goes here */
+
+img {
+	display: inline-block;
+	height: auto;
+	max-width: 100%;
+}
+
+.grey-block {
+	display: block;
+	margin-bottom: 2rem;
+	padding: 1rem;
+	background: #E0E0E0;
+}
