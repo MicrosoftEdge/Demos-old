@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Copyright Microsoft Corporation. All Rights Reserved. -->
+	<!-- Demo Author: Ben Peters, Microsoft Corporation -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="description" content="IE11 Paste Local Image Test Drive Demo" />
+	<title>Pasting Local Images Demo</title>
+	<link rel="stylesheet" type="text/css" href="styles/demo.css" />
+	<link rel="stylesheet" type="text/css" href="styles/demotemplate.css" />
+	<meta name="keywords" content="input" />
+	<meta name="og:title" content="IE11 Paste Local Image Test Drive Demo" />
+</head>
+<body>
+	<div class="container">
+		<h1 id="demo-title">
+			Pasting Local Images
+		</h1>
+		<div id="demo-screenreader-text">
+			This demo shows a browser's ability to paste images from the local file system into a web site.
+		</div>
+		<div id="demo-introduction">
+			With modern browsers, local images that are referenced on the clipboard are made available during paste. With no script, images are pasted with
+			<a target="_new" href="http://en.wikipedia.org/wiki/Data_URI_scheme" target="_new">dataURI</a>. Switching to
+			<a target="_new" href="http://msdn.microsoft.com/en-us/library/windows/apps/hh453178.aspx" target="_new">blob</a> 
+			below runs simple javascript to determine the type of image object to use. See 
+			<a target="_new" href="http://msdn.microsoft.com/en-us/library/ie/dn254951(v=vs.85).aspx">this MSDN reference</a> 
+			for more details. <span id="primary-instructions">Try pasting an image from PrintScreen, Microsoft Word, Paint, or other image software.</span> 
+			Then check out <a id="show-markup" href="#">the markup</a> you've just pasted.
+		</div>
+		<div id="demo-content">
+			<div id="control-buttons-container" class="centered-container">
+				<span id="paste-button-container">
+					<input type="button" id="paste-button" class="control-button" value="paste">
+				</span>
+				<span id="paste-type-config">
+					no script
+					<input type="range" id="paste-type" min=0 max=1 value=0 title="'no script' selected. Click to switch to blob script">
+					blob script
+				</span>
+			</div>
+			<div id="message-container-default" class="centered-container">
+				<em>
+					Paste an image with <strong>no script</strong> selected to try your browser's support.
+				</em>
+			</div>
+			<div id="message-container-nondefault" class="centered-container">
+				<em>
+					Paste an image with <strong>blob script</strong> selected to try your browser's support.
+				</em>
+			</div>
+			<iframe id="edit-frame" title="paste here" src="editpage.html"></iframe>
+			<div class="centered-container">
+				<a id="hide-markup-button" href="#">
+					show pasted mark-up
+				</a>
+			</div>
+			<div id="markup-section" class="centered-container" style="display:none;">
+				<div>
+					Markup from above:
+				</div>
+				<textarea id="markup-container" spellcheck="false"></textarea>
+			</div>
+		</div>
+		<div id="upgrade">
+			<div id="upgrade-warning"> <img src="images/ie-logo.png" id="upgrade-ie-logo" alt="Internet Explorer Logo" title="Internet Explorer" />
+				<br/>
+				<div id="upgrade-content">
+					<div id="upgrade-text">
+						You are using an older version of Internet Explorer. Please upgrade to IE11 for the latest features.
+					</div>
+					<div id="dismiss-button" role="button">
+						OK
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="scripts/demo.js"></script>
+</body>
+</html>

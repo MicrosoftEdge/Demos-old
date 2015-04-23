@@ -1,0 +1,149 @@
+.control-button {
+	width: 100px;
+	margin: 0 30px;
+	letter-spacing: 0.02em;
+	font-family: "Segoe UI";
+	font-size: 13pt;
+	line-height: 1.3636;
+	/* 20px when font-size is 11pt */
+	
+	padding: 8px 16px;
+	border-width: 0;
+	background-clip: padding-box;
+	background-color: rgba(182, 182, 182, 0.7);
+	color: rgb(0, 0, 0);
+}
+
+.control-button:hover {
+	background-color: rgba(205, 205, 205, 0.82);
+}
+
+.control-button:hover:active {
+	background-clip: border-box;
+	background-color: rgb(0, 0, 0);
+	color: rgb(255, 255, 255);
+}
+
+.centered-container {
+	margin: 0 5% 20px 5%;
+	text-align: center;
+}
+
+#primary-instructions {
+	transition: background-color 1s, color 1s;
+}
+
+#demo-introduction {
+	display: inline-block;
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+#control-buttonsCenteredContainer {
+	display: inline-block;
+	width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#paste-type-config {
+	font-size: 17px;
+}
+
+#paste-type {
+	width: 40px;
+	height: 40px;
+	margin: 5px 10px;
+	vertical-align: -50%;
+}
+
+#paste-type::-ms-thumb {
+	height: 25px;
+	width: 12px;
+}
+
+#paste-type::-ms-track {
+	visibility: hidden;
+}
+
+#paste-button-container {
+	margin-right: 100px;
+	display: inline-block;
+	width: 230px;
+	font-style: italic;
+}
+
+#edit-frame {
+	height: 450px;
+	width: 90%;
+	background-color: rgb(220, 220, 220);
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+#edit-container img {
+	max-height: 400px;
+	max-width: 90%;
+	margin-bottom: 10px;
+}
+
+#markup-section {
+	height: 200px;
+	background-color: rgb(160, 160, 160);
+	padding: 10px 0;
+}
+
+#markup-container {
+	height: 170px;
+	width: 95%;
+	background-color: rgb(160, 160, 160);
+	margin: 0 2.5%;
+}
+
+#upgrade {
+	display: none;
+	position: fixed;
+	width: 480px;
+	padding: 0;
+	top: 230px;
+	margin-left: 270px;
+	text-align: left;
+	background-color: rgb(255, 255, 255);
+	border-radius: 5px;
+	border: 4px solid #000;
+}
+
+#upgrade-warning {
+	background-color: rgb(255, 255, 255);
+	position: relative;
+	width: 437px;
+	margin: auto auto;
+	padding: 10px;
+}
+
+#upgrade-content {
+	padding: 0 0 10px 20px;
+	text-align: left;
+	margin-bottom: 20px;
+}
+
+#dismiss-button {
+	margin-top: 10px;
+	background-color: rgb(249, 123, 12);
+	cursor: pointer;
+	padding: 5px;
+	width: 100px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	text-align: center;
+	color: rgb(255, 255, 255);
+	font-weight: bold;
+	display: inline-block;
+}
+
+#upgrade-ie-logo {
+	margin-top: 10px;
+	margin-left: 20px;
+	margin-right: 10px;
+	float: right;
+}
