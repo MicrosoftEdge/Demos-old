@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Copyright � Microsoft Corporation. All Rights Reserved. -->
+    <!-- Bonnie Yu, Microsoft Corporation -->
+    <!-- Credits go to Alex Gorbatchev for syntax highlighter javascript library -->
+    <title>Reading View Guidelines</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="description"
+          content="The Reading View Test Drive Demo provides guidelines on how developers can update website markup so the website renders great in Reading View."/>
+    <!-- Used for live tile when site is pinned-->
+    <meta name="application-name" content="IE Test Drive"/>
+    <meta name="author" content="Bonnie Yu, sarvaje"/>
+    <meta name="keywords" content="misc"/>
+    <meta name="og:title" content="Reading View Guidelines"/>
+
+
+</head>
+
+<body aria-haspopup="false">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/styles/shThemeDefault.min.css"
+      rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" type="text/css" href="styles/demo.css"/>
+<div class="container">
+    <div id="banner">
+        <h1 class="title">
+
+            Reading View Guidelines
+
+        </h1>
+
+        <div id="demo-screenreader-text"> The Reading View Test Drive Demo provides guidelines on how developers can
+            update
+            website markup so the website renders great in Reading View.
+        </div>
+        <br>
+
+        <div id="introduction">
+            <p>Reading view is a new feature in IE11 that provides a focused reading experience for text-heavy pages,
+                such
+                as news articles and blog posts. </p>
+
+            <p>The logic that reading view uses to detect the main content on a page follows popular markup patterns for
+                news and blog articles on the web. This Test Drive doesn't cover all scenarios, however, the following
+                guidelines will get you started in making
+                sure your site works well with reading view. See the <a href="http://aka.ms/Ivl06w">Reading View in
+                    IE11</a>
+                blog post for more details on how Reading View works.</p>
+
+            <p><em> To see tips on how to ensure particular elements on a page display correctly in reading view, click
+                any
+                of the 3 tab “views”, then click element names in the left nav bar or click the elements themselves on
+                the
+                embedded page.</em></p>
+        </div>
+    </div>
+    <div class="view-menu">
+        <ul>
+            <li id="web-nav" class="web-nav"></li>
+            <li id="reading-nav" class="reading-nav"></li>
+            <li id="code-nav" class="code-nav"></li>
+        </ul>
+    </div>
+    <div class="content">
+        <div class="nav-bar">
+            <ul>
+                <li id="nav-title"> Title</li>
+                <li id="nav-date"> Date</li>
+                <li id="nav-author"> Author</li>
+                <li id="nav-publisher"> Publisher</li>
+                <li id="nav-dominant-image"> Dominant Image</li>
+                <li id="nav-inline-image"> Inline Images</li>
+                <li id="nav-fig-caption"> Caption</li>
+                <li id="nav-copyright"> Copyright</li>
+            </ul>
+        </div>
+        <div class="hidden"></div>
+        <div id="code-view" class="code-view">
+            <div class="code-intro">
+                <p> Here you can find an expanded list of explanations and code samples for article elements that
+                    Reading
+                    View renders </p>
+            </div>
+        </div>
+        <div id="reading-view" class="reading-view">
+            <img class="img-rv" src="images/rv_screen_shot_75percent.jpg"/>
+
+            <div id="td-dominant-image" class="click-region td-dominant-image"></div>
+            <div id="td-fig-caption" class="click-region td-fig-caption"></div>
+            <div id="td-author" class="click-region td-author"></div>
+            <div id="td-title" class="click-region td-title"></div>
+            <div id="td-publisher" class="click-region td-publisher"></div>
+            <div id="td-date" class="click-region td-date"></div>
+            <div id="td-copyright" class="click-region td-copyright"></div>
+            <div id="td-inline-image" class="click-region td-inline-image"></div>
+            <div id="info-rv" class="info-rv">
+                <div class="info-child">
+                    <h2 class="info-title info-child"></h2></div>
+                <div class="info-explanation info-child"></div>
+                <br>
+
+                <div class="info-code-snippet info-child"></div>
+            </div>
+        </div>
+        <div id="web-view" class="web-view">
+            <h2 class="header"> IE BLOG </h2>
+            <hr class="divider">
+            <div>
+                <p class="bread-crumb"> MSDN Blogs > IE Blog > IE11 Release Preview for Windows 7: 30% Faster than Other
+                    Browsers and Even More Support for Web Standards </p>
+            </div>
+            <h1 id="web-title" class="web-ele">
+                IE11 Release Preview for Windows 7: 30% Faster than Other Browsers and Even More Support for Web
+                Standards
+            </h1>
+
+            <p class="dateline web-ele" id="web-date">Published Wednesday, September 18, 2013 7:38 AM</p>
+
+            <p class="byline-name web-ele" id="web-author">Sandeep Singhal and Rob Mauceri</p>
+
+            <p itemprop="publisher" id="web-publisher" class="web-ele"> MSDN </p>
+
+            <div class="article-body web-ele">
+                <p>Internet Explorer 11 continues to provide the best Web experience that is fast, fluid and perfect for
+                    touch, across the full range of Windows devices and screen sizes. The IE11 Release Preview for
+                    Windows 7
+                    is <span class="link">Developer Preview</span> for Windows 7.</p>
+
+                <p>With IE11 on Windows 7, customers receive a fast, secure browser that is compatible with existing Web
+                    sites and delivers exciting new interactive Web experiences. For developers, IE11 supports the
+                    latest
+                    Web standards and technologies, making it easier
+                    to build sites that work across devices. The new F12 tools in IE11 enable developers to build high
+                    performance Web experiences, faster and more efficiently.</p>
+
+                <p><strong>A Faster Web Experience</strong></p>
+
+                <p>Performance matters to everyone who browses the Web. The IE11 Release Preview for Windows 7 includes
+                    additional performance tuning so that real-world sites download and display fast and are highly
+                    responsive and interactive.</p>
+
+                <p>In honor of tomorrow's <span class="link">PirateMarrrk</span>, tests your browser&rsquo;s HTML5,
+                    JavaScript, and Scalable Vector Graphics performance.</p>
+                <!-- Dominant Image -->
+                <figure><img id="web-dominant-image" class="web-ele web-dominant-image" src="images/img00.png"
+                             alt="The new PirateMarrrk test drive demo tests your browser&rsquo;s HTML5, JavaScript, and Scalable Vector Graphics performance."/>
+
+                    <p>The new <span class="link">PirateMarrrk</span> test drive demo tests your browser&rsquo;s HTML5,
+                        JavaScript, and Scalable Vector Graphics performance.</p>
+                </figure>
+                <!-- End Dominant Image -->
+                <p>Internet Explorer 11 advances the performance leadership of our JavaScript engine, Chakra, while
+                    ensuring
+                    compatibility, interoperability, and security. As we improve performance for real-world sites, IE11&rsquo;s
+                    JavaScript performance on benchmarks
+                    like WebKit SunSpider continues to lead compared with latest version of other browsers. On Windows
+                    7,
+                    IE11 Release Preview is 9% faster than IE10, which is a 5% improvement from the IE11 Developer
+                    Preview,
+                    and over 30% faster than the nearest competitive
+                    browser.</p>
+                <!-- Second page Image -->
+                <figure><img class="inline-image" src="images/img01.png"
+                             alt="IE11 extends its leadership in Javascript performance, so real-world sites are faster"/>
+                    <figcaption><em>IE11 extends its leadership in </em><span class="link"><em>Javascript
+                        performance</em></span><em>, so real-world sites are faster</em></figcaption>
+                </figure>
+                <!-- End Second page image -->
+                <p><strong>Even More Web Standards and Increased Compatibility with Existing Web Sites</strong></p>
+
+                <p>IE11 Release Preview for Windows 7 includes updates to reflect the latest emerging Web standards. For
+                    example, now that the <span class="link">Pointer Events</span> specification is a Candidate
+                    Recommendation at the W3C, IE11 supports an un-prefixed
+                    version of the emerging standard. With Pointer Events support across the full range of Windows
+                    devices
+                    (and soon to other browsers), Web sites can easily build experiences that work equally well with
+                    mouse,
+                    keyboard, pen, and touch.</p>
+                <!-- Image -->
+                <figure><img id="web-inline-image" class="web-ele inline-image" src="images/img02.png"
+                             alt="With IE11, users can customize the appearance of closed captions, enabling an improved online video experience"/>
+                    <figcaption id="web-fig-caption"
+                                class="web-ele"><em>With IE11, users can customize the appearance of closed captions,
+                        enabling an improved online video experience</em></figcaption>
+                </figure>
+                <!-- End Image -->
+                <p>The IE11 Release Preview for Windows 7 also supports the latest <span class="link">Tracking Preference Expression (DNT)</span>
+                    draft in the W3C. After installation, the IE11 Release Preview prompts the user set a default
+                    tracking
+                    preference that Internet
+                    Explorer will send to Web sites. On upgrade, IE11 Release Preview automatically preserves the user&rsquo;s
+                    previous tracking preferences. .</p>
+
+                <p><strong>Faster, More Efficient Developer Tools Productivity, Based on Your Feedback</strong></p>
+
+                <p>IE11 includes a completely re-designed and enhanced suite of in-browser F12 developer tools. These
+                    tools
+                    help Web developers diagnose and optimize their apps quickly and efficiently. Having fast and
+                    reliable
+                    Web apps is more critical than ever.</p>
+
+                <p>The IE11 Release Preview for Windows 7 includes several tools enhancements
+                    to
+                    increase developer productivity and in response to the overwhelming enthusiasm and feedback we have
+                    received from developers. Here are just a few of the many improvements:</p>
+                <ul>
+                    <li><strong>Console: </strong>IE11 makes it easier to debug WebGL content by mapping WebGL errors to
+                        the
+                        corresponding JavaScript location. Developer productivity is improved because primitives have
+                        been
+                        added to Intellisense. With IE11, developers can
+                        debug multi-threaded Web sites with full console access while targeting Web workers.
+                    </li>
+                    <li><strong>Debugger: </strong>An improved file picker allows faster access to files in a complex
+                        Web
+                        project.
+                    </li>
+                    <li><strong>DOM Explorer: </strong>With IE11, developers can tune Web sites more quickly by editing
+                        CSS
+                        property values and seeing those edits in the Live DOM without having to press the enter key
+                    </li>
+                    <li><strong>Memory: </strong>To make it easier to narrow down the source of memory leaks, the F12
+                        tool
+                        now identifies what operations were performed on allocated data between memory snapshots.
+                    </li>
+                </ul>
+                <p><strong>A Better Web Today, and Ahead</strong></p>
+
+                <p>IE11 provides the best Web experience across the full range of Windows devices and screen sizes with
+                    mouse, keyboard, and especially touch. Try it out for yourself with <span class="link">here</span>.
+                </p>
+
+                <p id="web-copyright" class="web-ele">Microsoft Corporation </p>
+            </div>
+            <div id="info-h" class="info-child info-h">
+                <div class="info-child">
+                    <h2 class="info-title info-child"></h2></div>
+                <div class="info-explanation info-child"></div>
+                <br>
+
+                <div class="info-code-snippet info-child"></div>
+                <br></div>
+        </div>
+        <!-- End web-view -->
+    </div>
+</div>
+<!-- Javascript Libraries -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<!-- syntax highlight -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shCore.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shAutoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shBrushJScript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shBrushXml.min.js"></script>
+<script type="text/javascript" src="scripts/data.js"></script>
+<script type="text/javascript" src="scripts/utils.js"></script>
+<script type="text/javascript" src="scripts/demo.js"></script>
+</body>
+
+</html>

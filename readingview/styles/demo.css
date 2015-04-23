@@ -1,0 +1,291 @@
+.title {
+    color: #004999;
+    padding-top: 40px;
+}
+
+.divider {
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+.header {
+    color: #666;
+}
+
+.notables {
+    font-weight: bold
+}
+
+.link {
+    color: #00a3ef;
+    text-decoration: underline;
+}
+
+.web-ele {
+    padding: 10px 10px 10px 10px;
+    border: 3px solid white;
+}
+
+.web-dominant-image {
+    max-width: 95%
+}
+
+.inline-image {
+    max-width: 95%;
+    border: 1px solid #999;
+}
+
+.bread-crumb {
+    font-size: 10pt;
+    color: #2a80ee;
+}
+
+.nav-bar {
+    width: 125px;
+    float: left;
+    margin-right: 25px;
+}
+
+.nav-bar > ul {
+    list-style-type: none;
+    color: #00a3ef;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.nav-bar > ul > li {
+    padding-bottom: 2px;
+    padding-left: 5px;
+}
+
+.content {
+    width: 1150px;
+    margin-top: 10px;
+    clear: both;
+}
+
+.view-menu > ul {
+    list-style-type: none;
+    margin-top: 20px;
+    padding-left: 151px;
+}
+
+.view-menu > ul > li {
+    float: left;
+    width: 141px;
+    height: 40px;
+    display: block;
+}
+
+.code-nav {
+    background: url("../images/code_rest.gif") no-repeat;
+}
+
+.code-nav:hover {
+    background: url("../images/code_hover.gif") no-repeat;
+}
+
+.web-nav {
+    background: url("../images/web_selected.gif") no-repeat;
+}
+
+.web-nav:hover {
+    background: url("../images/web_hover.gif") no-repeat;
+}
+
+.reading-nav {
+    background: url("../images/reading_rest.gif") no-repeat;
+}
+
+.reading-nav:hover {
+    background: url("../images/reading_hover.gif") no-repeat;
+}
+
+.reading-view {
+    width: 824px;
+    height: 580px;
+    border: 1px solid #ECECEC;
+    overflow-x: scroll;
+    position: relative;
+    overflow-y: hidden;
+    display: none;
+}
+
+.web-view {
+    width: 760px;
+    border: 1px solid #ECECEC;
+    height: 700px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 20px 20px 20px 20px;
+    position: relative;
+}
+
+.code-view {
+    width: 760px;
+    border: 1px solid #ECECEC;
+    height: 700px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 25px 25px 25px 25px;
+    position: relative;
+    display: none;
+}
+
+.hidden {
+    width: 1px;
+    height: 800px;
+    opacity: 0;
+    display: block;
+    float: left;
+}
+
+/* ------------------- READING VIEW ---------------------------- */
+
+.click-region {
+    display: block;
+    position: absolute;
+    z-index: 2;
+    border: 3px solid #004999;
+    opacity: 0;
+    background: url(fake.gif) no-repeat -1px -1px;
+}
+
+.td-dominant-image {
+    top: 45px;
+    left: 45px;
+    width: 415px;
+    height: 236px;
+}
+
+.td-fig-caption {
+    top: 223px;
+    left: 1876px;
+    width: 120px;
+    height: 53px;
+}
+
+.td-author {
+    top: 420px;
+    left: 45px;
+    width: 415px;
+    height: 20px;
+}
+
+.td-title {
+    top: 312px;
+    left: 45px;
+    width: 415px;
+    height: 100px;
+}
+
+.td-publisher {
+    top: 445px;
+    left: 45px;
+    width: 47px;
+    height: 20px;
+}
+
+.td-date {
+    top: 445px;
+    left: 98px;
+    width: 368px;
+    height: 20px;
+}
+
+.td-copyright {
+    top: 469px;
+    left: 2333px;
+    width: 415px;
+    height: 15px;
+}
+
+.td-inline-image {
+    top: 45px;
+    left: 1876px;
+    width: 120px;
+    height: 182px;
+}
+
+.img-rv {
+    z-index: 0;
+}
+
+.info-rv {
+    display: block;
+    background-color: rgb(234, 234, 234);
+    color: black;
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    width: 295px;
+    padding: 15px 15px 15px 15px;
+    border: 3px solid #004999;
+}
+
+.info-rv > .info-title {
+    color: rgb(0, 114, 198);
+    display: inline;
+}
+
+.info-rv > span {
+    color: rgb(0, 114, 198);
+    opacity: .95;
+}
+
+.info-rv > p {
+    color: rgb(97, 97, 97);
+}
+
+.info-code-snippet {
+    border: 1px solid #ECECEC;
+    font-family: Consolas, Courier, Monospace;
+    padding: 10px 10px 10px 10px;
+}
+
+.info-title {
+    color: #004999;
+    display: inline;
+}
+
+.info-explanation {
+    color: rgb(97, 97, 97);
+}
+
+.fitList {
+    margin-left: 19px;
+}
+
+/* ------------------- WEB VIEW ---------------------------- */
+
+.info-h {
+    width: 55%;
+    background-color: rgb(234, 234, 234);
+    color: black;
+    padding: 20px 20px 20px 20px;
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+/* ------------------- CODE VIEW ---------------------------- */
+
+.code-intro {
+    font-size: 16px;
+}
+
+.code-snippet {
+    border: 1px solid black;
+    padding: 15px 15px 15px 15px;
+    font-family: Consolas, Courier, Monospace;
+    margin-top: 20px;
+    width: 728px;
+}
+
+.code-title {
+    color: #004999;
+}
+
+.article-element {
+    margin-bottom: 40px;
+}
