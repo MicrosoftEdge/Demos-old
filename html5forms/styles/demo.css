@@ -1,0 +1,102 @@
+h1 {
+	margin-bottom: 20px;
+}
+fieldset {
+	padding-left: 10px;
+	margin: 10px;
+}
+label {
+	width: 150px;
+	display: inline-block;
+	padding-bottom: 10px;
+}
+legend {
+	font-size: large;
+}
+input,
+select,
+textarea {
+	width: 200px;
+}
+.comment {
+	color: gray;
+}
+#PC1 input:valid {
+	border: solid lime;
+}
+#PC1 input:invalid {
+	border: solid red;
+}
+#req_opt_ex input:required:invalid {
+	border: yellow solid;
+}
+#placeholder:-ms-input-placeholder {
+	font-style: italic;
+}
+#demo-details p,
+#demo-details form {
+	margin-left: 30px;
+}
+#demo-details h2 {
+	margin-bottom: 10px;
+}
+#demo-details {
+	min-height: 1150px;
+}
+.code {
+	font-family: "Courier New", Courier, monospace;
+	white-space: pre;
+}
+#errorMessage,
+#errorMessage2 {
+	visibility: hidden;
+	color: red;
+}
+#tabmenu {
+	/*color: #000;*/
+	
+	border-bottom: 2px solid gray;
+	z-index: 1;
+	padding-left: 10px;
+}
+#tabmenu li {
+	display: inline;
+	overflow: hidden;
+	list-style-type: none;
+}
+#tabmenu a,
+#tabmenu a.active {
+	color: #00a3ef;
+	border: 2px solid gray;
+	padding: 2px 5px 0 5px;
+	margin: 0;
+	text-decoration: none;
+}
+#tabmenu a.active {
+	background: white;
+	border-bottom: 3px solid white;
+}
+#tabmenu a:hover {
+	color: white;
+	background-color: #00a3ef;
+}
+
+#demo-details div {
+	padding: 20px;
+	border: 2px solid gray;
+	border-top: none;
+	z-index: 2;
+	display: none;
+}
+#demo-details div.active {
+	display: block;
+	height: 100%;
+}
+form.success:after {
+	content: "Successful submit!";
+	color: green;
+	margin-left: 10px;
+}
+#demo-content {
+	height: 500px;
+}

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>HTML5 forms: Learn how to use the new attributes and input types in HTML5</title>
+    <meta name="description"
+          content="HTML5 Forms offers two major advantages over previous versions: new input types and built in validation. The form below is an example cake order form that utilizes validation and new input types."/>
+    <meta name="keywords" content="input, forms, html5, javascript"/>
+    <meta name="og:title" content="HTML5 Forms"/>
+    <link rel="stylesheet" type="text/css" href="styles/demotemplate.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/demo.css"/>
+</head>
+<body>
+<h1 id="demo-title">
+    HTML5 Forms
+</h1>
+
+<div id="demo-introduction">
+    <p>IE10 includes support for HTML5 Forms. HTML5 Forms offers two major advantages over previous versions: new input
+        types and built in validation. The form below is an example cake order form that utilizes validation and new
+        input types.</p>
+
+    <p>Here are some interesting scenarios you may wish to try:</p>
+    <button id="empty-form">submitting an empty form</button>
+    <button id="invalid-email">submitting with an improper email address</button>
+    <button id="invalid-zip">submitting with an improper zip code</button>
+    <button id="invalid-servings">submitting with an invalid number of cake servings</button>
+    <button id="invalid-layers">submitting with an invalid number of cake layers</button>
+    <p>After submitting try filling in different fields and see what happens.</p></div>
+<div id="demo-content">
+    <h2>Contoso Bakery Cake Order Form</h2> <img src="images/cake.jpg" alt="cake with a slice removed"
+                                                 style="max-width:400px; height:95%; float:right; margin-left:20px;margin-top:20px;">
+
+    <form id="cakeForm">
+        <fieldset id="contact">
+            <legend>Contact Person</legend>
+            <label for="cake1">Name:</label>
+            <input id="cake1" name="name" required placeholder="John Doe"/>
+            <br/>
+            <label for="cake2">Address:</label>
+            <input id="cake2" name="address" required placeholder="1 Microsoft Way"/>
+            <br/>
+            <label for="cake3">City: </label>
+            <input id="cake3" name="city" required placeholder="Redmond"/>
+            <br/>
+            <label for="cake4">State</label>
+            <select id="cake4" name="state" required>
+                <option selected value=""></option>
+                <option value=AL>Alabama</option>
+                <option value=AK>Alaska</option>
+                <option value=AZ>Arizona</option>
+                <option value=AR>Arkansas</option>
+                <option value=CA>California</option>
+                <option value=CO>Colorado</option>
+                <option value=CT>Connecticut</option>
+                <option value=DC>District of Columbia</option>
+                <option value=DE>Delaware</option>
+                <option value=FL>Florida</option>
+                <option value=GA>Georgia</option>
+                <option value=HI>Hawaii</option>
+                <option value=ID>Idaho</option>
+                <option value=IL>Illinois</option>
+                <option value=IN>Indiana</option>
+                <option value=IA>Iowa</option>
+                <option value=KS>Kansas</option>
+                <option value=KY>Kentucky</option>
+                <option value=LA>Louisiana</option>
+                <option value=ME>Maine</option>
+                <option value=MD>Maryland</option>
+                <option value=MA>Massachusetts</option>
+                <option value=MI>Michigan</option>
+                <option value=MN>Minnesota</option>
+                <option value=MS>Mississippi</option>
+                <option value=MO>Missouri</option>
+                <option value=MT>Montana</option>
+                <option value=NE>Nebraska</option>
+                <option value=NV>Nevada</option>
+                <option value=NH>New Hampshire</option>
+                <option value=NJ>New Jersey</option>
+                <option value=NM>New Mexico</option>
+                <option value=NY>New York</option>
+                <option value=NC>North Carolina</option>
+                <option value=ND>North Dakota</option>
+                <option value=OH>Ohio</option>
+                <option value=OK>Oklahoma</option>
+                <option value=OR>Oregon</option>
+                <option value=PA>Pennsylvania</option>
+                <option value=PR>Puerto Rico</option>
+                <option value=RI>Rhode Island</option>
+                <option value=SC>South Carolina</option>
+                <option value=SD>South Dakota</option>
+                <option value=TN>Tennessee</option>
+                <option value=TX>Texas</option>
+                <option value=UT>Utah</option>
+                <option value=VT>Vermont</option>
+                <option value=VA>Virginia</option>
+                <option value=WA>Washington</option>
+                <option value=WV>West Virginia</option>
+                <option value=WI>Wisconsin</option>
+                <option value=WY>Wyoming</option>
+            </select>
+            <br/>
+            <label for="cake5">Zip Code:</label>
+            <input id="cake5" type="text" pattern="\d\d\d\d\d" maxlength="5" title="Enter a 5 digit zip code" required
+                   placeholder="98052"/>
+            <br/>
+            <label for="cake6">Email Address:</label>
+            <input id="cake6" type="email" required placeholder="john.doe@microsoft.com"/>
+            <br/>
+            <label for="cake7">Telephone number:</label>
+            <input id="cake7" type="tel" required placeholder="(425) 333-4444"/>
+            <br/></fieldset>
+        <fieldset id="cake">
+            <legend>Cake Options</legend>
+            <label for="cake8">Number of Servings:</label>
+            <input required id="cake8" name="cakeSize" type="number" min="10" step="10" max="100" value="10"/> <span
+                class="comment">(available in increments of 10)</span>
+            <br/>
+            <label for="cake9">Number of layers:</label>
+            <input required id="cake9" name="cakeNumLayers" type="number" min="1" max="3" step="1" value="1"/><span
+                class="comment"> 1 - 3 layers</span>
+            <br/>
+            <label for="cake10">Cake Flavor:</label>
+            <select required id="cake10" name="cakeFlavor">
+                <option value="choclate">Chocolate</option>
+                <option value="vanilla">Vanilla</option>
+                <option value="marble">Marble</option>
+                <option value="red">Red Velvet</option>
+                <option value="banana">Banana</option>
+            </select>
+            <br/>
+            <label for="cake11">Frosting Flavor:</label>
+            <select required id="cake11" name="cakeFrosting">
+                <option value="chocolate">Chocolate</option>
+                <option value="vanilla">Vanilla</option>
+            </select>
+            <br/>
+            <label for="cake12">Cake Message:</label>
+            <input id="cake12" type="text" maxlength="50" name="cakeMessage" list="messages"/><span class="comment"> (some suggestions are provided.) </span>
+        </fieldset>
+        <fieldset id="other">
+            <label for="cake13">Other Special Instructions:</label>
+            <textarea id="cake13" name="comments"></textarea>
+            <br/>
+            <input type="submit" value="Submit Order" id="sub"/>
+            <input type="reset" value="Reset Form"/>
+        </fieldset>
+    </form>
+    <datalist id="messages" style="display:none;">
+        <option>Happy Birthday!</option>
+        <option>Happy Birthday Susan!</option>
+        <option>Congratulations Graduate!</option>
+        <option>Welcome Home!</option>
+        <!---->
+    </datalist>
+</div>
+<div id="demo-details">
+    <h2>Under the Hood</h2>
+    <!-- <p>Here's a deeper look at the new parts of html5 forms</p>-->
+    <ul id="tabmenu">
+        <li><a href="#" class="active">New Input Types</a>
+        </li>
+        <li><a href="#">New Attributes</a>
+        </li>
+        <li><a href="#">New PseudoClasses</a>
+        </li>
+        <li><a href="#">New DOM Properties and Events</a>
+        </li>
+    </ul>
+    <div id="content1" class="active">
+        <h2>New input types</h2>
+
+        <h3>Email</h3>
+        <!--<p>This type ensures that the value entered is a valid email address. Try entering an invalid address in the input element below.</p>-->
+        <form id="testsubmit">
+            <label for="e1">Email:</label>
+            <input id="e1" type="email" value="not an@ email.address" name="email"/>
+            <input type="submit"/>
+        </form>
+        <p class="code">&lt;input type="email"/&gt;</p>
+
+        <h3>URL</h3>
+        <!--<p>This type ensures that the value entered is a valid url.  Try entering an invalid url in the input element below.</p>-->
+        <form>
+            <label for="e2">URL:</label>
+            <input id="e2" type="url" value="not a url" name="url"/>
+            <input type="submit"/>
+        </form>
+        <p class="code">&lt;input type="url"/&gt;</p>
+
+        <h3>Number</h3>
+
+        <form>
+            <label for="e3">Number:</label>
+            <input id="e3" type="number" name="number"/>
+            <input type="submit"/>
+        </form>
+        <p class="code">&lt;input type="number"/&gt;</p>
+
+        <p class="explanation">The value entered must be a valid floating point number. If you enter a value which is
+            not a number, it will be cleared from the input box after focus moves away. </p>
+
+        <h3>Telephone</h3>
+
+        <form>
+            <label for="e4">Telephone:</label>
+            <input id="e4" type="tel" name="tel"/>
+            <input type="submit"/>
+        </form>
+        <p class="code">&lt;input type="tel"/&gt; </p>
+
+        <p>Allows browsers to optimize for telephone number input but doesn't constrain the value.</p>
+
+        <h3>Search</h3>
+
+        <form>
+            <label for="e5">Search:</label>
+            <input id="e5" type="search" name="search"/>
+            <input type="submit"/>
+        </form>
+        <p class="code">&lt;input type="search"/&gt;</p>
+
+        <p>Works exactly the same as text boxes.</p>
+    </div>
+    <div id="content2">
+        <h2>New Attributes</h2>
+
+        <h3>Required</h3>
+
+        <form>
+            <input type="text" required name="test"/>
+            <input type="submit">
+        </form>
+        <form>
+            <input type="checkbox" required name="test">
+            <input type="submit">
+        </form>
+        <form>
+            <textarea name="test" required></textarea>
+            <input type="submit">
+        </form>
+        <p class="code">&lt;input type="text" required/&gt; &lt;input type="checkbox" required/&gt; &lt;textarea
+            required/&gt; </p>
+
+        <p>Required elements can't be submitted without a value.</p>
+
+        <h3>Placeholder</h3>
+
+        <form>
+            <label for="e6">Name: </label>
+            <input id="e6" type="text" placeholder="John Doe">
+            <br/>
+            <label for="e7">Email:</label>
+            <input id="e7" type="email" placeholder="john.doe@microsoft.com">
+            <br/>
+            <label for="e8">Instructions:</label>
+            <textarea id="e8" placeholder="Any special requirements?"></textarea>
+            <br/>
+            <label for="placeholder">Due Date:</label>
+            <input type="text" placeholder="delivery date" id="placeholder">
+        </form>
+        <p class="code">&lt;input type="text" placeholder="John Doe"&gt;</p>
+
+        <p>Placeholder text is visible until focus is placed in the element. It can be styled with pseudoclass
+            :-ms-input-placeholder.</p>
+
+        <h3>Pattern</h3>
+
+        <form>
+            <input type="text" name="tel" pattern="abcd" value="abcdefg" title="enter 'abcd'">
+            <input type="submit">
+        </form>
+        <p class="code">&lt;input type="text" pattern="abcd" title="enter 'abcd'"/&gt;</p>
+
+        <p>The pattern attribute is a regular expression that the value must match. In the example above entering 'abcd'
+            works but any other value will be rejected. </p>
+
+        <h3>Autofocus</h3>
+
+        <p>The autofocus attribute lets web developers specify where they want focus to go after the page loads. For
+            example, if you go to bing.com, you want focus to go to the search box on the page so that you can just
+            immediately start typing.</p>
+
+        <p><a href="autofocus.html">See autofocus in action</a></p>
+
+        <h3>Min, Max and Step</h3>
+
+        <form>
+            <label for="e9">Enter an even number between 0 and 10</label>
+            <input id="e9" type="number" min="0" max="10" step="2" value="3">
+            <input type="submit">
+        </form>
+        <form>
+            <label for="e10">Enter a number between 0 and 10 in increments of .5</label>
+            <input id="e10" type="number" min="0" max="10" step="0.5" value="10.5">
+            <input type="submit">
+        </form>
+        <p class="code">&lt;input type="number" min="0" max="10" step="2"/&gt; &lt;input type="number" min="0" max="10"
+            step="0.5"/&gt;</p>
+
+        <p>Defines the minimum, maximum and step values for number input elements. The step attribute defines the jump
+            between values that are allowed. For example, if min=0 and step=1 then 0,1,2,3... will be allowed. If
+            min=1.1 and step=1, then 1.1, 2.1, 3.1,
+            ... will be allowed.</p>
+
+        <h3>Multiple</h3>
+
+        <form>
+            <input type="file" multiple>
+            <br/>
+            <input type="email" multiple name="test">
+            <input type="submit">
+        </form>
+        <p class="code">&lt;input type="file" multiple/&gt; &lt;input type="email" multiple/&gt;</p>
+
+        <p>Lets the web developer allow multiple files or email addresses in a single input box.</p>
+
+        <h3>List</h3>
+
+        <form>
+            <input type="text" maxlength="50" name="cakeMessage" list="messages"/>
+        </form>
+        <p class="code">&lt;input type="text" list="messages"/&gt; &lt;datalist id="messages"/&gt; &lt;option&gt;Happy
+            Birthday&lt;/option&gt; ...&lt;/datalist&gt;</p>
+
+        <p>Provides suggestions similar to autocomplete.</p>
+    </div>
+    <div id="content3">
+        <h2>New PseudoClasses</h2>
+
+        <h3>:valid/:invalid</h3>
+
+        <form id="PC1">
+            <label for="e11">required field, enter some text</label>
+            <input id="e11" type="text" required>
+            <br/>
+            <label for="e12">required email field, enter an email address</label>
+            <input id="e12" type="email" required>
+            <br/>
+            <label for="e13">url field with an invalid starting state</label>
+            <input id="e13" type="url" value="not a url">
+            <br/>
+            <label for="e14">basic text field, will never be invalid</label>
+            <input id="e14" type="text"></form>
+        <p class="code">input:valid {border:solid lime;} input:invalid {border:solid red;}</p>
+        <!-- <p>The :valid and :invalid pseudoclasses allow elements to be selected when they are either invalid or valid. The elements below have a green border when they are valid and a red border when they are invalid. </p>-->
+        <h3>:required/:optional</h3>
+
+        <form id="req_opt_ex">
+            <label for="e15">Name:</label>
+            <input id="e15" type="text" name="name" required>
+            <br/>
+            <label for="e16">Details:</label>
+            <input id="e16" type="text" name="details">
+            <br/>
+            <label></label>
+            <input type="submit"></form>
+        <p class="code">input:required:invalid {border:yellow solid;}</p>
+        <!-- <p>The :required and :optional pseudoclasses allow elements to be selected when they are either required or optional. I've used the required selector with the invalid selector to style the border yellow on required fields which are not yet filled out.</p>-->
+    </div>
+    <div id="content4">
+        <h2>New DOM Properties and Events</h2>
+
+        <h3>Using a custom Error Message</h3>
+
+        <form>
+            <label for="i1">Enter a value between 0 and 100</label>
+            <input type="number" min="0" max="100" name="num" value="120" id="i1"/>
+            <input type="submit"/></form><pre>
+
+        &lt;input type="number" min="0" max="100" name="num" onchange="checkValue(this)"/&gt;
+
+        function checkValue(elt) {
+            if (elt.validity.rangeOverflow) {
+                elt.setCustomValidity("Please call the bakery directly for orders over 100 people");
+            } else { elt.setCustomValidity("");}
+        }
+        </pre>
+        <h3>Creating a custom error Experience</h3>
+
+        <form id="form">
+            <label for="e17">Email: </label>
+            <input id="e17" type="email" name="email" value="not an email"/> <span
+                id="errorMessage">You must enter a valid email address!</span>
+            <br/>
+            <label for="e18">Telephone Number:</label>
+            <input id="e18" type="tel" value="333-4444" pattern="\(\d\d\d\) \d\d\d-\d\d\d\d"
+                   title="telephone number in the form (xxx) xxx-xxxx" name="tel"/> <span id="errorMessage2">You must enter the telephone numer in the form "(xxx) xxx-xxxx"</span>
+            <br/>
+            <label></label>
+            <input id="submit" type="submit"></form>
+        <pre>
+
+        &lt;input type="email" onchange="checkValue2(this, document.getElementById('errorMessage'))"
+        oninvalid="return false"/&gt;
+        &lt;span id="errorMessage"&gt;You must enter a valid email address!&lt;/span&gt;
+        &lt;input type="submit" onclick="displayErrorExperience(this.form)"&gt;
+
+        function checkValue2(elt, msg) {
+            if (!elt.checkValidity()) {
+                msg.style.visibility = 'visible';
+            } else {
+                msg.style.visibility = 'hidden';
+            }
+        }
+
+        function displayErrorExperience(form) {
+            var formValidity = true;
+            for (var i=0; i&lt;form.elements.length; i++) {
+                if (!form.elements[i].checkValidity()) {
+                    formValidity = false;
+                }
+            }
+            if (!formValidity) {
+                var message = "There was an error trying to submit this form:";
+                for (var i=0; i&lt;form.elements.length; i++) {
+                    if (!form.elements[i].checkValidity()) {
+                        switch (form.elements[i].type) {
+                            case 'email': message += "\n Email field must contain a vaid email address";
+                                break;
+                            case 'tel': message += "\n Telephone filed must contain a phone number in the form (xxx) xxx-xxxx";
+                                break;
+                        }
+                    }
+                } window.alert(message);
+            }
+        }</pre>
+    </div>
+</div>
+<script type="text/javascript" src="scripts/demo.js"></script>
+</body>
+
+</html>
