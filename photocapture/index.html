@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Photo Capture using Webcam</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="og:title" content="Photo Capture"/>
+    <meta name="description" content="The test page demmonstartes how to use the Media Capture and Streams API 
+                                      to capture photos from webcam video streams through a canvas."/>
+    <meta name="keywords" content="Media, webcam, media, capture, photo, canvas"/>
+    <meta name="author" content="shijuns"/>
+    <link rel="stylesheet" type="text/css" href="styles/demotemplate.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/demo.css"/>
+</head>
+
+<body>
+    <div class="page-wrap">
+        <span class="modal-overlay"></span>
+        <article class="demo-wrap">
+
+            <!-- DEMO INTRO -->
+            <header class="demo-intro">
+                <div class="container">
+                    <h1 class="demo-title">Photo Capture Using Webcam</h1>
+                    <div class="demo-intro-content">
+                        <p>This demo page shows how to use the <a href="http://w3c.github.io/mediacapture-main/" target="_blank">Media Capture and Streams API</a> 
+                           for capturing photos from webcam video streams through a canvas.  There are three major steps: 
+                            <ul>
+                                <li>Getting a video stream from the webcam and rendering it on a &lt;video&gt; element.</li>
+                                <li>Taking a snapshot of the video and rendering it on a &lt;canvas&gt; element.</li>
+                                <li>Converting the canvas image to an image data blob to allow saving.</li>
+                            </ul>
+                        </p>
+                        <p>When there are multiple webcam devices, you can switch the webcams when you are using a browser that supports the API for capture device enumeration and selection.</p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- DEMO CONTENT -->
+            <div class="demo-content">
+                <div class="demo-section">
+                    <div class="container">
+                        <div id="error"></div>
+                        <div style="display:flex; width:100%; text-align:center;">
+                            <div id="videoViewText" style="color:#08f0f0">Webcam view: Click or tap to take a snapshot</div>
+                            <div id="photoViewText" style="color:#08f080">Snapshot view</div>
+                        </div>
+                        <div id="videoCanvascontainer" style="display:flex; width:100%">
+                            <div style="flex:1 1;">
+                                <video id="videoTag" src="" autoplay muted ></video>
+                            </div>
+                            <div style="flex:1 1;">
+                            	<canvas id="canvasTag" ></canvas>
+                            	<a id="saveImg" style="display:none" href="#"></a>
+                            </div>
+                        </div>
+                        <button type="button" disabled id="switch">
+                            Switch Camera
+                        </button>
+                        <span style="display:none" id="tooltip"></span>
+                    </div>
+                </div>
+            </div>
+    </article>
+    </div>
+
+    <script type="text/javascript" src="scripts/demo.js"></script>
+
+</body>
+</html>
