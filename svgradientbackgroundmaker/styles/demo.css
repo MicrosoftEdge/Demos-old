@@ -1,0 +1,103 @@
+body {
+	position: inherit;
+	width: 974px;
+    font-family: "Segoe UI" , Verdana, Helvetica, Sans-Serif;
+    font-size: 10pt;
+    background-color: white;
+    color: #424242;
+}
+
+#demo-details {
+	padding-bottom: 12px;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+textarea,
+#other-sample {
+	width: 100%;
+	height: 10em;
+	font-family: Consolas, Monospace;
+	line-height: 1.2em;
+	padding: 2px;
+	border: solid 1px #aaa;
+}
+#other-sample {
+	height: 280px;
+	width: 974px;
+	padding: 0px;
+}
+input[type="radio"] {
+	position: relative;
+	top: 2px;
+	margin-right: 3px;
+}
+input[type="text"] {
+	border: solid 1px #aaa;
+	padding: 1px;
+}
+label {
+	margin-right: 1em;
+}
+#htxtlink {
+	font-style: italic;
+}
+#control-wrapper {
+	width: 100%;
+}
+.label-cell,
+.data-cell {
+	vertical-align: top;
+	padding-top: 0px;
+	padding-bottom: 12px;
+	white-space: nowrap;
+}
+.label-cell {
+	text-align: right;
+	padding-left: 0;
+	padding-right: 12px;
+}
+.data-cell {
+	width: 100%;
+	text-align: left;
+	padding-left: 0;
+	padding-right: 0;
+}
+#stops tr:first-child {
+	text-align: center;
+}
+#stops tr td:first-child {
+	text-align: right;
+	padding-right: 12px;
+}
+#stops td {
+	padding: 0 4px 4px 0;
+}
+#pos-panel td,
+#sizePanel td {
+	padding-right: 8px;
+}
+.positionThumbnail,
+.sizeThumbnail {
+	border: 2px white;
+	width: 86px;
+	height: 50px;
+	text-align: center;
+	font-size: 8.25pt;
+	vertical-align: bottom;
+}
+.deletebutton {
+	text-align: center;
+}
+.deletebutton button {
+	border: solid 1px #999;
+	padding: 0px 3px 0px 3px;
+}
+svg {
+	overflow: visible;
+}
+#dastart,
+#daend {
+	cursor: crosshair;
+}
