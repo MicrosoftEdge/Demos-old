@@ -1,0 +1,75 @@
+﻿#test-graph {
+  display: inline-block;
+  position: relative;
+  width: 1000px;
+  height: 200px;
+  margin-top: 80px;
+  margin-bottom: 40px;
+}
+
+.bar {
+  position: absolute;
+  bottom: 0;
+  width: 5px;
+  margin: 0;
+  padding: 0;
+  z-index: 2;
+  border-bottom: 0;
+  background: green;
+  border-radius: 3px 3px 3px 3px;
+}
+
+.button {
+  border: 1px dashed silver;
+  padding: 2px;
+  display: inline;
+}
+
+.button:hover {
+  text-decoration:underline;
+  cursor: pointer;
+  background-color: silver;
+}
+
+.result {
+  font-size: 48px;
+  color: yellow;
+}
+
+#test-wrapper
+{
+    text-align: center;    
+}
+
+#test-container
+{
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.test-control-set
+{
+    float: left;
+    width: 200px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.test-title
+{
+    font-weight: bold;    
+}
+
+.test-results
+{
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.TestButton
+{
+    width: 140px;
+    padding: 2px;
+    margin-top: 6px;
+}
