@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Copyright Microsoft Corporation. All Rights Reserved. -->
+    <title>Video Format Support</title>
+    <meta name="description" content="This demonstration shows which video format(s) your browser is able to play."/>
+    <meta name="keywords" content="media"/>
+    <meta name="og:title" content="Video Format Support"/>
+    <meta name="author" content="Microsoft Corporation, sarvaje"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+</head>
+
+<body>
+<link rel="stylesheet" type="text/css" href="styles/demo.css"/>
+<div class="container">
+    <h1 id="demo-title">Video Format Support</h1>
+
+    <div id="demo-introduction" class="demo-introduction"> This demonstration shows which video format(s) your browser
+        is able to play. <span
+                id="supports"></span></div>
+    <div class="videocontainer">
+        <h2 class="videoheader">H.264 high profile (HTML5 video)</h2>
+
+        <div id="h264high" class="h264high">
+            <video id="h264high-video" src="videos/big_buck_bunny_trailer_480p_high.mp4" controls preload="metadata">
+                <div class="sorry">Your browser cannot play H.264 high profile content with the HTML5 video element.
+                </div>
+            </video>
+        </div>
+        <p class="videomarkup">&lt;video src="videos/big_buck_bunny_trailer_480p_high.mp4" controls preload="metadata"&gt;...&lt;/video&gt;</p>
+    </div>
+    <div class="videocontainer">
+        <h2 class="videoheader">WebM (HTML5 video)</h2>
+
+        <div id="webm" class="webm">
+            <video id="webm-video" src="videos/big_buck_bunny_trailer_480p.webm" controls preload="metadata">
+                <div class="sorry no-ie9">Your browser cannot play WebM content with the HTML5 video element.</div>
+                <div class="sorry install-web-m">
+                    <a href="http://www.webmproject.org/ie/" target="_blank">
+                        <img class="install-web-m-image" alt="Install WebM support from webmproject.org"
+                             src="images/install-webm-support.png"/>
+                    </a>
+                </div>
+            </video>
+        </div>
+        <p class="videomarkup">&lt;video src="videos/big_buck_bunny_trailer_480p.webm" controls preload="metadata"&gt;...&lt;/video&gt;</p>
+    </div>
+    <div class="videocontainer">
+        <h2 class="videoheader">H.264 baseline profile (HTML5 video)</h2>
+
+        <div id="h264baseline" class="h264baseline">
+            <video id="h264baseline-video" src="videos/big_buck_bunny_trailer_480p_baseline.mp4" controls
+                   preload="metadata">
+                <div class="sorry">Your browser cannot play H.264 baseline profile content with the HTML5 video
+                    element.
+                </div>
+            </video>
+        </div>
+        <p class="videomarkup">&lt;video src="videos/big_buck_bunny_trailer_480p_baseline.mp4" controls
+            preload="metadata"&gt;...&lt;/video&gt;</p>
+    </div>
+    <div id="demo-details" class="clear demo-details">
+        <p>The example videos shown here were created from the 480p QuickTime trailer at <a
+                href="http://www.bigbuckbunny.org/index.php/trailer-page/">
+
+            Big Buck Bunny</a>.</p>
+
+        <p>The H.264 baseline profile example is provided for mobile devices which may not support H.264 high profile. A
+            description of H.264 profiles can be found at <a
+                    href="http://en.wikipedia.org/wiki/H.264/MPEG-4_AVC#Profiles">http://en.wikipedia.org/wiki/H.264/MPEG-4_AVC#Profiles</a>.
+        </p>
+    </div>
+</div>
+<script type="text/javascript" src="scripts/demo.js"></script>
+</body>
+
+</html>
