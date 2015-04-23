@@ -1,0 +1,250 @@
+html,
+body {
+	width: 100%;
+	height: 100%;
+	border: 0;
+	overflow: auto;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background: #E10A04 url('../images/backgroundx.png') repeat-x;
+	font-family: Arial;
+	color: #FFAEAE;
+	font-size: 12px;
+}
+
+body,
+table,
+tr,
+td,
+div {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+b {
+	color: #FFFFFF;
+	font-weight: bold;
+}
+
+#wrapper {
+	background: url('../images/background.png') no-repeat top center;
+	min-height: 720px;
+}
+
+#main,
+#content,
+#Footer {
+	width: 980px;
+	margin: 0 auto;
+}
+
+#page-title {
+	font-family: Segoe UI, Arial;
+	font-weight: normal;
+	color: #FFFFFF;
+	font-size: 33px;
+}
+
+a {
+	color: #FFAEAE;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+#content {
+	float: left;
+}
+
+#column1 {
+	width: 300px;
+	float: left;
+}
+
+#sudoku-board {
+	width: 426px;
+	margin-left: 40px;
+	float: left;
+	-webkit-box-shadow: 0 0 30px #680301;
+	-moz-box-shadow: 0 0 30px #680301;
+	box-shadow: 0 0 30px #680301;
+}
+
+#column2 {
+	width: 174px;
+	margin-left: 40px;
+	float: left;
+}
+
+td.board-cell-groupA,
+td.board-cell-groupB {
+	background-color: #940302;
+}
+
+td.board-cell-groupA td.board-cell {
+	width: 44px;
+	height: 44px;
+	border: 1px solid #EC0904;
+	background-color: #DA0603;
+}
+
+td.board-cell-groupB td.board-cell {
+	width: 44px;
+	height: 44px;
+	border: 1px solid #D40703;
+	background-color: #C40502;
+}
+
+.static-value {
+	font-family: Segoe UI, Arial;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 30px;
+	color: #6C0000;
+}
+
+.static-value,
+.edit-value {
+	width: 42px;
+	height: 42px;
+	padding: 0;
+	margin: 0;
+	border: 1px solid #DA0603;
+}
+
+.edit-value:hover {
+	background: #940302;
+}
+
+label {
+	position: relative;
+	top: 3px;
+	line-height: 24px;
+	font-size: 15px;
+	color: #FFFFFF;
+}
+
+select {
+	font-family: Arial;
+	color: #999999;
+	font-weight: normal;
+	font-size: 12px;
+	border-top: solid 1px #CCCCCC;
+	border-left: solid 1px #E2E3EA;
+	border-bottom: solid 1px #FFFFFF;
+	border-right: solid 1px #E2E3EA;
+	margin: 3px 0;
+	min-width: 100px;
+	background: #FDFDFD;
+}
+
+#time-finished {
+	font-family: Segoe UI, Arial;
+	font-size: 46px;
+	font-weight: bold;
+	line-height: 40px;
+}
+
+.finished-label,
+#time-finished {
+	color: #FBF2A8;
+}
+
+.edit-value input {
+	font-family: Segoe UI, Arial;
+	font-size: 30px;
+	color: #FFFFFF;
+	width: 44px;
+	padding: 0;
+	border: 0;
+	background: none;
+	text-align: center;
+	vertical-align: middle;
+	position: relative;
+	left: -1px;
+}
+
+input[type="submit"] {
+	font-family: Arial;
+	font-size: 18px;
+	color: #FFFFFF;
+	text-transform: uppercase;
+	border: 0;
+	min-width: 162px;
+	min-height: 34px;
+	background: url('../images/submitbackground.png') repeat-x;
+	margin: 8px 0;
+	cursor: pointer;
+}
+
+input[type="submit"].game-controls {
+	font-family: Arial;
+	font-size: 16px;
+	color: #FFFFFF;
+	text-transform: uppercase;
+	border: 0;
+	min-width: 28px;
+	min-height: 28px;
+	background: url('../images/submitsmallbackground.png') repeat-x;
+	margin: 8px 0;
+	padding: 2px 16px;
+	cursor: pointer;
+}
+
+.game-control-set {
+	height: 142px;
+	position: relative;
+	top: -8px;
+}
+
+#buttonSolve {
+	margin-top: 119px;
+	color: #FFAEAE;
+}
+
+#you-won {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: url('../images/shade.png') repeat;
+}
+
+#you-won div {
+	width: 400px;
+	background: #940302;
+	font-size: 40px;
+	color: #FFFFFF;
+	text-align: center;
+	padding: 40px;
+	margin: 100px auto 0 auto;
+}
+
+small {
+	font-size: 14px;
+	color: #FFFD7B;
+}
+
+.no-errors {
+	font-size: 18px;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+
+.errors-found {
+	font-size: 18px;
+	font-weight: bold;
+	color: #ED823F;
+}
+
+.error {
+	border: 1px solid #ED823F;
+}
