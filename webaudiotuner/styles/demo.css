@@ -1,0 +1,42 @@
+/* Your custom CSS goes here */
+
+.pitch {
+	float:left;
+	margin-left: 2em;
+    font-weight: bold;
+}
+
+.note {
+	float:right;
+	margin-right: 2em;
+    font-weight: bold;
+}
+
+.tunerOptions {
+	margin-top: 2em;
+}
+
+fieldset{
+	display: inline-block;
+}
+
+blockquote {
+    background-color: lightgray;
+    margin-top: 1em;
+    margin-left: 3em;
+    margin-right: 3em;
+    margin-bottom: 1em;
+    font-style: italic;
+}
+
+#cents {
+    width: 30px;
+    height: 30px;
+    font-weight: bold;
+    margin: 0 auto;
+}
+
+.gaugeContainer {
+    width: 300px;
+    margin: 0 auto;
+}
