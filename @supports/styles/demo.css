@@ -1,35 +1,50 @@
 /* Your custom CSS goes here */
 .supports-demo__element {
-	display: inline-block;
+	display: block;
+	padding: 3rem;
 	color: white;
-	padding: 1em 2em;
+	text-align: center;
+	font-size: 2.4rem;
+	font-weight: 400;
 }
+
 #ex-1 b {
 	background-color: red;
 	background-color: rgba(34, 132, 39, 1);
 }
+
 #ex-2 b {
 		background-color: red;
 }
+
 #ex-2 b[class] {
 		background-color: green;
 }
+
 #ex-3 b {
 	background-color: red;
 }
+
 @media only screen {
+
 	#ex-3 b {
 	  background-color: green;
 	}
+	
 	#ex-3 b[class] {
 	  background: linear-gradient( 0deg, rgb(65, 150, 44), rgb(26, 219, 73) );
 	}
+	
 }
+
 #ex-4 b {
 	background-color: red;
 }
+
 @supports ( background: linear-gradient(0deg,red,red) ) {
+
 	#ex-4 b {
  		background: linear-gradient( 0deg, rgb(65, 150, 44), rgb(26, 219, 73) );
  	}
+ 	
 }		
