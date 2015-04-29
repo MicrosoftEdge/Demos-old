@@ -1,8 +1,6 @@
-html, body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
+.container {
+	position: relative;
+	overflow: hidden;
 }
 
 #demo-content {
@@ -17,7 +15,7 @@ html, body {
 }
 
 #demo-controls {
-    position: fixed;
+    position: absolute;
     bottom: 0;
     left: 0;
     height: 130px;
@@ -59,6 +57,10 @@ html, body {
     vertical-align: top;
 }
 
+	.control-group * + * {
+		margin-top: 0;
+	}
+
 #demo-controlsgripper {
     display: inline-block;
     width: 50px;
@@ -67,6 +69,7 @@ html, body {
     background-repeat: no-repeat;
     background-position: center;
     cursor: pointer;
+	margin-top: 0;
 }
 
 .demo-controlsactive > #demo-controlsgripper {
@@ -106,9 +109,9 @@ html, body {
 #canvas {
     background-color: #000;
     -ms-touch-action: none;
-    position: absolute;
     left: 0;
     right: 0;
     width: 100%;
     height: 100%;
+	margin: 0;
 }
