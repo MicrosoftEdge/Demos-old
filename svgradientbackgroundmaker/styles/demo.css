@@ -26,6 +26,14 @@
 	background-color: hsla(0, 0%, 0%, 0);
 }
 
+.svgradientbackgroundmaker table {
+	width: auto;
+}
+
+.svgradientbackgroundmaker label {
+	display: inline-block;
+}
+
 #demo-details {
 	padding-bottom: 12px;
 }
@@ -41,6 +49,7 @@ textarea,
 	line-height: 1.2em;
 	padding: 2px;
 	border: solid 1px #aaa;
+	max-width: 100%;
 }
 #other-sample {
 	height: 280px;
@@ -48,7 +57,6 @@ textarea,
 }
 input[type="radio"] {
 	position: relative;
-	top: 2px;
 	margin-right: 3px;
 }
 input[type="text"] {
