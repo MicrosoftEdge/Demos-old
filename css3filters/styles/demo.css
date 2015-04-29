@@ -69,13 +69,13 @@
 
 @-webkit-keyframes filter-animation2 {
   0% {
-    filter: opacity(0);
+    -webkit-filter: opacity(0);
   }
   50% {
-    filter: opacity(100%);
+    -webkit-filter: opacity(100%);
   }
   100% {
-    filter: opacity(0);
+    -webkit-filter: opacity(0);
   }
 }
 
