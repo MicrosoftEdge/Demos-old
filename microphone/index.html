@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Demo</title>
+	<meta name="og:title" content="microphone"/>
+	<meta name="description" content=""/>
+	<meta name="keywords" content="Media, webaudio, getusermedia"/>
+	<meta name="author" content="jdsmith3000"/>
+	<link rel="stylesheet" type="text/css" href="styles/demotemplate.css"/>
+	<link rel="stylesheet" type="text/css" href="styles/demo.css"/>
+</head>
+
+<body>
+<article class="demo-wrap">
+
+	<!-- DEMO INTRO -->
+	<header class="demo-header">
+		<div class="container">
+			<heading class="section-header">
+				<h1 class="heading">Microphone Streaming & Web Audio Demo</h1>
+			</heading>    
+			<div id="DemoIntroduction">
+				GetUserMedia Audio Capture and WebAudio Visualization Demo<br><br>	
+			</div>
+		</div>
+	</header>
+
+	<div class="container">
+
+		<audio id="demoAudio" onended="playComplete()"></audio>
+		
+		<div id="inputcontrols">
+			<div class="label">Mute:</div>
+			<div class="colL"><input class="rdo" type="checkbox" id="micMute">Mic Mute</div>	  
+			<div class="colL"><input class="rdo" type="checkbox" id="speakerMute" checked="">Speaker Mute</div>	  
+		</div>
+
+		<div id="recordcontrols">	
+			<div class="label">Recorder:</div>
+
+			<!-- loadFile() works by clicking a hidden type=file control -->		
+			<div class="colLRec"><input class="btn" type="button" id="recordButton" value="Record"></div>
+			<div class="colLRec"><input class="btn" type="button" id="playButton" value="Play"></div>
+			<div class="colLRec"><input class="btn" type="button" id="saveButton" value="Save"></div>
+			<div class="colLRec"><input class="btn" type="button" id="loadButton" value="Load"></div>			
+
+			<div class="colL"><input class="rdo" type="checkbox" id="loop">Loop</div>	
+	 		<div class="colLRec"><input class="btn_hide" type="file" id="loadFiles" multiple></div>
+			</div>
+
+		<div class="viewlabel">Signal:	</div>
+		<Canvas class="timeVisualization" width=auto height="150"></Canvas> 
+		<div class="viewlabel">Frequency:</div>
+		<Canvas class="frequencyVisualization" width=auto height="150"></Canvas>
+
+		<div id="effectcontrols">
+			<div class="label">Effects:</div>
+			<div class="colL"><input class="rdo" type="radio" name="effects" value="0" checked="">None</div>
+			<div class="colL"><input class="rdo" type="radio" name="effects" value="1">Telephone</div>
+			<div class="colL"><input class="rdo" type="radio" name="effects" value="2">Parking Garage</div>
+			<div class="colL"><input class="rdo" type="radio" name="effects" value="3">Muffled Voice</div>
+		</div>
+		
+		<div id="filtercontrols">
+			<div class="label">Filters:</div>
+			<div class="colL"><input class="rdo" type="radio" name="filters" value="0" checked="">None</div>
+			<div class="colL"><input class="rdo" type="radio" name="filters" value="1">Low Pass</div>
+			<div class="colL"><input class="rdo" type="radio" name="filters" value="2">High Pass</div>
+			<div class="colL"><input class="rdo" type="radio" name="filters" value="3">Band Pass</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="scripts/recorder.js"></script>
+	<script type="text/javascript" src="scripts/demo.js"></script>	
+
+</article>
+</body>
+</html>
