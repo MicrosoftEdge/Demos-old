@@ -23,6 +23,10 @@ body {
 	width: 100%;
 }
 
+#myCanvas {
+	margin: 0;
+}
+
 #demo-screenreader-text {
 	display: none;
 }
