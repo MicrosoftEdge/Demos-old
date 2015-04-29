@@ -101,8 +101,8 @@
 	var moveTouchPoint = function (e) {
 		var pID = e.pointerId || 0;
 		if (touchPoints[pID]) {
-			touchPoints[pID].x = e.offsetX;
-			touchPoints[pID].y = e.offsetY;
+			touchPoints[pID].x = e.offsetX || e.layerX;
+			touchPoints[pID].y = e.offsetY || e.layerY;
 		}
 	};
 
@@ -115,8 +115,8 @@
 		if (!touchPoints[pID]) {
 			touchCount++;
 			touchPoints[pID] = {
-				x: e.offsetX,
-				y: e.offsetY
+				x: e.offsetX || e.layerX,
+				y: e.offsetY || e.layerY
 			};
 		}
 	};
