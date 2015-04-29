@@ -756,7 +756,7 @@ var sceneHeight = 0;
 	// -----------------------------------------------------------------------------------------------------
 	var appendCanvasElement = function () {
 		/* Creates and then appends the 'myCanvas' canvas element to the DOM. */
-		var container = document.getElementById('canvas-conatiner');
+		var container = document.getElementById('canvas-container');
 		canvasElement = document.createElement('canvas');
 
 		// Code requiring canvas support
