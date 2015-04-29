@@ -10,7 +10,7 @@ var MusicLounge;
             this._box = BABYLON.Mesh.CreateBox(name, this._boxSize, scene);
             this._material = new BABYLON.StandardMaterial(name + ' material', this._scene);
             this._material.diffuseColor = color;
-            var diffuseTexture = new BABYLON.Texture('/assets/flare.png', scene);
+            var diffuseTexture = new BABYLON.Texture('assets/flare.png', scene);
             diffuseTexture.hasAlpha = true;
             diffuseTexture.uScale = 0.5;
             diffuseTexture.vScale = 0.5;
@@ -122,7 +122,7 @@ var MusicLounge;
         };
         SoundCube.prototype.move = function (point, checkCollisionWith) {
             //if (BABYLON.Vector3.Distance(point, BABYLON.Vector3.Zero()) > 30) {
-            //    this.deMagnetize(); 
+            //    this.deMagnetize();
             //    this.box.computeWorldMatrix(true);
             //}
             if (this.box.parent === undefined) {

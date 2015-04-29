@@ -4,10 +4,10 @@ var sceneHeight = 0;
 
 (function () {
 	'use strict';
-/***************************************************************************
- ** Copyright © Microsoft Corporation. All Rights Reserved.
- ** Demo Authors: Jatinder Mann and Karlito Bonnevie, Microsoft Corporation
- ****************************************************************************/
+	/***************************************************************************
+	 ** Copyright © Microsoft Corporation. All Rights Reserved.
+	 ** Demo Authors: Jatinder Mann and Karlito Bonnevie, Microsoft Corporation
+	 ****************************************************************************/
 
 // 3D Model Constants
 	var constants = {
@@ -340,6 +340,7 @@ var sceneHeight = 0;
 		if (!expandStart) {
 			for (var i = 0; i < this.points.length; i++) {
 				//ctx.save();
+
 				ctx.globalAlpha = this.calculateAlpha(this.points[i][2], 0.5);
 				var scale = this.calculateScale(this.points[i][2], 0.75, 1.25);
 				ctx.scale(scale, scale);
@@ -706,25 +707,25 @@ var sceneHeight = 0;
 
 		switch (e.keyCode) {
 			// Increase Y angle
-		case upArrow:
-			surface.updateSomeAngles(constants.xTheta + Math.PI / 100, 0, 0, true, false, false);
-			break;
+			case upArrow:
+				surface.updateSomeAngles(constants.xTheta + Math.PI / 100, 0, 0, true, false, false);
+				break;
 			// Decrease Y angle
-		case downArrow:
-			surface.updateSomeAngles(constants.xTheta - Math.PI / 100, 0, 0, true, false, false);
-			break;
+			case downArrow:
+				surface.updateSomeAngles(constants.xTheta - Math.PI / 100, 0, 0, true, false, false);
+				break;
 			// Decrease X angle
-		case leftArrow:
-			surface.updateSomeAngles(0, constants.yTheta - Math.PI / 100, 0, false, true, false);
-			break;
+			case leftArrow:
+				surface.updateSomeAngles(0, constants.yTheta - Math.PI / 100, 0, false, true, false);
+				break;
 			// Increase X angle
-		case rightArrow:
-			surface.updateSomeAngles(0, constants.yTheta + Math.PI / 100, 0, false, true, false);
-			break;
+			case rightArrow:
+				surface.updateSomeAngles(0, constants.yTheta + Math.PI / 100, 0, false, true, false);
+				break;
 			// Press Enter and blowup
-		case enterKey:
-			surface.expandEffect();
-			break;
+			case enterKey:
+				surface.expandEffect();
+				break;
 		}
 	};
 
@@ -755,18 +756,18 @@ var sceneHeight = 0;
 	// -----------------------------------------------------------------------------------------------------
 	var appendCanvasElement = function () {
 		/* Creates and then appends the 'myCanvas' canvas element to the DOM. */
-
+		var container = document.getElementById('canvas-container');
 		canvasElement = document.createElement('canvas');
 
 		// Code requiring canvas support
 		if (canvasElement.getContext && canvasElement.getContext('2d')) {
 
-			canvasElement.width = constants.canvasWidth = window.innerWidth;
+			canvasElement.width = constants.canvasWidth = container.clientWidth;
 			canvasElement.height = constants.canvasHeight = window.innerHeight;
-			sceneWidth = window.innerWidth;
+			sceneWidth = container.clientWidth;
 			sceneHeight = window.innerHeight;
 			canvasElement.id = 'myCanvas';
-			document.body.appendChild(canvasElement); // Make the canvas element a child of the body element.
+			container.appendChild(canvasElement); // Make the canvas element a child of the body element.
 			ctx = canvasElement.getContext('2d');
 			ctx.translate(constants.canvasWidth / 2, constants.canvasHeight / 2); // Translate the surface's origin to the center of the canvas.
 
@@ -788,9 +789,9 @@ var sceneHeight = 0;
 		}
 	};
 
-	// -----------------------------------------------------------------------------------------------------
-	var windowResize = function () {
-		canvasElement.width = constants.canvasWidth = window.innerWidth;
+	var resize = function () {
+		var container = document.getElementById('canvas-container');
+		canvasElement.width = constants.canvasWidth = container.clientWidth;
 		canvasElement.height = constants.canvasHeight = window.innerHeight;
 		performance.resize();
 
@@ -802,6 +803,15 @@ var sceneHeight = 0;
 			constants.imageSize = constants.IMAGE_SIZE = 28;
 		}
 		constants.objectRadius = constants.radius * constants.surfaceScale;
+	};
+
+	// -----------------------------------------------------------------------------------------------------
+	var windowResize = function () {
+		if (window.setImmediate) {
+			setImmediate(resize);
+		} else {
+			setTimeout(resize, 0);
+		}
 	};
 
 	// -----------------------------------------------------------------------------------------------------
