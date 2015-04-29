@@ -10,103 +10,118 @@
 </head>
 
 <body>
-    <article class="demo-wrap">
-        <header class="demo-header">
-            <div class="container">
-                <heading class="section-header">
-                    <h1 class="heading">Learn how to use CSS3 Filters.</h1>
-                </heading>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <p class="text-title">By <a href="https://twitter.com/ramisayar">@ramisayar</a> (<a href="https://ramisayar.com">Website</a>)</p>
-                    </div>
-                </div>
-            </div>
-        </header>
+	
+	<!-- DEMO INTRO -->
+	<header class="section section--page-intro demo__header">
+		<div class="container">
+			<div class="section__header">
+				<h1>Learn how to use CSS3 Filters</h1>
+			</div>
+		</div>
+	</header>
 
-        <div class="demo-content">
-            <div class="container">
-                <section class="section">
-                    <header class="section-header">
-                        <h2 class="subheading">What are CSS3 Filters?</h2>
-                    </header>
-                    <div class="section-body">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <p>CSS3 filters allow you to change the rendering of an element before it is displayed in the document. You can blur, hue-rotate, sepia, saturate, etc. elements using a styling instruction with the 'filter' property.</p>
-                                <p>You can even animate filters with @keyframes.</p>
-                                <script src="https://gist.github.com/sayar/962d49d1ab67a68becd0.js"></script>
-                            </div>
-                            <div class="col-sm-6">
-                                <img src="images/microsoft_loves_linux.jpg" class="img-responsive animated-filters" />
-                            </div>
-                            <div class="col-sm-6">
-                              <img src="images/microsoft_loves_linux.jpg" class="img-responsive animated-filters2" />
-                            </div>
-                        </div>
-                        <section class="subsection">
-                            <header class="subsection-header">
-                                <h3 class="title">Filter Samples</h3>
-                            </header>
-                            <div class="subsection-body">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <h3>Original</h3>
-                                        <img src="images/microsoft_loves_linux.jpg" class="img-responsive" />
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <h3>Grayscale</h3>
-                                        <img src="images/microsoft_loves_linux.jpg" class="img-responsive grayscale" />
-                                        <code>img { filter: grayscale(<input id="grayscale-sldr" type="number" class="sldr" min="0" max="100" step="10" value="50" /> % ) }</code>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <h3>Sepia</h3>
-                                        <img src="images/microsoft_loves_linux.jpg" class="img-responsive sepia" />
-                                        <code>img { filter: sepia(<input id="sepia-sldr" type="number" class="sldr" min="0" max="100" step="10" value="50" /> % ) }</code>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <h3>Saturate</h3>
-                                        <img src="images/microsoft_loves_linux.jpg" class="img-responsive saturate" />
-                                        <code>img { filter: saturate(<input id="saturate-sldr" type="number" class="sldr" min="0" max="1000" step="10" value="60" /> % ) }</code>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <h3>Invert</h3>
-                                        <img src="images/microsoft_loves_linux.jpg" class="img-responsive invert" />
-                                        <code>img { filter: invert(<input id="invert-sldr" type="number" class="sldr" min="0" max="100" step="10" value="90" /> % ) }</code>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <h3>Opacity</h3>
-                                        <img src="images/microsoft_loves_linux.jpg" class="img-responsive opacity" />
-                                        <code>img { filter: opacity(<input id="opacity-sldr" type="number" class="sldr" min="0" max="100" step="10" value="50" /> % ) }</code>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <h3>Brightness</h3>
-                                        <img src="images/microsoft_loves_linux.jpg" class="img-responsive brightness" />
-                                        <code>img { filter: brightness(<input id="brightness-sldr" type="number" class="sldr" min="0" max="100" step="10" value="50" /> % ) }</code>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <h3>Contrast</h3>
-                                        <img src="images/microsoft_loves_linux.jpg" class="img-responsive contrast" />
-                                        <code>img { filter: contrast(<input id="contrast-sldr" type="number" class="sldr" min="0" max="100" step="10" value="50" /> % ) }</code>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <h3>Hue-Rotate</h3>
-                                        <img src="images/microsoft_loves_linux.jpg" class="img-responsive hue-rotate" />
-                                        <code>img { filter: hue-rotate(<input id="hue-rotate-sldr" type="number" class="sldr" min="0" max="1000" step="5" value="60" /> deg ) }</code>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <h3>Blur</h3>
-                                        <img src="images/microsoft_loves_linux.jpg" class="img-responsive blur" />
-                                        <code>img { filter: blur(<input id="blur-sldr" type="number" class="sldr" min="0" max="100" step="1" value="5" /> px ) }</code>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
-                </section>
+	<!-- DEMO CONTENT -->
+	<section role="region" class="section">
+		<div class="container">
+		
+            <header class="section__header">
+                <h2>What are CSS3 Filters?</h2>
+            </header>
+            <div class="section__body">
+            	<p>CSS3 filters allow you to change the rendering of an element before it is displayed in the document. You can blur, hue-rotate, sepia, saturate, etc. elements using a styling instruction with the 'filter' property.</p>
+		        <p>You can even animate filters with @keyframes.</p>
+            	<div class="layout layout--basic--alt">
+            		<div class="module module--primary">
+		                <h5>CSS</h5>
+		                <script src="https://gist.github.com/sayar/962d49d1ab67a68becd0.js"></script>
+            		</div>
+            		<div class="module module--secondary">
+            			<h5>Result</h5>
+            			<img src="images/microsoft_loves_linux.jpg" class="img-responsive animated-filters" />
+            			<img src="images/microsoft_loves_linux.jpg" class="img-responsive animated-filters2" />
+            		</div>
+            	</div>
+				<section class="subsection">
+	                <header class="subsection__header subsection__header--alt">
+	                    <h3>Filter Samples</h3>
+	                </header>
+	                <div class="subsection__body">
+	                    <div class="layout layout--quarters">
+	                        <div class="module">
+	                            <h4>Original</h4>
+	                            <img src="images/microsoft_loves_linux.jpg" class="img-responsive" alt="Original image without CSS filters" />
+	                        </div>
+	                        <div class="module">
+	                            <h4>Grayscale</h4>
+	                            <img src="images/microsoft_loves_linux.jpg" class="img-responsive grayscale" alt="Image with grayscale filter" />
+	                            <p class="caption--filter">
+	                            	<code>img {filter: grayscale( <input id="grayscale-sldr" type="number" class="sldr" min="0" max="100" step="10" value="50" /> %);}</code>
+	                            </p>
+	                        </div>
+	                        <div class="module">
+	                            <h4>Sepia</h4>
+	                            <img src="images/microsoft_loves_linux.jpg" class="img-responsive sepia" alt="Image with sepia filter" />
+	                            <p class="caption--filter">
+	                            	<code>img {filter: sepia( <input id="sepia-sldr" type="number" class="sldr" min="0" max="100" step="10" value="50" /> %);}</code>
+	                            </p>
+	                        </div>
+	                        <div class="module">
+	                            <h4>Saturate</h4>
+	                            <img src="images/microsoft_loves_linux.jpg" class="img-responsive saturate" alt="Image with saturation filter" />
+	                            <p class="caption--filter">
+	                            	<code>img {filter: saturate( <input id="saturate-sldr" type="number" class="sldr" min="0" max="1000" step="10" value="60" /> %);}</code>
+	                            </p>
+	                        </div>
+	                        <div class="module">
+	                            <h4>Invert</h4>
+	                            <img src="images/microsoft_loves_linux.jpg" class="img-responsive invert" alt="Image with inverted colors filter" />
+	                            <p class="caption--filter">
+	                            	<code>img {filter: invert( <input id="invert-sldr" type="number" class="sldr" min="0" max="100" step="10" value="90" /> %);}</code>
+	                            </p>
+	                        </div>
+	                        <div class="module">
+	                            <h4>Opacity</h4>
+	                            <img src="images/microsoft_loves_linux.jpg" class="img-responsive opacity" alt="Image with opacity filter" />
+	                            <p class="caption--filter">
+	                            	<code>img {filter: opacity( <input id="opacity-sldr" type="number" class="sldr" min="0" max="100" step="10" value="50" /> %);}</code>
+	                            </p>
+	                        </div>
+	                        <div class="module">
+	                            <h4>Brightness</h4>
+	                            <img src="images/microsoft_loves_linux.jpg" class="img-responsive brightness" alt="Image with brightness filter" />
+	                            <p class="caption--filter">
+	                            	<code>img {filter: brightness( <input id="brightness-sldr" type="number" class="sldr" min="0" max="100" step="10" value="50" /> %);}</code>
+	                            </p>
+	                        </div>
+	                        <div class="module">
+	                            <h4>Contrast</h4>
+	                            <img src="images/microsoft_loves_linux.jpg" class="img-responsive contrast" alt="Image with contrast filter" />
+	                            <p class="caption--filter">
+	                            	<code>img {filter: contrast( <input id="contrast-sldr" type="number" class="sldr" min="0" max="100" step="10" value="50" /> %);}</code>
+	                            </p>
+	                        </div>
+	                        <div class="module">
+	                            <h4>Hue-Rotate</h4>
+	                            <img src="images/microsoft_loves_linux.jpg" class="img-responsive hue-rotate" alt="Image with hue rotation filter" />
+	                            <p class="caption--filter">
+	                            	<code>img {filter: hue-rotate( <input id="hue-rotate-sldr" type="number" class="sldr" min="0" max="1000" step="5" value="60" /> deg);}</code>
+	                            </p>
+	                        </div>
+	                        <div class="module">
+	                            <h4>Blur</h4>
+	                            <img src="images/microsoft_loves_linux.jpg" class="img-responsive blur" alt="Image with blur filter" />
+	                            <p class="caption--filter">
+	                            	<code>img {filter: blur( <input id="blur-sldr" type="number" class="sldr" min="0" max="100" step="1" value="5" /> px);}</code>
+	                            </p>
+	                        </div>
+	                    </div>
+	                </div>
+	            </section>
             </div>
-        </div>
-    </article>
+
+		</div>
+	</section>
+
     <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.3.min.js"></script>
     <script type="text/javascript" src="scripts/demo.js"></script>
 </body>

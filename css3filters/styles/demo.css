@@ -1,15 +1,20 @@
-.img-responsive {  display: block;  height: auto;  max-width: 100%; }
-
-.sldr {
-  width: 6rem !important;
-}
-
 /* You can add -webkit- and -moz- prefixes for webkit browsers and firefox. */
 .animated-filters {
   animation: filter-animation 10s infinite;
 }
+
 .animated-filters2 {
   animation: filter-animation2 5s infinite;
+}
+
+.caption--filter,
+.caption--filter input {
+	font-size: 1.0rem;
+}
+
+.caption--filter input:not([type=checkbox]):not([type=radio]):not([type=button]):not([type=submit]):not([type=reset]):not([type=range]) {
+	padding: .4rem;
+	width: 6rem;
 }
 
 @keyframes filter-animation {
