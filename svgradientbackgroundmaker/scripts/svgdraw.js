@@ -315,8 +315,8 @@ var SVGBGMAKER = SVGBGMAKER || {};
 		document.body.style.cursor = 'crosshair';
 
 		document.onmousemove = function (e2) {
-			var posx = Math.max(0, Math.min(SVGBGMAKER.sampleWidth, e2.pageX - rect.left));
-			var posy = Math.max(0, Math.min(SVGBGMAKER.sampleHeight, e2.pageY - rect.top));
+			var posx = Math.max(0, Math.min(SVGBGMAKER.sampleWidth, e2.clientX - rect.left));
+			var posy = Math.max(0, Math.min(SVGBGMAKER.sampleHeight, e2.clientY - rect.top));
 
 			posx = SVGBGMAKER.snapX(posx);
 			posy = SVGBGMAKER.snapY(posy);
