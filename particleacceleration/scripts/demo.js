@@ -762,9 +762,9 @@ var sceneHeight = 0;
 		// Code requiring canvas support
 		if (canvasElement.getContext && canvasElement.getContext('2d')) {
 
-			canvasElement.width = constants.canvasWidth = window.innerWidth;
+			canvasElement.width = constants.canvasWidth = container.clientWidth;
 			canvasElement.height = constants.canvasHeight = window.innerHeight;
-			sceneWidth = window.innerWidth;
+			sceneWidth = container.clientWidth;
 			sceneHeight = window.innerHeight;
 			canvasElement.id = 'myCanvas';
 			container.appendChild(canvasElement); // Make the canvas element a child of the body element.
@@ -789,9 +789,9 @@ var sceneHeight = 0;
 		}
 	};
 
-	// -----------------------------------------------------------------------------------------------------
-	var windowResize = function () {
-		canvasElement.width = constants.canvasWidth = window.innerWidth;
+	var resize = function () {
+		var container = document.getElementById('canvas-container');
+		canvasElement.width = constants.canvasWidth = container.clientWidth;
 		canvasElement.height = constants.canvasHeight = window.innerHeight;
 		performance.resize();
 
@@ -803,6 +803,15 @@ var sceneHeight = 0;
 			constants.imageSize = constants.IMAGE_SIZE = 28;
 		}
 		constants.objectRadius = constants.radius * constants.surfaceScale;
+	};
+
+	// -----------------------------------------------------------------------------------------------------
+	var windowResize = function () {
+		if (window.setImmediate) {
+			setImmediate(resize);
+		} else {
+			setTimeout(resize, 0);
+		}
 	};
 
 	// -----------------------------------------------------------------------------------------------------
