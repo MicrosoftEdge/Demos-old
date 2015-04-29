@@ -4,7 +4,7 @@ body {
 	-ms-touch-action: none;
 }
 
-.container {
+#canvas-container {
 	position: relative;
 }
 
