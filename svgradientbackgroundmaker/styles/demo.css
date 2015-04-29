@@ -1,12 +1,3 @@
-body {
-	position: inherit;
-	width: 974px;
-    font-family: "Segoe UI" , Verdana, Helvetica, Sans-Serif;
-    font-size: 10pt;
-    background-color: white;
-    color: #424242;
-}
-
 #demo-details {
 	padding-bottom: 12px;
 }

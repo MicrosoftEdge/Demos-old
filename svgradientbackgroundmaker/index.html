@@ -4,93 +4,104 @@
 <head>
 	<!-- Credits: jscolor, by Jan Odvarko (http://odvarko.cz) -->
 	<!-- Credits: base-64 URL encoder/decoder, by webtoolkit (http://www.webtoolkit.info/javascript-base64.html) -->
-    <title>IE10 Test Drive Demo: SVG Gradient Background Maker</title>
-    <meta name="description" content="Use this demo to create SVG-based CSS background-image gradients. The CSS markup works in browsers which support SVG as a background-image including Internet Explorer 9, Chrome, Safari, and Opera." />
-    <meta name="keywords" content="graphics, css" />
-    <meta name="og:title" content="IE10 Test Drive Demo: SVG Gradient Background Maker" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>IE10 Test Drive Demo: SVG Gradient Background Maker</title>
+	<meta name="description"
+		  content="Use this demo to create SVG-based CSS background-image gradients. The CSS markup works in browsers which support SVG as a background-image including Internet Explorer 9, Chrome, Safari, and Opera."/>
+	<meta name="keywords" content="graphics, css"/>
+	<meta name="og:title" content="IE10 Test Drive Demo: SVG Gradient Background Maker"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 
-    <link rel="stylesheet" type="text/css" href="styles/demo.css" />
-    <link rel="stylesheet" type="text/css" href="Styles/demotemplate.css" />
+	<link rel="stylesheet" type="text/css" href="styles/demo.css"/>
+	<link rel="stylesheet" type="text/css" href="Styles/demotemplate.css"/>
 </head>
 
 <body>
+<div class="container">
 	<h1 id="demo-title">
-        SVG Gradient Background Maker
-    </h1>
+		SVG Gradient Background Maker
+	</h1>
+
 	<div id="demo-introduction">
-		<p> Use this demo to create SVG-based CSS background-image gradients. The CSS markup works in browsers which support SVG as a background-image including Internet Explorer 9, Chrome, Safari, and Opera. <img src="images/SVGBanner.png" width="200" style="float:right; padding-top: 15px"/> </p>
+		<p> Use this demo to create SVG-based CSS background-image gradients. The CSS markup works in browsers which
+			support SVG as a background-image including Internet Explorer 9, Chrome, Safari, and Opera. <img
+				src="images/SVGBanner.png" width="200" style="float:right; padding-top: 15px"/></p>
 	</div>
 	<div id="demo-content">
 		<table id="control-wrapper">
 			<tr>
-				<td class="label-cell"> Existing markup: </td>
-				<td class="data-cell"> <a href="#" id="htxtlink">Click to paste existing CSS base64-URL background-image markup</a>
+				<td class="label-cell"> Existing markup:</td>
+				<td class="data-cell"><a href="#" id="htxtlink">Click to paste existing CSS base64-URL background-image
+					markup</a>
 					<textarea style="display: none;" id="markup-source"></textarea>
-					<div> <a id="parse-link" href="#" style="float: left; display: none; padding-right: 5px;">Parse</a>
-						<div id="markup-type" style="float: left;"></div> <a id="hide-link" href="#" style="float: right; display: none; padding: 0px;">Hide</a> </div>
+
+					<div><a id="parse-link" href="#" style="float: left; display: none; padding-right: 5px;">Parse</a>
+
+						<div id="markup-type" style="float: left;"></div>
+						<a id="hide-link" href="#" style="float: right; display: none; padding: 0px;">Hide</a></div>
 				</td>
 			</tr>
 			<tr>
-				<td class="label-cell"> Gradient style: </td>
+				<td class="label-cell"> Gradient style:</td>
 				<td class="data-cell">
 					<form id="g-type">
-						<input type="radio" id="l-grad" name="gradtype" value="Linear" />
+						<input type="radio" id="l-grad" name="gradtype" value="Linear"/>
 						<label for="l-grad">Linear</label>
-						<input type="radio" id="e-grad" name="gradtype" value="Elliptical" />
+						<input type="radio" id="e-grad" name="gradtype" value="Elliptical"/>
 						<label for="e-grad">Radial</label>
 					</form>
 				</td>
 			</tr>
 			<tr>
-				<td class="label-cell"> Stops: </td>
+				<td class="label-cell"> Stops:</td>
 				<td class="data-cell">
 					<!-- START table of stops -->
 					<table>
 						<tbody id="stops">
-							<tr id="stops-label">
-								<td> </td>
-								<td> Start </td>
-								<td id="last-label"> End </td>
-							</tr>
-							<tr id="stops-offset">
-								<td> Offset: </td>
-								<td>
-									<input id="offset0" type="text" size="6" value="0" /> </td>
-								<td id="last-offset">
-									<input id="offsetN" type="text" size="6" value="1" /> </td>
-							</tr>
-							<tr id="stops-color">
-								<td style="font-weight: normal;"> Color: </td>
-								<td>
-									<input type="text" class="color" id="color0" size="6" value="FFFFFF" /> </td>
-								<td id="last-color">
-									<input type="text" class="color" id="colorN" size="6" value="E3A820" /> </td>
-							</tr>
-							<tr id="stops-button">
-								<td style="font-weight: normal;"> <a href="#" id="add-stop">Add Stop</a> </td>
-								<td/>
-								<td id="last-button" /> </tr>
+						<tr id="stops-label">
+							<td></td>
+							<td> Start</td>
+							<td id="last-label"> End</td>
+						</tr>
+						<tr id="stops-offset">
+							<td> Offset:</td>
+							<td>
+								<input id="offset0" type="text" size="6" value="0"/></td>
+							<td id="last-offset">
+								<input id="offsetN" type="text" size="6" value="1"/></td>
+						</tr>
+						<tr id="stops-color">
+							<td style="font-weight: normal;"> Color:</td>
+							<td>
+								<input type="text" class="color" id="color0" size="6" value="FFFFFF"/></td>
+							<td id="last-color">
+								<input type="text" class="color" id="colorN" size="6" value="E3A820"/></td>
+						</tr>
+						<tr id="stops-button">
+							<td style="font-weight: normal;"><a href="#" id="add-stop">Add Stop</a></td>
+							<td/>
+							<td id="last-button"/>
+						</tr>
 						</tbody>
 					</table>
 					<!-- END table of stops -->
 				</td>
 			</tr>
 			<tr>
-				<td class="label-cell"> Start: </td>
+				<td class="label-cell"> Start:</td>
 				<td class="data-cell" id="pos-panel">
-					<td>
+				<td>
 			</tr>
 			<tr id="sizes" style="display: none;">
-				<td class="label-cell"> Sizes: </td>
+				<td class="label-cell"> Sizes:</td>
 				<td class="data-cell" id="size-panel">
-					<td>
+				<td>
 			</tr>
 			<tr>
-				<td class="label-cell"> Sample: </td>
+				<td class="label-cell"> Sample:</td>
 				<td class="data-cell">
 					<div id="other-sample">
-						<svg id="custom-linear-svg" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" style="display: none">
+						<svg id="custom-linear-svg" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"
+							 style="display: none">
 							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" style="display: block">
 								<circle cx="0%" cy="0%" r="5" fill="none" stroke="gray" stroke-width="1"></circle>
 								<circle cx="50%" cy="0%" r="5" fill="none" stroke="gray" stroke-width="1"></circle>
@@ -102,11 +113,13 @@
 								<circle cx="50%" cy="100%" r="5" fill="none" stroke="gray" stroke-width="1"></circle>
 								<circle cx="100%" cy="100%" r="5" fill="none" stroke="gray" stroke-width="1"></circle>
 							</svg>
-							<line id="linear-line" x1="0%" x2="0%" y1="100%" y2="100%" fill="none" stroke="#666" stroke-width="1"></line>
+							<line id="linear-line" x1="0%" x2="0%" y1="100%" y2="100%" fill="none" stroke="#666"
+								  stroke-width="1"></line>
 							<rect id="linear-start" x="0%" y="0%" width="8" height="8"></rect>
 							<rect id="linear-end" x="100%" y="100%" width="8" height="8"></rect>
 						</svg>
-						<svg id="custom-radial-svg" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" style="display: none">
+						<svg id="custom-radial-svg" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"
+							 style="display: none">
 							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" style="display: block">
 								<circle cx="0%" cy="0%" r="5" fill="none" stroke="gray" stroke-width="1"></circle>
 								<circle cx="50%" cy="0%" r="5" fill="none" stroke="gray" stroke-width="1"></circle>
@@ -118,7 +131,8 @@
 								<circle cx="50%" cy="100%" r="5" fill="none" stroke="gray" stroke-width="1"></circle>
 								<circle cx="100%" cy="100%" r="5" fill="none" stroke="gray" stroke-width="1"></circle>
 							</svg>
-							<line id="radial-line" x1="0%" x2="0%" y1="100%" y2="100%" fill="none" stroke="#666" stroke-width="1"></line>
+							<line id="radial-line" x1="0%" x2="0%" y1="100%" y2="100%" fill="none" stroke="#666"
+								  stroke-width="1"></line>
 							<circle id="radial-center" style="display: none" cx="50%" cy="50%" r="5"></circle>
 							<rect id="radial-radius" style="display: none" x="75%" y="75%" width="8" height="8"></rect>
 						</svg>
@@ -126,25 +140,28 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="label-cell"> SVG source: </td>
+				<td class="label-cell"> SVG source:</td>
 				<td class="data-cell">
 					<textarea id="svg-source" readonly="true"></textarea>
 				</td>
 			</tr>
 			<tr>
-				<td class="label-cell"> CSS markup: </td>
+				<td class="label-cell"> CSS markup:</td>
 				<td class="data-cell">
 					<textarea id="other-source" readonly="true"></textarea>
 				</td>
 			</tr>
 		</table>
 	</div>
-	<div id="demo-details"> This demo uses <a href="http://jscolor.com">jscolor</a> (a JavaScript color picker developed by <a href="http://odvarko.cz">Jan Odvarko</a>) and a base-64 URL encoder/decoder from <a href="http://www.webtoolkit.info/javascript-base64.html">webtoolkit</a>.
-		</div>
-    <script type="text/javascript" src="scripts/base64.js"></script>
-    <script type="text/javascript" src="scripts/svgdraw.js"></script>
-    <script type="text/javascript" src="jscolor/jscolor.js"></script>
-    <script type="text/javascript" src="scripts/demo.js"></script>
+	<div id="demo-details"> This demo uses <a href="http://jscolor.com">jscolor</a> (a JavaScript color picker developed
+		by <a href="http://odvarko.cz">Jan Odvarko</a>) and a base-64 URL encoder/decoder from <a
+			href="http://www.webtoolkit.info/javascript-base64.html">webtoolkit</a>.
+	</div>
+</div>
+<script type="text/javascript" src="scripts/base64.js"></script>
+<script type="text/javascript" src="scripts/svgdraw.js"></script>
+<script type="text/javascript" src="jscolor/jscolor.js"></script>
+<script type="text/javascript" src="scripts/demo.js"></script>
 </body>
 
 </html>
