@@ -1,8 +1,11 @@
 body {
-	overflow: hidden;
 	-ms-content-zooming: none;
 	text-align: center;
 	-ms-touch-action: none;
+}
+
+.container {
+	position: relative;
 }
 
 #logo {
@@ -14,8 +17,8 @@ body {
 
 #performance-canvas {
 	display: block;
-	position: fixed;
-	left: 0px;
+	position: absolute;
+	left: 0;
 	width: 100%;
 }
 
@@ -42,22 +45,22 @@ body {
 	background-color: #E1E1E1;
 	background-image: -ms-radial-gradient(left top, circle farthest-side, #FFFFFF 0%, #BFBFBF 100%);
 	/* IE10 */
-	
+
 	background-image: -moz-radial-gradient(left top, circle farthest-side, #FFFFFF 0%, #BFBFBF 100%);
 	/* Mozilla Firefox */
-	
+
 	background-image: -o-radial-gradient(left top, circle farthest-side, #FFFFFF 0%, #BFBFBF 100%);
 	/* Opera */
-	
+
 	background-image: -webkit-gradient(radial, left top, 0, left top, 920, color-stop(0, #FFFFFF), color-stop(1, #BFBFBF));
 	/* Webkit (Safari/Chrome 10) */
-	
+
 	background-image: -webkit-radial-gradient(left top, circle farthest-side, #FFFFFF 0%, #BFBFBF 100%);
 	/* Webkit (Chrome 11+) */
-	
+
 	background-image: radial-gradient(left top, circle farthest-side, #FFFFFF 0%, #BFBFBF 100%);
 	/* Proposed W3C Markup */
-	
+
 	z-index: -100;
 	position: absolute;
 	top: 0px;
@@ -71,22 +74,22 @@ body {
 	background-color: #E1E1E1;
 	background-image: -ms-radial-gradient(left top, circle farthest-side, #FFFFFF 0%, #BEBEBE 100%);
 	/* IE10 */
-	
+
 	background-image: -moz-radial-gradient(left top, circle farthest-side, #FFFFFF 0%, #BEBEBE 100%);
 	/* Mozilla Firefox */
-	
+
 	background-image: -o-radial-gradient(left top, circle farthest-side, #FFFFFF 0%, #BEBEBE 100%);
 	/* Opera */
-	
+
 	background-image: -webkit-gradient(radial, left top, 0, left top, 920, color-stop(0, #FFFFFF), color-stop(1, #BEBEBE));
 	/* Webkit (Safari/Chrome 10) */
-	
+
 	background-image: -webkit-radial-gradient(left top, circle farthest-side, #FFFFFF 0%, #BEBEBE 100%);
 	/* Webkit (Chrome 11+) */
-	
+
 	background-image: radial-gradient(left top, circle farthest-side, #FFFFFF 0%, #BEBEBE 100%);
 	/* Proposed W3C Markup */
-	
+
 	z-index: -100;
 	position: absolute;
 	top: 0px;
