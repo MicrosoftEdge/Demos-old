@@ -103,7 +103,6 @@
 #canvas {
     background-color: #000;
     -ms-touch-action: none;
-    position: absolute;
     left: 0;
     right: 0;
     width: 100%;
