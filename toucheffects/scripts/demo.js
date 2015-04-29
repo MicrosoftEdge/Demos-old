@@ -56,8 +56,8 @@
 	var sizeCanvas = function () {
 		canvasElm = document.getElementById('canvas');
 
-		canvasElm.width = document.documentElement.clientWidth;
-		canvasElm.height = document.documentElement.clientHeight;
+		canvasElm.width = canvasElm.clientWidth;
+		canvasElm.height = canvasElm.clientWidth * 9 / 16;
 	};
 
 	// Create physics objects for the particles

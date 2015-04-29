@@ -57,6 +57,10 @@
     vertical-align: top;
 }
 
+	.control-group * + * {
+		margin-top: 0;
+	}
+
 #demo-controlsgripper {
     display: inline-block;
     width: 50px;
@@ -65,6 +69,7 @@
     background-repeat: no-repeat;
     background-position: center;
     cursor: pointer;
+	margin-top: 0;
 }
 
 .demo-controlsactive > #demo-controlsgripper {
