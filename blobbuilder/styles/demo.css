@@ -2,21 +2,12 @@
 	display: none;
 }
 
-/* Messages */
-.bb-req {
-	display: inline-block;
-	margin-top: 0;
-	margin-right: 2rem;
-}
-
-/* Warnings */
 #warning {
 	display: none;
 }
 
 #xhr-blob-warning {
 	display: none;
-	margin-bottom: 20px;
 	clear: both;
 }
 
@@ -25,27 +16,8 @@
 	display: none;
 }
 
-#score-container {
-	margin-right: 10px;
-	-ms-box-flex: 1;
-}
-
 #score-container svg {
-	width: 97%;
-}
-
-#play {
-	-ms-box-flex: 0;
-}
-
-#score-play-container {
-	margin-top: 20px;
-	display: -ms-box;
-	-ms-box-align: middle;
-	-ms-box-pack: start;
-	-ms-box-direction: normal;
-	-ms-box-orient: horizontal;
-	-ms-box-line-progression: normal;
+	width: 100%;
 }
 
 #play input {
@@ -58,4 +30,27 @@
 
 #piano g rect:hover {
 	fill: gray !important; /* Required so Chrome takes it into account */
+}
+
+select {
+	width: auto;
+}
+
+select,
+.button--reset-composition {
+	display: block;
+}
+
+@media (min-width: 48em) and (max-width: 59.9375em) {
+
+	.layout--basic--alt .module {
+		float: none;
+		margin-top: 3.2rem;
+		width: 100%;
+	}
+	
+	.layout--basic--alt .module:first-child {
+		margin-top: 0;
+	}
+	
 }
