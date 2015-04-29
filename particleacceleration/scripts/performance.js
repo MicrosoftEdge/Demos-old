@@ -45,8 +45,8 @@ var Performance = function () {
 
 	this.resize = function () {
 		this.canvas.setAttribute('width', sceneWidth);
-		this.canvas.setAttribute('height', sceneHeight - 32);
-		this.canvas.style.top = (sceneHeight - 32) + 'px';
+		this.canvas.setAttribute('height', sceneHeight - 45);
+		this.canvas.style.top = (sceneHeight - 45) + 'px';
 	};
 
 	this.beginTrending = function () {
