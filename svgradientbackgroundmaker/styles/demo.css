@@ -53,7 +53,8 @@ textarea,
 }
 #other-sample {
 	height: 280px;
-	padding: 0px;
+	padding: 0;
+	background-size: 100% 100%;
 }
 input[type="radio"] {
 	position: relative;
