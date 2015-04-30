@@ -1,16 +1,28 @@
-html,
-body {
-	margin: 0;
-	padding: 0;
-	text-align: center;
+.container-mandlebrot {
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+	padding: 0;
+	text-align: center;
+	background-color: #fefefe;
 }
 
-body {
-	background-color: #fefefe;
+.container-mandlebrot table {
+	margin: 0 auto;
+	/* Center the table. */
+	width: 60rem;
+	table-layout: fixed;
+	/* Required to keep the table static whilst the page builds. */
+}
+
+.container-mandlebrot table td{
+	padding: 0;
+}
+
+.container-mandlebrot tbody tr:nth-child(odd),
+.container-mandlebrot tbody tr:nth-child(even) {
+	background-color: hsla(0, 0%, 0%, 0);
 }
 
 #canvas-wrapper {
@@ -29,14 +41,7 @@ canvas {
 	-ms-touch-action: none;
 	touch-action: none;
 	/* Use the standard, if available. */
-}
-
-table {
-	margin: 0 auto;
-	/* Center the table. */
-
-	table-layout: fixed;
-	/* Required to keep the table static whilst the page builds. */
+	margin: 0;
 }
 
 #message-box {
@@ -109,7 +114,6 @@ button {
 
 #demo-content {
 	width: 720px;
-	height: 600px;
 	margin: auto auto;
 }
 
@@ -129,7 +133,7 @@ button {
 #buttons {
 	float: left;
 	margin-top: 18px;
-	margin-lefT: 10px;
+	margin-left: 10px;
 }
 
 #canvas-group {
@@ -139,9 +143,9 @@ button {
 div .button {
 	width: 96px;
 	height: 38px;
+	line-height: 38px;
 	margin: 5px;
 	text-align: center;
-	padding-top: 15px;
 	font-size: 16px;
 	background-color: #00a3ef;
 	color: #ffffff;
