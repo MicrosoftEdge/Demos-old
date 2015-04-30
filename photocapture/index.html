@@ -4,7 +4,7 @@
     <title>Photo Capture using Webcam</title>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="og:title" content="Photo Capture"/>
-    <meta name="description" content="The test page demmonstartes how to use the Media Capture and Streams API 
+    <meta name="description" content="The test page demmonstartes how to use the Media Capture and Streams API
                                       to capture photos from webcam video streams through a canvas."/>
     <meta name="keywords" content="Media, webcam, media, capture, photo, canvas"/>
     <meta name="author" content="shijuns"/>
@@ -22,8 +22,8 @@
                 <div class="container">
                     <h1 class="demo-title">Photo Capture Using Webcam</h1>
                     <div class="demo-intro-content">
-                        <p>This demo page shows how to use the <a href="http://w3c.github.io/mediacapture-main/" target="_blank">Media Capture and Streams API</a> 
-                           for capturing photos from webcam video streams through a canvas.  There are three major steps: 
+                        <p>This demo page shows how to use the <a href="http://w3c.github.io/mediacapture-main/" target="_blank">Media Capture and Streams API</a>
+                           for capturing photos from webcam video streams through a canvas.  There are three major steps:
                             <ul>
                                 <li>Getting a video stream from the webcam and rendering it on a &lt;video&gt; element.</li>
                                 <li>Taking a snapshot of the video and rendering it on a &lt;canvas&gt; element.</li>
@@ -40,9 +40,9 @@
                 <div class="demo-section">
                     <div class="container">
                         <div id="error"></div>
-                        <div style="display:flex; width:100%; text-align:center;">
-                            <div id="videoViewText" style="color:#08f0f0">Webcam view: Click or tap to take a snapshot</div>
-                            <div id="photoViewText" style="color:#08f080">Snapshot view</div>
+                        <div class="view-text-container" style="display:flex; width:100%; text-align:center;">
+                            <div id="videoViewText" class="view-text" style="color:#08f0f0">Webcam view: Click or tap to take a snapshot</div>
+                            <div id="photoViewText" class="view-text" style="color:#08f080">Snapshot view</div>
                         </div>
                         <div id="videoCanvascontainer" style="display:flex; width:100%">
                             <div style="flex:1 1;">
@@ -62,7 +62,6 @@
             </div>
     </article>
     </div>
-
     <script type="text/javascript" src="scripts/demo.js"></script>
 
 </body>
