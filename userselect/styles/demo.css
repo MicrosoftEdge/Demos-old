@@ -26,6 +26,7 @@
 	font-size: 13px;
 	line-height: normal;
 	padding: 1rem;
+	border: none;
 }
 
 .userselect-container select {
@@ -62,4 +63,5 @@
 	display: inline-block;
 	min-width: 550px;
 	max-width: 650px;
+	margin-top: 0;
 }
