@@ -1,20 +1,31 @@
-table {
+.spellchecking-container {
+	min-width: 960px;
+	max-width: 1080px;
+	padding: 0 40px 0 40px;
+}
+
+.spellchecking-container table {
 	width: 500px;
 }
 
-td {
+#demo-screenreader-text {
+	position: absolute;
+	left: -10000px;
+}
+
+.spellchecking-container td {
 	font-family: Consolas, "Courier New";
 	font-weight: bold;
 }
 
-textarea {
+.spellchecking-container textarea {
 	width: 520px;
 	height: 150px;
 	margin-bottom: 20px;
 	margin-right: 30px;
 }
 
-fieldset {
+.spellchecking-container fieldset {
 	padding: 1em;
 }
 
@@ -29,20 +40,20 @@ fieldset {
 	margin-bottom: 10px;
 }
 
-label {
+.spellchecking-container label {
 	padding-right: 40px;
 }
 
-input[type=text],
-textarea {
+.spellchecking-container input[type=text],
+.spellchecking-container textarea {
 	padding-left: 10px;
 }
 
-h2 {
+.spellchecking-container h2 {
 	margin: 0.5em 0;
 }
 
-span {
+.spellchecking-container span {
 	font-family: Consolas, Courier New;
 }
 
