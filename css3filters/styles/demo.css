@@ -54,16 +54,16 @@
     filter: sepia(0) saturate(210%) hue-rotate(60deg);
   }
   45% {
-    filter: hue-rotate(350deg);
+    filter: sepia(0) saturate(1) hue-rotate(350deg);
   }
   60% {
-    filter: hue-rotate(0deg) invert(90%);
+    filter: sepia(0) saturate(1) hue-rotate(0deg) invert(90%);
   }
   75% {
-    filter: blur(5px) invert(0);
+    filter: sepia(0) saturate(1) hue-rotate(0deg) invert(0) blur(5px);
   }
   100% {
-    filter: saturate(100%) blur(0);
+    filter: sepia(0) saturate(1) hue-rotate(0deg) invert(0) blur(0);
   }
 }
 
