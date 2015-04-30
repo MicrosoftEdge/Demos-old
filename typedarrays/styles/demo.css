@@ -16,6 +16,7 @@
 
 #fileInput{
 	width: 30rem;
+	height: 100%;
 }
 
 .typed-arrays-container ol,
