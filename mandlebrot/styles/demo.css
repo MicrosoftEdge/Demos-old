@@ -3,10 +3,26 @@
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
-	margin: 0;
 	padding: 0;
 	text-align: center;
 	background-color: #fefefe;
+}
+
+.container-mandlebrot table {
+	margin: 0 auto;
+	/* Center the table. */
+	width: 60rem;
+	table-layout: fixed;
+	/* Required to keep the table static whilst the page builds. */
+}
+
+.container-mandlebrot table td{
+	padding: 0;
+}
+
+.container-mandlebrot tbody tr:nth-child(odd),
+.container-mandlebrot tbody tr:nth-child(even) {
+	background-color: hsla(0, 0%, 0%, 0);
 }
 
 #canvas-wrapper {
@@ -25,14 +41,7 @@ canvas {
 	-ms-touch-action: none;
 	touch-action: none;
 	/* Use the standard, if available. */
-}
-
-table {
-	margin: 0 auto;
-	/* Center the table. */
-
-	table-layout: fixed;
-	/* Required to keep the table static whilst the page builds. */
+	margin: 0;
 }
 
 #message-box {
