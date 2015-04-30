@@ -68,6 +68,7 @@
     list-style-type: none;
     margin-top: 20px;
     padding-left: 151px;
+	font-size: 0;
 }
 
 .view-menu > ul > li {
