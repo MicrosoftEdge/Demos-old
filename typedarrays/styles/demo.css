@@ -6,17 +6,17 @@
 	visibility: hidden;
 }
 
-body {
+.typed-arrays-container {
 	background: url("../images/grayswooshwatermarkupdated.png") no-repeat top center, url("../images/hexbackground.png") repeat-x top left, url("../images/hexbackground_2.png") repeat-x 0 20px;
 }
 
-ol,
-ul {
+.typed-arrays-container ol,
+.typed-arrays-container ul {
 	list-style: none;
 	line-height: 24px;
 }
 
-p {
+.typed-arrays-container p {
 	line-height: 24px;
 }
 
@@ -76,13 +76,6 @@ p {
 #details-hex {
 	margin-left: 440px;
 	/*Set left margin to LeftColumnWidth*/
-
-	width: 100%;
-}
-
-#hex-buttons {
-	float: left;
-	width: 100%;
 }
 
 #hex-grid {
@@ -198,11 +191,11 @@ p {
 	margin: 22px 10px;
 }
 
-fieldset {
+.typed-arrays-container fieldset {
 	border: none;
 }
 
-fieldset ol li {
+.typed-arrays-container fieldset ol li {
 	margin: 0 0 22px 0;
 }
 
@@ -217,15 +210,15 @@ fieldset ol li {
 	color: rgba(66, 66, 66, 1.0);
 }
 
-select,
-input[type=file] {
+.typed-arrays-container select,
+.typed-arrays-container input[type=file] {
 	font-family: inherit;
 	font-size: inherit;
 	padding: 2px;
 	border: 1px solid rgba(118, 116, 116, 1.0);
 }
 
-input[type=file] {
+.typed-arrays-container input[type=file] {
 	background: rgba(255, 255, 255, 1.0);
 	width: 300px;
 }
@@ -234,5 +227,4 @@ input[type=file] {
 	font-size: 80%;
 	color: rgba(0, 0, 0, 0.5);
 	display: block;
-	/*    margin: 0 0 0 104px;*/
 }
