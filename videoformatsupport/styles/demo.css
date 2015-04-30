@@ -130,10 +130,7 @@ embed {
 @media screen and (min-width: 1424px) {
     video,
     object,
-    embed,
-    .h264high,
-    .h264baseline,
-    .webm
+    embed
     .videoheader,
     .videomarkup {
         width: 640px;
@@ -141,10 +138,7 @@ embed {
 
     video,
     object,
-    embed,
-    .h264high,
-    .h264baseline,
-    .webm {
+    embed {
         height: 360px;
     }
 
