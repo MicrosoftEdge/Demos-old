@@ -1,114 +1,139 @@
 <html>
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="description" content="Compare the difference techniques for script yielding in JavaScript"/>
-    <meta name="keywords" content="performance, settimeout, setimmediate, yielding, javascript, es5, ecmascript"/>
-    <meta name="og:title" content="JavaScript yielding"/>
-    <title>Efficient Script Yielding in JavaScript</title>
-    <link rel="stylesheet" type="text/css" href="styles/demotemplate.css"/>
-    <link rel="stylesheet" type="text/css" href="styles/demo.css"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="description" content="Compare the difference techniques for script yielding in JavaScript"/>
+	<meta name="keywords" content="performance, settimeout, setimmediate, yielding, javascript, es5, ecmascript"/>
+	<meta name="og:title" content="JavaScript yielding"/>
+	<title>Efficient Script Yielding in JavaScript</title>
+	<link rel="stylesheet" type="text/css" href="styles/demotemplate.css"/>
+	<link rel="stylesheet" type="text/css" href="styles/demo.css"/>
 </head>
 
 <body>
-<h1 id="demo-title">
-    Efficient Script Yielding
-</h1>
+<div class="container setimmediate-sorting-container">
+	<h1 id="demo-title">
+		Efficient Script Yielding
+	</h1>
 
-<div id="demo-content">
-    <div id="test-wrapper">
-        <div id="test-graph"></div>
-        <div id="test-container">
-            <div class="test-control-set">
-                <div class="test-title">HTML4 (~15ms Timers)</div>
-                <div class="test-results" id="HTML4TestResuts"></div>
-                <input class="TestButton" type="submit" value="Run Test" id="sort15Button">
-            </div>
+	<div id="demo-content">
+		<div id="test-wrapper">
+			<div id="test-graph"></div>
+			<div id="test-container">
+				<div class="test-control-set">
+					<div class="test-title">HTML4 (~15ms Timers)</div>
+					<div class="test-results" id="HTML4TestResuts"></div>
+					<input class="TestButton" type="submit" value="Run Test" id="sort15Button">
+				</div>
 
-            <div class="test-control-set">
-                <div class="test-title">HTML5 (4ms Timers)</div>
-                <div class="test-results" id="HTML5TestResults"></div>
-                <input class="TestButton" type="submit" value="Run Test" id="sort0Button">
-            </div>
+				<div class="test-control-set">
+					<div class="test-title">HTML5 (4ms Timers)</div>
+					<div class="test-results" id="HTML5TestResults"></div>
+					<input class="TestButton" type="submit" value="Run Test" id="sort0Button">
+				</div>
 
-            <div class="test-control-set">
-                <div class="test-title">PostMessage</div>
-                <div class="test-results" id="postMessageTestResults"></div>
-                <input class="TestButton" id="postMessageTestButton" type="submit" value="Run Test">
-            </div>
+				<div class="test-control-set">
+					<div class="test-title">PostMessage</div>
+					<div class="test-results" id="postMessageTestResults"></div>
+					<input class="TestButton" id="postMessageTestButton" type="submit" value="Run Test">
+				</div>
 
-            <div class="test-control-set">
-                <div class="test-title">setImmediate</div>
-                <div class="test-results" id="setImmediateTestResults"></div>
-                <input class="TestButton" id="setImmediateTestButton" type="submit" value="Run Test">
-            </div>
-        </div>
-    </div>
-</div>
-<div id="demo-details">
-    <div><b>Efficient Script Yielding W3C Specification</b></div>
-    <p>
-        The <a href="https://dvcs.w3.org/hg/webperf/raw-file/tip/specs/setImmediate/Overview.html">W3C Efficient Script
-        Yielding specification</a> defines a means for site developers to yield control flow to the user agent before
-        running script. Web developers may want to use this interface to both allow user agent events and display
-        updates to happen before continuing script execution and to avoid long running script dialogs in certain user
-        agents. Many web pages use the setTimeout method with a specified period of zero to attempt to do the same
-        thing. However, setTimeout enforces a minimum delay, even with a specified period of zero, that isn't uniformly
-        implemented across user agents. Removing this minimum delay from setTimeout runs the risk of causing existing
-        webpages, that have come to rely on the minimum delay, to break by going into a seemingly hung state while also
-        significantly increasing the power consumption of the browser.
-    </p>
+				<div class="test-control-set">
+					<div class="test-title">setImmediate</div>
+					<div class="test-results" id="setImmediateTestResults"></div>
+					<input class="TestButton" id="setImmediateTestButton" type="submit" value="Run Test">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="demo-details">
+		<div><b>Efficient Script Yielding W3C Specification</b></div>
+		<p>
+			The <a href="https://dvcs.w3.org/hg/webperf/raw-file/tip/specs/setImmediate/Overview.html">W3C Efficient
+			Script
+			Yielding specification</a> defines a means for site developers to yield control flow to the user agent
+			before
+			running script. Web developers may want to use this interface to both allow user agent events and display
+			updates to happen before continuing script execution and to avoid long running script dialogs in certain
+			user
+			agents. Many web pages use the setTimeout method with a specified period of zero to attempt to do the same
+			thing. However, setTimeout enforces a minimum delay, even with a specified period of zero, that isn't
+			uniformly
+			implemented across user agents. Removing this minimum delay from setTimeout runs the risk of causing
+			existing
+			webpages, that have come to rely on the minimum delay, to break by going into a seemingly hung state while
+			also
+			significantly increasing the power consumption of the browser.
+		</p>
 
-    <p>
-        Web developers <a href="http://answers.oreilly.com/topic/1506-yielding-with-javascript-timers/">commonly use the
-        setTimeout API</a> to break apart long running JavaScript operations. This approach allows the browser to
-        process outstanding work, such as layouts and paints, and then waits for the specified period of time before
-        calling back into JavaScript. It's an important design pattern when building responsive web applications.
-    </p>
+		<p>
+			Web developers <a href="http://answers.oreilly.com/topic/1506-yielding-with-javascript-timers/">commonly use
+			the
+			setTimeout API</a> to break apart long running JavaScript operations. This approach allows the browser to
+			process outstanding work, such as layouts and paints, and then waits for the specified period of time before
+			calling back into JavaScript. It's an important design pattern when building responsive web applications.
+		</p>
 
-    <p>
-        Once the browser has yielded control it relies on an interrupt from the underlying operating system and hardware
-        to receive control and issue the JavaScript callback. Having longer durations between these interrupts allows
-        hardware to enter low power states which significantly decreases power consumption. By default the Microsoft
-        Windows operating system and <a
-            href="http://software.intel.com/en-us/articles/cpu-power-utilization-on-intel-architectures/">Intel based
-        processors use 15.6ms resolutions</a> for these interrupts (64 interrupts per second). This allows Intel based
-        processors to enter their lowest power state. For this reason web developers have traditionally only been able
-        to achieve 64 callbacks per second when using setTimeout(0) when using HTML4 browsers including earlier editions
-        of Internet Explorer and Mozilla Firefox.
-    </p>
+		<p>
+			Once the browser has yielded control it relies on an interrupt from the underlying operating system and
+			hardware
+			to receive control and issue the JavaScript callback. Having longer durations between these interrupts
+			allows
+			hardware to enter low power states which significantly decreases power consumption. By default the Microsoft
+			Windows operating system and <a
+			href="http://software.intel.com/en-us/articles/cpu-power-utilization-on-intel-architectures/">Intel based
+			processors use 15.6ms resolutions</a> for these interrupts (64 interrupts per second). This allows Intel
+			based
+			processors to enter their lowest power state. For this reason web developers have traditionally only been
+			able
+			to achieve 64 callbacks per second when using setTimeout(0) when using HTML4 browsers including earlier
+			editions
+			of Internet Explorer and Mozilla Firefox.
+		</p>
 
-    <p>
-        Over the last two years browsers have attempted to increase the number of callbacks per second that JavaScript
-        developers can receive through the setTimeout and setInterval API's by changing the power conscious Windows
-        system settings and preventing hardware from entering low power states. The HTML5 specification has gone to the
-        extreme of recommending 250 callbacks per second. This high frequency can result in a 40% increase in power
-        consumption, impacting battery life, operating expenses, and the environment. In addition, this approach does
-        not address the core performance problem of improving CPU efficiency and scheduling.
-    </p>
+		<p>
+			Over the last two years browsers have attempted to increase the number of callbacks per second that
+			JavaScript
+			developers can receive through the setTimeout and setInterval API's by changing the power conscious Windows
+			system settings and preventing hardware from entering low power states. The HTML5 specification has gone to
+			the
+			extreme of recommending 250 callbacks per second. This high frequency can result in a 40% increase in power
+			consumption, impacting battery life, operating expenses, and the environment. In addition, this approach
+			does
+			not address the core performance problem of improving CPU efficiency and scheduling.
+		</p>
 
-    <p>
-        The new setImmediate API, which is semantically comparable to the setTimeout and setInterval API's, was designed
-        by the <a href="http://www.w3.org/2010/webperf/">W3C Web Performance Working Group</a> to address the core
-        performance problem without negatively impacting power consumption. Web developers can use the setImmediate API
-        to break apart long running JavaScript operations and will receive a callback immediately after the browser has
-        processed outstanding work. It's the best of both worlds - the efficiency of native scheduling and the power
-        conservation of low frequencies. Using setImmediate is a great replacement for most cases where developers are
-        intentionally using setTimeout(0) today.
-    </p>
+		<p>
+			The new setImmediate API, which is semantically comparable to the setTimeout and setInterval API's, was
+			designed
+			by the <a href="http://www.w3.org/2010/webperf/">W3C Web Performance Working Group</a> to address the core
+			performance problem without negatively impacting power consumption. Web developers can use the setImmediate
+			API
+			to break apart long running JavaScript operations and will receive a callback immediately after the browser
+			has
+			processed outstanding work. It's the best of both worlds - the efficiency of native scheduling and the power
+			conservation of low frequencies. Using setImmediate is a great replacement for most cases where developers
+			are
+			intentionally using setTimeout(0) today.
+		</p>
 
-    <p>
-        This demo visually sorts 250 items using the Quick Sort algorithm once per callback, making one swap during each
-        browser callback. The more browser callbacks per second the faster the items will be sorted. While this is not
-        how you would efficiently implement a sorting algorithm it's a fun way to visualize the impact of callbacks per
-        second. Try sorting using the HTML4 resolution of 15.6ms per callback, the HTML5 resolution of 4ms per callback,
-        and the new setImmediate approach of immediate callbacks. Special thanks to <a
-            href="http://www.eak.com/resume.html">Erik Kay</a> and <a href="http://www.belshe.com/">Mike Belshe</a> from
-        the Google Chrome engineering team for the quick sort test used to demonstrate the benefits of the new
-        setImmediate API. Additional information can be found online including great <a
-            href="http://www.nczonline.net/blog/2011/09/19/script-yielding-with-setimmediate/">articles from Nicholas
-        Zakas.</a>
-    </p>
+		<p>
+			This demo visually sorts 250 items using the Quick Sort algorithm once per callback, making one swap during
+			each
+			browser callback. The more browser callbacks per second the faster the items will be sorted. While this is
+			not
+			how you would efficiently implement a sorting algorithm it's a fun way to visualize the impact of callbacks
+			per
+			second. Try sorting using the HTML4 resolution of 15.6ms per callback, the HTML5 resolution of 4ms per
+			callback,
+			and the new setImmediate approach of immediate callbacks. Special thanks to <a
+			href="http://www.eak.com/resume.html">Erik Kay</a> and <a href="http://www.belshe.com/">Mike Belshe</a> from
+			the Google Chrome engineering team for the quick sort test used to demonstrate the benefits of the new
+			setImmediate API. Additional information can be found online including great <a
+			href="http://www.nczonline.net/blog/2011/09/19/script-yielding-with-setimmediate/">articles from Nicholas
+			Zakas.</a>
+		</p>
 
+	</div>
 </div>
 <script type="text/javascript" src="scripts/demo.js"></script>
 </body>
