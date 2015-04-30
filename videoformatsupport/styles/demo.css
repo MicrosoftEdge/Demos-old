@@ -86,9 +86,6 @@ embed {
 video,
 object,
 embed,
-.h264high,
-.h264baseline,
-.webm,
 .videoheader,
 .videomarkup {
     width: 384px;
@@ -96,10 +93,7 @@ embed,
 
 video,
 object,
-embed,
-.h264high,
-.h264baseline,
-.webm {
+embed {
     height: 216px;
 }
 
@@ -114,9 +108,6 @@ embed,
     video,
     object,
     embed,
-    .h264high,
-    .h264baseline,
-    .webm,
     .videoheader,
     .videomarkup {
         width: 512px;
@@ -124,10 +115,7 @@ embed,
 
     video,
     object,
-    embed,
-    .h264high,
-    .h264baseline,
-    .webm {
+    embed{
         height: 288px;
     }
 
