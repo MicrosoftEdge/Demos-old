@@ -40,7 +40,7 @@
 	font-style: italic;
 }
 
-.spell-input {
+.spellchecking-container .spell-input {
 	height: 2.5em;
 	width: 500px;
 	margin-bottom: 10px;
@@ -67,6 +67,6 @@
 	clear: both;
 }
 
-.tt {
+.spellchecking-container .tt {
 	font-family: "Lucida Console", monospace;
 }
