@@ -10,6 +10,14 @@
 	background: url("../images/grayswooshwatermarkupdated.png") no-repeat top center, url("../images/hexbackground.png") repeat-x top left, url("../images/hexbackground_2.png") repeat-x 0 20px;
 }
 
+#serverFiles {
+	width: 15.5rem;
+}
+
+#fileInput{
+	width: 30rem;
+}
+
 .typed-arrays-container ol,
 .typed-arrays-container ul {
 	list-style: none;
