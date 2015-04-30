@@ -16,12 +16,17 @@
 .spellchecking-container td {
 	font-family: Consolas, "Courier New";
 	font-weight: bold;
+	padding: 0;
+}
+
+.spellchecking-container tbody tr,
+.spellchecking-container tbody tr:nth-child(odd) {
+	background-color: hsla(0, 0%, 0%, 0);
 }
 
 .spellchecking-container textarea {
 	width: 520px;
 	height: 150px;
-	margin-bottom: 20px;
 	margin-right: 30px;
 }
 
