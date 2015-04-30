@@ -86,7 +86,7 @@ var SVGBGMAKER = SVGBGMAKER || {};
 		SVGBGMAKER.markup = SVGBGMAKER.markup.replace(');', '');
 		SVGBGMAKER.markup = SVGBGMAKER.trimString(SVGBGMAKER.markup);
 
-		var svg = SVGBGMAKER.Base64.decode(SVGBGMAKER.markup);
+		var svg = atob(SVGBGMAKER.markup);
 
 		// Parsing svg string into svg contents via array
 		var svgContentArray = [];
@@ -789,10 +789,10 @@ var SVGBGMAKER = SVGBGMAKER || {};
 	SVGBGMAKER.getMarkup = function (inputPos, inputSize) {
 		if (SVGBGMAKER.gradientType === 'linear') {
 			var svg = SVGBGMAKER.linearGradientSVG(inputPos);
-			SVGBGMAKER.base64url = 'url(data:image/svg+xml;base64,' + SVGBGMAKER.Base64.encode(svg) + ')';
+			SVGBGMAKER.base64url = 'url(data:image/svg+xml;base64,' + btoa(svg) + ')';
 		} else if (SVGBGMAKER.gradientType === 'radial') {
 			svg = SVGBGMAKER.radialGradientSVG(inputPos, inputSize);
-			SVGBGMAKER.base64url = 'url(data:image/svg+xml;base64,' + SVGBGMAKER.Base64.encode(svg) + ')';
+			SVGBGMAKER.base64url = 'url(data:image/svg+xml;base64,' + btoa(svg) + ')';
 		} else {
 			return '';
 		}
@@ -804,10 +804,10 @@ var SVGBGMAKER = SVGBGMAKER || {};
 		var base64url;
 		if (SVGBGMAKER.gradientType === 'linear') {
 			var svg = SVGBGMAKER.linearGradientSVG(inputPos);
-			base64url = 'url(data:image/svg+xml;base64,' + SVGBGMAKER.Base64.encode(svg) + ')';
+			base64url = 'url(data:image/svg+xml;base64,' + btoa(svg) + ')';
 		} else if (SVGBGMAKER.gradientType === 'radial') {
 			svg = SVGBGMAKER.radialGradientSVG(inputPos, inputSize);
-			base64url = 'url(data:image/svg+xml;base64,' + SVGBGMAKER.Base64.encode(svg) + ')';
+			base64url = 'url(data:image/svg+xml;base64,' + btoa(svg) + ')';
 		} else {
 			return '';
 		}
