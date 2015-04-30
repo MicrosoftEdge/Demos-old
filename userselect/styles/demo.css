@@ -25,6 +25,7 @@
 	background-color: transparent;
 	font-size: 13px;
 	line-height: normal;
+	padding: 1rem;
 }
 
 .userselect-container select {
