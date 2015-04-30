@@ -2,6 +2,7 @@
 	min-width: 960px;
 	max-width: 1080px;
 	padding: 0 40px 0 40px;
+	font-size: 1.5rem;
 }
 
 .spellchecking-container table {
