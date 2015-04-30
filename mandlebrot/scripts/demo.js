@@ -384,10 +384,10 @@
 
 		if (evt.offsetX && evt.offsetY) {
 			canvasX = evt.offsetX; // Not supported in Firefox.
-			canvasY = evt.offsetY; // Does not assume that the canvas element is a direct descendent of the body element.
+			canvasY = evt.offsetY;
 		} else {
-			canvasX = evt.clientX - evt.target.offsetLeft; // Supported in Firefox.
-			canvasY = evt.clientY - evt.target.offsetTop; // Assumes that the canvas element is a direct descendent of the body element.
+			canvasX = evt.layerX; // Supported in Firefox.
+			canvasY = evt.layerY;
 		}
 
 		var staticZoomBoxWidth = globals.staticZoomBoxWidth;
