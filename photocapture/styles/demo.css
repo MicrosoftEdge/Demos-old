@@ -5,6 +5,10 @@
 	margin-top: 0;
 }
 
+#videoCanvascontainer * + * {
+	margin-top: 0;
+}
+
 #canvasTag {
     width: 100%;
 }
