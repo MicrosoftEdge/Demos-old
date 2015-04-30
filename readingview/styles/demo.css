@@ -151,6 +151,7 @@
     border: 3px solid #004999;
     opacity: 0;
 	margin-top: 0;
+	box-sizing: content-box;
     background: url(fake.gif) no-repeat -1px -1px;
 }
 
