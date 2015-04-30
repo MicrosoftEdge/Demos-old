@@ -41,6 +41,17 @@
 
 #sample-content {
 	border-bottom: solid thin;
+	padding-top: 20px;
+	padding-left: 6px;
+	padding-right: 6px;
+	height: 40px;
+	background-color: rgb(170, 221, 255);
+	box-sizing: content-box;
+	font-size: 1.5em;
+}
+
+#sample-content * + * {
+	margin-top: 0;
 }
 
 .comment img {
