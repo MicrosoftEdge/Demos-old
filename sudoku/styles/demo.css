@@ -1,38 +1,28 @@
-html,
-body {
-	width: 100%;
-	height: 100%;
-	border: 0;
-	overflow: auto;
-}
-
-body {
+.content--testdrive table,
+.content--testdrive tr,
+.content--testdrive td {
 	margin: 0;
 	padding: 0;
+	border: 0;
+}
+
+.section--demo-content .container {
 	background: #E10A04 url('../images/backgroundx.png') repeat-x;
+}
+
+#sudoku-wrapper {
+	background: url('../images/background.png') no-repeat top center;
+	min-height: 720px;
+	position: relative;
 	font-family: Arial;
 	color: #FFAEAE;
 	font-size: 12px;
+	padding-top: 20px;
 }
 
-body,
-table,
-tr,
-td,
-div {
-	margin: 0;
-	padding: 0;
-	border: 0;
-}
-
-b {
+#sudoku-wrapper b {
 	color: #FFFFFF;
 	font-weight: bold;
-}
-
-#wrapper {
-	background: url('../images/background.png') no-repeat top center;
-	min-height: 720px;
 }
 
 #main,
@@ -49,23 +39,28 @@ b {
 	font-size: 33px;
 }
 
-a {
+#sudoku-wrapper a {
 	color: #FFAEAE;
 	text-decoration: none;
 }
 
-a:hover {
+#sudoku-wrapper a:hover {
 	color: #FFFFFF;
 	text-decoration: none;
 }
 
 #content {
 	float: left;
+	margin-top: 20px;
 }
 
 #column1 {
 	width: 300px;
 	float: left;
+}
+
+#column1 span {
+	padding: 0;
 }
 
 #sudoku-board {
@@ -75,12 +70,14 @@ a:hover {
 	-webkit-box-shadow: 0 0 30px #680301;
 	-moz-box-shadow: 0 0 30px #680301;
 	box-shadow: 0 0 30px #680301;
+	margin-top: 0;
 }
 
 #column2 {
 	width: 174px;
 	margin-left: 40px;
 	float: left;
+	margin-top: 0;
 }
 
 td.board-cell-groupA,
@@ -116,14 +113,14 @@ td.board-cell-groupB td.board-cell {
 	height: 42px;
 	padding: 0;
 	margin: 0;
-	border: 1px solid #DA0603;
+	/*border: 1px solid #DA0603;*/
 }
 
 .edit-value:hover {
 	background: #940302;
 }
 
-label {
+#sudoku-wrapper label {
 	position: relative;
 	top: 3px;
 	line-height: 24px;
@@ -131,7 +128,7 @@ label {
 	color: #FFFFFF;
 }
 
-select {
+#sudoku-wrapper select {
 	font-family: Arial;
 	color: #999999;
 	font-weight: normal;
@@ -157,7 +154,7 @@ select {
 	color: #FBF2A8;
 }
 
-.edit-value input {
+#sudoku-wrapper .board-cell .edit-value input {
 	font-family: Segoe UI, Arial;
 	font-size: 30px;
 	color: #FFFFFF;
@@ -169,16 +166,18 @@ select {
 	vertical-align: middle;
 	position: relative;
 	left: -1px;
+	height: auto;
+	margin: auto;
 }
 
-input[type="submit"] {
+#sudoku-wrapper input[type="submit"] {
 	font-family: Arial;
 	font-size: 18px;
 	color: #FFFFFF;
 	text-transform: uppercase;
 	border: 0;
 	min-width: 162px;
-	min-height: 34px;
+	min-height: 32px;
 	background: url('../images/submitbackground.png') repeat-x;
 	margin: 8px 0;
 	cursor: pointer;
@@ -216,6 +215,7 @@ input[type="submit"].game-controls {
 	top: 0;
 	right: 0;
 	background: url('../images/shade.png') repeat;
+	margin: 0;
 }
 
 #you-won div {
@@ -228,23 +228,27 @@ input[type="submit"].game-controls {
 	margin: 100px auto 0 auto;
 }
 
-small {
+#sudoku-wrapper small {
 	font-size: 14px;
 	color: #FFFD7B;
 }
 
-.no-errors {
+#sudoku-wrapper .no-errors {
 	font-size: 18px;
 	font-weight: bold;
 	color: #FFFFFF;
+	padding: 0;
+	margin-top: 0;
 }
 
 .errors-found {
 	font-size: 18px;
 	font-weight: bold;
 	color: #ED823F;
+	padding: 0;
+	margin-top: 0;
 }
 
-.error {
+#sudoku-wrapper .error {
 	border: 1px solid #ED823F;
 }
