@@ -1,25 +1,22 @@
-body {
-    min-width: 384px;
-    max-width: 1424px;
-    padding: 0 0 0 0.5in;
-    margin: auto;
-    font-family: "Segoe UI", Arial, Helvetica, Sans-Serif;
+.videoformatsupport-container {
+	min-width: 384px;
+	max-width: 1424px;
 }
 
-a,
-a:visited,
-a:hover {
+.videoformatsupport-container a,
+.videoformatsupport-container a:visited,
+.videoformatsupport-container a:hover {
     color: #008bd5;
 }
 
 @media screen and (max-width: 480px) {
-    body {
+	.videoformatsupport-container {
         padding: 0;
         width: 384px;
     }
 }
 
-h2 {
+.videoformatsupport-container h2 {
     font-size: 14pt;
     font-weight: normal;
 }
@@ -38,9 +35,9 @@ h2 {
     float: left;
 }
 
-video,
-object,
-embed {
+.videoformatsupport-container video,
+.videoformatsupport-container object,
+.videoformatsupport-container embed {
     background-color: #333;
 }
 
@@ -83,17 +80,17 @@ embed {
 
 /*  set the default widths to our min-size */
 
-video,
-object,
-embed,
+.videoformatsupport-container video,
+.videoformatsupport-container object,
+.videoformatsupport-container embed,
 .videoheader,
 .videomarkup {
     width: 384px;
 }
 
-video,
-object,
-embed {
+.videoformatsupport-container video,
+.videoformatsupport-container object,
+.videoformatsupport-container embed {
     height: 216px;
 }
 
@@ -105,17 +102,17 @@ embed {
 /* wider: bigger video */
 
 @media screen and (min-width: 1168px) {
-    video,
-    object,
-    embed,
+    .videoformatsupport-container video,
+    .videoformatsupport-container object,
+    .videoformatsupport-container embed,
     .videoheader,
     .videomarkup {
         width: 512px;
     }
 
-    video,
-    object,
-    embed{
+    .videoformatsupport-container video,
+    .videoformatsupport-container object,
+    .videoformatsupport-container embed{
         height: 288px;
     }
 
@@ -128,17 +125,17 @@ embed {
 /* still wider: even bigger video */
 
 @media screen and (min-width: 1424px) {
-    video,
-    object,
-    embed
+    .videoformatsupport-container video,
+    .videoformatsupport-container object,
+    .videoformatsupport-container embed,
     .videoheader,
     .videomarkup {
         width: 640px;
     }
 
-    video,
-    object,
-    embed {
+    .videoformatsupport-container video,
+    .videoformatsupport-container object,
+    .videoformatsupport-container embed {
         height: 360px;
     }
 
