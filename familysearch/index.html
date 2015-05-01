@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Family Friendly Web - Safe Searching</title>
+	<title>Family-friendly web: safe searching</title>
 	<meta name="og:title" content="Family Friendly"/>
 	<meta name="description" content=""/>
 	<meta name="keywords" content="Misc, safe search"/>
@@ -10,106 +10,86 @@
 </head>
 
 <body>
-	<article class="demo-wrap">
 
-		<header class="demo-header">
-			<div class="container">
-				<heading class="section-header">
-					<h1 class="heading">Family Friendly Web - Safe Searching</h1>
-				</heading>
-				<div class="row">
-					<div class="col-sm-12">
-						<p class="text-title"></p>
-					</div>
-				</div>
+	<!-- DEMO INTRO -->
+	<header class="section section--page-intro demo__header">
+		<div class="container">
+			<div class="section__header">
+				<h1>Family-friendly web: safe searching</h1>
 			</div>
-		</header>
-
-		<div class="demo-content">
-			<div class="container">
-
-				<section class="section">
-					<header class="section-header">
-						<h2 class="subheading">What is it:</h2>
+		</div>
+	</header>
+	
+	<!-- DEMO CONTENT -->
+	<section role="region" class="section">
+		<div class="container">
+			<div class="section__body">
+				<p>Today it is a method to prevent child searching the web from receiving adult content. Although focused on keeping childern safe, the method can be used on any account.</p>
+				<section role="region" class="subsection">
+					<header class="subsection__header">
+						<h2>How it works</h2>
 					</header>
-					<div class="section-body">
-						<p>
-							Today it is a method to prevent child searching the web from receiving adult content.
-							Although focused on keeping childern safe, the method can be used on any account.
-						</p>
-					</div>
-				</section>
-
-				<section class="section">
-					<header class="section-header">
-						<h2 class="subheading">How it works:</h2>
-					</header>
-					<div class="section-body">
+					<div class="subsection__body">
 						<ol>
 							<li>Parents need to turn on <a href="http://windows.microsoft.com/en-us/windows/set-up-family-safety#set-up-family-safety=windows-8">Parental Controls in Windows</a>  for their children's account.</li>
 							<li>IE recognize that Parental Controls is turned on and indicate to Bing that the user prefers to receive safe results.</li>
 							<li>Bing respects the preference and sends back only results classified as non-adult.</li>
-
 						</ol>
 					</div>
 				</section>
-
-				<section class="section">
-					<header class="section-header">
-						<h2 class="subheading">Results:</h2>
+				<section role="region" class="subsection">
+					<header class="subsection__header subsection__header">
+						<h2>Results</h2>
+						<p>For this search term, the differences in results include the images shown, total number of results returned, and ordering of the information.</p>
 					</header>
-					<div class="section-body">
-						<div class="row">
-							<div class="col-md-12">
-								<p>
-									Bing's Family Friendly Search
-								</p>
-								<div class="grey-block">
-									<img src="images/safe.jpg">
+					<div class="subsection__body">
+						<div class="layout layout--halves">
+							<div class="module bing-result">
+								<h3>Bing's Normal Search</h3>
+								<div class="rendered-result">
+									<img src="images/unsafe.jpg" alt="Example screenshot of normal search with less child-friendly content" />
 								</div>
 							</div>
-							<div class="col-md-12">
-								<p>
-									Bing's Normal Search
-									<div class="grey-block">
-										<img src="images/unsafe.jpg">
-									</div>
+							<div class="module bing-result">
+								<h3>Bing's Family Friendly Search</h3>
+								<div class="rendered-result">
+									<img src="images/safe.jpg" alt="Example screenshot of search filtered for family-friendly audience" />
+								</div>
 							</div>
 						</div>
-						<p>
-							Note: for this search text examples of the difference include the images shown, total number of results returned and ordering of the information.
-						</p>
 					</div>
 				</section>
-
-				<section class="section">
-					<header class="section-header">
-						<h2 class="subheading">Details:</h2>
-					</header>
-					<div class="section-body">
-						<p>
-							The safe search preference is communicated via the HTTP header <code>"prefer:safe"</code>.
-							For more information about the header, you can refer to the <a href="https://tools.ietf.org/html/draft-nottingham-safe-hint-05">Internet draft specification</a> submitted to the IETF (Internet Engineering Task Force).
-						</p>
+				<section role="region" class="subsection">
+					<div class="container">
+						<header class="subsection__header">
+							<h2>Technical details</h2>
+						</header>
+						<div class="subsection__body">
+							<p>
+								The safe search preference is communicated via the HTTP header <code>"prefer:safe"</code>.
+								For more information about the header, you can refer to the <a href="https://tools.ietf.org/html/draft-nottingham-safe-hint-05">Internet draft specification</a> submitted to the IETF (Internet Engineering Task Force).
+							</p>
+						</div>
 					</div>
 				</section>
-
-				<section class="section">
-					<header class="section-header">
-						<h2 class="subheading">Future:</h2>
-					</header>
-					<div class="section-body">
-						<p>
-							Ultimately, it's up to the website or service owners to honor the safe preference when the browser communicates it to them on the user's behalf, and respond accordingly.
-							We're hoping that more browsers, websites, and services will embrace the standard so that we collectively help build a safer web for our children.
-
-						</p>
-					</div>
-				</section>
-
-
 			</div>
 		</div>
-	</article>
+	</section>
+
+	<section class="section">
+		<div class="container">
+			<header class="section__header section__header--alt">
+				<h2>Future</h2>
+			</header>
+			<div class="section__body">
+				<p>
+					Ultimately, it's up to the website or service owners to honor the safe preference when the browser communicates it to them on the user's behalf, and respond accordingly.
+					We're hoping that more browsers, websites, and services will embrace the standard so that we collectively help build a safer web for our children.
+	
+				</p>
+			</div>
+		</div>
+	</section>
+
 </body>
 </html>
