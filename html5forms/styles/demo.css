@@ -1,21 +1,45 @@
-h1 {
+#demo-wrapper {
+	  position: relative;
+	  margin: 0 auto 0 auto;
+	  min-width: 960px;
+	  max-width: 1080px;
+	  padding: 0 40px 0 40px;
+}
+
+#demo-content .container {
+	width: 100%;
+}
+
+.image-wrapper {
+	max-width:350px; 
+	float:right; 
+	padding-top: 10px;
+}
+
+#cakeForm{
+	  padding-right: 350px;
+}
+
+#demo-wrapper h1 {
 	margin-bottom: 20px;
 }
-fieldset {
+#demo-wrapper fieldset {
 	padding-left: 10px;
 	margin: 10px;
+	padding-bottom: 10px;
 }
-label {
+#demo-wrapper label {
 	width: 150px;
 	display: inline-block;
 	padding-bottom: 10px;
 }
-legend {
+#demo-wrapper legend {
 	font-size: large;
 }
-input,
-select,
-textarea {
+
+#demo-wrapper  input,
+#demo-wrapper select,
+#demo-wrapper textarea {
 	width: 200px;
 }
 .comment {
@@ -42,6 +66,7 @@ textarea {
 }
 #demo-details {
 	min-height: 1150px;
+	margin-bottom: 20px;
 }
 .code {
 	font-family: "Courier New", Courier, monospace;
@@ -54,10 +79,10 @@ textarea {
 }
 #tabmenu {
 	/*color: #000;*/
-	
 	border-bottom: 2px solid gray;
 	z-index: 1;
 	padding-left: 10px;
+	margin: 0;
 }
 #tabmenu li {
 	display: inline;
@@ -92,6 +117,11 @@ textarea {
 	display: block;
 	height: 100%;
 }
+#demo-details input[type="submit"] {
+	margin: 0;
+  	vertical-align: baseline;
+  	margin-left: 5px;
+}
 form.success:after {
 	content: "Successful submit!";
 	color: green;
@@ -99,4 +129,13 @@ form.success:after {
 }
 #demo-content {
 	height: 500px;
+}
+#content1, #content2, #content3, #content4 {
+	margin: 0;
+}
+#content2 textarea {
+	vertical-align: bottom;
+}
+#content3 input[type="submit"], #content4 #form input[type="submit"] {
+	margin-left: 0;
 }
