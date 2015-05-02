@@ -3,17 +3,31 @@
 <head>
 	<title>Learn how to use WebAudio, WebGL and pointer events thanks to Babylon.js</title>
 	<meta name="og:title" content="Music Lounge"/>
-	<meta name="description"
-		  content="Music Lounge is an interactive demo that showcase WebGL audio positioning within a minimalistic UI based on babylon.js"/>
+	<meta name="description" content="Music Lounge is an interactive demo that showcase WebGL audio positioning within a minimalistic UI based on babylon.js"/>
 	<meta name="keywords" content="Graphics, webgl, webaudio, pointer events"/>
 	<meta name="author" content="deltakosh, meulta, davrous"/>
-
+	<link rel="stylesheet" type="text/css" href="http://edgeportal.blob.core.windows.net/media/demotemplate.css">
 	<link href="styles/demo.css" rel="stylesheet"/>
 </head>
 <body>
-<div class="container">
-	<canvas id="renderCanvas"></canvas>
-</div>
+
+	<!-- DEMO INTRO -->
+	<header class="section section--page-intro demo__header">
+		<div class="container">
+			<div class="section__header">
+				<h1>Music Lounge</h1>
+				<p class="title">Uses WebAudio, WebGL and pointer events thanks to Babylon.js</p>
+			</div>
+		</div>
+	</header>
+	
+	<!-- DEMO CONTENT -->
+	<section role="region" class="section">
+		<div class="section__body">
+			<canvas id="renderCanvas"></canvas>
+		</div>
+	</section>
+	
 <script src="scripts/hand.minified-1.2.js"></script>
 <script src="scripts/babylon.max.js"></script>
 <script src="scripts/musicLounge.soundsLoader.js"></script>
