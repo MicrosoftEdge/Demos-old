@@ -43,13 +43,19 @@
 					</div>
 					<div class="module mic-controls__recording">	
 						<h3 class="mic__heading">Add Audio</h3>
-						<!-- loadFile() works by clicking a hidden type=file control -->		
-						<input class="button mic-controls__recording__button" type="button" id="recordButton" value="Record">
-						<input class="button mic-controls__recording__button" type="button" id="playButton" value="Play">
-						<input class="button mic-controls__recording__button" type="button" id="saveButton" value="Save">
-						<input class="button mic-controls__recording__button" type="button" id="loadButton" value="Load">	
-						<input type="checkbox" id="loop">Loop
-						<input class="visually-hidden" type="file" id="loadFiles" multiple>
+						<!-- loadFile() works by clicking a hidden type=file control -->
+						<div class="clear">		
+							<input class="button mic-controls__recording__button mic-controls__record" type="button" id="recordButton" value="Record">
+							<input class="button mic-controls__recording__button mic-controls__play" type="button" id="playButton" value="Play">
+						</div>
+						<div class="clear">		
+							<input class="button mic-controls__recording__button mic-controls__save" type="button" id="saveButton" value="Save">
+							<input class="button mic-controls__recording__button mic-controls__load" type="button" id="loadButton" value="Load">	
+						</div>
+						<div class="clear">
+							<input type="checkbox" id="loop"><label>Loop</label>
+							<input class="visually-hidden" type="file" id="loadFiles" multiple>
+						</div>
 					</div>
 					<div class="module">
 						<div class="layout layout--halves">

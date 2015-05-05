@@ -51,6 +51,14 @@ input[type="radio"] + label {
 	margin-top: 0;
 }
 
+.mic-controls__recording__button {
+	margin-top: 0;
+}
+
+.mic-controls__save {
+	clear: left;
+}
+
 /* Visualizations */
 .mic-vis {
 	position: relative;
@@ -69,66 +77,3 @@ input[type="radio"] + label {
 	margin-top: 0;
 	border-radius: 4px;
 }
-
-/* Your custom CSS goes here
-
-	div.wrapper {
-	  margin-right: auto;
-	  margin-left: auto;
-	  width: 92.5%;
-	  max-width: 160rem;
-	}
-	input.btn {   
-	  background-color:#ddd;   
-	  border: 1px solid;   
-	  border-color: #bbb #000 #000 #bbb;
-      font-family: 'Segoe UI', Verdana, Helvetica, Sans-Serif;
-      font-size: 10pt;
-      color: #424242;
-	}
-	input.btn_hide {
-	  width: 0px;
-	  display: none;
-	}
-	input.rdo {
-	  position: relative;
-	}
-	div.viewlabel {
-	  padding-top: 30px;
-	  padding-bottom: 10px;
-	  font-weight: bold;
-	}
-	#inputcontrols {
-	  padding-top: 20px;
-	  clear: both;
-	}
-	#recordcontrols {
-	  padding-top: 20px;
-	  clear: both;
-	  height: 35px;
-	  padding-left: 0px;
-	  padding-right: 0px;
-	}
-	#effectcontrols {
-	  padding-top: 20px;
-	  clear: both;
-	}
-	#filtercontrols {
-	  padding-top: 20px;
-	  clear: both;
-	}
-	div.label {
-	  float: left;
-	  width: 100px;
-	  font-weight: bold;
-	}
-	div.colL {
-	  float: left;
-	  width: 150px;
-	}
-	div.colLRec {
-	  float: left;
-	  width: 120px;
-	}
-	
- */

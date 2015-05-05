@@ -157,7 +157,7 @@ Microsoft Corporation
 		button.value = 'Record';
 		button.style.color = 'black';
 		button.style.fontWeight = 'normal';
-		button.style.background = '#dddddd';
+		button.style.background = '#fff';
 		
 		// reset play button
 		playing = false;
@@ -165,7 +165,7 @@ Microsoft Corporation
 		button.value = 'Play';
 		button.style.color = 'black';
 		button.style.fontWeight = 'normal';
-		button.style.background = '#dddddd';
+		button.style.background = '#fff';
 	};
 	
 	var toggleRecord = function() {
