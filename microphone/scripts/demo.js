@@ -63,9 +63,9 @@ Microsoft Corporation
 	freqAnalyser.smoothingTimeConstant = 0.85;
 	
 	// set up canvas contexts for visualizations
-	var freqCanvas = document.querySelector('.frequencyVisualization');
+	var freqCanvas = document.querySelector('.mic-vis__frequency');
 	var freqCanvasContext = freqCanvas.getContext('2d');
-	var timeCanvas = document.querySelector('.timeVisualization');
+	var timeCanvas = document.querySelector('.mic-vis__time');
 	var timeCanvasContext = timeCanvas.getContext('2d');
 	var intendedWidth = document.querySelector('.container').clientWidth;
 	freqCanvas.setAttribute('width', intendedWidth);

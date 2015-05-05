@@ -1,4 +1,76 @@
-/* Your custom CSS goes here */
+/* Demo header override */
+.demo__header .section__header {
+	padding-bottom: 0;
+	border-bottom: 0 none;
+}
+
+/* Generic Controls */
+.mic__heading {
+	font-size: 1.2rem;
+	text-transform: uppercase;
+	letter-spacing: .125rem;
+}
+
+/* TODO: Move to pattern library */
+input[type="checkbox"],
+input[type="radio"] {
+	line-height: 1;
+}
+
+input[type="checkbox"] + label,
+input[type="radio"] + label {
+	display: inline-block;
+	margin: 0 0 0 .4rem;
+}
+
+.list--checkboxes,
+.list--radios {
+	margin-left: 0;
+	list-style: none;
+}
+
+.list--checkboxes li,
+.list--radios li {
+	margin-top: .4rem;
+}
+
+.list--checkboxes label,
+.list--radios label {
+	display: inline-block;
+}
+
+/* End of move */
+
+/* Controls above visualizations */
+.mic-controls__group {
+	float: left;
+	width: 33%;
+}
+
+.mic-controls__filters {
+	margin-top: 0;
+}
+
+/* Visualizations */
+.mic-vis {
+	position: relative;
+}
+
+.mic-vis__heading {
+	position: absolute;
+	top: 1.2rem;
+	left: 1.2rem;
+	padding: .4rem;
+	border-radius: 2px;
+	background: rgba(0,0,0,.5);
+}
+
+.mic-vis__canvas {
+	margin-top: 0;
+	border-radius: 4px;
+}
+
+/* Your custom CSS goes here
 
 	div.wrapper {
 	  margin-right: auto;
@@ -58,3 +130,5 @@
 	  float: left;
 	  width: 120px;
 	}
+	
+ */

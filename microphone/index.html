@@ -6,73 +6,116 @@
 	<meta name="description" content=""/>
 	<meta name="keywords" content="Media, webaudio, getusermedia"/>
 	<meta name="author" content="jdsmith3000"/>
-	<link rel="stylesheet" type="text/css" href="styles/demotemplate.css"/>
+	<link rel="stylesheet" type="text/css" href="http://edgeportal.blob.core.windows.net/media/demotemplate.css">
 	<link rel="stylesheet" type="text/css" href="styles/demo.css"/>
 </head>
 
 <body>
-<article class="demo-wrap">
 
 	<!-- DEMO INTRO -->
-	<header class="demo-header">
+	<header class="section section--page-intro demo__header">
 		<div class="container">
-			<heading class="section-header">
-				<h1 class="heading">Microphone Streaming & Web Audio Demo</h1>
-			</heading>    
-			<div id="DemoIntroduction">
-				GetUserMedia Audio Capture and WebAudio Visualization Demo<br><br>	
+			<div class="section__header">
+				<h1>Microphone Streaming &amp; Web Audio Demo</h1>
+				<p class="title">GetUserMedia Audio Capture and WebAudio Visualization Demo</p>
 			</div>
 		</div>
 	</header>
-
-	<div class="container">
-
-		<audio id="demoAudio" onended="playComplete()"></audio>
-		
-		<div id="inputcontrols">
-			<div class="label">Mute:</div>
-			<div class="colL"><input class="rdo" type="checkbox" id="micMute">Mic Mute</div>	  
-			<div class="colL"><input class="rdo" type="checkbox" id="speakerMute" checked="">Speaker Mute</div>	  
-		</div>
-
-		<div id="recordcontrols">	
-			<div class="label">Recorder:</div>
-
-			<!-- loadFile() works by clicking a hidden type=file control -->		
-			<div class="colLRec"><input class="btn" type="button" id="recordButton" value="Record"></div>
-			<div class="colLRec"><input class="btn" type="button" id="playButton" value="Play"></div>
-			<div class="colLRec"><input class="btn" type="button" id="saveButton" value="Save"></div>
-			<div class="colLRec"><input class="btn" type="button" id="loadButton" value="Load"></div>			
-
-			<div class="colL"><input class="rdo" type="checkbox" id="loop">Loop</div>	
-	 		<div class="colLRec"><input class="btn_hide" type="file" id="loadFiles" multiple></div>
+	
+	<!-- DEMO CONTENT -->
+	<section class="section section--banner">
+		<div class="container">
+			<div class="section__body">
+			
+				<div class="layout layout--equal mic-controls">
+					<div class="module mic-controls__muting">
+						<h3 class="mic__heading">Mute</h3>
+						<ul class="list--checkboxes">
+							<li>
+								<input type="checkbox" id="micMute">
+								<label for="micMute">Mic Mute</label>
+							</li>
+							<li>	  
+								<input type="checkbox" id="speakerMute" checked="">
+								<label for="speakerMute">Speaker Mute</label>
+							</li>
+						</ul>
+					</div>
+					<div class="module mic-controls__recording">	
+						<h3 class="mic__heading">Add Audio</h3>
+						<!-- loadFile() works by clicking a hidden type=file control -->		
+						<input class="button mic-controls__recording__button" type="button" id="recordButton" value="Record">
+						<input class="button mic-controls__recording__button" type="button" id="playButton" value="Play">
+						<input class="button mic-controls__recording__button" type="button" id="saveButton" value="Save">
+						<input class="button mic-controls__recording__button" type="button" id="loadButton" value="Load">	
+						<input type="checkbox" id="loop">Loop
+						<input class="visually-hidden" type="file" id="loadFiles" multiple>
+					</div>
+					<div class="module">
+						<div class="layout layout--halves">
+							<div id="effectmic-controls" class="module mic-controls__effects">
+								<h3 class="mic__heading">Effects</h3>
+								<ul class="list--radios">
+									<li>
+										<input type="radio" name="effects" value="0" checked="">
+										<label>None</label>
+									</li>
+									<li>
+										<input type="radio" name="effects" value="1">
+										<label>Telephone</label>
+									</li>
+									<li>
+										<input type="radio" name="effects" value="2">
+										<label>Parking Garage</label>
+									</li>
+									<li>
+										<input type="radio" name="effects" value="3">
+										<label>Muffled Voice</label>
+									</li>
+								</ul>
+							</div>
+							<div id="filtermic-controls" class="modules mic-controls__filters">
+								<h3 class="mic__heading">Filters</h3>
+								<ul class="list--radios">
+									<li>
+										<input type="radio" name="filters" value="0" checked="">
+										<label>None</label>
+									</li>
+									<li>
+										<input type="radio" name="filters" value="1">
+										<label>Low Pass</label>
+									</li>
+									<li>
+										<input type="radio" name="filters" value="2">
+										<label>High Pass</label>
+									</li>
+									<li>
+										<input type="radio" name="filters" value="3">
+										<label>Band Pass</label>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="mic-vis__group">
+					<div class="mic-vis">
+						<h3 class="mic__heading mic-vis__heading">Signal</h3>
+						<canvas class="mic-vis__canvas mic-vis__time" width=auto height="150"></canvas>
+					</div>
+					<div class="mic-vis">
+						<h3 class="mic__heading mic-vis__heading">Frequency</h3> 
+						<canvas class="mic-vis__canvas mic-vis__frequency" width=auto height="150"></canvas>
+					</div>
+				</div>
+				<audio id="demoAudio" onended="playComplete()"></audio>
+			
 			</div>
-
-		<div class="viewlabel">Signal:	</div>
-		<Canvas class="timeVisualization" width=auto height="150"></Canvas> 
-		<div class="viewlabel">Frequency:</div>
-		<Canvas class="frequencyVisualization" width=auto height="150"></Canvas>
-
-		<div id="effectcontrols">
-			<div class="label">Effects:</div>
-			<div class="colL"><input class="rdo" type="radio" name="effects" value="0" checked="">None</div>
-			<div class="colL"><input class="rdo" type="radio" name="effects" value="1">Telephone</div>
-			<div class="colL"><input class="rdo" type="radio" name="effects" value="2">Parking Garage</div>
-			<div class="colL"><input class="rdo" type="radio" name="effects" value="3">Muffled Voice</div>
 		</div>
-		
-		<div id="filtercontrols">
-			<div class="label">Filters:</div>
-			<div class="colL"><input class="rdo" type="radio" name="filters" value="0" checked="">None</div>
-			<div class="colL"><input class="rdo" type="radio" name="filters" value="1">Low Pass</div>
-			<div class="colL"><input class="rdo" type="radio" name="filters" value="2">High Pass</div>
-			<div class="colL"><input class="rdo" type="radio" name="filters" value="3">Band Pass</div>
-		</div>
-	</div>
+	</section>
 	
 	<script type="text/javascript" src="scripts/recorder.js"></script>
 	<script type="text/javascript" src="scripts/demo.js"></script>	
 
-</article>
 </body>
 </html>
