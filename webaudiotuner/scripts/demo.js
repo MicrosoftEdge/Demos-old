@@ -27,7 +27,7 @@ $(document).ready(function () {
 	};
 
 	var reportError = function (message) {
-		$('#errorMessage').html(message);
+		$('#errorMessage').html(message).show();
 	};
 
 	var init = function () {
@@ -35,11 +35,11 @@ $(document).ready(function () {
 			freqTable = data;
 		});
 
-		$('.tunerOptions').toggle(false);
+		$('.tuner__options').toggle(false);
 
 		var gaugeCanvas = $('#gaugeCanvas')[0];
 		gauge = new Gauge(gaugeCanvas).setOptions({
-			strokeColor: '#e0e0e0',
+			strokeColor: '#dedede',
 			pointer: {
 				length: 0.8,
 				strokeWidth: 0.035

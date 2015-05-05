@@ -5,7 +5,7 @@
 	<meta name="description" content="Chromatic tuner implemented using Web Audio and Media Stream APIs"/>
 	<meta name="keywords" content="Media, web audio"/>
 	<meta name="author" content="Joaquin Bonet"/>
-	<link rel="stylesheet" type="text/css" href="styles/demotemplate.css"/>
+	<link rel="stylesheet" type="text/css" href="http://edgeportal.blob.core.windows.net/media/demotemplate.css">
 	<link rel="stylesheet" type="text/css" href="styles/demo.css"/>
 </head>
 
@@ -15,7 +15,7 @@
 	<header class="section section--page-intro demo__header">
 		<div class="container">
 			<heading class="section__header section__header--alt">
-				<h1 class="heading">Web Audio tuner</h1>
+				<h1>Web Audio tuner</h1>
 			</heading>
 			<p class="text-title">This is a simple tuner built using the WebAudio API. Like tuners in the real world, you can also
 			use it to generate a reference tone so you can tune by ear.</p>
@@ -23,56 +23,59 @@
 	</header>
 
 	<!-- DEMO CONTENT -->
-	<section class="section">
+	<section class="section section--banner section--banner--light section--tuner">
 		<div class="container">
-			<header class="section__header section__header--alt">
-				<h2 class="subheading">Tuner</h2>
-			</header>
-			<div class="section__body">
-            <p class="msg-error" id="errorMessage"></p>
-			<div class="row">
-				<div class="col-sm-8">
-					<div class="row">
-                        <div class="pitch"><span id="pitch">-- Hz</span></div>
-                        <div class="note"><span id="note">--</span></div>
-                    </div>
-                    <div class="row">
-                        
-                        <div id="cents"></div>
-                        <div class="gaugeContainer">
-                            <canvas id="gaugeCanvas"></canvas>
-                        </div>
-                    </div>
+			<h2 class="visually-hidden">Tuner</h2>
+			<div class="section__body tuner__body">
+				<div class="layout layout--basic">
+				<div class="module module--secondary">
+					<div class="tuner__gauge-wrap">
+						<div class="tuner__values clear">
+	                        <div class="tuner__value">
+	                        	<h5>Pitch</h5>
+								<span class="subtitle" id="pitch">-- Hz</span>
+	                        </div>
+	                        <div class="tuner__value">
+	                        	<h5>Cents</h5>
+								<span class="subtitle" id="cents"></span>
+	                        </div>
+	                        <div class="tuner__value">
+	                        	<h5>Note</h5>
+								<span class="subtitle" id="note">--</span>
+	                        </div>
+	                    </div>
+	                    <canvas class="tuner__gauge" id="gaugeCanvas"></canvas>
+					</div>
 				</div>
-				<div class="col-sm-6">
-					<div class="row">
-                        <button class="button" id="micButton">Microphone</button>
-                        <button class="button" id="refButton">Reference tone</button>
-                    </div>
-                    <div class="row">
-                        <div id="microphoneOptions" class="tunerOptions">
-                            <fieldset>
-                                <legend>Base frequency</legend>
-                                <button class="button minusFreq">-</button>
-                                <button class="button plusFreq">+</button>
-                            </fieldset>
-                        </div>
-                        <div id="referenceOptions" class="tunerOptions">
-                            <fieldset>
-                                <legend>Base frequency</legend>
-                                <button class="button minusFreq">-</button>
-                                <button class="button plusFreq">+</button>
-                            </fieldset>
-                            <fieldset>
-                                <legend>Note</legend>
-                                <button class="button" id="minusRefNote">-</button>
-                                <button class="button" id="plusRefNote">+</button>
-                            </fieldset>
-                        </div>
-                    </div>
+				<div class="module module--primary">
+					<p class="alert--error tuner__alert" id="errorMessage"></p>
+					<div class="tuner__controls">
+						<h3 class="subtitle">Tune using:</h3>
+	                    <button class="button tuner__input-button" id="micButton">Microphone</button>
+	                    <button class="button tuner__input-button" id="refButton">Reference tone</button>
+	                    <div id="microphoneOptions" class="tuner__options">
+	                        <fieldset>
+	                            <legend class="subtitle">Base frequency</legend>
+	                            <button class="button tuner__options__button minusFreq">-</button>
+	                            <button class="button tuner__options__button plusFreq">+</button>
+	                        </fieldset>
+	                    </div>
+	                    <div id="referenceOptions" class="tuner__options">
+	                        <fieldset>
+	                            <legend class="subtitle">Base frequency</legend>
+	                            <button class="button tuner__options__button minusFreq">-</button>
+	                            <button class="button tuner__options__button plusFreq">+</button>
+	                        </fieldset>
+	                        <fieldset>
+	                            <legend class="subtitle">Note</legend>
+	                            <button class="button tuner__options__button" id="minusRefNote">-</button>
+	                            <button class="button tuner__options__button" id="plusRefNote">+</button>
+	                        </fieldset>
+	                    </div>
+					</div>
 				</div>
 			</div>
-		</div>
+			</div>
 		</div>
 	</section>
     
@@ -180,7 +183,7 @@
 			                    <p>There is a variety of methods to detect the pitch of a sound, some work in the frequency domain (like <em>HPS</em>, or <em>Harmonic Product Spectrum</em>), while some others do in the time domain (like <em>Autocorrelation</em>). With such a high sampling rate, we can only fit a small fraction of a second in the buffer used by the AnalyserNode. In these conditions, the latter algorithm usually does a better job than the former, and this is why we chose it for this demo.</p>
 			                    <p>Autocorrelation is the process of cross-correlating a signal with a time-delayed version of itself. In other words, we will be comparing a signal at two different points in time. As <a href="http://en.wikipedia.org/wiki/Autocorrelation" target="_blank">Wikipedia</a> puts it:</p>
 			                    <blockquote cite="http://en.wikipedia.org/wiki/Autocorrelation">
-			                        It is a mathematical tool for finding repeating patterns, such as the presence of a periodic signal obscured by noise, or identifying the missing fundamental frequency in a signal implied by its harmonic frequencies.
+			                        <p>It is a mathematical tool for finding repeating patterns, such as the presence of a periodic signal obscured by noise, or identifying the missing fundamental frequency in a signal implied by its harmonic frequencies.</p>
 			                    </blockquote>
 			                    <p>Given a delay time \(k\) we:</p>
 			                        <ol>

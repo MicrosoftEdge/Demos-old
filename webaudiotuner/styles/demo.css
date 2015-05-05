@@ -1,42 +1,56 @@
-/* Your custom CSS goes here */
-
-.pitch {
-	float:left;
-	margin-left: 2em;
-    font-weight: bold;
+.section--tuner .button {
+	background-color: hsla(0,0%,0%,.2);
 }
 
-.note {
-	float:right;
-	margin-right: 2em;
-    font-weight: bold;
+.tuner__body {
+	margin-top: 0;
 }
 
-.tunerOptions {
-	margin-top: 2em;
+.tuner__gauge-wrap {
+	text-align: center;
 }
 
-fieldset{
+.tuner__value {
 	display: inline-block;
+	margin-top: 0;
+	vertical-align: top;
+	width: 32%;
+}
+
+.tuner__controls {
+	padding-top: 2rem;
+	border-top: 1px solid hsla(0,0%,0%,.1);
+}
+
+.tuner__alert {
+	display: none;
+	margin-bottom: 2rem;
+}
+
+.tuner__options__button {
+	min-width: 3rem;	
+}
+
+fieldset {
+	display: inline-block;
+	margin-top: 2rem;
+	margin-right: 2rem;
+	border: 0 none;
 }
 
 blockquote {
-    background-color: lightgray;
-    margin-top: 1em;
-    margin-left: 3em;
-    margin-right: 3em;
-    margin-bottom: 1em;
+	margin-right: 8%;
+    margin-left: 8%;
     font-style: italic;
 }
 
-#cents {
-    width: 30px;
-    height: 30px;
-    font-weight: bold;
-    margin: 0 auto;
-}
+@media (min-width: 48em) {
 
-.gaugeContainer {
-    width: 300px;
-    margin: 0 auto;
+	.tuner__controls {
+		margin-top: 0;
+		padding-top: 0;
+		border-top: 0 none;
+	}
+	
+
 }
