@@ -59,9 +59,23 @@ input[type="radio"] + label {
 	clear: left;
 }
 
+.mic-controls select {
+	margin-top: 1.2rem;
+	background: #fff;
+}
+
+@media (min-width: 33.75em) {
+
+	.mic-controls select {
+		margin-top: 2rem;
+	}
+		
+}
+
 /* Visualizations */
 .mic-vis {
 	position: relative;
+	width: 100%;
 }
 
 .mic-vis__heading {

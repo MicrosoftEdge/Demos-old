@@ -61,50 +61,26 @@
 						<div class="layout layout--halves">
 							<div id="effectmic-controls" class="module mic-controls__effects">
 								<h3 class="mic__heading">Effects</h3>
-								<ul class="list--radios">
-									<li>
-										<input type="radio" name="effects" value="0" checked="">
-										<label>None</label>
-									</li>
-									<li>
-										<input type="radio" name="effects" value="1">
-										<label>Telephone</label>
-									</li>
-									<li>
-										<input type="radio" name="effects" value="2">
-										<label>Parking Garage</label>
-									</li>
-									<li>
-										<input type="radio" name="effects" value="3">
-										<label>Muffled Voice</label>
-									</li>
-								</ul>
+								<select id="filtermic-controls">
+									<option value="0">None</option>
+									<option value="1">Telephone</option>
+									<option value="2">Parking Garage</option>
+									<option value="3">Muffled Voice</option>
+								</select>
 							</div>
-							<div id="filtermic-controls" class="modules mic-controls__filters">
+							<div class="module mic-controls__filters">
 								<h3 class="mic__heading">Filters</h3>
-								<ul class="list--radios">
-									<li>
-										<input type="radio" name="filters" value="0" checked="">
-										<label>None</label>
-									</li>
-									<li>
-										<input type="radio" name="filters" value="1">
-										<label>Low Pass</label>
-									</li>
-									<li>
-										<input type="radio" name="filters" value="2">
-										<label>High Pass</label>
-									</li>
-									<li>
-										<input type="radio" name="filters" value="3">
-										<label>Band Pass</label>
-									</li>
-								</ul>
+								<select id="filtermic-controls">
+									<option value="0">None</option>
+									<option value="1">Low Pass</option>
+									<option value="2">High Pass</option>
+									<option value="3">Band Pass</option>
+								</select>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="mic-vis__group">
+				<div class="mic-visualizations">
 					<div class="mic-vis">
 						<h3 class="mic__heading mic-vis__heading">Signal</h3>
 						<canvas class="mic-vis__canvas mic-vis__time" width=auto height="150"></canvas>
