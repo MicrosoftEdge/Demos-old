@@ -157,7 +157,7 @@ Microsoft Corporation
 		button.value = 'Record';
 		button.style.color = 'black';
 		button.style.fontWeight = 'normal';
-		button.style.background = '#fff';
+		button.style.background = '#ccc';
 		
 		// reset play button
 		playing = false;
@@ -392,7 +392,7 @@ Microsoft Corporation
 			timeCanvasContext.fillRect(0, 0, TIMEWIDTH, TIMEHEIGHT);
 			
 			timeCanvasContext.lineWidth = 2;
-			timeCanvasContext.strokeStyle = 'rgb(64, 192, 64)';
+			timeCanvasContext.strokeStyle = 'rgb(179, 252, 254)';
 			
 			timeCanvasContext.beginPath();
 			
@@ -432,8 +432,8 @@ Microsoft Corporation
 			for(var i = 0; i < freqBufferLength; i++) {
 				barHeight = 1.5 * freqDataArray[i];
 				
-			// green bars for low signal, red for high
-			freqCanvasContext.fillStyle = 'rgb(' + (128 + barHeight / 1.5) + ', ' + (256 - barHeight / 1.5) + ', 60)';
+			// blue bars for low signal, red for high
+			freqCanvasContext.fillStyle = 'rgb(' + (179 + barHeight / 1.5) + ', ' + (252 - barHeight / 1.5) + ', 254)';
 				freqCanvasContext.fillRect(x, FREQHEIGHT - barHeight / 2, barWidth, barHeight / 2);
 				
 				x += barWidth + 1;

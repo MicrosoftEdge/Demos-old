@@ -55,13 +55,48 @@ input[type="radio"] + label {
 
 .mic-controls select {
 	margin-top: 1.2rem;
+	border: 0 none;
 	background: #fff;
 }
 
+.mic-controls select:focus {
+	background: #b3fcfe;
+	color: #000;
+}
+
 .mic-controls__button {
+	vertical-align: top;
 	margin-top: 0;
 	min-width: 4.8rem;
 	height: 3.2rem;
+	border: 0 none;
+	-webkit-box-shadow: 0 2px 0 1px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0 2px 0 1px rgba(0,0,0,0.75);
+	box-shadow: 0 2px 0 1px rgba(0,0,0,0.75);
+}
+
+/* More specific selector to override pattern library */
+.section--demo-mic .mic-controls__button {
+	background: #ccc;
+}
+
+.section--demo-mic .mic-controls__button:hover {
+	background: #fff;
+}
+
+.section--demo-mic .mic-controls__button:active {
+	margin-top: 2px;
+	background: #d4fdfe;
+	-webkit-box-shadow: 0 0 0 0;
+	-moz-box-shadow: 0 0 0 0;
+	box-shadow: 0 0 0 0;
+}
+
+.section--demo-mic .mic-controls__button--selected {
+	background: #b3fcfe;
+	-webkit-box-shadow: 0 0 5px 0 rgba(212,253,254,.5);
+	-moz-box-shadow: 0 0 5px 0 rgba(212,253,254,.5);
+	box-shadow: 0 0 5px 0 rgba(212,253,254,.5);
 }
 
 .mic-controls__save {
