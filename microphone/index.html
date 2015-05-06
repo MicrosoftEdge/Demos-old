@@ -30,30 +30,34 @@
 				<div class="layout layout--equal mic-controls">
 					<div class="module mic-controls__muting">
 						<h3 class="mic__heading">Mute</h3>
-						<ul class="list--checkboxes">
-							<li>
-								<input type="checkbox" id="micMute">
-								<label for="micMute">Mic Mute</label>
-							</li>
-							<li>	  
-								<input type="checkbox" id="speakerMute" checked="">
-								<label for="speakerMute">Speaker Mute</label>
-							</li>
-						</ul>
+						<div class="clear">
+							<button id="micMute" class="button mic-controls__button mic-controls__mic-mute">
+								<span class="visually-hidden">Mic Mute</span>
+							</button>
+							<button id="speakerMute" class="button mic-controls__button mic-controls__speaker-mute">
+								<span class="visually-hidden">Speaker Mute</span>
+							</button>
+						</div>
 					</div>
 					<div class="module mic-controls__recording">	
 						<h3 class="mic__heading">Add Audio</h3>
 						<!-- loadFile() works by clicking a hidden type=file control -->
-						<div class="clear">		
-							<input class="button mic-controls__recording__button mic-controls__record" type="button" id="recordButton" value="Record">
-							<input class="button mic-controls__recording__button mic-controls__play" type="button" id="playButton" value="Play">
-						</div>
-						<div class="clear">		
-							<input class="button mic-controls__recording__button mic-controls__save" type="button" id="saveButton" value="Save">
-							<input class="button mic-controls__recording__button mic-controls__load" type="button" id="loadButton" value="Load">	
-						</div>
 						<div class="clear">
-							<input type="checkbox" id="loop"><label>Loop</label>
+							<button id="recordButton" class="button mic-controls__button mic-controls__record">
+								<span class="visually-hidden">Record</span>
+							</button>
+							<button id="playButton" class="button mic-controls__button mic-controls__play">
+								<span class="visually-hidden">Play</span>
+							</button>
+							<button id="saveButton" class="button mic-controls__button mic-controls__save">
+								<span class="visually-hidden">Save</span>
+							</button>
+							<button id="loadButton" class="button mic-controls__button mic-controls__save">
+								<span class="visually-hidden">Load</span>
+							</button>
+							<button id="loop" class="button mic-controls__button mic-controls__loop">
+								<span class="visually-hidden">Loop</span>
+							</button>
 							<input class="visually-hidden" type="file" id="loadFiles" multiple>
 						</div>
 					</div>

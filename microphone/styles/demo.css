@@ -47,21 +47,29 @@ input[type="radio"] + label {
 	width: 33%;
 }
 
-.mic-controls__filters {
-	margin-top: 0;
+.mic-controls select,
+.mic-controls button,
+.mic-controls .button {
+	border-radius: 2px;
 }
 
-.mic-controls__recording__button {
+.mic-controls select {
+	margin-top: 1.2rem;
+	background: #fff;
+}
+
+.mic-controls__button {
 	margin-top: 0;
+	min-width: 4.8rem;
+	height: 3.2rem;
 }
 
 .mic-controls__save {
 	clear: left;
 }
 
-.mic-controls select {
-	margin-top: 1.2rem;
-	background: #fff;
+.mic-controls__filters {
+	margin-top: 0;
 }
 
 @media (min-width: 33.75em) {
