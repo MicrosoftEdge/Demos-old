@@ -43,21 +43,11 @@
 						<h3 class="mic__heading">Add Audio</h3>
 						<!-- loadFile() works by clicking a hidden type=file control -->
 						<div class="clear">
-							<button id="recordButton" class="button mic-controls__button mic-controls__record">
-								<span class="visually-hidden">Record</span>
-							</button>
-							<button id="playButton" class="button mic-controls__button mic-controls__play">
-								<span class="visually-hidden">Play</span>
-							</button>
-							<button id="saveButton" class="button mic-controls__button mic-controls__save">
-								<span class="visually-hidden">Save</span>
-							</button>
-							<button id="loadButton" class="button mic-controls__button mic-controls__save">
-								<span class="visually-hidden">Load</span>
-							</button>
-							<button id="loop" class="button mic-controls__button mic-controls__loop">
-								<span class="visually-hidden">Loop</span>
-							</button>
+							<button id="recordButton" class="button mic-controls__button mic-controls__record" aria-label="Record"></button>
+							<button id="playButton" class="button mic-controls__button mic-controls__play" aria-label="Play"></button>
+							<button id="saveButton" class="button mic-controls__button mic-controls__save" aria-label="Save"></button>
+							<button id="loadButton" class="button mic-controls__button mic-controls__load" aria-label="Load"></button>
+							<button id="loop" class="button mic-controls__button mic-controls__loop" aria-label="Loop"></button>
 							<input class="visually-hidden" type="file" id="loadFiles" multiple>
 						</div>
 					</div>
