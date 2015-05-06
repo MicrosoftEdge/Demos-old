@@ -60,7 +60,7 @@ input[type="radio"] + label {
 }
 
 .mic-controls select:focus {
-	background: #b3fcfe;
+	background: #d4fdfe;
 	color: #000;
 }
 
@@ -84,16 +84,19 @@ input[type="radio"] + label {
 	background: #fff;
 }
 
-.section--demo-mic .mic-controls__button:active {
+.section--demo-mic .mic-controls__button:active,
+.section--demo-mic .mic-controls__button--selected {
 	margin-top: 2px;
 	background: #d4fdfe;
+}
+
+.section--demo-mic .mic-controls__button:active {
 	-webkit-box-shadow: 0 0 0 0;
 	-moz-box-shadow: 0 0 0 0;
 	box-shadow: 0 0 0 0;
 }
 
 .section--demo-mic .mic-controls__button--selected {
-	background: #b3fcfe;
 	-webkit-box-shadow: 0 0 5px 0 rgba(212,253,254,.5);
 	-moz-box-shadow: 0 0 5px 0 rgba(212,253,254,.5);
 	box-shadow: 0 0 5px 0 rgba(212,253,254,.5);
