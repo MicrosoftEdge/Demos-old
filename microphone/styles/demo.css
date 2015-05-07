@@ -61,11 +61,12 @@ input[type="radio"] + label {
 .mic-controls select {
 	margin-top: 1.2rem;
 	border: 0 none;
-	background: #fff;
+	background: #fff url('../images/mic-demo-arrow.svg') no-repeat right 1rem center;
+	background-size: 9px 5px;
 }
 
 .mic-controls select:focus {
-	background: #d4fdfe;
+	background-color: #d4fdfe;
 	color: #000;
 }
 
