@@ -65,11 +65,13 @@ input[type="radio"] + label {
 }
 
 .mic-controls__button {
+	position: relative;
 	vertical-align: top;
 	margin-top: 0;
 	min-width: 4.8rem;
 	height: 3.2rem;
 	border: 0 none;
+	text-align: center;
 	-webkit-box-shadow: 0 2px 0 1px rgba(0,0,0,0.75);
 	-moz-box-shadow: 0 2px 0 1px rgba(0,0,0,0.75);
 	box-shadow: 0 2px 0 1px rgba(0,0,0,0.75);
@@ -77,7 +79,7 @@ input[type="radio"] + label {
 
 /* More specific selector to override pattern library */
 .section--demo-mic .mic-controls__button {
-	background: #ccc;
+	background: #e2e2e2;
 }
 
 .section--demo-mic .mic-controls__button:hover {
@@ -116,6 +118,60 @@ input[type="radio"] + label {
 		margin-top: 2rem;
 	}
 		
+}
+
+/* Controls Icons */
+.mic-controls__button::before {
+	display: block;
+	position: absolute;
+	top: 50%;
+	margin-top: -10px;
+	left: 50%;
+	margin-left: -10px;
+	background: url('../images/mic-demo-icons.svg') no-repeat 0 0;
+	background-size: 120px 40px;
+	content: '';
+	width: 20px;
+	height: 20px;
+}
+
+.mic-controls__record.mic-controls__button--selected::before,
+.mic-controls__play.mic-controls__button--selected::before {
+	background-position: -20px 0;	
+}
+
+.mic-controls__play::before {
+	background-position: -100px 0;	
+}
+
+
+.mic-controls__save::before {
+	background-position: -40px 0;	
+}
+
+.mic-controls__load::before {
+	background-position: -60px 0;	
+}
+
+.mic-controls__loop::before {
+	background-position: -80px 0;	
+}
+
+.mic-controls__mic-mute::before {
+	background-position: 0 -20px;	
+}
+
+.mic-controls__mic-mute.mic-controls__button--selected::before {
+	background-position: -20px -20px;	
+}
+
+.mic-controls__speaker-mute::before {
+	width: 24px;
+	background-position: -60px -20px;	
+}
+
+.mic-controls__speaker-mute.mic-controls__button--selected::before {
+	background-position: -40px -20px;	
 }
 
 /* Visualizations */
