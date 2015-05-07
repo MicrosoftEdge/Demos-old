@@ -41,6 +41,11 @@ input[type="radio"] + label {
 
 /* End of move */
 
+/* Dev site override */
+.section--banner.section--mic-demo {
+	background: #414143;
+}
+
 /* Controls above visualizations */
 .mic-controls__group {
 	float: left;
