@@ -48,8 +48,22 @@ input[type="radio"] + label {
 
 /* Controls above visualizations */
 .mic-controls__group {
-	float: left;
-	width: 33%;
+	display: inline-block;
+	margin-top: 0;
+	margin-bottom: 2rem;
+}
+
+.module--muting-recording,
+.module--effects-filters {
+	margin-top: 0;
+}
+
+.mic-controls__muting {
+	margin-right: 6rem;
+}
+
+.mic-controls__effects {
+	margin-right: 2rem;
 }
 
 .mic-controls select,
@@ -59,7 +73,10 @@ input[type="radio"] + label {
 }
 
 .mic-controls select {
+	display: block;
 	margin-top: 1.2rem;
+	width: auto;
+	min-width: 16rem;
 	border: 0 none;
 	background: #fff url('../images/mic-demo-arrow.svg') no-repeat right 1rem center;
 	background-size: 9px 5px;
@@ -74,6 +91,7 @@ input[type="radio"] + label {
 	position: relative;
 	vertical-align: top;
 	margin-top: 0;
+	margin-bottom: .4rem;
 	min-width: 4.8rem;
 	height: 3.2rem;
 	border: 0 none;
@@ -114,14 +132,21 @@ input[type="radio"] + label {
 	clear: left;
 }
 
-.mic-controls__filters {
-	margin-top: 0;
-}
-
 @media (min-width: 33.75em) {
 
 	.mic-controls select {
 		margin-top: 2rem;
+	}
+	
+	.module--effects-filters {
+		text-align: right;
+	}
+	
+	.mic-controls__effects,
+	.mic-controls__filters {
+		text-align: left;
+		margin-right: 0;
+		margin-left: 2rem;
 	}
 		
 }
