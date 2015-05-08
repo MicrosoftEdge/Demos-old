@@ -9,4 +9,5 @@ canvas {
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
+	touch-action: none;
 }
