@@ -42,8 +42,9 @@ Microsoft Corporation
 	var sourceMix = audioContext.createGain();			// for mixing
 	var visualizerInput = audioContext.createGain();	// final gain for visualizers
 	var outputGain = audioContext.createGain();			// for speaker mute
-	outputGain.gain.value = 0;						// mute speakers initially
-	visualizerInput.gain.value = 10;
+	outputGain.gain.value = 0;							// mute speakers initially
+	var dynComp = audioContext.createDynamicsCompressor();	//limit output
+	visualizerInput.gain.value = 5;
 	
 	// create a convolver node for room effects
 	var convolver = audioContext.createConvolver();
@@ -101,7 +102,8 @@ Microsoft Corporation
 				convolver.connect(filter);
 				filter.connect(visualizerInput);				 
 				filter.connect(outputGain);				 
-				outputGain.connect(audioContext.destination);
+				outputGain.connect(dynComp);
+				dynComp.connect(audioContext.destination);
 				
 				// connect output to visualizers
 				visualizerInput.connect(timeAnalyser);
@@ -123,20 +125,24 @@ Microsoft Corporation
 	
 	var toggleMicMute = function() {
 		var micMute = document.getElementById('micMute');
-		if (micMute.checked === true) {
-			micGain.gain.value = 0;
+		if (micGain.gain.value === 0) {
+			micGain.gain.value = 1;
+			micMute.className = 'button mic-controls__button mic-controls__mic-mute';
 		} else {
-		micGain.gain.value = 1;
+			micGain.gain.value = 0;
+			micMute.className = 'button mic-controls__button mic-controls__mic-mute mic-controls__button--selected';
 		}
 		console.log('mic gain = ' + micGain.gain.value);
 	};
 	
 	var toggleSpeakerMute = function() {
 		var speakerMute = document.getElementById('speakerMute');
-		if (speakerMute.checked === true) {
-			outputGain.gain.value = 0;
+		if (outputGain.gain.value === 0) {
+			outputGain.gain.value = 1;
+			speakerMute.className = 'button mic-controls__button mic-controls__speaker-mute';
 		} else {
-		outputGain.gain.value = 1;
+			outputGain.gain.value = 0;
+			speakerMute.className = 'button mic-controls__button mic-controls__speaker-mute mic-controls__button--selected';
 		}
 		console.log('output gain = ' + outputGain.gain.value);
 	};
@@ -150,22 +156,14 @@ Microsoft Corporation
 		});
 		}
 		myAudio.pause();
-		
 		// reset record button
 		recording = false;
 		button = document.getElementById('recordButton');
-		button.value = 'Record';
-		button.style.color = 'black';
-		button.style.fontWeight = 'normal';
-		button.style.background = '#ccc';
-		
+		button.className = 'button mic-controls__button mic-controls__record';
 		// reset play button
 		playing = false;
 		button = document.getElementById('playButton');
-		button.value = 'Play';
-		button.style.color = 'black';
-		button.style.fontWeight = 'normal';
-		button.style.background = '#fff';
+		button.className = 'button mic-controls__button mic-controls__play';
 	};
 	
 	var toggleRecord = function() {
@@ -174,12 +172,9 @@ Microsoft Corporation
 			recording = true;
 			myRecorder.clear();
 			myRecorder.record();
-			// change button to 'stop rec'
+			// change button to 'active'
 			button = document.getElementById('recordButton');
-			button.value = 'Stop Rec';
-			button.style.color = 'red';
-			button.style.fontWeight = 'bold';
-			button.style.background = '#cccccc';
+			button.className = 'button mic-controls__button mic-controls__record mic-controls__button--selected';
 		} else {
 			stop();
 		}
@@ -191,27 +186,34 @@ Microsoft Corporation
 			console.log('playing ' + myAudio.src);
 			myAudio.play();
 			playing = true;
+			// change button to 'active'
 			button = document.getElementById('playButton');
-		// change button to 'stop'
-			button.value = 'Stop';
-			button.style.color = 'green';
-			button.style.fontWeight = 'bold';
-			button.style.background = '#cccccc';
+			button.className = 'button mic-controls__button mic-controls__play mic-controls__button--selected';
 		} else {
 			stop();
 		}
 	};
 	
 	var playComplete = function() {
-		playing = false;
-		button = document.getElementById('playButton');
-		// change button to 'play'
-		button.value = 'Play';
-		button.style.color = 'black';
-		button.style.fontWeight = 'normal';
-		button.style.background = '#dddddd';
+		stop();
 	};
-		
+	
+	// toggle loop playback
+	var toggleLoop = function() {
+		if (myAudio.loop === false) {
+			myAudio.loop = true;
+			// change button to 'active'
+			button = document.getElementById('loopButton');
+			button.className = 'button mic-controls__button mic-controls__loop mic-controls__button--selected';
+		} else {
+			myAudio.loop = false;
+			// reset looping button
+			button = document.getElementById('loopButton');
+			button.className = 'button mic-controls__button mic-controls__loop';
+		}
+		console.log('audio loop: ' + myAudio.loop);
+	};
+			
 	// save file from url
 	var saveToDisk = function(url) {
 		var blob = null;
@@ -223,7 +225,7 @@ Microsoft Corporation
 			if (this.status === 200) {
 				blob = this.response;
 				console.log('blob = ' + blob);
-				// blob is now the blob that the object URL pointed to.
+				// blob is the object the URL pointed to.
 				Recorder.saveFile(blob, 'myRecording' + ( (recIndex < 10) ? '0' : '' ) + recIndex + '.wav' );
 				recIndex++;
 			}
@@ -252,17 +254,6 @@ Microsoft Corporation
 		console.log('audio element source is now ' + myAudio.src);
 	};
 	
-	// toggle loop playback
-	var toggleLoop = function() {
-		var loop = document.getElementById('loop');
-		if (loop.checked === true) {
-			myAudio.loop = true;
-		} else {
-			myAudio.loop = false;
-		}
-		console.log('audio loop: ' + myAudio.loop);
-	};
-	
 	// apply room effect
 	var applyEffect = function() {
 			
@@ -273,18 +264,8 @@ Microsoft Corporation
 			'sounds/impulse-response/parkinggarage.wav',
 			'sounds/impulse-response/muffler.wav'
 		];
-		
-		var selectedEffect;
-		var effects = document.getElementsByName('effects');
-		console.log('There are ' + effects.length + ' available effects.');
-		
-		// find which button is checked
-		for (var i = 0; i < effects.length; i++) {
-			if (effects[i].checked) {
-			selectedEffect = effects[i].value;
-				break;
-			}
-		}
+
+		var selectedEffect = document.getElementById('effectmic-controls').value;
 		console.log('Effect ' + selectedEffect + ' is selected.');
 		
 		// retrieve the selected impulse response file
@@ -322,21 +303,12 @@ Microsoft Corporation
 			['highpass', 3000, 1],
 			['bandpass', 4000, 10]
 		];
-		
-		var selectedFilter;
-		var filters = document.getElementsByName('filters');
-		console.log('There are ' + filters.length + ' available filters.');
-		
-		// find which button is checked
-		for (var i = 0; i < filters.length; i++) {
-			if (filters[i].checked) {
-			selectedFilter = filters[i].value;
-			filter.type = filterArray[i][0];
-			filter.frequency.value = filterArray[i][1];
-			filter.Q.value = filterArray[i][2];
-				break;
-			}
-		}
+
+		var selectedFilter = document.getElementById('filtermic-controls').value;
+		filter.type = filterArray[selectedFilter][0];
+		filter.frequency.value = filterArray[selectedFilter][1];
+		filter.Q.value = filterArray[selectedFilter][2];
+
 		console.log('filter ' + selectedFilter + ' is selected.');
 		console.log('filter is ' + filter.type + ' with frequency ' + filter.frequency.value);
 	};
@@ -350,9 +322,9 @@ Microsoft Corporation
 		document.getElementById('playButton').onclick = togglePlay;
 		document.getElementById('saveButton').onclick = save;
 		document.getElementById('loadButton').onclick = loadFile;
-		document.getElementById('loop').onclick = toggleLoop;
-		document.getElementById('effectcontrols').onclick = applyEffect;
-		document.getElementById('filtercontrols').onclick = applyFilter;
+		document.getElementById('loopButton').onclick = toggleLoop;
+		document.getElementById('effectmic-controls').onchange = applyEffect;
+		document.getElementById('filtermic-controls').onchange = applyFilter;
 	};
 	
 	//=============================
