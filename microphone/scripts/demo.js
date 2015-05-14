@@ -12,8 +12,7 @@ Microsoft Corporation
 'use strict';
 
 	// map prefixed APIs
-	navigator.getUserMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia ||
-														navigator.mozGetUserMedia || navigator.msGetUserMedia);
+	navigator.getUserMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
 													
 	// define global variables
 	var file = null;	
@@ -42,8 +41,9 @@ Microsoft Corporation
 	var sourceMix = audioContext.createGain();			// for mixing
 	var visualizerInput = audioContext.createGain();	// final gain for visualizers
 	var outputGain = audioContext.createGain();			// for speaker mute
-	outputGain.gain.value = 0;						// mute speakers initially
-	visualizerInput.gain.value = 10;
+	outputGain.gain.value = 0;							// mute speakers initially
+	var dynComp = audioContext.createDynamicsCompressor();	//limit output
+	visualizerInput.gain.value = 5;
 	
 	// create a convolver node for room effects
 	var convolver = audioContext.createConvolver();
@@ -75,7 +75,6 @@ Microsoft Corporation
 	//	build audio graph
 	//==============================
 	if (navigator.getUserMedia) {
-		console.log('getUserMedia supported.');
 		navigator.getUserMedia(
 			{
 				'audio': true
@@ -83,7 +82,7 @@ Microsoft Corporation
 			
 			// build audio graph with media stream and audio element as sources
 			function(stream) {
-			
+				
 				// initialize mic source
 				sourceMic = audioContext.createMediaStreamSource(stream);
 				
@@ -101,48 +100,54 @@ Microsoft Corporation
 				convolver.connect(filter);
 				filter.connect(visualizerInput);				 
 				filter.connect(outputGain);				 
-				outputGain.connect(audioContext.destination);
-				
+				dynComp.connect(audioContext.destination);
+				outputGain.connect(dynComp);
+			
 				// connect output to visualizers
 				visualizerInput.connect(timeAnalyser);
 				visualizerInput.connect(freqAnalyser);
 				
 				// initialize myRecorder (using recorder.js and recordworker.js)
-				myRecorder = new Recorder(sourceMic);
-				console.log('myRecorder initialized');
+				myRecorder = new Recorder(sourceMix);
 			},
-			
-			// handle errors
-			function(err) {
-				console.log('The following error occured: ' + err);
+			function(error) {
+				console.error('web audio graph error', error);
 			}
 		);
-	} else {
-		console.log('getUserMedia not supported!');
 	}
 	
-	var toggleMicMute = function() {
-		var micMute = document.getElementById('micMute');
-		if (micMute.checked === true) {
-			micGain.gain.value = 0;
-		} else {
-		micGain.gain.value = 1;
-		}
-		console.log('mic gain = ' + micGain.gain.value);
-	};
-	
-	var toggleSpeakerMute = function() {
-		var speakerMute = document.getElementById('speakerMute');
-		if (speakerMute.checked === true) {
-			outputGain.gain.value = 0;
-		} else {
-		outputGain.gain.value = 1;
-		}
-		console.log('output gain = ' + outputGain.gain.value);
+	var toggleGainState = function(elementId, elementClass, outputElement){
+		var ele = document.getElementById(elementId);
+		return function(){
+			if (outputElement.gain.value === 0) {
+				outputElement.gain.value = 1;
+				ele.classList.remove(elementClass);
+			} else {
+				outputElement.gain.value = 0;
+				ele.classList.add(elementClass);
+			}
+		};
 	};
 
+	var toggleSpeakerMute = toggleGainState('speakerMute', 'mic-controls__button--selected', outputGain);
+	var toggleMicMute = toggleGainState('micMute', 'mic-controls__button--selected', micGain);
+
+	var toggleLoopState = function(elementId, elementClass, outputElement){
+		var ele = document.getElementById(elementId);
+		return function(){
+			if (outputElement.loop === true) {
+				outputElement.loop = false;
+				ele.classList.remove(elementClass);
+			} else {
+				outputElement.loop = true;
+				ele.classList.add(elementClass);
+			}
+		};
+	};
+	
+	var toggleLoop = toggleLoopState('loopButton', 'mic-controls__button--selected', myAudio);
+	
 	var stop = function() {
-		console.log('stopped');
 		if(recording === true) {
 			myRecorder.stop();
 			myRecorder.exportWAV(function(s) {
@@ -150,36 +155,26 @@ Microsoft Corporation
 		});
 		}
 		myAudio.pause();
-		
 		// reset record button
 		recording = false;
 		button = document.getElementById('recordButton');
-		button.value = 'Record';
-		button.style.color = 'black';
-		button.style.fontWeight = 'normal';
-		button.style.background = '#ccc';
-		
+		button.classList.remove('mic-controls__button--selected');
+		button.classList.add('mic-controls__record');
 		// reset play button
 		playing = false;
 		button = document.getElementById('playButton');
-		button.value = 'Play';
-		button.style.color = 'black';
-		button.style.fontWeight = 'normal';
-		button.style.background = '#fff';
+		button.classList.remove('mic-controls__button--selected');
+		button.classList.add('mic-controls__play');
 	};
 	
 	var toggleRecord = function() {
 		if(recording === false) {
-			console.log('recording');
 			recording = true;
 			myRecorder.clear();
 			myRecorder.record();
-			// change button to 'stop rec'
+			// change button to 'active'
 			button = document.getElementById('recordButton');
-			button.value = 'Stop Rec';
-			button.style.color = 'red';
-			button.style.fontWeight = 'bold';
-			button.style.background = '#cccccc';
+			button.classList.add('mic-controls__button--selected');
 		} else {
 			stop();
 		}
@@ -188,42 +183,30 @@ Microsoft Corporation
 	var togglePlay = function() {
 		if(playing === false) {
 			stop();
-			console.log('playing ' + myAudio.src);
 			myAudio.play();
 			playing = true;
+			// change button to 'active'
 			button = document.getElementById('playButton');
-		// change button to 'stop'
-			button.value = 'Stop';
-			button.style.color = 'green';
-			button.style.fontWeight = 'bold';
-			button.style.background = '#cccccc';
+			button.classList.add('mic-controls__button--selected');
 		} else {
 			stop();
 		}
 	};
 	
 	var playComplete = function() {
-		playing = false;
-		button = document.getElementById('playButton');
-		// change button to 'play'
-		button.value = 'Play';
-		button.style.color = 'black';
-		button.style.fontWeight = 'normal';
-		button.style.background = '#dddddd';
+		stop();
 	};
-		
+			
 	// save file from url
 	var saveToDisk = function(url) {
 		var blob = null;
-		console.log('saving ' + url);
 		var xhr = new XMLHttpRequest();
 		xhr.open('GET', url, true);
 		xhr.responseType = 'blob';
 		xhr.onload = function() {
 			if (this.status === 200) {
 				blob = this.response;
-				console.log('blob = ' + blob);
-				// blob is now the blob that the object URL pointed to.
+				// blob is the object the URL pointed to.
 				Recorder.saveFile(blob, 'myRecording' + ( (recIndex < 10) ? '0' : '' ) + recIndex + '.wav' );
 				recIndex++;
 			}
@@ -233,7 +216,6 @@ Microsoft Corporation
 
 	var save = function() {
 		stop();
-		console.log(myAudio.src);
 		saveToDisk(myAudio.src);
 	};
 		
@@ -249,54 +231,40 @@ Microsoft Corporation
 		file = files[0];
 		var url = URL.createObjectURL(file);
 		myAudio.src = url;
-		console.log('audio element source is now ' + myAudio.src);
 	};
-	
-	// toggle loop playback
-	var toggleLoop = function() {
-		var loop = document.getElementById('loop');
-		if (loop.checked === true) {
-			myAudio.loop = true;
-		} else {
-			myAudio.loop = false;
+
+	var effects = {
+		none: {
+			file: 'sounds/impulse-response/trigroom.wav'
+		},
+		telephone: {
+			file: 'sounds/impulse-response/telephone.wav'
+		},
+		garage: {
+			file: 'sounds/impulse-response/parkinggarage.wav'
+		},
+		muffler: {
+			file: 'sounds/impulse-response/muffler.wav'
 		}
-		console.log('audio loop: ' + myAudio.loop);
 	};
 	
 	// apply room effect
 	var applyEffect = function() {
-			
-		// available impulse response files
-		var effectsArray = [
-			'sounds/impulse-response/trigroom.wav',
-			'sounds/impulse-response/telephone.wav',
-			'sounds/impulse-response/parkinggarage.wav',
-			'sounds/impulse-response/muffler.wav'
-		];
-		
-		var selectedEffect;
-		var effects = document.getElementsByName('effects');
-		console.log('There are ' + effects.length + ' available effects.');
-		
-		// find which button is checked
-		for (var i = 0; i < effects.length; i++) {
-			if (effects[i].checked) {
-			selectedEffect = effects[i].value;
-				break;
-			}
-		}
-		console.log('Effect ' + selectedEffect + ' is selected.');
+
+		var effectName = document.getElementById('effectmic-controls').value;
+		var selectedEffect = effects[effectName];
+		var effectFile = selectedEffect.file;	
 		
 		// retrieve the selected impulse response file
 		var request = new XMLHttpRequest();
-		request.open('GET', effectsArray[selectedEffect], true);
+		request.open('GET', effectFile, true);
+
 		request.responseType = 'arraybuffer';
 		
 		// decode it and set it as the convolver buffer
 		request.onload = function(){
 			audioContext.decodeAudioData(request.response, function(buffer){
 				if (!buffer){
-					alert('error decoding file data');
 					return;
 				}
 				convolver.buffer = buffer;
@@ -305,40 +273,37 @@ Microsoft Corporation
 				console.error('decodeAudioData error', error);
 			});
 		};
-			
-		request.onerror = function(){
-			alert('XHR error');
-		};
 		request.send();
 	};
 	
 	// apply filter
-	var applyFilter = function() {
-		
-		// available impulse response files
-		var filterArray = [
-			['allpass', 20000, 1],
-			['lowpass', 500, 1],
-			['highpass', 3000, 1],
-			['bandpass', 4000, 10]
-		];
-		
-		var selectedFilter;
-		var filters = document.getElementsByName('filters');
-		console.log('There are ' + filters.length + ' available filters.');
-		
-		// find which button is checked
-		for (var i = 0; i < filters.length; i++) {
-			if (filters[i].checked) {
-			selectedFilter = filters[i].value;
-			filter.type = filterArray[i][0];
-			filter.frequency.value = filterArray[i][1];
-			filter.Q.value = filterArray[i][2];
-				break;
-			}
+	
+	var filters = {
+		allpass: {
+			frequency: 20000,
+			Q: 1
+		},
+		lowpass: {
+			frequency: 400,
+			Q: 1
+		},
+		highpass: {
+			frequency: 3000,
+			Q: 1
+		},
+		bandpass: {
+			frequency: 4000,
+			Q: 10
 		}
-		console.log('filter ' + selectedFilter + ' is selected.');
-		console.log('filter is ' + filter.type + ' with frequency ' + filter.frequency.value);
+	};
+	
+	var applyFilter = function() {
+
+		var filterName = document.getElementById('filtermic-controls').value;
+		var selectedFilter = filters[filterName];
+		filter.type = filterName;
+		filter.frequency.value = selectedFilter.frequency;
+		filter.Q.value = selectedFilter.Q;
 	};
 	
 	// define controls
@@ -350,9 +315,9 @@ Microsoft Corporation
 		document.getElementById('playButton').onclick = togglePlay;
 		document.getElementById('saveButton').onclick = save;
 		document.getElementById('loadButton').onclick = loadFile;
-		document.getElementById('loop').onclick = toggleLoop;
-		document.getElementById('effectcontrols').onclick = applyEffect;
-		document.getElementById('filtercontrols').onclick = applyFilter;
+		document.getElementById('loopButton').onclick = toggleLoop;
+		document.getElementById('effectmic-controls').onchange = applyEffect;
+		document.getElementById('filtermic-controls').onchange = applyFilter;
 	};
 	
 	//=============================
@@ -364,13 +329,10 @@ Microsoft Corporation
 		var FREQHEIGHT = freqCanvas.height;
 		var TIMEWIDTH = timeCanvas.width;
 		var TIMEHEIGHT = timeCanvas.height;
-		
-		console.log(freqCanvas.width, freqCanvas.height);
-		
+				
 		// time visualization prep
 		timeAnalyser.fftSize = 2048;
 		var timeBufferLength = timeAnalyser.fftSize;
-		console.log(timeBufferLength);
 		var timeDataArray = new Uint8Array(timeBufferLength);
 		
 		timeCanvasContext.clearRect(0, 0, TIMEWIDTH, TIMEHEIGHT);
@@ -378,7 +340,6 @@ Microsoft Corporation
 		// frequency visualization prep
 		freqAnalyser.fftSize = 256;
 		var freqBufferLength = freqAnalyser.frequencyBinCount;
-		console.log(freqBufferLength);
 		var freqDataArray = new Uint8Array(freqBufferLength);
 		
 		freqCanvasContext.clearRect(0, 0, FREQWIDTH, FREQHEIGHT);

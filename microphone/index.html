@@ -17,7 +17,7 @@
 		<div class="container">
 			<div class="section__header">
 				<h1>Microphone Streaming &amp; Web Audio Demo</h1>
-				<p class="title">GetUserMedia Audio Capture and WebAudio Visualization Demo</p>
+				<p class="title">Record, Play, Save and Load streaming audio acquired using getUserMedia; and apply Web Audio visualizations, effects and filters to stream data.</p>
 			</div>
 		</div>
 	</header>
@@ -42,7 +42,7 @@
 							<div class="clear">
 								<button id="recordButton" class="button mic-controls__button mic-controls__record" aria-label="Record"></button>
 								<button id="playButton" class="button mic-controls__button mic-controls__play" aria-label="Play"></button>
-								<button id="loop" class="button mic-controls__button mic-controls__loop" aria-label="Loop"></button>
+								<button id="loopButton" class="button mic-controls__button mic-controls__loop" aria-label="Loop"></button>
 								<button id="saveButton" class="button mic-controls__button mic-controls__save" aria-label="Save"></button>
 								<button id="loadButton" class="button mic-controls__button mic-controls__load" aria-label="Load"></button>
 								<input class="visually-hidden" type="file" id="loadFiles" multiple>
@@ -50,22 +50,22 @@
 						</div>
 					</div>
 					<div class="module module--effects-filters">
-						<div id="effectmic-controls" class="mic-controls__group mic-controls__effects">
-							<h3 class="mic__heading">Effects</mic-controls__group>
+						<div id="effectfilter-controls" class="mic-controls__group mic-controls__effects">
+							<h3 class="mic__heading">Effects</h3>
 							<select id="effectmic-controls">
-								<option value="0">None</option>
-								<option value="1">Telephone</option>
-								<option value="2">Parking Garage</option>
-								<option value="3">Muffled Voice</option>
+								<option value="none">None</option>
+								<option value="telephone">Telephone</option>
+								<option value="garage">Parking Garage</option>
+								<option value="muffler">Muffled Voice</option>
 							</select>
 						</div>
 						<div class="mic-controls__group mic-controls__filters">
 							<h3 class="mic__heading">Filters</h3>
 							<select id="filtermic-controls">
-								<option value="0">None</option>
-								<option value="1">Low Pass</option>
-								<option value="2">High Pass</option>
-								<option value="3">Band Pass</option>
+								<option value="allpass">None</option>
+								<option value="lowpass">Low Pass</option>
+								<option value="highpass">High Pass</option>
+								<option value="bandpass">Band Pass</option>
 							</select>
 						</div>
 					</div>

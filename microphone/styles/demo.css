@@ -112,7 +112,9 @@ input[type="radio"] + label {
 
 .section--demo-mic .mic-controls__button:active,
 .section--demo-mic .mic-controls__button--selected {
-	margin-top: 2px;
+	-webkit-transform: translate(0,2px);
+	-moz-transform: translate(0,2px);
+	transform: translate(0,2px);
 	background: #d4fdfe;
 }
 
