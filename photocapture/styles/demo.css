@@ -39,12 +39,10 @@
 	background-color: rgba(0,0,0,.85);
 }
 
-#canvasTag {
+.view--video__video,
+.view--snapshot__canvas {
     width: 100%;
-}
-
-#videoTag {
-    width: 100%;
+    cursor: pointer;
 }
 
 @media (min-width: 33.75em) {
