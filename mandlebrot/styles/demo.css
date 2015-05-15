@@ -1,4 +1,8 @@
 /* Messaging */
+#message-box {
+	min-height: 2.4rem;
+}
+
 #elapsed-time {
 	-webkit-transition: all 2.2s ease-in-out;
 	-moz-transition: all 2.2s ease-in-out;
@@ -47,30 +51,18 @@
 /* Progress */
 progress {
 	display: block;
-	/* For browser's that do not recognize <progress> tags, this makes them work as expected (i.e., as a generic DIV element would). */
 }
 
-#progress-indicator {
+.mandlebrot__progress {
 	color: red;
-	/* Make the progress bar as visible as possible. */
-
 	display: none;
-	/* Only display the <progress> tag when the Mandelbrot set is being calculated. */
-
 	position: absolute;
-	/* This is positioned relative to the #canvas-wrapper DIV element. */
-
+	top: 50%;
+	margin-top: -10px;
+	left: 50%;
+	margin-left: -200px;
 	width: 400px;
-	/* The width of the progress bar. */
-
 	height: 20px;
-	/* The height of the progress bar. */
-
-	left: 102px;
-	/* The canvas is 600px wide, the progress bar is 400px wide, so to center the progress bar, the progress bar must start 100px from the left of the canvas plus a 2px border. */
-
-	top: 192px;
-	/* The canvas is 400px high, the progress bar is 20px tall, so to center the progress bar, the progress bar must start 190px from the top of the canvas plus a 2px border. */
 }
 
 /* Regions */

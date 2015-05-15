@@ -40,11 +40,10 @@
 						<div class="subsection__header">
 							<h2>Try it with touch or mouse</h2>
 							<p id="message-box"></p>
-							<p id="elapsed-time"></p>
 						</div>
 						<div class="subsection__body">
 							<div class="mandlebrot__canvas-wrap">
-								<progress id="progress-indicator"></progress>
+								<progress id="progress-indicator" class="mandlebrot__progress"></progress>
 								<!-- This is positioned absolutely relative to the #canvas-wrapper DIV. -->
 								<canvas width="600" height="400" id="mandelbrot-canvas" class="mandlebrot__canvas" oncontextmenu="return false;">
 									<!-- Because the hold gesture event can fire more than once, the 'oncontextmenu="return false;"' attribute is used to stop the right-click context menu from appearing inappropriately. -->
@@ -61,6 +60,7 @@
 								<button class="button" id="reset-button">Reset</button>
 								<button class="button" id="lighten-button">Lighten</button>
 								<button class="button button--primary" id="presets-button">Presets</button>
+								<p class="caption" id="elapsed-time"></p>
 							</div>
 						</div>
 					</div>
