@@ -1,59 +1,50 @@
-.container-mandlebrot {
+/* Messaging */
+#elapsed-time {
+	-webkit-transition: all 2.2s ease-in-out;
+	-moz-transition: all 2.2s ease-in-out;
+	-o-transition : all 2.2s ease-in-out;
+	transition : all 2.2s ease-in-out;
+}
+
+.flash {
+	background-color: red;
+}
+
+/* Canvas */
+.mandlebrot__canvas-wrap {
+	position: relative;
+	margin-top: 0;
+	max-width: 100%;
+	height: auto;
+	border: 2px solid #000;
+	overflow-y: hidden;
+	overflow-x: auto;
+	text-align: center;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
-	padding: 0;
-	text-align: center;
-	background-color: #fefefe;
 }
 
-.container-mandlebrot table {
-	margin: 0 auto;
-	/* Center the table. */
-	width: 60rem;
-	table-layout: fixed;
-	/* Required to keep the table static whilst the page builds. */
-}
-
-.container-mandlebrot table td{
-	padding: 0;
-}
-
-.container-mandlebrot tbody tr:nth-child(odd),
-.container-mandlebrot tbody tr:nth-child(even) {
-	background-color: hsla(0, 0%, 0%, 0);
-}
-
-#canvas-wrapper {
-	position: relative;
-	/* Allows any absolutely positioned child elements to be positioned relative to this parent element. */
-
-	width: 604px;
-	/* Account for the two 2px wide borders of the canvas element. */
-
-	margin: 0 auto;
-	/* Center the canvas wrapper on the page. */
-}
-
-canvas {
-	border: 2px solid #000000;
-	-ms-touch-action: none;
-	touch-action: none;
-	/* Use the standard, if available. */
+.mandlebrot__canvas {
+	display: inline-block;
 	margin: 0;
+	-ms-touch-action: none;
+	touch-action: none;	
 }
 
-#message-box {
-	text-align: left;
-	width: 15em;
-	/* Accommodate the longest message string for this message box. */
+/* Canvas fallback */
+.mandlebrot__fallback {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	padding: 2rem;
+	overflow: auto;
 }
 
-#elapsed-time {
-	text-align: right;
-}
-
+/* Progress */
 progress {
 	display: block;
 	/* For browser's that do not recognize <progress> tags, this makes them work as expected (i.e., as a generic DIV element would). */
@@ -82,71 +73,7 @@ progress {
 	/* The canvas is 400px high, the progress bar is 20px tall, so to center the progress bar, the progress bar must start 190px from the top of the canvas plus a 2px border. */
 }
 
-button {
-	width: 5em;
-}
-
-#filename-form {
-	display: none;
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	left: 0;
-	top: 0;
-	background-color: rgba(225, 225, 225, .8);
-	color: #fff;
-}
-
-#filename-form-content {
-	background-color: rgba(0, 163, 239, 1);
-	position: relative;
-	height: 80px;
-	padding-top: 40px;
-	width: 100%;
-	margin: auto 0;
-	font-size: 26px;
-}
-
-#filename-form-content input {
-	font-size: 26px;
-	padding: 5px 20px 5px 20px;
-}
-
-#demo-content {
-	width: 720px;
-	margin: auto auto;
-}
-
-#buttons {
-	float: left;
-	margin-top: 18px;
-	margin-left: 10px;
-}
-
-#canvas-group {
-	float: left;
-}
-
-div .button {
-	width: 96px;
-	height: 38px;
-	line-height: 38px;
-	margin: 5px;
-	text-align: center;
-	font-size: 16px;
-	background-color: #00a3ef;
-	color: #ffffff;
-	cursor: pointer;
-}
-
-#presets-button {
-	margin-top: 181px;
-}
-
-div .button:hover {
-	background-color: rgba(0, 163, 239, .8);
-}
-
+/* Regions */
 #region-list {
 	width: 600px;
 	margin-left: 0;
@@ -176,24 +103,32 @@ div .button:hover {
 	background-color: #fff;
 }
 
-#elapsed-time {
-	-webkit-transition: all 2.2s ease-in-out;
-	-moz-transition: all 2.2s ease-in-out;
-	-o-transition : all 2.2s ease-in-out;
-	transition : all 2.2s ease-in-out;
-}
-
-.flash {
-	background-color: red;
-}
-
-/* Canvas fallback */
-.canvas-fallback {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	padding: 2rem;
-	overflow: auto;
+@media (min-width: 56.25em /* 900px */) {
+	
+	/* Layout */
+	.mandlebrot__canvas-wrap,
+	.mandlebrot__actions {
+		float: left;
+	}
+	
+	/* Canvas */
+	.mandlebrot__canvas-wrap {
+		margin-right: 3.2rem;
+	}
+	
+	/* Controls */
+	.mandlebrot__actions {
+		margin-top: 0;	
+	}
+	
+	.mandlebrot__actions .button {
+		display: block;
+		margin: 0 .4rem .4rem 0;
+		width: 5em;
+	}
+	
+	.mandlebrot__actions .button--primary {
+		margin-top: 2rem;
+	}
+			
 }

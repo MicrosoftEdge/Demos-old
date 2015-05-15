@@ -512,7 +512,6 @@
 		var canvasHeight = canvas.height;
 		var ctx = canvas.getContext('2d');
 
-		document.getElementsByTagName('table')[0].width = canvasWidth; // Make the table's width the same as the canvas's width.
 		document.getElementById('message-box').innerHTML = DEFAULT_MESSAGE;
 
 		globals.canvas = canvas;
