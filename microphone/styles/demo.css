@@ -42,7 +42,7 @@ input[type="radio"] + label {
 /* End of move */
 
 /* Dev site override */
-.section--banner.section--mic-demo {
+.section--banner.section--demo-mic {
 	background: #414143;
 }
 
