@@ -96,17 +96,17 @@ input[type="radio"] + label {
 }
 
 /* More specific selector to override pattern library */
-.section--demo-mic .mic-controls__button {
+.section--banner.section--demo-mic .mic-controls__button {
 	background: transparent;
 }
 
-.section--demo-mic .mic-controls__button:hover {
+.section--banner.section--demo-mic .mic-controls__button:hover {
 	background: #666;
 }
 
-.section--demo-mic .mic-controls__button:active,
-.section--demo-mic .mic-controls__button--selected,
-.section--demo-mic .mic-controls__button--selected:hover {
+.section--banner.section--demo-mic .mic-controls__button:active,
+.section--banner.section--demo-mic .mic-controls__button--selected,
+.section--banner.section--demo-mic .mic-controls__button--selected:hover {
 	background: #ccc;
 }
 
