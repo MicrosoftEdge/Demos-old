@@ -41,11 +41,6 @@ input[type="radio"] + label {
 
 /* End of move */
 
-/* Dev site override */
-.section--banner.section--demo-mic {
-	background: #414143;
-}
-
 /* Controls above visualizations */
 .mic-controls__group {
 	display: inline-block;
@@ -95,18 +90,17 @@ input[type="radio"] + label {
 	text-align: center;
 }
 
-/* More specific selector to override pattern library */
-.section--banner.section--demo-mic .mic-controls__button {
+.section--demo-mic .mic-controls__button {
 	background: transparent;
 }
 
-.section--banner.section--demo-mic .mic-controls__button:hover {
+.section--demo-mic .mic-controls__button:hover {
 	background: #666;
 }
 
-.section--banner.section--demo-mic .mic-controls__button:active,
-.section--banner.section--demo-mic .mic-controls__button--selected,
-.section--banner.section--demo-mic .mic-controls__button--selected:hover {
+.section--demo-mic .mic-controls__button:active,
+.section--demo-mic .mic-controls__button--selected,
+.section--demo-mic .mic-controls__button--selected:hover {
 	background: #ccc;
 }
 
