@@ -10,66 +10,74 @@
 	<title>Calculate Mandelbrot using WebWorkers on your HTML5 browser</title>
 	<meta name="keywords"
 		  content="performance, webworkers, javascript, html5, canvas, requestanimationframe, demo, es5, ecmascript"/>
-	<link rel="stylesheet" type="text/css" href="./styles/demo.css"/>
+	<link rel="stylesheet" type="text/css" href="http://edgeportal.blob.core.windows.net/media/demotemplate.css">
+	<link rel="stylesheet" type="text/css" href="styles/demo.css">
 </head>
 
 <body>
-<div class="container container-mandlebrot">
-	<h1 id="demo-title">
-		Mandelbrot Explorer
-	</h1>
 
-	<div id="demo-introduction">
-		<div id="demo-introduction-text">
-			<p>The Mandelbrot set is one of the most complex and beautiful mathematical objects known. Mandelbrot
-				Explorer
-				allows you to explore this often striking set using both touch and a traditional mouse. Additionally, a
-				detailed explanation of the Mandelbrot set and how this application was implemented is available in <a
-					href="http://go.microsoft.com/fwlink/p/?LinkId=264925">How to explore the Mandelbrot set using
-					HTML5</a>.</p>
+	<!-- DEMO INTRO -->
+	<header class="section section--page-intro demo__header">
+		<div class="container">
+			<div class="section__header">
+				<h1>Mandelbrot Explorer</h1>
+			</div>
 		</div>
-	</div>
-	<div id="demo-content">
-		<div id="canvas-group">
-			<table>
-				<tr>
-					<td id="message-box"></td>
-					<td id="elapsed-time"></td>
-				</tr>
-			</table>
-			<div id="canvas-wrapper">
-				<progress id="progress-indicator"></progress>
-				<!-- This is positioned absolutely relative to the #canvas-wrapper DIV. -->
-				<canvas width="600" height="400" id="mandelbrot-canvas" oncontextmenu="return false;">
-					<!-- Because the hold gesture event can fire more than once, the 'oncontextmenu="return false;"' attribute is used to stop the right-click context menu from appearing inappropriately. -->
-					<div id="upgrade">
-						<div id="upgrade-warning"><img src="assets/ie-logo.png" id="upgrade-ie-logo"
-													   alt="Internet Explorer Logo" title="Internet Explorer"/>
-							<br/>
+	</header>
 
-							<div id="upgrade-content"> You are using a browser that doesn't support canvas. You aren't
+	<!-- DEMO CONTENT -->
+	<section role="region" class="section">
+		<div class="container">
+			<div class="section__body">
+				<p>The Mandelbrot set is one of the most complex and beautiful mathematical objects known. Mandelbrot
+					Explorer
+					allows you to explore this often striking set using both touch and a traditional mouse. Additionally, a
+					detailed explanation of the Mandelbrot set and how this application was implemented is available in <a
+						href="http://go.microsoft.com/fwlink/p/?LinkId=264925">How to explore the Mandelbrot set using
+						HTML5</a>.</p>
+			</div>
+		</div>
+	</section>
+	<section role="region" class="section">
+		<div class="container">
+			<div class="section__header">
+				<h2>Try it with touch or mouse:</h2>
+			</div>
+			<div class="section__body">
+				<div id="canvas-group">
+					<table>
+						<tr>
+							<td id="message-box"></td>
+							<td id="elapsed-time"></td>
+						</tr>
+					</table>
+					<div id="canvas-wrapper">
+						<progress id="progress-indicator"></progress>
+						<!-- This is positioned absolutely relative to the #canvas-wrapper DIV. -->
+						<canvas width="600" height="400" id="mandelbrot-canvas" oncontextmenu="return false;">
+							<!-- Because the hold gesture event can fire more than once, the 'oncontextmenu="return false;"' attribute is used to stop the right-click context menu from appearing inappropriately. -->
+							<div class="tile canvas-fallback">You are using a browser that doesn't support canvas. You aren't
 								getting the best experiences the Internet has to offer! Upgrade to Internet Explorer 10
 								to
 								see what the Web has been waiting for!
-								<a href="http://msdn.microsoft.com/en-us/ie/">
-									<div id="upgrade-button"> Learn More</div>
-								</a>
+								<a class="button" href="http://msdn.microsoft.com/en-us/ie/">Learn more</a>
 							</div>
-						</div>
+						</canvas>
+						<div id="region-list"></div>
 					</div>
-				</canvas>
-				<div id="region-list"></div>
+				</div>
+				<div id="buttons">
+					<div class="button" id="reset-button">Reset</div>
+					<div class="button" id="lighten-button">Lighten</div>
+					<div class="button" id="presets-button">Presets</div>
+				</div>
+				<div class="clear"></div>
 			</div>
 		</div>
-		<div id="buttons">
-			<div class="button" id="reset-button">Reset</div>
-			<div class="button" id="lighten-button">Lighten</div>
-			<div class="button" id="presets-button">Presets</div>
-		</div>
-		<div class="clear"></div>
-	</div>
-</div>
-<script type="text/javascript" src="./scripts/demo.js"></script>
+	</section>
+	
+	<script type="text/javascript" src="./scripts/demo.js"></script>
+
 </body>
 
 </html>
