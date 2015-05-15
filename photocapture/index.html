@@ -8,60 +8,70 @@
                                       to capture photos from webcam video streams through a canvas."/>
     <meta name="keywords" content="Media, webcam, media, capture, photo, canvas"/>
     <meta name="author" content="shijuns"/>
-    <link rel="stylesheet" type="text/css" href="styles/demotemplate.css"/>
+    <link rel="stylesheet" type="text/css" href="http://edgeportal.blob.core.windows.net/media/demotemplate.css">
     <link rel="stylesheet" type="text/css" href="styles/demo.css"/>
 </head>
 
 <body>
-    <div class="page-wrap">
-        <span class="modal-overlay"></span>
-        <article class="demo-wrap">
+	
+	<!-- DEMO INTRO -->
+	<header class="section section--page-intro demo__header">
+		<div class="container">
+			<div class="section__header">
+				<h1>Photo Capture Using Webcam</h1>
+			</div>
+		</div>
+	</header>
 
-            <!-- DEMO INTRO -->
-            <header class="demo-intro">
-                <div class="container">
-                    <h1 class="demo-title">Photo Capture Using Webcam</h1>
-                    <div class="demo-intro-content">
-                        <p>This demo page shows how to use the <a href="http://w3c.github.io/mediacapture-main/" target="_blank">Media Capture and Streams API</a>
-                           for capturing photos from webcam video streams through a canvas.  There are three major steps:
-                            <ul>
-                                <li>Getting a video stream from the webcam and rendering it on a &lt;video&gt; element.</li>
-                                <li>Taking a snapshot of the video and rendering it on a &lt;canvas&gt; element.</li>
-                                <li>Converting the canvas image to an image data blob to allow saving.</li>
-                            </ul>
-                        </p>
-                        <p>When there are multiple webcam devices, you can switch the webcams when you are using a browser that supports the API for capture device enumeration and selection.</p>
-                    </div>
-                </div>
-            </header>
+	<section role="region" class="section">
+		<div class="container">
+			<div class="section__body">
+				<div class="section__body">
+					<div class="layout layout--equal">
+						<div class="module">
+							<p>This demo page shows how to use the <a href="http://w3c.github.io/mediacapture-main/" target="_blank">Media Capture and Streams API</a>
+				               for capturing photos from webcam video streams through a canvas.  There are three major steps:
+							</p>
+				                <ol>
+				                    <li>Getting a video stream from the webcam and rendering it on a &lt;video&gt; element.</li>
+				                    <li>Taking a snapshot of the video and rendering it on a &lt;canvas&gt; element.</li>
+				                    <li>Converting the canvas image to an image data blob to allow saving.</li>
+				                </ol>
+						</div>
+						<div class="module">
+							<h3 class="subtitle">Switching webcams</h3>
+							<p>When there are multiple webcam devices, you can switch the webcams when you are using a browser that supports the API for capture device enumeration and selection.</p>
+						</div>
+					</div>
+				</div>
+				<div class="subsection">
+					<div class="subsection__body">
+						<p id="error" class="alert--error"></p>
+		                <div class="demo-area">
+		                	<h3 class="subtitle view-text view-text--video">
+		                		<span>Webcam view</span>
+		                		<span id="videoViewText" class="view-text__instructions">Click or tap below to take a snapshot</span>
+		                	</h3>
+		                    <div class="view--video">
+		                        <video id="videoTag" src="" autoplay muted ></video>
+		                    </div>
+		                    <h3 class="subtitle view-text view-text--snapshot">
+		                		<span>Snapshot view</span>
+		                		<span id="photoViewText" class="view-text__instructions"></span>
+		                	</h3>
+		                    <div class="view--snapshot">
+		                    	<canvas id="canvasTag" class="view--snapshot__canvas"></canvas>
+		                    	<a id="saveImg" class="hide" href="#"></a>
+		                    </div>
+		                </div>
+		                <p class="alert--error" class="hide" id="tooltip"></p>
+		                <button class="button" type="button" disabled id="switch">Switch Camera</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-            <!-- DEMO CONTENT -->
-            <div class="demo-content">
-                <div class="demo-section">
-                    <div class="container">
-                        <div id="error"></div>
-                        <div class="view-text-container" style="display:flex; width:100%; text-align:center;">
-                            <div id="videoViewText" class="view-text" style="color:#08f0f0">Webcam view: Click or tap to take a snapshot</div>
-                            <div id="photoViewText" class="view-text" style="color:#08f080">Snapshot view</div>
-                        </div>
-                        <div id="videoCanvascontainer" style="display:flex; width:100%">
-                            <div style="flex:1 1;">
-                                <video id="videoTag" src="" autoplay muted ></video>
-                            </div>
-                            <div style="flex:1 1;">
-                            	<canvas id="canvasTag" ></canvas>
-                            	<a id="saveImg" style="display:none" href="#"></a>
-                            </div>
-                        </div>
-                        <button type="button" disabled id="switch">
-                            Switch Camera
-                        </button>
-                        <span style="display:none" id="tooltip"></span>
-                    </div>
-                </div>
-            </div>
-    </article>
-    </div>
     <script type="text/javascript" src="scripts/demo.js"></script>
 
 </body>
