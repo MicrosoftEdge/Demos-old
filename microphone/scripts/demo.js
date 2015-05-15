@@ -24,6 +24,7 @@ Microsoft Corporation
 	var recording = false;
 	var playing = false;
 	var myAudio = document.getElementById('demoAudio');
+	var noSrc = true;
 	
 	//==============================
 	// create web audio nodes
@@ -152,7 +153,8 @@ Microsoft Corporation
 			myRecorder.stop();
 			myRecorder.exportWAV(function(s) {
 				myAudio.src = window.URL.createObjectURL(s);
-		});
+				noSrc = false;
+			});
 		}
 		myAudio.pause();
 		// reset record button
@@ -181,7 +183,7 @@ Microsoft Corporation
 	};
 	
 	var togglePlay = function() {
-		if(playing === false) {
+		if(noSrc === false && playing === false && recording !== true) {
 			stop();
 			myAudio.play();
 			playing = true;
@@ -223,6 +225,7 @@ Microsoft Corporation
 	var loadFile = function() {
 		stop();
 		document.getElementById('loadFiles').click();
+		noSrc = false;
 	};
 	
 	// handle details of file load
@@ -292,8 +295,8 @@ Microsoft Corporation
 			Q: 1
 		},
 		bandpass: {
-			frequency: 4000,
-			Q: 10
+			frequency: 1500,
+			Q: 5
 		}
 	};
 	
