@@ -65,7 +65,7 @@
                 link.click();
             }
             canvas.removeEventListener('click', savePhoto);
-            document.getElementById('photoViewText').innerHTML = 'Snapshot view:';
+            document.getElementById('photoViewText').innerHTML = '';
             photoReady = false;
         }
     };
@@ -93,7 +93,7 @@
         var ctx = canvas.getContext('2d');
         ctx.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
         photoReady = true;
-        document.getElementById('photoViewText').innerHTML = 'Snapshot view: Click or tap to save to a file';
+        document.getElementById('photoViewText').innerHTML = 'Click or tap below to save to a file';
         canvas.addEventListener('click', savePhoto);
 
     };
@@ -190,7 +190,7 @@
             navigator.mediaDevices.enumerateDevices().then(devicesCallback);
         }
         else if (navigator.getUserMedia) {
-            document.getElementById('tooltip').style.display = 'inline';
+            document.getElementById('tooltip').style.display = 'block';
             document.getElementById('tooltip').innerHTML = 'Cannot switch web cams because navigator.mediaDevices.enumerateDevices is unsupported by your browser.';
 
             navigator.getUserMedia({ video: true }, initializeVideoStream, getUserMediaError);

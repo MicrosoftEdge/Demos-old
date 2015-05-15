@@ -1,59 +1,87 @@
 /* Your custom CSS goes here */
+.hide {
+	display: none;
+}
 
-#videoCanvascontainer {
-    background: linear-gradient(to right bottom, #f0f0f0, #808080, #f0f0f0, #808080, #f0f0f0, #808080);
+.alert--error {
+	color: #E81123;
+}
+
+.view-text,
+.view--video,
+.view--snapshot {
 	margin-top: 0;
-}
-
-#videoCanvascontainer * + * {
-	margin-top: 0;
-}
-
-#canvasTag {
-    width: 100%;
-}
-
-#videoTag {
-    width: 100%;
-    background-color:black;
-}
-
-#videoViewText {
-    display:flex 1 1;
-    width:100%;
-    padding:5px;
-    background-color:#606060;
-}
-
-#photoViewText {
-    display:flex 1 1;
-    width:100%;
-    padding:5px;
-    background-color:#808080;
-}
-
-#switch {
-    height: 48px;
-    width:128px;
-    border-radius:10px;
-    margin-top:8px;
-    background-color:rgba(128, 128, 128, 0.25);
-}
-
-#saveBtn {
-    height: 48px;
-    width:128px;
-    border-radius:10px;
-    margin-top:8px;
-    background-color:rgba(128, 128, 128, 0.25);
-    display:none;
-}
-
-#error, #tooltip {
-    color: red;
 }
 
 .view-text {
+	padding: 1.2rem;
+	text-align: center;
+	background-color: #e6e6e6;
+}
+
+.view-text__instructions {
+	display: block;
+	margin-top: .4rem;
 	font-size: 1.5rem;
-	margin-top: 0;
+}
+
+.view-text--snapshot {
+	background-color: #f2f2f2;
+	margin-top: 1.2rem;
+}
+
+.view--video {
+	background-color: rgba(0,0,0,1);
+}
+
+.view--snapshot {
+	position: relative;
+	background-color: rgba(0,0,0,.85);
+}
+
+.view--video__video,
+.view--snapshot__canvas {
+    width: 100%;
+    cursor: pointer;
+}
+
+@media (min-width: 33.75em) {
+
+	.demo-area {
+		display: -webkit-flex;
+		display: flex;
+		-webkit-flex-wrap: wrap;
+		flex-wrap: wrap;
+	}
+
+	.view-text,
+	.view--video,
+	.view--snapshot {
+		flex: 1 1 auto;
+		margin-top: 0;
+		width: 50%;
+		max-width: none;
+	}
+	
+	.view-text--video {
+		-webkit-order: 1;
+		order: 1;
+	}
+	
+	.view-text--snapshot {
+		margin-top: 0;
+		-webkit-order: 2;
+		order: 2;
+	}
+	
+	.view--video {
+		-webkit-order: 3;
+		order: 3;
+	}
+	
+	.view--snapshot {
+		-webkit-order: 4;
+		order: 4;
+	}
+
 }
