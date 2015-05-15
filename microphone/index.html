@@ -17,7 +17,8 @@
 		<div class="container">
 			<div class="section__header">
 				<h1>Microphone Streaming &amp; Web Audio Demo</h1>
-				<p class="title">Record, Play, Save and Load streaming audio acquired using getUserMedia; and apply Web Audio visualizations, effects and filters to stream data.</p>
+				<p class="title">Record, play, save and load streaming audio acquired using getUserMedia; and apply Web Audio visualizations, effects and filters to stream data.</p>
+				<p class="subtitle">Getting started: Grant access to your microphone when prompted.  Speaker is muted at start to avoid possible mic feedback.</p>
 			</div>
 		</div>
 	</header>
@@ -80,7 +81,7 @@
 						<canvas class="mic-vis__canvas mic-vis__frequency" width=auto height="150"></canvas>
 					</div>
 				</div>
-				<audio id="demoAudio" onended="playComplete()"></audio>
+				<audio id="demoAudio" src="" onended="playComplete()"></audio>
 			
 			</div>
 		</div>

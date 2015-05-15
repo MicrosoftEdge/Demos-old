@@ -1,4 +1,5 @@
 /* Demo header override */
+
 .demo__header .section__header {
 	padding-bottom: 0;
 	border-bottom: 0 none;
@@ -96,6 +97,11 @@ input[type="radio"] + label {
 }
 
 /* More specific selector to override pattern library */
+
+.section--demo-mic .mic-controls__button:focus {
+	outline: 1px dotted rgba(255,255,255,.5);
+}
+
 .section--banner.section--demo-mic .mic-controls__button {
 	background: transparent;
 }
@@ -146,13 +152,14 @@ input[type="radio"] + label {
 	content: '';
 	width: 20px;
 	height: 20px;
+	outline: none;
 }
 
 .mic-controls__record:active::before,
 .mic-controls__play:active::before,
 .mic-controls__record.mic-controls__button--selected::before,
 .mic-controls__play.mic-controls__button--selected::before {
-	background-position: -20px -40px;	
+	background-position: -20px -40px;
 }
 
 .mic-controls__play::before {
