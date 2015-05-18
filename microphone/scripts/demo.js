@@ -101,9 +101,9 @@ Microsoft Corporation
 				convolver.connect(filter);
 				filter.connect(visualizerInput);				 
 				filter.connect(outputGain);				 
-				dynComp.connect(audioContext.destination);
 				outputGain.connect(dynComp);
-			
+				dynComp.connect(audioContext.destination);
+
 				// connect output to visualizers
 				visualizerInput.connect(timeAnalyser);
 				visualizerInput.connect(freqAnalyser);
