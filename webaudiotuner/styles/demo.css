@@ -1,9 +1,3 @@
-/* TODO: move to site CSS */
-.content--testdrive .section--banner--light {
-	background: #f4f4f4;
-}
-/* End of TODO */
-
 .content--testdrive .section--tuner .button {
 	background-color: hsla(0,0%,0%,.2);
 	color: #000;

@@ -108,16 +108,16 @@
 
 	var loadRegions = function () {
 		var interesting = interestingRegions;
-		var regions = document.getElementById('region-list');
+		var regions = document.getElementById('regions');
+		var regionsList = document.getElementById('regions__list');
 		var list = document.createDocumentFragment();
 		var presets = document.getElementById('presets-button');
 
 		for (var i in interesting) {
-			var item = document.createElement('div');
+			var item = document.createElement('button');
 			var itemText;
 
-			item.className = 'region';
-			item.style.backgroundImage = 'url("' + i + '.png");';
+			item.className = 'button regions__button';
 
 			itemText = document.createElement('span');
 			itemText.className = 'regionText';
@@ -128,18 +128,15 @@
 			item.setAttribute('data-url', interesting[i].url);
 			item.addEventListener('click', function (e) {
 				window.location = '#' + e.currentTarget.getAttribute('data-url');
-				regions.style.display = 'none';
+				regions.classList.remove('regions--active');
 			}, false);
 			list.appendChild(item);
 		}
-		regions.appendChild(list);
+		regionsList.appendChild(list);
 
 		presets.addEventListener('click', function () {
 			var canvas = document.getElementById('mandelbrot-canvas');
-			regions.style.left = (canvas.offsetLeft + 2) + 'px';
-			regions.style.top = (canvas.offsetTop + +2) + 'px';
-			regions.style.display = 'block';
-			regions.style.position = 'absolute';
+			regions.classList.add('regions--active');
 		}, false);
 	};
 
@@ -512,7 +509,6 @@
 		var canvasHeight = canvas.height;
 		var ctx = canvas.getContext('2d');
 
-		document.getElementsByTagName('table')[0].width = canvasWidth; // Make the table's width the same as the canvas's width.
 		document.getElementById('message-box').innerHTML = DEFAULT_MESSAGE;
 
 		globals.canvas = canvas;
