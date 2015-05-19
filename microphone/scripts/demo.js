@@ -11,6 +11,12 @@ Microsoft Corporation
 (function() {
 'use strict';
 
+	var notSupported = function() {
+		var msg = document.getElementById("alert-banner");
+		msg.style.display = "block";
+		var db = document.getElementById("demo-banner");
+		db.style.display = "none";	};
+	
 	// map prefixed APIs
 	navigator.getUserMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
 													
@@ -33,9 +39,7 @@ Microsoft Corporation
 	if(window.AudioContext || window.webkitAudioContext) {
 		var audioContext = new (window.AudioContext || window.webkitAudioContext)();
 	} else {
-		var msg = document.getElementById("use-microsoft-edge")
-		msg.style.display = "block";
-		msg.innerHTML="Demo requires features supported by Microsoft Edge.";
+		notSupported();
 		return;
 	}
 	
@@ -119,11 +123,8 @@ Microsoft Corporation
 				myRecorder = new Recorder(sourceMix);
 			},
 			function(error) {
-				var msg = document.getElementById("use-microsoft-edge")
-				msg.style.display = "block";
-				msg.innerHTML="Demo requires features supported by Microsoft Edge.";
+				notSupported();
 				return;
-//				console.error('web audio graph error', error);
 			}
 		);
 	}
