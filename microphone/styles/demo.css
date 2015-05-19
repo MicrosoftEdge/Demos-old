@@ -5,6 +5,17 @@
 	border-bottom: 0 none;
 }
 
+.section--alert {
+	background-color: #C8EC56; 
+	color: #000;
+	text-align: center;  
+	display: none;
+}
+
+.section--alert p {
+	max-width: none;
+}
+
 /* Generic Controls */
 .mic__heading {
 	font-size: 1.2rem;

@@ -11,6 +11,12 @@ Microsoft Corporation
 (function() {
 'use strict';
 
+	var notSupported = function() {
+		var msg = document.getElementById("alert-banner");
+		msg.style.display = "block";
+		var db = document.getElementById("demo-banner");
+		db.style.display = "none";	};
+	
 	// map prefixed APIs
 	navigator.getUserMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
 													
@@ -30,7 +36,12 @@ Microsoft Corporation
 	// create web audio nodes
 	//==============================
 	
-	var audioContext = new (window.AudioContext || window.webkitAudioContext)();
+	if(window.AudioContext || window.webkitAudioContext) {
+		var audioContext = new (window.AudioContext || window.webkitAudioContext)();
+	} else {
+		notSupported();
+		return;
+	}
 	
 	// create notch filter for 60 Hz
 	var notchFilter = audioContext.createBiquadFilter();
@@ -112,7 +123,8 @@ Microsoft Corporation
 				myRecorder = new Recorder(sourceMix);
 			},
 			function(error) {
-				console.error('web audio graph error', error);
+				notSupported();
+				return;
 			}
 		);
 	}
