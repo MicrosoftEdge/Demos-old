@@ -91,17 +91,7 @@ input[type="radio"] + label {
 	text-align: center;
 }
 
-<<<<<<< HEAD
-/* More specific selector to override pattern library */
-
-.section--demo-mic .mic-controls__button:focus {
-	outline: 1px dotted rgba(255,255,255,.5);
-}
-
-.section--banner.section--demo-mic .mic-controls__button {
-=======
 .section--demo-mic .mic-controls__button {
->>>>>>> upstream/master
 	background: transparent;
 }
 
