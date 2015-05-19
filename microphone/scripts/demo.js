@@ -30,7 +30,14 @@ Microsoft Corporation
 	// create web audio nodes
 	//==============================
 	
-	var audioContext = new (window.AudioContext || window.webkitAudioContext)();
+	if(window.AudioContext || window.webkitAudioContext) {
+		var audioContext = new (window.AudioContext || window.webkitAudioContext)();
+	} else {
+		var msg = document.getElementById("use-microsoft-edge")
+		msg.style.display = "block";
+		msg.innerHTML="Demo requires features supported by Microsoft Edge.";
+		return;
+	}
 	
 	// create notch filter for 60 Hz
 	var notchFilter = audioContext.createBiquadFilter();
@@ -112,7 +119,11 @@ Microsoft Corporation
 				myRecorder = new Recorder(sourceMix);
 			},
 			function(error) {
-				console.error('web audio graph error', error);
+				var msg = document.getElementById("use-microsoft-edge")
+				msg.style.display = "block";
+				msg.innerHTML="Demo requires features supported by Microsoft Edge.";
+				return;
+//				console.error('web audio graph error', error);
 			}
 		);
 	}
