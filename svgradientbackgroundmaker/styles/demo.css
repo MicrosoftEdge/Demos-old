@@ -17,10 +17,6 @@
 	margin: 30px 0 0 0;
 }
 
-.svgradientbackgroundmaker * + * {
-	margin: 0;
-}
-
 .svgradientbackgroundmaker tbody tr:nth-child(odd),
 .svgradientbackgroundmaker tbody tr:nth-child(even) {
 	background-color: hsla(0, 0%, 0%, 0);
@@ -28,10 +24,6 @@
 
 .svgradientbackgroundmaker table {
 	width: auto;
-}
-
-.svgradientbackgroundmaker label {
-	display: inline-block;
 }
 
 #demo-details {
@@ -56,16 +48,9 @@ textarea,
 	padding: 0;
 	background-size: 100% 100%;
 }
-input[type="radio"] {
-	position: relative;
-	margin-right: 3px;
-}
 input[type="text"] {
 	border: solid 1px #aaa;
 	padding: 1px;
-}
-label {
-	margin-right: 1em;
 }
 #htxtlink {
 	font-style: italic;
