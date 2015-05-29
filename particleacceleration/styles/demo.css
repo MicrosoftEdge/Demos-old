@@ -1,9 +1,3 @@
-body {
-	-ms-content-zooming: none;
-	text-align: center;
-	-ms-touch-action: none;
-}
-
 .container {
 	position: relative;
 	z-index: 0;
@@ -16,11 +10,18 @@ body {
 	text-align: left;
 }
 
+canvas {
+	-ms-touch-action: none;
+	touch-action: none;
+	-ms-content-zooming: none;
+	content-zooming: none;
+}
+
 #performance-canvas {
 	display: block;
 	position: absolute;
 	left: 0;
-	width: 100%;
+	width: 100%;	
 }
 
 #myCanvas {

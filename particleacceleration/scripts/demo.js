@@ -9,7 +9,7 @@ var sceneHeight = 0;
 	 ** Demo Authors: Jatinder Mann and Karlito Bonnevie, Microsoft Corporation
 	 ****************************************************************************/
 
-// 3D Model Constants
+	// 3D Model Constants
 	var constants = {
 		canvasWidth: 1000, // In pixels.
 		canvasHeight: 1000, // In pixels.
@@ -822,9 +822,17 @@ var sceneHeight = 0;
 			canvasElement._gesture = new MSGesture();
 			canvasElement._gesture.target = canvasElement;
 
-			canvasElement.addEventListener('MSPointerDown', pointerDownListener, false);
-			canvasElement.addEventListener('MSPointerMove', mousePointerMoveListener, false);
-			canvasElement.addEventListener('MSPointerUp', mousePointerUpListener, false);
+			//In Microsoft Edge there is only the unprefixed API
+			if (window.PointerEvent) {
+				canvasElement.addEventListener('pointerdown', pointerDownListener, false);
+				canvasElement.addEventListener('pointermove', mousePointerMoveListener, false);
+				canvasElement.addEventListener('pointerup', mousePointerUpListener, false);
+			} else {
+				canvasElement.addEventListener('MSPointerDown', pointerDownListener, false);
+				canvasElement.addEventListener('MSPointerMove', mousePointerMoveListener, false);
+				canvasElement.addEventListener('MSPointerUp', mousePointerUpListener, false);
+			}
+
 			window.addEventListener('MSGestureChange', gestureChangeListener, true);
 
 		} else {
@@ -894,4 +902,4 @@ var sceneHeight = 0;
 	else if (window.attachEvent) {
 		window.attachEvent('onload', onloadInit);
 	}
-}());
+} ());
