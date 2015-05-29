@@ -35,8 +35,7 @@ var Performance = function () {
 	this.debugText = '';
 
 	this.initialize = function () {
-		this.startTime = new Date();
-		this.getBrowserInformation();
+		this.startTime = new Date();		
 
 		this.canvas = document.getElementById('performance-canvas');
 		this.context = this.canvas.getContext('2d');
@@ -89,10 +88,7 @@ var Performance = function () {
 	this.drawDashboard = function () {
 		this.context.clearRect(0, 0, sceneWidth, sceneHeight - 32);
 
-		var message = '';
-		message += '     Using ' + this.browserName + ' ' + this.browserVersion;
-		message += '     Window Size: ' + sceneWidth + 'x' + sceneHeight;
-
+		var message = '     Window Size: ' + sceneWidth + 'x' + sceneHeight;
 		// Provide a 5% buffer around the 16.7ms rolling average to account for clock skew
 		// and other variables which could destabalize the number. This keeps the number more
 		// stable once we've reached the equilibrium.
@@ -124,53 +120,6 @@ var Performance = function () {
 
 	this.toggleVisibility = function () {
 		this.displayDashboard = (this.displayDashboard === true) ? false : true;
-	};
-
-	this.getBrowserInformation = function () {
-
-		var UA = navigator.userAgent.toLowerCase();
-		var index;
-
-		if (document.documentMode) {
-			this.browserCheck = 'IE';
-			this.browserName = 'Internet Explorer';
-			this.browserVersion = '' + document.documentMode;
-			this.browserTransform = 'msTransform';
-		} else if (UA.indexOf('edge') > -1) {
-			this.browserCheck = 'Spartan';
-			this.browserName = 'Project Spartan';
-			this.browserVersion = '';
-			this.browserTransform = 'transform';
-		} else if (UA.indexOf('chrome') > -1) {
-			index = UA.indexOf('chrome');
-			this.browserCheck = 'Chrome';
-			this.browserName = 'Google Chrome';
-			this.browserVersion = '' + parseFloat('' + UA.substring(index + 7));
-			this.browserTransform = 'WebkitTransform';
-		} else if (UA.indexOf('firefox') > -1) {
-			index = UA.indexOf('firefox');
-			this.browserCheck = 'Firefox';
-			this.browserName = 'Mozilla Firefox';
-			this.browserVersion = '' + parseFloat('' + UA.substring(index + 8));
-			this.browserTransform = 'MozTransform';
-		} else if (UA.indexOf('minefield') > -1) {
-			index = UA.indexOf('minefield');
-			this.browserCheck = 'Firefox';
-			this.browserName = 'Mozilla Firefox Minefield';
-			this.browserVersion = '' + parseFloat('' + UA.substring(index + 10));
-			this.browserTransform = 'MozTransform';
-		} else if (UA.indexOf('opera') > -1) {
-			this.browserCheck = 'Opera';
-			this.browserName = 'Opera';
-			this.browserVersion = '';
-			this.browserTransform = 'OTransform';
-		} else if (UA.indexOf('safari') > -1) {
-			index = UA.indexOf('safari');
-			this.browserCheck = 'Safari';
-			this.browserName = 'Apple Safari';
-			this.browserVersion = '' + parseFloat('' + UA.substring(index + 7));
-			this.browserTransform = 'WebkitTransform';
-		}
 	};
 
 	this.initialize();
