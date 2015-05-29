@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<!-- <html manifest="manifest.appcache"> -->
+<head>
+	<title>Microsoft Edge Audio Mixer</title>
+	<meta name="og:title" content="Web Audio"/>
+	<meta name="description" content=""/>
+	<meta name="keywords" content="Media, web, audio"/>
+	<meta name="author" content="aliams"/>
+	<meta name="viewport" content="width=device-width"/>
+	<link rel="stylesheet" type="text/css" href="styles/demotemplate.css"/>
+	<link rel="stylesheet" type="text/css" href="styles/demo.css"/>
+</head>
+
+<body>
+	<section class="wrapper panel">
+		<h1>Mixer</h1>
+		<div class="panel-content">
+			<div id="master">
+				<a title="Play / Pause" id="play-button" href="#">
+					<svg class="icon icon-play">
+						<path d="m0,0l0,36l27,-18l-27,-18l0,0l0,0z"></path>
+					</svg>
+					<svg class="icon icon-pause">
+						<rect height="36" width="10" y="0" x="0"></rect>
+						<rect height="36" width="10" y="0" x="20"></rect>
+					</svg>
+				</a>
+
+				<span id="play-text">Paused</span>
+
+				<div class="master-controls">
+					<label>
+						<small>Volume</small>
+						<input class="volume volume-master" type="range" min="0" value="50" max="100" step="5" />
+					</label>
+
+					<label>
+						<small>Speed</small>
+						<input class="tempo" type="range" min="15" value="60" max="240" step="15" />
+					</label>
+				</div>
+
+				<form id="save-form">
+					<input name="name" type="text" placeholder="Name" maxlength="30">
+					<input name="author" type="text" placeholder="Author" maxlength="30">
+					<input name="genre" type="text" placeholder="Genre" maxlength="30">
+					<button type="submit" class="disabled">Save</button>
+					<button id="button-new" type="button">New</button>
+				</form>
+			</div>
+
+			<ul id="dash">
+				<!-- UI created via JavaScript -->
+			</ul>
+		</div>
+	</section>
+
+	<section class="wrapper panel">
+		<h1>Music</h1>
+		<small id="saved-list-explainer">You have no songs in your library. Compose a song in the mixer above then provide a name, author, and genre and click save to add it here. If you like, you can <a href="#">load in some presets by clicking here</a>.</small>
+		<table id="saved-list" class="panel-content">
+			<thead>
+				<tr>
+					<th width="35%">Name</th>
+					<th width="32%">Author</th>
+					<th width="30%">Genre</th>
+					<th width="3%"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- UI created via JavaScript -->
+			</tbody>
+		</table>
+	</section>
+
+	<footer>
+		Designed and developed by Ali Alabbas on the Microsoft Edge team at Microsoft
+		<a href="#" id="about">About this application</a>
+	</footer>
+
+	<script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="scripts/ui.js"></script>
+	<script type="text/javascript" src="scripts/audio.js"></script>
+	<script type="text/javascript" src="scripts/db.js"></script>
+
+</body>
+</html>

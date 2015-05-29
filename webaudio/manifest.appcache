@@ -1,0 +1,37 @@
+CACHE MANIFEST
+#v1
+
+CACHE:
+
+# CSS
+styles/demotemplate.css
+styles/demo.css
+
+# JS
+//code.jquery.com/jquery-2.1.3.min.js
+scripts/ui.js
+scripts/audio.js
+scripts/db.js
+scripts/timerworker.js
+
+# Audio
+sounds/kick.wav
+sounds/tom.wav
+sounds/snare.wav
+sounds/hihat.wav
+sounds/crash.wav
+sounds/ride.wav
+sounds/bass.wav
+
+# Fonts
+//i.s-microsoft.com/fonts/segoe-ui/west-european/light/latest.woff
+//i.s-microsoft.com/fonts/segoe-ui/west-european/light/latest.ttf
+//i.s-microsoft.com/fonts/segoe-ui/west-european/semilight/latest.woff
+//i.s-microsoft.com/fonts/segoe-ui/west-european/semilight/latest.ttf
+//i.s-microsoft.com/fonts/segoe-ui/west-european/normal/latest.woff
+//i.s-microsoft.com/fonts/segoe-ui/west-european/normal/latest.ttf
+//i.s-microsoft.com/fonts/segoe-ui/west-european/semibold/latest.woff
+//i.s-microsoft.com/fonts/segoe-ui/west-european/semibold/latest.ttf
+
+NETWORK:
+*
