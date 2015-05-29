@@ -10,4 +10,5 @@ canvas {
 	padding: 0;
 	overflow: hidden;
 	touch-action: none;
+	-ms-touch-action: none;
 }
