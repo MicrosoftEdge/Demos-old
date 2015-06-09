@@ -110,7 +110,7 @@
                 currentCam = 0;
             }
             var video = document.getElementById('videoTag');
-            video.srcObject = null;
+            video.srcObject = undefined;
             video.src = null;
             if(mediaStream) {
                 var videoTracks = mediaStream.getVideoTracks();
