@@ -442,8 +442,25 @@
 		addParticles();
 
 		// Determine correct events to register for
-		if (navigator.msPointerEnabled) {
+		if (navigator.pointerEnabled) {
 			// Pointers supported
+			downevent = 'pointerdown';
+			upevent = 'pointerup';
+			moveevent = 'pointermove';
+			document.addEventListener('pointercancel', function (e) {
+				removeTouchPoint(e);
+			}, false);
+			document.addEventListener('MSGestureInit', function (e) {
+				if (e.preventManipulation) {
+					e.preventManipulation();
+				}
+			}, false);
+			document.addEventListener('MSHoldVisual', function (e) {
+				e.preventDefault();
+			}, false);
+		}
+		else if (navigator.msPointerEnabled) {
+			// MSPointers supported
 			downevent = 'MSPointerDown';
 			upevent = 'MSPointerUp';
 			moveevent = 'MSPointerMove';
@@ -458,7 +475,8 @@
 			document.addEventListener('MSHoldVisual', function (e) {
 				e.preventDefault();
 			}, false);
-		} else {
+		}
+		else {
 			// Pointers not supported. Defaulting to mouse events
 			downevent = 'mousedown';
 			upevent = 'mouseup';
