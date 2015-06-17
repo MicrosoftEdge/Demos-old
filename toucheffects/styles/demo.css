@@ -109,6 +109,7 @@
 #canvas {
     background-color: #000;
     -ms-touch-action: none;
+    touch-action: none;
     left: 0;
     right: 0;
     width: 100%;
