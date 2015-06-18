@@ -1,7 +1,7 @@
 /* You can add -webkit- and -moz- prefixes for webkit browsers and firefox. */
 .animated-filters {
 	-webkit-animation: filter-animation 10s infinite;
-  	animation: filter-animation 10s infinite;
+	animation: filter-animation 10s infinite;
 }
 
 .animated-filters2 {
@@ -19,74 +19,80 @@
 	width: 6rem;
 }
 
+@supports (filter: opacity(0) ) {
+	.note {
+		display: none;
+	}
+}
+
 @-webkit-keyframes filter-animation {
-  0% {
-    -webkit-filter: sepia(0) saturate(100%);
-  }
-  15% {
-    -webkit-filter: sepia(90%) saturate(100%);
-  }
-  30% {
-    -webkit-filter: sepia(0) saturate(210%) hue-rotate(60deg);
-  }
-  45% {
-    -webkit-filter: hue-rotate(350deg);
-  }
-  60% {
-    -webkit-filter: hue-rotate(0deg) invert(90%);
-  }
-  75% {
-    -webkit-filter: blur(5px) invert(0);
-  }
-  100% {
-    -webkit-filter: saturate(100%) blur(0);
-  }
+	0% {
+		-webkit-filter: sepia(0) saturate(100%);
+	}
+	15% {
+		-webkit-filter: sepia(90%) saturate(100%);
+	}
+	30% {
+		-webkit-filter: sepia(0) saturate(210%) hue-rotate(60deg);
+	}
+	45% {
+		-webkit-filter: hue-rotate(350deg);
+	}
+	60% {
+		-webkit-filter: hue-rotate(0deg) invert(90%);
+	}
+	75% {
+		-webkit-filter: blur(5px) invert(0);
+	}
+	100% {
+		-webkit-filter: saturate(100%) blur(0);
+	}
 }
 
 @keyframes filter-animation {
-  0% {
-    filter: sepia(0) saturate(100%);
-  }
-  15% {
-    filter: sepia(90%) saturate(100%);
-  }
-  30% {
-    filter: sepia(0) saturate(210%) hue-rotate(60deg);
-  }
-  45% {
-    filter: sepia(0) saturate(1) hue-rotate(350deg);
-  }
-  60% {
-    filter: sepia(0) saturate(1) hue-rotate(0deg) invert(90%);
-  }
-  75% {
-    filter: sepia(0) saturate(1) hue-rotate(0deg) invert(0) blur(5px);
-  }
-  100% {
-    filter: sepia(0) saturate(1) hue-rotate(0deg) invert(0) blur(0);
-  }
+	0% {
+		filter: sepia(0) saturate(100%);
+	}
+	15% {
+		filter: sepia(90%) saturate(100%);
+	}
+	30% {
+		filter: sepia(0) saturate(210%) hue-rotate(60deg);
+	}
+	45% {
+		filter: sepia(0) saturate(1) hue-rotate(350deg);
+	}
+	60% {
+		filter: sepia(0) saturate(1) hue-rotate(0deg) invert(90%);
+	}
+	75% {
+		filter: sepia(0) saturate(1) hue-rotate(0deg) invert(0) blur(5px);
+	}
+	100% {
+		filter: sepia(0) saturate(1) hue-rotate(0deg) invert(0) blur(0);
+	}
 }
 
 @-webkit-keyframes filter-animation2 {
-  0% {
-    -webkit-filter: opacity(0);
-  }
-  50% {
-    -webkit-filter: opacity(100%);
-  }
-  100% {
-    -webkit-filter: opacity(0);
-  }
+	0% {
+		-webkit-filter: opacity(0);
+	}
+	50% {
+		-webkit-filter: opacity(100%);
+	}
+	100% {
+		-webkit-filter: opacity(0);
+	}
 }
 
 @keyframes filter-animation2 {
-  0% {
-    filter: opacity(0);
-  }
-  50% {
-    filter: opacity(100%);
-  }
-  100% {
-    filter: opacity(0);
-  }
+	0% {
+		filter: opacity(0);
+	}
+	50% {
+		filter: opacity(100%);
+	}
+	100% {
+		filter: opacity(0);
+	}
 }
