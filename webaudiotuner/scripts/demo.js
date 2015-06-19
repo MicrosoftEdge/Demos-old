@@ -81,7 +81,7 @@ $(document).ready(function () {
 
 	var isGetUserMediaSupported = function () {
 		navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
-		if (navigator.getUserMedia) {
+		if ((navigator.mediaDevices && navigator.mediaDevices.getUserMedia) || navigator.getUserMedia) {
 			return true;
 		}
 
