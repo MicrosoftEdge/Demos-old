@@ -16,7 +16,7 @@ $(document).ready(function () {
 		analyserAudioNode;
 
 	var isAudioContextSupported = function () {
-		// This feature is still prefixed in Safari and Chrome
+		// This feature is still prefixed in Safari
 		window.AudioContext = window.AudioContext || window.webkitAudioContext;
 		if (window.AudioContext) {
 			return true;
@@ -227,7 +227,16 @@ $(document).ready(function () {
 
 			if (isGetUserMediaSupported()) {
 				notesArray = freqTable[baseFreq.toString()];
-				navigator.getUserMedia({audio: true}, streamReceived, reportError);
+
+				var getUserMedia = navigator.mediaDevices && navigator.mediaDevices.getUserMedia ?
+					navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices) :
+					function (constraints) {
+						return new Promise(function (resolve, reject) {
+							navigator.getUserMedia(constraints, resolve, reject);
+						});
+					};
+
+				getUserMedia({audio: true}).then(streamReceived).catch(reportError);
 				updatePitch(baseFreq);
 				isMicrophoneInUse = true;
 			}
