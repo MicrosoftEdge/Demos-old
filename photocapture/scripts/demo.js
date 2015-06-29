@@ -2,7 +2,7 @@
     'use strict';
 
     var mediaStream = null;
-    var webcamList = [];
+    var webcamList;
     var currentCam = null;
     var photoReady = false;
     
@@ -29,6 +29,11 @@
         else {
             video.src = URL.createObjectURL(mediaStream);
         }
+
+        if (video.paused) video.play();
+
+        document.getElementById('videoViewText').innerHTML = 'Click or tap below to take a snapshot';
+
         if (webcamList.length > 1) {
             document.getElementById('switch').disabled = false;
         }
@@ -124,8 +129,8 @@
 
         navigator.mediaDevices.getUserMedia({
             video: {
-                width: 1280,
-                height: 720,
+                width: 640,
+                height: 360,
                 deviceId: { exact: webcamList[currentCam] }
             }
         }).then(initializeVideoStream).catch(getUserMediaError);
@@ -153,6 +158,7 @@
 
     var devicesCallback = function(devices) {
         // Identify all webcams
+        webcamList = [];
         for (var i = 0; i < devices.length; i++) {
             if (devices[i].kind === 'videoinput') {
                 webcamList[webcamList.length] = devices[i].deviceId;
@@ -175,19 +181,21 @@
         navigator.mediaDevices.addEventListener('devicechange', deviceChanged);
     };
 
-    // init() - The entry point to the demo code
-    // 1. Detect whether getUserMedia() is supported, show an error if not
-    // 2. Set up necessary event listners for video tag and the webcam 'switch' button
-    // 3. Detect whether device enumeration is supported, use the legacy media capture API to start the demo otherwise
-    // 4. Enumerate the webcam devices when the browser supports device enumeration
+    // demoSetup() - function to start the Media Capture API
+    // 1. Detect whether device enumeration is supported, use the legacy media capture API to start the demo otherwise
+    // 2. Enumerate the webcam devices when the browser supports device enumeration
+    // 3. Set up event listner for the webcam 'switch' button
 
-    var init = function() {
-        navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+    var demoSetup = function() {
+
         document.getElementById('videoTag').addEventListener('click', capture, false);
-        document.getElementById('switch').addEventListener('click', nextWebCam, false);
+        document.getElementById('start').style.display = 'none';
+        document.getElementById('switch').style.display = '';
+        document.getElementById('democontent').style.display = '';
 
         if (navigator.mediaDevices && navigator.mediaDevices.enumerateDevices) {
             navigator.mediaDevices.enumerateDevices().then(devicesCallback);
+            document.getElementById('switch').addEventListener('click', nextWebCam, false);
         }
         else if (navigator.getUserMedia) {
             document.getElementById('tooltip').style.display = 'block';
@@ -195,11 +203,23 @@
 
             navigator.getUserMedia({ video: true }, initializeVideoStream, getUserMediaError);
         }
+    }; 
+
+    // init() - The entry point to the demo code
+    // 1. Detect whether getUserMedia() is supported, show an error if not
+
+    var init = function() {
+        navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+
+        if (navigator.getUserMedia) {
+            document.getElementById('start').style.display = 'block';
+            document.getElementById('start').addEventListener('click', demoSetup, false);
+        }
         else {
             writeError('You are using a browser that does not support the Media Capture API');
         }
-    };    
-    
+    };
+
     init();
 
 }());
