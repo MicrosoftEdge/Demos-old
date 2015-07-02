@@ -10,12 +10,31 @@ Microsoft Corporation
 
 (function() {
 'use strict';
-
+		
 	var notSupported = function() {
-		var msg = document.getElementById("alert-banner");
-		msg.style.display = "block";
-		var db = document.getElementById("demo-banner");
-		db.style.display = "none";	};
+		var msg = document.getElementById('alert-banner');
+		msg.style.display = 'block';
+		var sb = document.getElementById('start');
+		sb.style.display = 'none';
+		var db = document.getElementById('demo-banner');
+		db.style.display = 'none';
+	};
+	
+    var demoSetup = function() {
+		console.log ('demoSetup');
+		var sb = document.getElementById('start');
+		sb.style.display = 'none';
+ 		var db = document.getElementById('demo-banner');
+		db.style.display = 'block';
+		runRecorder();
+	};
+	
+	var sb = document.getElementById('start');
+	sb.style.display = 'block';
+	sb.addEventListener('click', demoSetup, false);
+	
+ 	var db = document.getElementById('demo-banner');
+	db.style.display = 'none';
 	
 	// map prefixed APIs
 	navigator.getUserMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
@@ -86,48 +105,50 @@ Microsoft Corporation
 	//==============================
 	//	build audio graph
 	//==============================
-	if (navigator.getUserMedia) {
-		navigator.getUserMedia(
-			{
-				'audio': true
-			},
-			
-			// build audio graph with media stream and audio element as sources
-			function(stream) {
+	var runRecorder = function() {
+		if (navigator.getUserMedia) {
+			navigator.getUserMedia(
+				{
+					'audio': true
+				},
 				
-				// initialize mic source
-				sourceMic = audioContext.createMediaStreamSource(stream);
-				
-				// initialize audio element source
-				sourceAudio = audioContext.createMediaElementSource(myAudio);
-				
-				// mix sources
-				sourceMic.connect(notchFilter);
-				notchFilter.connect(micGain);
-				micGain.connect(sourceMix);
-				sourceAudio.connect(sourceMix);
-				
-				// connect source through filter and convolver to visualizer & output
-				sourceMix.connect(convolver);
-				convolver.connect(filter);
-				filter.connect(visualizerInput);				 
-				filter.connect(outputGain);				 
-				outputGain.connect(dynComp);
-				dynComp.connect(audioContext.destination);
+				// build audio graph with media stream and audio element as sources
+				function(stream) {
+					
+					// initialize mic source
+					sourceMic = audioContext.createMediaStreamSource(stream);
+					
+					// initialize audio element source
+					sourceAudio = audioContext.createMediaElementSource(myAudio);
+					
+					// mix sources
+					sourceMic.connect(notchFilter);
+					notchFilter.connect(micGain);
+					micGain.connect(sourceMix);
+					sourceAudio.connect(sourceMix);
+					
+					// connect source through filter and convolver to visualizer & output
+					sourceMix.connect(convolver);
+					convolver.connect(filter);
+					filter.connect(visualizerInput);				 
+					filter.connect(outputGain);				 
+					outputGain.connect(dynComp);
+					dynComp.connect(audioContext.destination);
 
-				// connect output to visualizers
-				visualizerInput.connect(timeAnalyser);
-				visualizerInput.connect(freqAnalyser);
-				
-				// initialize myRecorder (using recorder.js and recordworker.js)
-				myRecorder = new Recorder(sourceMix);
-			},
-			function(error) {
-				notSupported();
-				return;
-			}
-		);
-	}
+					// connect output to visualizers
+					visualizerInput.connect(timeAnalyser);
+					visualizerInput.connect(freqAnalyser);
+					
+					// initialize myRecorder (using recorder.js and recordworker.js)
+					myRecorder = new Recorder(sourceMix);
+				},
+				function(error) {
+					notSupported();
+					return;
+				}
+			);
+		}
+	};
 	
 	var toggleGainState = function(elementId, elementClass, outputElement){
 		var ele = document.getElementById(elementId);
@@ -265,7 +286,6 @@ Microsoft Corporation
 	
 	// apply room effect
 	var applyEffect = function() {
-
 		var effectName = document.getElementById('effectmic-controls').value;
 		var selectedEffect = effects[effectName];
 		var effectFile = selectedEffect.file;	
@@ -313,7 +333,6 @@ Microsoft Corporation
 	};
 	
 	var applyFilter = function() {
-
 		var filterName = document.getElementById('filtermic-controls').value;
 		var selectedFilter = filters[filterName];
 		filter.type = filterName;
