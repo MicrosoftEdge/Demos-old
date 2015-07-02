@@ -20,22 +20,6 @@ Microsoft Corporation
 		db.style.display = 'none';
 	};
 	
-    var demoSetup = function() {
-		console.log ('demoSetup');
-		var sb = document.getElementById('start');
-		sb.style.display = 'none';
- 		var db = document.getElementById('demo-banner');
-		db.style.display = 'block';
-		runRecorder();
-	};
-	
-	var sb = document.getElementById('start');
-	sb.style.display = 'block';
-	sb.addEventListener('click', demoSetup, false);
-	
- 	var db = document.getElementById('demo-banner');
-	db.style.display = 'none';
-	
 	// map prefixed APIs
 	navigator.getUserMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
 													
@@ -149,7 +133,22 @@ Microsoft Corporation
 			);
 		}
 	};
+
+    var demoSetup = function() {
+		var sb = document.getElementById('start');
+		sb.style.display = 'none';
+		var db = document.getElementById('demo-banner');
+		db.style.display = 'block';
+		runRecorder();
+	};
 	
+	var startButton = document.getElementById('start');
+	startButton.style.display = 'block';
+	startButton.addEventListener('click', demoSetup, false);
+	
+	var demoBanner = document.getElementById('demo-banner');
+	demoBanner.style.display = 'none';
+		
 	var toggleGainState = function(elementId, elementClass, outputElement){
 		var ele = document.getElementById(elementId);
 		return function(){
