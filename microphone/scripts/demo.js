@@ -20,6 +20,13 @@ Microsoft Corporation
 		db.style.display = 'none';
 	};
 	
+	if(window.AudioContext || window.webkitAudioContext) {
+		var audioContext = new (window.AudioContext || window.webkitAudioContext)();
+	} else {
+		notSupported();
+		return;
+	}
+	
 	// map prefixed APIs
 	navigator.getUserMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
 													
@@ -39,25 +46,18 @@ Microsoft Corporation
 	// create web audio nodes
 	//==============================
 	
-	if(window.AudioContext || window.webkitAudioContext) {
-		var audioContext = new (window.AudioContext || window.webkitAudioContext)();
-	} else {
-		notSupported();
-		return;
-	}
-	
 	// create notch filter for 60 Hz
 	var notchFilter = audioContext.createBiquadFilter();
 	notchFilter.frequency.value = 60.0;
 	notchFilter.type = 'notch';
 	notchFilter.Q.value = 10.0;
 	
-	var micGain = audioContext.createGain();			// for mic input mute
-	var sourceMix = audioContext.createGain();			// for mixing
-	var visualizerInput = audioContext.createGain();	// final gain for visualizers
-	var outputGain = audioContext.createGain();			// for speaker mute
-	outputGain.gain.value = 0;							// mute speakers initially
-	var dynComp = audioContext.createDynamicsCompressor();	//limit output
+	var micGain = audioContext.createGain();				// for mic input mute
+	var sourceMix = audioContext.createGain();				// for mixing
+	var visualizerInput = audioContext.createGain();		// final gain for visualizers
+	var outputGain = audioContext.createGain();				// for speaker mute
+	outputGain.gain.value = 0;								// mute speakers initially
+	var dynComp = audioContext.createDynamicsCompressor();	// limit output
 	visualizerInput.gain.value = 5;
 	
 	// create a convolver node for room effects
@@ -304,7 +304,7 @@ Microsoft Corporation
 				convolver.buffer = buffer;
 			},
 			function(error){
-				console.error('decodeAudioData error', error);
+				return;
 			});
 		};
 		request.send();
