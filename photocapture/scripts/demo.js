@@ -142,7 +142,7 @@
         /*eslint-disable*/
         navigator.mediaDevices.enumerateDevices().then(devicesCallback).catch(getUserMediaError);
         /*eslint-enable*/
-    }
+    };
 
     // deviceChanged() - Handle devicechange event
     // 1. Reset webcamList
