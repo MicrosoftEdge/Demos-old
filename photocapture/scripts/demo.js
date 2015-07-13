@@ -136,6 +136,14 @@
         }).then(initializeVideoStream).catch(getUserMediaError);
     };
     
+    // enumerateMediaDevices() - function to start enumerateDevices() and define the callback functions
+
+    var enumerateMediaDevices = function() {
+        /*eslint-disable*/
+        navigator.mediaDevices.enumerateDevices().then(devicesCallback).catch(getUserMediaError);
+        /*eslint-enable*/
+    }
+
     // deviceChanged() - Handle devicechange event
     // 1. Reset webcamList
     // 2. Re-enumerate webcam devices
@@ -144,9 +152,7 @@
         navigator.mediaDevices.removeEventListener('devicechange', deviceChanged);
         // Reset the webcam list and re-enumerate
         webcamList = [];
-        /*eslint-disable*/
-        navigator.mediaDevices.enumerateDevices().then(devicesCallback);
-        /*eslint-enable*/
+        enumerateMediaDevices();
     };
     
     // devicesCallback() - Callback function for device enumeration
@@ -194,7 +200,7 @@
         document.getElementById('democontent').style.display = '';
 
         if (navigator.mediaDevices && navigator.mediaDevices.enumerateDevices) {
-            navigator.mediaDevices.enumerateDevices().then(devicesCallback);
+            enumerateMediaDevices();
             document.getElementById('switch').addEventListener('click', nextWebCam, false);
         }
         else if (navigator.getUserMedia) {
