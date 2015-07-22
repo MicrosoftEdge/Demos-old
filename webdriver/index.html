@@ -20,7 +20,13 @@
 						<heading class="section-header">
 							<h1 class="heading">Learn how WebDriver works</h1>
 						</heading>
-						<p class="text-title">To send a request to Microsoft Edge, specify a port and a command. Modify the command if needed and hit the "Send Request" button.</p>
+						<p class="text-title">
+							Welcome to the Microsoft Edge Microsoft WebDriver demo! This demo will give you an idea of how WebDriver works in Microsoft Edge.
+							Below you can select from a subset of commands that we have implemented in Microsoft Edge. For the full list you can visit our <a href="#">webdriver page</a>.
+							To begin, you'll first need to download and install Microsoft WebDriver from <a href="#">Download Center</a>. After it is installed, start up the server by running
+							the executable located in the folder you installed it into. Next open this page in Internet Explorer (since we will be driving Microsoft Edge, we can't run the demo
+							from it) and start sending some comamnds!
+						</p>
 					</div>
 				</header>
 				<div class="demo-content">
@@ -32,24 +38,25 @@
 							<div class="section-body">
 								<ul>
 									<li>
-										<label for="commands-select">Command
-											<select id="commands-select"></select>
-										</label>
+										<h3>Command</h3>
+										<p>The command to be sent to Microsoft Edge. These allow control of the browser. Below you'll find a dropdown of a few sample commands to play around with.</p>
+										<select id="commands-select"></select>
+										<p id="command-description"></p>
 									</li>
 									<li>
-										<label for="methods-select">Method
-											<select id="methods-select"></select>
-										</label>
+										<h3>Method</h3>
+										<p>The HTTP method used for each command. Every command will either be a GET, POST or DELETE.</p>
+										<select id="methods-select"></select>
 									</li>
 									<li>
-										<label for="path">Path
-											<input id="path" type="text" name="path" value="">
-										</label>
+										<h3>Path</h3>
+										<p>The path of the command selected. This is used by Microsoft WebDriver to determine the command. By default Microsoft WebDriver has a list of approved commands. Any commands not in that list get a generic error response.</p>
+										<input id="path" type="text" name="path" value="">
 									</li>
 									<li>
-										<label for="content-area">Content
-											<textarea id="content-area"></textarea>
-										</label>
+										<h3>Request Body</h3>
+										<p>This is the body of the request being sent to the Microsoft WebDriver server. Some commands will have values that you can add here, other do not require a request body.</p>
+										<textarea id="content-area"></textarea>
 									</li>
 									<li>
 										<button id="send-request" class="primary">Send Request</button>

@@ -8,26 +8,18 @@ ul {
     width: 100%;
 }
 
-.test-name {
+.webdriver-response {
+    background-color: lightgreen;
+    border-color: green;
+    border-style: solid;
+    border-width: 1px;
     font-weight: bold;
 }
 
-.test-command {
-    text-indent: 50px;
-}
-
-.command-success {
-    color: green;
-}
-
-.command-fail {
-    color: red;
-}
-
-.command-info {
-    color: blue;
-}
-
-.test-command-info {
-    margin-left: 100px;
+.webdriver-info {
+    background-color: lightblue;
+    border-color: blue;
+    border-style: solid;
+    border-width: 1px;
+    font-weight: bold;
 }

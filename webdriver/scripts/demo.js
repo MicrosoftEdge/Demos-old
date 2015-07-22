@@ -24,7 +24,7 @@
             var o = document.createElement("OPTION");
             o.value = commands[j].commandName;
             o.id = "commands-select-" + commands[j].commandName;
-            o.innerHTML = commands[j].commandName;
+            o.innerHTML = commands[j].commandTitle;
     
             s.appendChild(o);
         }
@@ -32,19 +32,97 @@
     
     function loadCommands() {
         commands = [];
-        commands.push({ commandName: "click", method: "POST", path: "/session/SESSION_ID/element/ELEMENT_ID/click", requestBody: "" });
-        commands.push({ commandName: "executeScript", method: "POST", path: "/session/SESSION_ID/execute", requestBody: "{\"script\": \"return arguments[0].second;\",\"args\": [{\"first\":\"1st\", \"second\":\"2nd\", \"third\":\"3rd\"}]}" });
-        commands.push({ commandName: "findElement", method: "POST", path: "/session/SESSION_ID/element", requestBody: "{\"using\": \"id\",\"value\": \"clickAnchorElement\"}" });
-        commands.push({ commandName: "get", method: "POST", path: "/session/SESSION_ID/url", requestBody: "{\"url\":\"http://www.bing.com\"}" });
-        commands.push({ commandName: "getElementAttribute", method: "GET", path: "/session/SESSION_ID/element/ELEMENT_ID/attribute/:name", requestBody: "" });
-        commands.push({ commandName: "getElementScreenshot", method: "GET", path: "/session/SESSION_ID/element/ELEMENT_ID/screenshot", requestBody: "" });
-        commands.push({ commandName: "getElementTagName", method: "GET", path: "/session/SESSION_ID/element/ELEMENT_ID/name", requestBody: "" });
-        commands.push({ commandName: "getElementText", method: "GET", path: "/session/SESSION_ID/element/ELEMENT_ID/text", requestBody: "" });
-        commands.push({ commandName: "getTitle", method: "GET", path: "/session/SESSION_ID/title", requestBody: "" });
-        commands.push({ commandName: "newSession", method: "POST", path: "/session", requestBody: "{\"desiredCapabilities\":{ \"browserName\":\"<browserName>\", \"browserVersion\":\"<browserVersion>\", \"platformName\":\"Windows NT\", \"platformVersion\":\"10\"},\"requiredCapabilities\":{}}" });
-        commands.push({ commandName: "quit", method: "DELETE", path: "/session/SESSION_ID", requestBody: "" });
-        commands.push({ commandName: "screenshot", method: "GET", path: "/session/SESSION_ID/screenshot", requestBody: "" });
-        commands.push({ commandName: "sendKeys", method: "POST", path: "/session/SESSION_ID/element/ELEMENT_ID/value", requestBody: "{\"value\": [\"a\", \"b\", \"c\"]}" });
+        commands.push({
+            commandName: "click",
+            commandTitle: "Click",
+            method: "POST",
+            path: "/session/SESSION_ID/element/ELEMENT_ID/click",
+            requestBody: "",
+            description: "Clicks the selected element. You must first find an element on the page using the Find Element command to click." });
+        commands.push({
+            commandName: "executeScript",
+            commandTitle: "Execute JavaScript",
+            method: "POST",
+            path: "/session/SESSION_ID/execute",
+            requestBody: "{\"script\": \"return arguments[0].second;\",\"args\": [{\"first\":\"1st\", \"second\":\"2nd\", \"third\":\"3rd\"}]}",
+            description: "Runs a script on the page. Replace the \"return arguments[0].second;\" value in Content with custom JavaScript." });
+        commands.push({
+            commandName: "findElement",
+            commandTitle: "Find Element",
+            method: "POST",
+            path: "/session/SESSION_ID/element",
+            requestBody: "{\"using\": \"id\",\"value\": \"clickAnchorElement\"}",
+            description: "Finds an element on the page by its id. Replace the \"clickAnchorElement\" value in Content with an id of an element from the page Microsoft Edge is on." });
+        commands.push({
+            commandName: "get",
+            commandTitle: "Navigate to URL",
+            method: "POST",
+            path: "/session/SESSION_ID/url",
+            requestBody: "{\"url\":\"http://www.bing.com\"}",
+            description: "Instructs the browser to navigate to a url. Replace the \"http://www.bing.com\" value in Content with a url of your choice to navigate to the given url." });
+        commands.push({
+            commandName: "getElementAttribute",
+            commandTitle: "Get Element Attribute",
+            method: "GET",
+            path: "/session/SESSION_ID/element/ELEMENT_ID/attribute/:name",
+            requestBody: "",
+            description: "Given a selected element from the Find Element command, the browser will return a given attribute. Replace the \":name\" value in the Path to a valid HTML attribute." });
+        commands.push({
+            commandName: "getElementScreenshot",
+            commandTitle: "Get Element Screenshot",
+            method: "GET",
+            path: "/session/SESSION_ID/element/ELEMENT_ID/screenshot",
+            requestBody: "",
+            description: "Given a selected element from the Find Element command, the browser will return a screenshot of said element." });
+        commands.push({
+            commandName: "getElementTagName",
+            commandTitle: "Get Element Tag Name",
+            method: "GET",
+            path: "/session/SESSION_ID/element/ELEMENT_ID/name",
+            requestBody: "",
+            description: "Given a selected element from the Find Element command, the browser will return the name of the element." });
+        commands.push({
+            commandName: "getElementText",
+            commandTitle: "Get Element Text",
+            method: "GET",
+            path: "/session/SESSION_ID/element/ELEMENT_ID/text",
+            requestBody: "",
+            description: "Given a selected element from the Find Element command, the browser will return the text of the element." });
+        commands.push({
+            commandName: "getPageTitle",
+            commandTitle: "Get Page Title",
+            method: "GET",
+            path: "/session/SESSION_ID/title",
+            requestBody: "",
+            description: "Instructs the browser to return the Title of the given page." });
+        commands.push({
+            commandName: "newSession",
+            commandTitle: "New Session",
+            method: "POST",
+            path: "/session",
+            requestBody: "{\"desiredCapabilities\":{ \"browserName\":\"<browserName>\", \"browserVersion\":\"<browserVersion>\", \"platformName\":\"Windows NT\", \"platformVersion\":\"10\"},\"requiredCapabilities\":{}}",
+            description: "Starts a new session of the browser. Currently Microsoft Edge only supports one session via WebDriver." });
+        commands.push({
+            commandName: "quit",
+            commandTitle: "End Session",
+            method: "DELETE",
+            path: "/session/SESSION_ID",
+            requestBody: "",
+            description: "Ends the given session of the browser." });
+        commands.push({
+            commandName: "screenshot",
+            commandTitle: "Take Screenshot",
+            method: "GET",
+            path: "/session/SESSION_ID/screenshot",
+            requestBody: "",
+            description: "Takes a screenshot of the given viewport." });
+        commands.push({
+            commandName: "sendKeys",
+            commandTitle: "Send Keys",
+            method: "POST",
+            path: "/session/SESSION_ID/element/ELEMENT_ID/value",
+            requestBody: "{\"value\": [\"a\", \"b\", \"c\"]}",
+            description: "Inputs a string into the given element. You must first select a valid element with an input on the page using the Find Element command to work. Replace the array in the Content with a string value. Can be multiple strings or a single string." });
     }
     
     /* Setup HTTP Methods */
@@ -149,6 +227,7 @@
             if (commands[i].commandName == s.options[s.selectedIndex].value) {
                 document.getElementById("methods-select").value = commands[i].method;
                 document.getElementById("path").value = checkForIds(commands[i].path);
+                document.getElementById("command-description").innerText = commands[i].description;
     
                 if (commands[i].requestBody != "") {
                     try {
@@ -197,7 +276,7 @@
     }
     
     function logRequest(method, url, requestBody) {
-        var lRequest = "<div class=\"command-info\">" + "<p>" + getTimeString() + "- Request " + method + " " + url + "</p>";
+        var lRequest = "<div class=\"webdriver-info\">" + "<p>" + getTimeString() + " - Request " + method + " " + url + "</p>";
         if (requestBody != "")
         {
             try
@@ -248,7 +327,7 @@
     }
     
     function logResponse(status, contentBody) {
-        var lResponse = "<div class=\"command-success\">" + "<p>" + getTimeString() + "- Response " + status + "</p>";
+        var lResponse = "<div class=\"webdriver-response\">" + "<p>" + getTimeString() + " - Response " + status + "</p>";
         if (contentBody != "") {
             try {
                 var jsonObj = JSON.parse(contentBody);
