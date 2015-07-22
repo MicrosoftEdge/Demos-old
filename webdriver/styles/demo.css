@@ -1,0 +1,33 @@
+/* Your custom CSS goes here */
+ul {
+    list-style-type: none;
+}
+
+#content-area {
+    height: 250px;
+    width: 100%;
+}
+
+.test-name {
+    font-weight: bold;
+}
+
+.test-command {
+    text-indent: 50px;
+}
+
+.command-success {
+    color: green;
+}
+
+.command-fail {
+    color: red;
+}
+
+.command-info {
+    color: blue;
+}
+
+.test-command-info {
+    margin-left: 100px;
+}

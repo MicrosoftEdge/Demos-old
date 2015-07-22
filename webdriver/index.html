@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Learn how WebDriver works</title>
+	<meta name="og:title" content="WebDriver"/>
+	<meta name="description" content=""/>
+	<meta name="keywords" content="Misc, WebDriver, Test Automation"/>
+	<meta name="author" content="instylevii"/>
+	<link rel="stylesheet" type="text/css" href="styles/demotemplate.css"/>
+	<link rel="stylesheet" type="text/css" href="styles/demo.css"/>
+</head>
+<body>
+	<article class="demo-wrap">
+		<div class="row">
+			<div class="col-sm-15">
+				<header class="demo-header">
+					<div class="container">
+						<heading class="section-header">
+							<h1 class="heading">Learn how WebDriver works</h1>
+						</heading>
+						<p class="text-title">To send a request to Microsoft Edge, specify a port and a command. Modify the command if needed and hit the "Send Request" button.</p>
+					</div>
+				</header>
+				<div class="demo-content">
+					<div class="container">
+						<section class="section">
+							<header class="section-header">
+								<h2 class="subheading">Send Request</h2>
+							</header>
+							<div class="section-body">
+								<ul>
+									<li>
+										<label for="commands-select">Command
+											<select id="commands-select"></select>
+										</label>
+									</li>
+									<li>
+										<label for="methods-select">Method
+											<select id="methods-select"></select>
+										</label>
+									</li>
+									<li>
+										<label for="path">Path
+											<input id="path" type="text" name="path" value="">
+										</label>
+									</li>
+									<li>
+										<label for="content-area">Content
+											<textarea id="content-area"></textarea>
+										</label>
+									</li>
+									<li>
+										<button id="send-request" class="primary">Send Request</button>
+									</li>
+								</ul>
+							</div>
+						</section>
+						<section>
+							<header class="section-header">
+								<h2 class="subheading">Server Log</h2>
+							</header>
+							<div class="section-body">
+								<button id="clear-log">Clear Log</button>
+						        <button id="clear-all">Clear All</button>
+						        <div id="log-contents"></div>          
+							</div>
+						</section>
+					</div>
+				</div>
+			</div>
+		</div>
+	</article>
+	<script type="text/javascript" src="scripts/demo.js"></script>
+</body>
+</html>
