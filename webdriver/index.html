@@ -18,14 +18,16 @@
 				<header class="demo-header">
 					<div class="container">
 						<heading class="section-header">
-							<h1 class="heading">Learn how WebDriver works</h1>
+							<h1 class="heading">Learn how to use WebDriver</h1>
 						</heading>
 						<p class="text-title">
-							Welcome to the Microsoft Edge Microsoft WebDriver demo! This demo will give you an idea of how WebDriver works in Microsoft Edge.
-							Below you can select from a subset of commands that we have implemented in Microsoft Edge. For the full list you can visit our <a href="#">webdriver page</a>.
-							To begin, you'll first need to download and install Microsoft WebDriver from <a href="#">Download Center</a>. After it is installed, start up the server by running
-							the executable located in the folder you installed it into. Next open this page in Internet Explorer (since we will be driving Microsoft Edge, we can't run the demo
-							from it) and start sending some comamnds!
+							WebDriver is an emerging <a href="https://w3c.github.io/webdriver/webdriver-spec.html">W3C standard</a> through which web developers can write tests to automate 
+							testing their sites through web browsers. This demo page will show you how to use a number of WebDriver commands implemented in Microsoft Edge. The full list of 
+							commands implemented in Microsoft Edge can be found <a href="http://dev.modern.ie/platform/status/webdriver/details/">here</a>.
+							<br><br>
+							Before trying the demo, please make sure you have installed Microsoft WebDriver server from <a href="http://download.microsoft.com/download/6/D/7/6D7B7A44-B792-4CB4-AEC3-4C190EB99F85/MicrosoftWebDriver.msi">Microsoft Download Center</a>. After it is installed, start 
+							up the Microsoft WebDriver server by running the executable. Since you will be driving Microsoft Edge, we recommend running this demo in another browser. You're set 
+							to start sending some commands!
 						</p>
 					</div>
 				</header>
@@ -39,7 +41,7 @@
 								<ul>
 									<li>
 										<h3>Command</h3>
-										<p>The command to be sent to Microsoft Edge. These allow control of the browser. Below you'll find a dropdown of a few sample commands to play around with.</p>
+										<p>The command to be sent to Microsoft Edge and control the browser. Below you'll find a dropdown of a few sample commands to play around with.</p>
 										<select id="commands-select"></select>
 										<p id="command-description"></p>
 									</li>
@@ -50,12 +52,12 @@
 									</li>
 									<li>
 										<h3>Path</h3>
-										<p>The path of the command selected. This is used by Microsoft WebDriver to determine the command. By default Microsoft WebDriver has a list of approved commands. Any commands not in that list get a generic error response.</p>
+										<p>The path of the command selected. This is used by Microsoft WebDriver to determine the command. Any commands not in the supported commands list will get a "command not implemented" error response.</p>
 										<input id="path" type="text" name="path" value="">
 									</li>
 									<li>
 										<h3>Request Body</h3>
-										<p>This is the body of the request being sent to the Microsoft WebDriver server. Some commands will have values that you can add here, other do not require a request body.</p>
+										<p>This is the body of the request being sent to the Microsoft WebDriver server. Some commands will have values that you can add here, others do not require a request body.</p>
 										<textarea id="content-area"></textarea>
 									</li>
 									<li>
