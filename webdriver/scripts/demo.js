@@ -208,21 +208,21 @@
             commandTitle: 'Execute JavaScript',
             method: 'POST',
             path: '/session/SESSION_ID/execute',
-            requestBody: '{\'script\': \'alert(arguments[0].first);\',\'args\': [{\'first\':\'hey\'}]}',
+            requestBody: '{\"script\": \"alert(arguments[0].first);\",\"args\": [{\"first\":\"hey\"}]}',
             description: 'Runs script on the page.' });
         commands.push({
             commandName: 'findElement',
             commandTitle: 'Find Element',
             method: 'POST',
             path: '/session/SESSION_ID/element',
-            requestBody: '{\'using\': \'id\',\'value\': \'sb_form_q\'}',
+            requestBody: '{\"using\": \"id\",\"value\": \"sb_form_q\"}',
             description: 'Finds an element on the page by its id.' });
         commands.push({
             commandName: 'get',
             commandTitle: 'Navigate to URL',
             method: 'POST',
             path: '/session/SESSION_ID/url',
-            requestBody: '{\'url\':\'http://www.bing.com\'}',
+            requestBody: '{\"url\":\"http://www.bing.com\"}',
             description: 'Navigates to the specified url.' });
         commands.push({
             commandName: 'getElementAttribute',
@@ -264,7 +264,7 @@
             commandTitle: 'Start Session',
             method: 'POST',
             path: '/session',
-            requestBody: '{\'desiredCapabilities\':{},\'requiredCapabilities\':{}}',
+            requestBody: '{\"desiredCapabilities\":{},\"requiredCapabilities\":{}}',
             description: 'Starts a new WebDriver session.' });
         commands.push({
             commandName: 'quit',
@@ -285,7 +285,7 @@
             commandTitle: 'Send Keys',
             method: 'POST',
             path: '/session/SESSION_ID/element/ELEMENT_ID/value',
-            requestBody: '{\'value\': [\'webdriver\']}',
+            requestBody: '{\"value\": [\'webdriver\']}',
             description: 'Inputs a string into the specified element.' });
     };
     
