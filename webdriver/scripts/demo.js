@@ -1,10 +1,115 @@
 (function(){
     'use strict';
     
-    var commands;
     var sessionId;
     var elementId;
     var lastCommandSent;
+    var commands = [
+        {
+            commandName: 'click',
+            commandTitle: 'Click',
+            method: 'POST',
+            path: '/session/SESSION_ID/element/ELEMENT_ID/click',
+            requestBody: '',
+            description: 'Clicks the specified element.'
+        },
+        {
+            commandName: 'executeScript',
+            commandTitle: 'Execute JavaScript',
+            method: 'POST',
+            path: '/session/SESSION_ID/execute',
+            requestBody: '{\"script\": \"alert(arguments[0].first);\",\"args\": [{\"first\":\"hey\"}]}',
+            description: 'Runs script on the page.'
+        },
+        {
+            commandName: 'findElement',
+            commandTitle: 'Find Element',
+            method: 'POST',
+            path: '/session/SESSION_ID/element',
+            requestBody: '{\"using\": \"id\",\"value\": \"sb_form_q\"}',
+            description: 'Finds an element on the page by its id.'
+        },
+        {
+            commandName: 'get',
+            commandTitle: 'Navigate to URL',
+            method: 'POST',
+            path: '/session/SESSION_ID/url',
+            requestBody: '{\"url\":\"http://www.bing.com\"}',
+            description: 'Navigates to the specified url.'
+        },
+        {
+            commandName: 'getElementAttribute',
+            commandTitle: 'Get Element Attribute',
+            method: 'GET',
+            path: '/session/SESSION_ID/element/ELEMENT_ID/attribute/name',
+            requestBody: '',
+            description: 'Returns the value of the specified element attribute.'
+        },
+        {
+            commandName: 'getElementScreenshot',
+            commandTitle: 'Get Element Screenshot',
+            method: 'GET',
+            path: '/session/SESSION_ID/element/ELEMENT_ID/screenshot',
+            requestBody: '',
+            description: 'Returns a screenshot of the specified element.'
+        },
+        {
+            commandName: 'getElementTagName',
+            commandTitle: 'Get Element Tag Name',
+            method: 'GET',
+            path: '/session/SESSION_ID/element/ELEMENT_ID/name',
+            requestBody: '',
+            description: 'Returns the tag name of the specified element.'
+        },
+        {
+            commandName: 'getElementText',
+            commandTitle: 'Get Element Text',
+            method: 'GET',
+            path: '/session/SESSION_ID/element/ELEMENT_ID/text',
+            requestBody: '',
+            description: 'Returns the inner text of the specified element.'
+        },
+        {
+            commandName: 'getPageTitle',
+            commandTitle: 'Get Page Title',
+            method: 'GET',
+            path: '/session/SESSION_ID/title',
+            requestBody: '',
+            description: 'Returns the title of the page.'
+        },
+        {
+            commandName: 'newSession',
+            commandTitle: 'Start Session',
+            method: 'POST',
+            path: '/session',
+            requestBody: '{\"desiredCapabilities\":{},\"requiredCapabilities\":{}}',
+            description: 'Starts a new WebDriver session.'
+        },
+        {
+            commandName: 'quit',
+            commandTitle: 'End Session',
+            method: 'DELETE',
+            path: '/session/SESSION_ID',
+            requestBody: '',
+            description: 'Ends the WebDriver session.'
+        },
+        {
+            commandName: 'screenshot',
+            commandTitle: 'Take Screenshot',
+            method: 'GET',
+            path: '/session/SESSION_ID/screenshot',
+            requestBody: '',
+            description: 'Takes a viewport screenshot.'
+        },
+        {
+            commandName: 'sendKeys',
+            commandTitle: 'Send Keys',
+            method: 'POST',
+            path: '/session/SESSION_ID/element/ELEMENT_ID/value',
+            requestBody: '{\"value\": [\'webdriver\']}',
+            description: 'Inputs a string into the specified element.'
+        }
+    ];
     
     /* Helper Functions */
     // toggle: true = sessionId, false = elementId
@@ -194,103 +299,7 @@
     };
     
     /* Setup Commands */
-    var loadCommands = function () {
-        commands = [];
-        commands.push({
-            commandName: 'click',
-            commandTitle: 'Click',
-            method: 'POST',
-            path: '/session/SESSION_ID/element/ELEMENT_ID/click',
-            requestBody: '',
-            description: 'Clicks the specified element.' });
-        commands.push({
-            commandName: 'executeScript',
-            commandTitle: 'Execute JavaScript',
-            method: 'POST',
-            path: '/session/SESSION_ID/execute',
-            requestBody: '{\"script\": \"alert(arguments[0].first);\",\"args\": [{\"first\":\"hey\"}]}',
-            description: 'Runs script on the page.' });
-        commands.push({
-            commandName: 'findElement',
-            commandTitle: 'Find Element',
-            method: 'POST',
-            path: '/session/SESSION_ID/element',
-            requestBody: '{\"using\": \"id\",\"value\": \"sb_form_q\"}',
-            description: 'Finds an element on the page by its id.' });
-        commands.push({
-            commandName: 'get',
-            commandTitle: 'Navigate to URL',
-            method: 'POST',
-            path: '/session/SESSION_ID/url',
-            requestBody: '{\"url\":\"http://www.bing.com\"}',
-            description: 'Navigates to the specified url.' });
-        commands.push({
-            commandName: 'getElementAttribute',
-            commandTitle: 'Get Element Attribute',
-            method: 'GET',
-            path: '/session/SESSION_ID/element/ELEMENT_ID/attribute/name',
-            requestBody: '',
-            description: 'Returns the value of the specified element attribute.' });
-        commands.push({
-            commandName: 'getElementScreenshot',
-            commandTitle: 'Get Element Screenshot',
-            method: 'GET',
-            path: '/session/SESSION_ID/element/ELEMENT_ID/screenshot',
-            requestBody: '',
-            description: 'Returns a screenshot of the specified element.' });
-        commands.push({
-            commandName: 'getElementTagName',
-            commandTitle: 'Get Element Tag Name',
-            method: 'GET',
-            path: '/session/SESSION_ID/element/ELEMENT_ID/name',
-            requestBody: '',
-            description: 'Returns the tag name of the specified element.' });
-        commands.push({
-            commandName: 'getElementText',
-            commandTitle: 'Get Element Text',
-            method: 'GET',
-            path: '/session/SESSION_ID/element/ELEMENT_ID/text',
-            requestBody: '',
-            description: 'Returns the inner text of the specified element.' });
-        commands.push({
-            commandName: 'getPageTitle',
-            commandTitle: 'Get Page Title',
-            method: 'GET',
-            path: '/session/SESSION_ID/title',
-            requestBody: '',
-            description: 'Returns the title of the page.' });
-        commands.push({
-            commandName: 'newSession',
-            commandTitle: 'Start Session',
-            method: 'POST',
-            path: '/session',
-            requestBody: '{\"desiredCapabilities\":{},\"requiredCapabilities\":{}}',
-            description: 'Starts a new WebDriver session.' });
-        commands.push({
-            commandName: 'quit',
-            commandTitle: 'End Session',
-            method: 'DELETE',
-            path: '/session/SESSION_ID',
-            requestBody: '',
-            description: 'Ends the WebDriver session.' });
-        commands.push({
-            commandName: 'screenshot',
-            commandTitle: 'Take Screenshot',
-            method: 'GET',
-            path: '/session/SESSION_ID/screenshot',
-            requestBody: '',
-            description: 'Takes a viewport screenshot.' });
-        commands.push({
-            commandName: 'sendKeys',
-            commandTitle: 'Send Keys',
-            method: 'POST',
-            path: '/session/SESSION_ID/element/ELEMENT_ID/value',
-            requestBody: '{\"value\": [\'webdriver\']}',
-            description: 'Inputs a string into the specified element.' });
-    };
-    
     var setupCommands = function () {
-        loadCommands();
         var s = document.getElementById('commands-select');
         for (var j = 0; j < commands.length; j++) {
             var o = document.createElement('OPTION');
