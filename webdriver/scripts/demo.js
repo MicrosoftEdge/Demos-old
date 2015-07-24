@@ -106,7 +106,7 @@
             commandTitle: 'Send Keys',
             method: 'POST',
             path: '/session/SESSION_ID/element/ELEMENT_ID/value',
-            requestBody: '{\"value\": [\'webdriver\']}',
+            requestBody: '{\"value\": [\"webdriver\"]}',
             description: 'Inputs a string into the specified element.'
         }
     ];
@@ -181,7 +181,7 @@
     };
     
     var logRequest = function (method, url, requestBody) {
-        var lRequest = '<div class=\'webdriver-info\'>' + '<p>' + getTimeString() + ' - Request ' + method + ' ' + url + '</p>';
+        var lRequest = '<div class=\'webdriver--info\'>' + '<p>' + getTimeString() + ' - Request ' + method + ' ' + url + '</p>';
         if (requestBody !== '')
         {
             try
@@ -206,7 +206,7 @@
     };
     
     var logResponse = function (status, contentBody) {
-        var lResponse = '<div class=\'webdriver-response\'>' + '<p>' + getTimeString() + ' - Response ' + status + '</p>';
+        var lResponse = '<div class=\'webdriver--response\'>' + '<p>' + getTimeString() + ' - Response ' + status + '</p>';
         if (contentBody !== '') {
             try {
                 var jsonObj = JSON.parse(contentBody);

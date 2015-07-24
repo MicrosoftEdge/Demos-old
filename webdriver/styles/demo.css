@@ -1,13 +1,3 @@
-/* Your custom CSS goes here */
-ul {
-    list-style-type: none;
-}
-
-#content-area {
-    height: 250px;
-    width: 100%;
-}
-
 .webdriver-response {
     background-color: lightgreen;
     border-color: green;
@@ -16,10 +6,25 @@ ul {
     font-weight: bold;
 }
 
-.webdriver-info {
-    background-color: lightblue;
-    border-color: blue;
-    border-style: solid;
-    border-width: 1px;
+.webdriver--info, [class*="webdriver--"] {
+	padding: 1.2rem;
+	background: #def8f3;
+}
+
+.webdriver--response {
+    background: #FFE5B6;
+}
+
+#content-area {
+    height: 175px;
+}
+
+#command-description {
     font-weight: bold;
+}
+
+@media (min-width: 33.75em) {
+    .module--tutorial-aside {
+        float: right;
+    }
 }
