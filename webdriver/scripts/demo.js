@@ -34,7 +34,7 @@
             commandTitle: 'Navigate to URL',
             method: 'POST',
             path: '/session/SESSION_ID/url',
-            requestBody: '{\"url\":\"http://www.bing.com\"}',
+            requestBody: '{\"url\":\"https://www.bing.com/\"}',
             description: 'Navigates to the specified url.'
         },
         {
