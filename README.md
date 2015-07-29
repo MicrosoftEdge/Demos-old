@@ -6,12 +6,12 @@ is supported in a browser and the demo doesn't work as expected you should file 
 
 Some of these demos have been migrated from the old TestDrive website (sometimes because they are still relevant, some others because we are bit 
 too sentimental). Some others are new. In any case, we are working on adding more. We hope you find them interesting and helpful.
-## Git workflow
-# Contributing
 
+## Contributing
 
+### Git workflow
 
-1. Fork this project and (link: https://help.github.com/articles/configuring-a-remote-for-a-fork/ text: set up a remote) to file pull requests 
+1. Fork this project and [set up a remote](https://help.github.com/articles/configuring-a-remote-for-a-fork/) to file pull requests 
 against later. 
 2. Create a feature branch for your new demo off of the development branch.
 3. Before creating a pull request, make sure your feature branch is up to date with the latest changes to MicrosoftEdge/Demos/development (the 
@@ -20,7 +20,7 @@ remote you set up).
 Mention @molant and optionally @melanierichards (for front-end/design review) in the comments so we're aware of your PR.
 5. Push any changes based on feedback to your feature branch. This will update the PR with the most recent changes.
 
-## What code should I use?
+### What code should I use?
 
 Previously, we had a demo generator script that will set up a basic demo for you. That script needs to be updated, so for now check out the 
 @supports, css3filters, or webaudiotuner demos for examples. Note that there are meta tags in the `<head>` of `index.html` that will need to 
