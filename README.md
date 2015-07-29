@@ -6,10 +6,10 @@ is supported in a browser and the demo doesn't work as expected you should file 
 
 Some of these demos have been migrated from the old TestDrive website (sometimes because they are still relevant, some others because we are bit 
 too sentimental). Some others are new. In any case, we are working on adding more. We hope you find them interesting and helpful.
-## Git workflow
+
 # Contributing
 
-
+## Git workflow
 
 1. Fork this project and (link: https://help.github.com/articles/configuring-a-remote-for-a-fork/ text: set up a remote) to file pull requests 
 against later. 
