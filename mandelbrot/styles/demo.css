@@ -1,0 +1,129 @@
+/* Messaging */
+#message-box {
+	min-height: 2.4rem;
+}
+
+#elapsed-time {
+	-webkit-transition: all 2.2s ease-in-out;
+	-moz-transition: all 2.2s ease-in-out;
+	-o-transition : all 2.2s ease-in-out;
+	transition : all 2.2s ease-in-out;
+}
+
+.flash {
+	background-color: red;
+}
+
+/* Canvas */
+.mandlebrot__canvas-wrap {
+	position: relative;
+	margin-top: 0;
+	max-width: 100%;
+	height: auto;
+	border: 2px solid #000;
+	overflow-y: hidden;
+	overflow-x: auto;
+	text-align: center;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.mandlebrot__canvas {
+	display: inline-block;
+	margin: 0;
+	-ms-touch-action: none;
+	touch-action: none;	
+}
+
+/* Canvas fallback */
+.mandlebrot__fallback {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	padding: 2rem;
+	overflow: auto;
+}
+
+/* Progress */
+progress {
+	display: block;
+}
+
+.mandlebrot__progress {
+	color: red;
+	display: none;
+	position: absolute;
+	top: 50%;
+	margin-top: -10px;
+	left: 50%;
+	margin-left: -200px;
+	width: 400px;
+	height: 20px;
+}
+
+/* Regions */
+.regions {
+	display: none;
+	position: absolute;
+	top: 0;
+	margin-top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 120, 215, .4);
+	text-align: center;
+}
+
+.regions--active {
+	display: block;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.regions__button {
+	display: inline-block;
+	vertical-align: top;
+	margin: .8rem 1.5%;
+	width: 20%;
+	background: #fff;
+	font-size: 1.2rem;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+@media (min-width: 56.25em /* 900px */) {
+	
+	/* Layout */
+	.mandlebrot__canvas-wrap,
+	.mandlebrot__actions {
+		float: left;
+	}
+	
+	/* Canvas */
+	.mandlebrot__canvas-wrap {
+		margin-right: 3.2rem;
+	}
+	
+	/* Controls */
+	.mandlebrot__actions {
+		margin-top: 0;	
+	}
+	
+	.mandlebrot__actions .button {
+		display: block;
+		margin: 0 .4rem .4rem 0;
+		width: 5em;
+	}
+	
+	.mandlebrot__actions .button--primary {
+		margin-top: 2rem;
+	}
+			
+}

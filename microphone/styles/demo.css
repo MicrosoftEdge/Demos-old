@@ -1,0 +1,233 @@
+/* Demo header override */
+
+.demo__header .section__header {
+	padding-bottom: 0;
+	border-bottom: 0 none;
+}
+
+.section--alert {
+	background-color: #C8EC56; 
+	color: #000;
+	text-align: center;  
+	display: none;
+}
+
+.section--alert p {
+	max-width: none;
+}
+
+/* Generic Controls */
+.mic__heading {
+	font-size: 1.2rem;
+	text-transform: uppercase;
+	letter-spacing: .125rem;
+}
+
+/* TODO: Move to pattern library */
+input[type="checkbox"],
+input[type="radio"] {
+	line-height: 1;
+}
+
+input[type="checkbox"] + label,
+input[type="radio"] + label {
+	display: inline-block;
+	margin: 0 0 0 .4rem;
+}
+
+.list--checkboxes,
+.list--radios {
+	margin-left: 0;
+	list-style: none;
+}
+
+.list--checkboxes li,
+.list--radios li {
+	margin-top: .4rem;
+}
+
+.list--checkboxes label,
+.list--radios label {
+	display: inline-block;
+}
+
+/* End of move */
+
+/* Controls above visualizations */
+.mic-controls__group {
+	display: inline-block;
+	margin-top: 0;
+	margin-bottom: 2rem;
+}
+
+.module--muting-recording,
+.module--effects-filters {
+	margin-top: 0;
+}
+
+.mic-controls__muting {
+	margin-right: 6rem;
+}
+
+.mic-controls__effects {
+	margin-right: 2rem;
+}
+
+.module--muting-recording .mic__heading {
+	padding-left: .8rem;	
+}
+
+.mic-controls select {
+	display: block;
+	margin-top: 1.2rem;
+	width: auto;
+	min-width: 16rem;
+	border: 0 none;
+	background: #fff url('../images/mic-demo-arrow.svg') no-repeat right 1rem center;
+	background-size: 9px 5px;
+}
+
+.mic-controls select:focus {
+	background-color: #d4fdfe;
+	color: #000;
+}
+
+.mic-controls__button {
+	position: relative;
+	vertical-align: top;
+	margin: 0 .4rem .4rem 0;
+	min-width: 3.2rem;
+	height: 3.2rem;
+	border: 0 none;
+	text-align: center;
+}
+
+.section--demo-mic .mic-controls__button {
+	background: transparent;
+}
+
+.section--demo-mic .mic-controls__button:focus {
+	outline: 1px dotted rgba(255,255,255,.5);
+}
+.section--demo-mic .mic-controls__button:hover {
+	background: #666;
+}
+
+.section--demo-mic .mic-controls__button:active,
+.section--demo-mic .mic-controls__button--selected,
+.section--demo-mic .mic-controls__button--selected:hover {
+	background: #ccc;
+}
+
+.mic-controls__save {
+	clear: left;
+}
+
+@media (min-width: 33.75em) {
+
+	.mic-controls select {
+		margin-top: 2rem;
+	}
+	
+	.module--effects-filters {
+		text-align: right;
+	}
+	
+	.mic-controls__effects,
+	.mic-controls__filters {
+		text-align: left;
+		margin-right: 0;
+		margin-left: 2rem;
+	}
+		
+}
+
+/* Controls Icons */
+.mic-controls__button::before {
+	display: block;
+	position: absolute;
+	top: 50%;
+	margin-top: -10px;
+	left: 50%;
+	margin-left: -10px;
+	background: url('../images/mic-demo-icons.svg') no-repeat 0 0;
+	background-size: 120px 80px;
+	content: '';
+	width: 20px;
+	height: 20px;
+	outline: none;
+}
+
+.mic-controls__record:active::before,
+.mic-controls__play:active::before,
+.mic-controls__record.mic-controls__button--selected::before,
+.mic-controls__play.mic-controls__button--selected::before {
+	background-position: -20px -40px;
+}
+
+.mic-controls__play::before {
+	background-position: -100px 0;	
+}
+
+
+.mic-controls__save::before {
+	background-position: -40px 0;	
+}
+
+.mic-controls__save:active::before {
+	background-position: -40px -40px;	
+}
+
+.mic-controls__load::before {
+	background-position: -60px 0;	
+}
+
+.mic-controls__load:active::before {
+	background-position: -60px -40px;	
+}
+
+.mic-controls__loop::before {
+	background-position: -80px 0;	
+}
+
+.mic-controls__loop:active::before,
+.mic-controls__loop.mic-controls__button--selected::before {
+	background-position: -80px -40px;	
+}
+
+.mic-controls__mic-mute::before {
+	background-position: 0 -20px;	
+}
+
+.mic-controls__mic-mute:active::before,
+.mic-controls__mic-mute.mic-controls__button--selected::before {
+	background-position: -20px -60px;	
+}
+
+.mic-controls__speaker-mute::before {
+	width: 24px;
+	background-position: -60px -20px;	
+}
+
+.mic-controls__speaker-mute:active::before,
+.mic-controls__speaker-mute.mic-controls__button--selected::before {
+	background-position: -40px -60px;	
+}
+
+/* Visualizations */
+.mic-vis {
+	position: relative;
+	width: 100%;
+}
+
+.mic-vis__heading {
+	position: absolute;
+	top: 1.2rem;
+	left: 1.2rem;
+	padding: .4rem;
+	background: rgba(0,0,0,.5);
+}
+
+.mic-vis__canvas {
+	margin-top: 0;
+}

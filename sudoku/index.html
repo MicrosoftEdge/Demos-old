@@ -11,13 +11,13 @@
     <link rel="stylesheet" type="text/css" href="styles/demo.css"/>
     <link rel="shortcut icon" href="favicon.ico"/>
 </head>
-
 <body>
-<div id="wrapper">
+<div id="sudoku-wrapper">
     <div id="main">
         <div id="heading-section">
             <div id="heading-contents">
-                <h1 id="page-title">HTML5 Sudoku</h1></div>
+                <h1 id="page-title">HTML5 Sudoku</h1>
+            </div>
         </div>
         <div id="content">
             <div id="column1"><span role="tab" aria-selected="true" aria-controls="demoIntro" tabindex="100">In this demo we take the well-known game of Sudoku, and demonstrate how developers can use HTML5 and JavaScript to create an efficient algorithm to solve these puzzles. The algorithms draw heavily on the Chakra engine’s support for ECMAScript 5 standard array operations to rapidly solve many Sudoku games. You can also manually solve Sudoku puzzles.</span>
@@ -458,22 +458,21 @@
             </div>
         </div>
     </div>
-</div>
-<div id="you-won" style="display: none;">
-    <div><span role="alert" aria-selected="true" aria-controls="youWin" tabindex="500">YOU WIN!</span>
-        <br/>
-        <small role="tab" aria-selected="true" aria-controls="youWinText" tabindex="600">
-
-            Great job. Can you do it again?
-
-        </small>
-        <br/>
-        <br/>
-        <input id="win-new-game-button" type="submit" value="NEW GAME" class="game-controls"/>
-        <input id="win-close-button" type="submit" value="CLOSE" class="game-controls"/></div>
+    <div id="you-won" style="display: none;">
+    	<div>
+	    	<span role="alert" aria-selected="true" aria-controls="youWin" tabindex="500">YOU WIN!</span>
+	        <br/>
+	        <small role="tab" aria-selected="true" aria-controls="youWinText" tabindex="600">
+	            Great job. Can you do it again?
+	        </small>
+	        <br/>
+	        <br/>
+	        <input id="win-new-game-button" type="submit" value="NEW GAME" class="game-controls"/>
+	        <input id="win-close-button" type="submit" value="CLOSE" class="game-controls"/>
+        </div>
+	</div>
 </div>
 <script type="text/javascript" src="scripts/demo.js">
 </script>
 </body>
-
 </html>

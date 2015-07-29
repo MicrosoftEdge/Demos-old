@@ -16,7 +16,7 @@ $(document).ready(function () {
 		analyserAudioNode;
 
 	var isAudioContextSupported = function () {
-		// This feature is still prefixed in Safari and Chrome
+		// This feature is still prefixed in Safari
 		window.AudioContext = window.AudioContext || window.webkitAudioContext;
 		if (window.AudioContext) {
 			return true;
@@ -27,7 +27,7 @@ $(document).ready(function () {
 	};
 
 	var reportError = function (message) {
-		$('#errorMessage').html(message);
+		$('#errorMessage').html(message).show();
 	};
 
 	var init = function () {
@@ -35,11 +35,11 @@ $(document).ready(function () {
 			freqTable = data;
 		});
 
-		$('.tunerOptions').toggle(false);
+		$('.tuner__options').toggle(false);
 
 		var gaugeCanvas = $('#gaugeCanvas')[0];
 		gauge = new Gauge(gaugeCanvas).setOptions({
-			strokeColor: '#e0e0e0',
+			strokeColor: '#dedede',
 			pointer: {
 				length: 0.8,
 				strokeWidth: 0.035
@@ -81,7 +81,7 @@ $(document).ready(function () {
 
 	var isGetUserMediaSupported = function () {
 		navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
-		if (navigator.getUserMedia) {
+		if ((navigator.mediaDevices && navigator.mediaDevices.getUserMedia) || navigator.getUserMedia) {
 			return true;
 		}
 
@@ -227,7 +227,16 @@ $(document).ready(function () {
 
 			if (isGetUserMediaSupported()) {
 				notesArray = freqTable[baseFreq.toString()];
-				navigator.getUserMedia({audio: true}, streamReceived, reportError);
+
+				var getUserMedia = navigator.mediaDevices && navigator.mediaDevices.getUserMedia ?
+					navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices) :
+					function (constraints) {
+						return new Promise(function (resolve, reject) {
+							navigator.getUserMedia(constraints, resolve, reject);
+						});
+					};
+
+				getUserMedia({audio: true}).then(streamReceived).catch(reportError);
 				updatePitch(baseFreq);
 				isMicrophoneInUse = true;
 			}

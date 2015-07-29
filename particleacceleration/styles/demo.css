@@ -1,8 +1,6 @@
-body {
-	overflow: hidden;
-	-ms-content-zooming: none;
-	text-align: center;
-	-ms-touch-action: none;
+.container {
+	position: relative;
+	z-index: 0;
 }
 
 #logo {
@@ -12,11 +10,22 @@ body {
 	text-align: left;
 }
 
+canvas {
+	-ms-touch-action: none;
+	touch-action: none;
+	-ms-content-zooming: none;
+	content-zooming: none;
+}
+
 #performance-canvas {
 	display: block;
-	position: fixed;
-	left: 0px;
-	width: 100%;
+	position: absolute;
+	left: 0;
+	width: 100%;	
+}
+
+#myCanvas {
+	margin: 0;
 }
 
 #demo-screenreader-text {
@@ -42,56 +51,58 @@ body {
 	background-color: #E1E1E1;
 	background-image: -ms-radial-gradient(left top, circle farthest-side, #FFFFFF 0%, #BFBFBF 100%);
 	/* IE10 */
-	
+
 	background-image: -moz-radial-gradient(left top, circle farthest-side, #FFFFFF 0%, #BFBFBF 100%);
 	/* Mozilla Firefox */
-	
+
 	background-image: -o-radial-gradient(left top, circle farthest-side, #FFFFFF 0%, #BFBFBF 100%);
 	/* Opera */
-	
+
 	background-image: -webkit-gradient(radial, left top, 0, left top, 920, color-stop(0, #FFFFFF), color-stop(1, #BFBFBF));
 	/* Webkit (Safari/Chrome 10) */
-	
+
 	background-image: -webkit-radial-gradient(left top, circle farthest-side, #FFFFFF 0%, #BFBFBF 100%);
 	/* Webkit (Chrome 11+) */
-	
+
 	background-image: radial-gradient(left top, circle farthest-side, #FFFFFF 0%, #BFBFBF 100%);
 	/* Proposed W3C Markup */
-	
+
 	z-index: -100;
 	position: absolute;
-	top: 0px;
-	left: 0px;
+	top: 0;
+	left: 0;
 	width: 100%;
 	height: 100%;
 	display: none;
+	margin: 0;
 }
 
 #backgradient2 {
 	background-color: #E1E1E1;
 	background-image: -ms-radial-gradient(left top, circle farthest-side, #FFFFFF 0%, #BEBEBE 100%);
 	/* IE10 */
-	
+
 	background-image: -moz-radial-gradient(left top, circle farthest-side, #FFFFFF 0%, #BEBEBE 100%);
 	/* Mozilla Firefox */
-	
+
 	background-image: -o-radial-gradient(left top, circle farthest-side, #FFFFFF 0%, #BEBEBE 100%);
 	/* Opera */
-	
+
 	background-image: -webkit-gradient(radial, left top, 0, left top, 920, color-stop(0, #FFFFFF), color-stop(1, #BEBEBE));
 	/* Webkit (Safari/Chrome 10) */
-	
+
 	background-image: -webkit-radial-gradient(left top, circle farthest-side, #FFFFFF 0%, #BEBEBE 100%);
 	/* Webkit (Chrome 11+) */
-	
+
 	background-image: radial-gradient(left top, circle farthest-side, #FFFFFF 0%, #BEBEBE 100%);
 	/* Proposed W3C Markup */
-	
+
 	z-index: -100;
 	position: absolute;
-	top: 0px;
-	left: 0px;
+	top: 0;
+	left: 0;
 	width: 100%;
 	height: 100%;
 	display: none;
+	margin: 0;
 }

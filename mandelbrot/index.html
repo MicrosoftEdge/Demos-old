@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<title>Use JavaScript WebWorkers to increase the speed of your web applications</title>
+	<meta name="og:title" content="Mandelbrot WebWorkers"/>
+	<meta name="description"
+		  content="Visualize the Mandelbrot set directly from your HTML5 browser thanks to WebWorkers"/>
+	<title>Calculate Mandelbrot using WebWorkers on your HTML5 browser</title>
+	<meta name="keywords"
+		  content="performance, webworkers, javascript, html5, canvas, requestanimationframe, demo, es5, ecmascript"/>
+	<link rel="stylesheet" type="text/css" href="http://edgeportal.blob.core.windows.net/media/demotemplate.css">
+	<link rel="stylesheet" type="text/css" href="styles/demo.css">
+</head>
+
+<body>
+
+	<!-- DEMO INTRO -->
+	<header class="section section--page-intro demo__header">
+		<div class="container">
+			<div class="section__header">
+				<h1>Mandelbrot Explorer</h1>
+			</div>
+		</div>
+	</header>
+
+	<!-- DEMO CONTENT -->
+	<section role="region" class="section">
+		<div class="container">
+			<div class="section__body">
+				<p>The Mandelbrot set is one of the most complex and beautiful mathematical objects known. Mandelbrot
+					Explorer
+					allows you to explore this often striking set using both touch and a traditional mouse. Additionally, a
+					detailed explanation of the Mandelbrot set and how this application was implemented is available in <a
+						href="http://go.microsoft.com/fwlink/p/?LinkId=264925">How to explore the Mandelbrot set using
+						HTML5</a>.</p>
+				<section role="region" class="subsection">
+					<div class="container">
+						<div class="subsection__header">
+							<h2>Try it with touch or mouse</h2>
+							<p id="message-box"></p>
+						</div>
+						<div class="subsection__body">
+							<div class="mandlebrot__canvas-wrap">
+								<progress id="progress-indicator" class="mandlebrot__progress"></progress>
+								<!-- This is positioned absolutely relative to the #canvas-wrapper DIV. -->
+								<canvas width="600" height="400" id="mandelbrot-canvas" class="mandlebrot__canvas" oncontextmenu="return false;">
+									<!-- Because the hold gesture event can fire more than once, the 'oncontextmenu="return false;"' attribute is used to stop the right-click context menu from appearing inappropriately. -->
+									<div class="tile mandlebrot__fallback">You are using a browser that doesn't support canvas. You aren't
+										getting the best experiences the Internet has to offer! Upgrade to Internet Explorer 10
+										to
+										see what the Web has been waiting for!
+										<a class="button" href="http://msdn.microsoft.com/en-us/ie/">Learn more</a>
+									</div>
+								</canvas>
+								<div id="regions" class="regions">
+									<div id="regions__list" class="regions__list">
+									</div>
+								</div>
+							</div>
+							<div class="actions mandlebrot__actions">
+								<button class="button" id="reset-button">Reset</button>
+								<button class="button" id="lighten-button">Lighten</button>
+								<button class="button button--primary" id="presets-button">Presets</button>
+								<p class="caption" id="elapsed-time"></p>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+	</section>
+	
+	<script type="text/javascript" src="./scripts/demo.js"></script>
+
+</body>
+
+</html>

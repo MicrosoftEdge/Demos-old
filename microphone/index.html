@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Microphone Demo</title>
+	<meta name="og:title" content="microphone"/>
+	<meta name="description" content=""/>
+	<meta name="keywords" content="Media, webaudio, getusermedia"/>
+	<meta name="author" content="jdsmith3000"/>
+	<link rel="stylesheet" type="text/css" href="http://edgeportal.blob.core.windows.net/media/demotemplate.css">
+	<link rel="stylesheet" type="text/css" href="styles/demo.css"/>
+</head>
+
+<body>
+
+	<!-- DEMO INTRO -->
+	<header class="section section--page-intro demo__header">
+		<div class="container">
+			<div class="section__header">
+				<h1>Microphone Streaming &amp; Web Audio Demo</h1>
+				<p class="title">Record, play, save and load streaming audio acquired using getUserMedia; and apply Web Audio visualizations, effects and filters to stream data.</p>
+				<p class="subtitle">Getting started: Grant access to your microphone when prompted.  The speaker is muted by default to avoid possible mic feedback.</p>
+				<button class="button" type="button" id="start" style="display:none">Start Demo</button>
+			</div>
+		</div>
+	</header>
+	
+	<!-- DEMO CONTENT -->
+		<div id="alert-banner" class="section section--banner section--alert">
+			<div class="container">
+				<p class="title">Demo requires features supported by Microsoft Edge & access to microphone.</p>
+			</div>
+		</div>
+		<section id="demo-banner" class="section section--banner section--demo-mic" style="display:none">
+		<div class="container">
+			<div class="section__body">
+			
+				<div class="layout layout--equal mic-controls">
+					<div class="module module--muting-recording">
+						<div class="mic-controls__group mic-controls__muting">
+							<h3 class="mic__heading">Mute</h3>
+							<div class="clear">
+								<button id="micMute" class="button mic-controls__button mic-controls__mic-mute" aria-label="Mic Mute"></button>
+								<button id="speakerMute" class="button mic-controls__button mic-controls__speaker-mute mic-controls__button--selected" aria-label="Speaker Mute"></button>
+							</div>
+						</div>
+						<div class="mic-controls__group mic-controls__recording">	
+							<h3 class="mic__heading">Audio File</h3>
+							<!-- loadFile() works by clicking a hidden type=file control -->
+							<div class="clear">
+								<button id="recordButton" class="button mic-controls__button mic-controls__record" aria-label="Record"></button>
+								<button id="playButton" class="button mic-controls__button mic-controls__play" aria-label="Play"></button>
+								<button id="loopButton" class="button mic-controls__button mic-controls__loop" aria-label="Loop"></button>
+								<button id="saveButton" class="button mic-controls__button mic-controls__save" aria-label="Save"></button>
+								<button id="loadButton" class="button mic-controls__button mic-controls__load" aria-label="Load"></button>
+								<input class="visually-hidden" type="file" id="loadFiles" multiple>
+							</div>
+						</div>
+					</div>
+					<div class="module module--effects-filters">
+						<div id="effectfilter-controls" class="mic-controls__group mic-controls__effects">
+							<h3 class="mic__heading">Effects</h3>
+							<select id="effectmic-controls">
+								<option value="none">None</option>
+								<option value="telephone">Telephone</option>
+								<option value="garage">Parking Garage</option>
+								<option value="muffler">Muffled Voice</option>
+							</select>
+						</div>
+						<div class="mic-controls__group mic-controls__filters">
+							<h3 class="mic__heading">Filters</h3>
+							<select id="filtermic-controls">
+								<option value="allpass">None</option>
+								<option value="lowpass">Low Pass</option>
+								<option value="highpass">High Pass</option>
+								<option value="bandpass">Band Pass</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="mic-visualizations">
+					<div class="mic-vis">
+						<h3 class="mic__heading mic-vis__heading">Signal</h3>
+						<canvas class="mic-vis__canvas mic-vis__time" width=auto height="150"></canvas>
+					</div>
+					<div class="mic-vis">
+						<h3 class="mic__heading mic-vis__heading">Frequency</h3> 
+						<canvas class="mic-vis__canvas mic-vis__frequency" width=auto height="150"></canvas>
+					</div>
+				</div>
+				<audio id="demoAudio"></audio>
+			
+			</div>
+		</div>
+	</section>
+	
+	<script type="text/javascript" src="scripts/recorder.js"></script>
+	<script type="text/javascript" src="scripts/demo.js"></script>	
+
+</body>
+</html>

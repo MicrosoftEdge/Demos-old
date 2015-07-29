@@ -1,10 +1,29 @@
-body {
-	position: inherit;
-	width: 974px;
-    font-family: "Segoe UI" , Verdana, Helvetica, Sans-Serif;
-    font-size: 10pt;
-    background-color: white;
-    color: #424242;
+#demo-title {
+	padding: 40px 0 0 0;
+	font-size: 24pt;
+	font-weight: normal;
+	color: #00a3ef;
+}
+
+#demo-introduction {
+	margin: 40px 0 0 0;
+}
+
+#demo-content {
+	margin: 30px 0 0 0;
+}
+
+#demo-details {
+	margin: 30px 0 0 0;
+}
+
+.svgradientbackgroundmaker tbody tr:nth-child(odd),
+.svgradientbackgroundmaker tbody tr:nth-child(even) {
+	background-color: hsla(0, 0%, 0%, 0);
+}
+
+.svgradientbackgroundmaker table {
+	width: auto;
 }
 
 #demo-details {
@@ -22,23 +41,16 @@ textarea,
 	line-height: 1.2em;
 	padding: 2px;
 	border: solid 1px #aaa;
+	max-width: 100%;
 }
 #other-sample {
 	height: 280px;
-	width: 974px;
-	padding: 0px;
-}
-input[type="radio"] {
-	position: relative;
-	top: 2px;
-	margin-right: 3px;
+	padding: 0;
+	background-size: 100% 100%;
 }
 input[type="text"] {
 	border: solid 1px #aaa;
 	padding: 1px;
-}
-label {
-	margin-right: 1em;
 }
 #htxtlink {
 	font-style: italic;
@@ -86,6 +98,7 @@ label {
 	text-align: center;
 	font-size: 8.25pt;
 	vertical-align: bottom;
+	background-size: 100% 100%;
 }
 .deletebutton {
 	text-align: center;

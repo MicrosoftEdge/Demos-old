@@ -1,56 +1,56 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Touch Effects</title>
-    <meta name="description" content="This page contains a canvas element registered for DOM touch events. Special effects are applied in response to touch and gesture on the canvas. The buttons control simulation settings. This demo supports multitouch on Windows 8." />
-    <meta name="keywords" content="input" />
-    <meta name="og:title" content="Touch Effects" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="stylesheet" type="text/css" href="styles/demo.css" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<title>Touch Effects</title>
+	<meta name="description"
+		  content="This page contains a canvas element registered for DOM touch events. Special effects are applied in response to touch and gesture on the canvas. The buttons control simulation settings. This demo supports multitouch on Windows 8."/>
+	<meta name="keywords" content="input"/>
+	<meta name="og:title" content="Touch Effects"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<link rel="stylesheet" type="text/css" href="styles/demo.css"/>
 </head>
 <body>
-    <div id="demo-screenreader-text">This page contains a canvas element registered for DOM touch events. Special effects are applied in response to touch and gesture on the canvas. The buttons control simulation settings. This demo supports multitouch on Windows 8. </div>
-    <canvas id="canvas"></canvas>
-    <div id="demo-content">
-        <div id="demo-controls">
-            <div class="control-group">
-                <div class="control-groupheader"> Physics mode </div>
-                <div class="control-buttongroup">
-                    <button id="gravity-button" class="control-button control-button-on">Gravity Wells</button>
-                    <button id="repulsion-button" class="control-button">Magnetic Repulsion</button>
-                </div>
-            </div>
-            <div class="control-group">
-                <div class="control-groupheader"> Particle tethers </div>
-                <div class="control-buttongroup">
-                    <button id="tetheroff-button" class="control-button control-button-on">Off</button>
-                    <button id="tetheron-button" class="control-button">On</button>
-                </div>
-            </div>
-            <div class="control-group">
-                <div class="control-groupheader"> Draw mode </div>
-                <div class="control-buttongroup">
-                    <button id="rainbow-button" class="control-button control-button-on">Rainbows</button>
-                    <button id="ball-button" class="control-button">Balls</button>
-                    <button id="circle-button" style="display: none;" class="control-button">Circles</button>
-                </div>
-            </div>
-            <div class="control-group">
-                <div class="control-groupheader"> Blur effect </div>
-                <div class="control-buttongroup">
-                    <button id="bluroff-button" class="control-button">Off</button>
-                    <button id="bluron-button" class="control-button control-button-on">On</button>
-                </div>
-            </div>
-            <div id="demo-controlsgripper"></div>
-        </div>
-    </div>
-    <img id="rainbow-strip" style="display: none;" alt="Rainbow Strip" src="images/rainbowstrip.png" />
-    <img id="ball" style="display: none;" alt="Ball" src="images/ball.png" />
-    <img id="circle" style="display: none;" alt="Circle" src="images/circle.png" />
-    <img id="bee" style="display: none;"
-         alt="Bee" src="images/bee.png" />
-    <script type="text/javascript" src="scripts/demo.js"></script>
+	<canvas id="canvas"></canvas>
+	<div id="demo-content">
+		<div id="demo-controls">
+			<div class="control-group">
+				<div class="control-groupheader"> Physics mode</div>
+				<div class="control-buttongroup">
+					<button id="gravity-button" class="control-button control-button-on">Gravity Wells</button>
+					<button id="repulsion-button" class="control-button">Magnetic Repulsion</button>
+				</div>
+			</div>
+			<div class="control-group">
+				<div class="control-groupheader"> Particle tethers</div>
+				<div class="control-buttongroup">
+					<button id="tetheroff-button" class="control-button control-button-on">Off</button>
+					<button id="tetheron-button" class="control-button">On</button>
+				</div>
+			</div>
+			<div class="control-group">
+				<div class="control-groupheader"> Draw mode</div>
+				<div class="control-buttongroup">
+					<button id="rainbow-button" class="control-button control-button-on">Rainbows</button>
+					<button id="ball-button" class="control-button">Balls</button>
+					<button id="circle-button" style="display: none;" class="control-button">Circles</button>
+				</div>
+			</div>
+			<div class="control-group">
+				<div class="control-groupheader"> Blur effect</div>
+				<div class="control-buttongroup">
+					<button id="bluroff-button" class="control-button">Off</button>
+					<button id="bluron-button" class="control-button control-button-on">On</button>
+				</div>
+			</div>
+			<div id="demo-controlsgripper"></div>
+		</div>
+	</div>
+	<img id="rainbow-strip" style="display: none;" alt="Rainbow Strip" src="images/rainbowstrip.png"/>
+	<img id="ball" style="display: none;" alt="Ball" src="images/ball.png"/>
+	<img id="circle" style="display: none;" alt="Circle" src="images/circle.png"/>
+	<img id="bee" style="display: none;"
+		 alt="Bee" src="images/bee.png"/>
+<script type="text/javascript" src="scripts/demo.js"></script>
 </body>
 </html>

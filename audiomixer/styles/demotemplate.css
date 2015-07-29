@@ -158,32 +158,32 @@ fieldset[disabled] .button {
 @font-face {
 	font-family: "Segoe UI Webfont";
 	src: local("Segoe UI Light"),
-	url("https://i.s-microsoft.com/fonts/segoe-ui/west-european/light/latest.woff") format("woff"),
-	url("https://i.s-microsoft.com/fonts/segoe-ui/west-european/light/latest.ttf") format("truetype");
+	url("//i.s-microsoft.com/fonts/segoe-ui/west-european/light/latest.woff") format("woff"),
+	url("//i.s-microsoft.com/fonts/segoe-ui/west-european/light/latest.ttf") format("truetype");
 	font-weight: 200;
 }
 
 @font-face {
 	font-family: "Segoe UI Webfont";
 	src: local("Segoe UI Semilight"),
-	url("https://i.s-microsoft.com/fonts/segoe-ui/west-european/semilight/latest.woff") format("woff"),
-	url("https://i.s-microsoft.com/fonts/segoe-ui/west-european/semilight/latest.ttf") format("truetype");
+	url("//i.s-microsoft.com/fonts/segoe-ui/west-european/semilight/latest.woff") format("woff"),
+	url("//i.s-microsoft.com/fonts/segoe-ui/west-european/semilight/latest.ttf") format("truetype");
 	font-weight: 300;
 }
 
 @font-face {
 	font-family: "Segoe UI Webfont";
 	src: local("Segoe UI"),
-	url("https://i.s-microsoft.com/fonts/segoe-ui/west-european/normal/latest.woff") format("woff"),
-	url("https://i.s-microsoft.com/fonts/segoe-ui/west-european/normal/latest.ttf") format("truetype");
+	url("//i.s-microsoft.com/fonts/segoe-ui/west-european/normal/latest.woff") format("woff"),
+	url("//i.s-microsoft.com/fonts/segoe-ui/west-european/normal/latest.ttf") format("truetype");
 	font-weight: 400;
 }
 
 @font-face {
 	font-family: "Segoe UI Webfont";
 	src: local("Segoe UI Semibold"),
-	url("https://i.s-microsoft.com/fonts/segoe-ui/west-european/semibold/latest.woff") format("woff"),
-	url("https://i.s-microsoft.com/fonts/segoe-ui/west-european/semibold/latest.ttf") format("truetype");
+	url("//i.s-microsoft.com/fonts/segoe-ui/west-european/semibold/latest.woff") format("woff"),
+	url("//i.s-microsoft.com/fonts/segoe-ui/west-european/semibold/latest.ttf") format("truetype");
 	font-weight: 600;
 }
 
@@ -803,4 +803,3 @@ fieldset[disabled] .button {
 .demo-wrap {
   margin: 4.8rem auto 6.4em;
 }
-

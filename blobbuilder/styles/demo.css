@@ -1,55 +1,23 @@
+.hidden {
+	display: none;
+}
+
+#warning {
+	display: none;
+}
+
+#xhr-blob-warning {
+	display: none;
+	clear: both;
+}
+
 #audio-container,
 #for-development {
 	display: none;
 }
 
-button {
-	margin: 10px;
-	padding: 10px;
-}
-
-#score-container {
-	margin-right: 10px;
-	-ms-box-flex: 1;
-}
-
 #score-container svg {
-	width: 97%;
-}
-
-h2.bb-req {
-	float:left;
-	margin-right:20px;
-	margin-bottom:20px;
-}
-
-#play {
-	-ms-box-flex: 0;
-}
-
-#score-play-container {
-	margin-top: 20px;
-	display: -ms-box;
-	-ms-box-align: middle;
-	-ms-box-pack: start;
-	-ms-box-direction: normal;
-	-ms-box-orient: horizontal;
-	-ms-box-line-progression: normal;
-}
-
-#warning {
-	display: none;
-	margin-bottom: 20px;
-}
-
-#xhr-blob-warning {
-	display: none;
-	margin-bottom: 20px;
-	clear: both;
-}
-
-.hidden {
-	display: none;
+	width: 100%;
 }
 
 #play input {
@@ -62,4 +30,27 @@ h2.bb-req {
 
 #piano g rect:hover {
 	fill: gray !important; /* Required so Chrome takes it into account */
+}
+
+select {
+	width: auto;
+}
+
+select,
+.button--reset-composition {
+	display: block;
+}
+
+@media (min-width: 48em) and (max-width: 59.9375em) {
+
+	.layout--basic--alt .module {
+		float: none;
+		margin-top: 3.2rem;
+		width: 100%;
+	}
+	
+	.layout--basic--alt .module:first-child {
+		margin-top: 0;
+	}
+	
 }

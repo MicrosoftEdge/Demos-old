@@ -56,8 +56,8 @@
 	var sizeCanvas = function () {
 		canvasElm = document.getElementById('canvas');
 
-		canvasElm.width = document.documentElement.clientWidth;
-		canvasElm.height = document.documentElement.clientHeight;
+		canvasElm.width = canvasElm.clientWidth;
+		canvasElm.height = canvasElm.clientWidth * 9 / 16;
 	};
 
 	// Create physics objects for the particles
@@ -101,8 +101,8 @@
 	var moveTouchPoint = function (e) {
 		var pID = e.pointerId || 0;
 		if (touchPoints[pID]) {
-			touchPoints[pID].x = e.offsetX;
-			touchPoints[pID].y = e.offsetY;
+			touchPoints[pID].x = e.offsetX || e.layerX;
+			touchPoints[pID].y = e.offsetY || e.layerY;
 		}
 	};
 
@@ -115,8 +115,8 @@
 		if (!touchPoints[pID]) {
 			touchCount++;
 			touchPoints[pID] = {
-				x: e.offsetX,
-				y: e.offsetY
+				x: e.offsetX || e.layerX,
+				y: e.offsetY || e.layerY
 			};
 		}
 	};
@@ -442,8 +442,25 @@
 		addParticles();
 
 		// Determine correct events to register for
-		if (navigator.msPointerEnabled) {
+		if (navigator.pointerEnabled) {
 			// Pointers supported
+			downevent = 'pointerdown';
+			upevent = 'pointerup';
+			moveevent = 'pointermove';
+			document.addEventListener('pointercancel', function (e) {
+				removeTouchPoint(e);
+			}, false);
+			document.addEventListener('MSGestureInit', function (e) {
+				if (e.preventManipulation) {
+					e.preventManipulation();
+				}
+			}, false);
+			document.addEventListener('MSHoldVisual', function (e) {
+				e.preventDefault();
+			}, false);
+		}
+		else if (navigator.msPointerEnabled) {
+			// MSPointers supported
 			downevent = 'MSPointerDown';
 			upevent = 'MSPointerUp';
 			moveevent = 'MSPointerMove';
@@ -458,7 +475,8 @@
 			document.addEventListener('MSHoldVisual', function (e) {
 				e.preventDefault();
 			}, false);
-		} else {
+		}
+		else {
 			// Pointers not supported. Defaulting to mouse events
 			downevent = 'mousedown';
 			upevent = 'mouseup';

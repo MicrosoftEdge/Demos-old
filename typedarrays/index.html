@@ -1,105 +1,111 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- Image from iStockphoto, loops7, binary code and computer monitors. -->
-    <!-- Image from iStockphoto, 3dts, Sea composed by Binary code. -->
-    <!-- Video from iStockphoto, mindopen, Binary Code Impact. Loop. -->
-    <!-- Music from iStockphoto, WorkeGroup, Butterfly Lure. -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <title>TypedArrays, Blobs and binary inspection in HTML5</title>
-    <meta name="og:title" content="JavaScript TypedArrays"/>
-    <meta name="description" content="Read the file contents of a file using the File API, Blob and Typed Arrays"/>
-    <meta name="keywords"
-          content="javascript, typed array, typedarrays, arrays, blob, Uint8Array, createObjectURL, fileAPI, filereader, html5,  es5, ecmascript, interoperability, "/>
-    <link rel="stylesheet" type="text/css" href="./styles/demo.css"/>
+	<!-- Image from iStockphoto, loops7, binary code and computer monitors. -->
+	<!-- Image from iStockphoto, 3dts, Sea composed by Binary code. -->
+	<!-- Video from iStockphoto, mindopen, Binary Code Impact. Loop. -->
+	<!-- Music from iStockphoto, WorkeGroup, Butterfly Lure. -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<title>TypedArrays, Blobs and binary inspection in HTML5</title>
+	<meta name="og:title" content="JavaScript TypedArrays"/>
+	<meta name="description" content="Read the file contents of a file using the File API, Blob and Typed Arrays"/>
+	<meta name="keywords"
+		  content="javascript, typed array, typedarrays, arrays, blob, Uint8Array, createObjectURL, fileAPI, filereader, html5,  es5, ecmascript, interoperability, "/>
+	<link rel="stylesheet" type="text/css" href="./styles/demo.css"/>
 </head>
 
 <body>
-<h1 id="demo-title">
-    Binary File Inspector
-</h1>
+<div class="container typed-arrays-container">
+	<h1 id="demo-title">
+		Binary File Inspector
+	</h1>
 
-<div id="support-warning" style="display: none">
-    <br>
+	<div id="support-warning" style="display: none">
+		<br>
 
-    <h2>Your browser does not meet the minimum requirements to view this demo properly.</h2></div>
-<div id="intro-wrapper" class="group" style="display:none">
-    <div id="file-picker">
-        <div style="margin-top: 10px; padding: 10px">
-            <fieldset>
-                <ol>
-                    <li>
-                        <label class="item-label" for="serverFiles">Select a Server File:</label>
-                        <select id="serverFiles">
-                            <option value="">Select...</option>
-                            <option value="data/iStock_000016987294XSmall.jpg,image/jpeg">JPEG image file</option>
-                            <option value="data/iStock_000014163436.mp3, audio/mpeg">MP3 audio</option>
-                            <option value="data/iStock_000017276733Small We.mp4,video/mp4">MP4 video</option>
-                            <option value="data/iStock_000009426004XSmall2.pcx,application/octet-stream">PCX image
-                                file
-                            </option>
-                            <option value="index.html, text/html">HTML for this page</option>
-                        </select> <span class="helper-text">To use XHR2 and Typed Arrays to inspect a file from the server.</span>
-                    </li>
-                    <li>
-                        <label class="item-label" for="fileInput">Select a Local File:</label>
-                        <input name="fileInput" id="fileInput" type="file"/> <span
-                            class="helper-text">To use the File API and Typed Arrays to inspect your file locally.</span>
-                    </li>
-                </ol>
-            </fieldset>
-        </div>
-    </div>
-    <div id="intro-text">
-        <p> Binary files and the data they contain are used to power many of the experiences on the web, including
-            images, video, and audio. The addition of <a
-                    href="http://wiki.ecmascript.org/doku.php?id=strawman:typed_arrays">Typed Arrays</a>, <a
-                    href="http://www.w3.org/TR/FileAPI/">W3C File API </a>,
-            and <a href="http://www.w3.org/TR/XMLHttpRequest2/"> W3C XMLHttpRequest Level 2</a> in IE10 enables sites to
-            access the raw binary content of files and other data. </p>
+		<h2>Your browser does not meet the minimum requirements to view this demo properly.</h2></div>
+	<div id="intro-wrapper" class="group" style="display:none">
+		<div id="file-picker">
+			<div style="margin-top: 10px; padding: 10px">
+				<fieldset>
+					<ol>
+						<li>
+							<label class="item-label" for="serverFiles">Select a Server File:</label>
+							<select id="serverFiles">
+								<option value="">Select...</option>
+								<option value="data/iStock_000016987294XSmall.jpg,image/jpeg">JPEG image file</option>
+								<option value="data/iStock_000014163436.mp3, audio/mpeg">MP3 audio</option>
+								<option value="data/iStock_000017276733Small We.mp4,video/mp4">MP4 video</option>
+								<option value="data/iStock_000009426004XSmall2.pcx,application/octet-stream">PCX image
+									file
+								</option>
+								<option value="./, text/html">HTML for this page</option>
+							</select> <span class="helper-text">To use XHR2 and Typed Arrays to inspect a file from the server.</span>
+						</li>
+						<li>
+							<label class="item-label" for="fileInput">Select a Local File:</label>
+							<input name="fileInput" id="fileInput" type="file"/> <span
+							class="helper-text">To use the File API and Typed Arrays to inspect your file locally.</span>
+						</li>
+					</ol>
+				</fieldset>
+			</div>
+		</div>
+		<div id="intro-text">
+			<p> Binary files and the data they contain are used to power many of the experiences on the web, including
+				images, video, and audio. The addition of <a
+					href="http://wiki.ecmascript.org/doku.php?id=strawman:typed_arrays">Typed Arrays</a>, <a
+					href="http://www.w3.org/TR/FileAPI/">W3C File API </a>,
+				and <a href="http://www.w3.org/TR/XMLHttpRequest2/"> W3C XMLHttpRequest Level 2</a> in IE10 enables
+				sites to
+				access the raw binary content of files and other data. </p>
 
-        <p> In this demo, you can see the raw binary contents of some sample files from the server and upload local
-            files to view their contents. You can see things like the <a href="http://en.wikipedia.org/wiki/ID3">ID3</a>
-            header of music files, the <a href="http://en.wikipedia.org/wiki/Jpeg">JPEG</a> header, the bytes that make
-            up an <a href="http://en.wikipedia.org/wiki/Html">HTML</a> file, and the <a
-                    href="http://en.wikipedia.org/wiki/Mp4">MPEG4</a> headers. </p>
+			<p> In this demo, you can see the raw binary contents of some sample files from the server and upload local
+				files to view their contents. You can see things like the <a
+					href="http://en.wikipedia.org/wiki/ID3">ID3</a>
+				header of music files, the <a href="http://en.wikipedia.org/wiki/Jpeg">JPEG</a> header, the bytes that
+				make
+				up an <a href="http://en.wikipedia.org/wiki/Html">HTML</a> file, and the <a
+					href="http://en.wikipedia.org/wiki/Mp4">MPEG4</a> headers. </p>
 
-        <p> By default, the demo shows how binary image file formats that are not natively supported by the browser,
-            like <a href="http://en.wikipedia.org/wiki/PCX">PCX</a>, can now be rendered in the browser using
-            ArrayBuffer, DataView, and Canvas. </p>
-    </div>
-</div>
-<div class="clear"></div>
-<br>
+			<p> By default, the demo shows how binary image file formats that are not natively supported by the browser,
+				like <a href="http://en.wikipedia.org/wiki/PCX">PCX</a>, can now be rendered in the browser using
+				ArrayBuffer, DataView, and Canvas. </p>
+		</div>
+	</div>
+	<div class="clear"></div>
+	<br>
 
-<div id="detailedView" style="display: none">
-    <div id="details-preview">
-        <div style="margin-top: 10px; padding: 10px">
-            <div id="blob-display"></div>
-            <div id="fileInformation">
-                <ol>
-                    <li class="item-label">File name:
-                        <label style="font-weight: normal" id="fileName"></label>
-                    </li>
-                    <li class="item-label">Mime type: <span id="mimeType"></span>
-                    </li>
-                    <li class="item-label">File size: <span id="fileSize"></span>
-                    </li>
-                    <li class="item-label" id="lastModifiedItem">Last modified: <span id="lastModified"></span>
-                    </li>
-                </ol>
-            </div>
-        </div>
-    </div>
-    <div id="details-hex">
-        <div id="hex-buttons">
-            <div style="float: left">
-                <h2>HEX view of file contents</h2></div>
-            <div id="prev" class="my-button-grey">Prev</div>
-            <div id="next" class="my-button">Next</div>
-        </div>
-        <div id="hex-grid"></div>
-    </div>
+	<div id="detailedView" style="display: none">
+		<div id="details-preview">
+			<div style="margin-top: 10px; padding: 10px">
+				<div id="blob-display"></div>
+				<div id="fileInformation">
+					<ol>
+						<li class="item-label">File name:
+							<label style="font-weight: normal" id="fileName"></label>
+						</li>
+						<li class="item-label">Mime type: <span id="mimeType"></span>
+						</li>
+						<li class="item-label">File size: <span id="fileSize"></span>
+						</li>
+						<li class="item-label" id="lastModifiedItem">Last modified: <span id="lastModified"></span>
+						</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+		<div id="details-hex">
+			<div id="hex-buttons">
+				<div style="float: left">
+					<h2>HEX view of file contents</h2></div>
+				<div id="prev" class="my-button-grey">Prev</div>
+				<div id="next" class="my-button">Next</div>
+			</div>
+			<div id="hex-grid"></div>
+		</div>
+		<div class="clear"></div>
+	</div>
 </div>
 <script src="./scripts/binaryReader.js"></script>
 <script src="./scripts/pcxReader.js"></script>
