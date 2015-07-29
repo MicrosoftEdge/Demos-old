@@ -7,9 +7,9 @@ is supported in a browser and the demo doesn't work as expected you should file 
 Some of these demos have been migrated from the old TestDrive website (sometimes because they are still relevant, some others because we are bit 
 too sentimental). Some others are new. In any case, we are working on adding more. We hope you find them interesting and helpful.
 
-# Contributing
+## Contributing
 
-## Git workflow
+### Git workflow
 
 1. Fork this project and [set up a remote](link: https://help.github.com/articles/configuring-a-remote-for-a-fork/) to file pull requests 
 against later. 
@@ -20,7 +20,7 @@ remote you set up).
 Mention @molant and optionally @melanierichards (for front-end/design review) in the comments so we're aware of your PR.
 5. Push any changes based on feedback to your feature branch. This will update the PR with the most recent changes.
 
-## What code should I use?
+### What code should I use?
 
 Previously, we had a demo generator script that will set up a basic demo for you. That script needs to be updated, so for now check out the 
 @supports, css3filters, or webaudiotuner demos for examples. Note that there are meta tags in the `<head>` of `index.html` that will need to 
