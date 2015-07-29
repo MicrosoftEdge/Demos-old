@@ -11,7 +11,7 @@ too sentimental). Some others are new. In any case, we are working on adding mor
 
 ### Git workflow
 
-1. Fork this project and [set up a remote](link: https://help.github.com/articles/configuring-a-remote-for-a-fork/) to file pull requests 
+1. Fork this project and [set up a remote](https://help.github.com/articles/configuring-a-remote-for-a-fork/) to file pull requests 
 against later. 
 2. Create a feature branch for your new demo off of the development branch.
 3. Before creating a pull request, make sure your feature branch is up to date with the latest changes to MicrosoftEdge/Demos/development (the 
