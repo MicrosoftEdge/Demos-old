@@ -1,0 +1,133 @@
+﻿* {
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+}
+
+HTML {
+    height: 100%;
+    height: 100%;
+    overflow: hidden;
+    -ms-touch-action: none;
+    -ms-content-zooming: none;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+ }
+
+#DemoScreenreaderText
+{
+    position: absolute;
+    left: -10000px;
+}
+
+#Chalkboard {
+    position: fixed;
+    visibility: hidden;
+    transition: opacity 1.2s;
+    -ms-transition: opacity 1.2s;
+    -moz-transition: opacity 1.2s;
+    -o-transition: opacity 1.2s;
+    -webkit-transition: opacity 1.2s;
+}
+
+#EmptyChalkboard {
+    position: fixed;
+    visibility: hidden;
+}
+
+#Intro {
+    position: fixed;
+    visibility: hidden;
+    margin: 12px 0px 0px 32px;
+    transition: opacity 2s;
+    -ms-transition: opacity 2s;
+    -moz-transition: opacity 2s;
+    -o-transition: opacity 2s;
+    -webkit-transition: opacity 2s;
+}
+
+#Timer {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    margin: 0px 40px 14px 0px;
+    font-family: Garamond;
+    font-size: 18pt;
+    -ms-transition: opacity 1.2s;
+    -moz-transition: opacity 1.2s;
+    -o-transition: opacity 1.2s;
+    -webkit-transition: opacity 1.2s;
+}
+
+#Results {
+    visibility: hidden;
+    width: 70%;
+    height: 70%;
+    opacity: 0;
+}
+
+#Wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:38%;
+    text-align: center;
+    font-family: GillesHandwriting;
+    font-size: 46pt;
+    color: white;
+    opacity: 0.92;
+}
+
+#Wrapper > p {
+    font-family: GillesHandwriting;
+    color: white;
+    opacity: 0.92;
+}
+
+#Title {
+    font-size: 28pt;
+}
+
+#FinalTime {
+    font-size: 62pt;
+    margin-top: 12px;
+}
+
+#RunAgain {
+    font-size: 16pt;
+    margin-top: 40px;    
+}
+
+#StartButton {
+    display: block;
+    padding: 4px 6px 4px 6px;
+    margin-left: 352px;
+    font-family: Garamond;
+    font-size: 12pt;
+}
+
+.Hide {
+    opacity: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+a, a:visited, a:hover {
+    color: White;
+}
+
+a:hover, a:visited:hover {
+    color: White;
+    text-decoration: underline;
+}
+
+@font-face {
+	font-family: 'GillesHandwriting';	
+	src: local('☺'), url('Fonts/GillesHandwriting.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
