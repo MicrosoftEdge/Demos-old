@@ -1,0 +1,60 @@
+﻿#ReturnAndShareControls
+{
+    position: absolute;
+    top: 0px;
+    right: 40px;
+    height: 27px;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+#ReturnAndShareControls > .ReturnButton {
+	display:inline-block;
+	width:170px;
+	height: 27px;
+	background-image: url("../../Includes/Image/ReturnButtonImageStrip.png");
+	background-position: 0px -1px;
+}
+
+#ReturnAndShareControls > .ShareOnFacebookButton {
+	display: inline-block;
+	position:relative;
+	width: 	24px;
+	height: 27px;
+	background-image: url("../../Includes/Image/ReturnButtonImageStrip.png");
+	background-position: -189px -1px;
+}
+
+#ReturnAndShareControls > .ShareOnTwitterButton {
+	display: inline-block;
+	position:relative;
+	width: 25px;
+	height: 27px;
+	background-image: url("../../Includes/Image/ReturnButtonImageStrip.png");
+	background-position: -214px -1px;
+}
+
+#ReturnAndShareControls > .ShareViaEmailButton {
+	display: inline-block;
+	position:relative;
+	width: 30px;
+	height: 27px;
+	background-image: url("../../Includes/Image/ReturnButtonImageStrip.png");
+	background-position: -240px -1px;
+}
+
+#ReturnAndShareControls > .ReturnButton:hover {
+	background-position: 0px -29px;
+}
+
+#ReturnAndShareControls > .ShareOnFacebookButton:hover {
+	background-position: -189px -29px;
+}
+
+#ReturnAndShareControls > .ShareOnTwitterButton:hover {
+	background-position: -214px -29px;
+}
+
+#ReturnAndShareControls > .ShareViaEmailButton:hover {
+	background-position: -240px -29px;
+}

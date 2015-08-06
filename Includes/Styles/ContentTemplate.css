@@ -1,0 +1,87 @@
+﻿#HeadingSection
+{
+    min-width: 960px;
+}
+
+#Watermark
+{
+    margin: 0px auto 0px auto;
+    min-width: 960px;
+    max-width: 1600px;
+    height: 120px;
+}
+
+#HeadingContents
+{
+    position: relative;
+    margin: 0px auto 0px auto;
+    padding: 0px 40px 0px 40px;
+    min-width: 960px;
+    max-width: 960px;
+}
+
+#Page
+{
+    margin: 0 auto -34px auto;
+    min-height: 100%;
+    height: auto;
+    min-width: 960px;
+}
+
+#PageTitle
+{
+    padding-top: 40px;
+    margin-left: -2px;
+    font-size: 24pt;
+    color: #00a3ef;
+    font-weight: normal;
+}
+
+#ContentSection
+{
+    margin: 12px auto 0px auto;
+    padding: 0px 40px 0px 40px;
+    min-width: 960px;
+    max-width: 960px;
+    text-align: justify;
+}
+
+#FooterSpacing
+{
+    height: 100px;
+}
+
+#Footer
+{
+    margin: 0px auto 40px auto;
+    width: 960px;
+    height: 22px;
+}
+
+#FooterText
+{
+    color: #b4b4b4;
+    font-size: 8pt;
+    width: 802px;
+    display: block;
+    float: left;
+}
+
+.FooterTextDivider
+{
+    padding: 0px 8px 0px 8px;
+}
+    
+#FooterLogo
+{
+    width: 150px;
+    height: 34px;
+    float: left;
+    margin: 1px 0px 0px 00px;
+    background-image: url('../../Includes/Image/MicrosoftLogo.png');
+}
+
+.IndentedList
+{
+    margin: 6px 0px 20px 20px;
+}
