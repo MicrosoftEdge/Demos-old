@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Using Playready content protection and other APIs to produce professional quality video.</title>
+    <meta name="og:title" content="Professional Quality Video"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content="Media, Playready, Encrypted Media Extensions, EME, Cacheless XMLHttpRequests, Touch, Video, Bitrate, Protected content"/>
+    <meta name="author" content="InternetExplorer"/>
+    <link rel="stylesheet" type="text/css" href="styles/demotemplate.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/demo.css"/>
+</head>
+
+<body>
+<article class="demo-wrap">
+
+    <!-- DEMO INTRO -->
+    <header class="demo-header">
+        <div class="container">
+            <heading class="section-header">
+                <h1 class="heading">Professional Quality Video</h1>
+            </heading>
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="text-title">Featuring Content Supported by Windows Azure Media Services and PlayReady Content Protection</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- DEMO CONTENT -->
+    <div class="demo-content">
+        <div class="container">
+            <section class="section">
+                <header class="section-header">
+                    <h2 class="subheading"><!--None--></h2>
+                </header>
+                <div class="section-body">
+                    <div class="row">
+                        <div>
+                        <div class="col-sm-7" id="library"></div>
+                        </div>
+                        <div class="col-sm-17">
+                            <div class="controls">
+                                <video id="video" poster="images/Big_Buck_Bunny.jpg" controls></video>
+                                <div class="cell">
+                                    <p class="label">Video Bitrate</p>
+                                </div>
+                                <div class="cell">
+                                    <input type="range" id="bitrateSlider" style="padding-top: 30px; padding-bottom: 30px;">
+                                </div>
+                                <div class="cell">
+                                    <p id="bitrateLabel" style="display: inline; white-space:nowrap;">0 kbps</p>
+                                </div>
+                                <div class="cell" style="width:100%"></div>
+                                <div class="cell">
+                                    <p class="label">Current Content</p>
+                                </div>
+                                <div class="cell">
+                                    <img id="openlock" src="images/unlocked.png" />
+                                    <img id="closedlock" src="images/locked.png" style="display: none;"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <section class="subsection">
+                        <header class="subsection-header">
+                            <h3 class="title">Content Protection Legend:</h3>
+                        </header>
+                        <div class="subsection-body">
+                            <div class="row">
+                                <div class="col-sm-24">
+                                    <li style="list-style:none;"><img class="lockimg" src="images/unlocked.png"><span>:&nbsp;&nbsp; Content is clear and does not require PlayReady support for playback.</span></li>
+                                    <li style="list-style:none;"><img class="lockimg" src="images/locked.png"><span>:&nbsp;&nbsp; Content is protected and requires PlayReady support.</span></li>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="subsection">
+                        <header class="subsection-header">
+                            <h3 class="title">Professional Quality Video in Internet Explorer</h3>
+                        </header>
+                        <div class="subsection-body">
+                            <div class="row">
+                                <div class="col-sm-24">
+                                    <p>Internet Explorer 11 on Windows 8.1 supports emerging standards for web encryption, adaptive streaming, content protection and rich captioning. This delivers professional quality web media capabilities without additional software plug-ins. Key new
+                HTML media specifications supported in Windows 8.1 include:</p>
+                                    <ul>
+                                        <li class="bullet"><i>Web Crypto:</i>&nbsp;&nbsp;Allows web app access to encryption features for security and user authentication.</li>
+                                        <li class="bullet"><i>Media Source Extensions:</i>&nbsp;&nbsp;Enables adaptive streaming for audio and video.</li>
+                                        <li class="bullet"><i>Encrypted Media Extensions:</i>&nbsp;&nbsp;Enables playback of PlayReady protected content, with no additional licensing.</li>
+                                        <li class="bullet"><i>TTML Simple Delivery Profile:</i>&nbsp;&nbsp;Allows rich caption styling to suit different media needs, and allows user control to optimize legibility.</li>
+                                    </ul>
+                                    <p> Other new media capabilities include: </p>
+                                    <ul>
+                                        <li class="bullet"><i>Full Screen API:</i>&nbsp;&nbsp;Allows custom controls that switch to full screen.</li>
+                                        <li class="bullet"><i>Cacheless XMLHttpRequests:</i>&nbsp;&nbsp;Allows media downloads that bypass saving to local storage.</li>
+                                        <li class="bullet"><i>Touch Optimized Media Controls:</i>&nbsp;&nbsp;Standard controls have been optimized for touch, and now include video zoom for letterboxed content.</li>
+                                    </ul>
+                                    <h3>Demo Instructions:</h3>
+                                    <ul>
+                                        <li class="bullet">Select content in the left panel for playback. Scroll down to see additional selections.</li>
+                                        <li class="bullet">Observe the 'Current Content' protection status to see when PlayReady is active.</li>
+                                        <li class="bullet">Adjust the bitrate slider and wait a few seconds to see changes between content quality levels.</li>
+                                        <li class="bullet">Play a captioned file to see styled captions, and note that a caption button is added to the media transport controls.</li>
+                                        <li class="bullet">Click the full screen button to toggle in and out of full screen playback, and note a video zoom button is added when content is letterboxed. Click it to fill the screen with video.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </section>
+        </div>
+    </div>
+</article>
+<script type="text/javascript" src="scripts/demo.js"></script>
+</body>
+</html>
