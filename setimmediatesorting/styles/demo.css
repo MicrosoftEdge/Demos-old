@@ -1,16 +1,18 @@
-﻿.setimmediate-sorting-container{
-	min-width: 960px;
-	max-width: 1080px;
-	padding: 0 40px 0 40px;
+﻿.overflow-wrap {
+	display: block;
+	width: 100%;
+	overflow-x: auto;
+}
+
+.overflow-wrap--setimmediatesorting {
+	padding: 2rem 2rem 0;
+	background: #f7f7f7;
 }
 
 #test-graph {
-	display: inline-block;
 	position: relative;
 	width: 1000px;
 	height: 200px;
-	margin-top: 80px;
-	margin-bottom: 40px;
 }
 
 .bar {
@@ -21,58 +23,34 @@
 	padding: 0;
 	z-index: 2;
 	border-bottom: 0;
-	background: green;
+	background: #107C10;
 	border-radius: 3px 3px 3px 3px;
 	box-sizing: content-box;
 }
 
-.button {
-	border: 1px dashed silver;
-	padding: 2px;
-	display: inline;
+/* These classes added in JS */
+.test-result--good {
+	color: #107C10;
 }
 
-.button:hover {
-	text-decoration: underline;
-	cursor: pointer;
-	background-color: silver;
+.test-result--neutral {
+	color: #FF8C00;
 }
 
-.result {
-	font-size: 48px;
-	color: yellow;
+.test-result--bad {
+	color: #F03A17;
 }
 
-#test-wrapper {
-	text-align: center;
-}
-
-#test-container {
-	display: inline-block;
-	margin-bottom: 20px;
-}
-
-.test-control-set {
-	float: left;
-	width: 200px;
-	margin-right: 20px;
-	margin-bottom: 20px;
-	text-align: left;
-	margin-top: 0;
-	font-size: 1.5rem;
-}
-
-.test-title {
-	font-weight: bold;
-}
-
-.test-results {
-	padding-top: 4px;
-	padding-bottom: 4px;
-}
-
-.TestButton {
-	width: 140px;
-	padding: 2px;
-	margin-top: 6px;
+/* Move to general CSS library? */
+@media (min-width: 40em) {
+	
+	.longform-text {
+		-webkit-columns: 2;
+		-moz-columns: 2;
+		columns: 2;
+		-webkit-column-gap: 3.2em;
+		-moz-column-gap: 3.2em;
+		column-gap: 3.2em;
+	}
+	
 }
