@@ -13,10 +13,10 @@ too sentimental). Some others are new. In any case, we are working on adding mor
 
 1. Fork this project and [set up a remote](https://help.github.com/articles/configuring-a-remote-for-a-fork/) to file pull requests 
 against later. 
-2. Create a feature branch for your new demo off of the development branch.
-3. Before creating a pull request, make sure your feature branch is up to date with the latest changes to MicrosoftEdge/Demos/development (the 
+2. Create a feature branch for your new demo off of the master branch.
+3. Before creating a pull request, make sure your feature branch is up to date with the latest changes to MicrosoftEdge/Demos/master (the 
 remote you set up).
-4. Create a pull request against MicrosoftEdge/Demos/development with the changes from your branch. Title with the name of your demo or fixes. 
+4. Create a pull request against MicrosoftEdge/Demos/master with the changes from your branch. Title with the name of your demo or fixes. 
 Mention @molant and optionally @melanierichards (for front-end/design review) in the comments so we're aware of your PR.
 5. Push any changes based on feedback to your feature branch. This will update the PR with the most recent changes.
 
