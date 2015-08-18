@@ -507,36 +507,10 @@
     //==============================================================================
     var mseSupported;
 
-    // Returns the version and system of Internet Explorer or a version of -1(indicating the use of another browser).
-    var getInternetExplorerVersion = function () {
-        var version = -1;
-        if (navigator.appName === 'Netscape') {
-            var ua = navigator.userAgent;
-            //  Get IE version
-            var tridentRegex = new RegExp('Trident/([0-9]{1,}[\.0-9]{0,})');
-            if (tridentRegex.exec(ua) != null) {
-                version = parseFloat(RegExp.$1);
-            }
-            //  Get system version
-            var re = new RegExp('Windows NT ([0-9]{1,}[\.0-9]{0,})');
-            if (re.exec(ua) != null) {
-                var system = parseFloat(RegExp.$1);
-            }
-        }
-        return [version, system];
-    };
-
     var showUpgradeNotice = function (text, allowDismiss) {
-        var dialog = document.getElementById('upgrade');
-        var dialogText = document.getElementById('upgrade_text');
-        var dismissButton = document.getElementById('dismiss_button');
-        if (dialog) {
-            if (text && dialogText) {
-                dialogText.innerHTML = text;
-            }
-            dismissButton.style.display = (allowDismiss && dismissButton) ? 'block' : 'none';
-            dialog.style.display = 'block';
-        }
+        var errorElem = document.getElementById("error-display");
+        errorElem.appendChild(document.createTextNode(text));
+        errorElem.style.display = "block";
     };
 
     var writeError = function (msg, allowDismiss) {
@@ -544,35 +518,29 @@
     };
 
     var detectMSESupport = function () {
-        var ver = getInternetExplorerVersion();
         // Check for MediaSource support
         if (window.MediaSource) {
             mseSupported = true;
             window.webkitRequired = false;
-        } else if (ver[0] === 7 && ver[1] === 6.1) {
-            mseSupported = false;
-            writeError('This demo requires media features supported by Internet Explorer 11 on Windows 8.1.', true);
             //  Else, check for WebKitMediaSource AND appendBuffer support (for up to date MSE)
         } else if (window.WebKitMediaSource) {
             mseSupported = true;
             window.webkitRequired = true;
             if (!window.WebKitSourceBuffer.prototype.appendBuffer) {
                 mseSupported = false;
-                writeError('Your browser does not support the most recent version of Media Source Extensions and is unable to play these videos. Try upgrading to Internet Explorer 11 on Windows 8.1 for the best experience.', true);
+                writeError('Your browser does not support the most recent version of Media Source Extensions and is unable to play these videos.', true);
             }
             //  Else, no MSE
         } else {
             mseSupported = false;
-            writeError('Your browser does not support Media Source Extensions and is unable to play these videos. Try upgrading to Internet Explorer 11 on Windows 8.1 for the best experience.', true);
+            writeError('Your browser does not support Media Source Extensions and is unable to play these videos.', true);
         }
     };
     //==============================================================================
     // Kickoff
     //==============================================================================
-    // Check for MSE support
-    // var upgrade_button = document.getElementById('upgrade_button');
-    // var dismiss_button = document.getElementById('dismiss_button');
 
+    // Check for MSE support
     detectMSESupport();
 
     var setLock = function (locked) {
