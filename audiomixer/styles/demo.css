@@ -1,17 +1,11 @@
 /**************
  *** Global ***
  **************/
-html,
-body {
-	height: 100%;
-	width: 100%;
-	overflow: auto;
-}
-
-#audiomixer {
+#audiomixer .audiomixer-body {
 	font-weight: 200;
-	background-color: #222222;
 	color: #E1E1E1;
+	background-color: #222222;
+	padding: 1rem 0 3rem 0;
 }
 
 #audiomixer table,
@@ -138,12 +132,21 @@ body {
 /*************************
  *** Wrappers + Panels ***
  *************************/
-.wrapper {
+#audiomixer .wrapper {
 	margin: 0 auto;
 }
 
 #audiomixer .panel {
 	margin-top: 10px;
+}
+
+#audiomixer .panel p {
+	max-width: none;
+	margin-bottom: 1rem;
+}
+
+#audiomixer .explainer {
+	margin: 20px 10px 0 10px;
 }
 
 #audiomixer .panel h1 {
@@ -453,25 +456,6 @@ body {
 	opacity: 1;
 }
 
-/**************
- *** Footer ***
- **************/
-#audiomixer footer {
-	padding: 1rem 1.4rem;
-	font-size: 1.1rem;
-	color: #999999;
-	text-shadow: 0 0 3px #000000;
-	background-color: #111111;
-	width: 100%;
-	box-shadow: 0 0 20px 0 #111111;
-	float: left;
-	margin-top: 1rem;
-}
-
-#audiomixer footer a {
-	float: right;
-}
-
 /*******************
  *** Range Input ***
  *******************/
@@ -693,17 +677,6 @@ body {
 
 /* Bigger fit */
 @media (min-width: 760px) {
-	html,
-	body {
-		height: auto;
-		width: auto;
-		overflow: auto;
-	}
-
-	body {
-		margin-bottom: 8rem;
-	}
-
 	#audiomixer .wrapper {
 		padding: 0 20px;
 	}
@@ -778,12 +751,6 @@ body {
 
 	#audiomixer #dash .track.disabled .grid li:first-child {
 		border-left-color: #333333;
-	}
-
-	#audiomixer footer {
-		position: fixed;
-		bottom: 0;
-		font-size: 1.2rem;
 	}
 }
 @media (min-width: 930px) {
