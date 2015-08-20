@@ -48,10 +48,6 @@
 		},
 
 		strings: {
-			welcome_message: 'Welcome to the Microsoft Edge Audio Mixer! This application uses Web Audio to play sounds at specific points in time, IndexedDB to save and load songs and their settings, and AppCache to enable offline operation.<br><br>'
-							+ 'Start by clicking or touching the boxes in the mixer to choose when certain sounds will play. Adjust the speed and volume and then click the play button to listen to your next hit single.<br><br>'
-							+ 'If you like what you hear, label the song with a name, author, and genre and click save so you\'ll have it the next time you use this app.<br><br>'
-							+ 'Have fun and enjoy!<br>The Microsoft Edge Team',
 			lose_all_changes: 'Are you sure you want to lose all your unsaved changes?',
 			no_same_name: 'Cannot save with the same name.',
 			confirm_delete: 'Are you sure you want to delete this?',
@@ -241,11 +237,6 @@
 					});
 				});
 
-			$('#about').click(function(e) {
-				e.preventDefault();
-				ui.showAbout();
-			});
-
 			$('#saved-list-explainer a').click(function(e) {
 				e.preventDefault();
 				db.populate();
@@ -258,12 +249,6 @@
 			return audio.unsavedChanges ?
 					ui.confirm(ui.strings.lose_all_changes) :
 					Promise.resolve(true);
-		},
-
-		showAbout: function() {
-			ui.alert(ui.strings.welcome_message);
-			ui.dialog.setTitle(ui.strings.about_text);
-			ui.dialog.setWidth(500);
 		},
 
 		drawTracks: function() {
@@ -421,10 +406,8 @@
 			overlay: null,
 
 			init: function() {
-				if (this.el) {
-					this.setWidth();
-				} else {
-					this.el = $(ui.html.diagOver).appendTo('body');
+				if (!this.el) {
+					this.el = $(ui.html.diagOver).appendTo('.audiomixer-body');
 					this.overlay = $('.overlay', this.el);
 
 					this.overlay.add('.button-dismiss, .close', this.el)
@@ -443,10 +426,6 @@
 
 			setText: function(text) {
 				$('.body p', this.el).html(text);
-			},
-
-			setWidth: function(newWidth) {
-				$('.dialog', this.el).width(newWidth || '');
 			},
 
 			show: function () {
