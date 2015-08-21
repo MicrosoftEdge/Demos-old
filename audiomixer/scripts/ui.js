@@ -407,7 +407,7 @@
 
 			init: function() {
 				if (!this.el) {
-					this.el = $(ui.html.diagOver).appendTo('.audiomixer-body');
+					this.el = $(ui.html.diagOver).appendTo('#audiomixer');
 					this.overlay = $('.overlay', this.el);
 
 					this.overlay.add('.button-dismiss, .close', this.el)
