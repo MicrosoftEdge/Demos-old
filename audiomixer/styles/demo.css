@@ -550,6 +550,7 @@
 	border: 0;
 	height: 18px;
 	width: 10px;
+	margin-top: 0;
 	background: rgb(54, 154, 202);
 	cursor: pointer;
 	border-radius: 0;
