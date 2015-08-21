@@ -1,11 +1,11 @@
 /**************
  *** Global ***
  **************/
-#audiomixer .audiomixer-body {
+#audiomixer {
 	font-weight: 200;
 	color: #E1E1E1;
 	background-color: #222222;
-	padding: 1rem 0 3rem 0;
+	padding: 10px 0 20px 0;
 }
 
 #audiomixer table,
@@ -132,12 +132,9 @@
 /*************************
  *** Wrappers + Panels ***
  *************************/
-#audiomixer .wrapper {
-	margin: 0 auto;
-}
-
 #audiomixer .panel {
-	margin-top: 10px;
+	margin: 5px auto;
+	min-width: 200px;
 }
 
 #audiomixer .panel p {
@@ -163,7 +160,7 @@
 	box-shadow: 0 0 20px 0 #111111;
 }
 
-#audiomixer .wrapper,
+#audiomixer .panel,
 #audiomixer .panel-content,
 #audiomixer #master,
 #audiomixer #dash,
@@ -172,10 +169,6 @@
 #audiomixer #dash .track .grid {
 	width: 100%;
 	height: auto;
-}
-
-#audiomixer .wrapper {
-	min-width: 200px;
 }
 
 #audiomixer #master:before,
@@ -677,12 +670,9 @@
 
 /* Bigger fit */
 @media (min-width: 760px) {
-	#audiomixer .wrapper {
-		padding: 0 20px;
-	}
-
 	#audiomixer .panel {
-		margin-top: 40px;
+		margin: 30px auto;
+		padding: 0 20px;
 	}
 
 	#audiomixer #master .master-controls {
@@ -761,7 +751,7 @@
 
 /* Fit all */
 @media (min-width: 1280px) {
-	#audiomixer .wrapper {
+	#audiomixer .panel {
 		width: 1280px;
 	}
 
