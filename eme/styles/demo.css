@@ -1,0 +1,69 @@
+.movie {
+    background-color: darkgrey;
+    margin: 4px;
+}
+
+.movie:hover {
+    background-color: lightgrey;
+}
+
+#video {
+    background: black;
+    display: block;
+    width: 100%;
+    height: 500px;
+}
+
+#video:focus {
+    outline: none;
+}
+
+.main.section{
+    float:left;
+}
+
+div.controls {
+    width: 100%;
+}
+
+input[type='range']::-ms-tooltip {
+    display: none;
+}
+
+.spacer{
+    width: 100%;
+}
+
+img.lockimg {
+    width: 25px;
+    vertical-align: -40%;
+}
+
+#library {
+    overflow-y: scroll;
+    margin-bottom: 30px;
+    height: 500px;
+}
+
+.property {
+    font-style: italic;
+}
+
+div.cell {
+    display: table-cell;
+    padding: 5px;
+    vertical-align: middle;
+}
+
+input[type='range'] {
+    width: 150px;
+    height: auto;
+    border: auto;
+    padding: auto;
+}
+
+#error-display {
+    color: red;
+    font-size: x-large;
+    display: none;
+}
