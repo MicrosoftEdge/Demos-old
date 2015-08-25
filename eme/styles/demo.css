@@ -14,6 +14,10 @@
     height: 500px;
 }
 
+#videocontainer {
+
+}
+
 #video:focus {
     outline: none;
 }
@@ -35,14 +39,32 @@ input[type='range']::-ms-tooltip {
 }
 
 img.lockimg {
-    width: 25px;
+    min-width: 25px;
     vertical-align: -40%;
+    min-height: 25px;
+}
+
+.lockContainer {
+    min-width: 50px;
+    min-height: 50px;
 }
 
 #library {
     overflow-y: scroll;
     margin-bottom: 30px;
     height: 500px;
+}
+
+#library div {
+    padding: 15px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+
+#library div[selected] {
+    background: lightblue;
 }
 
 .property {

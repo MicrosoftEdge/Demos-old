@@ -13,7 +13,7 @@
     }, {
         title: 'Not Your Father\'s Browser',
         property: 'Captioned',
-        caption: 'Not_Your_Fathers_Captions.ttml',
+        caption: 'captions/Not_Your_Fathers_Captions.ttml',
         attribution: 'Not Your Father\'s Browser - Episodes 1-10',
         baseUrl: 'http://wams.edgesuite.net/media/notyourfathersbrowser/notyourfathersbrowser.ism',
         fileName: 'manifest(format=mpd-time-csf)'
@@ -34,7 +34,7 @@
     }, {
         title: 'Child of the 90s',
         property: 'Captioned',
-        caption: '90s_Captions.ttml',
+        caption: 'captions/90s_Captions.ttml',
         attribution: 'You grew up. So did we. Reconnect with the new Internet Explorer.',
         baseUrl: 'http://wams.edgesuite.net/media/90s/90s.ism',
         fileName: 'manifest(format=mpd-time-csf)'
@@ -605,11 +605,11 @@
     var videoClickHandler = function (index) {
         return function () {
                 if (selectedVideo >= 0) {
-                    document.getElementById('video' + selectedVideo).style.opacity = '';
+                    document.getElementById('video' + selectedVideo).removeAttribute("selected");
                 }
-                document.getElementById('video' + index).style.opacity = '1';
                 defaultVideo = false;
                 selectedVideo = index;
+                document.getElementById('video' + selectedVideo).setAttribute("selected");
                 loadVideo(index);
                 // Check for captions and add/remove track support as needed
                 var videoTarget = document.getElementById('video');
