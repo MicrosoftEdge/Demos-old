@@ -14,10 +14,6 @@
     height: 500px;
 }
 
-#videocontainer {
-
-}
-
 #video:focus {
     outline: none;
 }
