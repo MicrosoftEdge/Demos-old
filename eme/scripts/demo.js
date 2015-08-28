@@ -487,7 +487,7 @@
         createMediaKeySystemAccess: function (initDataType, initData) {
             return window.navigator.requestMediaKeySystemAccess(
                 "com.microsoft.playready",
-                 [
+                [
                     {
                         initDataTypes: ["keyids", "cenc"],
                         audioCapabilities:
@@ -504,7 +504,7 @@
                         ]
 
                     }
-                ])
+                ]);
         },
         clearEvents: function () {
             video.removeEventListener("encrypted", this.onencryptedRequest, false);
