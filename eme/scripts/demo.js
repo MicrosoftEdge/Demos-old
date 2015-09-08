@@ -3,56 +3,56 @@
   //==============================================================================
     // List of available content files/manifests.
     //==============================================================================
-    var videoLibrary = [{
-        title: 'Big Buck Bunny',
-        property: '',
-        caption: '',
-        attribution: '(c) Copyright 2008, Blender Foundation / www.bigbuckbunny.org',
-        baseUrl: 'http://wams.edgesuite.net/media/MPTExpressionData02_SeekDemo/BigBuckBunny_1080p24_IYUV_2ch.ism',
-        fileName: 'manifest(format=mpd-time-csf)'
-    }, {
-        title: 'Not Your Father\'s Browser',
-        property: 'Captioned',
-        caption: 'captions/Not_Your_Fathers_Captions.ttml',
-        attribution: 'Not Your Father\'s Browser - Episodes 1-10',
-        baseUrl: 'http://wams.edgesuite.net/media/notyourfathersbrowser/notyourfathersbrowser.ism',
-        fileName: 'manifest(format=mpd-time-csf)'
-    }, {
-        title: 'Sintel Trailer',
-        property: 'Protected',
-        caption: '',
-        attribution: '(c) Copyright Blender Foundation | www.sintel.org',
-        baseUrl: 'http://wams.edgesuite.net/media/SintelTrailer_Smooth_from_WAME_CENC/NoSubSampleAdjustment/sintel_trailer-1080p.ism',
-        fileName: 'manifest(format=mpd-time-csf)'
-    }, {
-        title: 'Elephant\'s Dream',
-        property: '',
-        caption: '',
-        attribution: '(c) Copyright 2006, Blender Foundation / Netherlands Media Art Institute / www.elephantsdream.org',
-        baseUrl: 'http://wams.edgesuite.net/media/MPTExpressionData01_SeekDemo/ElephantsDream_1080p24_IYUV_2ch.ism',
-        fileName: 'manifest(format=mpd-time-csf)'
-    }, {
-        title: 'Child of the 90s',
-        property: 'Captioned',
-        caption: 'captions/90s_Captions.ttml',
-        attribution: 'You grew up. So did we. Reconnect with the new Internet Explorer.',
-        baseUrl: 'http://wams.edgesuite.net/media/90s/90s.ism',
-        fileName: 'manifest(format=mpd-time-csf)'
-    }, {
-        title: 'Sintel Trailer',
-        property: '',
-        caption: '',
-        attribution: '(c) Copyright Blender Foundation | www.sintel.org',
-        baseUrl: 'http://wams.edgesuite.net/media/SintelTrailer_Smooth_SeekDemo/sintel_trailer-1080p.ism',
-        fileName: 'manifest(format=mpd-time-csf)'
-    }, {
-        title: 'Tears of Steel',
-        property: 'Protected',
-        caption: '',
-        attribution: '(c) Copyright Blender Foundation | mango.blender.org',
-        baseUrl: 'http://wams.edgesuite.net/media/Tears_of_Steel_Smooth_1080p_Protected2/tears_of_steel_1080p.ism',
-        fileName: 'manifest(format=mpd-time-csf)'
-    }];
+	var videoLibrary = [{
+		title: 'Big Buck Bunny',
+		property: '',
+		caption: '',
+		attribution: '(c) Copyright 2008, Blender Foundation / www.bigbuckbunny.org',
+		baseUrl: 'https://amssamples.streaming.mediaservices.windows.net/683f7e47-bd83-4427-b0a3-26a6c4547782/BigBuckBunny.ism',
+		fileName: 'manifest(format=mpd-time-csf)'
+	}, {
+		title: 'Not Your Father\'s Browser',
+		property: 'Captioned',
+		caption: 'captions/Not_Your_Fathers_Captions.ttml',
+		attribution: 'Not Your Father\'s Browser - Episodes 1-10',
+		baseUrl: 'https://amssamples.streaming.mediaservices.windows.net/dfcb28e1-8f04-404c-ae22-7462cab948fc/NotYourFathersBrowser.ism',
+		fileName: 'manifest(format=mpd-time-csf)'
+	}, {
+		title: 'Sintel Trailer',
+		property: 'Protected',
+		caption: '',
+		attribution: '(c) Copyright Blender Foundation | www.sintel.org',
+		baseUrl: 'https://amssamples.streaming.mediaservices.windows.net/bf657309-71d9-4436-b94b-8ac0d2ca222b/SintelTrailer.ism',
+		fileName: 'manifest(format=mpd-time-csf)'
+	}, {
+		title: 'Elephant\'s Dream',
+		property: '',
+		caption: '',
+		attribution: '(c) Copyright 2006, Blender Foundation / Netherlands Media Art Institute / www.elephantsdream.org',
+		baseUrl: 'https://amssamples.streaming.mediaservices.windows.net/b6822ec8-5c2b-4ae0-a851-fd46a78294e9/ElephantsDream.ism',
+		fileName: 'manifest(format=mpd-time-csf)'
+	}, {
+		title: 'Child of the 90s',
+		property: 'Captioned',
+		caption: 'captions/90s_Captions.ttml',
+		attribution: 'You grew up. So did we. Reconnect with the new Internet Explorer.',
+		baseUrl: 'https://amssamples.streaming.mediaservices.windows.net/bb34a723-f69a-4231-afba-dc850f9e3da8/ChildOfThe90s.ism',
+		fileName: 'manifest(format=mpd-time-csf)'
+	}, {
+		title: 'Sintel Trailer',
+		property: '',
+		caption: '',
+		attribution: '(c) Copyright Blender Foundation | www.sintel.org',
+		baseUrl: 'https://amssamples.streaming.mediaservices.windows.net/bc57e088-27ec-44e0-ac20-a85ccbcd50da/TearsOfSteel.ism',
+		fileName: 'manifest(format=mpd-time-csf)'
+	}, {
+		title: 'Tears of Steel',
+		property: 'Protected',
+		caption: '',
+		attribution: '(c) Copyright Blender Foundation | mango.blender.org',
+		baseUrl: 'https://amssamples.streaming.mediaservices.windows.net/de1470b3-7b3c-4902-ab53-d19b37ef3bd7/TearsOfSteelTeaser.ism',
+		fileName: 'manifest(format=mpd-time-csf)'
+	}];
 
     window.webkitRequired = false;
 
