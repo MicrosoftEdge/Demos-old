@@ -1,5 +1,4 @@
-(function(){
-(function() {
+(function($) {
 
     function scrollTo(top) {
         $('html, body').animate({ scrollTop: top}, 800, 'easeInOutCirc');
@@ -22,7 +21,5 @@
         $('#top').toggleClass('showing', top > height);
     });
 
-})();
+})(jQuery);
 
-
-})();
