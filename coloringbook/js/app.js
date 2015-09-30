@@ -8,10 +8,10 @@
         scrollTo(0);
     });
 
-    $('.tile').click(function() {
+    $('#introTiles').click(function() {
         var id = $(this).attr('href'),
-            offset = $(id).offset().top;
-        scrollTo($(id).offset().top);
+            offset = $('#page01').offset().top;
+        scrollTo(offset);
         return false;
     });
 

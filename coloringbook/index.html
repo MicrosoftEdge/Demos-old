@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Web Note Coloring Book</title>
-    <meta name="description" content="">
+    <meta name="description" content="Web Note is a new feature of Microsoft Edge that helps you write, draw, make notes and share web pages.">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" type="text/css" href="https://edgeportal.blob.core.windows.net/media/demotemplate.css">
     <link rel="stylesheet" type="text/css" href="css/app.css">
@@ -11,29 +11,38 @@
 <body>
     <div id="webnoteColorPages">
         <div id="pages">
-            <div id="tiles" class="page">
-                <div class="pageInfo">
-                    <img id="title" src="images/titles.png" >
-                    <p>Web Note is a new feature of Microsoft Edge that helps you write, draw, make notes and share web pages.</p>
-                    <p>This animal themed coloring book will take you through how to use Web Note. Click the WebNote icon <i class="icon webnote"></i> and scroll down to start the monkey maze.</p>
+            <div id="intro" class="page">
+                <div id="introTop">
+                    <div id="introTitleContent">
+                        <div id="introTitle"></div>
+                        <div id="introText">
+                            <p>Web Note is a new feature of <a href="https://www.microsoft.com/en-us/windows/microsoft-edge" target="_blank">Microsoft Edge</a>. It helps you write, draw and make notes directly on the web page. You can also share the web page with your notes on it. </p>
+                            <p>This animal themed coloring book will take you through how to use Web Note. Click the <i class="webnote icon"></i> and scroll down to start with the monkey maze.</p>                            
+                        </div>
+                    </div>
                 </div>
-                <div class="pageContent">    
-                    <a class="tile" href="#page01" style="background-image: url(images/01.png);"></a>
-                    <a class="tile" href="#page02" style="background-image: url(images/02.png);"></a>
-                    <a class="tile" href="#page03" style="background-image: url(images/03.png);"></a>
-                    <a class="tile" href="#page04" style="background-image: url(images/04.png);"></a>
-                    <a class="tile" href="#page05" style="background-image: url(images/05.png);"></a>
-                    <a class="tile" href="#page06" style="background-image: url(images/06.png);"></a>
-                    <a class="tile" href="#page07" style="background-image: url(images/07.png);"></a>
-                    <a class="tile" href="#page08" style="background-image: url(images/08.png);"></a>
-                    <a class="tile" href="#page09" style="background-image: url(images/09.png);"></a>
+                
+                <div id="introTiles">
+                    <div class="introTile" style="background-image: url(images/04.png);"></div>
+                    <div class="introTile" style="background-image: url(images/01.png);"></div>
+                    <div class="introTile" style="background-image: url(images/05.png);"></div>
+                    <div class="introTile" style="background-image: url(images/08.png);"></div>
+                    <div class="introTile" style="background-image: url(images/07.png);"></div>
+                    <div class="introTile" style="background-image: url(images/09.png);"></div>
+                    <div class="introTile" style="background-image: url(images/06.png);"></div>
+                </div>
+
+                <div id="introBottom">
+                    <div id="introBottomContent">
+                        <h4>Click the browser's Web Note icon <i class="webnotedark icon"></i> and then scroll to get started!</h4>
+                        <img id="introBrowser" src="images/browser.png"></div>
+                    </div>
+
                 </div>
             </div>
             <div id="page01" class="page">
             <div class="pageInfo">                    
-                    <img id="title" src="images/titles.png" >
-                    <p>Web Note is a new feature of Microsoft Edge. It helps you write, draw and make notes directly on the web page. You can also share the web page with your notes on it. </p>
-                    <p>This animal themed coloring book will take you through how to use Web Note. Click the <i class="webnote icon"></i> and scroll down to start with the monkey maze.</p>
+                    <h3>Complete the Maze</h3>
                     <p>Click the Pen <i class="pen icon"></i>.</p>
                     <p>Trace a path through the maze to get to the bananas.</p>
                     <p class="nextStep">Scroll down to continue with Connect the Dots.</p>
@@ -86,7 +95,7 @@
                     <p>You can clip a selection of the page to your clipboard by using the Clip tool <i class="icon clip"></i>.</p>
                     <p>You can also email your clip or share it on Facebook or Twitter via Share <i class="icon social"></i>.</p>
                     <p>You can also have Facebook or Twitter show as options on the Share panel once you install the apps from Windows Store.</p>
-                    <p class="nextStep">Scroll down for more animals to color in.</p>
+                    <p class="nextStep">Scroll down for more animals <span class="nowrap">to color in.</span></p>
                 </div>
                 <div class="pageContent" style="background-image: url(images/06.png)"></div>
             </div>
@@ -96,7 +105,7 @@
                     <p>Select the highlighter <i class="icon highlight"></i> for coloring the whale so you can see the outline while you color. </p>
                     <p>If you open Web Note on a web page that has content to the right or left of what you can see, you can pan the web note view by using the Pan tool <i class="icon pan"></i>.</p>
                     <p>Touch one of the other Web Note tools to exit panning mode.</p>
-                    <p class="nextStep">Scroll down for more animals to color in.</p>
+                    <p class="nextStep">Scroll down for more animals <span class="nowrap">to color in.</span></p>
                 </div>
                 <div class="pageContent" style="background-image: url(images/07.png)"></div>
             </div>
@@ -106,7 +115,7 @@
                     <p>Select the highlighter <i class="icon highlight"></i> for coloring the cheetah so you can see the outline while you color. </p>
                     <p>You can save your Web Note and come back to it later by clicking Save <i class="icon save"></i> and then choosing OneNote, Favorites or Reading List. You can access your Favorites or Reading list via Hub <i class="icon hub"></i>. You can open your OneNote app from the Start menu. </p>
                     <p>Scroll down to continue with the coloring book. You can exit Web Note mode at any time by clicking <strong>Exit</strong>. If you haven’t saved your Web Note, it will be discarded when you exit. So be sure to Save if you want to continue again later.</p>
-                    <p class="nextStep">Scroll down for the final animal to color in.</p>
+                    <p class="nextStep">Scroll down for the final animal <span class="nowrap">to color in.</span></p>
                 </div>
                 <div class="pageContent" style="background-image: url(images/08.png)"></div>
             </div>

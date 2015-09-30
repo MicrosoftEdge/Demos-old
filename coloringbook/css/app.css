@@ -718,12 +718,12 @@ body {
   border-bottom: none;
 }
 #webnoteColorPages .page:before {
-  content: '';
   position: absolute;
   top: 0;
   right: auto;
   bottom: 0;
   left: 0;
+  content: '';
   width: 25%;
   background-color: #222529;
 }
@@ -738,14 +738,13 @@ body {
   background-size: contain;
 }
 #webnoteColorPages .pageInfo {
-  position: relative;
   box-sizing: border-box;
-  min-height: 100%;
+  position: relative;
   width: 25%;
+  min-height: 100%;
   padding: 30px 20px 30px 20px;
   color: #fcf6d9;
-  font-size: 18px;
-  line-height: 1.35;
+  font-size: 21px;
 }
 #webnoteColorPages .pageInfo h3 {
   margin-bottom: 25px;
@@ -757,11 +756,19 @@ body {
 #webnoteColorPages .pageInfo p {
   margin: 0 0 0.75em 0;
   font-weight: 500;
+  line-height: 1.3;
 }
 #webnoteColorPages .pageInfo p strong {
   font-weight: 700;
 }
-#webnoteColorPages .pageInfo i.icon {
+#webnoteColorPages .pageInfo .nextStep {
+  margin-top: 2em;
+  color: #fdc641;
+  font-weight: 900;
+  font-size: 0.75em;
+  text-transform: uppercase;
+}
+#webnoteColorPages i.icon {
   position: relative;
   top: -0.3em;
   display: inline-block;
@@ -772,55 +779,54 @@ body {
   background-position: center;
   background-size: 100% 100%;
 }
-#webnoteColorPages .pageInfo i.icon.pen {
+#webnoteColorPages i.icon.pen {
   background-image: url(../images/pen.png);
 }
-#webnoteColorPages .pageInfo i.icon.position {
+#webnoteColorPages i.icon.position {
   background-image: url(../images/position.png);
 }
-#webnoteColorPages .pageInfo i.icon.pan {
+#webnoteColorPages i.icon.pan {
   background-image: url(../images/pan.png);
 }
-#webnoteColorPages .pageInfo i.icon.save {
+#webnoteColorPages i.icon.save {
   background-image: url(../images/save.png);
 }
-#webnoteColorPages .pageInfo i.icon.social {
+#webnoteColorPages i.icon.social {
   background-image: url(../images/social.png);
 }
-#webnoteColorPages .pageInfo i.icon.hub {
+#webnoteColorPages i.icon.hub {
   background-image: url(../images/hub.png);
 }
-#webnoteColorPages .pageInfo i.icon.highlight {
+#webnoteColorPages i.icon.highlight {
   background-image: url(../images/highlight.png);
 }
-#webnoteColorPages .pageInfo i.icon.clip {
+#webnoteColorPages i.icon.clip {
   background-image: url(../images/clip.png);
 }
-#webnoteColorPages .pageInfo i.icon.eraser {
+#webnoteColorPages i.icon.eraser {
   background-image: url(../images/eraser.png);
 }
-#webnoteColorPages .pageInfo i.icon.webnote {
+#webnoteColorPages i.icon.webnote {
   background-image: url(../images/webnote.png);
 }
-#webnoteColorPages .pageInfo i.icon.comment {
+#webnoteColorPages i.icon.webnotedark {
+  background-image: url(../images/webnotedark.png);
+}
+#webnoteColorPages i.icon.comment {
   background-image: url(../images/comment.png);
 }
-#webnoteColorPages .pageInfo i.icon.exit {
+#webnoteColorPages i.icon.exit {
   width: 1.4375em;
   background-image: url(../images/exit.png);
-}
-#webnoteColorPages .pageInfo .nextStep {
-  margin-top: 2em;
-  color: #fdc641;
-  font-weight: 900;
-  font-size: 0.75em;
-  text-transform: uppercase;
 }
 #webnoteColorPages .hint {
   display: none;
 }
 #webnoteColorPages .hint + .pageContent {
   top: 70px;
+}
+#webnoteColorPages .nowrap {
+  white-space: nowrap;
 }
 #webnoteColorPages #title {
   width: 100%;
@@ -832,7 +838,6 @@ body {
   background-size: contain;
 }
 #webnoteColorPages #top {
-  display: none;
   -webkit-transition: all 200ms;
   -moz-transition: all 200ms;
   -ms-transition: all 200ms;
@@ -842,6 +847,7 @@ body {
   z-index: 100;
   top: 30px;
   right: 30px;
+  display: none;
   visibility: hidden;
   width: 40px;
   height: 60px;
@@ -888,6 +894,165 @@ body {
 #webnoteColorPages footer a {
   color: #fcf6d9;
 }
+#webnoteColorPages #intro:before {
+  display: none;
+}
+#webnoteColorPages #introTop {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: auto;
+  left: 0;
+  height: 35%;
+  background-color: #222529;
+}
+#webnoteColorPages #introTop #introTitleContent {
+  position: relative;
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  color: #fcf6d9;
+}
+#webnoteColorPages #introTop #introTitle {
+  position: absolute;
+  top: 40px;
+  right: auto;
+  bottom: 20px;
+  left: 20px;
+  width: 40%;
+  max-height: 180px;
+  background-image: url(../images/titles.png);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: contain;
+}
+#webnoteColorPages #introTop #introText {
+  position: absolute;
+  top: 0;
+  left: 40%;
+  width: 60%;
+  height: 100%;
+  padding: 36px;
+  font-weight: 500;
+  font-size: 24px;
+}
+#webnoteColorPages #introTop #introText p {
+  width: auto;
+  max-width: none;
+  line-height: 1.3;
+}
+#webnoteColorPages #introTop #introText a {
+  color: #fdc641;
+}
+#webnoteColorPages #introTiles {
+  position: absolute;
+  top: 35%;
+  right: 0;
+  bottom: auto;
+  left: 0;
+  height: 30%;
+  background-color: #db4f44;
+  cursor: pointer;
+}
+#webnoteColorPages .introTile {
+  box-sizing: border-box;
+  -webkit-transition: background-color 300ms 100ms cubic-bezier(0.165, 0.84, 0.44, 1);
+  -moz-transition: background-color 300ms 100ms cubic-bezier(0.165, 0.84, 0.44, 1);
+  -ms-transition: background-color 300ms 100ms cubic-bezier(0.165, 0.84, 0.44, 1);
+  -o-transition: background-color 300ms 100ms cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: background-color 300ms 100ms cubic-bezier(0.165, 0.84, 0.44, 1);
+  position: relative;
+  top: 0;
+  left: 0;
+  float: left;
+  width: 14.28571429%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  text-align: center;
+  vertical-align: middle;
+}
+#webnoteColorPages .introTile:nth-child(1) {
+  background-color: #4db1ac;
+}
+#webnoteColorPages .introTile:nth-child(2) {
+  background-color: #fdc641;
+}
+#webnoteColorPages .introTile:nth-child(3) {
+  background-color: #456c80;
+}
+#webnoteColorPages .introTile:nth-child(4) {
+  background-color: #db4f44;
+}
+#webnoteColorPages .introTile:nth-child(5) {
+  background-color: #e16484;
+}
+#webnoteColorPages .introTile:nth-child(6) {
+  background-color: #428d42;
+}
+#webnoteColorPages .introTile:nth-child(7) {
+  background-color: #655a6c;
+}
+#webnoteColorPages #introBottom {
+  position: absolute;
+  top: 65%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+#webnoteColorPages #introBottomContent {
+  position: absolute;
+  top: auto;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  box-sizing: border-box;
+  height: 100%;
+  overflow: hidden;
+  text-align: center;
+}
+#webnoteColorPages #introBottomContent h4 {
+  max-width: none;
+  margin: 1em 0;
+  font-weight: 300;
+  font-size: 44px;
+  line-height: 1.1;
+}
+#webnoteColorPages #introBottomContent #introBrowser {
+  width: 96%;
+  max-width: 1200px;
+  height: auto;
+  max-height: none;
+  margin: 0 auto;
+}
+@media (max-width: 1920px) {
+  #webnoteColorPages .introTile {
+    width: 16.66666667%;
+  }
+  #webnoteColorPages .introTile:nth-child(7) {
+    display: none;
+  }
+}
+@media (max-width: 1600px) {
+  #webnoteColorPages .introTile {
+    width: 20%;
+  }
+  #webnoteColorPages .introTile:nth-child(7),
+  #webnoteColorPages .introTile:nth-child(6) {
+    display: none;
+  }
+}
+@media (max-width: 1280px) {
+  #webnoteColorPages .introTile {
+    width: 25%;
+  }
+  #webnoteColorPages .introTile:nth-child(7),
+  #webnoteColorPages .introTile:nth-child(6),
+  #webnoteColorPages .introTile:nth-child(5) {
+    display: none;
+  }
+}
 #webnoteColorPages #tiles {
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -896,7 +1061,6 @@ body {
   -webkit-touch-callout: none;
   -webkit-user-drag: none;
   user-drag: none;
-  display: none;
 }
 #webnoteColorPages .tile {
   box-sizing: border-box;
@@ -1049,4 +1213,38 @@ body {
   background-image: url(../images/bulb.svg);
   background-repeat: no-repeat;
   background-size: contain;
+}
+@media (max-height: 940px) and (max-width: 1024px) {
+  #webnoteColorPages #introText p {
+    font-size: 21px;
+  }
+}
+@media (max-height: 800px) and (max-width: 1200px) {
+  #webnoteColorPages #introText p {
+    font-size: 21px;
+  }
+  #webnoteColorPages #introBottom h4 {
+    font-size: 32px;
+  }
+}
+@media (max-height: 800px) and (max-width: 1024px) {
+  #webnoteColorPages #introText p {
+    font-size: 18px;
+  }
+}
+@media (max-height: 680px) and (max-width: 1200px) {
+  #webnoteColorPages #introTop #introTitle {
+    top: 20px;
+  }
+  #webnoteColorPages #introTop #introText {
+    padding-top: 20px;
+  }
+  #webnoteColorPages #introText p {
+    font-size: 19px;
+  }
+}
+@media (max-height: 680px) and (max-width: 1024px) {
+  #webnoteColorPages #introText p {
+    font-size: 17px;
+  }
 }
