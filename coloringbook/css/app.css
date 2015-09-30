@@ -1,61 +1,6 @@
 html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-font,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td {
+body {
+  height: 100%;
   margin: 0;
   padding: 0;
   border: 0;
@@ -66,54 +11,133 @@ td {
   font-family: inherit;
   vertical-align: baseline;
 }
-:focus {
+body {
+  overflow: auto;
+}
+#webnoteColorPages {
+  position: relative;
+  width: 100%;
+  min-width: 768px;
+  height: 100%;
+  background-color: #fcf6d9;
+  font-family: segoe;
+}
+#webnoteColorPages html,
+#webnoteColorPages body,
+#webnoteColorPages div,
+#webnoteColorPages span,
+#webnoteColorPages applet,
+#webnoteColorPages object,
+#webnoteColorPages iframe,
+#webnoteColorPages h1,
+#webnoteColorPages h2,
+#webnoteColorPages h3,
+#webnoteColorPages h4,
+#webnoteColorPages h5,
+#webnoteColorPages h6,
+#webnoteColorPages p,
+#webnoteColorPages blockquote,
+#webnoteColorPages pre,
+#webnoteColorPages a,
+#webnoteColorPages abbr,
+#webnoteColorPages acronym,
+#webnoteColorPages address,
+#webnoteColorPages big,
+#webnoteColorPages cite,
+#webnoteColorPages code,
+#webnoteColorPages del,
+#webnoteColorPages dfn,
+#webnoteColorPages em,
+#webnoteColorPages font,
+#webnoteColorPages img,
+#webnoteColorPages ins,
+#webnoteColorPages kbd,
+#webnoteColorPages q,
+#webnoteColorPages s,
+#webnoteColorPages samp,
+#webnoteColorPages small,
+#webnoteColorPages strike,
+#webnoteColorPages strong,
+#webnoteColorPages sub,
+#webnoteColorPages sup,
+#webnoteColorPages tt,
+#webnoteColorPages var,
+#webnoteColorPages dl,
+#webnoteColorPages dt,
+#webnoteColorPages dd,
+#webnoteColorPages ol,
+#webnoteColorPages ul,
+#webnoteColorPages li,
+#webnoteColorPages fieldset,
+#webnoteColorPages form,
+#webnoteColorPages label,
+#webnoteColorPages legend,
+#webnoteColorPages table,
+#webnoteColorPages caption,
+#webnoteColorPages tbody,
+#webnoteColorPages tfoot,
+#webnoteColorPages thead,
+#webnoteColorPages tr,
+#webnoteColorPages th,
+#webnoteColorPages td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
+}
+#webnoteColorPages :focus {
   outline: 0;
 }
-body {
+#webnoteColorPages body {
   line-height: 1;
   color: black;
   background: white;
 }
-ol,
-ul {
+#webnoteColorPages ol,
+#webnoteColorPages ul {
   list-style: none;
 }
-table {
+#webnoteColorPages table {
   border-collapse: separate;
   border-spacing: 0;
 }
-caption,
-th,
-td {
+#webnoteColorPages caption,
+#webnoteColorPages th,
+#webnoteColorPages td {
   text-align: left;
   font-weight: normal;
 }
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
+#webnoteColorPages blockquote:before,
+#webnoteColorPages blockquote:after,
+#webnoteColorPages q:before,
+#webnoteColorPages q:after {
   content: "";
 }
-blockquote,
-q {
+#webnoteColorPages blockquote,
+#webnoteColorPages q {
   quotes: "" "";
 }
-textarea,
-select,
-input,
-input[type="date"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="email"],
-input[type="month"],
-input[type="number"],
-input[type="password"],
-input[type="search"],
-input[type="tel"],
-input[type="text"],
-input[type="time"],
-input[type="url"],
-input[type="week"] {
+#webnoteColorPages textarea,
+#webnoteColorPages select,
+#webnoteColorPages input,
+#webnoteColorPages input[type="date"],
+#webnoteColorPages input[type="datetime"],
+#webnoteColorPages input[type="datetime-local"],
+#webnoteColorPages input[type="email"],
+#webnoteColorPages input[type="month"],
+#webnoteColorPages input[type="number"],
+#webnoteColorPages input[type="password"],
+#webnoteColorPages input[type="search"],
+#webnoteColorPages input[type="tel"],
+#webnoteColorPages input[type="text"],
+#webnoteColorPages input[type="time"],
+#webnoteColorPages input[type="url"],
+#webnoteColorPages input[type="week"] {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -139,7 +163,7 @@ input[type="week"] {
   border: 0px;
   color: inherit;
 }
-select {
+#webnoteColorPages select {
   background: #fff;
   padding: 0;
   font-size: 1em;
@@ -179,35 +203,35 @@ select {
   src: url('http://i.s-microsoft.com/fonts/Segoe-UI/West-European/Bold/latest.eot');
   src: local('Segoe UI Bold'), url('http://i.s-microsoft.com/fonts/Segoe-UI/West-European/Bold/latest.eot?#iefix') format('embedded-opentype'), url('http://i.s-microsoft.com/fonts/Segoe-UI/West-European/Bold/latest.woff') format('woff'), url('http://i.s-microsoft.com/fonts/Segoe-UI/West-European/Bold/latest.ttf') format('truetype'), url('http://i.s-microsoft.com/fonts/Segoe-UI/West-European/Bold/latest.svg#web') format('svg');
 }
-.fullWidth {
+#webnoteColorPages .fullWidth {
   box-sizing: border-box;
   width: 100%;
 }
-.maxFullWidth {
+#webnoteColorPages .maxFullWidth {
   box-sizing: border-box;
   max-width: 100%;
 }
-.floatRight {
+#webnoteColorPages .floatRight {
   float: right;
 }
-.floatLeft {
+#webnoteColorPages .floatLeft {
   float: left;
 }
-.resetSpacing {
+#webnoteColorPages .resetSpacing {
   margin: 0;
   padding: 0;
   line-height: 1;
 }
-.resetList {
+#webnoteColorPages .resetList {
   margin: 0;
   padding: 0;
 }
-.resetList li {
+#webnoteColorPages .resetList li {
   display: inline-block;
   margin: 0;
   padding: 0;
 }
-.container {
+#webnoteColorPages .container {
   position: relative;
   box-sizing: border-box;
   width: 90%;
@@ -215,171 +239,171 @@ select {
   margin: 0 auto;
   padding: 0 40px;
 }
-.container.reading {
+#webnoteColorPages .container.reading {
   max-width: 800px;
 }
-.row {
+#webnoteColorPages .row {
   position: relative;
 }
-.column,
-.columns {
+#webnoteColorPages .column,
+#webnoteColorPages .columns {
   position: relative;
   float: left;
   box-sizing: border-box;
   width: 100%;
 }
 @media (min-width: 400px) {
-  .container {
+  #webnoteColorPages .container {
     width: 90%;
     padding: 0;
   }
 }
 @media (min-width: 680px) {
-  .container {
+  #webnoteColorPages .container {
     width: 90%;
   }
-  .column,
-  .columns {
+  #webnoteColorPages .column,
+  #webnoteColorPages .columns {
     margin-left: 4%;
   }
-  .column:first-child,
-  .columns:first-child {
+  #webnoteColorPages .column:first-child,
+  #webnoteColorPages .columns:first-child {
     margin-left: 0;
   }
-  .one.column,
-  .one.columns {
+  #webnoteColorPages .one.column,
+  #webnoteColorPages .one.columns {
     width: 4.66666666667%;
   }
-  .two.columns {
+  #webnoteColorPages .two.columns {
     width: 13.3333333333%;
   }
-  .three.columns {
+  #webnoteColorPages .three.columns {
     width: 22%;
   }
-  .four.columns {
+  #webnoteColorPages .four.columns {
     width: 30.6666666667%;
   }
-  .five.columns {
+  #webnoteColorPages .five.columns {
     width: 39.3333333333%;
   }
-  .six.columns {
+  #webnoteColorPages .six.columns {
     width: 48%;
   }
-  .seven.columns {
+  #webnoteColorPages .seven.columns {
     width: 56.6666666667%;
   }
-  .eight.columns {
+  #webnoteColorPages .eight.columns {
     width: 65.3333333333%;
   }
-  .nine.columns {
+  #webnoteColorPages .nine.columns {
     width: 74.0%;
   }
-  .ten.columns {
+  #webnoteColorPages .ten.columns {
     width: 82.6666666667%;
   }
-  .eleven.columns {
+  #webnoteColorPages .eleven.columns {
     width: 91.3333333333%;
   }
-  .twelve.columns {
+  #webnoteColorPages .twelve.columns {
     width: 100%;
     margin-left: 0;
   }
-  .one-third.column {
+  #webnoteColorPages .one-third.column {
     width: 30.6666666667%;
   }
-  .two-thirds.column {
+  #webnoteColorPages .two-thirds.column {
     width: 65.3333333333%;
   }
-  .one-half.column {
+  #webnoteColorPages .one-half.column {
     width: 48%;
   }
-  .offset-by-one.column,
-  .offset-by-one.columns {
+  #webnoteColorPages .offset-by-one.column,
+  #webnoteColorPages .offset-by-one.columns {
     margin-left: 8.66666666667%;
   }
-  .offset-by-two.column,
-  .offset-by-two.columns {
+  #webnoteColorPages .offset-by-two.column,
+  #webnoteColorPages .offset-by-two.columns {
     margin-left: 17.3333333333%;
   }
-  .offset-by-three.column,
-  .offset-by-three.columns {
+  #webnoteColorPages .offset-by-three.column,
+  #webnoteColorPages .offset-by-three.columns {
     margin-left: 26%;
   }
-  .offset-by-four.column,
-  .offset-by-four.columns {
+  #webnoteColorPages .offset-by-four.column,
+  #webnoteColorPages .offset-by-four.columns {
     margin-left: 34.6666666667%;
   }
-  .offset-by-five.column,
-  .offset-by-five.columns {
+  #webnoteColorPages .offset-by-five.column,
+  #webnoteColorPages .offset-by-five.columns {
     margin-left: 43.3333333333%;
   }
-  .offset-by-six.column,
-  .offset-by-six.columns {
+  #webnoteColorPages .offset-by-six.column,
+  #webnoteColorPages .offset-by-six.columns {
     margin-left: 52%;
   }
-  .offset-by-seven.column,
-  .offset-by-seven.columns {
+  #webnoteColorPages .offset-by-seven.column,
+  #webnoteColorPages .offset-by-seven.columns {
     margin-left: 60.6666666667%;
   }
-  .offset-by-eight.column,
-  .offset-by-eight.columns {
+  #webnoteColorPages .offset-by-eight.column,
+  #webnoteColorPages .offset-by-eight.columns {
     margin-left: 69.3333333333%;
   }
-  .offset-by-nine.column,
-  .offset-by-nine.columns {
+  #webnoteColorPages .offset-by-nine.column,
+  #webnoteColorPages .offset-by-nine.columns {
     margin-left: 78.0%;
   }
-  .offset-by-ten.column,
-  .offset-by-ten.columns {
+  #webnoteColorPages .offset-by-ten.column,
+  #webnoteColorPages .offset-by-ten.columns {
     margin-left: 86.6666666667%;
   }
-  .offset-by-eleven.column,
-  .offset-by-eleven.columns {
+  #webnoteColorPages .offset-by-eleven.column,
+  #webnoteColorPages .offset-by-eleven.columns {
     margin-left: 95.3333333333%;
   }
-  .offset-by-one-third.column,
-  .offset-by-one-third.columns {
+  #webnoteColorPages .offset-by-one-third.column,
+  #webnoteColorPages .offset-by-one-third.columns {
     margin-left: 34.6666666667%;
   }
-  .offset-by-two-thirds.column,
-  .offset-by-two-thirds.columns {
+  #webnoteColorPages .offset-by-two-thirds.column,
+  #webnoteColorPages .offset-by-two-thirds.columns {
     margin-left: 69.3333333333%;
   }
-  .offset-by-one-half.column,
-  .offset-by-one-half.columns {
+  #webnoteColorPages .offset-by-one-half.column,
+  #webnoteColorPages .offset-by-one-half.columns {
     margin-left: 52%;
   }
 }
-figcaption,
-.caption {
+#webnoteColorPages figcaption,
+#webnoteColorPages .caption {
   height: auto;
   font-size: 1.4rem;
   line-height: 1.4;
   margin-bottom: 3rem;
 }
-.reading img {
+#webnoteColorPages .reading img {
   width: 100%;
   line-height: 0;
   margin: 3rem 0;
   padding: 0;
 }
-.reading img ~ figcaption {
+#webnoteColorPages .reading img ~ figcaption {
   margin-top: -3rem;
 }
-.reading pre {
+#webnoteColorPages .reading pre {
   margin: 3rem 0;
 }
-.container:after,
-.row:after,
-.u-cf {
+#webnoteColorPages .container:after,
+#webnoteColorPages .row:after,
+#webnoteColorPages .u-cf {
   content: '';
   display: table;
   clear: both;
 }
-html {
+#webnoteColorPages html {
   font-size: 10px;
 }
-body {
+#webnoteColorPages body {
   -webkit-font-smoothing: antialiased;
   color: #202020;
   font-family: sans-serif;
@@ -387,74 +411,74 @@ body {
   font-size: 1.6em;
   line-height: 1.6;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+#webnoteColorPages h1,
+#webnoteColorPages h2,
+#webnoteColorPages h3,
+#webnoteColorPages h4,
+#webnoteColorPages h5,
+#webnoteColorPages h6 {
   margin-top: 0;
   margin-bottom: 2rem;
   font-weight: 300;
 }
-h1 {
+#webnoteColorPages h1 {
   font-size: 4.0rem;
   line-height: 1.2;
 }
-h2 {
+#webnoteColorPages h2 {
   font-size: 3.6rem;
   line-height: 1.25;
 }
-h3 {
+#webnoteColorPages h3 {
   font-size: 3.0rem;
   line-height: 1.3;
 }
-h4 {
+#webnoteColorPages h4 {
   font-size: 2.4rem;
   line-height: 1.35;
 }
-h5 {
+#webnoteColorPages h5 {
   font-size: 1.8rem;
   line-height: 1.5;
 }
-h6 {
+#webnoteColorPages h6 {
   font-size: 1.5rem;
   line-height: 1.6;
 }
 @media (min-width: 680px) {
-  h1 {
+  #webnoteColorPages h1 {
     font-size: 5.0rem;
   }
-  h2 {
+  #webnoteColorPages h2 {
     font-size: 4.2rem;
   }
-  h3 {
+  #webnoteColorPages h3 {
     font-size: 3.6rem;
   }
-  h4 {
+  #webnoteColorPages h4 {
     font-size: 3.0rem;
   }
-  h5 {
+  #webnoteColorPages h5 {
     font-size: 2.4rem;
   }
-  h6 {
+  #webnoteColorPages h6 {
     font-size: 1.5rem;
   }
 }
-p {
+#webnoteColorPages p {
   margin-top: 0;
 }
-a {
+#webnoteColorPages a {
   color: orange;
 }
-a:hover {
+#webnoteColorPages a:hover {
   color: blue;
 }
-.button,
-button,
-input[type='submit'],
-input[type='reset'],
-input[type='button'] {
+#webnoteColorPages .button,
+#webnoteColorPages button,
+#webnoteColorPages input[type='submit'],
+#webnoteColorPages input[type='reset'],
+#webnoteColorPages input[type='button'] {
   -webkit-transition: 200ms background-color;
   -moz-transition: 200ms background-color;
   -ms-transition: 200ms background-color;
@@ -476,49 +500,49 @@ input[type='button'] {
   text-transform: uppercase;
   cursor: pointer;
 }
-.button:hover,
-button:hover,
-input[type='submit']:hover,
-input[type='reset']:hover,
-input[type='button']:hover,
-.button:focus,
-button:focus,
-input[type='submit']:focus,
-input[type='reset']:focus,
-input[type='button']:focus {
+#webnoteColorPages .button:hover,
+#webnoteColorPages button:hover,
+#webnoteColorPages input[type='submit']:hover,
+#webnoteColorPages input[type='reset']:hover,
+#webnoteColorPages input[type='button']:hover,
+#webnoteColorPages .button:focus,
+#webnoteColorPages button:focus,
+#webnoteColorPages input[type='submit']:focus,
+#webnoteColorPages input[type='reset']:focus,
+#webnoteColorPages input[type='button']:focus {
   background-color: orange;
   outline: 0;
 }
-.button.button-primary,
-button.button-primary,
-input[type='submit'].button-primary,
-input[type='reset'].button-primary,
-input[type='button'].button-primary {
+#webnoteColorPages .button.button-primary,
+#webnoteColorPages button.button-primary,
+#webnoteColorPages input[type='submit'].button-primary,
+#webnoteColorPages input[type='reset'].button-primary,
+#webnoteColorPages input[type='button'].button-primary {
   background-color: #33C3F0;
   color: #FFFFFF;
 }
-.button.button-primary:hover,
-button.button-primary:hover,
-input[type='submit'].button-primary:hover,
-input[type='reset'].button-primary:hover,
-input[type='button'].button-primary:hover,
-.button.button-primary:focus,
-button.button-primary:focus,
-input[type='submit'].button-primary:focus,
-input[type='reset'].button-primary:focus,
-input[type='button'].button-primary:focus {
+#webnoteColorPages .button.button-primary:hover,
+#webnoteColorPages button.button-primary:hover,
+#webnoteColorPages input[type='submit'].button-primary:hover,
+#webnoteColorPages input[type='reset'].button-primary:hover,
+#webnoteColorPages input[type='button'].button-primary:hover,
+#webnoteColorPages .button.button-primary:focus,
+#webnoteColorPages button.button-primary:focus,
+#webnoteColorPages input[type='submit'].button-primary:focus,
+#webnoteColorPages input[type='reset'].button-primary:focus,
+#webnoteColorPages input[type='button'].button-primary:focus {
   background-color: #1EAEDB;
   border-color: #1EAEDB;
 }
-input[type='email'],
-input[type='number'],
-input[type='search'],
-input[type='text'],
-input[type='tel'],
-input[type='url'],
-input[type='password'],
-textarea,
-select {
+#webnoteColorPages input[type='email'],
+#webnoteColorPages input[type='number'],
+#webnoteColorPages input[type='search'],
+#webnoteColorPages input[type='text'],
+#webnoteColorPages input[type='tel'],
+#webnoteColorPages input[type='url'],
+#webnoteColorPages input[type='password'],
+#webnoteColorPages textarea,
+#webnoteColorPages select {
   box-sizing: border-box;
   height: 38px;
   padding: 6px 10px;
@@ -527,173 +551,158 @@ select {
   border-radius: 4px;
   box-shadow: none;
 }
-input[type='email'],
-input[type='number'],
-input[type='search'],
-input[type='text'],
-input[type='tel'],
-input[type='url'],
-input[type='password'],
-textarea {
+#webnoteColorPages input[type='email'],
+#webnoteColorPages input[type='number'],
+#webnoteColorPages input[type='search'],
+#webnoteColorPages input[type='text'],
+#webnoteColorPages input[type='tel'],
+#webnoteColorPages input[type='url'],
+#webnoteColorPages input[type='password'],
+#webnoteColorPages textarea {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
 }
-textarea {
+#webnoteColorPages textarea {
   min-height: 65px;
   padding-top: 6px;
   padding-bottom: 6px;
 }
-input[type='email']:focus,
-input[type='number']:focus,
-input[type='search']:focus,
-input[type='text']:focus,
-input[type='tel']:focus,
-input[type='url']:focus,
-input[type='password']:focus,
-textarea:focus,
-select:focus {
+#webnoteColorPages input[type='email']:focus,
+#webnoteColorPages input[type='number']:focus,
+#webnoteColorPages input[type='search']:focus,
+#webnoteColorPages input[type='text']:focus,
+#webnoteColorPages input[type='tel']:focus,
+#webnoteColorPages input[type='url']:focus,
+#webnoteColorPages input[type='password']:focus,
+#webnoteColorPages textarea:focus,
+#webnoteColorPages select:focus {
   border: 1px solid #33C3F0;
   outline: 0;
 }
-label,
-legend {
+#webnoteColorPages label,
+#webnoteColorPages legend {
   display: block;
   margin-bottom: 0.5rem;
   font-weight: 600;
 }
-fieldset {
+#webnoteColorPages fieldset {
   padding: 0;
   border-width: 0;
 }
-input[type='checkbox'],
-input[type='radio'] {
+#webnoteColorPages input[type='checkbox'],
+#webnoteColorPages input[type='radio'] {
   display: inline;
 }
-label > .label-body {
+#webnoteColorPages label > .label-body {
   display: inline-block;
   margin-left: 0.5rem;
   font-weight: normal;
 }
-sub,
-sup {
+#webnoteColorPages sub,
+#webnoteColorPages sup {
   font-size: 75%;
   line-height: 0;
   position: relative;
   vertical-align: baseline;
 }
-sup {
+#webnoteColorPages sup {
   top: -0.5em;
 }
-sub {
+#webnoteColorPages sub {
   bottom: -0.25em;
 }
-ul {
+#webnoteColorPages ul {
   list-style: disc;
   margin-left: 1em;
 }
-ol {
+#webnoteColorPages ol {
   list-style: decimal inside;
   margin-left: 1em;
 }
-ol,
-ul {
+#webnoteColorPages ol,
+#webnoteColorPages ul {
   margin-top: 0;
   padding-left: 0;
 }
-ul ul,
-ul ol,
-ol ol,
-ol ul {
+#webnoteColorPages ul ul,
+#webnoteColorPages ul ol,
+#webnoteColorPages ol ol,
+#webnoteColorPages ol ul {
   margin: 1.5rem 0 1.5rem 3rem;
 }
-li {
+#webnoteColorPages li {
   margin-bottom: 1rem;
 }
-.listReset {
+#webnoteColorPages .listReset {
   list-style: none;
 }
-.listInlineBlock {
+#webnoteColorPages .listInlineBlock {
   list-style: none;
 }
-.listInlineBlock li {
+#webnoteColorPages .listInlineBlock li {
   display: inline-block;
   margin: 0;
 }
-code {
+#webnoteColorPages code {
   white-space: nowrap;
   margin: 0 0.2em;
 }
-pre > code {
+#webnoteColorPages pre > code {
   padding: 0;
   margin: 2.25rem 2rem 2.5rem 2rem;
   display: block;
   white-space: pre;
 }
-table {
+#webnoteColorPages table {
   position: relative;
   border-collapse: collapse;
 }
-table.small {
+#webnoteColorPages table.small {
   font-size: 0.85em;
 }
-tr {
+#webnoteColorPages tr {
   border-bottom: 1px solid #E1E1E1;
 }
-tr:last-child {
+#webnoteColorPages tr:last-child {
   border-bottom: none;
 }
-th,
-td {
+#webnoteColorPages th,
+#webnoteColorPages td {
   margin: 0;
   padding: 1rem 2rem;
   text-align: left;
 }
-button,
-.button {
+#webnoteColorPages button,
+#webnoteColorPages .button {
   margin-bottom: 1rem;
 }
-input,
-textarea,
-select,
-fieldset {
+#webnoteColorPages input,
+#webnoteColorPages textarea,
+#webnoteColorPages select,
+#webnoteColorPages fieldset {
   margin-bottom: 1.5rem;
 }
-pre,
-blockquote,
-dl,
-figure,
-table,
-p,
-ul,
-ol,
-form {
+#webnoteColorPages pre,
+#webnoteColorPages blockquote,
+#webnoteColorPages dl,
+#webnoteColorPages figure,
+#webnoteColorPages table,
+#webnoteColorPages p,
+#webnoteColorPages ul,
+#webnoteColorPages ol,
+#webnoteColorPages form {
   margin-bottom: 2.5rem;
 }
-blockquote {
+#webnoteColorPages blockquote {
   padding-left: 2rem;
   border-left: 2px solid rgba(32, 32, 32, 0.2);
 }
-hr {
+#webnoteColorPages hr {
   margin-top: 3rem;
   margin-bottom: 3.5rem;
   border-width: 0;
   border-top: 1px solid #E1E1E1;
-}
-html,
-body {
-  height: 100%;
-}
-body {
-  overflow: auto;
-}
-#webnoteColorPages {
-  position: relative;
-  width: 100%;
-  min-width: 768px;
-  height: 100%;
-  background-color: #fcf6d9;
-  font-family: segoe;
 }
 #webnoteColorPages #pages {
   box-sizing: border-box;
