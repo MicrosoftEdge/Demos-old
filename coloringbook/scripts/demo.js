@@ -11,7 +11,12 @@
 	});
 
 	$('#introTiles').click(function () {
-		var offset = $('#page01').offset().top;
+		var height = 0;
+		var nav = $('.nav');
+		if (nav.length > 0) {
+			height = nav.height();
+		}
+		var offset = $('#page01').offset().top - height;
 		scrollTo(offset);
 		return false;
 	});
@@ -21,6 +26,25 @@
 			height = $(window).height();
 		$('#top').toggleClass('showing', top > height);
 	});
+
+
+	var updatePageSize = function () {
+		var startHeaderHeight = 114,
+			smallHeaderHeight = 64,
+			windowHeight = $(window).height();
+
+		$('.page').css({
+			minHeight: (windowHeight - smallHeaderHeight) + 'px'
+		});
+
+		$('#intro').css({
+			minHeight: (windowHeight - startHeaderHeight) + 'px'
+		});
+	};
+
+	$(window).resize(updatePageSize);
+	updatePageSize();
+
 }(jQuery));
 
 // t: current time, b: begInnIng value, c: change In value, d: duration
