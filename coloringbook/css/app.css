@@ -699,7 +699,6 @@ body {
   box-sizing: border-box;
   position: relative;
   width: 100%;
-  height: 100%;
   background-color: #fcf6d9;
 }
 #webnoteColorPages .page {
@@ -934,7 +933,7 @@ body {
   height: 100%;
   padding: 36px;
   font-weight: 500;
-  font-size: 24px;
+  font-size: 21px;
 }
 #webnoteColorPages #introTop #introText p {
   width: auto;
@@ -1018,6 +1017,7 @@ body {
   font-weight: 300;
   font-size: 38px;
   line-height: 1.1;
+  max-height: 50px;
 }
 #webnoteColorPages #introBottomContent #introBrowser {
   width: 96%;
@@ -1216,12 +1216,12 @@ body {
 }
 @media (max-height: 940px) and (max-width: 1024px) {
   #webnoteColorPages #introText p {
-    font-size: 21px;
+    font-size: 18px;
   }
 }
 @media (max-height: 800px) and (max-width: 1200px) {
   #webnoteColorPages #introText p {
-    font-size: 21px;
+    font-size: 18px;
   }
   #webnoteColorPages #introBottom h4 {
     font-size: 32px;
@@ -1229,7 +1229,7 @@ body {
 }
 @media (max-height: 800px) and (max-width: 1024px) {
   #webnoteColorPages #introText p {
-    font-size: 18px;
+    font-size: 15px;
   }
 }
 @media (max-height: 680px) and (max-width: 1200px) {
@@ -1240,11 +1240,11 @@ body {
     padding-top: 20px;
   }
   #webnoteColorPages #introText p {
-    font-size: 19px;
+    font-size: 16px;
   }
 }
 @media (max-height: 680px) and (max-width: 1024px) {
   #webnoteColorPages #introText p {
-    font-size: 17px;
+    font-size: 14px;
   }
 }
