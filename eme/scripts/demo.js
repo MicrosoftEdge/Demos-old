@@ -11,6 +11,15 @@
         baseUrl: 'http://wams.edgesuite.net/media/MPTExpressionData02_SeekDemo/BigBuckBunny_1080p24_IYUV_2ch.ism',
         fileName: 'manifest(format=mpd-time-csf)'
     }, {
+        title: 'Big Buck Bunny (PlayReady/Widevine)',
+        property: 'Protected',
+        caption: '',
+        attribution: '(c) Copyright 2008, Blender Foundation / www.bigbuckbunny.org',
+        baseUrl: 'http://samplestreamseu.streaming.mediaservices.windows.net/65b76566-1381-4540-87ab-7926568901d8/bbb_sunflower_1080p_30fps_normal.ism',
+        fileName: 'manifest(format=mpd-time-csf)',
+        licenseUrlPlayReady: 'https://samplestreamseu.keydelivery.mediaservices.windows.net/PlayReady/',
+        licenseUrlWideVine: 'http://axpr-wv-fe.cloudapp.net:8080/LicensingService'
+    }, {
         title: 'Not Your Father\'s Browser',
         property: 'Captioned',
         caption: 'captions/Not_Your_Fathers_Captions.ttml',
@@ -23,7 +32,8 @@
         caption: '',
         attribution: '(c) Copyright Blender Foundation | www.sintel.org',
         baseUrl: 'http://wams.edgesuite.net/media/SintelTrailer_Smooth_from_WAME_CENC/NoSubSampleAdjustment/sintel_trailer-1080p.ism',
-        fileName: 'manifest(format=mpd-time-csf)'
+        fileName: 'manifest(format=mpd-time-csf)',
+        licenseUrlPlayReady: 'http://playready.directtaps.net/pr/svc/rightsmanager.asmx?PlayRight=1&UseSimpleNonPersistentLicense=1'
     }, {
         title: 'Elephant\'s Dream',
         property: '',
@@ -51,10 +61,9 @@
         caption: '',
         attribution: '(c) Copyright Blender Foundation | mango.blender.org',
         baseUrl: 'http://wams.edgesuite.net/media/Tears_of_Steel_Smooth_1080p_Protected2/tears_of_steel_1080p.ism',
-        fileName: 'manifest(format=mpd-time-csf)'
+        fileName: 'manifest(format=mpd-time-csf)',
+        licenseUrlPlayReady: 'http://playready.directtaps.net/pr/svc/rightsmanager.asmx?PlayRight=1&UseSimpleNonPersistentLicense=1'
     }];
-
-    window.webkitRequired = false;
 
     // UI elements/functions.
     var library = document.getElementById('library');
@@ -358,6 +367,10 @@
         this.opened = false;
     };
 
+   window.onerror = function (error){
+        writeError(error);
+   };
+
     Player.prototype = {
         initialize: function(autoplay) {
             var that = this;
@@ -396,6 +409,7 @@
             this.mse.addEventListener('sourceclose', sourceClose, false);
             this.mse.addEventListener('webkitsourceclose', sourceClose, false);
 
+            console.log('Setting src: ' + this.mse);
             this.vid.src = URL.createObjectURL(this.mse);
             if (autoplay) {
                 this.vid.play();
@@ -429,99 +443,131 @@
         }
     };
 
-    function toggleEMENotice(on)
-    {
-        var elem = document.getElementById("emeNotice");
-        if (!elem) {
-            elem = document.createElement("div");
-            elem.id = "emeNotice";
-            video.parentNode.insertBefore(elem, video);
-        }
-        if (on)
-        {
-            elem.innerHTML = "Using unprefixed EME and PlayReady services.";
-        }
-        else
-        {
-            elem.innerHTML = "Your browser does not support unprefixed EME. Using prefixed EME and PlayReady services.";
-        }
-    }
-
-    // PlayReady Manager
-    var PlayReadyManager = function (vid) {
-
+    // PlayReady and WideVine License Manager constructor
+    var LicenseManager = function (vid) {
         this.vid = vid;
-        var that = this;
-
         if (window.navigator.requestMediaKeySystemAccess) {
-            toggleEMENotice(true);
             // EME V2 (EdgeHTML+)
-            var p = this.createMediaKeySystemAccess();
-            p.catch(function () { console.log("Your browser/system doesn't support the required capabilities.") });
-            p.then(function (keySystemAccess) {
-                that.licenseUrl = 'http://playready.directtaps.net/pr/svc/rightsmanager.asmx?PlayRight=1&UseSimpleNonPersistentLicense=1';
-                return keySystemAccess.createMediaKeys();
-            }).then(function (createdMediaKeys) {
-                that.mediaKeys = createdMediaKeys;
-                video.setMediaKeys(createdMediaKeys);
-                vid.addEventListener('encrypted', that.onencryptedRequest, false);
-            });
+            console.log('setting \'encrypted\' event listener');
+            vid.addEventListener('encrypted', this.onEncryptedRequest, false);
         }
         else {
-            toggleEMENotice(false);
             // EME V1 (MSHTML)
-            vid.addEventListener('msneedkey', function (e) {
-                that.needNewPrefixedKey(e);
-            }, false);
-
+            vid.addEventListener('msneedkey', this.getNewPrefixedKeySession, false);
         }
     };
 
-    PlayReadyManager.prototype = {
+    LicenseManager.prototype = {
         vid: null,
-        mediaKeys : null,
-        licenseUrl: "",
-        onencryptedRequest: function (e) {
-               this.playReadyManager.needNewKey(this.playReadyManager.mediaKeys, e.initDataType, e.initData);
-            },
-        createMediaKeySystemAccess: function (initDataType, initData) {
-            return window.navigator.requestMediaKeySystemAccess(
-                "com.microsoft.playready",
-                [
-                    {
-                        initDataTypes: ["keyids", "cenc"],
-                        audioCapabilities:
-                        [
-                            {
-                                contentType: "audio/mp4; codecs='mp4a'"
-                            }
-                        ],
-                        videoCapabilities:
-                        [
-                            {
-                                contentType: "video/mp4; codecs='avc1'"
-                            }
-                        ]
+        LICENSE_TYPE_NONE: 0,
+        LICENSE_TYPE_WIDEVINE: 1,
+        LICENSE_TYPE_PLAYREADY: 2,
+        licenseType: 0,
+        licenseUrlPlayReady: null,
+        licenseUrlWideVine: null,
+        playReadyKeySystem: {
+            keySystem: 'com.microsoft.playready',
+            supportedConfig: [
+                {
+                    initDataTypes: ['keyids', 'cenc'],
+                    audioCapabilities:
+                    [
+                        {
+                            contentType: 'audio/mp4; codecs="mp4a"'
+                        }
+                    ],
+                    videoCapabilities:
+                    [
+                        {
+                            contentType: 'video/mp4; codecs="avc1"'
+                        }
+                    ]
+                }
+            ]
+        },
+        wideVineKeySystem: {
+            keySystem: 'com.widevine.alpha',
+            supportedConfig: [
+                {
+                    initDataTypes: ['keyids', 'webm'],
+                    audioCapabilities:
+                    [
+                        {
+                            contentType: 'audio/webm; codecs="opus"'
+                        }
+                    ],
+                    videoCapabilities:
+                    [
+                        {
+                            contentType: 'video/webm; codecs="vp9"'
+                        }
+                    ]
+                }
+            ]
+        },
+        onEncryptedRequest: function (e) {
+            console.log('onencrypted fired.');
+            var lm = e.target.licenseManager;
+            // If we have not created a mediaKeys object yet, do it now.
+            if (lm.mediaKeys === undefined) {
+                lm.initMediaKeys(e);
+            }
+            lm.handleSession(e.target, e.initDataType, e.initData);
+        },
+        initMediaKeys: function (e) {
+            var that = this;
+            this.mediaKeys = null;
+            this.vid.pendingSessionData = [];
 
-                    }
-                ]);
+            // Try PlayReady
+            navigator.requestMediaKeySystemAccess(this.playReadyKeySystem.keySystem, this.playReadyKeySystem.supportedConfig).then(function (keySystemAccess) {
+                    console.log('createMediaKeys (PlayReady)');
+                    that.licenseType = that.LICENSE_TYPE_PLAYREADY;
+                    setLockAndMessage(true, 'Using unprefixed EME and PlayReady DRM.');
+                    keySystemAccess.createMediaKeys().then(function (createdMediaKeys) {
+                            that.onMediaKeyAcquired(that, createdMediaKeys);
+                    }).catch('createMediaKeys() failed');
+                }, function () {
+                    // PlayReady didn't work. Try WideVine.
+                    navigator.requestMediaKeySystemAccess(that.wideVineKeySystem.keySystem, that.wideVineKeySystem.supportedConfig).then(function (keySystemAccess) {
+                        console.log('createMediaKeys (WideVine)');
+                        that.licenseType = that.LICENSE_TYPE_WIDEVINE;
+                        setLockAndMessage(true, 'Using unprefixed EME and Widevine DRM.');
+                        keySystemAccess.createMediaKeys().then(function (createdMediaKeys) {
+                            that.onMediaKeyAcquired(that, createdMediaKeys);
+                        }).catch('createMediaKeys() failed');
+                    }, function () { throw ('Your browser/system does support the requested configurations for playing protected content.'); });
+                });
+        },
+        onMediaKeyAcquired: function (prm, createdMediaKeys) {
+            console.log('createMediaKeys success');
+            prm.mediaKeys = createdMediaKeys;
+            // Flush pending session data.
+            for (var i = 0; i < prm.vid.pendingSessionData.length; i++) {
+                var data = prm.vid.pendingSessionData[i];
+                prm.getNewKeySession(createdMediaKeys, data.initDataType, data.initData);
+            }
+            prm.vid.pendingSessionData = [];
+            prm.vid.setMediaKeys(createdMediaKeys);
+        },
+        handleSession : function(vid, initDataType, initData) {
+            // If we have a mediaKeys object, we can just download a key.
+            if (this.mediaKeys) {
+                this.getNewKeySession(this.mediaKeys, initDataType, initData);
+            }
+            else
+            {
+                console.log('Storing pending session data');
+                // Otherwise, we store the session data for when we get a key.
+                vid.pendingSessionData.push({ initDataType: initDataType, initData: initData });
+            }
         },
         clearEvents: function () {
-            video.removeEventListener("encrypted", this.onencryptedRequest, false);
+            video.removeEventListener('encrypted', this.onEncryptedRequest, false);
         },
         downloadNewKey: function (url, keyMessage, callback) {
-            var keyMessageXml = new DOMParser().parseFromString(String.fromCharCode.apply(null, new Uint16Array(keyMessage)), 'application/xml');
+            console.log('downloadNewKey (xhr)');
             var challenge;
-            if (keyMessageXml.getElementsByTagName('Challenge')[0]) {
-                challenge = atob(keyMessageXml.getElementsByTagName('Challenge')[0].childNodes[0].nodeValue);
-            } else {
-                throw 'Cannot find <Challenge> in key message';
-            }
-            var headerNames = keyMessageXml.getElementsByTagName('name');
-            var headerValues = keyMessageXml.getElementsByTagName('value');
-            if (headerNames.length !== headerValues.length) {
-                throw 'Mismatched header <name>/<value> pair in key message';
-            }
             var xhr = new XMLHttpRequest();
             xhr.open('POST', url);
             xhr.responseType = 'arraybuffer';
@@ -534,38 +580,71 @@
                     }
                 }
             };
-            for (var i = 0; i < headerNames.length; i++) {
-                xhr.setRequestHeader(headerNames[i].childNodes[0].nodeValue, headerValues[i].childNodes[0].nodeValue);
+            if (this.licenseType !== this.LICENSE_TYPE_WIDEVINE) {
+                // For PlayReady CDMs, we need to dig the Challenge out of the XML.
+                var keyMessageXml = new DOMParser().parseFromString(String.fromCharCode.apply(null, new Uint16Array(keyMessage)), 'application/xml');
+                if (keyMessageXml.getElementsByTagName('Challenge')[0]) {
+                    challenge = atob(keyMessageXml.getElementsByTagName('Challenge')[0].childNodes[0].nodeValue);
+                } else {
+                    throw 'Cannot find <Challenge> in key message';
+                }
+                var headerNames = keyMessageXml.getElementsByTagName('name');
+                var headerValues = keyMessageXml.getElementsByTagName('value');
+                if (headerNames.length !== headerValues.length) {
+                    throw 'Mismatched header <name>/<value> pair in key message';
+                }
+                for (var i = 0; i < headerNames.length; i++) {
+                    xhr.setRequestHeader(headerNames[i].childNodes[0].nodeValue, headerValues[i].childNodes[0].nodeValue);
+                }
             }
+            else
+            {
+                // For WideVine CDMs, the challenge is the keyMessage.
+                challenge = keyMessage;
+            }
+
             xhr.send(challenge);
         },
-        needNewKey: function (mediaKeys, initDataType, initData) {
+        getNewKeySession: function (mediaKeys, initDataType, initData) {
+            console.log('createSession');
             var that = this;
             var keySession = mediaKeys.createSession();
-            keySession.addEventListener("message", function (event) {
-                that.downloadNewKey(that.licenseUrl, event.message, function(data) {
+            keySession.addEventListener('message', function (event) {
+                console.log('onmessage');
+                that.downloadNewKey(that.getLicenseUrl(), event.message, function (data) {
+                    console.log('event.target.update');
                     event.target.update(data);
                 });
             }, false);
-            keySession.generateRequest(initDataType, initData).catch(
-                console.error.bind(console, 'Unable to create or initialize key session')
-                );
+            keySession.generateRequest(initDataType, initData).catch(function () {
+                writeError('Unable to create or initialize key session. Your browser may not support the selected video\'s key system');
+            });
         },
-        needNewPrefixedKey : function (e) {
+        getLicenseUrl: function () {
+            if (this.licenseType === this.LICENSE_TYPE_PLAYREADY) {
+                return this.licenseUrlPlayReady;
+            }
+            else if (this.licenseType === this.LICENSE_TYPE_WIDEVINE) {
+                return this.licenseUrlWideVine;
+            }
+            return '';
+        },
+        getNewPrefixedKeySession : function (e) {
             var key_system = 'com.microsoft.playready';
-            var that = this;
-            if (!video.msKeys) {
+            var that = this.licenseManager;
+            if (!this.msKeys) {
                 try {
                     /* eslint-disable no-undef */
-                    video.msSetMediaKeys(new MSMediaKeys(key_system));
+                    this.msSetMediaKeys(new MSMediaKeys(key_system));
                     /* eslint-enable no-undef */
+                    setLockAndMessage(true, 'Using prefixed EME and PlayReady DRM.');
                 } catch (ex) {
                     throw 'Unable to create MediaKeys("' + key_system + '"). Verify the components are installed and functional. Original error: ' + ex.message;
                 }
             } else {
                 return;
             }
-            var session = video.msKeys.createSession('video/mp4', e.initData);
+            var session = this.msKeys.createSession('video/mp4', e.initData);
             if (!session) {
                 throw 'Could not create key session';
             }
@@ -585,33 +664,34 @@
     //==============================================================================
     var mseSupported;
 
-    var showUpgradeNotice = function (text, allowDismiss) {
-        var errorElem = document.getElementById("error-display");
+    var showUpgradeNotice = function (text) {
+        var errorElem = document.getElementById('error-display');
+        errorElem.innerHTML = '';
         errorElem.appendChild(document.createTextNode(text));
-        errorElem.style.display = "block";
+        errorElem.style.display = 'block';
     };
 
-    var writeError = function (msg, allowDismiss) {
-        showUpgradeNotice(msg, allowDismiss);
+    var writeError = function (msg) {
+        showUpgradeNotice(msg);
     };
 
     var detectMSESupport = function () {
-        // Check for MediaSource support
+        // Check for MediaSource support.
         if (window.MediaSource) {
             mseSupported = true;
             window.webkitRequired = false;
-            //  Else, check for WebKitMediaSource AND appendBuffer support (for up to date MSE)
+            //  Else, check for WebKitMediaSource AND appendBuffer support (for up to date MSE).
         } else if (window.WebKitMediaSource) {
             mseSupported = true;
             window.webkitRequired = true;
             if (!window.WebKitSourceBuffer.prototype.appendBuffer) {
                 mseSupported = false;
-                writeError('Your browser does not support the most recent version of Media Source Extensions and is unable to play these videos.', true);
+                writeError('Your browser does not support the most recent version of Media Source Extensions and is unable to play these videos.');
             }
-            //  Else, no MSE
+            //  Else, no MSE.
         } else {
             mseSupported = false;
-            writeError('Your browser does not support Media Source Extensions and is unable to play these videos.', true);
+            writeError('Your browser does not support Media Source Extensions and is unable to play these videos.');
         }
     };
     //==============================================================================
@@ -621,13 +701,18 @@
     // Check for MSE support
     detectMSESupport();
 
-    var setLock = function (locked) {
+    var setLockAndMessage = function (locked, message) {
         if (locked) {
             openlock.style.display = 'none';
             closedlock.style.display = 'inline-block';
         } else {
             openlock.style.display = 'inline-block';
             closedlock.style.display = 'none';
+        }
+        var notice = document.getElementById('emenotice');
+        if (notice)
+        {
+            notice.innerHTML = message || '';
         }
     };
 
@@ -642,14 +727,6 @@
     var defaultVideo = false;
     var selectedVideo = -1;
 
-    // Wire up EME key requests and padlock UI.
-    video.addEventListener("msneedkey", function () {
-        setLock(true);
-    }, false);
-    video.addEventListener("encrypted", function () {
-        setLock(true);
-    }, false);
-
     // Load the given video from library.
     var player = null;
     var loadVideo = function (index) {
@@ -662,14 +739,19 @@
                 throw 'Failed to parse manifest. Only "SegmentTimeline" manifests are supported currently.';
             }
             var mse = new (window.MediaSource || window.WebKitMediaSource)();
-            if (video.playReadyManager) {
-                video.playReadyManager.clearEvents();
+            if (video.licenseManager) {
+                video.licenseManager.clearEvents();
             }
-            video.playReadyManager = new PlayReadyManager(video);
+            if (video.mediaKeys) {
+                video.setMediaKeys(null);
+            }
+            video.licenseManager = new LicenseManager(video);
+            video.licenseManager.licenseUrlPlayReady = videoLibrary[index].licenseUrlPlayReady || null;
+            video.licenseManager.licenseUrlWideVine = videoLibrary[index].licenseUrlWideVine || null;
             player = new Player(video, mse, manifest);
 
             // Configure UI controls.
-            setLock(false);
+            setLockAndMessage(false);
             bitrateSlider.max = manifest.videoStreams.length - 1;
             bitrateSlider.value = bitrateSlider.max / 3;
             bitrateSlider.onchange = (function () {
@@ -688,11 +770,11 @@
     var videoClickHandler = function (index) {
         return function () {
                 if (selectedVideo >= 0) {
-                    document.getElementById('video' + selectedVideo).removeAttribute("selected");
+                    document.getElementById('video' + selectedVideo).removeAttribute('selected');
                 }
                 defaultVideo = false;
                 selectedVideo = index;
-                document.getElementById('video' + selectedVideo).setAttribute("selected");
+                document.getElementById('video' + selectedVideo).setAttribute('selected', 'selected');
                 loadVideo(index);
 
                 // Check for captions and add/remove track support as needed

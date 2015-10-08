@@ -81,3 +81,6 @@ input[type='range'] {
     font-size: x-large;
     display: none;
 }
+.text-title {
+    max-width: 100%;
+}
