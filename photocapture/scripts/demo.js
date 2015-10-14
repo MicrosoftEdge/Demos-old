@@ -15,20 +15,14 @@
         elem.appendChild(p);
     };
     
-    // initializeVideoStream() - Callback function when getUserMedia() returns successfully with a mediaStream object
-    // 1. Set the mediaStream on the video tag
-    // 2. Use 'srcObject' attribute to determine whether to use the standard-based API or the legacy version
+    // initializeVideoStream() - Callback function when getUserMedia() returns successfully with a mediaStream object,
+    // set the mediaStream on the video tag
 
     var initializeVideoStream = function(stream) {
         mediaStream = stream;
 
         var video = document.getElementById('videoTag');
-        if (typeof (video.srcObject) !== 'undefined') {
-             video.srcObject = mediaStream;
-        }
-        else {
-            video.src = URL.createObjectURL(mediaStream);
-        }
+        video.srcObject = mediaStream;
 
         if (video.paused) video.play();
 
@@ -136,6 +130,14 @@
         }).then(initializeVideoStream).catch(getUserMediaError);
     };
     
+    // enumerateMediaDevices() - function to start enumerateDevices() and define the callback functions
+
+    var enumerateMediaDevices = function() {
+        /*eslint-disable*/
+        navigator.mediaDevices.enumerateDevices().then(devicesCallback).catch(getUserMediaError);
+        /*eslint-enable*/
+    };
+
     // deviceChanged() - Handle devicechange event
     // 1. Reset webcamList
     // 2. Re-enumerate webcam devices
@@ -144,9 +146,7 @@
         navigator.mediaDevices.removeEventListener('devicechange', deviceChanged);
         // Reset the webcam list and re-enumerate
         webcamList = [];
-        /*eslint-disable*/
-        navigator.mediaDevices.enumerateDevices().then(devicesCallback);
-        /*eslint-enable*/
+        enumerateMediaDevices();
     };
     
     // devicesCallback() - Callback function for device enumeration
@@ -182,9 +182,8 @@
     };
 
     // demoSetup() - function to start the Media Capture API
-    // 1. Detect whether device enumeration is supported, use the legacy media capture API to start the demo otherwise
-    // 2. Enumerate the webcam devices when the browser supports device enumeration
-    // 3. Set up event listner for the webcam 'switch' button
+    // 1. Enumerate the webcam devices
+    // 2. Set up event listner for the webcam 'switch' button
 
     var demoSetup = function() {
 
@@ -193,24 +192,14 @@
         document.getElementById('switch').style.display = '';
         document.getElementById('democontent').style.display = '';
 
-        if (navigator.mediaDevices && navigator.mediaDevices.enumerateDevices) {
-            navigator.mediaDevices.enumerateDevices().then(devicesCallback);
-            document.getElementById('switch').addEventListener('click', nextWebCam, false);
-        }
-        else if (navigator.getUserMedia) {
-            document.getElementById('tooltip').style.display = 'block';
-            document.getElementById('tooltip').innerHTML = 'Cannot switch web cams because navigator.mediaDevices.enumerateDevices is unsupported by your browser.';
-
-            navigator.getUserMedia({ video: true }, initializeVideoStream, getUserMediaError);
-        }
+        enumerateMediaDevices();
+        document.getElementById('switch').addEventListener('click', nextWebCam, false);
     }; 
 
     // init() - The entry point to the demo code
     // 1. Detect whether getUserMedia() is supported, show an error if not
 
     var init = function() {
-        navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
-
         if (navigator.getUserMedia) {
             document.getElementById('start').style.display = 'block';
             document.getElementById('start').addEventListener('click', demoSetup, false);

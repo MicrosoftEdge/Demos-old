@@ -1,0 +1,12 @@
+﻿.VideoPlayerContainer
+{
+    margin-top: 60px;
+    text-align: center;   
+}
+
+#VideoPlayer
+{
+    width: 760px;
+    background-color: Silver;
+    border-radius: 4px;
+}

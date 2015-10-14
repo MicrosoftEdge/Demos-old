@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Compat Inspector User Guide</title>
+	<meta name="og:title" content="Compat Inspector">
+	<meta name="description"
+		  content="Use Compat Inspector to quickly identify which Internet Explorer platform changes affect
+				your site.">
+	<meta name="keywords" content="debug, compatinspector">
+	<meta name="author" content="MSEdge">
+	<link rel="stylesheet" type="text/css" href="https://edgeportal.blob.core.windows.net/media/demotemplate.css">
+</head>
+<body>
+
+<!-- DEMO INTRO -->
+<header class="section section--page-intro demo__header">
+	<div class="container">
+		<div class="section__header">
+			<h1>Compat Inspector User Guide</h1>
+
+			<p class="title">Use Compat Inspector to quickly identify which Internet Explorer platform changes affect
+				your site.</p>
+		</div>
+	</div>
+</header>
+
+<!-- DEMO CONTENT -->
+<section role="region" class="section">
+	<div class="container">
+		<div class="section__body">
+			<p>
+				Compat Inspector is a JavaScript-based testing tool that analyzes your site while it runs.
+				Compat Inspector reports patterns of interaction which can cause issues in recent modes.
+				This allows you to identify problems quickly without memorizing a bunch of documentation
+				or searching through the entirety of your site's code.
+				The IE team developed Compat Inspector during the course of IE9 to speed up
+				the process of recognizing common issues across different sites.
+				Now you can use it too.
+			</p>
+
+			<p>
+				Compat Inspector is designed to help sites migrating to IE9 mode and up,
+				not those running in legacy modes.
+				You may still need to refer to documentation such as the <a
+				href="http://msdn.microsoft.com/en-us/library/ff986083(v=VS.85).aspx">
+				Internet Explorer 9 Compatibility Cookbook</a> and the <a
+				href="http://msdn.microsoft.com/library/hh673549.aspx">
+				Internet Explorer 10 Guide for Developers</a> for some issues.
+				The best pattern is to use Compat Inspector first,
+				then fall back to documentation if nothing is found.
+			</p>
+
+
+			<div class="subsection">
+				<header class="subsection__header subsection__header--alt">
+					<h3 class="title">Getting started</h3>
+				</header>
+				<div class="subsection__body">
+					<p>
+						Run Compat Inspector by adding the following script <b><i>before</i></b> all other
+						scripts on each page you want to test:</p>
+					<pre><code>&lt;script src="http://edgeportal.blob.core.windows.net/demos/inspector.js"&gt;&lt;/script&gt;</code></pre>
+					<p>
+						Alternatively you can use <a href="http://fiddler2.com/fiddler2/">
+						Fiddler</a> to automatically inject Compat Inspector on pages you visit by adding <a
+						href="https://edgeportal.blob.core.windows.net/demos/compatinspector-snippet.txt">
+						this snippet</a> to your <a href="http://www.fiddlertool.com/fiddler/dev/scriptsamples.asp">
+						Fiddler Script</a>.
+						Then you can toggle Compat Inspector on and off from the "Rules" menu.
+					</p>
+
+					<p>
+						<img alt="Screenshot of 'Use Compat Inspector' in the 'Rules' menu of Fiddler."
+							 src="images/fiddler.png">
+					</p>
+
+					<p>
+						After you have the above script in place, open your page in IE9 or IE10.
+						Compat Inspector will immediately start analyzing the page.
+						Note that identification of some issues requires execution of the related code.
+						So you should also explicitly test any interactions known to be working incorrectly.
+					</p>
+
+					<p>
+						Compat Inspector will keep a running total of messages associated with detected issues. A
+						summary view in the upper
+						right hand
+						corner of the page displays the results:</p>
+
+					<p>
+						<img
+							alt="A screenshot of the Compat Inspector summary view showing one error, one warning, and zero info messages."
+							src="images/summary.png"/></p>
+
+					<p>
+						Click on this view to expand it and obtain detailed information about each detected
+						issue with links to relevant documentation:</p>
+
+					<p>
+						<img
+							alt="A screenshot of the Compat Inspector details view. The view has three categories: &quot;Messages&quot;, &quot;Tests&quot;, and &quot;Help&quot;. The &quot;Messages&quot; section is active. Within this section one warning and one error message are displayed. Each message contains two unchecked checkboxes labeled &quot;Verify&quot; and &quot;Debug&quot;."
+							src="images/details.png"/></p>
+
+					<p>
+						Most errors and warnings also provide two additional actions for further investigation:
+						"Verify" and "Debug."</p>
+
+
+					<div class="subsection">
+						<header class="subsection__header subsection__header--alt">
+							<h3 class="title">Verifying an Issue</h3>
+						</header>
+						<div class="subsection__body">
+
+							<p>
+								Some test cases have built-in "verifiers" that emulate legacy behavior. This allows
+								you to confirm the root cause of an issue before making any changes to your code.</p>
+
+							<p>
+								<b>Prerequisite:</b> Compat Inspector is opened in the detailed information view
+								and displaying an error or warning message containing a checkbox labeled "Verify."</p>
+							<ol>
+								<li>Click the "Verify" checkbox for the issue you want to confirm<br/>
+									<img
+										alt="Another screenshot of a warning. This time the checkbox labeled &quot;Verify&quot; is checked."
+										src="images/verify-checked.png"/></li>
+								<li>Refresh the page (You will see a notification indicating the
+									verifier has been enabled)<br/>
+									<img
+										alt="A screenshot of an informational message explaining that the issue is being verified. This message contains a single checkbox labeled &quot;Verify&quot; which is checked."
+										src="images/verifying.png"/></li>
+								<li>Repeat the steps that originally triggered the error or warning
+								</li>
+								<li>If the issue still occurs
+									<ol>
+										<li>If error or warning messages are still displayed, repeat
+											steps 1-4 for each
+											remaining
+											message
+										</li>
+										<li>Otherwise, Compat Inspector cannot fully identify this issue.
+											Refer to the <a
+												href="http://msdn.microsoft.com/en-us/library/ff986083(v=VS.85).aspx">
+												Internet Explorer 9 Compatibility Cookbook</a> and the <a
+												href="http://msdn.microsoft.com/library/hh673549.aspx">
+												Internet Explorer 10 Guide for Developers</a> for additional help.
+										</li>
+									</ol>
+								</li>
+								<li>Otherwise, you've identified the root cause of the issue
+									<ol>
+										<li>Uncheck all "Verify" checkboxes<br/>
+											<img
+												alt="Another screenshot of the informational message. This time the checkbox labeled &quot;Verify&quot; is unchecked."
+												src="images/unchecked.png"/></li>
+										<li>Refresh the page</li>
+										<li>Follow the steps for <a href="#debug">debugging an
+											issue</a> below to locate
+											the source of each message in your code
+										</li>
+										<li>Follow the instructions in the displayed error/warn
+											messages to resolve the
+											issue
+										</li>
+										<li><i>Note: Also look for any "if IE" checks controlling the execution of the
+											problematic
+											code. IE9 and up typically work best when given the same code as other
+											modern
+											browsers.</i></li>
+									</ol>
+								</li>
+							</ol>
+						</div>
+					</div>
+
+					<div class="subsection">
+						<header class="subsection__header subsection__header--alt">
+							<h3 class="title">Debugging an Issue</h3>
+						</header>
+						<div class="subsection__body">
+							<p>
+								Compat Inspector can also help you isolate where things went wrong
+								via the "debug" feature.</p>
+
+							<p>
+								<b>Prerequisite:</b> Compat Inspector is opened in the detailed information view
+								and displaying an error or warning message containing a checkbox labeled "Debug."</p>
+							<ol>
+								<li>Click the "Debug" checkbox for the issue you want to investigate<br/>
+									<img
+										alt="Another screenshot of a warning. This time the checkbox labeled &quot;Debug&quot; is checked."
+										src="images/debug-checked.png"/></li>
+								<li>Open the F12 developer tools by pressing the F12 key<br/>
+									<img alt="A screenshot showing the initial view of the F12 tools."
+										 src="images/ici-image7.png"/></li>
+								<li>Switch to the "Script" tab<br/>
+									<img
+										alt="A screenshot showing the &quot;Script&quot; tab as focused in the F12 tools."
+										src="images/ici-image8.png"/></li>
+								<li>Click "Start debugging"<br/>
+									<img
+										alt="A screenshot showing the &quot;Start Debugging&quot; button as focused in the F12 tools."
+										src="images/ici-image9.png"/></li>
+								<li>Repeat the steps that originally triggered the error or warning (This will invoke
+									the script debugger)<br/>
+									<img
+										alt="A screenshot showing a snippet of JavaScript paused in the F12 tools. The code contains the JavaScript statement &quot;debugger;&quot; with a comment informing readers that the break point was triggered by Compat Inspector with instructions to look at the next item up in the call stack."
+										src="images/ici-image10.png"/></li>
+								<li>Switch to the "Call stack" sub-tab located in the right half of the F12 developer
+									tools<br/>
+									<img
+										alt="A screenshot of the &quot;Call stack&quot; sub-tab of the &quot;Script&quot; tab in the F12 tools. The call stack contains two entries (from top to bottom): &quot;inspectorFunction&quot; and &quot;JScript global code&quot;. The entry &quot;inspectorFunction&quot; is selected."
+										src="images/ici-image11.png"/></li>
+								<li>Double-click the entry visually below the highlighted entry in the call stack<br/>
+									<img
+										alt="Another screenshot of the &quot;Call stack&quot; sub-tab of the &quot;Script&quot; tab in the F12 tools. This time the entry &quot;JScript global code&quot; is selected."
+										src="images/ici-image12.png"/></li>
+								<li>Look over at the left hand side of the F12 developer tools to see the code that
+									triggered the error or warning<br/>
+									<img
+										alt="A screenshot showing the JavaScript code: document.createElement(&quot;&lt;div&gt;&quot;)."
+										src="images/ici-image13.png"/></li>
+							</ol>
+
+						</div>
+					</div>
+					<div class="subsection">
+						<header class="subsection__header subsection__header--alt">
+							<h3 class="title">Identifying Frames</h3>
+						</header>
+						<div class="subsection__body">
+							<p>
+								Many pages embed frames, some from other sources.
+								These frames also produce messages if you're using Fiddler to inject Compat Inspector.
+								Compat Inspector helps you isolate which frame or frames triggered a message.
+								Just click a message to open it in the "Details" view.
+								The view will display an entry for each frame that triggered the message.
+								Each entry will contain the URL of the frame plus scoped "Verify" and "Debug" options.
+								Use the options to investigate issues only in the frames you care about.
+							</p>
+
+							<p>
+								<img
+									alt="A screenshot showing the 'Details' view of a message with a list of frame URLs below it."
+									src="images/frames.png"/>
+							</p>
+						</div>
+					</div>
+					<div class="subsection">
+						<header class="subsection__header subsection__header--alt">
+							<h3 class="title">JavaScript Libraries</h3>
+						</header>
+						<div class="subsection__body">
+
+							<p>
+								One common problem is using out-of-date versions of JavaScript libraries.
+								Compat Inspector helps here in two ways.
+								First, it detects the presence of common libraries and reports the version in use.
+								Second, it provides a "Verify" checkbox to substitute the latest version of the detected
+								library.
+								Using this you can quickly identify if an old version of a library is the root cause of
+								an
+								issue.
+							</p>
+
+							<p>
+								<img
+									alt="A screenshot showing a message indicating jQuery was detected. The message has a checkbox labeled 'Verify' which is checked."
+									src="images/library.png">
+							</p>
+
+							<p>
+								<em>Note: Substitution may not work if the library has been concatenated with other
+									scripts.</em>
+							</p>
+						</div>
+					</div>
+					<div class="subsection">
+						<header class="subsection__header subsection__header--alt">
+							<h3 class="title">Last Steps</h3>
+						</header>
+						<div class="subsection__body">
+							<p>
+								Remove the Compat Inspector script from all your pages before publishing. Compat
+								Inspector is a test tool and should not be used in production.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+</body>
+</html>

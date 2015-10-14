@@ -1,0 +1,71 @@
+﻿
+#fullbodywrap
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+}
+#headertable
+{
+    display: none;
+}
+#demoContentCenterer
+{
+    width: 100%;
+    height: 100%;
+}
+#demoContentWrapper
+{
+    min-width: 100%;
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#returnbutton
+{
+    right: 8px;
+}
+#footerspacer
+{
+    height: 0;
+}
+#legallinks
+{
+    position: fixed;
+    bottom: 0;
+    left: 4px;
+}
+#legallinks, #copyright, input#thisUrl
+{
+    color: white;
+}
+#demointro
+{
+    position:absolute;
+    left:-10000px;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+}
+html#demohtml
+{
+    background-color: black;
+    background-image: none;
+    overflow: hidden;
+}
+body#demobody
+{
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    background-image: none;
+    overflow: hidden;
+}

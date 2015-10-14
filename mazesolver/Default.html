@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Copyright © Microsoft Corporation. All Rights Reserved. -->
+        <!-- Demo Author: Christian Stockwell, Microsoft Corporation -->        
+		<title>CSS Layout Performance Test</title>
+		<meta name="description" content="IE9 Test Drive Demo" />
+		<meta name="t_omni_demopage" content="1" /><meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link rel="stylesheet" type="text/css" href="../Includes/Styles/BaseStyles.css" />
+        <link rel="stylesheet" type="text/css" href="../Includes/Styles/ReturnAndShareControls.css" />
+		<link rel="shortcut icon" href="../Includes/Image/FavIcon.ico" />
+        <link rel="stylesheet" type="text/css" href="maze.css" />
+        <script type="text/javascript" src="../Includes/script/BrowserInfo.js"></script>
+		<script type="text/javascript" src="seedrandom.js" ></script>
+        <script type="text/javascript" src="maze.js" ></script>
+    </head>
+    <body onload="initialize()">
+        <div id="ReturnAndShareControls"></div>
+		<div id="DemoScreenReaderText">The Maze Solver demo exercises the browser layout engine as it calculates the path through a maze. With every step through the maze the demo colours and positions a circle for each position in the maze to indicate whether a cell is part of the solution path or a deadend. Once the path through the maze has been calculated the total time through the maze is displayed on screen.<br>Use the tab key to cycle through elements, change maze sizes, and start the solver.
+		</div>
+		<div id="DemoTitle">
+			<h1>Maze Solver</h1>
+			<h2>CSS3 Layout Performance Test</h2>
+		</div>
+        <div id="DemoContent">
+            <div id="Content">
+				<div id="LeftSidebar">
+					<img id="LeftSidebarImage" src="img/pencil.png" />
+				</div>
+                <div id="MazeContainer">
+					<div id="summary">
+                        <a id="summaryCloseButton" href="" onclick="hideSummary()" onkeypress="hideSummary()" tabindex="4">Close</a>
+						<p id="summaryTotal">Browser Score</p>
+						<p id="totalTime"></p>
+					</div>
+                    <span id="StartLabel">Start</span>
+                    <span id="EndLabel">End</span>
+                </div>
+				<div id="RightSidebar">
+					<div id="RightSidebarImage">
+						<p><span>The current maze is </span><span id="currentMazeSize"></span></p>
+						<div id="sizeSelectorContainer">
+							<select id="sizeSelector" tabindex="1">
+								<option title="A 20x20 maze">20x20</option>
+								<option title="A 30x30 maze">30x30</option>
+								<option title="A 40x40 maze">40x40</option>
+							</select>
+							<div id="refreshButton" onclick="refreshMaze()" onkeypress="refreshMaze()" tabindex="2" title="Generate a new random maze"></div>
+						</div>
+						<div id="startButtonAndTimerContainer">
+							<span id="timer"></span>
+							<div id="startButton" onclick="solveMaze()" onkeypress="solveMaze()" tabindex="3" title="Start the maze solver"></div>
+						</div>
+					</div>
+				</div>
+            </div>
+        </div>
+		<div id="DemoDetails">
+				<div id="DemoDetailsText">
+					<p>Performance on the web is multi-dimensional. In this test we focus on the browser layout engine to exercise the browser's handling of <a href="http://www.w3.org/TR/CSS2/">CSS 2.1</a> and <a href="http://www.w3.org/Style/CSS/">CSS 3</a> layout constructs. 
+					These constructs are used to style HTML, and the layout 
+					engine is an important component of overall web browser performance.</p>
+					<p>The mazes in this test are constructed from hundreds of HTML elements styled with 
+					CSS. Every step through the maze changes the style of a single 
+					HTML element. How quickly a browser can process that change determines how quickly the maze is completed. Designed from the ground up for speed, Internet Explorer 9's layout engine scales well even to large mazes.</p>
+				</div>
+		</div>
+		<script type="text/javascript" src="../Includes/Script/TestDriveCommon.js"></script>
+        <script type="text/javascript" src="../Includes/Script/ReturnAndShareControls.js"></script>
+    </body>
+</html>

@@ -186,7 +186,7 @@ td.board-cell-groupB td.board-cell {
 input[type="submit"].game-controls {
 	font-family: Arial;
 	font-size: 16px;
-	color: #FFFFFF;
+	color: #999999;
 	text-transform: uppercase;
 	border: 0;
 	min-width: 28px;

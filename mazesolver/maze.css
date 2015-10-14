@@ -1,0 +1,276 @@
+﻿/* WOFF font */
+@font-face {
+    font-family: "Pencil Grid";
+    src: url("pencilgrid.woff");
+}
+
+/* Screenreader text */
+#DemoScreenReaderText {
+	left: -10000px;
+	position: absolute;
+}
+
+body
+{
+    position: relative;
+    margin: 0px auto 0px auto;
+    padding: 40px 40px 40px 40px;
+}
+
+#DemoContent
+{
+	margin-left: auto;
+	margin-right: auto;
+    padding-top: 30px;
+	width: 1000px;
+}
+
+/* Testdrive demo return button */
+#DemoReturnButton
+{
+    position: absolute;
+    display: block;
+    top: 0px;
+    right: 40px;
+    width: 208px;
+    height: 27px;
+    background-image: url("../../Includes/Image/ReturnButton.png");
+    text-indent: -10000px;
+    z-index: 1000;
+}
+
+/* Header */
+#DemoTitle {
+    font-family: "Pencil Grid";
+    text-align: center;
+    margin-bottom: 35px;
+    height: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	min-width: 1000px;
+}
+#DemoTitle h1 {
+    margin: 0px;
+    padding: 0px;
+    font-size: 5em;
+}
+#DemoTitle h2 {
+    margin: 0px;
+    padding: 0px;
+    font-size: 2em;
+}
+
+/* Main content region */
+html {
+    height: 100%;
+   /* background-image: url("img/bottom.png");*/
+    background-position: bottom;
+    background-repeat: repeat-x;
+    min-height: 820px;
+}
+#Content {
+    height: 400px;
+}
+
+/* Left sidebar */
+#LeftSidebar {
+    width: 250px;
+    height: 100%;
+	float: left;
+}
+#LeftSidebarImage {
+	width: 80%;
+	margin-top: -20px;
+}
+
+/* Right sidebar */
+#RightSidebar {
+    width: 250px;
+    height: 100%;
+	float: left;
+}
+#RightSidebarImage {
+    margin-top: 110px;
+	margin-left: 50px;
+}
+#right_sidebar_content p span{
+    white-space: pre;
+}
+#sizeSelectorContainer {
+    display: inline-block;
+}
+#sizeSelector {
+    width: 117px;
+    float: left;
+}
+#startButton {
+    width: 127px;
+    height: 70px;
+    left: -5px;
+    position: relative;
+	margin-top: 13px;
+    background: transparent url("img/ButtonStart.png") no-repeat;
+}
+#startButton:hover {
+    background: transparent url("img/ButtonStartHover.png") no-repeat;
+}
+#startButtonAndTimerContainer {
+	width: 127px;
+	height: 70px;
+	float: left;
+	position: relative;
+}
+#timer {
+	display: none;
+	font-family: "Pencil Grid";
+	font-size: 4em;
+	position: absolute;
+	bottom: -1px;
+}
+
+#refreshButton {
+    width: 22px;
+    height: 20px;
+    margin-left: 5px;
+    margin-top: -1px;
+    background: transparent url("img/RefreshButton.png") no-repeat;
+    float: left;
+}
+#refreshButton:hover {
+	width: 22px;
+    background: transparent url("img/RefreshButtonHover.png") no-repeat;
+}
+
+/* Maze containter styles */
+#MazeContainer {
+	position: relative;
+    width: 500px;
+	height: 375px;
+    float: left;
+}
+
+#summary {
+	position: absolute;
+	width: 300px;
+	height: 200px;
+	border-radius: 10px;
+	border: 2px solid black;
+	margin-left: 100px;
+	margin-top: 75px;
+	opacity: 0.95;
+	z-index: 1;
+	visibility: hidden;
+	font-family: "Pencil Grid";
+	background: white;
+	background-image: url("img/summarybg.png");
+}
+
+#summary p {
+	text-align: center;
+}
+#summaryTotal {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	font-size: 2em;
+}
+
+#totalTime {
+	font-size: 4em;
+	margin-top: 20px;
+}
+
+#summary a {
+    font-size: 1.2em;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    color: black;
+	text-decoration: underline;
+}
+#summary a:visited {
+    color: black;
+}
+
+#StartLabel {
+    font-family: "Pencil Grid";
+    font-size: 2em;
+    position: absolute;
+    top: 160px;
+    left: 10px;
+}
+
+#EndLabel {
+    font-family: "Pencil Grid";
+    font-size: 2em;
+    position: absolute;
+    bottom: 5px;
+    right: 18px;
+}
+
+/* Footer styles */
+#DemoDetails {
+    margin-top: 55px;
+	min-width: 1000px;
+    text-align: justify;
+}
+#DemoDetailsText {
+	text-align: justify;
+	margin-left: auto;
+	margin-right: auto;
+    border-radius: 10px;
+	width: 800px;
+    background: rgb(240, 240, 240);
+    padding: 10px;
+}
+
+/* Maze content styles */
+.cell {
+    float: left;
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+    width: 10px;
+    height: 10px;
+}
+.border {
+    float: left;
+    background: black;
+    width: 10px;
+    height: 10px;
+}
+.row {
+    height: 2px !important;
+}
+.col {
+    width: 2px !important;
+}
+.top {
+    background: blue !important;
+}
+#container {
+    width: 100%;
+}
+#maze {
+    background: white;
+    visibility: hidden;
+    position: relative;
+}
+.marker {
+    width: 6px;
+    height: 6px;
+    position: absolute;
+    border-radius: 3px; 
+    -moz-border-radius: 3px;
+}
+.visited {
+    visibility: visible;
+    background: gray;
+}
+.deadend {
+    visibility: visible;
+    background: red;
+}
+.solution {
+    visibility: visible;
+    background: green;
+}
