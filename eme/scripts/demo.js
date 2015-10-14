@@ -15,10 +15,10 @@
         property: 'Protected',
         caption: '',
         attribution: '(c) Copyright 2008, Blender Foundation / www.bigbuckbunny.org',
-        baseUrl: 'http://samplestreamseu.streaming.mediaservices.windows.net/65b76566-1381-4540-87ab-7926568901d8/bbb_sunflower_1080p_30fps_normal.ism',
+        baseUrl: 'https://samplestreamseu.streaming.mediaservices.windows.net/65b76566-1381-4540-87ab-7926568901d8/bbb_sunflower_1080p_30fps_normal.ism',
         fileName: 'manifest(format=mpd-time-csf)',
         licenseUrlPlayReady: 'https://samplestreamseu.keydelivery.mediaservices.windows.net/PlayReady/',
-        licenseUrlWideVine: 'https://axpr-wv-fe.cloudapp.net:8080/LicensingService'
+        licenseUrlWideVine: 'http://axpr-wv-fe.cloudapp.net:8080/LicensingService'
     }, {
         title: 'Not Your Father\'s Browser',
         property: 'Captioned',
@@ -33,7 +33,7 @@
         attribution: '(c) Copyright Blender Foundation | www.sintel.org',
         baseUrl: 'https://amssamples.streaming.mediaservices.windows.net/bf657309-71d9-4436-b94b-8ac0d2ca222b/SintelTrailer.ism',
         fileName: 'manifest(format=mpd-time-csf)',
-        licenseUrlPlayReady: 'https://playready.directtaps.net/pr/svc/rightsmanager.asmx?PlayRight=1&UseSimpleNonPersistentLicense=1'
+        licenseUrlPlayReady: 'https://amssamples.keydelivery.mediaservices.windows.net/PlayReady/'
     }, {
         title: 'Elephant\'s Dream',
         property: '',
@@ -62,7 +62,7 @@
         attribution: '(c) Copyright Blender Foundation | mango.blender.org',
         baseUrl: 'https://amssamples.streaming.mediaservices.windows.net/de1470b3-7b3c-4902-ab53-d19b37ef3bd7/TearsOfSteelTeaser.ism',
         fileName: 'manifest(format=mpd-time-csf)',
-        licenseUrlPlayReady: 'https://playready.directtaps.net/pr/svc/rightsmanager.asmx?PlayRight=1&UseSimpleNonPersistentLicense=1'
+        licenseUrlPlayReady: 'http://playready.directtaps.net/pr/svc/rightsmanager.asmx?PlayRight=1&UseSimpleNonPersistentLicense=1'
     }];
 
     // UI elements/functions.
