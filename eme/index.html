@@ -69,33 +69,24 @@
                             <div class="controls">
                                 <video id="video" poster="images/Big_Buck_Bunny.jpg" controls></video>
                                 <div class="cell">
-                                    <p class="label">Video&nbsp;Bitrate</p>
+                                    <p class="label">Video Bitrate</p>
                                 </div>
                                 <div class="cell">
                                     <input type="range" id="bitrateSlider" style="padding-top: 30px; padding-bottom: 30px;">
                                 </div>
                                 <div class="cell">
-                                    <p id="bitrateLabel" style="display: inline; white-space:nowrap;">0 kbps</p>
+                                    <p id="bitrateLabel" class="label">0 kbps</p>
                                 </div>
                                 <div class="cell spacer"></div>
                                 <div class="cell">
-                                    <p class="label">Current&nbsp;Content</p>
+                                    <p id="emenotice" class="label">DRM Free</p>
                                 </div>
                                 <div class="cell lockContainer">
-                                    <img id="openlock" src="images/unlocked.png" />
-                                    <img id="closedlock" src="images/locked.png" style="display: none;" />
-                                </div>
-                                <div class="row">
-                                    <div class="cell"><p id="emenotice"></p></div>
+                                    <img id="openlock" class="lockimg" src="images/unlocked.png" />
+                                    <img id="closedlock" class="lockimg" src="images/locked.png" style="display: none;" />
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!--Legend-->
-                    <h4 class="">Content Protection Legend:</h4>
-                    <div class="subsection__body">
-                        <li style="list-style:none;"><p><img class="lockimg" src="images/unlocked.png"><span>&nbsp;&nbsp; Content is clear and does not require EME support for playback.</span></p></li>
-                        <li style="list-style:none;"><p><img class="lockimg" src="images/locked.png"><span>&nbsp;&nbsp; Content is protected and requires EME support.</span></p></li>
                     </div>
                 </div>
             </div>

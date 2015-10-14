@@ -712,7 +712,7 @@
         var notice = document.getElementById('emenotice');
         if (notice)
         {
-            notice.innerHTML = message || '';
+            notice.innerHTML = message || 'DRM Free';
         }
     };
 
