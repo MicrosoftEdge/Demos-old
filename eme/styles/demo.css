@@ -34,6 +34,7 @@ img.lockimg {
     min-width: 25px;
     vertical-align: -40%;
     min-height: 25px;
+    margin-top: 0px;
 }
 
 .lockContainer {
@@ -80,4 +81,11 @@ input[type='range'] {
     color: red;
     font-size: x-large;
     display: none;
+}
+.text-title {
+    max-width: 100%;
+}
+.label {
+    white-space: nowrap;
+    font-size: 12px;
 }
