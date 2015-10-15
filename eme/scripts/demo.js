@@ -1,6 +1,6 @@
 (function(){
     'use strict';
-  //==============================================================================
+    //==============================================================================
     // List of available content files/manifests.
     //==============================================================================
     var videoLibrary = [{
@@ -367,9 +367,9 @@
         this.opened = false;
     };
 
-   window.onerror = function (error){
+    window.onerror = function (error){
         writeError(error);
-   };
+    };
 
     Player.prototype = {
         initialize: function(autoplay) {
@@ -471,17 +471,17 @@
                 {
                     initDataTypes: ['keyids', 'cenc'],
                     audioCapabilities:
-                    [
-                        {
-                            contentType: 'audio/mp4; codecs="mp4a"'
-                        }
-                    ],
+                        [
+                            {
+                                contentType: 'audio/mp4; codecs="mp4a"'
+                            }
+                        ],
                     videoCapabilities:
-                    [
-                        {
-                            contentType: 'video/mp4; codecs="avc1"'
-                        }
-                    ]
+                        [
+                            {
+                                contentType: 'video/mp4; codecs="avc1"'
+                            }
+                        ]
                 }
             ]
         },
@@ -491,17 +491,17 @@
                 {
                     initDataTypes: ['keyids', 'webm'],
                     audioCapabilities:
-                    [
-                        {
-                            contentType: 'audio/webm; codecs="opus"'
-                        }
-                    ],
+                        [
+                            {
+                                contentType: 'audio/webm; codecs="opus"'
+                            }
+                        ],
                     videoCapabilities:
-                    [
-                        {
-                            contentType: 'video/webm; codecs="vp9"'
-                        }
-                    ]
+                        [
+                            {
+                                contentType: 'video/webm; codecs="vp9"'
+                            }
+                        ]
                 }
             ]
         },
@@ -521,23 +521,23 @@
 
             // Try PlayReady
             navigator.requestMediaKeySystemAccess(this.playReadyKeySystem.keySystem, this.playReadyKeySystem.supportedConfig).then(function (keySystemAccess) {
-                    console.log('createMediaKeys (PlayReady)');
-                    that.licenseType = that.LICENSE_TYPE_PLAYREADY;
-                    setLockAndMessage(true, 'Using unprefixed EME and PlayReady DRM.');
+                console.log('createMediaKeys (PlayReady)');
+                that.licenseType = that.LICENSE_TYPE_PLAYREADY;
+                setLockAndMessage(true, 'Using unprefixed EME and PlayReady DRM.');
+                keySystemAccess.createMediaKeys().then(function (createdMediaKeys) {
+                    that.onMediaKeyAcquired(that, createdMediaKeys);
+                }).catch('createMediaKeys() failed');
+            }, function () {
+                // PlayReady didn't work. Try WideVine.
+                navigator.requestMediaKeySystemAccess(that.wideVineKeySystem.keySystem, that.wideVineKeySystem.supportedConfig).then(function (keySystemAccess) {
+                    console.log('createMediaKeys (WideVine)');
+                    that.licenseType = that.LICENSE_TYPE_WIDEVINE;
+                    setLockAndMessage(true, 'Using unprefixed EME and Widevine DRM.');
                     keySystemAccess.createMediaKeys().then(function (createdMediaKeys) {
-                            that.onMediaKeyAcquired(that, createdMediaKeys);
+                        that.onMediaKeyAcquired(that, createdMediaKeys);
                     }).catch('createMediaKeys() failed');
-                }, function () {
-                    // PlayReady didn't work. Try WideVine.
-                    navigator.requestMediaKeySystemAccess(that.wideVineKeySystem.keySystem, that.wideVineKeySystem.supportedConfig).then(function (keySystemAccess) {
-                        console.log('createMediaKeys (WideVine)');
-                        that.licenseType = that.LICENSE_TYPE_WIDEVINE;
-                        setLockAndMessage(true, 'Using unprefixed EME and Widevine DRM.');
-                        keySystemAccess.createMediaKeys().then(function (createdMediaKeys) {
-                            that.onMediaKeyAcquired(that, createdMediaKeys);
-                        }).catch('createMediaKeys() failed');
-                    }, function () { throw ('Your browser/system does support the requested configurations for playing protected content.'); });
-                });
+                }, function () { throw ('Your browser/system does not support the requested configurations for playing protected content.'); });
+            });
         },
         onMediaKeyAcquired: function (prm, createdMediaKeys) {
             console.log('createMediaKeys success');
@@ -569,6 +569,11 @@
             console.log('downloadNewKey (xhr)');
             var challenge;
             var xhr = new XMLHttpRequest();
+            var index = location.pathname.indexOf('testdrive');
+            var finalUrl = url;
+            if (index !== -1) {
+                finalUrl = location.origin + location.pathname.substr(0, index) + 'testdrive/proxy/?url=' + url;
+            }
             xhr.open('POST', url);
             xhr.responseType = 'arraybuffer';
             xhr.onreadystatechange = function () {
@@ -670,7 +675,7 @@
         errorElem.appendChild(document.createTextNode(text));
         errorElem.style.display = 'block';
     };
-    
+
     var hideErrorNotice = function () {
         var errorElem = document.getElementById('error-display');
         errorElem.style.display = 'none';
@@ -774,32 +779,32 @@
     // Handle the clicking of a new video
     var videoClickHandler = function (index) {
         return function () {
-                if (selectedVideo >= 0) {
-                    document.getElementById('video' + selectedVideo).removeAttribute('selected');
-                }
-                hideErrorNotice();
-                defaultVideo = false;
-                selectedVideo = index;
-                document.getElementById('video' + selectedVideo).setAttribute('selected', 'selected');
-                loadVideo(index);
+            if (selectedVideo >= 0) {
+                document.getElementById('video' + selectedVideo).removeAttribute('selected');
+            }
+            hideErrorNotice();
+            defaultVideo = false;
+            selectedVideo = index;
+            document.getElementById('video' + selectedVideo).setAttribute('selected', 'selected');
+            loadVideo(index);
 
-                // Check for captions and add/remove track support as needed
-                var videoTarget = document.getElementById('video');
-                // Remove existing captions
-                if (document.getElementById('Captions') != null) {
-                    var track = document.getElementById('Captions');
-                    videoTarget.removeChild(track);
-                }
-                // Add new captions, if file supports them
-                if (videoLibrary[index].property === 'Captioned') {
-                    var newTrack = document.createElement('track');
-                    newTrack.src = videoLibrary[index].caption;
-                    newTrack.label = 'English Captions';
-                    newTrack.default = true;
-                    newTrack.id = 'Captions';
-                    videoTarget.appendChild(newTrack);
-                }
-            };
+            // Check for captions and add/remove track support as needed
+            var videoTarget = document.getElementById('video');
+            // Remove existing captions
+            if (document.getElementById('Captions') != null) {
+                var track = document.getElementById('Captions');
+                videoTarget.removeChild(track);
+            }
+            // Add new captions, if file supports them
+            if (videoLibrary[index].property === 'Captioned') {
+                var newTrack = document.createElement('track');
+                newTrack.src = videoLibrary[index].caption;
+                newTrack.label = 'English Captions';
+                newTrack.default = true;
+                newTrack.id = 'Captions';
+                videoTarget.appendChild(newTrack);
+            }
+        };
     };
 
     // Populate the library of video files.
