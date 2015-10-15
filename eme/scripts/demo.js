@@ -574,7 +574,7 @@
 			if (index !== -1) {
 				finalUrl = location.origin + location.pathname.substr(0, index) + 'testdrive/proxy/?url=' + url;
 			}
-			xhr.open('POST', url);
+			xhr.open('POST', finalUrl);
 			xhr.responseType = 'arraybuffer';
 			xhr.onreadystatechange = function () {
 				if (xhr.readyState === 4) {
