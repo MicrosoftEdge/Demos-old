@@ -664,15 +664,20 @@
     //==============================================================================
     var mseSupported;
 
-    var showUpgradeNotice = function (text) {
+    var showErrorNotice = function (text) {
         var errorElem = document.getElementById('error-display');
         errorElem.innerHTML = '';
         errorElem.appendChild(document.createTextNode(text));
         errorElem.style.display = 'block';
     };
+    
+    var hideErrorNotice = function () {
+        var errorElem = document.getElementById('error-display');
+        errorElem.style.display = 'none';
+    };
 
     var writeError = function (msg) {
-        showUpgradeNotice(msg);
+        showErrorNotice(msg);
     };
 
     var detectMSESupport = function () {
@@ -772,6 +777,7 @@
                 if (selectedVideo >= 0) {
                     document.getElementById('video' + selectedVideo).removeAttribute('selected');
                 }
+                hideErrorNotice();
                 defaultVideo = false;
                 selectedVideo = index;
                 document.getElementById('video' + selectedVideo).setAttribute('selected', 'selected');
