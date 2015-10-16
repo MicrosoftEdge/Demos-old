@@ -572,7 +572,7 @@
 			var index = location.pathname.indexOf('testdrive');
 			var finalUrl = url;
 			if (index !== -1) {
-				finalUrl = location.origin + location.pathname.substr(0, index) + 'api/testdrive/proxy/?url=' + url;
+				finalUrl = location.pathname.substr(0, index) + 'api/testdrive/proxy/?url=' + url;
 			}
 			xhr.open('POST', finalUrl);
 			xhr.responseType = 'arraybuffer';
