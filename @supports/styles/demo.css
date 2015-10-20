@@ -9,42 +9,44 @@
 }
 
 #ex-1 b {
-	background-color: red;
-	background-color: rgba(34, 132, 39, 1);
+	background-color: black;
+	color: white;
+	background-color: rgba(255, 255, 255, 1);
+	color: rgba(0, 0, 0, 1);
 }
 
 #ex-2 b {
-		background-color: red;
+		background-color: black;
+		color: white;
 }
 
-#ex-2 b[class] {
-		background-color: green;
+#ex-2 b:only-child {
+		background-color: white;
+		color: black;
 }
 
 #ex-3 b {
-	background-color: red;
+	background-color: black;
+	color: white;
 }
 
 @media only screen {
-
 	#ex-3 b {
-	  background-color: green;
+		background-color: white;
+		color: black;
 	}
-	
-	#ex-3 b[class] {
-	  background: linear-gradient( 0deg, rgb(65, 150, 44), rgb(26, 219, 73) );
-	}
-	
 }
 
 #ex-4 b {
-	background-color: red;
+	background-color: black;
+	color: white;
 }
 
-@supports ( background: linear-gradient(0deg,red,red) ) {
-
+@supports ( background: linear-gradient(0deg,white,white) ) {
 	#ex-4 b {
- 		background: linear-gradient( 0deg, rgb(65, 150, 44), rgb(26, 219, 73) );
- 	}
- 	
-}		
+		background: linear-gradient(0deg,white,white);
+		color: black;
+	}
+}
+
+body {padding-bottom:5em;}
