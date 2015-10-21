@@ -28,14 +28,15 @@
             <div class="container">
                 <div class="layout layout--basic">
                     <div class="module module--secondary">
-                        <p class="subtitle">
+                        <h4>About this demo:</h4>
+                        <p>
                             Play DRM protected media using <a href="http://w3c.github.io/encrypted-media/" class="icon--link"
                             target="new">Encrypted Media Extensions (EME)</a>. Adjust the bitrate slider to simulate adaptive
                             streaming by changing the video quality midstream. Play captioned media using built-in TTML captioning.
                         </p>
                     </div>
                     <div class="module module--primary">
-                        <h4>New in this demo version:</h4>
+                        <h4>What's new:</h4>
                         <p>
                             Demonstrate playback using different EME API versions and different DRM provider support across multiple browsers. Automatically
                             use the updated APIs in Microsoft Edge while still supporting vendor-prefixed EME APIs in IE11.
@@ -49,43 +50,40 @@
                 </div>
             </div>
         </section>
-
         <!-- DEMO CONTENT -->
-        <section class="section">
-            <div class="container">
-                <div class="demo-content">
-                    <div class="container" id="error-display">
-                        Error:
-                    </div>
-                    <div class="container">
+        <div class="container">
+            <div class="demo-content">
+                <div class="container" id="error-display">
+                    Error:
+                </div>
+                <div class="container">
 
-                        <!--Video library and video display -->
-                        <div class="section main">
-                            <header class="section-header">
-                                <h2 class="subheading"><!--None--></h2>
-                            </header>
-                            <div class="layout layout--basic">
-                                <div class="module module--secondary" id="library"></div>
-                                <div class="module module--primary" id="videocontainer">
-                                    <div class="controls">
-                                        <video id="video" poster="images/Big_Buck_Bunny.jpg" controls></video>
-                                        <div class="cell">
-                                            <p class="label">Video Bitrate</p>
-                                        </div>
-                                        <div class="cell">
-                                            <input type="range" id="bitrateSlider" style="padding-top: 30px; padding-bottom: 30px;">
-                                        </div>
-                                        <div class="cell">
-                                            <p id="bitrateLabel" class="label">0 kbps</p>
-                                        </div>
-                                        <div class="cell spacer"></div>
-                                        <div class="cell">
-                                            <p id="emenotice" class="label">DRM Free</p>
-                                        </div>
-                                        <div class="cell lockContainer">
-                                            <img id="openlock" class="lockimg" src="images/unlocked.png" />
-                                            <img id="closedlock" class="lockimg" src="images/locked.png" style="display: none;" />
-                                        </div>
+                    <!--Video library and video display -->
+                    <div class="section main">
+                        <header class="section-header">
+                            <h2 class="subheading"><!--None--></h2>
+                        </header>
+                        <div class="layout layout--basic">
+                            <div class="module module--secondary" id="library"></div>
+                            <div class="module module--primary" id="videocontainer">
+                                <div class="controls">
+                                    <video id="video" poster="images/Big_Buck_Bunny.jpg" controls></video>
+                                    <div class="cell">
+                                        <p class="label">Video Bitrate</p>
+                                    </div>
+                                    <div class="cell">
+                                        <input type="range" id="bitrateSlider" style="padding-top: 30px; padding-bottom: 30px;">
+                                    </div>
+                                    <div class="cell">
+                                        <p id="bitrateLabel" class="label">0 kbps</p>
+                                    </div>
+                                    <div class="cell spacer"></div>
+                                    <div class="cell">
+                                        <p id="emenotice" class="label">DRM Free</p>
+                                    </div>
+                                    <div class="cell lockContainer">
+                                        <img id="openlock" class="lockimg" src="images/unlocked.png" />
+                                        <img id="closedlock" class="lockimg" src="images/locked.png" style="display: none;" />
                                     </div>
                                 </div>
                             </div>
@@ -93,7 +91,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
     </article>
     <script type="text/javascript" src="scripts/demo.js"></script>
 </body>
