@@ -81,12 +81,6 @@ input[type='range'] {
     padding: auto;
 }
 
-#error-display {
-    color: red;
-    font-size: x-large;
-    display: none;
-}
-
 .label {
     white-space: nowrap;
     font-size: 12px;

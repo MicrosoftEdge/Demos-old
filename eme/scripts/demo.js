@@ -140,7 +140,7 @@
                     if (xhr.status === 200) {
                         callback(that.parseManifest(baseUrl, xhr.responseXML));
                     } else {
-                        throw 'XHR failed (' + url + '). Status: ' + xhr.status + ' (' + xhr.statusText + ')';
+                        writeError('XHR failed (' + url + '). Status: ' + xhr.status + ' (' + xhr.statusText + ')');
                     }
                 }
             };
@@ -536,7 +536,7 @@
                     keySystemAccess.createMediaKeys().then(function (createdMediaKeys) {
                         that.onMediaKeyAcquired(that, createdMediaKeys);
                     }).catch('createMediaKeys() failed');
-                }, function () { throw ('Your browser/system does not support the requested configurations for playing protected content.'); });
+                }, function () { writeError('Your browser/system does not support the requested configurations for playing protected content.'); });
             });
         },
         onMediaKeyAcquired: function (prm, createdMediaKeys) {
@@ -673,12 +673,11 @@
         var errorElem = document.getElementById('error-display');
         errorElem.innerHTML = '';
         errorElem.appendChild(document.createTextNode(text));
-        errorElem.style.display = 'block';
+        document.getElementById('error-container').style.display = '';
     };
 
     var hideErrorNotice = function () {
-        var errorElem = document.getElementById('error-display');
-        errorElem.style.display = 'none';
+        document.getElementById('error-container').style.display = 'none';
     };
 
     var writeError = function (msg) {
@@ -728,9 +727,9 @@
 
     video.addEventListener('error', function () {
         if (video.error.msExtendedCode) {
-            throw 'Unexpected \'error\' event from media element. Code: ' + prettyPrintMediaError(video.error.code) + ', msExtendedCode: ' + prettyPrintHex(video.error.msExtendedCode);
+            writeError('Unexpected \'error\' event from media element. Code: ' + prettyPrintMediaError(video.error.code) + ', msExtendedCode: ' + prettyPrintHex(video.error.msExtendedCode));
         } else {
-            throw 'Unexpected \'error\' event from media element. Code: ' + prettyPrintMediaError(video.error.code);
+            writeError('Unexpected \'error\' event from media element. Code: ' + prettyPrintMediaError(video.error.code));
         }
     }, false);
 
