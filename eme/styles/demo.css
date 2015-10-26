@@ -57,7 +57,11 @@ img.lockimg {
 }
 
 #library div[selected] {
-    background: lightblue;
+    background: #0078D7;
+}
+
+#library div[selected] p {
+    color: #f2f2f2;
 }
 
 .property {
@@ -77,15 +81,11 @@ input[type='range'] {
     padding: auto;
 }
 
-#error-display {
-    color: red;
-    font-size: x-large;
-    display: none;
-}
-.text-title {
-    max-width: 100%;
-}
 .label {
     white-space: nowrap;
     font-size: 12px;
+}
+
+.icon--link {
+    margin-right: 5px;
 }
