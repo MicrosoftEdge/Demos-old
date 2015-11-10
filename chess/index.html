@@ -7,7 +7,7 @@
         <link rel="stylesheet" type="text/css" href="https://edgeportal.blob.core.windows.net/media/demotemplate.css">
         <link rel="stylesheet" type="text/css" href="css/app.css">
     </head>
-    <body>
+    <body class="chess">
 
         <!-- DEMO INTRO -->
         <header class="section section--page-intro demo__header">
@@ -32,40 +32,40 @@
                 <div class="layout layout--equal">
 
                     <!-- chess board -->
-                    <div id="chess--boardContainer" class="module">
+                    <div id="chess__board-container" class="module">
                         <div id="board" class="no-vertical-rhythm"></div>
-                        <div id="chess--boardOverlay" class="chess--showInit">
-                            <div id="chess--initPrompt">
+                        <div id="chess__board-overlay" class="chess__show-init">
+                            <div id="chess__init-prompt">
                                 Initializing...
                             </div>
-                            <div id="chess--startPrompt">
+                            <div id="chess__start-prompt">
                                 Start a Match<br>
-                                <div id="chess--startStopButton"></div><br>
-                                <div id="chess--optionsButton">Options</div>
+                                <div id="chess__start-stop-button"></div><br>
+                                <div id="chess__options-button">Options</div>
                             </div>
-                            <div id="chess--boardMessage">
+                            <div id="chess__board-message">
                                 <span>Checkmate! ASM.js wins!</span><br>
                                 <small>Refresh this page to play again</small>
                             </div>
-                             <div id="chess--options">
-                                <div id="chess--optionsHideButton"><span>Hide Options</span></div>
-                                <label for="chess--optionRangeTimePerTurn">
-                                    Time per turn: <span id="chess--optionRangeTimePerTurnValue" class="chess--optionsValue"></span> ms<br>
+                             <div id="chess__options">
+                                <div id="chess__options-hide-button"><span>Hide Options</span></div>
+                                <label for="chess__option-range-time-per-turn">
+                                    Time per turn: <span id="chess__option-range-time-per-turn-value" class="chess__options-value"></span> ms<br>
                                     <small>The amount of time given to each player to find a best move. Up to a point, smaller numbers tend to give an advantage to the Asm.js optimized code.</small>
                                 </label>
-                                <input id="chess--optionRangeTimePerTurn" type="range" min="0" max="1000" />
+                                <input id="chess__option-range-time-per-turn" type="range" min="0" max="1000" />
 
                                 <label for="unique-range">
-                                    Skill Level: <span id="chess--optionRangeSkillLevelValue" class="chess--optionsValue">20</span><br>
+                                    Skill Level: <span id="chess__option-range-skill-level-value" class="chess__options-value">20</span><br>
                                     <small>The effective skill of the chess engine. Level 20 is the strong and 0 is the weakest (multiple intentionally bad moves).</small>
                                 </label>
-                                <input id="chess--optionRangeSkillLevel" type="range" min="0" max="20" />
+                                <input id="chess__option-range-skill-level" type="range" min="0" max="20" />
 
                                 <label for="unique-range">
-                                    Contempt: <span id="chess--optionRangeContemptValue" class="chess--optionsValue">0</span><br>
+                                    Contempt: <span id="chess__option-range-contempt-value" class="chess__options-value">0</span><br>
                                     <small>Roughly equivalent to "optimism." Positive values of contempt favor more "risky" play, while negative values will favor draws. Zero is neutral.</small>
                                 </label>
-                                <input id="chess--optionRangeContempt" type="range" min="-100" max="100" />
+                                <input id="chess__option-range-contempt" type="range" min="-100" max="100" />
                             </div>
                         </div>
                     </div>
@@ -78,82 +78,82 @@
                             <h3>Winner Prediction</h3>
                             
                             <div class="layout--equal">
-                                <div class="module chess--score chess--scoreAsm">
+                                <div class="module chess__score chess__score-asm">
                                     <h3>Asm.js</h3>
                                     <div class="layout--equal">
-                                        <div class="module chess--scoreColumn chess--nopadding">
-                                            <span id="chess--scoreP1Advantage">&nbsp;</span>
+                                        <div class="module chess__score-column chess__nopadding">
+                                            <span id="chess__score-p1-advantage">&nbsp;</span>
                                             <small>Predicted<br>Chance&nbsp;of&nbsp;Win</small>
                                         </div>
-                                        <div class="module chess--scoreColumn chess--nopadding chess--scoreDetail">
-                                            <span id="chess--scoreP1Score">&nbsp;</span>
+                                        <div class="module chess__score-column chess__nopadding chess__score-detail">
+                                            <span id="chess__score-p1-score">&nbsp;</span>
                                             <small>Score<br>(In&nbsp;Centipawns)</small>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="module chess--score chess--scoreNormal">
+                                <div class="module chess__score chess__score-normal">
                                     <h3>Not&nbsp;Optimized</h3>
                                     <div class="layout--equal">
-                                        <div class="module chess--scoreColumn chess--nopadding">
-                                            <span id="chess--scoreP2Advantage">&nbsp;</span>
+                                        <div class="module chess__score-column chess__nopadding">
+                                            <span id="chess__score-p2-advantage">&nbsp;</span>
                                             <small>Predicted<br>Chance&nbsp;of&nbsp;Win</small>
                                         </div>
-                                        <div class="module chess--scoreColumn chess--nopadding chess--scoreDetail">
-                                            <span id="chess--scoreP2Score">&nbsp;</span>
+                                        <div class="module chess__score-column chess__nopadding chess__score-detail">
+                                            <span id="chess__score-p2-score">&nbsp;</span>
                                             <small>Score<br>(In&nbsp;Centipawns)</small>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="chess--chartCanvasContainer">
-                                <canvas class="chess--chartCanvas" id="chess--chartAdvantage"></canvas>
-                                <div class="chess--chartMidLine"></div>
+                            <div class="chess__chart-canvas-container">
+                                <canvas class="chess__chart-canvas" id="chess__chart-advantage"></canvas>
+                                <div class="chess__chart-mid-line"></div>
                             </div>
 
-                            <div id="chess--holdingAreas" class="layout--equal">
+                            <div id="chess__holding-areas" class="layout--equal">
 
-                                <div class="module chess--holdingArea chess--nopadding">
+                                <div class="module chess__holding-area chess__nopadding">
                                     <h4>Captured Pieces</h4>
-                                    <span id="chess--noneCapturedw">None</span>
-                                    <img class="chess--holdingPiece chess--holdingPiecewK" src="images/small/wK.png">
-                                    <img class="chess--holdingPiece chess--holdingPiecewQ" src="images/small/wQ.png">
-                                    <img class="chess--holdingPiece chess--holdingPiecewQ" src="images/small/wQ.png">
-                                    <img class="chess--holdingPiece chess--holdingPiecewR" src="images/small/wR.png">
-                                    <img class="chess--holdingPiece chess--holdingPiecewR" src="images/small/wR.png">
-                                    <img class="chess--holdingPiece chess--holdingPiecewB" src="images/small/wB.png">
-                                    <img class="chess--holdingPiece chess--holdingPiecewB" src="images/small/wB.png">
-                                    <img class="chess--holdingPiece chess--holdingPiecewN" src="images/small/wN.png">
-                                    <img class="chess--holdingPiece chess--holdingPiecewN" src="images/small/wN.png">
-                                    <img class="chess--holdingPiece chess--holdingPiecewP" src="images/small/wP.png">
-                                    <img class="chess--holdingPiece chess--holdingPiecewP" src="images/small/wP.png">
-                                    <img class="chess--holdingPiece chess--holdingPiecewP" src="images/small/wP.png">
-                                    <img class="chess--holdingPiece chess--holdingPiecewP" src="images/small/wP.png">
-                                    <img class="chess--holdingPiece chess--holdingPiecewP" src="images/small/wP.png">
-                                    <img class="chess--holdingPiece chess--holdingPiecewP" src="images/small/wP.png">
-                                    <img class="chess--holdingPiece chess--holdingPiecewP" src="images/small/wP.png">
-                                    <img class="chess--holdingPiece chess--holdingPiecewP" src="images/small/wP.png">
+                                    <span id="chess__noneCapturedw">None</span>
+                                    <img class="chess__holding-piece chess__holding-piece-wK" src="images/small/wK.png">
+                                    <img class="chess__holding-piece chess__holding-piece-wQ" src="images/small/wQ.png">
+                                    <img class="chess__holding-piece chess__holding-piece-wQ" src="images/small/wQ.png">
+                                    <img class="chess__holding-piece chess__holding-piece-wR" src="images/small/wR.png">
+                                    <img class="chess__holding-piece chess__holding-piece-wR" src="images/small/wR.png">
+                                    <img class="chess__holding-piece chess__holding-piece-wB" src="images/small/wB.png">
+                                    <img class="chess__holding-piece chess__holding-piece-wB" src="images/small/wB.png">
+                                    <img class="chess__holding-piece chess__holding-piece-wN" src="images/small/wN.png">
+                                    <img class="chess__holding-piece chess__holding-piece-wN" src="images/small/wN.png">
+                                    <img class="chess__holding-piece chess__holding-piece-wP" src="images/small/wP.png">
+                                    <img class="chess__holding-piece chess__holding-piece-wP" src="images/small/wP.png">
+                                    <img class="chess__holding-piece chess__holding-piece-wP" src="images/small/wP.png">
+                                    <img class="chess__holding-piece chess__holding-piece-wP" src="images/small/wP.png">
+                                    <img class="chess__holding-piece chess__holding-piece-wP" src="images/small/wP.png">
+                                    <img class="chess__holding-piece chess__holding-piece-wP" src="images/small/wP.png">
+                                    <img class="chess__holding-piece chess__holding-piece-wP" src="images/small/wP.png">
+                                    <img class="chess__holding-piece chess__holding-piece-wP" src="images/small/wP.png">
                                 </div>                            
-                                <div class="module chess--holdingArea chess--nopadding">
+                                <div class="module chess__holdingArea chess__nopadding">
                                     <h4>Captured Pieces</h4>
-                                    <span id="chess--noneCapturedb">None</span>
-                                    <img class="chess--holdingPiece chess--holdingPiecebK" src="images/small/bK.png">
-                                    <img class="chess--holdingPiece chess--holdingPiecebQ" src="images/small/bQ.png">
-                                    <img class="chess--holdingPiece chess--holdingPiecebQ" src="images/small/bQ.png">
-                                    <img class="chess--holdingPiece chess--holdingPiecebR" src="images/small/bR.png">
-                                    <img class="chess--holdingPiece chess--holdingPiecebR" src="images/small/bR.png">
-                                    <img class="chess--holdingPiece chess--holdingPiecebB" src="images/small/bB.png">
-                                    <img class="chess--holdingPiece chess--holdingPiecebB" src="images/small/bB.png">
-                                    <img class="chess--holdingPiece chess--holdingPiecebN" src="images/small/bN.png">
-                                    <img class="chess--holdingPiece chess--holdingPiecebN" src="images/small/bN.png">
-                                    <img class="chess--holdingPiece chess--holdingPiecebP" src="images/small/bP.png">
-                                    <img class="chess--holdingPiece chess--holdingPiecebP" src="images/small/bP.png">
-                                    <img class="chess--holdingPiece chess--holdingPiecebP" src="images/small/bP.png">
-                                    <img class="chess--holdingPiece chess--holdingPiecebP" src="images/small/bP.png">
-                                    <img class="chess--holdingPiece chess--holdingPiecebP" src="images/small/bP.png">
-                                    <img class="chess--holdingPiece chess--holdingPiecebP" src="images/small/bP.png">
-                                    <img class="chess--holdingPiece chess--holdingPiecebP" src="images/small/bP.png">
-                                    <img class="chess--holdingPiece chess--holdingPiecebP" src="images/small/bP.png">
+                                    <span id="chess__noneCapturedb">None</span>
+                                    <img class="chess__holding-piece chess__holding-piece-bK" src="images/small/bK.png">
+                                    <img class="chess__holding-piece chess__holding-piece-bQ" src="images/small/bQ.png">
+                                    <img class="chess__holding-piece chess__holding-piece-bQ" src="images/small/bQ.png">
+                                    <img class="chess__holding-piece chess__holding-piece-bR" src="images/small/bR.png">
+                                    <img class="chess__holding-piece chess__holding-piece-bR" src="images/small/bR.png">
+                                    <img class="chess__holding-piece chess__holding-piece-bB" src="images/small/bB.png">
+                                    <img class="chess__holding-piece chess__holding-piece-bB" src="images/small/bB.png">
+                                    <img class="chess__holding-piece chess__holding-piece-bN" src="images/small/bN.png">
+                                    <img class="chess__holding-piece chess__holding-piece-bN" src="images/small/bN.png">
+                                    <img class="chess__holding-piece chess__holding-piece-bP" src="images/small/bP.png">
+                                    <img class="chess__holding-piece chess__holding-piece-bP" src="images/small/bP.png">
+                                    <img class="chess__holding-piece chess__holding-piece-bP" src="images/small/bP.png">
+                                    <img class="chess__holding-piece chess__holding-piece-bP" src="images/small/bP.png">
+                                    <img class="chess__holding-piece chess__holding-piece-bP" src="images/small/bP.png">
+                                    <img class="chess__holding-piece chess__holding-piece-bP" src="images/small/bP.png">
+                                    <img class="chess__holding-piece chess__holding-piece-bP" src="images/small/bP.png">
+                                    <img class="chess__holding-piece chess__holding-piece-bP" src="images/small/bP.png">
                                 </div>  
                             </div>
 
@@ -161,25 +161,24 @@
                             Note: Advantage scoring is provided by the <a href="https://github.com/official-stockfish/Stockfish">Stockfish Chess Engine</a> in centipawns, a <a href="http://chess.wikia.com/wiki/Centipawn">standard unit of measure for chess advantage</a> that accounts for pieces on the board and their relative positions. Our winner prediction is then derived from the advantage score based on the fascinating correlation found <a href="https://chessprogramming.wikispaces.com/Pawn+Advantage%2C+Win+Percentage%2C+and+ELO">here</a>.
                             </p>
 
-
-                            <div id="chess--gameDetail">
+                            <div id="chess__gameDetail">
                                 <h3>Game Detail</h3>
                                 <details role="group">
                                     <summary role="button" aria-expanded="true">Move History</summary>
-                                    <div id="chess---gameHistory">
+                                    <div id="chess__game-history">
                                     </div>
                                 </details>
                                 <details role="group">
                                     <summary role="button" aria-expanded="true">Detailed Chess Engine Output</summary>
-                                    <div id="chess---gameOutput">
+                                    <div id="chess__game-output">
                                         <div class="layout--equal">
-                                            <div class="module chess--nopadding">
+                                            <div class="module chess__nopadding">
                                                 <h4>Asm.js</h4>
-                                                <div id="chess--p1Stats" class="chess--statsDetail">&nbsp;</div>
+                                                <div id="chess__p1-stats" class="chess__stats-detail">&nbsp;</div>
                                             </div>
-                                            <div class="module chess--nopadding">
+                                            <div class="module chess__nopadding">
                                                 <h4>Not Optimized</h4>
-                                                <div id="chess--p2Stats" class="chess--statsDetail">&nbsp;</div>
+                                                <div id="chess__p2-stats" class="chess__stats-detail">&nbsp;</div>
                                             </div>
                                         </div>
                                     </div>
@@ -189,7 +188,7 @@
                     </div>
                 </div>
             </div>
-            <div id="chess--detail" class="container">
+            <div id="chess__detail" class="container">
                 <div class="layout layout--sidebar--alt">
                     <div class="module">
                     </div>

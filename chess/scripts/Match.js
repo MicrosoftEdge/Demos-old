@@ -20,7 +20,7 @@
 		this.gameReady = false;
 		this.skillLevel = 20;
 
-		this.advantageChart = new app.Chart(document.getElementById('chess--chartAdvantage'), {
+		this.advantageChart = new app.Chart(document.getElementById('chess__chart-advantage'), {
 			initMaxValue: 1,
 			maxValueIncrement: 0,
 			minGroupSize: 4,
@@ -37,34 +37,34 @@
 		});
 		/*eslint-enable new-cap*/
 
-		this.$boardOverlay = $('#chess--boardOverlay');
-		this.$gameDetail = $('#chess--gameDetail');
-		this.$startButton = $('#chess--startStopButton');
+		this.$boardOverlay = $('#chess__board-overlay');
+		this.$gameDetail = $('#chess__game-detail');
+		this.$startButton = $('#chess__start-stop-button');
 		this.$startButton.on('click', $.proxy(this.onStartButtonClick, this));
 
-		this.$optionsPanel = $('#chess--options');
-		this.$optionsButton = $('#chess--optionsButton, #chess--optionsHideButton');
+		this.$optionsPanel = $('#chess__options');
+		this.$optionsButton = $('#chess__options-button, #chess__options-hide-button');
 		this.$optionsButton.on('click', $.proxy(this.onOptionsButtonClick, this));
 
-		this.$p1Stats = $('#chess--p1Stats');
-		this.$p2Stats = $('#chess--p2Stats');
+		this.$p1Stats = $('#chess__p1-stats');
+		this.$p2Stats = $('#chess__p2-stats');
 
-		this.$scoreP1Score = $('#chess--scoreP1Score');
-		this.$scoreP2Score = $('#chess--scoreP2Score');
+		this.$scoreP1Score = $('#chess__score-p1-score');
+		this.$scoreP2Score = $('#chess__score-p2-score');
 
-		this.$scoreP1Advantage = $('#chess--scoreP1Advantage');
-		this.$scoreP2Advantage = $('#chess--scoreP2Advantage');
+		this.$scoreP1Advantage = $('#chess__score-p1-advantage');
+		this.$scoreP2Advantage = $('#chess__score-p2-advantage');
 
-		this.$gameHistory = $('#chess---gameHistory');
+		this.$gameHistory = $('#chess__game-history');
 
-		this.$timePerTurnOptionValue = $('#chess--optionRangeTimePerTurnValue');
-		this.$timePerTurnOption = $('#chess--optionRangeTimePerTurn');
+		this.$timePerTurnOptionValue = $('#chess__option-range-time-per-turn-value');
+		this.$timePerTurnOption = $('#chess__option-range-time-per-turn');
 
-		this.$skillLevelOptionValue = $('#chess--optionRangeSkillLevelValue');
-		this.$skillLevelOption = $('#chess--optionRangeSkillLevel');
+		this.$skillLevelOptionValue = $('#chess__option-range-skill-level-value');
+		this.$skillLevelOption = $('#chess__option-range-skill-level');
 
-		this.$contemptOptionValue = $('#chess--optionRangeContemptValue');
-		this.$contemptOption = $('#chess--optionRangeContempt');
+		this.$contemptOptionValue = $('#chess__option-range-contempt-value');
+		this.$contemptOption = $('#chess__option-range-contempt');
 
 		this.p1Stats = { totalNodes: 0, totalTime: 0, maxDepth: 0, relNodes: 1, currentTurn: null, pWin: 0.5 };
 		this.p2Stats = { totalNodes: 0, totalTime: 0, maxDepth: 0, relNodes: 1, currentTurn: null, pWin: 0.5 };
@@ -158,15 +158,15 @@
 	};
 
 	Match.prototype.onOptionsButtonClick = function() {
-		this.$boardOverlay.toggleClass('chess--showOptions');
+		this.$boardOverlay.toggleClass('chess__show-options');
 	};
 
 	Match.prototype.onPlayerReady = function() {
 		if (this.player1.engineReady && this.player2.engineReady) {
 			this.gameReady = true;
 			this.$boardOverlay
-				.removeClass('chess--showInit')
-				.addClass('chess--showStart');
+				.removeClass('chess__show-init')
+				.addClass('chess__show-start');
 		}
 	};
 
@@ -271,9 +271,9 @@
 			message = 'Game over!';
 		}
 
-		$('#chess--boardMessage span').html(message);
-		$('#chess--boardOverlay').fadeIn(500);
-		$('#chess--boardOverlay').delay(1000).addClass('chess--showMessage');
+		$('#chess__board-message span').html(message);
+		$('#chess__board-overlay').fadeIn(500);
+		$('#chess__board-overlay').delay(1000).addClass('chess__show-message');
 	};
 
 	Match.prototype.onCapturedPiece = function(result) {
@@ -284,7 +284,7 @@
 			piece = 'b';
 		}
 
-		$('#chess--noneCaptured' + piece).hide();
+		$('#chess__none-captured' + piece).hide();
 
 		switch (result.captured) {
 			case this.game.PAWN:
@@ -310,8 +310,8 @@
 				break;
 		}
 
-		$('.chess--holdingPiece' + piece).not('.chess--holdingCaptured').first()
-			.addClass('chess--holdingCaptured');
+		$('.chess__holding-piece' + piece).not('.chess__holding-captured').first()
+			.addClass('chess__holding-captured');
 	};
 
 	Match.prototype.startNextTurn = function() {
@@ -326,7 +326,7 @@
 
 		if (mv) {
 			$('<span/>')
-				.addClass('chess--color' + mv.color)
+				.addClass('chess__color' + mv.color)
 				.html(history.length + '. ' + mv.piece.toUpperCase() + '' + mv.from + ' ' + mv.to).appendTo(this.$gameHistory);
 		}
 
