@@ -38,10 +38,6 @@
 			line = event;
 		}
 
-		if (this.name === 'Player1') {
-			//console.log(this.name + ' reply: ' + line);
-		}
-
 		if (line === 'uciok') {
 			this.engineLoaded = true;
 		} else if (line === 'readyok') {

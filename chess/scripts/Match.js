@@ -190,10 +190,6 @@
 		}
 	};
 
-	Match.prototype.updateChartMaxValue = function(maxValue) {
-		console.log('new maxValue: ' + maxValue);
-	};
-
 	Match.prototype.updateStats = function($stats, stats, info) {
 		$stats.empty();
 
