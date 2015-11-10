@@ -35,7 +35,10 @@
                         On this page, we match two chess engines against one another. They are identical in nearly every detail, including source code! The only difference is that one has a flag set to be interpreted as asm.js, a specialized and strict JavaScript subset that allows JavaScript engines to employ specialized compilation to dramatically speed up execution.
                     </p>
                     <p>
-                        <strong>Click the "Start a Match" </strong> button below to find out if the asm.js optimized code will perform better against regular JavaScript.
+                    	Each turn is limited to 200ms – because the asm.js-optimized engine has a significant performance advantage, it can evaluate more moves per turn and has a substantially higher likelihood of victory. You can adjust the turn length and other variables in the demo to see how they affect the outcome of the game.
+                    </p>
+                    <p>
+                        <strong>Click the "Start a Match" </strong> button below to see how the asm.js optimized code performs better against non-optimized JavaScript.
                     </p>
                 </div>
             </div>
