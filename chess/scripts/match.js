@@ -283,7 +283,7 @@
 			piece = 'b';
 		}
 
-		$('#chess__none-captured' + piece).hide();
+		$('#chess__none-captured-' + piece).hide();
 
 		switch (result.captured) {
 			case this.game.PAWN:
@@ -309,7 +309,7 @@
 				break;
 		}
 
-		$('.chess__holding-piece' + piece).not('.chess__holding-captured').first()
+		$('.chess__holding-piece-' + piece).not('.chess__holding-captured').first()
 			.addClass('chess__holding-captured');
 	};
 
