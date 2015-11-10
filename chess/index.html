@@ -16,13 +16,12 @@
                     <h1>Asm.js vs. Plain Javascript Chess Battle</h1>
                 </div>
                 <div class="section__body">
-                    
-<p>
-On this page, we match two chess engines against one another. They are identical in nearly every detail, including source code! The only difference is that one has a flag set to be interpreted as Asm.js, a specialized and strict JavaScript subset that allows JavaScript engines to employ specialized compilation to dramatically speed up execution. 
-</p>
-<p>
-Curious how well the Asm.js otpimized code will do against regular JavaScript? Just click the "Start a Match" button below to find out.
-</p>
+                    <p>
+                        On this page, we match two chess engines against one another. They are identical in nearly every detail, including source code! The only difference is that one has a flag set to be interpreted as Asm.js, a specialized and strict JavaScript subset that allows JavaScript engines to employ specialized compilation to dramatically speed up execution.
+                    </p>
+                    <p>
+                        <strong>Click the "Start a Match" </strong> button below to find out if the Asm.js optimized code will perform better against regular JavaScript.
+                    </p>
                 </div>
             </div>
         </header>
@@ -35,36 +34,39 @@ Curious how well the Asm.js otpimized code will do against regular JavaScript? J
                     <!-- chess board -->
                     <div id="chess--boardContainer" class="module">
                         <div id="board" class="no-vertical-rhythm"></div>
-                        <div id="chess--boardOverlay">
-                            <div id="chess--boardOverlayContent">
+                        <div id="chess--boardOverlay" class="chess--showInit">
+                            <div id="chess--initPrompt">
+                                Initializing...
+                            </div>
+                            <div id="chess--startPrompt">
                                 Start a Match<br>
                                 <div id="chess--startStopButton"></div><br>
-                                <!--<div id="chess--optionsButton"></div>-->
-                                <div id="chess--optionsButton"><span>Show Options</span><span>Hide Options</span></div>
-
-                                <div id="chess--options">
-                                    <label for="chess--optionRangeTimePerTurn">
-                                        Time per turn: <span id="chess--optionRangeTimePerTurnValue" class="chess--optionsValue"></span> ms<br>
-                                        <small>The amount of time given to each player to find a best move. Up to a point, smaller numbers tend to give an advantage to the Asm.js optimized code.</small>
-                                    </label>
-                                    <input id="chess--optionRangeTimePerTurn" type="range" min="0" max="1000" />
-
-                                    <label for="unique-range">
-                                        Skill Level: <span id="chess--optionRangeSkillLevelValue" class="chess--optionsValue">20</span><br>
-                                        <small>The effective skill of the chess engine. Level 20 is the strong and 0 is the weakest (multiple intentionally bad moves).</small>
-                                    </label>
-                                    <input id="chess--optionRangeSkillLevel" type="range" min="0" max="20" />
-
-                                    <label for="unique-range">
-                                        Contempt: <span id="chess--optionRangeContemptValue" class="chess--optionsValue">0</span><br>
-                                        <small>Roughly equivalent to "optimism." Positive values of contempt favor more "risky" play, while negative values will favor draws. Zero is neutral.</small>
-                                    </label>
-                                    <input id="chess--optionRangeContempt" type="range" min="-100" max="100" />
-
-                                </div>
-
+                                <div id="chess--optionsButton">Options</div>
                             </div>
-                            
+                            <div id="chess--boardMessage">
+                                <span>Checkmate! ASM.js wins!</span><br>
+                                <small>Refresh this page to play again</small>
+                            </div>
+                             <div id="chess--options">
+                                <div id="chess--optionsHideButton"><span>Hide Options</span></div>
+                                <label for="chess--optionRangeTimePerTurn">
+                                    Time per turn: <span id="chess--optionRangeTimePerTurnValue" class="chess--optionsValue"></span> ms<br>
+                                    <small>The amount of time given to each player to find a best move. Up to a point, smaller numbers tend to give an advantage to the Asm.js optimized code.</small>
+                                </label>
+                                <input id="chess--optionRangeTimePerTurn" type="range" min="0" max="1000" />
+
+                                <label for="unique-range">
+                                    Skill Level: <span id="chess--optionRangeSkillLevelValue" class="chess--optionsValue">20</span><br>
+                                    <small>The effective skill of the chess engine. Level 20 is the strong and 0 is the weakest (multiple intentionally bad moves).</small>
+                                </label>
+                                <input id="chess--optionRangeSkillLevel" type="range" min="0" max="20" />
+
+                                <label for="unique-range">
+                                    Contempt: <span id="chess--optionRangeContemptValue" class="chess--optionsValue">0</span><br>
+                                    <small>Roughly equivalent to "optimism." Positive values of contempt favor more "risky" play, while negative values will favor draws. Zero is neutral.</small>
+                                </label>
+                                <input id="chess--optionRangeContempt" type="range" min="-100" max="100" />
+                            </div>
                         </div>
                     </div>
 
@@ -79,24 +81,24 @@ Curious how well the Asm.js otpimized code will do against regular JavaScript? J
                                 <div class="module chess--score chess--scoreAsm">
                                     <h3>Asm.js</h3>
                                     <div class="layout--equal">
-                                        <div class="module chess--nopadding">
+                                        <div class="module chess--scoreColumn chess--nopadding">
                                             <span id="chess--scoreP1Advantage">&nbsp;</span>
                                             <small>Predicted<br>Chance&nbsp;of&nbsp;Win</small>
                                         </div>
-                                        <div class="module chess--nopadding chess--scoreDetail">
+                                        <div class="module chess--scoreColumn chess--nopadding chess--scoreDetail">
                                             <span id="chess--scoreP1Score">&nbsp;</span>
                                             <small>Score<br>(In&nbsp;Centipawns)</small>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="module chess--score chess--scoreNormal">
-                                    <h3>Not Optimized</h3>
+                                    <h3>Not&nbsp;Optimized</h3>
                                     <div class="layout--equal">
-                                        <div class="module chess--nopadding">
+                                        <div class="module chess--scoreColumn chess--nopadding">
                                             <span id="chess--scoreP2Advantage">&nbsp;</span>
                                             <small>Predicted<br>Chance&nbsp;of&nbsp;Win</small>
                                         </div>
-                                        <div class="module chess--nopadding chess--scoreDetail">
+                                        <div class="module chess--scoreColumn chess--nopadding chess--scoreDetail">
                                             <span id="chess--scoreP2Score">&nbsp;</span>
                                             <small>Score<br>(In&nbsp;Centipawns)</small>
                                         </div>

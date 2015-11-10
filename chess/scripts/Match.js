@@ -43,7 +43,7 @@
 		this.$startButton.on('click', $.proxy(this.onStartButtonClick, this));
 
 		this.$optionsPanel = $('#chess--options');
-		this.$optionsButton = $('#chess--optionsButton');
+		this.$optionsButton = $('#chess--optionsButton, #chess--optionsHideButton');
 		this.$optionsButton.on('click', $.proxy(this.onOptionsButtonClick, this));
 
 		this.$p1Stats = $('#chess--p1Stats');
@@ -164,6 +164,9 @@
 	Match.prototype.onPlayerReady = function() {
 		if (this.player1.engineReady && this.player2.engineReady) {
 			this.gameReady = true;
+			this.$boardOverlay
+				.removeClass('chess--showInit')
+				.addClass('chess--showStart');
 		}
 	};
 
@@ -229,9 +232,16 @@
 		this.$scoreP2Advantage.text(roundToDecimals(this.p2Stats.pWin * 100, 1) + '%');
 	};
 
+	Match.prototype.resize = function() {
+		if (this.board) {
+			this.board.resize();
+		}
+	};
+
 	Match.prototype.onPlayerMove = function(move) {
 		var result = this.game.move(move);
-		if (result.captured) {
+
+		if (result && result.captured) {
 			this.onCapturedPiece(result);
 		}
 
@@ -245,13 +255,25 @@
 	};
 
 	Match.prototype.onGameOver = function() {
-		console.log('game over');
+		var message = '';
 
-		// check for various conditions that can cause end of game
-		console.log('in checkmate: ' + this.game.in_checkmate());
-		console.log('in draw: ' + this.game.in_draw());
-		console.log('in threefold_repetition: ' + this.game.in_threefold_repetition());
-		console.log('insufficient material: ' + this.game.insufficient_material());
+		if (this.game.in_checkmate()) {
+			var history = this.game.history({ verbose: true }),
+				lastMove = history[history.length - 1];
+
+			if (lastMove) {
+				message = 'Checkmate! ';
+				message += lastMove.color === this.player1.color ? 'The ASM.js JavaScript wins!' : 'The non-optimized JavaScript wins!';
+			}
+		} else if (this.game.in_draw() || this.game.in_threefold_repetition() || this.game.insufficient_material()) {
+			message = 'Game over! No one wins... it\'s a draw!';
+		} else {
+			message = 'Game over!';
+		}
+
+		$('#chess--boardMessage span').html(message);
+		$('#chess--boardOverlay').fadeIn(500);
+		$('#chess--boardOverlay').delay(1000).addClass('chess--showMessage');
 	};
 
 	Match.prototype.onCapturedPiece = function(result) {
