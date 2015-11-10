@@ -196,8 +196,8 @@ a:hover, a:visited:hover
 }
 
 @font-face {
-	font-family: 'Opificio';	
-	src: local('☺'), url('http://edgeportal.blob.core.windows.net/media/Opificio.woff') format('woff');
+	font-family: 'Opificio';
+	src: local('☺'), url('https://edgeportal.blob.core.windows.net/media/Opificio.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
 }

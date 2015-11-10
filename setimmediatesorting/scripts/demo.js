@@ -150,8 +150,8 @@
 		this.usePostMessage = false;
 		this.intervalTime = 15;
 		this.results = document.getElementById('HTML4TestResuts');
-		this.powerConsumption = '<span style="color:green;">Standard</span>';
-		this.CPUEfficency = '<span style="color:red;">Low</span>';
+		this.powerConsumption = '<span style="color:#107C10;">Standard</span>';
+		this.CPUEfficency = '<span style="color:#F03A17;">Low</span>';
 		this.reset();
 		this.start();
 	};
@@ -161,8 +161,8 @@
 		this.usePostMessage = false;
 		this.intervalTime = 4;
 		this.results = document.getElementById('HTML5TestResults');
-		this.powerConsumption = '<span style="color:red;">High</span>';
-		this.CPUEfficency = '<span style="color:orange;">Medium</span>';
+		this.powerConsumption = '<span class="test-result--bad">High</span>';
+		this.CPUEfficency = '<span class="test-result--neutral">Medium</span>';
 		this.reset();
 		this.start();
 	};
@@ -171,8 +171,8 @@
 		this.useSetImmediate = false;
 		this.usePostMessage = true;
 		this.results = document.getElementById('postMessageTestResults');
-		this.powerConsumption = '<span style="color:orange;">Medium</span>';
-		this.CPUEfficency = '<span style="color:green;">High</span>';
+		this.powerConsumption = '<span class="test-result--neutral">Medium</span>';
+		this.CPUEfficency = '<span class="test-result--good">High</span>';
 		this.reset();
 		this.start();
 	};
@@ -182,8 +182,8 @@
 		this.usePostMessage = false;
 		this.intervalTime = 4;
 		this.results = document.getElementById('setImmediateTestResults');
-		this.powerConsumption = '<span style="color:green;">Low</span>';
-		this.CPUEfficency = '<span style="color:green;">High</span>';
+		this.powerConsumption = '<span class="test-result--good">Low</span>';
+		this.CPUEfficency = '<span class="test-result--good">High</span>';
 		this.reset();
 
 		if (browserSupportsSetImmediate === false) {
@@ -261,8 +261,8 @@
 			this.compareY.elem.style.borderColor = 'black';
 		}
 		if (this.swapX) {
-			this.swapX.elem.style.backgroundColor = 'green';
-			this.swapY.elem.style.backgroundColor = 'green';
+			this.swapX.elem.style.backgroundColor = '#107C10';
+			this.swapY.elem.style.backgroundColor = '#107C10';
 		}
 		this.workQueue = [];
 	};
@@ -330,16 +330,16 @@
 		var by = this.bars[y];
 		if (this.swapX !== x) {
 			if (this.swapX) {
-				this.swapX.elem.style.backgroundColor = 'green';
+				this.swapX.elem.style.backgroundColor = '#107C10';
 			}
-			bx.elem.style.backgroundColor = 'blue';
+			bx.elem.style.backgroundColor = '#0037DA';
 			this.swapX = bx;
 		}
 		if (this.swapY !== y) {
 			if (this.swapY) {
-				this.swapY.elem.style.backgroundColor = 'green';
+				this.swapY.elem.style.backgroundColor = '#107C10';
 			}
-			by.elem.style.backgroundColor = 'red';
+			by.elem.style.backgroundColor = '#F03A17';
 			this.swapY = by;
 		}
 

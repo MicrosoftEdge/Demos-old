@@ -5,62 +5,83 @@
 	<meta name="description" content=""/>
 	<meta name="keywords" content="JavaScript, es6, ecmascript, math, expm1, log1p"/>
 	<meta name="author" content="bterlson"/>
-	<link rel="stylesheet" type="text/css" href="http://edgeportal.blob.core.windows.net/media/demotemplate.css">
-	<link rel="stylesheet" type="text/css" href="styles/demo.css"/>	
+	<link rel="stylesheet" type="text/css" href="https://edgeportal.blob.core.windows.net/media/demotemplate.css">
+	<link rel="stylesheet" type="text/css" href="styles/demo.css"/>
 </head>
 <body>
 
-	<!-- DEMO INTRO -->
-	<header class="section section--page-intro demo__header">
-		<div class="container">
-			<div class="section__header">
-				<h1>Precision of new Math APIs</h1>
-			</div>
+<!-- DEMO INTRO -->
+<header class="section section--page-intro demo__header">
+	<div class="container">
+		<div class="section__header">
+			<h1>Precision of new Math APIs</h1>
 		</div>
-	</header>
-	
-	<!-- DEMO CONTENT -->
-	<section role="region" class="section">
-		<div class="container">
-		
-			<header class="section__header">
-				<h2>Math.log1p</h2>
-			</header>
-			<div class="section__body">
-				<div class="section-body">
-					<p>The built-in function <a href="https://people.mozilla.org/~jorendorff/es6-draft.html#sec-math.log1p">Math.log1p(x)</a> calculates the value of the expression <code>Math.log(1 + x)</code>. At first glance it may seem strange to include such a simple helper, but its purpose is not convenience but to preserve precision when x is very small. Take a look at the following chart:</p>
-					<div class="math-chart" id="log1p-demo">
+	</div>
+</header>
 
-					</div>
-					<div class="longform-caption">
-						<p>Note how once we reach input values smaller than around 10<sup>-13</sup> we start losing significant amounts of precision while Math.log1p does not. To understand why we have to look at how floating point works. Floating point values are stored in 3 components - a sign bit, a significand, and an exponent. The value of the floating point is determined by evaluating <code>sign * significand * 10<sup>exponent</sup></code>. In JavaScript, floats are 64 bits wide (also known as double precision floats) and allocate 1 bit for the sign, 11 bits for the exponent, leaving 52 bits for the significand.</p>
-						<p>So now let's look at our calculation of Math.log(1 + x) when x is very small. Since we have a very tiny number less than 1, wecan express all the leading zeroes as a negative exponent and reserve all of the significand to express precision following the first non-zero digit. But when we add 1 to this number, we end up with a number very slightly more than 1. In this case, we need to set the exponent to 0, forcing us to use the significand to encode all of the subsequent 0's after the initial 1. This leaves us significantly fewer bits available for precision since most of the significand is now dedicated to encoding the 0's following the initial 1.</p>
-						<p>To illustrate this problem further, you can evaluate <code>0 + 1E-100 === 0</code> as compared to <code>1 + 1E-100 === 1</code> and note that the former is true while the latter is not. This is the same issue - JavaScript floats do not have sufficient bits to represent a number slightly more than 1, but slightly more than 0 is no problem because we can use a negative exponent.</p>
-					</div>
+<!-- DEMO CONTENT -->
+<section role="region" class="section">
+	<div class="container">
+
+		<header class="section__header">
+			<h2>Math.log1p</h2>
+		</header>
+		<div class="section__body">
+			<div class="section-body">
+				<p>The built-in function <a href="https://people.mozilla.org/~jorendorff/es6-draft.html#sec-math.log1p">Math.log1p(x)</a>
+					calculates the value of the expression <code>Math.log(1 + x)</code>. At first glance it may seem
+					strange to include such a simple helper, but its purpose is not convenience but to preserve
+					precision when x is very small. Take a look at the following chart:</p>
+
+				<div class="math-chart" id="log1p-demo">
+
+				</div>
+				<div class="longform-caption">
+					<p>Note how once we reach input values smaller than around 10<sup>-13</sup> we start losing
+						significant amounts of precision while Math.log1p does not. To understand why we have to look at
+						how floating point works. Floating point values are stored in 3 components - a sign bit, a
+						significand, and an exponent. The value of the floating point is determined by evaluating <code>sign
+							* significand * 10<sup>exponent</sup></code>. In JavaScript, floats are 64 bits wide (also
+						known as double precision floats) and allocate 1 bit for the sign, 11 bits for the exponent,
+						leaving 52 bits for the significand.</p>
+
+					<p>So now let's look at our calculation of Math.log(1 + x) when x is very small. Since we have a
+						very tiny number less than 1, wecan express all the leading zeroes as a negative exponent and
+						reserve all of the significand to express precision following the first non-zero digit. But when
+						we add 1 to this number, we end up with a number very slightly more than 1. In this case, we
+						need to set the exponent to 0, forcing us to use the significand to encode all of the subsequent
+						0's after the initial 1. This leaves us significantly fewer bits available for precision since
+						most of the significand is now dedicated to encoding the 0's following the initial 1.</p>
+
+					<p>To illustrate this problem further, you can evaluate <code>0 + 1E-100 === 0</code> as compared to
+						<code>1 + 1E-100 === 1</code> and note that the former is true while the latter is not. This is
+						the same issue - JavaScript floats do not have sufficient bits to represent a number slightly
+						more than 1, but slightly more than 0 is no problem because we can use a negative exponent.</p>
 				</div>
 			</div>
-			
 		</div>
-	</section>
-	
-	<section role="region" class="section">
-		<div class="container">
-		
-			<header class="section__header">
-				<h2>Math.expm1</h2>
-			</header>
-			<div class="section__body">
-				<p>The built-in function <a href="https://people.mozilla.org/~jorendorff/es6-draft.html#sec-math.expm1">Math.expm1(x)</a> calculates the value of the expression <code>Math.pow(Math.E, x) - 1</code>.</p>
-				<div class="math-chart" id="expm1-demo">
-	
-				</div>
-				<p>Again note that doing this calculation by hand results in significant loss of precision when x is very small.</p>
-			</section>
-			
-		</div>
-	</section>
 
-<script src="http://d3js.org/d3.v3.min.js"></script>
+	</div>
+</section>
+<section role="region" class="section">
+	<div class="container">
+		<header class="section__header">
+			<h2>Math.expm1</h2>
+		</header>
+		<div class="section__body">
+			<p>The built-in function <a href="https://people.mozilla.org/~jorendorff/es6-draft.html#sec-math.expm1">Math.expm1(x)</a>
+				calculates the value of the expression <code>Math.pow(Math.E, x) - 1</code>.</p>
+
+			<div class="math-chart" id="expm1-demo">
+
+			</div>
+			<p>Again note that doing this calculation by hand results in significant loss of precision when x is very
+				small.</p>
+		</div>
+	</div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
 <script src="scripts/demo.js"></script>
 </body>
 </html>

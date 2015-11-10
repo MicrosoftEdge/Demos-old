@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Using Encrypted Media Extensions.</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="og:title" content="Using Playready content protection and other APIs to produce professional quality video."
+    />
+    <meta name="description" content="" />
+    <meta name="keywords" content="Media, Playready, Encrypted Media Extensions, EME, DRM, Cacheless XMLHttpRequests, Touch, Video, Bitrate, Protected content, Widevine"
+    />
+    <meta name="author" content="InternetExplorer" />
+    <link rel="stylesheet" type="text/css" href="https://edgeportal.blob.core.windows.net/media/demotemplate.css">
+    <link rel="stylesheet" type="text/css" href="styles/demo.css" />
+</head>
+
+<body>
+    <article class="demo-wrap">
+        <!-- DEMO INTRO -->
+        <header class="demo-header section">
+            <div class="container">
+                <heading class="section-header">
+                    <h1 class="heading">Professional Quality Video Updated - Interoperable Playback</h1>
+                </heading>
+            </div>
+        </header>
+        <section class="section">
+            <div class="container">
+                <div class="layout layout--basic">
+                    <div class="module module--secondary">
+                        <h4>About this demo:</h4>
+                        <p>
+                            Play DRM protected media using <a href="http://w3c.github.io/encrypted-media/" class="icon--link"
+                            target="new">Encrypted Media Extensions (EME)</a>. Adjust the bitrate slider to simulate adaptive
+                            streaming by changing the video quality midstream. Play captioned media using built-in TTML captioning.
+                        </p>
+                    </div>
+                    <div class="module module--primary">
+                        <h4>What's new:</h4>
+                        <p>
+                            Demonstrate playback using different EME API versions and different DRM provider support across multiple browsers. Automatically
+                            use the updated APIs in Microsoft Edge while still supporting vendor-prefixed EME APIs in IE11.
+                            Play DRM protected content identified as "PlayReady/Widevine" in Internet Explorer 11, Microsoft
+                            Edge and Google Chrome.
+                        </p>
+                        <p>
+                            Featuring content hosting and DRM license acquisition services by Windows Azure Media Services.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DEMO CONTENT -->
+            <div class="subsection">
+                <div class="container">
+                    <div class="block-note block-note--error" style="display: none" id="error-container">
+                        <p id="error-display"></p>
+                    </div>
+                    <!--Video library and video display -->
+                    <div class="layout layout--basic">
+                        <div class="module module--secondary" id="library"></div>
+                        <div class="module module--primary" id="videocontainer">
+                            <div class="controls">
+                                <video id="video" poster="images/Big_Buck_Bunny.jpg" controls></video>
+                                <div class="cell">
+                                    <p class="label">Video Bitrate</p>
+                                </div>
+                                <div class="cell">
+                                    <input type="range" id="bitrateSlider" style="padding-top: 30px; padding-bottom: 30px;">
+                                </div>
+                                <div class="cell">
+                                    <p id="bitrateLabel" class="label">0 kbps</p>
+                                </div>
+                                <div class="cell spacer"></div>
+                                <div class="cell">
+                                    <p id="emenotice" class="label">DRM Free</p>
+                                </div>
+                                <div class="cell lockContainer">
+                                    <img id="openlock" class="lockimg" src="images/unlocked.png" />
+                                    <img id="closedlock" class="lockimg" src="images/locked.png" style="display: none;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </article>
+    <script type="text/javascript" src="scripts/demo.js"></script>
+</body>
+
+</html>

@@ -6,7 +6,7 @@
 	<meta name="description" content="Test Whether Certain CSS Properties and Values are Supported">
 	<meta name="keywords" content="CSS, css, @supports, feature testing">
 	<meta name="author" content="AaronGustafson">
-	<link rel="stylesheet" type="text/css" href="http://edgeportal.blob.core.windows.net/media/demotemplate.css">
+	<link rel="stylesheet" type="text/css" href="https://edgeportal.blob.core.windows.net/media/demotemplate.css">
 	<link rel="stylesheet" type="text/css" href="styles/demo.css">
 </head>
 
@@ -33,7 +33,7 @@
 					parser when they are encountered. Knowledge of how parsing errors work is an important
 					tool in the progressive enhancement toolbox as it allows us to author for the future
 					without sacrificing older browsers.</p>
-					
+
 				<div class="subsection">
 					<header class="subsection__header subsection__header--alt">
 						<h3 class="title">Declaration Filters</h3>
@@ -46,31 +46,25 @@
 									src="https://gist.github.com/aarongustafson/d93fe2e887261309c03a.js?file=rgba.css"></script>
 								<noscript>
 									<pre><code class="css">b {
-										background-color: red;
-										background-color: rgba(34, 132, 39, 0.5);
-										}</code></pre>
+	background-color: black;
+	color: white;
+	background-color: rgba(255, 255, 255, 1);
+	color: rgba(0, 0, 0, 1);
+}</code></pre>
 								</noscript>
 							</div>
 							<div class="module">
 								<h5>Result</h5>
 								<div class="rendered-result supports-demo" id="ex-1">
-									<b class="supports-demo__element">What color am I?</b>
+									<b class="supports-demo__element">Browsers that support RGBa will display this as black text on a white field. Browsers that don’t will display it as white text on a black field.</b>
 								</div>
 							</div>
 						</div>
 						<div class="layout layout--equal">
 							<div class="module">
-								<p>Browsers that encounter this rule set will see the selector first and recognize
-									it as a simple type selector. They will then move inside and begin parsing the
-									declarations. All browsers will understand the <code>background-color</code>
-									value “red”, but modern browsers that understand <a
-										href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#rgba()">RGBa
-										colors</a> will apply a background color of green at 50% opacity as declared
-									in “rgba(34, 132, 39, 0.5)”.</p>
+								<p>Browsers that encounter this rule set will see the selector first and recognize it as a simple type selector. They will then move inside and begin parsing the declarations. All browsers will understand the <code>background-color</code> value “black” and the foreground color “white”, but modern browsers that understand <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#rgba()">RGBa colors</a> will apply a <code>background-color</code> of white (as RGBa: <code>rgba(255, 255, 255, 1)</code>) and a foreground color of black (as RGBa: <code>rgba(0, 0, 0, 1);</code>).</p>
 
-								<p>This is a pretty simple example of how to use parsing errors to deliver two
-									different experiences to browsers with different capabilities. Let’s take it up
-									one level higher.</p>
+								<p>This is a pretty simple example of how to use parsing errors to deliver two different experiences to browsers with different capabilities. Let’s take it up one level higher.</p>
 							</div>
 						</div>
 					</div>
@@ -88,36 +82,30 @@
 									src="https://gist.github.com/aarongustafson/d93fe2e887261309c03a.js?file=selector-filter.css"></script>
 								<noscript>
 									<pre><code class="css">b {
-										background-color: red;
-										}
+	background-color: black;
+	color: white;
+}
 
-										b[class] {
-										background-color: green;
-										}</code></pre>
+b:only-child {
+	background-color: white;
+	color: black;
+}</code></pre>
 								</noscript>
 							</div>
 							<div class="module">
 								<h5>Result</h5>
 								<div class="supports-demo rendered-result" id="ex-2">
-									<b class="supports-demo__element">What color am I?</b>
+									<b class="supports-demo__element">Browsers that support <code>:only-child</code> will display this as black text on a white field. Browsers that don’t will display it as white text on a black field.</b>
 								</div>
 							</div>
 						</div>
 						<div class="layout layout--equal">
 							<div class="module">
-								<p>In this example, we have two rule sets. The first uses the simple type selector
-									again, and any browser that implements CSS will be able to apply the red
-									backgrouns color.</p>
+								<p>In this example, we have two rule sets. The first uses the simple type selector again, and any browser that implements CSS will be able to apply the black background color and set the text to appear white.</p>
 
-								<p>The second rule set uses a more complicated attribute selector. Older browsers
-									(think IE6 and earlier) were created before this selector was introduced, so
-									they have no idea what to do with it. Per the CSS spec, these browsers ignore
-									the entire rule set, meaning only more modern browsers will get the green
-									color.</p>
+								<p>The second rule set uses a more complicated pseudo-class selector. Older browsers (think IE 8 and earlier) were created before this selector was introduced, so they have no idea what to do with it. Per the CSS spec, these browsers ignore the entire rule set, meaning only more modern browsers will get the black text on a white field.</p>
 
-								<p>It’s worth noting that with compound selectors (the ones separated by commas) the
-									selectors are not evaluated independently, so if <em>any</em> one of those
-									selectors is not understood, the entire rule set is thrown out.</p>
+								<p>It’s worth noting that with compound selectors (the ones separated by commas) the selectors are not evaluated independently, so if <em>any</em> one of those selectors is not understood, the entire rule set is thrown out.</p>
 							</div>
 						</div>
 					</div>
@@ -135,37 +123,33 @@
 									src="https://gist.github.com/aarongustafson/d93fe2e887261309c03a.js?file=block-filter.css"></script>
 								<noscript>
 									<pre><code class="css">b {
-										background-color: red;
-										}
+	background-color: black;
+	color: white;
+}
 
-										@media only screen {
-										b {
-										background-color: green;
-										}
-										b[class] {
-										background: linear-gradient( 0deg, rgb(65, 150, 44), rgb(26, 219, 73) );
-										}
-										}</code></pre>
+@media only screen {
+	b {
+		background-color: white;
+		color: black;
+	}
+}</code></pre>
 								</noscript>
 							</div>
 							<div class="module">
 								<h5>Result</h5>
 								<div class="supports-demo rendered-result" id="ex-3">
-									<b class="supports-demo__element">What color am I?</b>
+									<b class="supports-demo__element">Browsers that support media queries will display this as black text on a white field. Browsers that don’t will display it as white text on a black field.</b>
 								</div>
 							</div>
 						</div>
 						<div class="layout layout--equal">
 							<div class="module">
-								<p>CSS blocks provide a higher level of filterabilty by letting us isolate a
-									collection of rule sets to specific browsers. In this example, all browsers get
-									a background of red, but media query-aware browsers will apply a background of
-									green or a linear gradient (if the browser supports it).</p>
+								<p>CSS blocks provide a higher level of filterabilty by letting us isolate a collection of rule sets to specific browsers. In this example, all browsers display white text on a black field, but media query-aware browsers will override that setting and display black text on a white field.</p>
 							</div>
 						</div>
 					</div>
 				</div>
-				
+
 			</div>
 		</div>
 	</section>
@@ -180,7 +164,7 @@
 			<div class="section__body">
 				<p>The <code>@supports</code> block lets us feature detect before applying certain style
 				rules. Let’s look at a simple example:</p>
-				
+
 				<div class="subsection">
 					<div class="subsection__body">
 						<div class="layout layout--equal">
@@ -190,44 +174,53 @@
 									src="https://gist.github.com/aarongustafson/d93fe2e887261309c03a.js?file=supports-filter.css"></script>
 								<noscript>
 									<pre><code class="css">b {
-										background-color: red;
-										}
+	background-color: black;
+	color: white;
+}
 
-										@supports ( background: linear-gradient(0deg,red,red) ) {
-										b {
-										background: linear-gradient( 0deg, rgb(65, 150, 44), rgb(26, 219, 73) );
-										}
-										}</code></pre>
+@supports ( background: linear-gradient(0deg,white,white) ) {
+	b {
+		background: linear-gradient(0deg,white,white);
+		color: black;
+	}
+}</code></pre>
 								</noscript>
 							</div>
 							<div class="module">
 								<h5>Result</h5>
 								<div class="supports-demo rendered-result" id="ex-4">
-									<b class="supports-demo__element">What color am I?</b>
+									<b class="supports-demo__element">Browsers that support linear gradients (and <code>@supports</code>) will display this as black text on a white field. Browsers that don’t will display it as white text on a black field.</b>
 								</div>
 							</div>
 						</div>
 						<div class="layout layout--equal">
 							<div class="module">
-								<p>This example is pretty similar to the earlier <code>@media</code> block filter,
-									but <code>@supports</code> allows you to specify what property and value (or
-									value type) you need the browser to support before it decends into the block and
-									attempts to parse the rule sets within.</p>
-
-								<p>The feature detection in this example is for a linear gradient (the shortest one
-									I could think of, to save some bits). Browsers that don’t understand <code>@supports</code>
-									will ignore the block and apply the red color. Browsers that understand <code>@supports</code>
-									but don’t implement linear gradients using this syntax would also ignore the
-									block and apply the red color. But browsers that do understand
-									<code>@supports</code> <em>and</em> implement linear gradients will decend into
-									the the block and apply the green linear gradient background.</p>
+								<p>This example is pretty similar to the earlier <code>@media</code> block filter, but <code>@supports</code> allows you to specify what property and value (or value type) you need the browser to support before it decends into the block and attempts to parse the rule sets within.</p>
+								<p>The feature detection in this example is for a linear gradient (the shortest one I could think of, to save some bits). Browsers that don’t understand <code>@supports</code> will ignore the block and display white text on a black field. Browsers that understand <code>@supports</code> but don’t implement linear gradients using this syntax would also ignore the block and display white text on a black field. But browsers that do understand <code>@supports</code> <em>and</em> implement linear gradients will parse the rule set in the the block and display black text on a white field.</p>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</section>	
+	</section>
+
+	<!-- CONTROLS -->
+	<section role="region" class="section">
+		<div class="container">
+			<header class="section__header">
+				<h2>Polyfilling <code>@supports</code></h2>
+			</header>
+			<div class="section__body">
+				<p>Numerous polyfills for <code>@supports</code> are available:</p>
+				<ul>
+					<li><strong><a href="https://gist.github.com/codler/03a0995195aa2859465f">CSS.supports()</a></strong> by Han Lin Yap</li>
+					<li><strong><a href="https://github.com/termi/CSS.supports/">CSS.supports polyfill</a></strong> by Егор Халимоненко</li>
+					<li><strong><a href="https://github.com/kjarmicki/fq-polyfill">@supports polyfill</a></strong> by Krystian Jarmicki (pollyfills the <code>window.CSS.supports()</code> method and <code>@supports</code> blocks in stylesheets)</li>
+				</ul>
+			</div>
+		</div>
+	</section>
 
 </body>
 </html>

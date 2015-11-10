@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<!-- This is an example TTML file to exercise every feature of the proposed subset.
+    
+  -->
+  
+<tt xml:lang="en-us"  
+    xmlns="http://www.w3.org/ns/ttml"
+    xmlns:s='http://www.w3.org/ns/ttml#styling'
+    xmlns:p='http://www.w3.org/ns/ttml#parameter'
+    p:frameRate="32"
+    p:profile="http://www.w3.org/TR/profile/online-delivery"
+    >
+   
+<head>
+      
+	<styling>
+		<!-- A style with 'LARGE' text size and center alignment-->
+		<style xml:id="topMidStyle" s:fontSize="150%" s:textAlign="center"  s:textBackgroundColor="#000000ff" s:color="#00ff00ff" s:origin='20% 10%' s:extent='60% 10%'/>
+
+		<!-- A typical transparent region with centered text that has an outline -->
+		<style xml:id="bottomMidStyle" s:textAlign="center" s:textOutline="#000000ff 5%" s:backgroundColor="#00000000" s:color="#ffffffff" s:origin='20% 75%' s:extent='60% 12%'/>		<style xml:id="topMidStyle" s:textAlign="center" s:textOutline="#000000ff 5%" s:backgroundColor="#00000000" s:color="#ffffffff" s:origin='20% 10%' s:extent='60% 18%'/>
+
+		<!-- A typical transparent region with centered text that has an outline (red here so we can see it in the ADK player) -->
+		<style xml:id="rollupStyle" s:fontSize="100%" s:textAlign="left" s:textOutline="#ff0000ff 10%" s:backgroundColor="#00000000" s:color="#ffffffff" s:origin='10% 20%' s:extent='30% 50%'/>
+
+		<!-- One of the 8 font style required by the FCC -->
+		<style xml:id="defaultFont" s:fontFamily="proportionalSerif"/>
+		<!-- Additional font strings not defined in TTML 1.0 casual, cursive, smallcap -->
+		<style xml:id="fccFont" s:fontFamily="proportionalSerif"/>
+
+		<!-- the various 'semantic' visual effects -->
+		<style xml:id="emphasis1" s:fontStyle="italic"/>
+		<!-- NB fontWeight is not part of the proposed profile, so its OK to ignore  this but its included here to show how the profile feature works-->
+		<style xml:id="emphasis2" s:textDecoration="underline" />
+		<style xml:id="emphasis3" s:color="#ff0000ff"/>
+    </styling>
+	
+    <layout>
+		<!-- A region that models the typical safe titiling ares -->
+		<region xml:id="safeTitleRegion" begin='00:00:37.000' end='00:00:40.000' style="safeTitleStyle"/>
+
+		<!-- typical 'pop up' type region -->
+		<region xml:id="bottomMid" begin='00:00:00.000' end='00:01:14.000' style="bottomMidStyle"/>
+		
+		<!-- typical 'pop up' type region -->
+		<region xml:id="topMid" begin='00:00:00.000' end='00:01:14.000' style="topMidStyle"/>
+
+		<!-- A rollup type region -->
+		<region xml:id="rollup" begin='00:00:00.000' end='00:01:14.000' style="rollupStyle"/>
+	</layout>
+</head>
+
+<body>
+	<!-- Note profile does not support divs in divs, or spans in spans -->
+	<div style="defaultFont">
+	<!-- Note only hh:mm:ss.frac style times are allowed. Need to add frames example.-->
+
+	<!--<p region="topMid" begin='00:00:01.000' end='00:01:27.000'>
+	<span style="emphasis2">Roll-up Captions</span>
+	</p>-->
+
+	<p region="rollup" s:backgroundColor="#00000040" begin='00:00:00.000' end='00:00:06.000'>
+	...music...
+	</p>
+		
+	<p region="rollup" s:backgroundColor="#00000040" begin='00:00:07.000' end='00:00:13.000'>
+	That means that...you're adopted.
+	</p>
+	<p region="rollup" s:backgroundColor="#00000040" s:color="#00ff00ff" begin='00:00:09.000' end='00:00:13.000'>
+	...horns!!!...
+	</p>
+	
+	<p region="rollup" s:backgroundColor="#00000040" begin='00:00:15.000' end='00:00:21.000'>
+	Hey!  Slow down!
+	</p>
+	<p region="rollup" s:backgroundColor="#00000040" s:color="#ff0000ff" begin='00:00:17.000' end='00:00:21.000'>
+	I'll never be like yoooouuuu...!
+	</p>
+
+	<p region="rollup" s:backgroundColor="#00000040" begin='00:00:22.000' end='00:00:28.000'>
+	Son, what's this I found in your sock drawer?
+	</p>
+	<p region="rollup" s:backgroundColor="#00000040" s:color="#ffff00ff" begin='00:00:25.000' end='00:00:28.000'>
+	Get out of my room, Dad!
+	</p>
+	
+	<p region="rollup" s:backgroundColor="#00000040" s:color="#00ff00ff" begin='00:00:31.000' end='00:00:35.000'>
+	OooooooooooOOOOOooh!!
+	</p>
+	<p region="rollup" s:backgroundColor="#00000040" s:color="#ff0000ff" begin='00:00:34.000' end='00:00:35.000'>
+	Oooooooooooh!!
+	</p>
+	
+	<p region="rollup" s:backgroundColor="#00000040" begin='00:00:37.000' end='00:00:43.000'>
+	Son,
+	</p>
+	<p region="rollup" s:backgroundColor="#00000040" begin='00:00:38.000' end='00:00:43.000'>
+	there are a lot of sites out there...
+	</p>
+	<p region="rollup" s:backgroundColor="#00000040" begin='00:00:39.500' end='00:00:43.000'>
+	and uh...
+	</p>
+	<p region="rollup" s:backgroundColor="#00000040" s:color="#ffff00ff" begin='00:00:40.000' end='00:00:43.000'>
+	Look, Dad...I'm safe!
+	</p>
+	
+	<p region="rollup" s:backgroundColor="#00000040" begin='00:00:44.000' end='00:00:51.000'>
+	Well, I hear Clippy's daughter is looking pretty cute.
+	</p>
+	<p region="rollup" s:backgroundColor="#00000040" begin='00:00:47.500' end='00:00:51.000'>
+	...whistle...
+	</p>
+	<p region="rollup" s:backgroundColor="#00000040" s:color="#00ff00ff" begin='00:00:48.000' end='00:00:51.000'>
+	No, Dad...I have standards!
+	</p>
+
+	<p region="rollup" s:backgroundColor="#00000040" begin='00:00:52.000' end='00:00:58.000'>
+	Saaaay cheeeeze...!!
+	</p>
+	<p region="rollup" s:backgroundColor="#00000040" begin='00:00:56.000' end='00:00:58.000'>
+	Ahhh...  Give him a minute...
+	</p>
+	
+	<p region="rollup" s:backgroundColor="#00000040" begin='00:00:59.000' end='00:01:05.000'>
+	Could you ... do this?
+	</p>
+	<p region="rollup" s:backgroundColor="#00000040" begin='00:01:00.000' end='00:01:05.000'>
+	...whistle...
+	</p>
+	<p region="rollup" s:backgroundColor="#00000040" s:color="#ff0000ff" begin='00:01:02.000' end='00:01:05.000'>
+	...groan...thud!
+	</p>
+	
+	<p region="rollup" s:backgroundColor="#00000040" begin='00:01:07.000' end='00:01:12.000'>
+	HTML5?
+	</p>
+	<p region="rollup" s:backgroundColor="#00000040" begin='00:01:08.000' end='00:01:12.000'>
+	What's next?
+	</p>
+	<p region="rollup" s:backgroundColor="#00000040" s:color="#ffff00ff" begin='00:01:09.000' end='00:01:12.000'>
+	WebGL???
+	</p>
+	
+	</div>
+
+</body>								
+</tt>
+
+
+
+
+
+
