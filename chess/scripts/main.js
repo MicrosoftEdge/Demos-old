@@ -28,5 +28,12 @@
 		$(window).on('resize', debounce(function() {
 			match.resize();
 		}, 100));
+
+		$('#chess__enable-asm, #chess__enable-asm-close').on('click', function(e) {
+			if (!$(e.target).is('a')) {
+				$('#chess__enable-asm').toggleClass('chess__show-detail');
+				return false;
+			}
+		});
 	});
 }(window.ChessDemo, window.jQuery));

@@ -260,6 +260,9 @@
 			if (lastMove) {
 				message = 'Checkmate! ';
 				message += lastMove.color === this.player1.color ? 'The ASM.js JavaScript wins!' : 'The non-optimized JavaScript wins!';
+				if (lastMove.color === this.player2.color) {
+					$('#chess__board-message').addClass('chess__jswins');
+				}
 			}
 		} else if (this.game.in_draw() || this.game.in_threefold_repetition() || this.game.insufficient_material()) {
 			message = 'Game over! No one wins... it\'s a draw!';

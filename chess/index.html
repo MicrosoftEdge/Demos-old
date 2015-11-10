@@ -14,13 +14,28 @@
             <div class="container">
                 <div class="section__header">
                     <h1>Asm.js vs. Plain Javascript Chess Battle</h1>
+                </div>                
+                <div id="chess__enable-asm">
+                    <div id="chess__enable-asm-overlay"></div>
+                    Tip: Enable asm.js in Microsoft Edge<br>(and check support for other browsers)
+                    <div id="chess__enable-asm-detail">
+                        <div id="chess__enable-asm-close">Hide</div>
+                        <p>
+                        Asm.js is enabled by default in the Windows 10 Insider Preview fast or slow rings. 
+                        </p>
+                        <p>
+                        On the stable release of Microsoft Edge, you can enable asm.js for Microsoft Edge by navigating to <a href="about:config" target="_blank">about:config</a> and selecting "Enable asm.js" in the JavaScript section.
+                        </p>
+                        <img src="images/aboutflags.jpg">
+                        <p>Check support for other browsers on <a href="http://caniuse.com/#feat=asmjs" target="_blank">caniuse.com</a>.</p>
+                    </div>
                 </div>
                 <div class="section__body">
                     <p>
-                        On this page, we match two chess engines against one another. They are identical in nearly every detail, including source code! The only difference is that one has a flag set to be interpreted as Asm.js, a specialized and strict JavaScript subset that allows JavaScript engines to employ specialized compilation to dramatically speed up execution.
+                        On this page, we match two chess engines against one another. They are identical in nearly every detail, including source code! The only difference is that one has a flag set to be interpreted as asm.js, a specialized and strict JavaScript subset that allows JavaScript engines to employ specialized compilation to dramatically speed up execution.
                     </p>
                     <p>
-                        <strong>Click the "Start a Match" </strong> button below to find out if the Asm.js optimized code will perform better against regular JavaScript.
+                        <strong>Click the "Start a Match" </strong> button below to find out if the asm.js optimized code will perform better against regular JavaScript.
                     </p>
                 </div>
             </div>
@@ -44,7 +59,7 @@
                                 <div id="chess__options-button">Options</div>
                             </div>
                             <div id="chess__board-message">
-                                <span>Checkmate! ASM.js wins!</span><br>
+                                <span></span><br>
                                 <small>Refresh this page to play again</small>
                             </div>
                              <div id="chess__options">
