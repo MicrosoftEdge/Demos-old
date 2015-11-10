@@ -24,17 +24,13 @@ a {
     margin-top: 0;
 }
 
-.chess--nopadding {
+.chess__nopadding {
     padding: 0;
 }
 
 details, summary, input {
     outline: none !important;
     color: black !important;
-}
-
-#results {
-    //display: none;
 }
 
 #board {
@@ -44,7 +40,7 @@ details, summary, input {
 
 // stats
 
-.chess--statsDetail {
+.chess__stats-detail {
     margin: 2rem 0 0 0;
     padding: 0;
     font-weight: 200;
@@ -57,7 +53,7 @@ details, summary, input {
     }
 }
 
-#p1Stats {
+#p1-stats {
     color: @blue;
 }
 
@@ -80,7 +76,7 @@ details, summary, input {
     color: @blue;
 }
 
-.chess--score {
+.chess__score {
     padding: 1rem 1.5rem 2rem 1.5rem;
     background-color: @lightgray;
     font-weight: 200;
@@ -107,21 +103,21 @@ details, summary, input {
     }
 }
 
-.chess--scoreAsm {
+.chess__score-asm {
     background-color: @blue;
     color: white;
 }
 
-.chess--scoreDetail {
+.chess__score-detail {
     opacity: 0.5;
 }
 
-.chess--scoreColumn {
+.chess__score-column {
     min-width: 11rem;
     margin-bottom: 2rem;
 }
 
-#chess--holdingAreas {
+#chess__holding-areas {
     clear: both;
     margin-bottom: 10rem;
     margin-bottom: 2rem;
@@ -134,7 +130,7 @@ details, summary, input {
     }
 }
 
-.chess--holdingArea {
+.chess__holding-area {
     min-height: 10rem;
     h4 {
         margin-bottom: 1rem;
@@ -148,19 +144,19 @@ details, summary, input {
     }
 }
 
-.chess--holdingPiece {
+.chess__holding-piece {
     display: none;
     float: left;
     width: 11%;
     min-width: 2rem;
     max-width: 4rem;
     margin-top: 0;
-    &.chess--holdingCaptured {
+    &.chess__holding-captured {
         display: block;
     }
 }
 
-#chess--gameDetail {
+#chess__game-detail {
     padding-top: 2rem;
     h3 {
         margin-bottom: 2rem;
@@ -168,14 +164,14 @@ details, summary, input {
 }
 
 @media screen and (max-width: 1023px) {
-    .chess--score h3 {
+    .chess__score h3 {
         font-weight: 500;
         font-size: 2rem;
     }
 }
 
 @media screen and (max-width: 767px) {
-    .chess--score h3 {
+    .chess__score h3 {
         font-weight: 600;
         font-size: 1.4rem;
         text-transform: uppercase;
@@ -187,7 +183,7 @@ details[role=group] {
     clear: both;
 }
 
-.chess--chartCanvasContainer {
+.chess__chart-canvas-container {
     position: relative;
     display: block;
     float: left;
@@ -196,7 +192,7 @@ details[role=group] {
     margin-bottom: 3rem;
 }
 
-.chess--chartMidLine {
+.chess__chart-mid-line {
     position: absolute;
     top: 50%;
     width: 100%;
@@ -217,13 +213,13 @@ details[role=group] {
     }
 }
 
-.chess--chartCanvas {
+.chess__chart-canvas {
     width: 100%;
     height: 50px;
     background-color: @lightgray;
 }
 
-#chess---gameHistory {
+#chess__game-history {
     font-weight: 700;
     font-size: 1.4rem;
     line-height: 2.8rem;
@@ -234,12 +230,12 @@ details[role=group] {
         text-align: center;
         white-space: nowrap;
     }
-    .chess--colorb {
+    .chess__colorb {
         color: @blue;
     }
 }
 
-#chess--boardContainer {
+#chess__board-container {
     position: relative;
     padding: 1rem;
 }
@@ -247,7 +243,7 @@ details[role=group] {
 @optionsDur: 300ms;
 @optionsEase: @easeOutCirc;
 
-#chess--boardOverlay {
+#chess__board-overlay {
     .absolute(0,1rem,0,1rem);
     .box-sizing();
     .transition(background-color @optionsDur @optionsEase, border @optionsDur @optionsEase);
@@ -257,7 +253,7 @@ details[role=group] {
     text-align: center;
 }
 
-#chess--startPrompt {
+#chess__start-prompt {
     .transition(opacity @optionsDur);
     .lefttop(0, 48%);
     .box-sizing();
@@ -271,7 +267,7 @@ details[role=group] {
     text-align: center;
 }
 
-#chess--initPrompt {
+#chess__init-prompt {
     .lefttop(0, 48%);
     visibility: hidden;
     width: 100%;
@@ -282,7 +278,7 @@ details[role=group] {
     text-align: center;
 }
 
-#chess--startStopButton {
+#chess__start-stop-button {
     .border-radius(50%);
     position: relative;
     display: inline-block;
@@ -302,14 +298,14 @@ details[role=group] {
     }
 }
 
-#chess--time {
+#chess__time {
     position: relative;
     top: 0.75rem;
     display: inline;
     margin-left: 1rem;
 }
 
-#chess--optionsButton {
+#chess__options-button {
     position: relative;
     display: inline-block;
     margin-top: 0.5rem;
@@ -342,7 +338,7 @@ details[role=group] {
 }
 
 
-#chess--optionsHideButton {
+#chess__options-hide-button {
     .righttop(2rem, 2rem);
     content: '';
     display: inline-block;
@@ -356,7 +352,7 @@ details[role=group] {
 }
 
 
-#chess--options {
+#chess__options {
     .transition(all @optionsDur @optionsEase);
     //overflow: auto;
     position: relative;
@@ -386,7 +382,7 @@ details[role=group] {
 }
 
 
-#chess--boardMessage {
+#chess__board-message {
     .transition(all 500ms @optionsEase 500ms);
     opacity: 0;
     visibility: hidden;
@@ -409,49 +405,49 @@ details[role=group] {
         font-weight: 600;
         opacity: 0.65;
     }
-    &.chess--jswins {
+    &.chess__jswins {
         background: @lightgray;
         color: @darkgray;
     }
 }
 
-#chess--boardOverlay {
+#chess__board-overlay {
 
-    &.chess--showInit {
-        #chess--initPrompt {
+    &.chess__show-init {
+        #chess__init-prompt {
             opacity: 1;
             visibility: visible;
         }
     }
 
-    &.chess--showStart {
-        #chess--startPrompt {
+    &.chess__show-start {
+        #chess__start-prompt {
             opacity: 1;
             visibility: visible;
         }
     }
 
-    &.chess--showOptions, &.chess--showMessage {
+    &.chess__show-options, &.chess__show-message {
         background-color: fade(white, 90%);
         border: 2px solid white;
-        #chess--startPrompt {
+        #chess__start-prompt {
             opacity: 0;
             visibility: hidden;
         }
     }
-    &.chess--showOptions {
-        #chess--options {
+    &.chess__show-options {
+        #chess__options {
             top: 2rem;
             visibility: visible;
             opacity: 1;
         }
     }
-    &.chess--showMessage {
-        #chess--startPrompt {
+    &.chess__show-message {
+        #chess__start-prompt {
             display: none;
         }
         background-color: fade(white, 65%);
-        #chess--boardMessage {
+        #chess__board-message {
             top: 47px;
             visibility: visible;
             opacity: 1;
