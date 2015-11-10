@@ -61,15 +61,6 @@
   top: 2px;
   left: 2px;
 }
-html,
-body {
-  margin: 0;
-  line-height: 1;
-}
-a {
-  color: black;
-  text-decoration: none;
-}
 .no-vertical-rhythm * + *,
 [data-piece] {
   margin-top: 0;
