@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Chess</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" type="text/css" href="https://edgeportal.blob.core.windows.net/media/demotemplate.css">
+        <link rel="stylesheet" type="text/css" href="css/app.css">
+    </head>
+    <body class="chess">
+
+        <!-- DEMO INTRO -->
+        <header class="section section--page-intro demo__header">
+            <div class="container">
+                <div class="section__header">
+                    <h1>Asm.js Chess Battle</h1>
+                </div>                
+                <div id="chess__enable-asm">
+                    <div id="chess__enable-asm-overlay"></div>
+                    Tip: Enable asm.js in Microsoft Edge<br>(and check support for other browsers)
+                    <div id="chess__enable-asm-detail">
+                        <div id="chess__enable-asm-close">Hide</div>
+                        <p>
+                        Asm.js is enabled by default in Microsoft Edge in the Windows 10 Insider Preview fast or slow rings. 
+                        </p>
+                        <p>
+                        On earlier releases of Microsoft Edge, you can enable asm.js for Microsoft Edge by navigating to <a href="about:config" target="_blank">about:config</a> and selecting "Enable asm.js" in the JavaScript section.
+                        </p>
+                        <img src="images/aboutflags.jpg">
+                        <p>Check support for other browsers on <a href="http://caniuse.com/#feat=asmjs" target="_blank">caniuse.com</a>.</p>
+                    </div>
+                </div>
+                <div class="section__body">
+                    <p>
+                        On this page, we match two chess engines against one another. They are identical in nearly every detail, including source code! The only difference is that one has a flag set to be interpreted as asm.js, a specialized and strict JavaScript subset that allows JavaScript engines to employ specialized compilation to dramatically speed up execution.
+                    </p>
+                    <p>
+                    	Each turn is limited to 200ms – because the asm.js-optimized engine has a significant performance advantage, it can evaluate more moves per turn and has a substantially higher likelihood of victory. You can adjust the turn length and other variables in the demo to see how they affect the outcome of the game.
+                    </p>
+                    <p>
+                        <strong>Click the "Start a Match" </strong> button below to see how the asm.js optimized code performs better against non-optimized JavaScript.
+                    </p>
+                </div>
+            </div>
+        </header>
+
+        <!-- DEMO CONTENT -->
+        <section class="section">
+            <div class="container">
+                <div class="layout layout--equal">
+
+                    <!-- chess board -->
+                    <div id="chess__board-container" class="module">
+                        <div id="board" class="no-vertical-rhythm"></div>
+                        <div id="chess__board-overlay" class="chess__show-init">
+                            <div id="chess__init-prompt">
+                                Initializing...
+                            </div>
+                            <div id="chess__start-prompt">
+                                Start a Match<br>
+                                <div id="chess__start-stop-button"></div><br>
+                                <div id="chess__options-button">Options</div>
+                            </div>
+                            <div id="chess__board-message">
+                                <span></span><br>
+                                <small>Refresh this page to play again</small>
+                            </div>
+                             <div id="chess__options">
+                                <div id="chess__options-hide-button"><span>Hide Options</span></div>
+                                <label for="chess__option-range-time-per-turn">
+                                    Time per turn: <span id="chess__option-range-time-per-turn-value" class="chess__options-value"></span> ms<br>
+                                    <small>The amount of time given to each player to find a best move. Up to a point, smaller numbers tend to give an advantage to the Asm.js optimized code.</small>
+                                </label>
+                                <input id="chess__option-range-time-per-turn" type="range" min="0" max="1000" />
+
+                                <label for="unique-range">
+                                    Skill Level: <span id="chess__option-range-skill-level-value" class="chess__options-value">20</span><br>
+                                    <small>The effective skill of the chess engine. Level 20 is the strong and 0 is the weakest (multiple intentionally bad moves).</small>
+                                </label>
+                                <input id="chess__option-range-skill-level" type="range" min="0" max="20" />
+
+                                <label for="unique-range">
+                                    Contempt: <span id="chess__option-range-contempt-value" class="chess__options-value">0</span><br>
+                                    <small>Roughly equivalent to "optimism." Positive values of contempt favor more "risky" play, while negative values will favor draws. Zero is neutral.</small>
+                                </label>
+                                <input id="chess__option-range-contempt" type="range" min="-100" max="100" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- results -->
+                    <div class="module">
+
+                        <!-- <details role="group" open> -->
+                            <!-- <summary role="button" aria-expanded="false">Predicted Winner</summary>                             -->
+                            <h3>Winner Prediction</h3>
+                            
+                            <div class="layout--equal">
+                                <div class="module chess__score chess__score-asm">
+                                    <h3>Asm.js</h3>
+                                    <div class="layout--equal">
+                                        <div class="module chess__score-column chess__nopadding">
+                                            <span id="chess__score-p1-advantage">&nbsp;</span>
+                                            <small>Predicted<br>Chance&nbsp;of&nbsp;Win</small>
+                                        </div>
+                                        <div class="module chess__score-column chess__nopadding chess__score-detail">
+                                            <span id="chess__score-p1-score">&nbsp;</span>
+                                            <small>Score<br>(In&nbsp;Centipawns)</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="module chess__score chess__score-normal">
+                                    <h3>Not&nbsp;Optimized</h3>
+                                    <div class="layout--equal">
+                                        <div class="module chess__score-column chess__nopadding">
+                                            <span id="chess__score-p2-advantage">&nbsp;</span>
+                                            <small>Predicted<br>Chance&nbsp;of&nbsp;Win</small>
+                                        </div>
+                                        <div class="module chess__score-column chess__nopadding chess__score-detail">
+                                            <span id="chess__score-p2-score">&nbsp;</span>
+                                            <small>Score<br>(In&nbsp;Centipawns)</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="chess__chart-canvas-container">
+                                <canvas class="chess__chart-canvas" id="chess__chart-advantage"></canvas>
+                                <div class="chess__chart-mid-line"></div>
+                            </div>
+
+                            <div id="chess__holding-areas" class="layout--equal">
+
+                                <div class="module chess__holding-area chess__nopadding">
+                                    <h4>Captured Pieces</h4>
+                                    <span id="chess__none-captured-w">None</span>
+                                    <img class="chess__holding-piece chess__holding-piece-wK" src="images/small/wK.png">
+                                    <img class="chess__holding-piece chess__holding-piece-wQ" src="images/small/wQ.png">
+                                    <img class="chess__holding-piece chess__holding-piece-wQ" src="images/small/wQ.png">
+                                    <img class="chess__holding-piece chess__holding-piece-wR" src="images/small/wR.png">
+                                    <img class="chess__holding-piece chess__holding-piece-wR" src="images/small/wR.png">
+                                    <img class="chess__holding-piece chess__holding-piece-wB" src="images/small/wB.png">
+                                    <img class="chess__holding-piece chess__holding-piece-wB" src="images/small/wB.png">
+                                    <img class="chess__holding-piece chess__holding-piece-wN" src="images/small/wN.png">
+                                    <img class="chess__holding-piece chess__holding-piece-wN" src="images/small/wN.png">
+                                    <img class="chess__holding-piece chess__holding-piece-wP" src="images/small/wP.png">
+                                    <img class="chess__holding-piece chess__holding-piece-wP" src="images/small/wP.png">
+                                    <img class="chess__holding-piece chess__holding-piece-wP" src="images/small/wP.png">
+                                    <img class="chess__holding-piece chess__holding-piece-wP" src="images/small/wP.png">
+                                    <img class="chess__holding-piece chess__holding-piece-wP" src="images/small/wP.png">
+                                    <img class="chess__holding-piece chess__holding-piece-wP" src="images/small/wP.png">
+                                    <img class="chess__holding-piece chess__holding-piece-wP" src="images/small/wP.png">
+                                    <img class="chess__holding-piece chess__holding-piece-wP" src="images/small/wP.png">
+                                </div>                            
+                                <div class="module chess__holding-area chess__nopadding">
+                                    <h4>Captured Pieces</h4>
+                                    <span id="chess__none-captured-b">None</span>
+                                    <img class="chess__holding-piece chess__holding-piece-bK" src="images/small/bK.png">
+                                    <img class="chess__holding-piece chess__holding-piece-bQ" src="images/small/bQ.png">
+                                    <img class="chess__holding-piece chess__holding-piece-bQ" src="images/small/bQ.png">
+                                    <img class="chess__holding-piece chess__holding-piece-bR" src="images/small/bR.png">
+                                    <img class="chess__holding-piece chess__holding-piece-bR" src="images/small/bR.png">
+                                    <img class="chess__holding-piece chess__holding-piece-bB" src="images/small/bB.png">
+                                    <img class="chess__holding-piece chess__holding-piece-bB" src="images/small/bB.png">
+                                    <img class="chess__holding-piece chess__holding-piece-bN" src="images/small/bN.png">
+                                    <img class="chess__holding-piece chess__holding-piece-bN" src="images/small/bN.png">
+                                    <img class="chess__holding-piece chess__holding-piece-bP" src="images/small/bP.png">
+                                    <img class="chess__holding-piece chess__holding-piece-bP" src="images/small/bP.png">
+                                    <img class="chess__holding-piece chess__holding-piece-bP" src="images/small/bP.png">
+                                    <img class="chess__holding-piece chess__holding-piece-bP" src="images/small/bP.png">
+                                    <img class="chess__holding-piece chess__holding-piece-bP" src="images/small/bP.png">
+                                    <img class="chess__holding-piece chess__holding-piece-bP" src="images/small/bP.png">
+                                    <img class="chess__holding-piece chess__holding-piece-bP" src="images/small/bP.png">
+                                    <img class="chess__holding-piece chess__holding-piece-bP" src="images/small/bP.png">
+                                </div>  
+                            </div>
+
+                            <p>
+                            Note: Advantage scoring is provided by the <a href="https://github.com/official-stockfish/Stockfish">Stockfish Chess Engine</a> in centipawns, a <a href="http://chess.wikia.com/wiki/Centipawn">standard unit of measure for chess advantage</a> that accounts for pieces on the board and their relative positions. Our winner prediction is then derived from the advantage score based on the fascinating correlation found <a href="https://chessprogramming.wikispaces.com/Pawn+Advantage%2C+Win+Percentage%2C+and+ELO">here</a>.
+                            </p>
+
+                            <div id="chess__game-detail">
+                                <h3>Game Detail</h3>
+                                <details role="group">
+                                    <summary role="button" aria-expanded="true">Move History</summary>
+                                    <div id="chess__game-history">
+                                    </div>
+                                </details>
+                                <details role="group">
+                                    <summary role="button" aria-expanded="true">Detailed Chess Engine Output</summary>
+                                    <div id="chess__game-output">
+                                        <div class="layout--equal">
+                                            <div class="module chess__nopadding">
+                                                <h4>Asm.js</h4>
+                                                <div id="chess__p1-stats" class="chess__stats-detail">&nbsp;</div>
+                                            </div>
+                                            <div class="module chess__nopadding">
+                                                <h4>Not Optimized</h4>
+                                                <div id="chess__p2-stats" class="chess__stats-detail">&nbsp;</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </details>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+            <div id="chess__detail" class="container">
+                <div class="layout layout--sidebar--alt">
+                    <div class="module">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.4.min.js"></script>
+        <script src="scripts/libs/chess.min.js"></script>
+        <script src="scripts/libs/chessboard-0.3.0.min.js"></script>
+
+        <script src="scripts/namespace.js"></script>
+        <script src="scripts/player.js"></script>
+        <script src="scripts/chart.js"></script>
+        <script src="scripts/match.js"></script>
+        <script src="scripts/main.js"></script>
+    </body>
+</html>

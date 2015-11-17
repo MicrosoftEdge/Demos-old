@@ -1,0 +1,4 @@
+window.ChessDemo = {
+	controls: {},
+	utils: {}
+};
