@@ -1,9 +1,8 @@
 /* Blog_beyond */
-
-#blog {
-	-ms-user-select: none;
-}
-#blog-post,
+#blogPost,
 .comment {
 	-ms-user-select: text;
+}
+#blog {
+	-ms-user-select: none;
 }

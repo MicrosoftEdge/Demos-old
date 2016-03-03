@@ -5,7 +5,7 @@
 	-webkit-user-select: none;
 	-moz-user-select: -moz-none;
 }
-#blog-post {
+#blogPost {
 	-ms-user-select: element;
 	-webkit-user-select: text;
 	-moz-user-select: text;
