@@ -1,6 +1,6 @@
 # About these demos
 
-This is a set of interoperable and open source demos. You can watch their live version in the [MS Edge Dev Site](http://dev.modern.ie/testdrive/). 
+This is a set of interoperable and open source demos. You can watch their live version in the [MS Edge Dev Site](https://dev.windows.com/en-us/microsoft-edge/testdrive/). 
 The main goal of this one is to show new web features (supported by Microsoft Edge) in a way that work across all modern browsers. If a feature 
 is supported in a browser and the demo doesn't work as expected you should file a bug!  
 
