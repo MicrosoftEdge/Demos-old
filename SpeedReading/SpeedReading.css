@@ -1,0 +1,30 @@
+﻿html
+{
+    -ms-content-zooming: none;
+}
+
+body
+{
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+    background-color: White;
+    -ms-content-zooming: none;
+}
+
+#surfaceCanvas
+{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+}
+
+.SRDescription
+{
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
