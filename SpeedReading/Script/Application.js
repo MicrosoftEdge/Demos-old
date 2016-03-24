@@ -74,9 +74,9 @@ function DrawLoop() {
             perf.BeginDrawLoop();
         }
 
-        surface.fillStyle = '#839EBA'; // was '#01294d'
+        surface.fillStyle = '#333333'; //'#839EBA'; // was '#01294d'
         surface.fillRect(0, 0, surfaceWidth, surfaceHeight);
-        //surface.drawImage(imgBackground, 0, 0, surfaceWidth, 800);
+        surface.drawImage(imgBackground, 0, 0, surfaceWidth, 800);
         billboard.Draw();
 
         if (startButtonVisible == true && startButtonHideCalled == false) {

@@ -151,7 +151,7 @@ function Performance() {
         fps = (fps > 57) ? 60 : fps;
 
         surface.fillStyle = '#FFFFFF';
-        surface.font = "bold 13pt Verdana";
+        surface.font = "13pt Segoe UI";
         surface.fillText("How fast can your browser speed read?", 50, surfaceHeight - 40);
         surface.font = "9pt Verdana";
 
