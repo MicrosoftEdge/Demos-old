@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<!-- This is an example TTML file to exercise every feature of the proposed subset.
+<!-- This is an 60s TTML caption file for the 90s video that uses Paint-on style.
     
   -->
   
@@ -62,7 +62,7 @@
 	<span style="emphasis2">Paint-on Captions </span>
 	</p>-->
 	
-	<p region='rollup' begin='00:00:01.000' end='00:00:10.000'>
+	<p region='rollup' begin='00:00:01.500' end='00:00:10.000'>
 		<span s:backgroundColor="#000000ff" begin='00:00:00.000'>You </span>
 		<span s:backgroundColor="#000000ff" begin='00:00:00.250'>might </span>
 		<span s:backgroundColor="#000000ff" begin='00:00:00.500'>not </span>
@@ -74,7 +74,7 @@
 		<span s:backgroundColor="#000000ff" begin='00:00:00.250'>met in </span>
 		<span s:backgroundColor="#000000ff" begin='00:00:00.500'>the '90s.</span>	
 	</p>
-	<p region='rollup' begin='00:00:07.000' end='00:00:15.000'>
+	<p region='rollup' begin='00:00:07.000' end='00:00:13.500'>
 		<span s:backgroundColor="#000000ff" begin='00:00:00.000'>We </span>
 		<span s:backgroundColor="#000000ff" begin='00:00:00.500'>are </span>
 		<span s:backgroundColor="#000000ff" begin='00:00:00.750'>members </span>
@@ -82,32 +82,32 @@
 		<span s:backgroundColor="#000000ff" s:color="#ff0000ff" begin='00:00:01.250'>generation </span>		
 		<span s:backgroundColor="#000000ff" s:color="#ff0000ff" begin='00:00:01.500'>Y.</span>		
 	</p>
-	<p region='rollup' begin='00:00:10.000' end='00:00:18.750'>
+	<p region='rollup' begin='00:00:10.000' end='00:00:16.000'>
 		<span s:backgroundColor="#000000ff" begin='00:00:00.000'>As </span>
 		<span s:backgroundColor="#000000ff" begin='00:00:00.250'>in </span>
 		<span s:backgroundColor="#000000ff" s:color="#00ff00ff" begin='00:00:00.500'>Yin-Yang.</span>
 	</p>
-	<p region="rollup" begin='00:00:12.000' end='00:00:20.250'>
+	<p region="rollup" begin='00:00:12.000' end='00:00:17.50'>
 		<span s:backgroundColor="#000000ff" s:color="#ffff00ff" begin='00:00:00.000'>Yo-yo.</span>
 	</p>
-	<p region="rollup" begin='00:00:15.000' end='00:00:23.000'>
+	<p region="rollup" begin='00:00:13.500' end='00:00:20.000'>
 		<span s:backgroundColor="#000000ff" begin='00:00:00.000'>Life </span>
 		<span s:backgroundColor="#000000ff" begin='00:00:00.750'>moved a </span>
 		<span s:backgroundColor="#000000ff" begin='00:00:01.000'>little </span>
 		<span s:backgroundColor="#000000ff" begin='00:00:01.250'>slower.</span>		
 	</p>
-	<p region="rollup" begin='00:00:18.750' end='00:00:26.500'>
+	<p region="rollup" begin='00:00:16.000' end='00:00:23.500'>
 		<span s:backgroundColor="#000000ff" begin='00:00:00.000'>Disks </span>
 		<span s:backgroundColor="#000000ff" begin='00:00:00.250'>were </span>
 		<span s:backgroundColor="#000000ff" begin='00:00:00.500'>square.</span>
 	</p>
-	<p region="rollup" begin='00:00:20.250' end='00:00:28.500'>
+	<p region="rollup" begin='00:00:17.50' end='00:00:24.500'>
 		<span s:backgroundColor="#000000ff" begin='00:00:00.000'>Desktop </span>
 		<span s:backgroundColor="#000000ff" begin='00:00:00.250'>folders </span>
 		<span s:backgroundColor="#000000ff" begin='00:00:00.500'>had </span>
 		<span s:backgroundColor="#000000ff" s:textDecoration="underline" begin='00:00:00.750'>personality.</span>	
 	</p>
-	<p region="rollup" begin='00:00:23.000' end='00:00:31.500'>
+	<p region="rollup" begin='00:00:20.000' end='00:00:26.500'>
 		<span s:backgroundColor="#000000ff" begin='00:00:00.000'>Extra </span>
 		<span s:backgroundColor="#000000ff" begin='00:00:00.250'>storage space </span>
 		<span s:backgroundColor="#000000ff" begin='00:00:00.500'>was </span>
@@ -115,45 +115,16 @@
 		<span s:backgroundColor="#000000ff" begin='00:00:01.000'>zipper </span>		
 		<span s:backgroundColor="#000000ff" begin='00:00:01.250'>away.</span>		
 	</p>
-	<p region="rollup" begin='00:00:26.500' end='00:00:35.000'>
-		<span s:backgroundColor="#000000ff" begin='00:00:00.000'>There </span>
-		<span s:backgroundColor="#000000ff" begin='00:00:00.250'>was </span>
-		<span s:backgroundColor="#000000ff" begin='00:00:00.500'>only one </span>
-		<span s:backgroundColor="#000000ff" begin='00:00:00.750'>social </span>
-		<span s:backgroundColor="#000000ff" begin='00:00:01.000'>network.</span>		
+	<p region="rollup" begin='00:00:23.500' end='00:00:32.000'>
+		<span s:backgroundColor="#000000ff" begin='00:00:00.000'>Lunch </span>
+		<span s:backgroundColor="#000000ff" begin='00:00:00.250'>was a </span>
+		<span s:backgroundColor="#000000ff" begin='00:00:00.500'>puzzle.</span>
 	</p>
-	<p region="rollup" begin='00:00:28.500' end='00:00:37.500'>
-		<span s:backgroundColor="#000000ff" begin='00:00:00.000'>But </span>
-		<span s:backgroundColor="#000000ff" begin='00:00:00.500'>most of </span>
-		<span s:backgroundColor="#000000ff" begin='00:00:00.750'>your friends </span>
-		<span s:backgroundColor="#000000ff" begin='00:00:01.500'>died of </span>
-		<span s:backgroundColor="#000000ff" s:color="#ff0000ff" begin='00:00:01.750'>dysentery.</span>		
-	</p>
-	<p region="rollup" begin='00:00:31.500' end='00:00:39.500'>
-		<span s:backgroundColor="#000000ff" begin='00:00:00.000'>The </span>
-		<span s:backgroundColor="#000000ff" begin='00:00:00.250'>only thing </span>
-		<span s:backgroundColor="#000000ff" begin='00:00:00.500'>buzzing </span>
-		<span s:backgroundColor="#000000ff" begin='00:00:00.750'>in your </span>
-		<span s:backgroundColor="#000000ff" begin='00:00:01.000'>pocket </span>		
-		<span s:backgroundColor="#000000ff" begin='00:00:01.500'>was a </span>
-		<span s:backgroundColor="#000000ff" begin='00:00:01.750'>pet.</span>
-	</p>
-	<p region="rollup" begin='00:00:35.000' end='00:00:41.500'>
-		<span s:backgroundColor="#000000ff" begin='00:00:00.000'>Until </span>
-		<span s:backgroundColor="#000000ff" begin='00:00:00.250'>that died </span>
-		<span s:backgroundColor="#000000ff" begin='00:00:00.500'>too.</span>
-	</p>
-	<p region="rollup" begin='00:00:37.500' end='00:00:45.000'>
-		<span s:backgroundColor="#000000ff" begin='00:00:00.000'>And </span>
-		<span s:backgroundColor="#000000ff" begin='00:00:00.250'>lunch </span>
-		<span s:backgroundColor="#000000ff" begin='00:00:00.500'>was a </span>
-		<span s:backgroundColor="#000000ff" begin='00:00:00.750'>puzzle.</span>
-	</p>
-	<p region="rollup" begin='00:00:39.5000' end='00:00:51.000'>
+	<p region="rollup" begin='00:00:24.5000' end='00:00:36.500'>
 		<span s:backgroundColor="#000000ff" begin='00:00:00.000'>Not a </span>
 		<span s:backgroundColor="#000000ff" begin='00:00:00.250'>picture.</span>
 	</p>
-	<p region="rollup" begin='00:00:41.500' end='00:00:55.000'>
+	<p region="rollup" begin='00:00:26.500' end='00:00:40.000'>
 		<span s:backgroundColor="#000000ff" begin='00:00:00.000'>You </span>
 		<span s:backgroundColor="#000000ff" begin='00:00:00.250'>were </span>
 		<span s:backgroundColor="#000000ff" begin='00:00:00.500'>pumping </span>
@@ -161,58 +132,32 @@
 		<span s:backgroundColor="#000000ff" begin='00:00:01.500'>...water </span>		
 		<span s:backgroundColor="#000000ff" begin='00:00:02.250'>...shoes.</span>
 	</p>
-	<p region="rollup" begin='00:00:46.000' end='00:00:58.000'>
-		<span s:backgroundColor="#000000ff" begin='00:00:00.000'>You </span>
-		<span s:backgroundColor="#000000ff" begin='00:00:00.250'>didn't have </span>
-		<span s:backgroundColor="#000000ff" begin='00:00:00.500'>to worry </span>
-		<span s:backgroundColor="#000000ff" begin='00:00:00.750'>about </span>
-		<span s:backgroundColor="#000000ff" begin='00:00:01.000'>a newsfeed </span>		
-		<span s:backgroundColor="#000000ff" begin='00:00:01.250'>full of </span>
-		<span s:backgroundColor="#000000ff" begin='00:00:01.500'>farm animals.</span>	
-	</p>
-	<p region="rollup" begin='00:00:51.000' end='00:01:01.500'>
-		<span s:backgroundColor="#000000ff" begin='00:00:00.000'>You </span>
-		<span s:backgroundColor="#000000ff" begin='00:00:00.500'>were busy </span>
-		<span s:backgroundColor="#000000ff" begin='00:00:00.750'>feeding </span>
-		<span s:backgroundColor="#000000ff" begin='00:00:01.000'>wild animals.</span>
-	</p>
-	<p region="rollup" begin='00:00:55.000' end='00:01:06.500'>
-		<span s:backgroundColor="#000000ff" begin='00:00:00.000'>A </span>
-		<span s:backgroundColor="#000000ff" begin='00:00:00.250'>haircut </span>
-		<span s:backgroundColor="#000000ff" begin='00:00:00.500'>didn't cost </span>
-		<span s:backgroundColor="#000000ff" begin='00:00:00.750'>sixty dollars.</span>
-	</p>
-	<p region="rollup" begin='00:00:58.000' end='00:01:10.000'>
-		<span s:backgroundColor="#000000ff" begin='00:00:00.000'>It </span>
-		<span s:backgroundColor="#000000ff" begin='00:00:00.250'>cost </span>
-		<span s:backgroundColor="#000000ff" begin='00:00:00.500'>four minutes.</span>
-	</p>
-	<p region="rollup" begin='00:01:01.500' end='00:01:14.000'>
+	<p region="rollup" begin='00:00:32.000' end='00:00:42.000'>
 		<span s:backgroundColor="#000000ff" begin='00:00:00.000'>You </span>
 		<span s:backgroundColor="#000000ff" begin='00:00:00.250'>really had </span>
 		<span s:backgroundColor="#000000ff" begin='00:00:00.500'>nothing to </span>
 		<span s:backgroundColor="#000000ff" begin='00:00:00.750'>lose.</span>
 	</p>
-	<p region="rollup" begin='00:01:06.500' end='00:01:18.000'>
+	<p region="rollup" begin='00:00:36.500' end='00:00:44.500'>
 		<span s:backgroundColor="#000000ff" begin='00:00:00.000'>Unless </span>
 		<span s:backgroundColor="#000000ff" begin='00:00:00.250'>of course...</span>
 	</p>
-	<p region="rollup" begin='00:01:10.000' end='00:01:22.000'>
+	<p region="rollup" begin='00:00:40.000' end='00:00:48.500'>
 		<span s:backgroundColor="#000000ff" begin='00:00:00.000'>...you were </span>
 		<span s:backgroundColor="#000000ff" begin='00:00:00.250'>playing </span>
 		<span s:backgroundColor="#000000ff" begin='00:00:00.500'>for keeps.</span>
 	</p>
-	<p region="rollup" begin='00:01:14.000' end='00:01:27.000'>
+	<p region="rollup" begin='00:00:42.000' end='00:00:54.750'>
 		<span s:backgroundColor="#000000ff" begin='00:00:00.000'>The </span>
 		<span s:backgroundColor="#000000ff" begin='00:00:00.250'>future was </span>
 		<span s:backgroundColor="#000000ff" s:color="#ffff00ff" begin='00:00:00.500'>bright.</span>
 	</p>
-	<p region="rollup" begin='00:01:18.000' end='00:01:27.000'>
+	<p region="rollup" begin='00:00:44.500' end='00:00:54.750'>
 		<span s:backgroundColor="#000000ff" begin='00:00:00.000'>You </span>
 		<span s:backgroundColor="#000000ff" begin='00:00:00.250'>grew </span>
 		<span s:backgroundColor="#000000ff" begin='00:00:00.500'>up.</span>
 	</p>
-	<p region="rollup" begin='00:01:22.000' end='00:01:27.000'>
+	<p region="rollup" begin='00:00:48.500' end='00:00:54.750'>
 		<span s:backgroundColor="#000000ff" s:fontStyle="italic" begin='00:00:00.000'>So </span>
 		<span s:backgroundColor="#000000ff" s:fontStyle="italic" begin='00:00:00.250'>did </span>
 		<span s:backgroundColor="#000000ff" s:fontStyle="italic" begin='00:00:00.500'>we.</span>
