@@ -106,12 +106,12 @@
             </table>
         </div>
     </div>
-    <script src="./scripts/msfido.js"></script>
+    <script src="./scripts/mswebauthn.js"></script>
     <script src="./scripts/demo.js"></script>
     <script type="text/javascript">
 		(function() {
             // If Windows Hello registered, show this option first
-		   if (!!window.sessionStorage && !!window.sessionStorage.getItem("credentialID")) hidePasswordField(); 
+		   if (window.sessionStorage && window.sessionStorage.getItem("credentialID")) hidePasswordField(); 
            
            // If Windows Hello not registered, show password options
            else addPasswordField();

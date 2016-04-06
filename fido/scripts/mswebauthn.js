@@ -20,7 +20,7 @@
 
 'use strict';
 
-var fido = (function () {
+var webauthn = (function () {
 
     function msMakeCredential(accountInfo, cryptoParams, attestChallenge, timeout, blacklist, ext) {
 		var acct = {rpDisplayName: accountInfo.rpDisplayName, userDisplayName: accountInfo.displayName};
@@ -39,9 +39,9 @@ var fido = (function () {
 			}
 		}
         return msCredentials.makeCredential(acct, params, attestChallenge).then(function (cred) {
-			if (cred.type === "FIDO_2_0"){
+			if (cred.type === 'FIDO_2_0'){
 				return Object.freeze({
-					credential: {type: "FIDO", id: cred.id},
+					credential: {type: 'FIDO', id: cred.id},
 					algorithm: cred.algorithm,
 					publicKey: JSON.parse(cred.publicKey),
 					attestation: cred.attestation
@@ -68,12 +68,12 @@ var fido = (function () {
 			}
 			filter = { accept: credList }; 
 		}
-		if (ext["fido.txauth.simple"]) { sigParams = { userPrompt: ext["fido.txauth.simple"] }; }
+		if (ext['fido.txauth.simple']) { sigParams = { userPrompt: ext['fido.txauth.simple'] }; }
 
         return msCredentials.getAssertion(challenge, filter, sigParams).then(function (sig) {
-			if (sig.type === "FIDO_2_0"){
+			if (sig.type === 'FIDO_2_0'){
 				return Object.freeze({
-					credential: {type: "FIDO", id: sig.id},
+					credential: {type: 'FIDO', id: sig.id},
 					clientData: sig.signature.clientData,
 					authenticatorData: sig.signature.authnrData,
 					signature: sig.signature.signature
