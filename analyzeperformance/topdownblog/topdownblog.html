@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8" />
+  <title>Example of poor loading performance</title>
+	<meta name="og:title" content="Poor performance example"/>
+	<meta name="description" content="Test profiling skills on this poorly performing page"/>
+	<meta name="keywords" content="performance, profile, topdown"/>
+	<link href='https://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="styles/topdown.css"/>
+</head>
+<body>
+	<div id="header">
+		<h1>Example of poor loading performance</h1>
+	</div>
+	<div id="mainContent">
+		<div id="sidebarContainer">
+				<h2>Tag cloud</h2>
+				<div id="sidebar"></div>
+		</div>
+		<div id="blogBorder">
+			<div id="blogContent">
+				<img src="https://az817829.vo.msecnd.net/media/2016/3/perfimage-fc85da05-7cca-4c14-9ce4-82444555c787.jpg" alt="Header image. A man with a bicycle." />
+				<div id="contentFeature">
+					<h2>What are we looking at here?</h2>
+					<p>This example page exhibits poor loading performance do to blocking synchronous javascript doing layout to the "tag cloud" on the left.</p>
+					<p>You can modify the number of tags on the page by appending <span class="mono">?tags=100</span> (or whichever number you like) to the URL. You can use this to stress the page just enough on your specific device for the demo to be useful, but not enough that it makes the page totally unusable. If the page loads quickly, increase the number and reload it.</p>
+					<p id="resultsLine">The time it took to run the inline script was <span id="scriptTime"></span> ms</p>
+					<p id="navLine">The time it took to load the page was <span id="navTime"></span> ms</p>
+					<a class="button" href="#" download>Download this page to make it faster!</a>
+				</div>
+				<div id="fillerText">
+					<h2>The rest of this is just filler text.</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet dolor maximus, viverra orci eget, malesuada leo. Morbi consequat dui consectetur, condimentum dui ac, iaculis ligula. Vivamus gravida gravida nulla, eget sodales dui pellentesque interdum. Pellentesque ac diam ac nisi feugiat viverra. Morbi fringilla eget ante in molestie. Nunc in fermentum sapien. Donec faucibus vel lacus pellentesque accumsan. Curabitur scelerisque elit a quam facilisis eleifend. Maecenas sodales sodales ipsum, nec mattis orci semper mollis.</p>
+					<p>Integer eu nulla diam. Sed ut nunc bibendum, placerat nisl non, semper nisi. Fusce dictum convallis pulvinar. Nulla rhoncus malesuada porttitor. Etiam porta mauris odio, sed porttitor elit egestas sit amet. Nullam eget nibh et lacus varius aliquet. Phasellus elementum, diam quis venenatis pellentesque, ex est tempus lacus, quis convallis dui leo at nisl. Proin in justo ultricies, varius ante ut, ultricies ante. Quisque urna diam, interdum vitae blandit et, tristique ut nunc.</p>
+					<blockquote>
+						<p>Donec ultricies lorem erat, nec congue eros vulputate blandit. Nulla consectetur sit amet nisi id varius. In purus purus, lacinia vitae feugiat at, egestas non justo. Vestibulum laoreet ut arcu vitae mollis. Quisque et lacus consectetur, tempor nunc id, cursus ligula. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					</blockquote>
+					<p>Quisque ut augue efficitur, ultrices ligula sit amet, dictum lorem. Vestibulum ac odio eget lorem malesuada laoreet. Sed iaculis hendrerit interdum. Donec vel pellentesque nisl, vitae fermentum libero. Donec fringilla magna at elementum efficitur. Suspendisse eget lectus hendrerit, lobortis est eget, sollicitudin nunc. Aenean urna sem, placerat ut mi at, ornare finibus sapien. Quisque a pulvinar justo, ut interdum odio. Sed et accumsan nulla. Proin eu convallis diam. Quisque felis eros, accumsan ut tempus non, molestie vel ex. Aenean mattis elit velit, ut luctus nunc pharetra nec.</p>
+					<p>Cras sodales viverra urna aliquet interdum. Donec lacinia felis magna, eu interdum dui blandit et. Donec aliquam sem sed dolor condimentum, vel suscipit enim ornare. Donec tempus, felis sit amet lobortis gravida, ex est malesuada neque, eget semper orci ex id quam. Pellentesque eu accumsan lectus. Aenean tristique enim imperdiet enim egestas, et commodo risus interdum. Aliquam a lacinia lacus. Integer pretium, felis at mollis mattis, diam nisi feugiat nisl, in bibendum dolor odio eget ipsum. Sed dolor elit, sagittis vitae diam dignissim, finibus cursus turpis. Nulla aliquam diam quam, fringilla sodales dui dictum at. Donec malesuada at est eget sodales. Morbi sagittis massa justo, eu porttitor nulla feugiat nec.</p>
+					<p>Praesent lacinia ipsum nisl, quis pharetra nibh dapibus ut. Nam ex massa, porttitor eu placerat sit amet, iaculis nec odio. Mauris id sagittis metus, non ornare lectus. Nullam eget lacus id odio tincidunt tincidunt ut at dui. Maecenas viverra auctor sodales. Phasellus euismod, nibh nec mattis posuere, nibh nunc commodo est, vel finibus ex orci nec nisl. Suspendisse non mi at odio pharetra venenatis sit amet a mauris. Cras consectetur purus sed suscipit ultrices. Nullam eu turpis odio. Duis bibendum urna mauris, et malesuada nulla aliquam et. Quisque venenatis efficitur augue id malesuada. Proin eu enim vel leo ullamcorper elementum. Etiam a convallis enim. Fusce malesuada ultricies scelerisque.</p>
+					<p>Vestibulum sodales euismod velit. Nullam ut luctus nibh, id dictum mi. Nulla mi est, dapibus in cursus in, faucibus consequat eros. Aenean at lectus bibendum, fringilla lectus at, pulvinar urna. Cras vulputate tortor id egestas imperdiet. Vestibulum efficitur dictum lacus vel ultrices. Cras hendrerit purus quis dolor fermentum, porttitor efficitur justo elementum. Duis faucibus dolor tellus, ut maximus nunc egestas id. Suspendisse interdum nisi tempus ornare gravida. Mauris turpis erat, gravida id tellus et, tempor posuere justo. Aenean in diam viverra, scelerisque velit in, tempor ipsum. Praesent nisi felis, suscipit at consequat non, aliquam vel sem. Donec rutrum ex vitae augue venenatis, eget tincidunt orci viverra.</p>
+					<p>Curabitur consequat sed neque nec ultrices. Aliquam erat volutpat. Aliquam non iaculis libero. In sem nunc, aliquam nec volutpat et, laoreet mattis quam. Proin id lectus non est fermentum ultricies vel eu orci. Sed non molestie enim. Curabitur luctus nisi quis odio efficitur accumsan. Proin non massa ligula. Donec cursus enim eget condimentum faucibus. Suspendisse potenti.</p>
+					<p>Aenean ipsum odio, bibendum sed posuere sit amet, vestibulum ac libero. Vestibulum sit amet urna diam. Nulla malesuada magna aliquam diam cursus, sit amet tincidunt velit mollis. Integer efficitur, ex sit amet laoreet feugiat, est nisl lobortis dui, ornare elementum lectus nibh quis libero. Ut sit amet felis at nibh rutrum pulvinar. Suspendisse vel feugiat eros, sit amet faucibus dui. Ut tristique efficitur enim, ut posuere quam tempus sit amet. Aenean vulputate est feugiat, pellentesque libero in, congue quam. Sed risus lacus, rhoncus et lacus non, rhoncus semper diam. Maecenas consectetur ut massa vitae gravida.</p>
+					<p>Vivamus id neque dui. Nunc suscipit risus laoreet euismod porttitor. Praesent vitae nisi quis erat ornare porta sed id ipsum. Sed luctus egestas erat, ut lobortis est pretium at. Nullam orci nulla, gravida ut volutpat faucibus, euismod sed nisl. Aenean blandit ex et tempor iaculis. Duis lacinia, risus sed condimentum vestibulum, purus lacus iaculis dolor, vel blandit nulla odio sed massa. Ut turpis turpis, elementum a viverra eu, volutpat vel justo. Donec congue vestibulum tristique. Donec et suscipit augue.</p>
+
+					<h2>More filler text</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet dolor maximus, viverra orci eget, malesuada leo. Morbi consequat dui consectetur, condimentum dui ac, iaculis ligula. Vivamus gravida gravida nulla, eget sodales dui pellentesque interdum. Pellentesque ac diam ac nisi feugiat viverra. Morbi fringilla eget ante in molestie. Nunc in fermentum sapien. Donec faucibus vel lacus pellentesque accumsan. Curabitur scelerisque elit a quam facilisis eleifend. Maecenas sodales sodales ipsum, nec mattis orci semper mollis.</p>
+					<p>Integer eu nulla diam. Sed ut nunc bibendum, placerat nisl non, semper nisi. Fusce dictum convallis pulvinar. Nulla rhoncus malesuada porttitor. Etiam porta mauris odio, sed porttitor elit egestas sit amet. Nullam eget nibh et lacus varius aliquet. Phasellus elementum, diam quis venenatis pellentesque, ex est tempus lacus, quis convallis dui leo at nisl. Proin in justo ultricies, varius ante ut, ultricies ante. Quisque urna diam, interdum vitae blandit et, tristique ut nunc.</p>
+					<p>Donec ultricies lorem erat, nec congue eros vulputate blandit. Nulla consectetur sit amet nisi id varius. In purus purus, lacinia vitae feugiat at, egestas non justo. Vestibulum laoreet ut arcu vitae mollis. Quisque et lacus consectetur, tempor nunc id, cursus ligula. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean vitae aliquet lorem. Maecenas vel dui dapibus libero porta condimentum. Sed eleifend arcu eget tincidunt tincidunt. Aenean ornare egestas rutrum.</p>
+					<p>Quisque ut augue efficitur, ultrices ligula sit amet, dictum lorem. Vestibulum ac odio eget lorem malesuada laoreet. Sed iaculis hendrerit interdum. Donec vel pellentesque nisl, vitae fermentum libero. Donec fringilla magna at elementum efficitur. Suspendisse eget lectus hendrerit, lobortis est eget, sollicitudin nunc. Aenean urna sem, placerat ut mi at, ornare finibus sapien. Quisque a pulvinar justo, ut interdum odio. Sed et accumsan nulla. Proin eu convallis diam. Quisque felis eros, accumsan ut tempus non, molestie vel ex. Aenean mattis elit velit, ut luctus nunc pharetra nec.</p>
+					<p>Cras sodales viverra urna aliquet interdum. Donec lacinia felis magna, eu interdum dui blandit et. Donec aliquam sem sed dolor condimentum, vel suscipit enim ornare. Donec tempus, felis sit amet lobortis gravida, ex est malesuada neque, eget semper orci ex id quam. Pellentesque eu accumsan lectus. Aenean tristique enim imperdiet enim egestas, et commodo risus interdum. Aliquam a lacinia lacus. Integer pretium, felis at mollis mattis, diam nisi feugiat nisl, in bibendum dolor odio eget ipsum. Sed dolor elit, sagittis vitae diam dignissim, finibus cursus turpis. Nulla aliquam diam quam, fringilla sodales dui dictum at. Donec malesuada at est eget sodales. Morbi sagittis massa justo, eu porttitor nulla feugiat nec.</p>
+					<p>Praesent lacinia ipsum nisl, quis pharetra nibh dapibus ut. Nam ex massa, porttitor eu placerat sit amet, iaculis nec odio. Mauris id sagittis metus, non ornare lectus. Nullam eget lacus id odio tincidunt tincidunt ut at dui. Maecenas viverra auctor sodales. Phasellus euismod, nibh nec mattis posuere, nibh nunc commodo est, vel finibus ex orci nec nisl. Suspendisse non mi at odio pharetra venenatis sit amet a mauris. Cras consectetur purus sed suscipit ultrices. Nullam eu turpis odio. Duis bibendum urna mauris, et malesuada nulla aliquam et. Quisque venenatis efficitur augue id malesuada. Proin eu enim vel leo ullamcorper elementum. Etiam a convallis enim. Fusce malesuada ultricies scelerisque.</p>
+					<p>Vestibulum sodales euismod velit. Nullam ut luctus nibh, id dictum mi. Nulla mi est, dapibus in cursus in, faucibus consequat eros. Aenean at lectus bibendum, fringilla lectus at, pulvinar urna. Cras vulputate tortor id egestas imperdiet. Vestibulum efficitur dictum lacus vel ultrices. Cras hendrerit purus quis dolor fermentum, porttitor efficitur justo elementum. Duis faucibus dolor tellus, ut maximus nunc egestas id. Suspendisse interdum nisi tempus ornare gravida. Mauris turpis erat, gravida id tellus et, tempor posuere justo. Aenean in diam viverra, scelerisque velit in, tempor ipsum. Praesent nisi felis, suscipit at consequat non, aliquam vel sem. Donec rutrum ex vitae augue venenatis, eget tincidunt orci viverra.</p>
+					<p>Curabitur consequat sed neque nec ultrices. Aliquam erat volutpat. Aliquam non iaculis libero. In sem nunc, aliquam nec volutpat et, laoreet mattis quam. Proin id lectus non est fermentum ultricies vel eu orci. Sed non molestie enim. Curabitur luctus nisi quis odio efficitur accumsan. Proin non massa ligula. Donec cursus enim eget condimentum faucibus. Suspendisse potenti.</p>
+					<p>Aenean ipsum odio, bibendum sed posuere sit amet, vestibulum ac libero. Vestibulum sit amet urna diam. Nulla malesuada magna aliquam diam cursus, sit amet tincidunt velit mollis. Integer efficitur, ex sit amet laoreet feugiat, est nisl lobortis dui, ornare elementum lectus nibh quis libero. Ut sit amet felis at nibh rutrum pulvinar. Suspendisse vel feugiat eros, sit amet faucibus dui. Ut tristique efficitur enim, ut posuere quam tempus sit amet. Aenean vulputate est feugiat, pellentesque libero in, congue quam. Sed risus lacus, rhoncus et lacus non, rhoncus semper diam. Maecenas consectetur ut massa vitae gravida.</p>
+					<p>Vivamus id neque dui. Nunc suscipit risus laoreet euismod porttitor. Praesent vitae nisi quis erat ornare porta sed id ipsum. Sed luctus egestas erat, ut lobortis est pretium at. Nullam orci nulla, gravida ut volutpat faucibus, euismod sed nisl. Aenean blandit ex et tempor iaculis. Duis lacinia, risus sed condimentum vestibulum, purus lacus iaculis dolor, vel blandit nulla odio sed massa. Ut turpis turpis, elementum a viverra eu, volutpat vel justo. Donec congue vestibulum tristique. Donec et suscipit augue.</p>
+				</div>
+			</div>
+		</div>
+		<div id="placeholderColumn">
+			<a href="#">
+				<div class="content">
+					<h2>snazzy content title here</h2>
+					<p>Overconfidence, this, and a small screwdriver. I’m absolutely sorted. I know. Dinosaurs! On a spaceship!</p>
+					<span class="readMore">Read more</span>
+				</div>
+			</a>
+			<a href="#">
+				<div class="content">
+					<h2>more snazzy content here</h2>
+					<p>Whatever happens here will create its own timeline, its own reality, a temporal tipping point.</p>
+					<span class="readMore">Read more</span>
+				</div>
+			</a>
+			<a href="#">
+				<div class="content">
+					<h2>and some more here</h2>
+					<p>People assume that time is a strict progression of cause-and-effect... but actually, from a non-linear, non-subjective viewpoint, it's more like a big ball of wibbly-wobbly... timey-wimey... stuff.</p>
+					<span class="readMore">Read more</span>
+				</div>
+			</a>
+		</div>
+	</div>
+	<div id="footer">
+		<p>Thanks for checking out this demo.</p>
+	</div>
+	<script type="text/javascript" src="scripts/topdown.js" />
+</body>
+</html>
