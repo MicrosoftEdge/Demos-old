@@ -1,15 +1,18 @@
-// Start the clock for loading time
-performance.mark('script begin');
-if (window.msWriteProfilerMark) {
-	window.msWriteProfilerMark('script begin');
-}
-
 //  How many tags should we have if the user doesn't specify in a query string?
 var DEFAULT_NUM_TAGS = 75;
 //  Which div id should we put the tags in?
 var TAGS_DIV = 'sidebar';
 // How fast do we want the page to load?
 var LOADING_GOAL_TIME_MS = 500;
+
+var startMeasurePerf = function() {
+	'use strict';
+	// Start the clock for loading time
+	performance.mark('script begin');
+	if (window.msWriteProfilerMark) {
+		window.msWriteProfilerMark('script begin');
+	}
+};
 
 // Sets all the given divs to default width and height
 var resetDivs = function (divs) {
@@ -113,48 +116,63 @@ var initializeHashtags = function () {
 	}
 };
 
-/////////////////////////
-////
-///   On page load:
-//
-
-// Make a bunch of hashtags on the left sidebar ...with expensive inline blocking script
-initializeHashtags();
-
-// Also, we need to redo that work when the browser is resized
-window.onresize = function resize() {
+var attachResize = function () {
 	'use strict';
-	setWidthOfCells(TAGS_DIV);
+	// Also, we need to redo that work when the browser is resized
+	window.onresize = function resize() {
+		setWidthOfCells(TAGS_DIV);
+	};
 };
 
-if (window.msWriteProfilerMark) {
-	window.msWriteProfilerMark('script end');
-}
-performance.mark('script end');
-performance.measure('script', 'script begin', 'script end');
-
-var measurePerf = function () {
+var stopMeasurePerf = function () {
 	'use strict';
-	var afterOnLoad = function () {
-		// Measure how long it took to execute this script on load
-		var duration = performance.getEntriesByName('script')[0].duration;
+	if (window.msWriteProfilerMark) {
+		window.msWriteProfilerMark('script end');
+	}
+	performance.mark('script end');
+	performance.measure('script', 'script begin', 'script end');
+};
 
-		var scriptCostElement = document.getElementById('scriptTime');
-		var navCostElement = document.getElementById('navTime');
+var outputPerfResults = function () {
+	'use strict';
+	var measurePerf = function () {
+		var afterOnLoad = function () {
+			// Measure how long it took to execute this script on load
+			var duration = performance.getEntriesByName('script')[0].duration;
 
-		// Now display the time it took to load on the page itself
-		scriptCostElement.innerText = duration.toFixed(2);
-		navCostElement.innerText = performance.getEntriesByType('navigation')[0].duration.toFixed(2);
-		if (duration > LOADING_GOAL_TIME_MS) {
-			scriptCostElement.className += ' failed';
-			navCostElement.className += ' failed';
-		} else {
-			scriptCostElement.className += ' passed';
-			navCostElement.className += ' passed';
-		}
+			var scriptCostElement = document.getElementById('scriptTime');
+			var navCostElement = document.getElementById('navTime');
+
+			// Now display the time it took to load on the page itself
+			scriptCostElement.innerText = duration.toFixed(2);
+			navCostElement.innerText = performance.getEntriesByType('navigation')[0].duration.toFixed(2);
+			if (duration > LOADING_GOAL_TIME_MS) {
+				scriptCostElement.className += ' failed';
+				navCostElement.className += ' failed';
+			} else {
+				scriptCostElement.className += ' passed';
+				navCostElement.className += ' passed';
+			}
+		};
+
+		setTimeout(afterOnLoad);
 	};
 
-	setTimeout(afterOnLoad);
+	window.addEventListener('load', measurePerf);
 };
 
-window.addEventListener('load', measurePerf);
+var runOnParse = function () {
+	'use strict';
+	startMeasurePerf();
+
+	// Make a bunch of hashtags on the left sidebar ...with expensive inline blocking script
+	initializeHashtags();
+
+	attachResize();
+
+	stopMeasurePerf();
+
+	outputPerfResults();
+};
+
+runOnParse();
