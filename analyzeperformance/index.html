@@ -6,30 +6,41 @@
 	<meta name="og:title" content="Performance Examples"/>
 	<meta name="description" content="A set of example pages to use for analyzing performance"/>
 	<meta name="keywords" content="performance, profiling"/>
-	<link rel="stylesheet" type="text/css" href="styles/demotemplate.css"/>
+	<link rel="stylesheet" type="text/css" href="https://edgeportal.blob.core.windows.net/media/demotemplate.css">
 	<link rel="stylesheet" type="text/css" href="styles/demo.css"/>
 </head>
 <body>
-<div>
-	<h1 id="demo-title">
-		Performance Examples
-	</h1>
 
-	<div id="demo-introduction">
-		<p>The Microsoft Edge Team has created performance examples that are useful for practicing analysis techniques.</p>
-	</div>
-	<div id="demo-content">
-		<h2 class="clear">Badly coded Javascript Flexbox</h2>
-		<p>The following web site is a blog that creates a tag section on the fly in JavaScript. It does so in an exceptionally
-			inefficient manner that is intended to provide a useful example for practicing the use of various tools for analyzing performance.
-			There are mulitple layers that can be optimized to improve this example.</p>
-			<ol>			
-				<li>There is 1 line of code that provokes servere layout thrashing.
-				<li>The code written in this style can be optimized significantly in numerous ways.
-				<li>Replace the JavaScript with HTML/CSS Flexbox
-			</ol>
-			<a href="topdownblog/topdownblog.html">Online version of the page for practice profiling</a>
-			<a class="button" href="topdownblog.zip" download>Download the Badly coded JavaScript Flexbox</a>
-	</div>	
+	<!-- DEMO INTRO -->
+	<header class="section section--page-intro demo__header">
+		<div class="container">
+			<div class="section__header">
+				<h1>Performance Examples</h1>
+				<p class="subtitle">The Microsoft Edge Team has created performance examples that are useful for practicing analysis techniques.</p>
+			</div>
+		</div>
+	</header>
+
+	<!-- DEMO CONTENT -->
+	<section role="region" class="section">
+		<div class="container">
+			<h2 class="section__header">Badly coded Javascript Flexbox</h2>
+			<div class="section__body">
+				<p>The following web site is a blog that creates a tag section on the fly in JavaScript. It does so in an exceptionally
+					inefficient manner that is intended to provide a useful example for practicing the use of various tools for analyzing performance.
+					There are multiple layers that can be optimized to improve this example.</p>
+				<ol>
+					<li>There is 1 line of code that provokes servere layout thrashing.
+					<li>The code written in this style can be optimized significantly in numerous ways.
+					<li>Replace the JavaScript with HTML/CSS Flexbox
+				</ol>
+				<p><strong>Demo these performance issues:</strong></p>
+				<div class="actions">
+					<a class="button" href="topdownblog/topdownblog.html">Live demo</a>
+					<a class="button" href="topdownblog.zip" download>Download zip</a>
+				</div>
+			</div>
+	</section>
+
 </body>
 </html>
