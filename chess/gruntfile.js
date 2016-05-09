@@ -1,12 +1,13 @@
-/*global module:true, require: true */
+/* eslint strict: [2, "global"]
+*/
+'use strict';
 
-module.exports = function(grunt) {
-
+module.exports = function (grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		less: {
-			app: { 
-				files: { 'css/app.css': [ 'less/app.less' ] } 
+			app: {
+				files: { 'css/app.css': ['less/app.less'] }
 			}
 		},
 		eslint: {
@@ -35,7 +36,6 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('default', [
 		'eslint',
-		'less',
+		'less'
 	]);
-
 };
