@@ -1,3 +1,5 @@
+/* eslint strict: [2, "global"]
+*/
 'use strict';
 
 module.exports = function (grunt) {

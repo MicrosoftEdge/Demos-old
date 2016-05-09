@@ -34,6 +34,7 @@
 				$('#chess__enable-asm').toggleClass('chess__show-detail');
 				return false;
 			}
+			return null;
 		});
 	});
 }(window.ChessDemo, window.jQuery));
