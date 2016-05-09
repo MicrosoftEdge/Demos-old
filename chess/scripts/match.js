@@ -11,6 +11,7 @@
 			var s = n.toString();
 			return s.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 		}
+		return null;
 	};
 
 	/*eslint-disable func-style*/
