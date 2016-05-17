@@ -1248,3 +1248,56 @@ body {
     font-size: 14px;
   }
 }
+
+
+
+#webnoteColorPages.christmasEdition .introTile:nth-child(1) {
+  background-color: #428d42;
+}
+#webnoteColorPages.christmasEdition .introTile:nth-child(2) {
+  background-color: #db4f44;
+}
+#webnoteColorPages.christmasEdition .introTile:nth-child(3) {
+  background-color: #428d42;
+}
+#webnoteColorPages.christmasEdition .introTile:nth-child(4) {
+  background-color: #db4f44;
+}
+#webnoteColorPages.christmasEdition .introTile:nth-child(5) {
+  background-color: #428d42;
+}
+#webnoteColorPages.christmasEdition .introTile:nth-child(6) {
+  background-color: #db4f44;
+}
+#webnoteColorPages.christmasEdition .introTile:nth-child(7) {
+  background-color: #428d42;
+}
+#webnoteColorPages.christmasEdition .pageInfo h3 {
+  color: #428d42;
+}
+#webnoteColorPages.christmasEdition .pageInfo .nextStep {
+  color: #db4f44;
+}
+
+
+#webnoteColorPages.autumnEdition .introTile:nth-child(1) {
+  background-color: #ba7b2f;
+}
+#webnoteColorPages.autumnEdition .introTile:nth-child(2) {
+  background-color: #fdc641;
+}
+#webnoteColorPages.autumnEdition .introTile:nth-child(3) {
+  background-color: #e06924;
+}
+#webnoteColorPages.autumnEdition .introTile:nth-child(4) {
+  background-color: #656626;
+}
+#webnoteColorPages.autumnEdition .introTile:nth-child(5) {
+  background-color: #ba7b2f;
+}
+#webnoteColorPages.autumnEdition .introTile:nth-child(6) {
+  background-color: #fdc641;
+}
+#webnoteColorPages.autumnEdition .introTile:nth-child(7) {
+  background-color: #e06924;
+}
