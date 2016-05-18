@@ -1,0 +1,119 @@
+html {
+  font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 100%;
+  background: #1E1E1E;
+}
+
+header {
+    margin: 1em auto;
+    min-width: 500px;
+    max-width: 60%;
+}
+
+#speechStatus {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 32px;
+    visibility: hidden;
+}
+
+#controlsContainer {
+    position: absolute;
+    right: 40px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 1em auto;
+    min-width: 500px;
+    max-width: 60%; 
+    text-align: center;
+ } 
+
+li {
+    display: inline-block;
+    
+}
+
+#container {
+  min-width: 500px;
+  max-width: 60%;
+  background: #EEEEEE;
+  padding: 1em;
+  margin: 1em auto;
+}
+
+h1 {
+  color: white;
+  background-color: #1E1E1E;
+  text-align: center;
+}
+
+#supportMessage {
+    position: absolute;
+    bottom: 10px;
+    color: white;
+    left: 0px;
+    right: 0px;
+    margin: 0 auto;
+    width: 350px;
+    font-size: 0.8em;
+    text-align: center;
+}
+
+#supportMessage strong {
+  color: #006400;
+}
+
+#supportMessage.unSupported strong {
+  color: #880000;
+}
+
+input[type="text"] {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.5em;
+  font-size: 1.2em;
+  border: 1px solid #CCCEDB;
+}
+
+input[type="range"] {
+  width: 69%;
+}
+
+label {
+  display: inline-block;
+  float: left;
+  width: 30%;
+}
+
+.option {
+  margin: 1em 0;
+}
+
+#buttonsContainer {
+    text-align: center;
+}
+
+button {
+  display: inline-block;
+  border: none;
+  font-size: 0.9rem;
+  padding: 0.5rem 0.8em;
+  background: #3399FF;
+  color: white;
+  font-weight: bold;
+  margin: 0;
+  width: 32%;
+  text-align: center;
+}
+
+button:hover, button:focus {
+  opacity: 0.75;    
+  cursor: pointer;
+}
+
+button {
+    transition: all ease-in 0.5s;
+}
