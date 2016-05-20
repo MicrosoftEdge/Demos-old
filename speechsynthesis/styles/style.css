@@ -1,19 +1,19 @@
 html {
   font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
   font-size: 100%;
-  background: #1E1E1E;
+  background: #001129;
 }
 
 header {
-    margin: 1em auto;
-    min-width: 500px;
-    max-width: 60%;
+    margin: 3em 1em;
+    max-width: 300px;
+    height: 60px;
 }
 
 #speechStatus {
     position: absolute;
     right: 20px;
-    top: 20px;
+    top: 60px;
     width: 32px;
     visibility: hidden;
 }
@@ -37,59 +37,61 @@ li {
 }
 
 #container {
-  min-width: 500px;
-  max-width: 60%;
-  background: #EEEEEE;
-  padding: 1em;
-  margin: 1em auto;
+	min-width: 500px;
+	max-width: 60%;
+	background: #001129;
+	padding: 1em;
+	margin: 1em auto;
 }
 
 h1 {
-  color: white;
-  background-color: #1E1E1E;
-  text-align: center;
+	color: white;
+	background: #002050;
+	text-align: center;
 }
 
 #supportMessage {
     position: absolute;
-    bottom: 10px;
+    top: 0px;
     color: white;
+    background-color: #000000;
     left: 0px;
-    right: 0px;
+    padding: 8px 0px;
     margin: 0 auto;
-    width: 350px;
-    font-size: 0.8em;
+    width: 100%;
+    font-size: 0.7em;
     text-align: center;
 }
 
 #supportMessage strong {
-  color: #006400;
+	color: #4c9d4c;
 }
 
 #supportMessage.unSupported strong {
-  color: #880000;
+	color: #880000;
 }
 
 input[type="text"] {
-  box-sizing: border-box;
-  width: 100%;
-  padding: 0.5em;
-  font-size: 1.2em;
-  border: 1px solid #CCCEDB;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 0.5em;
+	font-size: 1.2em;
+	border: 1px solid #CCCEDB;
 }
 
 input[type="range"] {
-  width: 69%;
+	width: 69%;
 }
 
 label {
-  display: inline-block;
-  float: left;
-  width: 30%;
+	display: inline-block;
+	float: left;
+	width: 30%;
+	color: #ffffff;
 }
 
 .option {
-  margin: 1em 0;
+	margin: 1.5em 0;
 }
 
 #buttonsContainer {
@@ -97,23 +99,67 @@ label {
 }
 
 button {
-  display: inline-block;
-  border: none;
-  font-size: 0.9rem;
-  padding: 0.5rem 0.8em;
-  background: #3399FF;
-  color: white;
-  font-weight: bold;
-  margin: 0;
-  width: 32%;
-  text-align: center;
+	display: inline-block;
+	border: none;
+	font-size: 0.9rem;
+	padding: 0.5rem 0.8em;
+	background: #4c9d4c;
+	color: white;
+	font-weight: bold;
+	margin: 0;
+	width: 32%;
+	text-align: center;
 }
 
 button:hover, button:focus {
-  opacity: 0.75;    
-  cursor: pointer;
+	opacity: 0.75;    
+	cursor: pointer;
 }
 
 button {
     transition: all ease-in 0.5s;
+}
+
+/*Steph Edits*/
+
+#parrot1 {
+    position: absolute;
+    width: 16%;
+    left: 0px;
+    top: 35%;
+    z-index: -1;
+}
+
+#parrot2 {
+    position: absolute;
+    width: 16%;
+    right: 0px;
+    top: 50%;
+    z-index: -1;
+}
+
+
+#speechbubble {
+    position: relative;
+    top: 35px;
+    left: -8px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 32px 31px 0 0;
+    border-color: #ffffff transparent transparent transparent;
+}
+
+#textContainer {
+	margin: 0 0 40px 0;
+	background-color: white;
+	border-radius: 6px;
+	padding: .5em;
+	height:50px;
+}
+
+.soundwave {
+	position: absolute;
+	bottom: 0px;
+	opacity: 0.3;
 }
