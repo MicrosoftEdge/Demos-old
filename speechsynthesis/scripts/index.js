@@ -17,7 +17,7 @@
 	var langSelect = document.getElementById('language');
 	var volumeRange = document.getElementById('volume');
 	var rateRange = document.getElementById('rate');
-	var pitchRange = document.getElementById('pitch');
+	//	var pitchRange = document.getElementById('pitch');
 	var speechStatus = document.getElementById('speechStatus');
 
 	var log = function (message) {
@@ -57,7 +57,7 @@
 		synUtterance.lang = langSelect.value;
 		synUtterance.volume = parseFloat(volumeRange.value);
 		synUtterance.rate = parseFloat(rateRange.value);
-		synUtterance.pitch = parseFloat(pitchRange.value);
+		//	synUtterance.pitch = parseFloat(pitchRange.value);
 
 		const eventList = ['start', 'end', 'mark', 'pause', 'resume', 'error', 'boundary'];
 		eventList.forEach((event) => {
