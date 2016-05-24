@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Speech Synthesis API</title>
+	<link rel="stylesheet" type="text/css" href="https://edgeportal.blob.core.windows.net/media/demotemplate.css">
 	<link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
@@ -10,14 +11,14 @@
 	<header>
 		<img src="images/speechlogo.svg" title="Speech Synthesizer API" />
 	</header>
-	<div id="parrot1">
+	<div id="parrot-1">
 		<img src="images/parrot1.svg" role="presentation" />
 	</div>
 	<div id="container">
-		<div id="textContainer">
+		<div id="text-container">
 			<input type="text" name="textToSpeech" id="textToSpeech">
-			<span id="speechbubble"></span>
 		</div>
+		<span id="speechbubble"></span>
 		<div class="option">
 		<label for="voice">Voice</label>
 			<select name="voice" id="voice"></select>
@@ -45,7 +46,7 @@
 			<button id="cancelBtn">Cancel</button>
 		</div>
 	</div>
-	<div id="parrot2">
+	<div id="parrot-2">
 		<img src="images/parrot2.svg" role="presentation"/>
 	</div>
 	<p id="supportMessage"></p>
