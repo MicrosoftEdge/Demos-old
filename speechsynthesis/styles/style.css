@@ -14,7 +14,7 @@ header {
 }
 
 
-#speechStatus {
+#jsSpeechStatus {
 	position: absolute;
 	right: 20px;
 	top: 60px;
@@ -48,7 +48,7 @@ h1 {
 	text-align: center;
 }
 
-#supportMessage {
+#jsSupportMessage {
 	position: absolute;
 	top: 0;
 	color: #fff;
@@ -61,11 +61,11 @@ h1 {
 	text-align: center;
 }
 
-#supportMessage strong {
+#jsSupportMessage strong {
 	color: #4c9d4c;
 }
 
-#supportMessage.unSupported strong {
+#jsSupportMessage.unSupported strong {
 	color: #800;
 }
 
@@ -128,7 +128,7 @@ button {
 	position: absolute;
 	width: 16%;
 	left: 0;
-	top: 35%;
+	top: 30%;
 	z-index: -1;
 }
 
@@ -141,7 +141,7 @@ button {
 }
 
 
-#speechbubble {
+#speech-bubble {
 	position: relative;
 	top: -10px;
 	left: 0;
@@ -167,18 +167,11 @@ button {
 	opacity: .3;
 }
 
-#voice {
+.range-slider {
 	width: auto;
 	font-size: 1em;
 	background-color: hsl(0, 0%, 100%);
 	padding-right: 1.7em;
-}
-
-#language {
-	width: auto;
-	font-size: 1em;
-	background-color: hsl(0, 0%, 100%);
-	padding-right: .7em;
 }
 
 input[type=range]::-webkit-slider-runnable-track {
