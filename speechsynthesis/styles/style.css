@@ -14,7 +14,7 @@ header {
 }
 
 
-#jsSpeechStatus {
+.speech-status {
 	position: absolute;
 	right: 20px;
 	top: 60px;
