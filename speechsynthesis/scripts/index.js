@@ -8,17 +8,17 @@
 	var isPlaying = false;
 
 	// Getting html elements
-	var supportMessageEle = document.getElementById('jsSupportMessage');
-	var speakBtn = document.getElementById('jsSpeakBtn');
-	var pauseresumeBtn = document.getElementById('jsPauseresumeBtn');
-	var cancelBtn = document.getElementById('jsCancelBtn');
-	var textToSpeechEle = document.getElementById('jsTextToSpeech');
-	var voiceSelect = document.getElementById('jsVoice');
-	var langSelect = document.getElementById('jsLanguage');
-	var volumeRange = document.getElementById('jsVolume');
-	var rateRange = document.getElementById('jsRate');
-	//	var pitchRange = document.getElementById('jsPitch');
-	var speechStatus = document.getElementById('jsSpeechStatus');
+	var supportMessageEle = document.getElementById('js-support-message');
+	var speakBtn = document.getElementById('js-speak-btn');
+	var pauseresumeBtn = document.getElementById('js-pauseresume-btn');
+	var cancelBtn = document.getElementById('js-cancel-btn');
+	var textToSpeechEle = document.getElementById('js-text-to-speech');
+	var voiceSelect = document.getElementById('js-voice');
+	var langSelect = document.getElementById('js-language');
+	var volumeRange = document.getElementById('js-volume');
+	var rateRange = document.getElementById('js-rate');
+	//	var pitchRange = document.getElementById('js-pitch');
+	var speechStatus = document.getElementById('js-speech-status');
 
 	var log = function (message) {
 		console.log(`${message}<br/>`);

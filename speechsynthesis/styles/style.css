@@ -48,7 +48,7 @@ h1 {
 	text-align: center;
 }
 
-#jsSupportMessage {
+#js-support-message {
 	position: absolute;
 	top: 0;
 	color: #fff;
@@ -61,11 +61,11 @@ h1 {
 	text-align: center;
 }
 
-#jsSupportMessage strong {
+#js-support-message strong {
 	color: #4c9d4c;
 }
 
-#jsSupportMessage.unSupported strong {
+#js-support-message.unSupported strong {
 	color: #800;
 }
 
@@ -96,7 +96,7 @@ label {
 	margin: 1.5em 0;
 }
 
-#buttonsContainer {
+#buttons-container {
 	text-align: center;
 }
 
