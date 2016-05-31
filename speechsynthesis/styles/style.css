@@ -165,6 +165,7 @@ button {
 	position: absolute;
 	bottom: 0;
 	opacity: .3;
+	z-index: -1;
 }
 
 .range-slider {
