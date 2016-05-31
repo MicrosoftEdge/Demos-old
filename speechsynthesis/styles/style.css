@@ -187,5 +187,5 @@ input[type=range]::-moz-range-track {
 }
 
 input[type=range]::-ms-track {
-	background-color: hsla(255, 255, 255, 1);
+	background-color: hsla(328, 100%, 100%, 1);
 }
