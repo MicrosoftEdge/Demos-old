@@ -80,7 +80,6 @@ input[type="text"] {
 
 input[type="range"] {
 	width: 68%;
-	height: 15px;
 	background-color: #001129;
 	padding: .7em 0;
 }
@@ -171,14 +170,22 @@ button {
 .range-slider {
 	width: auto;
 	font-size: 1em;
-	background-color: hsl(0, 0%, 100%);
+	background-color: hsla(328, 100%, 100%, 1);
 	padding-right: 1.7em;
 }
 
 input[type=range]::-webkit-slider-runnable-track {
-	background-color: hsla(0, 0%, 100%, .4);
+	background: hsla(328, 100%, 100%, 1);
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #367ebd;
 }
 
 input[type=range]::-moz-range-track {
-	background-color: hsla(0, 0%, 100%, 1);
+	background-color: hsla(328, 100%, 100%, 1);
+}
+
+input[type="range" i] {
+	color: rgba(255, 255, 255, 1);
 }
