@@ -167,18 +167,3 @@ button {
 	opacity: .3;
 	z-index: -1;
 }
-
-.range-slider {
-	width: auto;
-	font-size: 1em;
-	background-color: hsl(0, 0%, 100%);
-	padding-right: 1.7em;
-}
-
-input[type=range]::-webkit-slider-runnable-track {
-	background-color: hsla(0, 0%, 100%, .4);
-}
-
-input[type=range]::-moz-range-track {
-	background-color: hsla(0, 0%, 100%, 1);
-}
