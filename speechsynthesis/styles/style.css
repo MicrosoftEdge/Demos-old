@@ -167,23 +167,30 @@ button {
 	z-index: -1;
 }
 
-.range-slider {
+.drop-down {
 	width: auto;
+	height:auto;;
 	font-size: 1em;
 	background-color: hsla(328, 100%, 100%, 1);
 	padding-right: 1.7em;
 }
 
-input[type=range]::-webkit-slider-runnable-track {
-	background: hsla(328, 100%, 100%, 1);
+.range-slider {
+	width: auto;
+	font-size: 1em;
+	padding-right: 1.7em;
 }
 
-input[type=range]:focus::-webkit-slider-runnable-track {
-	background: #367ebd;
+input[type=range]::-webkit-slider-runnable-track {
+	background-color: hsla(328, 100%, 100%, 1);
 }
 
 input[type=range]::-moz-range-track {
 	background-color: hsla(328, 100%, 100%, 1);
+}
+
+input[type=range]:focus::-moz-range-track {
+    background-color: #367ebd;
 }
 
 input[type=range]::-ms-track {

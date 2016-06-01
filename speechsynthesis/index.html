@@ -12,7 +12,7 @@
 <body>
 	<img id="js-speech-status" class="speech-status" />
 	<header>
-		<img src="images/speechlogo.svg" title="Speech Synthesizer API" />
+		<img src="images/speechlogo.svg" alt="Speech Synthesizer API" />
 	</header>
 	<div id="parrot-1">
 		<img src="images/parrot1.svg" role="presentation" />
@@ -24,8 +24,8 @@
 		<span id="speech-bubble"></span>
 		<div class="option">
 		<label for="voice">Voice</label>
-			<select name="voice" id="js-voice" class="range-slider"></select>
-			<select name="language" id="js-language" class="range-slider">
+			<select name="voice" id="js-voice" class="drop-down"></select>
+			<select name="language" id="js-language" class="drop-down" aria-label="language">
 				<option>en-us</option>
 				<option>fr-fr</option>
 				<option>es-es</option>
@@ -33,11 +33,11 @@
 		</div>
 		<div class="option">
 			<label for="volume">Volume</label>
-			<input type="range" min="0" max="1" step="0.1" name="volume" id="js-volume" value="1">
+			<input type="range" min="0" max="1" step="0.1" name="volume" id="js-volume" value="1" class="range-slider">
 		</div>
 		<div class="option">
 			<label for="rate">Rate</label>
-			<input type="range" min="0.1" max="3" step="0.1" name="rate" id="js-rate" value="1">
+			<input type="range" min="0.1" max="3" step="0.1" name="rate" id="js-rate" value="1" class="range-slider">
 		</div>
 		<!--	<div class="option">
 			<label for="pitch">Pitch</label>
