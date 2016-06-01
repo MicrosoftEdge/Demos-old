@@ -175,12 +175,6 @@ button {
 	padding-right: 1.7em;
 }
 
-.range-slider {
-	width: auto;
-	font-size: 1em;
-	padding-right: 1.7em;
-}
-
 input[type=range]::-webkit-slider-runnable-track {
 	background-color: hsla(328, 100%, 100%, 1);
 }
