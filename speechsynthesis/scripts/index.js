@@ -8,17 +8,17 @@
 	var isPlaying = false;
 
 	// Getting html elements
-	var supportMessageEle = document.getElementById('supportMessage');
-	var speakBtn = document.getElementById('speakBtn');
-	var pauseresumeBtn = document.getElementById('pauseresumeBtn');
-	var cancelBtn = document.getElementById('cancelBtn');
-	var textToSpeechEle = document.getElementById('textToSpeech');
-	var voiceSelect = document.getElementById('voice');
-	var langSelect = document.getElementById('language');
-	var volumeRange = document.getElementById('volume');
-	var rateRange = document.getElementById('rate');
-	var pitchRange = document.getElementById('pitch');
-	var speechStatus = document.getElementById('speechStatus');
+	var supportMessageEle = document.getElementById('js-support-message');
+	var speakBtn = document.getElementById('js-speak-btn');
+	var pauseresumeBtn = document.getElementById('js-pauseresume-btn');
+	var cancelBtn = document.getElementById('js-cancel-btn');
+	var textToSpeechEle = document.getElementById('js-text-to-speech');
+	var voiceSelect = document.getElementById('js-voice');
+	var langSelect = document.getElementById('js-language');
+	var volumeRange = document.getElementById('js-volume');
+	var rateRange = document.getElementById('js-rate');
+	//	var pitchRange = document.getElementById('js-pitch');
+	var speechStatus = document.getElementById('js-speech-status');
 
 	var log = function (message) {
 		console.log(`${message}<br/>`);
@@ -57,7 +57,7 @@
 		synUtterance.lang = langSelect.value;
 		synUtterance.volume = parseFloat(volumeRange.value);
 		synUtterance.rate = parseFloat(rateRange.value);
-		synUtterance.pitch = parseFloat(pitchRange.value);
+		//	synUtterance.pitch = parseFloat(pitchRange.value);
 
 		const eventList = ['start', 'end', 'mark', 'pause', 'resume', 'error', 'boundary'];
 		eventList.forEach((event) => {
