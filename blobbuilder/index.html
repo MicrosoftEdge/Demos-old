@@ -1,70 +1,74 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <title>Create files dynamically on the browser using BlobBuilder and JavaScript</title>
-    <meta name="description" content="Create files dynamically on the client side using JavaScript and BlobBuilder API"/>
-    <meta name="og:title" content="BlobBuilder" />
-    <meta name="keywords" content="misc, blob, blobbuilder, javascript, svg" />
-    <link rel="stylesheet" type="text/css" href="https://edgeportal.blob.core.windows.net/media/demotemplate.css"/>
-    <link rel="stylesheet" type="text/css" href="styles/demo.css"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<title>Blob Bop</title>
+	<meta name="description" content="Create files dynamically on the client side using JavaScript and the Blob API"/>
+	<meta name="og:title" content="Blob Bop"/>
+	<meta name="keywords" content="misc, blob, blobbuilder, javascript, svg"/>
+	<link rel="stylesheet" type="text/css" href="https://edgeportal.blob.core.windows.net/media/demotemplate.css"/>
+	<link rel="stylesheet" type="text/css" href="styles/demo.css"/>
 </head>
 
 <body>
 
-	<!-- DEMO INTRO -->
-	<header class="section section--page-intro demo__header">
-		<div class="container">
-			<div class="section__header">
-				<h1>BlobBuilder</h1>
-			</div>
+<!-- DEMO INTRO -->
+<header class="section section--page-intro demo__header">
+	<div class="container">
+		<div class="section__header">
+			<h1>Blob Bop</h1>
 		</div>
-	</header>
+	</div>
+</header>
 
-	<section role="region" class="section">
-		<div class="container">
-			<div class="section__body">
-		        <p><a href="http://dev.w3.org/2009/dap/file-system/file-writer.html" target="_blank">BlobBuilder</a> enables
-		            developers to construct files without having to upload and download any data to their server. File
-		            construction
-		            can take place entirely on the
-		            client.</p>
+<section role="region" class="section">
+	<div class="container">
+		<div class="section__body">
+			<p><a href="https://msdn.microsoft.com/en-us/library/windows/apps/hh453178.aspx" target="_blank">Blobs</a>
+				enable
+				developers to construct files without having to upload and download any data to their server. File
+				construction
+				can take place entirely on the
+				client.</p>
 
-		        <p>In this demo, as you press the piano keys, two files are being constructed. A music file is created by
-		            appending
-		            mp3 files of individual notes. A sheet music svg file is created from the svg content of the page. As you
-		            add
-		            notes to your composition
-		            you'll see the file sizes changing. When you are finished with your composition, you can download the music
-		            mp3
-		            file or sheet music svg file.</p>
+			<p>In this demo, as you press the piano keys, two files are being constructed. A music file is created by
+				appending
+				mp3 files of individual notes. A sheet music svg file is created from the svg content of the page. As
+				you
+				add
+				notes to your composition
+				you'll see the file sizes changing. When you are finished with your composition, you can download the
+				music
+				mp3
+				file or sheet music svg file.</p>
 
-				<section class="subsection">
-					<div class="subsection__body">
-				        <p id="warning" class="subheading alert-error">BlobBuilder is not available, some parts of this demo will
-				            not work.</p>
-					    <p id="xhr-blob-warning" class="subheading alert-error">xhr.responseType= blob is not supported,
-				            music file creation is not available.</p>
-				        <div class="layout layout--basic--alt">
-				        	<div class="module module--secondary">
-								<label for="song">Load a song (optional):</label>
-								<select id="song">
-					                <option value="orig">Choose song</option>
-					                <option label="Mary Had a Little Lamb"
-					                        value="B,A,G,A,B,B,B,A,A,A,B,D2,D2,B,A,G,A,B,B,B,B,A,A,B,A,G"></option>
-					                <option label="Twinkle Twinkle Little Star" value="C,C,G,G,A,A,G,F,F,E,E,D,D,C"></option>
-					            </select>
-					            <a id="reset" href="#" class="button button--reset-composition">Reset Composition</a>
-						        <p class="title bb-req">
-						            <a href="#" title="Download Music File" id="save-song">Music File</a>
-						            <span id="music-blob-size">0</span> bytes
-									<br />
-						        	<a id="save-sheet" href="#" title="Download Music Score">Musical Score File</a>
-						        	<span id="score-blob-size">0</span> bytes
-						        </p>
-							</div>
-							<div class="module module--primary">
-						        <svg xml:space="preserve" viewbox="0 0 322 120" width="100%" draggable="false" id="piano">
+			<section class="subsection">
+				<div class="subsection__body">
+					<p id="warning" class="subheading alert-error">Blobs are not available, some parts of this demo will
+						not work.</p>
+					<p id="xhr-blob-warning" class="subheading alert-error">xhr.responseType= blob is not supported,
+						music file creation is not available.</p>
+					<div class="layout layout--basic--alt">
+						<div class="module module--secondary">
+							<label for="song">Load a song (optional):</label>
+							<select id="song">
+								<option value="orig">Choose song</option>
+								<option label="Mary Had a Little Lamb"
+										value="B,A,G,A,B,B,B,A,A,A,B,D2,D2,B,A,G,A,B,B,B,B,A,A,B,A,G"></option>
+								<option label="Twinkle Twinkle Little Star"
+										value="C,C,G,G,A,A,G,F,F,E,E,D,D,C"></option>
+							</select>
+							<a id="reset" href="#" class="button button--reset-composition">Reset Composition</a>
+							<p class="title bb-req">
+								<a href="#" title="Download Music File" id="save-song">Music File</a>
+								<span id="music-blob-size">0</span> bytes
+								<br/>
+								<a id="save-sheet" href="#" title="Download Music Score">Musical Score File</a>
+								<span id="score-blob-size">0</span> bytes
+							</p>
+						</div>
+						<div class="module module--primary">
+							<svg xml:space="preserve" viewbox="0 0 322 120" width="100%" draggable="false" id="piano">
 									<title>Piano Keys</title>
 									<g role="button" focusable="true" id="C">
 										<rect style="fill:white;stroke:black" x="0" y="0" width="23" height="120" class="whitekey" />
@@ -163,116 +167,138 @@
 										<title>A sharp</title>
 									</g>
 								</svg>
-							</div>
-				        </div>
+						</div>
+					</div>
 
 					<div id="score-play-container" class="layout layout--basic--alt">
 						<div id="score-container" class="module module--primary">
-			                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.2"
-			                     viewBox="5.6906 -0.0000 49.6805 7.6000" id="scale" draggable="false"
-			                     title="Generated Musical Score">
-			                    <def>
-			                        <g id="B_note">
-			                            <rect transform="translate(10.6909, 2.0000)" x="-0.0508" y="-1.7990" width="0.1015"
-			                                  height="3.6007" ry="0.0267" fill="currentColor"/>
-			                            <path transform="translate(9.4254, 4.0000) scale(0.0040, -0.0040)"
-			                                  d="M224 136c56 0 105 -28 105 -86c0 -90 -118 -186 -224 -186c-56 0 -105 28 -105 86c0 90 118 186 224 186z"
-			                                  fill="currentColor"/>
-			                        </g>
-			                        <g id="C_note">
-			                            <rect transform="translate(10.6909, 5.000)" x="-0.0508" y="-1.7990" width="0.1015"
-			                                  height="3.6007" ry="0.0267" fill="currentColor"/>
-			                            <path transform="translate(9.4254, 7.000) scale(0.0040, -0.0040)"
-			                                  d="M224 136c56 0 105 -28 105 -86c0 -90 -118 -186 -224 -186c-56 0 -105 28 -105 86c0 90 118 186 224 186z"
-			                                  fill="currentColor"/>
-			                            <rect transform="translate(0.0000, 7.0000)" x="9.0394" y="-0.0890" width="2.0746"
-			                                  height="0.1781" ry="0.0890" fill="currentColor"/>
-			                            28.8394
-			                        </g>
-			                        <g id="C_sharp_note">
-			                            <rect transform="translate(10.6909, 5.000)" x="-0.0508" y="-1.7990" width="0.1015"
-			                                  height="3.6007" ry="0.0267" fill="currentColor"/>
-			                            <path transform="translate(9.4254, 7.000) scale(0.0040, -0.0040)"
-			                                  d="M224 136c56 0 105 -28 105 -86c0 -90 -118 -186 -224 -186c-56 0 -105 28 -105 86c0 90 118 186 224 186z"
-			                                  fill="currentColor"/>
-			                            <rect transform="translate(0.0000, 7.0000)" x="9.0394" y="-0.0890" width="2.0746"
-			                                  height="0.1781" ry="0.0890" fill="currentColor"/>
-			                            <path transform="translate(8.2254, 7.000) scale(0.0040, -0.0040)" d="M215 -316c0 -9 -8 -17 -17 -17s-17 8 -17 17v151l-87 -31v-162c0 -9 -8 -17 -17 -17s-17 8 -17 17v150l-39 -13c-10 -4 -21 4 -21 15v64c0 7 5 13 11 15l49 18v164l-39 -14c-10 -4 -21 4 -21 15v65c0 7 5 13 11 15l49 17v163c0 9 8 17 17 17s17 -8 17 -17v-151l87 31v162
+							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+								 version="1.2"
+								 viewBox="5.6906 -0.0000 49.6805 7.6000" id="scale" draggable="false"
+								 title="Generated Musical Score">
+								<def>
+									<g id="B_note">
+										<rect transform="translate(10.6909, 2.0000)" x="-0.0508" y="-1.7990"
+											  width="0.1015"
+											  height="3.6007" ry="0.0267" fill="currentColor"/>
+										<path transform="translate(9.4254, 4.0000) scale(0.0040, -0.0040)"
+											  d="M224 136c56 0 105 -28 105 -86c0 -90 -118 -186 -224 -186c-56 0 -105 28 -105 86c0 90 118 186 224 186z"
+											  fill="currentColor"/>
+									</g>
+									<g id="C_note">
+										<rect transform="translate(10.6909, 5.000)" x="-0.0508" y="-1.7990"
+											  width="0.1015"
+											  height="3.6007" ry="0.0267" fill="currentColor"/>
+										<path transform="translate(9.4254, 7.000) scale(0.0040, -0.0040)"
+											  d="M224 136c56 0 105 -28 105 -86c0 -90 -118 -186 -224 -186c-56 0 -105 28 -105 86c0 90 118 186 224 186z"
+											  fill="currentColor"/>
+										<rect transform="translate(0.0000, 7.0000)" x="9.0394" y="-0.0890"
+											  width="2.0746"
+											  height="0.1781" ry="0.0890" fill="currentColor"/>
+										28.8394
+									</g>
+									<g id="C_sharp_note">
+										<rect transform="translate(10.6909, 5.000)" x="-0.0508" y="-1.7990"
+											  width="0.1015"
+											  height="3.6007" ry="0.0267" fill="currentColor"/>
+										<path transform="translate(9.4254, 7.000) scale(0.0040, -0.0040)"
+											  d="M224 136c56 0 105 -28 105 -86c0 -90 -118 -186 -224 -186c-56 0 -105 28 -105 86c0 90 118 186 224 186z"
+											  fill="currentColor"/>
+										<rect transform="translate(0.0000, 7.0000)" x="9.0394" y="-0.0890"
+											  width="2.0746"
+											  height="0.1781" ry="0.0890" fill="currentColor"/>
+										<path transform="translate(8.2254, 7.000) scale(0.0040, -0.0040)" d="M215 -316c0 -9 -8 -17 -17 -17s-17 8 -17 17v151l-87 -31v-162c0 -9 -8 -17 -17 -17s-17 8 -17 17v150l-39 -13c-10 -4 -21 4 -21 15v64c0 7 5 13 11 15l49 18v164l-39 -14c-10 -4 -21 4 -21 15v65c0 7 5 13 11 15l49 17v163c0 9 8 17 17 17s17 -8 17 -17v-151l87 31v162
 
 			c0 9 8 17 17 17s17 -8 17 -17v-150l39 13c10 4 21 -4 21 -15v-64c0 -7 -5 -13 -11 -15l-49 -18v-164l39 14c10 4 21 -4 21 -15v-65c0 -7 -5 -13 -11 -15l-49 -17v-163zM181 97l-87 -30v-164l87 30v164z"
-			                                  fill="currentColor"/>
-			                        </g>
-			                        <g id="A_sharp_note">
-			                            <rect transform="translate(10.6909, 2.5000)" x="-0.0508" y="-1.7990" width="0.1015"
-			                                  height="3.6007" ry="0.0267" fill="currentColor"/>
-			                            <path transform="translate(9.4254, 4.5000) scale(0.0040, -0.0040)"
-			                                  d="M224 136c56 0 105 -28 105 -86c0 -90 -118 -186 -224 -186c-56 0 -105 28 -105 86c0 90 118 186 224 186z"
-			                                  fill="currentColor"/>
-			                            <path transform="translate(8.2254, 4.5000) scale(0.0040, -0.0040)" d="M215 -316c0 -9 -8 -17 -17 -17s-17 8 -17 17v151l-87 -31v-162c0 -9 -8 -17 -17 -17s-17 8 -17 17v150l-39 -13c-10 -4 -21 4 -21 15v64c0 7 5 13 11 15l49 18v164l-39 -14c-10 -4 -21 4 -21 15v65c0 7 5 13 11 15l49 17v163c0 9 8 17 17 17s17 -8 17 -17v-151l87 31v162
+											  fill="currentColor"/>
+									</g>
+									<g id="A_sharp_note">
+										<rect transform="translate(10.6909, 2.5000)" x="-0.0508" y="-1.7990"
+											  width="0.1015"
+											  height="3.6007" ry="0.0267" fill="currentColor"/>
+										<path transform="translate(9.4254, 4.5000) scale(0.0040, -0.0040)"
+											  d="M224 136c56 0 105 -28 105 -86c0 -90 -118 -186 -224 -186c-56 0 -105 28 -105 86c0 90 118 186 224 186z"
+											  fill="currentColor"/>
+										<path transform="translate(8.2254, 4.5000) scale(0.0040, -0.0040)" d="M215 -316c0 -9 -8 -17 -17 -17s-17 8 -17 17v151l-87 -31v-162c0 -9 -8 -17 -17 -17s-17 8 -17 17v150l-39 -13c-10 -4 -21 4 -21 15v64c0 7 5 13 11 15l49 18v164l-39 -14c-10 -4 -21 4 -21 15v65c0 7 5 13 11 15l49 17v163c0 9 8 17 17 17s17 -8 17 -17v-151l87 31v162
 
 			c0 9 8 17 17 17s17 -8 17 -17v-150l39 13c10 4 21 -4 21 -15v-64c0 -7 -5 -13 -11 -15l-49 -18v-164l39 14c10 4 21 -4 21 -15v-65c0 -7 -5 -13 -11 -15l-49 -17v-163zM181 97l-87 -30v-164l87 30v164z"
-			                                  fill="currentColor"/>
-			                        </g>
-			                        <g id="lines">
-			                            <line transform="translate(5.6906, 6.0000)" stroke-linejoin="round" stroke-linecap="round"
-			                                  stroke-width="0.0781" stroke="currentColor" x1="0.0390" y1="-0.0000" x2="49.6414"
-			                                  y2="-0.0000"/>
-			                            <line transform="translate(5.6906, 5.0000)" stroke-linejoin="round" stroke-linecap="round"
-			                                  stroke-width="0.0781" stroke="currentColor" x1="0.0390" y1="-0.0000" x2="49.6414"
-			                                  y2="-0.0000"/>
-			                            <line transform="translate(5.6906, 4.0000)" stroke-linejoin="round" stroke-linecap="round"
-			                                  stroke-width="0.0781" stroke="currentColor" x1="0.0390" y1="-0.0000" x2="49.6414"
-			                                  y2="-0.0000"/>
-			                            <line transform="translate(5.6906, 3.0000)" stroke-linejoin="round" stroke-linecap="round"
-			                                  stroke-width="0.0781" stroke="currentColor" x1="0.0390" y1="-0.0000" x2="49.6414"
-			                                  y2="-0.0000"/>
-			                            <line transform="translate(5.6906, 2.0000)" stroke-linejoin="round" stroke-linecap="round"
-			                                  stroke-width="0.0781" stroke="currentColor" x1="0.0390" y1="-0.0000" x2="49.6414"
-			                                  y2="-0.0000"/>
-			                            <!-- trebble path -->
-			                            <path transform="translate(6.4906, 5.0000) scale(0.0040, -0.0040)" d="M643 2c0 -102 -65 -214 -190 -248c0 -13 1 -27 1 -40c0 -46 -1 -92 -4 -138c-7 -119 -92 -227 -214 -227c-111 0 -202 92 -202 205c0 58 54 104 113 104c54 0 95 -48 95 -104c0 -52 -43 -95 -95 -95c-13 0 -27 4 -39 10c26 -47 74 -80 130 -80c100 0 166 94 172 193
+											  fill="currentColor"/>
+									</g>
+									<g id="lines">
+										<line transform="translate(5.6906, 6.0000)" stroke-linejoin="round"
+											  stroke-linecap="round"
+											  stroke-width="0.0781" stroke="currentColor" x1="0.0390" y1="-0.0000"
+											  x2="49.6414"
+											  y2="-0.0000"/>
+										<line transform="translate(5.6906, 5.0000)" stroke-linejoin="round"
+											  stroke-linecap="round"
+											  stroke-width="0.0781" stroke="currentColor" x1="0.0390" y1="-0.0000"
+											  x2="49.6414"
+											  y2="-0.0000"/>
+										<line transform="translate(5.6906, 4.0000)" stroke-linejoin="round"
+											  stroke-linecap="round"
+											  stroke-width="0.0781" stroke="currentColor" x1="0.0390" y1="-0.0000"
+											  x2="49.6414"
+											  y2="-0.0000"/>
+										<line transform="translate(5.6906, 3.0000)" stroke-linejoin="round"
+											  stroke-linecap="round"
+											  stroke-width="0.0781" stroke="currentColor" x1="0.0390" y1="-0.0000"
+											  x2="49.6414"
+											  y2="-0.0000"/>
+										<line transform="translate(5.6906, 2.0000)" stroke-linejoin="round"
+											  stroke-linecap="round"
+											  stroke-width="0.0781" stroke="currentColor" x1="0.0390" y1="-0.0000"
+											  x2="49.6414"
+											  y2="-0.0000"/>
+										<!-- trebble path -->
+										<path transform="translate(6.4906, 5.0000) scale(0.0040, -0.0040)" d="M643 2c0 -102 -65 -214 -190 -248c0 -13 1 -27 1 -40c0 -46 -1 -92 -4 -138c-7 -119 -92 -227 -214 -227c-111 0 -202 92 -202 205c0 58 54 104 113 104c54 0 95 -48 95 -104c0 -52 -43 -95 -95 -95c-13 0 -27 4 -39 10c26 -47 74 -80 130 -80c100 0 166 94 172 193
 			c3 44 4 89 4 133v31c-31 -5 -63 -6 -79 -6c-189 0 -333 173 -333 372c0 181 134 314 254 451c-37 129 -54 211 -54 379c0 197 147 308 159 308c25 0 151 -219 151 -388c0 -150 -90 -267 -190 -380c22 -73 42 -147 61 -221h6c154 0 254 -127 254 -259zM452 -207
 			c66 20 124 84 124 170c0 90 -64 178 -168 192c27 -129 40 -239 44 -362zM338 -220c7 0 45 1 75 5c-4 127 -19 241 -47 372c-87 -5 -136 -62 -136 -124c0 -45 26 -92 83 -125c4 -4 7 -9 7 -14c0 -11 -9 -21 -20 -21c-15 0 -125 63 -125 186c0 90 61 178 168 198
 			c-16 64 -35 127 -53 190c-110 -124 -220 -249 -220 -414c0 -149 144 -253 268 -253zM409 1108c-100 -55 -162 -159 -162 -273c0 -94 27 -190 40 -236c86 102 158 209 158 342c0 77 -11 110 -36 167z"
-			                                  fill="currentColor"/>
-			                        </g>
-			                        <g id="regular_line_end">
-			                            <rect transform="translate(55.20, 4.0000)" x="0.0000" y="-2.0390" width="0.1484"
-			                                  height="4.0781"
-			                                  ry="0.0000" fill="currentColor"/>
-			                        </g>
-			                        <g id="final_line_end">
-			                            <rect transform="translate(54.5198, 4.0000)" x="0.0000" y="-2.0390" width="0.1484"
-			                                  height="4.0781" ry="0.0000" fill="currentColor"/>
-			                            <rect transform="translate(54.9025, 4.0000)" x="0.0000" y="-2.0390" width="0.4686"
-			                                  height="4.0781" ry="0.0000" fill="currentColor"/>
-			                        </g>
-			                    </def>
-			                    <use xlink:href="#lines"></use>
-			                    <use class="line-end" xlink:href="#final_line_end"></use>
-			                </svg>
-			            </div>
+											  fill="currentColor"/>
+									</g>
+									<g id="regular_line_end">
+										<rect transform="translate(55.20, 4.0000)" x="0.0000" y="-2.0390" width="0.1484"
+											  height="4.0781"
+											  ry="0.0000" fill="currentColor"/>
+									</g>
+									<g id="final_line_end">
+										<rect transform="translate(54.5198, 4.0000)" x="0.0000" y="-2.0390"
+											  width="0.1484"
+											  height="4.0781" ry="0.0000" fill="currentColor"/>
+										<rect transform="translate(54.9025, 4.0000)" x="0.0000" y="-2.0390"
+											  width="0.4686"
+											  height="4.0781" ry="0.0000" fill="currentColor"/>
+									</g>
+								</def>
+								<use xlink:href="#lines"></use>
+								<use class="line-end" xlink:href="#final_line_end"></use>
+							</svg>
+						</div>
 						<div class="module module--secondary">
-				            <div id="play" class="bb-req button--play">
-				                <input type="image" src="images/triangle.svg" title="Play Music" id="play-button"/>
-				                <input type="image" src="images/pause.svg" class="hidden" title="Pause Music" id="pause-button"/>
-				            </div>
-				            <p id="audio-warning" class="hidden subheading alert--error">MP3 audio playback isn't available in this browser, try it out on IE10
-				            Platform Preview Build 4.</p>
-				            <div id="songs" style="margin-top:20px;">
-							    <div id="audio-container">
-							        <audio id="song-audio"></audio>
-							    </div>
+							<div id="play" class="bb-req button--play">
+								<input type="image" src="images/triangle.svg" title="Play Music" id="play-button"/>
+								<input type="image" src="images/pause.svg" class="hidden" title="Pause Music"
+									   id="pause-button"/>
 							</div>
-				        </div>
+							<p id="audio-warning" class="hidden subheading alert--error">MP3 audio playback isn't
+								available in this browser, try it out on IE10
+								Platform Preview Build 4.</p>
+							<div id="songs" style="margin-top:20px;">
+								<div id="audio-container">
+									<audio id="song-audio"></audio>
+								</div>
+							</div>
+						</div>
 					</div>
-				</section>
+				</div>
+			</section>
 
-			</div>
 		</div>
-	</section>
+	</div>
+</section>
 
-	<script type="text/javascript" src="scripts/demo.js"></script>
+<script type="text/javascript" src="scripts/demo.js"></script>
 </body>
 
 </html>
