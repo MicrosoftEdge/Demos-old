@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="EN-US" dir="ltr">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<title>Sign in to your Microsoft account</title>
+
+<link href="./images/favicon.ico" rel="shortcut icon">
+<link rel="stylesheet" type="text/css" href="https://edgeportal.blob.core.windows.net/media/demotemplate.css">
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+
+<meta name="GENERATOR" content="MSHTML 11.00.10537.1000">
+</head>
+
+<body class="login-background">
+	<header>
+		<img src="images/puppycamlogo.svg" alt="PuppyCam Logo" class="logo">
+	</header>
+	<div class="centerParent" id="shellTD">
+		<div class="center" id="shellTBL">
+			<div class="centerParent">
+				<div class="center" id="mainTD">
+					<div class="login-container" id="signInTD">
+						<div class="signInHeader" id="i0272">
+							<h1>Sign in</h1>
+						</div>
+						<div id="rightTD">
+							<!-- removing the form to prevent 405 errors when clicking the sign-in button-->
+							<div id="idDiv_FSI_HeaderInfo"><p class="subtitle">Please sign in to access your account and live home puppy cam.</p></div>
+								<div class="section">
+									<div id="idTd_Tile_Error" aria-live="assertive" aria-relevant="text" style="display: none;" aria-atomic="true">
+										<div class="errorDiv" id="idTd_Tile_ErrorMsg_Login"></div>
+									</div>
+									<!-- changed the id below to match that used in the JavaScript-->
+									<div class="row textbox" id="idDiv_PWD_UsernameTb">
+										<div>
+											<input name="loginfmt" id="credentialIdTextBox" aria-describedby="idTd_Tile_Error idTd_PWD_Error" aria-labelledby="idLbl_PWD_Username" lang="en" type="email" maxlength="113" placeholder="Email or phone" value="JohnDoe@outlook.com">
+										</div>
+									</div>
+									<div class="row textbox" id="idDiv_PWD_SUPasswordTb">
+										<div>
+											<input name="passwd" id="input-password" aria-labelledby="idInput-password" type="password" maxlength="127" placeholder="Password" autocomplete="off" value="password" style="display: none;">
+										</div>
+									</div>
+									<div id="idTd_HIP_Error_Password" aria-live="assertive" aria-relevant="text" style="display: none;" aria-atomic="true">
+										<div class="errorDiv" id="idTd_PWD_ErrorMsg_Password"></div>
+									</div>
+									<div class="row textbox" id="idDiv_PWD_SUPasswordTb">
+										<div></div>
+									</div>
+								</div>
+								<div class="section">
+									<button class="default" id="button-logon-with-password" onclick="signInWithPassword()" style="display: none;">Sign In</button>
+									<button class="default" id="button-logon-with-windows-hello" onclick="getAssertion()" style="display: none;">Sign In with Windows Hello</button>
+								</div>
+								<div class="row small" id="register">
+									<a id="link-sign-in-with-password" onclick="addPasswordField();" style="display: none;">Sign in with a password</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="./scripts/mswebauthn.js"></script>
+	<script src="./scripts/demo.js"></script>
+	<script type="text/javascript">
+		(function() {
+			// If Windows Hello registered, show this option first
+			if (window.sessionStorage && window.sessionStorage.getItem("credentialID")) hidePasswordField(); 
+			
+			// If Windows Hello not registered, show password options
+			else addPasswordField();
+		})();
+		
+		function addPasswordField() {
+			document.getElementById("button-logon-with-password").style.display = "block";
+			document.getElementById("input-password").style.display = "block";
+			document.getElementById("button-logon-with-windows-hello").style.display = "none";
+			document.getElementById("link-sign-in-with-password").style.display = "none";
+		}
+		function hidePasswordField() {
+			document.getElementById("button-logon-with-password").style.display = "none";
+			document.getElementById("input-password").style.display = "none";
+			document.getElementById("button-logon-with-windows-hello").style.display = "block";
+			document.getElementById("link-sign-in-with-password").style.display = "block";
+		}
+</script>
+</body>
+</html>
