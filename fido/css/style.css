@@ -20,9 +20,14 @@ p {
 }
 
 /* override demo template */
-a, a:visited {
-	color: #E57373;
+a {
+	background-color: #E57373;
+	color: #fff;
 	font-size: 1.5rem;
+}
+
+a:visited {
+	color: #fff;
 }
 
 .logo {
@@ -32,6 +37,13 @@ a, a:visited {
 .login-background {
 	background: url('../images/puppy-cam-login.jpg') no-repeat center center fixed;
 	background-size: cover;
+}
+
+.nav-top {
+	padding: .4rem 1rem;
+	margin-top: 0rem;
+	background-color: hsla(0,69%,67%,1);
+	color: #fff;
 }
 
 .container {
@@ -90,7 +102,6 @@ input:focus {
 button, input[type=button] {
 	width: 100%;
 	background-color: hsla(0,69%,67%,1);
-	text-transform: capitalize;
 }
 
 .button:link, .button:visited, button, input[type="button"] {
