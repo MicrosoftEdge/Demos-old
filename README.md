@@ -25,3 +25,6 @@ Mention @molant and optionally @melanierichards (for front-end/design review) in
 Previously, we had a demo generator script that will set up a basic demo for you. That script needs to be updated, so for now check out the 
 @supports, css3filters, or webaudiotuner demos for examples. Note that there are meta tags in the `<head>` of `index.html` that will need to 
 be populated with information about your demo.
+
+## Code of Conduct
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
