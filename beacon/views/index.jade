@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1 Beacon API
+
+  p.
+    This is a very basic demo of the W3C Beacon API. Upon page visibility change, a script
+    (beacon_demo.js) attempts to send some sample beacon data to the server.
+  p.
+    For this demo, the data is the timestamp of the send. The server will
+    receive the data and log the timestamp of reception.
+  p.
+    Switch between tabs or minimize/maximize the window to update displayed roundtrip data.
+    You may have to do this several times for a better chance of seeing updated data
+    in case of server lag.
+
+  #error
+
+  h3 Roundtrip data
+  code= data
+
+  script(src="/javascripts/beacon.js")
