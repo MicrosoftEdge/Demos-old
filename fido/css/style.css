@@ -14,9 +14,14 @@ header {
     background-color: hsla(28, 12%, 21%, 0.3);
 }
 
-.reset-button {
-    margin-bottom: 10px;
-	margin-left: 10 px;
+footer {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0 120rem;
+    padding-top: 25rem;
 }
 
 
