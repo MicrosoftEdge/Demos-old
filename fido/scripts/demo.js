@@ -1,3 +1,4 @@
+// TODO: change the name of this function to signInAndRegister
 function signInWithPassword() {
     // If Windows Hello is supported and there is no existing credential, offer to register Windows Hello
     if (window.webauthn && !(window.sessionStorage && window.sessionStorage.getItem('credentialID'))) {
