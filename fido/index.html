@@ -55,7 +55,11 @@
 									<button class="default" id="button-logon-with-windows-hello" onclick="getAssertion()" style="display: none;">Sign In with Windows Hello</button>
 								</div>
 								<div class="row small" id="register">
-									<button id="link-sign-in-with-password" onclick="addPasswordField();" style="display: none;">Sign in with a password</button>
+									<!--The button looks like it is not finished. TODO: change the button to a different look.-->
+									<a id="link-sign-in-with-password" onclick="addPasswordField();" style="display: none;">Sign in with a password</a>
+								</div>
+								<div class="section" id="reset">
+									<a id="link-reset-session" onclick="resetPage()" style="display: block;">Reset the session</a>
 								</div>
 							</div>
 						</div>
@@ -85,6 +89,12 @@
 			document.getElementById("input-password").style.display = "none";
 			document.getElementById("button-logon-with-windows-hello").style.display = "block";
 			document.getElementById("link-sign-in-with-password").style.display = "block";
+		}
+
+		function resetPage() {
+			//windows.sessionStorage.removeItem("credentialID");
+			window.sessionStorage.clear();
+
 		}
 </script>
 </body>
