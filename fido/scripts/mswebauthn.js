@@ -20,68 +20,75 @@
 
 'use strict';
 
-var webauthn = (function () {
+var webauthn = (function() {
 
     function msMakeCredential(accountInfo, cryptoParams, attestChallenge, timeout, blacklist, ext) {
-		var acct = {rpDisplayName: accountInfo.rpDisplayName, userDisplayName: accountInfo.displayName};
-		var params = [];
-		var i;
-		
-		if (accountInfo.name) { acct.accountName = accountInfo.name; }
-		if (accountInfo.id) { acct.userId = accountInfo.id; }
-		if (accountInfo.imageUri) { acct.accountImageUri = accountInfo.imageUri; }
 
-		for ( i = 0; i < cryptoParams.length; i++ ) {
-			if ( cryptoParams[i].type === 'FIDO' ) {
-				params[i] = { type: 'FIDO_2_0', algorithm: cryptoParams[i].algorithm };
-			} else {
-				params[i] = cryptoParams[i];
-			}
-		}
-        return msCredentials.makeCredential(acct, params, attestChallenge).then(function (cred) {
-			if (cred.type === 'FIDO_2_0'){
-				return Object.freeze({
-					credential: {type: 'FIDO', id: cred.id},
-					algorithm: cred.algorithm,
-					publicKey: JSON.parse(cred.publicKey),
-					attestation: cred.attestation
-				});
-			} else {
-				return cred;
-			}
-		});
+        console.log("msMakeCredential starts");
+
+        var acct = { rpDisplayName: accountInfo.rpDisplayName, userDisplayName: accountInfo.displayName };
+        var params = [];
+        var i;
+
+        if (accountInfo.name) { acct.accountName = accountInfo.name; }
+        if (accountInfo.id) { acct.userId = accountInfo.id; }
+        if (accountInfo.imageUri) { acct.accountImageUri = accountInfo.imageUri; }
+
+        for (i = 0; i < cryptoParams.length; i++) {
+            if (cryptoParams[i].type === 'FIDO') {
+                params[i] = { type: 'FIDO_2_0', algorithm: cryptoParams[i].algorithm };
+            } else {
+                params[i] = cryptoParams[i];
+            }
+        }
+
+		// TODO: delete this line afterward 
+    	console.log("msMakeCredential starts");
+
+        return msCredentials.makeCredential(acct, params, attestChallenge).then(function(cred) {
+            if (cred.type === 'FIDO_2_0') {
+                return Object.freeze({
+                    credential: { type: 'FIDO', id: cred.id },
+                    algorithm: cred.algorithm,
+                    publicKey: JSON.parse(cred.publicKey),
+                    attestation: cred.attestation
+                });
+            } else {
+                return cred;
+            }
+        });
     }
 
     function msGetAssertion(challenge, timeout, whitelist, ext) {
-		var filter = undefined;
-		var credList = [];
-		var sigParams = undefined;
-		var j;
-        
-		if (whitelist) { 
-			for ( j = 0; j < whitelist.length; j++ ) {
-				if ( whitelist[j].type === 'FIDO' ) {
-					credList[j] = { type: 'FIDO_2_0', id: whitelist[j].id };
-				} else {
-					credList[j] = whitelist[j];
-				}
-			}
-			filter = { accept: credList }; 
-		}
-		if (ext['fido.txauth.simple']) { sigParams = { userPrompt: ext['fido.txauth.simple'] }; }
+        var filter = undefined;
+        var credList = [];
+        var sigParams = undefined;
+        var j;
 
-        return msCredentials.getAssertion(challenge, filter, sigParams).then(function (sig) {
-			if (sig.type === 'FIDO_2_0'){
-				return Object.freeze({
-					credential: {type: 'FIDO', id: sig.id},
-					clientData: sig.signature.clientData,
-					authenticatorData: sig.signature.authnrData,
-					signature: sig.signature.signature
-				});
-			} else {
-				return sig;
-			}
-		});
+        if (whitelist) {
+            for (j = 0; j < whitelist.length; j++) {
+                if (whitelist[j].type === 'FIDO') {
+                    credList[j] = { type: 'FIDO_2_0', id: whitelist[j].id };
+                } else {
+                    credList[j] = whitelist[j];
+                }
+            }
+            filter = { accept: credList };
+        }
+        if (ext['fido.txauth.simple']) { sigParams = { userPrompt: ext['fido.txauth.simple'] }; }
+
+        return msCredentials.getAssertion(challenge, filter, sigParams).then(function(sig) {
+            if (sig.type === 'FIDO_2_0') {
+                return Object.freeze({
+                    credential: { type: 'FIDO', id: sig.id },
+                    clientData: sig.signature.clientData,
+                    authenticatorData: sig.signature.authnrData,
+                    signature: sig.signature.signature
+                });
+            } else {
+                return sig;
+            }
+        });
     }
 
     return {
