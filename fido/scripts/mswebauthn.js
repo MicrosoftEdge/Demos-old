@@ -42,11 +42,19 @@ var webauthn = (function() {
             }
         }
 
-		// TODO: delete this line afterward 
-    	console.log("msMakeCredential starts");
+        // TODO: delete this line afterward
+        // This line already past when the popup shows up 
+        console.log("msMakeCredential starts");
+
 
         return msCredentials.makeCredential(acct, params, attestChallenge).then(function(cred) {
+
+            console.log("msMakeCredential finally returns");
+
             if (cred.type === 'FIDO_2_0') {
+
+                console.log("before an object is freezed in msCredentials");
+
                 return Object.freeze({
                     credential: { type: 'FIDO', id: cred.id },
                     algorithm: cred.algorithm,
@@ -54,6 +62,9 @@ var webauthn = (function() {
                     attestation: cred.attestation
                 });
             } else {
+
+                console.log("before cred is returned");
+
                 return cred;
             }
         });
