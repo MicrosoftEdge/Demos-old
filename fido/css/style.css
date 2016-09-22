@@ -14,7 +14,8 @@ header {
     background-color: hsla(28, 12%, 21%, 0.3);
 }
 
-footer {
+
+/*footer {
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -22,6 +23,12 @@ footer {
     align-items: center;
     padding: 0 110rem;
     padding-top: 15rem;
+}*/
+
+#reset {
+    position: fixed;
+    bottom: 5rem;
+    right: 5rem;
 }
 
 
