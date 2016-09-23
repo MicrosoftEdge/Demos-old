@@ -50,6 +50,7 @@ function makeCredential() {
                 // If promise returns successfully, store credID locally
                 if (window.sessionStorage) {
 
+                    // TODO: delete this line afterward
                     log("start to store credID locally");
                     window.sessionStorage.setItem('credentialID', creds.credential.id);
                     window.sessionStorage.setItem('algorithm', creds.algorithm);
@@ -57,21 +58,24 @@ function makeCredential() {
 
                 }
 
-                // Share credential information with server
+                // Share credential information with server. Currently nothing is sent actually. 
                 sendToServer(creds);
 
                 // Go to Inbox
                 window.location = 'inbox.html';
             })
-            // TODO: Why do we need two catch cases if they both are about to set up Windows Hello?
-            .catch(function(reason) {
-                // Windows Hello isn't setup, show dialog explaining how to set it up
-                if (reason.message === 'NotSupportedError') {
-                    showSetupWindowsHelloDialog(true);
-                }
-                log('Windows Hello failed (' + reason.message + ').');
-            });
+
+        // TODO: Why do we need two catch cases if they both are about to set up Windows Hello?
+        .catch(function(reason) {
+            // Windows Hello isn't setup, show dialog explaining how to set it up
+            if (reason.message === 'NotSupportedError') {
+                showSetupWindowsHelloDialog(true);
+            }
+            log('Windows Hello failed (' + reason.message + ').');
+        });
     } catch (ex) {
+
+        // TODO: test this popup with someone else's brand new computer 
         // Windows Hello isn't setup, show dialog explaining how to set it up
         if (reason.message === 'NotSupportedError') {
             showSetupWindowsHelloDialog(true);

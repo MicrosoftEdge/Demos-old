@@ -46,13 +46,14 @@ var webauthn = (function() {
         // This line already past when the popup shows up 
         console.log("msMakeCredential starts");
 
-
         return msCredentials.makeCredential(acct, params, attestChallenge).then(function(cred) {
 
+            // TODO: delete this line afterward
             console.log("msMakeCredential finally returns");
 
             if (cred.type === 'FIDO_2_0') {
 
+                // TODO: delete this line afterward
                 console.log("before an object is freezed in msCredentials");
 
                 return Object.freeze({
@@ -63,6 +64,7 @@ var webauthn = (function() {
                 });
             } else {
 
+                // TODO: delete this line afterward
                 console.log("before cred is returned");
 
                 return cred;

@@ -15,16 +15,7 @@ header {
 }
 
 
-/*footer {
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    align-items: center;
-    padding: 0 110rem;
-    padding-top: 15rem;
-}*/
-
+/* Set the reset button at the lower right corner of the page */
 #reset {
     position: fixed;
     bottom: 5rem;

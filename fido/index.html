@@ -57,8 +57,8 @@
                                 <button class="default" id="button-logon-with-windows-hello" onclick="getAssertion()" style="display: none;">Sign In with Windows Hello</button>
                             </div>
                             <div class="row small" id="register">
-                                <!--The button looks like it is not finished. TODO: change the button to a different look.-->
-                                <a id="link-sign-in-with-password" onclick="addPasswordField();" style="display: none;">Sign in with a password</a>
+                                <!--TODO: We may be able to differentiate between this button with the SignInWithWindowsHello button with different color-->
+                                <button id="link-sign-in-with-password" onclick="addPasswordField();" style="display: none;">Sign in with a password</button>
                             </div>
                         </div>
                     </div>
@@ -73,6 +73,7 @@
     <script src="./scripts/demo.js"></script>
     <script type="text/javascript">
         (function() {
+            // TODO: get rid of the use of sessionStorage here and use index.db
             // If Windows Hello registered, show this option first
             if (window.sessionStorage && window.sessionStorage.getItem("credentialID")) hidePasswordField();
 
@@ -96,7 +97,11 @@
 
         function resetPage() {
             //windows.sessionStorage.removeItem("credentialID");
+
+            // Clear sessionStorage to restart the session. 
             window.sessionStorage.clear();
+
+            // Add the password field so that the UI looks like it is restarting. 
             addPasswordField();
         }
     </script>
