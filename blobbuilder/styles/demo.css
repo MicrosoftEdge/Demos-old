@@ -26,6 +26,7 @@
 	padding: 5px;
 	width: 80px;
 	height: 80px;
+	margin-top: 0;
 }
 
 #piano g rect:hover {
@@ -48,9 +49,9 @@ select,
 		margin-top: 3.2rem;
 		width: 100%;
 	}
-	
+
 	.layout--basic--alt .module:first-child {
 		margin-top: 0;
 	}
-	
+
 }
