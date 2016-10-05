@@ -134,8 +134,15 @@ var webauthn = (function() {
     }
 
     return {
-        makeCredential: msMakeCredential,
-        getAssertion: msGetAssertion
+        if (window.webauthn || (!msCredentials)) {
+            makeCredential: makeCredential;
+            getAssertion: getAssertion
+        }
+        else {
+            makeCredential: msMakeCredential,
+            getAssertion: msGetAssertion
+        }
+        
     };
 
 }());

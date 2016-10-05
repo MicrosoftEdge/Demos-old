@@ -142,11 +142,11 @@ input[type="button"] {
     max-width: 48rem;
     min-height: 15rem;
     position: relative;
-    top: 14rem;
+    top: 12rem;
     margin: 0 auto;
     padding: 0rem;
     text-align: center;
-    background: #FFFFFF;
+    background: #EEEFF1;
     border: 2px solid #D2CCCC;
     border-bottom: 0px;
 }
