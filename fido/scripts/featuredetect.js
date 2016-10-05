@@ -1,29 +1,22 @@
 (function() {
-
-    // TODO: get rid of the use of sessionStorage here and use index.db
-
     // If Windows Hello registered, show this option first
     localforage.length().then( function (numberOfKeys) {
         // TODO: check if we can get rid of ==0 
         // If there are no keys stored locally, the user needs to sign in 
         // with password. 
-        if (numberOfKeys == 0) {
+        if (!numberOfKeys) {
             return addPasswordField();
         }
         else {
 
-            // If the user hasn't registered to use Windows Hello on this 
-            // site, show password options.
+            // If the user registered to use Windows Hello before, they can logon
+            // without using his/her password. 
             return hidePasswordField();
         }
     }).catch(function (err) {
-        console.log(err);
+        console.log("Unable to add/hide password field: " + err);
     }); 
 
-    // if (window.sessionStorage && window.sessionStorage.getItem("credentialID")) hidePasswordField();
-
-    // If Windows Hello not registered, show password options
-    //else addPasswordField();
 })();
 
 function addPasswordField() {
@@ -45,16 +38,12 @@ function resetPage() {
     // Clear all entires of the credentials database to restart the 
     // session.
     localforage.clear().then( function() {
+
+        // Add the password field to reset the UI to its original state 
         return addPasswordField();
+
     }).catch(function(err) {
-        console.log(err);
+        console.log("Page was not reset: " + err);
     });
 
-    //windows.sessionStorage.removeItem("credentialID");
-
-    // Clear sessionStorage to restart the session. 
-    // window.sessionStorage.clear();
-
-    // Add the password field so that the UI looks like it is restarting. 
-    addPasswordField();
 }

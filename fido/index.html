@@ -35,7 +35,6 @@
                                 <div id="idTd_Tile_Error" aria-live="assertive" aria-relevant="text" style="display: none;" aria-atomic="true">
                                     <div class="errorDiv" id="idTd_Tile_ErrorMsg_Login"></div>
                                 </div>
-                                <!-- changed the id below to match that used in the JavaScript-->
                                 <div class="row textbox" id="idDiv_PWD_UsernameTb">
                                     <div>
                                         <input name="loginfmt" id="credentialIdTextBox" aria-describedby="idTd_Tile_Error idTd_PWD_Error" aria-labelledby="idLbl_PWD_Username" lang="en" type="email" maxlength="113" placeholder="Email or phone" value="JohnDoe@outlook.com">
@@ -53,12 +52,11 @@
                                 </div>
                             </div>
                             <div class="section">
-                                <button class="default" id="button-logon-with-password" onclick="signInWithPassword()" style="display: none;">Sign In</button>
+                                <button class="default" id="button-logon-with-password" onclick="signInAndRegister()" style="display: none;">Sign In</button>
                                 <button class="default" id="button-logon-with-windows-hello" onclick="getAssertion()" style="display: none;">Sign In with Windows Hello</button>
                             </div>
                             <div class="row small" id="register">
-                                <!--TODO: We may be able to differentiate between this button with the SignInWithWindowsHello button with different color-->
-                                <button id="link-sign-in-with-password" onclick="addPasswordField();" style="display: none;">Sign in with a password</button>
+                                <button id="button-sign-in-with-password" onclick="addPasswordField();" style="display: none;">Sign in with a password</button>
                             </div>
                         </div>
                     </div>
@@ -69,42 +67,12 @@
     <footer id="reset">
         <button class="reset-button" id="link-reset-session" onclick="resetPage()" style="display: inline;">Reset session</button>
     </footer>
+    <!-- Include localforage, a polyfill for indexedDB -->    
+    <script src="./scripts/localforage.js"></script>
+    <!-- Polyfill for the WebAuthN API. The polyfill maps WebAuthN calls to msCredentials !--> 
     <script src="./scripts/mswebauthn.js"></script>
+    <script src="./scripts/featuredetect.js"></script>
     <script src="./scripts/demo.js"></script>
-    <script type="text/javascript">
-        (function() {
-            // TODO: get rid of the use of sessionStorage here and use index.db
-            // If Windows Hello registered, show this option first
-            if (window.sessionStorage && window.sessionStorage.getItem("credentialID")) hidePasswordField();
-
-            // If Windows Hello not registered, show password options
-            else addPasswordField();
-        })();
-
-        function addPasswordField() {
-            document.getElementById("button-logon-with-password").style.display = "block";
-            document.getElementById("input-password").style.display = "block";
-            document.getElementById("button-logon-with-windows-hello").style.display = "none";
-            document.getElementById("link-sign-in-with-password").style.display = "none";
-        }
-
-        function hidePasswordField() {
-            document.getElementById("button-logon-with-password").style.display = "none";
-            document.getElementById("input-password").style.display = "none";
-            document.getElementById("button-logon-with-windows-hello").style.display = "block";
-            document.getElementById("link-sign-in-with-password").style.display = "block";
-        }
-
-        function resetPage() {
-            //windows.sessionStorage.removeItem("credentialID");
-
-            // Clear sessionStorage to restart the session. 
-            window.sessionStorage.clear();
-
-            // Add the password field so that the UI looks like it is restarting. 
-            addPasswordField();
-        }
-    </script>
 </body>
 
 </html>
