@@ -151,4 +151,4 @@ var webauthn = (function() {
 }());
 
 
-        if (window.webauthn || (!msCredentials)) {
+        // if (window.webauthn || (!msCredentials)) {
