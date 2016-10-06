@@ -133,6 +133,8 @@ var webauthn = (function() {
         });
     }
 
+    // Detect whether the machine has the new Web AuthN API set up. If so, use
+    // the default Web AuthN API. 
     if (window.webauthn || (!msCredentials)) {
         return;
     }
@@ -142,10 +144,5 @@ var webauthn = (function() {
         getAssertion: msGetAssertion
     };
     }
-
-    // return {
-    //         makeCredential: msMakeCredential,
-    //         getAssertion: msGetAssertion
-    // };
 
 }());
