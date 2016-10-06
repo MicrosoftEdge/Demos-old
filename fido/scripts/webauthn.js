@@ -133,22 +133,9 @@ var webauthn = (function() {
         });
     }
 
-    if (window.webauthn || (!msCredentials)) {
-        return; 
-    }
-    else {
-        return {
+    return {
             makeCredential: msMakeCredential,
             getAssertion: msGetAssertion
-        }
-    }
-
-    // return {
-    //         makeCredential: msMakeCredential,
-    //         getAssertion: msGetAssertion
-    // };
+    };
 
 }());
-
-
-        // if (window.webauthn || (!msCredentials)) {
