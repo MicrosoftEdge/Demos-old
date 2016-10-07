@@ -71,42 +71,42 @@ function makeCredential() {
 
       }
 
-        WebAuthentication.makeCredential(accountInfo, cryptoParameters, 
-            attestationChallenge, timeout, denyList, ext)
-            .then(function(creds) {
+        // WebAuthentication.makeCredential(accountInfo, cryptoParameters, 
+        //     attestationChallenge, timeout, denyList, ext)
+        //     .then(function(creds) {
 
-                    // If promise returns successfully, store credID locally
-                    var infoInJSON = JSON.stringify({algorithm: creds.algorithm, 
-                        publicKey: creds.publicKey.n})
+        //             // If promise returns successfully, store credID locally
+        //             var infoInJSON = JSON.stringify({algorithm: creds.algorithm, 
+        //                 publicKey: creds.publicKey.n})
 
-                    localforage.setItem(creds.credential.id, infoInJSON).then(
-                        function(value) {
+        //             localforage.setItem(creds.credential.id, infoInJSON).then(
+        //                 function(value) {
                             
-                            // Share credential information with server. 
-                            // Currently nothing is actually sent. 
-                            sendToServer(creds);
+        //                     // Share credential information with server. 
+        //                     // Currently nothing is actually sent. 
+        //                     sendToServer(creds);
 
-                            // Go to Inbox
-                            window.location = 'inbox.html';
+        //                     // Go to Inbox
+        //                     window.location = 'inbox.html';
                         
-                        }).catch( function(err) {
+        //                 }).catch( function(err) {
 
-                            log(err);
+        //                     log(err);
 
-                        });
+        //                 });
 
-            })
+        //     })
 
-        .catch(function(reason) {
+        // .catch(function(reason) {
 
-            helpSetup(reason.message);
+        //     helpSetup(reason.message);
         
-        });
-    } catch (ex) {
+        // });
+    // } catch (ex) {
 
-        helpSetup(reason.message);
+    //     helpSetup(reason.message);
 
-    }
+    // }
 }
 
 // Authenticate the user

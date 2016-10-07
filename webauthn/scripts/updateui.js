@@ -1,42 +1,22 @@
 (function() {
-    // If Windows Hello registered, show this option first
-
-    // localforage.length().then( function (numberOfKeys) {
-    //     // TODO: check if we can get rid of ==0 
-    //     // If there are no keys stored locally, the user needs to sign in 
-    //     // with password. 
-    //     if (!numberOfKeys) {
-    //         return addPasswordField();
-    //     }
-    //     else {
-
-    //         // If the user registered to use Windows Hello before, they can logon
-    //         // without using his/her password. 
-    //         return hidePasswordField();
-    //     }
-    // }).catch(function (err) {
-    //     console.log("Unable to add/hide password field: " + err);
-    // }); 
 
     // The challenge typically comes from the server. 
     challenge = "chanllenge-string";
+
     navigator.authentication.getAssertion(challenge).then( function(assertion) {
 
+        // If the user registered to use Windows Hello before, they can logon
+        // without using his/her password. 
         return hidePasswordField();
 
     }).catch( function(err) {
 
         // Any error means that the user cannot sign in with WebAuthN and needs
         // sign in with password. 
-        return addPasswordField();
+        addPasswordField();
 
-        // if (err === DOMException('NotAllowedError')) {
 
-        //     return addPasswordField();
-        // } 
-        // else {
-
-        // }
+        return; 
     });
 
 })();
@@ -56,6 +36,8 @@ function hidePasswordField() {
 }
 
 function resetPage() {
+
+
 
     // Clear all entires of the credentials database to restart the 
     // session.
@@ -80,6 +62,11 @@ function showSetupWindowsHelloDialog(show) {
         document.getElementById("brandModeTD").style.display = "block";
         document.getElementById("signInTD").style.display = "block";
     }
+}
+
+function addRandomAcctInfo() {
+    document.getElementById("credentialIdTextBox").setAttribute("value", randomAcctName());
+    document.getElementById("input-password").setAttribute("value", randomPasswd());
 }
 
 function randomAcctName() {
