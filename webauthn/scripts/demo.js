@@ -57,6 +57,7 @@ function makeCredential() {
             .catch(function(reason) {
 
                 helpSetup(reason.message);
+            });
 
     } catch(ex) {
 
