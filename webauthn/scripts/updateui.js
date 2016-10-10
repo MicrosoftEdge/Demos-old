@@ -5,15 +5,15 @@
     if (credentialId) {
         var acctName = localStorage.getItem('acctName');
 
-        // The challenge typically comes from the server. 
-        var challenge = "challenge-string";
-        var allowList = [{
-                type: 'ScopedCred',
+        // // The challenge typically comes from the server. 
+        // var challenge = "challenge-string";
+        // var allowList = [{
+        //         type: 'ScopedCred',
 
-                // Because the current website only supports one user to login, 
-                // there should only be one credential available to use. 
-                id: acctId
-        }];
+        //         // Because the current website only supports one user to login, 
+        //         // there should only be one credential available to use. 
+        //         id: acctId
+        // }];
 
         document.getElementById("credentialIdTextBox").setAttribute("value", acctName);
 
