@@ -115,3 +115,7 @@ function helpSetup(reason) {
 
     log('Windows Hello failed (' + reason.message + ').');
 }
+
+function directSignIn() {
+    window.location = 'inbox.html';
+}
