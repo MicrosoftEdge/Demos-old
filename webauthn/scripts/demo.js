@@ -67,7 +67,7 @@ function verify() {
     var challenge = 'Our fathers brought forth on this continent, a new nation';
 
     var allowList = [{
-            type: 'FIDO',
+            type: 'ScopedCred',
 
             // Because the current website only supports one user to login, 
             // there should only be one credential available to use. 
