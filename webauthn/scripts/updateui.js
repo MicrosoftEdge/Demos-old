@@ -33,20 +33,26 @@ function hidePasswordField() {
     document.getElementById("button-sign-in-with-password").style.display = "block";
 }
 
+function signInAndRegister() {
+    if (navigator.authentication) {
+
+            // If Windows Hello is supported, offer to register Windows Hello
+            window.location = 'webauthnregister.html';
+
+    } else {
+
+        // If the WebAuthN API is not supported, neglect the WebAuthN register 
+        // page and jump to the inbox page directly. 
+        window.location = 'inbox.html';
+    };
+}
+
 function resetPage() {
 
-
-
-    // Clear all entires of the credentials database to restart the 
-    // session.
-    localforage.clear().then( function() {
-
-        // Add the password field to reset the UI to its original state 
-        return addPasswordField();
-
-    }).catch(function(err) {
-        console.log("Page was not reset: " + err);
-    });
+    // Only authenticators can delete credentials. To reset the session, we
+    // use a different accout name and password. 
+    addPasswordField();
+    addRandomAcctInfo();
 
 }
 
@@ -63,16 +69,25 @@ function showSetupWindowsHelloDialog(show) {
 }
 
 function addRandomAcctInfo() {
+
+    var randomDisplayName = randomStr(7);
+    var randomAcctName = (randomDisplayName() + "@" + randomStr(5) + ".com");
+    var randomPasswd = randomStr(10);
+
+    // An account identifer used by the website to control the number of 
+    // credentials. There is only one credential for every id. 
+    var acctId = randomStr(6);
+
+    // Account related information is typically stored in the server
+    // side. To keep the demo as simple as possible, it is stored in 
+    // sessionStorage. 
+    sessionStorage.setItem('displayName', randomDisplayName);
+    sessionStorage.setItem('acctName', randomAcctName);
+    sessionStorage.setItem('acctId', acctId);
+    sessionStorage.setItem('passwd', randomPasswd);
+
     document.getElementById("credentialIdTextBox").setAttribute("value", randomAcctName());
     document.getElementById("input-password").setAttribute("value", randomPasswd());
-}
-
-function randomAcctName() {
-    return (randomStr(7) + "@" + randomStr(5) + ".com")
-}
-
-function randomPasswd() {
-    return randomStr(10);
 }
 
 function randomStr(length)

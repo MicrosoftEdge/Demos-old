@@ -5,16 +5,6 @@
 // The polyfill works on any machine carrying Web Authentication API and PCs 
 // that installed Windows 8.1 and above.
 
-
-// TODO: Use https instead of http 
-
-// TODO: Generate random unique strings to reset session 
-
-// TODO: Change how it detects whether a credential is available or not. 
-
-// DONE: Throw NotAllowedError DOMException if anything goes wrong in
-// makeCredential and getAssertion 
-
 // If Web Authenticaion API is available on the browser, use the API. Otherwise,
 // use the polyfill. 
 navigator.authentication = navigator.authentication || (function () {

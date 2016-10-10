@@ -1,38 +1,26 @@
-function signInAndRegister() {
-    // If Windows Hello is supported and there is no existing credential, 
-    // offer to register Windows Hello
-    if (window.webauthn) {
-        localforage.length().then( function(numberOfKeys) {
-            if (numberOfKeys == 0) {
-                window.location = 'webauthnregister.html';
-            } else {
-                window.location = 'inbox.html';
-            }
-        }).catch(function(err) {
-            console.log("signInAndRegister failed: " + err);
-        })
-    } else {
-
-        // If the WebAuthN API is not supported, neglect the WebAuthN register 
-        // page and jump to the inbox page directly. 
-        window.location = 'inbox.html';
-    };
-}
-
 // Register user with Web AuthN API 
 function makeCredential() {
     try {
+
+        const credAlgorithm = 'RSASSA-PKCS1-v1_5';
+
         // This information would normally come from the server
         var accountInfo = {
-            rpDisplayName: 'Contoso', // Name of relying party
-            displayName: 'John Doe', // Name of user account in relying partying
-            name: 'johndoe@contoso.com', // Detailed name of account
-            id: 'joed' // Account identifier
+            rpDisplayName: 'puppycam', // Name of relying party
+
+            // The following account information is typically stored in the server
+            // side. To keep the demo as simple as possible, it is stored in 
+            // sessionStorage. 
+
+            // Name of user account in relying partying
+            displayName: sessionStorage.getItem('displayName'), 
+            name: sessionStorage.getItem('acctName'); // Detailed name of account
+            id: sessionStorage.getItem('acctId'); // Account identifier
         };
 
         var cryptoParameters = [{
-            type: 'FIDO',
-            algorithm: 'RSASSA-PKCS1-v1_5'
+            type: 'ScopedCred',
+            algorithm: credAlgorithm
         }];
 
         // We won't use this optional parameters
@@ -48,66 +36,31 @@ function makeCredential() {
         // This ensures the assertions are freshly generated and not replays
         var attestationChallenge = 'Four score and seven years ago';
 
-
         WebAuthentication.makeCredential(accountInformation, cryptoParameters, attestationChallenge, options)
-            .then(function (creds) {
-                 window.location = 'inbox.html';
+            .then( function (credInfo) {
+
+                // Web developers can also store the credential id on their server.
+                localStorage["id"] = credInfo.credential.id;
+                // The public key here is a JSON object. 
+                localStorage["publicKey"] = credInfo.publicKey;
+
+                window.location = 'inbox.html';
              })
 
             .catch(function(reason) {
 
-                helpSetup(reason.message);
+                    // Windows Hello isn't setup, show dialog explaining how to set it up
+                    setupOrSkip(reason.message);
+                
             });
 
     } catch(ex) {
 
         helpSetup(reason.message);
 
-            // // Windows Hello isn't setup, show dialog explaining how to set it up
-            // if (reason.message === 'NotSupportedError') {
-            //     showSetupWindowsHelloDialog(true);
-            // }
-            // log('makeCredential() failed: ' + ex);  
-
       }
-
-        // WebAuthentication.makeCredential(accountInfo, cryptoParameters, 
-        //     attestationChallenge, timeout, denyList, ext)
-        //     .then(function(creds) {
-
-        //             // If promise returns successfully, store credID locally
-        //             var infoInJSON = JSON.stringify({algorithm: creds.algorithm, 
-        //                 publicKey: creds.publicKey.n})
-
-        //             localforage.setItem(creds.credential.id, infoInJSON).then(
-        //                 function(value) {
-                            
-        //                     // Share credential information with server. 
-        //                     // Currently nothing is actually sent. 
-        //                     sendToServer(creds);
-
-        //                     // Go to Inbox
-        //                     window.location = 'inbox.html';
-                        
-        //                 }).catch( function(err) {
-
-        //                     log(err);
-
-        //                 });
-
-        //     })
-
-        // .catch(function(reason) {
-
-        //     helpSetup(reason.message);
-        
-        // });
-    // } catch (ex) {
-
-    //     helpSetup(reason.message);
-
-    // }
 }
+
 
 // Authenticate the user
 function getAssertion() {
@@ -119,34 +72,28 @@ function getAssertion() {
         var timeout = {};
         var ext = {};
 
-        localforage.keys().then(function(keys) {
-            
-            var allowList = [{
+        var allowList = [{
                 type: 'FIDO',
 
                 // Because the current website only supports one user to login, 
                 // there should only be one credential available to use. 
-                id: keys[0]
-            }]
+                id: sessionStorage.getItem('acctId')
+        }];
 
-            return window.webauthn.getAssertion(challenge, timeout, allowList,
-                ext);
-
-        }).then( function(sig) {
+        navigator.webauthn.getAssertion(challenge, timeout, allowList, ext).then( function(assertion) {
             // Assertion calls succeeds
             // Send assertion to the server
             sendToServer(sig);
 
-            // Assuming confirmation, sign in to inbox
+            // If authenticated, sign in to regular inbox 
             window.location = 'inbox.html';
+        }).catch( function(err) {
 
-        }).catch(function(err) {
             log('getAssertion() failed: ' + ex);
+
+            window.location = 'inbox.html';
         });
 
-    } catch (ex) {
-        log('getAssertion() failed: ' + ex);
-    }
 }
 
 function sendToServer(msg) {
@@ -159,10 +106,17 @@ function log(message) {
 }
 
 function helpSetup(reason) {
-    // TODO: test this popup with someone else's brand new computer 
+
     // Windows Hello isn't setup, show dialog explaining how to set up
     if (reason === 'NotSupportedError') {
         showSetupWindowsHelloDialog(true);
     }
+    else {
+
+        // For other special error, direct to the regular inbox without
+        // bothering to set up with windows hello.
+        window.location = 'inbox.html';
+    }
+
     log('Windows Hello failed (' + reason.message + ').');
 }
