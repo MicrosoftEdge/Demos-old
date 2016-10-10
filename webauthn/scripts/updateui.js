@@ -4,14 +4,16 @@
     var acctName = localStorage.getItem('acctName');
 
     // The challenge typically comes from the server. 
-    var challenge = "chanllenge-string";
+    var challenge = "challenge-string";
     var allowList = [{
-            type: 'FIDO',
+            type: 'ScopedCred',
 
             // Because the current website only supports one user to login, 
             // there should only be one credential available to use. 
             id: acctId
     }];
+
+    // acctId = fuc2so 
 
     navigator.authentication.getAssertion(challenge, {allowList}).then( function(assertion) {
 
