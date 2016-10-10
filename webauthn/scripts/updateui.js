@@ -1,9 +1,16 @@
 (function() {
 
     // The challenge typically comes from the server. 
-    challenge = "chanllenge-string";
+    var challenge = "chanllenge-string";
+    var allowList = [{
+            type: 'FIDO',
 
-    navigator.authentication.getAssertion(challenge).then( function(assertion) {
+            // Because the current website only supports one user to login, 
+            // there should only be one credential available to use. 
+            id: sessionStorage.getItem('acctId')
+    }];
+
+    navigator.authentication.getAssertion(challenge, {allowList}).then( function(assertion) {
 
         // If the user registered to use Windows Hello before, they can logon
         // without using his/her password. 
