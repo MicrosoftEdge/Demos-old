@@ -2,23 +2,27 @@
 function createCredential() {
     try {
 
+        // The API allows a variety of algorithms as specified in the Web Crypto
+        // API. Please refer to this link for the algorithms supported: 
+        // https://w3c.github.io/webcrypto/Overview.html#algorithm-overview
         const credAlgorithm = 'RSASSA-PKCS1-v1_5';
 
-        // This information would normally come from the server
+        // The following account information is typically stored in the server
+        // side. To keep the demo as simple as possible, it is stored in 
+        // localStorage. 
         var accountInfo = {
-            rpDisplayName: 'puppycam', // Name of relying party
-
-            // The following account information is typically stored in the server
-            // side. To keep the demo as simple as possible, it is stored in 
-            // localStorage. 
-
+            rpDisplayName: 'puppycam', // Name of the website 
             // Name of user account in relying partying
             displayName: localStorage.getItem('displayName'), 
             name: localStorage.getItem('acctName'), // Detailed name of account
             id: localStorage.getItem('acctId') // Account identifier
         };
 
+        // Additional parameters supplied when creating a new credential. 
         var cryptoParameters = [{
+
+            // There is only one valid credential type as of 10/10/2016. But 
+            // more credential types may be added as the w3c spec evolves.
             type: 'ScopedCred',
             algorithm: credAlgorithm
         }];
@@ -34,10 +38,10 @@ function createCredential() {
         // This ensures the assertions are freshly generated and not replays
         var attestationChallenge = 'Four score and seven years ago';
 
-        navigator.authentication.makeCredential(accountInfo, cryptoParameters, attestationChallenge, options)
-            .then( function (credInfo) {
+        navigator.authentication.makeCredential(accountInfo, cryptoParameters, 
+            attestationChallenge, options).then( function (credInfo) {
 
-                // Web developers can also store the credential id on their server.
+                // Web developers can store the credential id on the server.
                 localStorage.setItem('credentialId', credInfo.credential.id);
                 // The public key here is a JSON object. 
                 localStorage.setItem('publicKey', credInfo.publicKey);
@@ -47,8 +51,9 @@ function createCredential() {
 
             .catch(function(reason) {
 
-                    // Windows Hello isn't setup, show dialog explaining how to set it up
-                    setupOrSkip(reason.message);
+                    // Windows Hello isn't setup, show dialog explaining how to
+                    // set up
+                    helpSetup(reason.message);
                 
             });
 
@@ -67,6 +72,8 @@ function verify() {
     var challenge = 'Our fathers brought forth on this continent, a new nation';
 
     var allowList = [{
+            // There is only one valid credential type as of 10/10/2016. But 
+            // more credential types may be added as the w3c spec evolves.
             type: 'ScopedCred',
 
             // Because the current website only supports one user to login, 
@@ -74,7 +81,9 @@ function verify() {
             id: localStorage.getItem('acctId')
     }];
 
-    navigator.authentication.getAssertion(challenge, {allowList}).then( function(assertion) {
+
+    navigator.authentication.getAssertion(challenge, {allowList}).
+        then( function(assertion) {
         // Assertion calls succeeds
         // Send assertion to the server
         sendToServer(assertion);

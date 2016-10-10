@@ -22,12 +22,12 @@ header {
     right: 5rem;
 }
 
-#hello_logo {
+#idHello_Logo {
     width: 4.2rem;
     height: 3.7rem;
 }
 
-#button-sign-in-with-password{
+#idButton_Add_Pwd_Field {
     background-color: #778899;
 }
 
