@@ -1,8 +1,19 @@
 (function() {
 
-    // For every credential id, there is only one credential available. 
-    if (localStorage.getItem('credentialId')) {
+    var credentialId = localStorage.getItem('credentialId');
+
+    if (credentialId) {
         var acctName = localStorage.getItem('acctName');
+
+        // // The challenge typically comes from the server. 
+        // var challenge = "challenge-string";
+        // var allowList = [{
+        //         type: 'ScopedCred',
+
+        //         // Because the current website only supports one user to login, 
+        //         // there should only be one credential available to use. 
+        //         id: acctId
+        // }];
 
         document.getElementById("credentialIdTextBox").setAttribute("value", acctName);
 
@@ -25,14 +36,14 @@ function addPasswordField() {
     document.getElementById("button-logon-with-password").style.display = "block";
     document.getElementById("input-password").style.display = "block";
     document.getElementById("button-logon-with-windows-hello").style.display = "none";
-    document.getElementById("idButton_Add_Pwd_Field").style.display = "none";
+    document.getElementById("button-sign-in-with-password").style.display = "none";
 }
 
 function hidePasswordField() {
     document.getElementById("button-logon-with-password").style.display = "none";
     document.getElementById("input-password").style.display = "none";
     document.getElementById("button-logon-with-windows-hello").style.display = "block";
-    document.getElementById("idButton_Add_Pwd_Field").style.display = "block";
+    document.getElementById("button-sign-in-with-password").style.display = "block";
 }
 
 function signInAndRegister() {
@@ -93,7 +104,6 @@ function addRandomAcctInfo() {
     document.getElementById("input-password").setAttribute("value", randomPasswd);
 }
 
-// Create random string made out of lowercase letters 
 function randomStr(length) {
     var text = "";
     var possible = "abcdefghijklmnopqrstuvwxyz";
@@ -116,6 +126,6 @@ function addDirectSignIn() {
     document.getElementById("input-password").style.display = "block";
     document.getElementById("button-logon-with-password").style.display = "none";
     document.getElementById("button-logon-with-windows-hello").style.display = "none";
-    document.getElementById("idButton_Add_Pwd_Field").style.display = "none";
+    document.getElementById("button-sign-in-with-password").style.display = "none";
 
 }

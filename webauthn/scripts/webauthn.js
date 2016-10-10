@@ -1,45 +1,12 @@
-// This file implements a polyfill which maps the current Web Authentication API
-// to the Microsoft Edge preliminary implementation. If Web Authenticaion API is
-// available on the browser, it will use the API; otherwise, it will fall back
-// to the preliminary implementation. 
-
-// The file is up-to-date with the W3C working draft of the spec in Sept 
-// 29th, 2016. Link to draft: http://www.w3.org/TR/2016/WD-webauthn-20160928
-
-// This implementation inherits its limitations on parameter values from the 
-// Edge implementation.
-
-
-// Notes on limitations:
-// 
-// The polyfill only works if the user has created a PIN (and optionally Hello 
-// gestures) for themselves in Settings->Accounts->Sign-in options. The setup 
-// process creates the container into which these credential keys will go. 
-// 
-// Keys will be held in hardware if the machine has a sufficiently performant 
-// TPM, otherwise in software
-
-// makeCredential:
-//    - timeout is ignored
-//    - blacklist is ignored
-//    - all extensions are ignored
-//    - current implementation does not return attestation info
-
-// getAssertion:
-//    - timeout is ignored
-//    - whitelist is required in order to get an assertion (this means we 
-//      can only do U2F-style scenarios, not "typeless" auth where the user 
-//      is prompted to pick an identity)
-//    - all extensions are ignored except fido.txauth.simple
-//    - signature should be spec compliant if no extension used (signature 
-//      counter is always zero)
-//    - if txauth.simple extension used, clientData contains an extra field 
-//      called userPrompt which contains the prompt and authenticatorData still 
-//      says no extensions
-
 "use strict";
 
+// Editor's draft of spec at https://w3c.github.io/webauthn/#api
 
+// The polyfill works on any machine carrying Web Authentication API and PCs 
+// that installed Windows 8.1 and above.
+
+// If Web Authenticaion API is available on the browser, use the API. Otherwise,
+// use the polyfill. 
 navigator.authentication = navigator.authentication || (function () {
 
 
@@ -152,7 +119,9 @@ navigator.authentication = navigator.authentication || (function () {
 
     	try {
 
-    		// For every user id, the authenticator only stores one credential. 
+    		// Need to know the display name of the relying party, the display name
+    		// of the user, and the user id to create a credential. For every user
+    		// id, there is one credential stored by the authenticator. 
 			var acct = {rpDisplayName: accountInfo.rpDisplayName, 
 				userDisplayName: accountInfo.displayName, userId : accountInfo.id};
 			var params = [];
@@ -175,7 +144,6 @@ navigator.authentication = navigator.authentication || (function () {
 	        return msCredentials.makeCredential(acct, params).then(function (cred) {
 
 				if (cred.type === "FIDO_2_0") {
-
 					var result = Object.freeze({
 						credential: {type: "ScopedCred", id: cred.id},
 						publicKey: JSON.parse(cred.publicKey),
