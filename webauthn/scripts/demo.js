@@ -66,9 +66,6 @@ function verify() {
     // This ensures that any assertions are freshly generated and not replays
     var challenge = 'Our fathers brought forth on this continent, a new nation';
 
-    var timeout = {};
-    var ext = {};
-
     var allowList = [{
             type: 'FIDO',
 
@@ -77,7 +74,7 @@ function verify() {
             id: sessionStorage.getItem('acctId')
     }];
 
-    navigator.webauthn.getAssertion(challenge, timeout, allowList, ext).then( function(assertion) {
+    navigator.webauthn.getAssertion(challenge, {allowList}).then( function(assertion) {
         // Assertion calls succeeds
         // Send assertion to the server
         sendToServer(sig);
