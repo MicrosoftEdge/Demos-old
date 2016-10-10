@@ -104,8 +104,7 @@ function addRandomAcctInfo() {
     document.getElementById("input-password").setAttribute("value", randomPasswd);
 }
 
-function randomStr(length)
-{
+function randomStr(length) {
     var text = "";
     var possible = "abcdefghijklmnopqrstuvwxyz";
 
@@ -114,4 +113,19 @@ function randomStr(length)
     }
 
     return text;
+}
+
+function signInWoRegister() {
+
+    window.location = "inbox.html";
+}
+
+function addDirectSignIn() {
+
+    document.getElementById("button-logon-with-password-only").style.display = "block";
+    document.getElementById("input-password").style.display = "block";
+    document.getElementById("button-logon-with-password").style.display = "none";
+    document.getElementById("button-logon-with-windows-hello").style.display = "none";
+    document.getElementById("button-sign-in-with-password").style.display = "none";
+
 }
