@@ -54,7 +54,7 @@ function createCredential() {
 
     } catch(ex) {
 
-        helpSetup(reason.message);
+        helpSetup(ex);
 
       }
 }
