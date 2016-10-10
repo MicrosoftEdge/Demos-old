@@ -21,7 +21,7 @@
         // Any error means that the user cannot sign in with WebAuthN and needs
         // sign in with password. 
         addPasswordField();
-        return addRandomAcctInfo();
+        addRandomAcctInfo();
     });
 
 })();
