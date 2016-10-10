@@ -38,9 +38,9 @@ function createCredential() {
             .then( function (credInfo) {
 
                 // Web developers can also store the credential id on their server.
-                localStorage["id"] = credInfo.credential.id;
+                localStorage.setItem('credentialId', credInfo.credential.id);
                 // The public key here is a JSON object. 
-                localStorage["publicKey"] = credInfo.publicKey;
+                localStorage.setItem('publicKey', credInfo.publicKey);
 
                 window.location = 'inbox.html';
              })
