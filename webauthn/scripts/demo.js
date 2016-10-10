@@ -77,11 +77,11 @@ function verify() {
     navigator.authentication.getAssertion(challenge, {allowList}).then( function(assertion) {
         // Assertion calls succeeds
         // Send assertion to the server
-        // sendToServer(sig);
+        sendToServer(assertion);
 
         // If authenticated, sign in to regular inbox 
         window.location = 'inbox.html';
-        
+
     }).catch( function(err) {
 
         log('getAssertion() failed: ' + ex);
