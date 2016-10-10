@@ -10,12 +10,12 @@ function createCredential() {
 
             // The following account information is typically stored in the server
             // side. To keep the demo as simple as possible, it is stored in 
-            // sessionStorage. 
+            // localStorage. 
 
             // Name of user account in relying partying
-            displayName: sessionStorage.getItem('displayName'), 
-            name: sessionStorage.getItem('acctName'), // Detailed name of account
-            id: sessionStorage.getItem('acctId') // Account identifier
+            displayName: localStorage.getItem('displayName'), 
+            name: localStorage.getItem('acctName'), // Detailed name of account
+            id: localStorage.getItem('acctId') // Account identifier
         };
 
         var cryptoParameters = [{
@@ -71,7 +71,7 @@ function verify() {
 
             // Because the current website only supports one user to login, 
             // there should only be one credential available to use. 
-            id: sessionStorage.getItem('acctId')
+            id: localStorage.getItem('acctId')
     }];
 
     navigator.webauthn.getAssertion(challenge, {allowList}).then( function(assertion) {

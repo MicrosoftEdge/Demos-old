@@ -1,5 +1,8 @@
 (function() {
 
+    var acctId = localStorage.getItem('acctId');
+    var acctName = localStorage.getItem('acctName');
+
     // The challenge typically comes from the server. 
     var challenge = "chanllenge-string";
     var allowList = [{
@@ -7,10 +10,12 @@
 
             // Because the current website only supports one user to login, 
             // there should only be one credential available to use. 
-            id: sessionStorage.getItem('acctId')
+            id: acctId
     }];
 
     navigator.authentication.getAssertion(challenge, {allowList}).then( function(assertion) {
+
+        document.getElementById("credentialIdTextBox").setAttribute("value", acctName);
 
         // If the user registered to use Windows Hello before, they can logon
         // without using his/her password. 
@@ -87,11 +92,11 @@ function addRandomAcctInfo() {
 
     // Account related information is typically stored in the server
     // side. To keep the demo as simple as possible, it is stored in 
-    // sessionStorage. 
-    sessionStorage.setItem('displayName', randomDisplayName);
-    sessionStorage.setItem('acctName', randomAcctName);
-    sessionStorage.setItem('acctId', acctId);
-    sessionStorage.setItem('passwd', randomPasswd);
+    // localStorage. 
+    localStorage.setItem('displayName', randomDisplayName);
+    localStorage.setItem('acctName', randomAcctName);
+    localStorage.setItem('acctId', acctId);
+    localStorage.setItem('passwd', randomPasswd);
 
     document.getElementById("credentialIdTextBox").setAttribute("value", randomAcctName);
     document.getElementById("input-password").setAttribute("value", randomPasswd);
