@@ -78,7 +78,7 @@ function showSetupWindowsHelloDialog(show) {
 function addRandomAcctInfo() {
 
     var randomDisplayName = randomStr(7);
-    var randomAcctName = (randomDisplayName() + "@" + randomStr(5) + ".com");
+    var randomAcctName = (randomDisplayName + "@" + randomStr(5) + ".com");
     var randomPasswd = randomStr(10);
 
     // An account identifer used by the website to control the number of 
@@ -102,8 +102,9 @@ function randomStr(length)
     var text = "";
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
-    for( var i=0; i < length; i++ )
+    for (var i=0; i < length; i++) {
         text += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
 
     return text;
 }
