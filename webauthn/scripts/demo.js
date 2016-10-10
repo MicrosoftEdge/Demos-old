@@ -74,7 +74,7 @@ function verify() {
             id: localStorage.getItem('acctId')
     }];
 
-    navigator.webauthn.getAssertion(challenge, {allowList}).then( function(assertion) {
+    navigator.authentication.getAssertion(challenge, {allowList}).then( function(assertion) {
         // Assertion calls succeeds
         // Send assertion to the server
         sendToServer(sig);
