@@ -93,8 +93,8 @@ function addRandomAcctInfo() {
     sessionStorage.setItem('acctId', acctId);
     sessionStorage.setItem('passwd', randomPasswd);
 
-    document.getElementById("credentialIdTextBox").setAttribute("value", randomAcctName());
-    document.getElementById("input-password").setAttribute("value", randomPasswd());
+    document.getElementById("credentialIdTextBox").setAttribute("value", randomAcctName);
+    document.getElementById("input-password").setAttribute("value", randomPasswd);
 }
 
 function randomStr(length)
