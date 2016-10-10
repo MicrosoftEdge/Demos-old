@@ -1,10 +1,8 @@
 (function() {
 
-    var acctId = localStorage.getItem('acctId');
+    var credentialId = localStorage.getItem('credentialId');
 
- 
-
-    if (acctId) {
+    if (credentialId) {
         var acctName = localStorage.getItem('acctName');
 
         // The challenge typically comes from the server. 
@@ -67,8 +65,8 @@ function resetPage() {
     // Only authenticators can delete credentials. To reset the session, we
     // use a different accout name and password. 
     addPasswordField();
-    addRandomAcctInfo();
     localStorage.clear();
+    addRandomAcctInfo();
 
 }
 
@@ -109,7 +107,7 @@ function addRandomAcctInfo() {
 function randomStr(length)
 {
     var text = "";
-    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    var possible = "abcdefghijklmnopqrstuvwxyz";
 
     for (var i=0; i < length; i++) {
         text += possible.charAt(Math.floor(Math.random() * possible.length));
