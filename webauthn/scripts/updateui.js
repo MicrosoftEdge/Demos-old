@@ -1,35 +1,36 @@
 (function() {
 
     var acctId = localStorage.getItem('acctId');
-    var acctName = localStorage.getItem('acctName');
 
-    // The challenge typically comes from the server. 
-    var challenge = "challenge-string";
-    var allowList = [{
-            type: 'ScopedCred',
+ 
 
-            // Because the current website only supports one user to login, 
-            // there should only be one credential available to use. 
-            id: acctId
-    }];
+    if (acctId) {
+        var acctName = localStorage.getItem('acctName');
 
-    // acctId = fuc2so 
+        // The challenge typically comes from the server. 
+        var challenge = "challenge-string";
+        var allowList = [{
+                type: 'ScopedCred',
 
-    navigator.authentication.getAssertion(challenge, {allowList}).then( function(assertion) {
+                // Because the current website only supports one user to login, 
+                // there should only be one credential available to use. 
+                id: acctId
+        }];
 
         document.getElementById("credentialIdTextBox").setAttribute("value", acctName);
 
         // If the user registered to use Windows Hello before, they can logon
         // without using his/her password. 
-        return hidePasswordField();
+        hidePasswordField();
 
-    }).catch( function(err) {
+    } else {
 
         // Any error means that the user cannot sign in with WebAuthN and needs
         // sign in with password. 
         addPasswordField();
         addRandomAcctInfo();
-    });
+
+    }
 
 })();
 
@@ -67,6 +68,7 @@ function resetPage() {
     // use a different accout name and password. 
     addPasswordField();
     addRandomAcctInfo();
+    localStorage.clear();
 
 }
 
