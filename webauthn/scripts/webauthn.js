@@ -247,8 +247,8 @@ navigator.authentication = navigator.authentication || (function () {
 
 			});   		
     	}
-
-		catch (e) {
+    	}
+    	catch (e) {
 
 			throw new DOMException('NotAllowedError');
 
