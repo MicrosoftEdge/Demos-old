@@ -46,7 +46,9 @@ navigator.authentication = navigator.authentication || (function () {
 
 		function store(id,data) {
 			if(!initPromise) { initPromise = initDB(); }
-			return initPromise.then(function() { doStore(id,data) });
+			return initPromise.then(function() { 
+				return doStore(id,data) 
+			});
 		}
 
 		function doStore(id,data) {
@@ -141,26 +143,30 @@ navigator.authentication = navigator.authentication || (function () {
 
 			}
 
-	        return msCredentials.makeCredential(acct, params).then(function (cred) {
+	        msCredentials.makeCredential(acct, params).then(function (cred) {
 
-				if (cred.type === "FIDO_2_0") {
-					var result = Object.freeze({
-						credential: {type: "ScopedCred", id: cred.id},
+	        	var result;
+
+	        	if (cred.type === "FIDO_2_0") {
+
+	        		result = Object.freeze({
+	        			credential: {type: "ScopedCred", id: cred.id},
 						publicKey: JSON.parse(cred.publicKey),
 						attestation: cred.attestation
-					});
+	        		});
+	        	} else {
+	        		result = cred; 
+	        	}
 
-					return webauthnDB.store(result.credential.id,accountInfo).then(function() { 
-						return result; 
-					});
+	        	return webauthnDB.store(result.credential.id, accountInfo);
 
-				} else {
-					return cred;
-				}
-			}).catch( function(err) {
+	        }).then( function() {
+	        	
+	        	return result; 
 
-				// TODO: maybe the spec has other specification on which error to throw? 
-				throw new DOMException('NotSupportedError');
+	        }).catch( function(err) {
+
+				throw new DOMException('UnknownError');
 			});
     	}
     	catch (err) {
@@ -180,21 +186,39 @@ navigator.authentication = navigator.authentication || (function () {
 
     	if(allowlist) {
 
-    		return new Promise(function(resolve,reject) {
-    			allowlist.forEach(function(item) {
-					if (item.type === 'ScopedCred' ) {
-						credList.push({ type: 'FIDO_2_0', id: item.id });
-					} else {
-						credList.push(item);
-					}
+    		return Promise.resolve().then( function() {
+    			return Promise.all(allowlist.map( function(descriptor) {
 
-    			});
-    			resolve(credList);
-			});
-    	} else {
-    		return webauthnDB.getAll().then(function(list) {
-    			list.forEach(item => credList.push({ type: 'FIDO_2_0', id: item.id }));
+    				if (descriptor.type === 'ScopedCred') {
+    					return credList.push({ type: 'FIDO_2_0', id: descriptor.id});
+    				} else {
+    					return credList.push(descriptor);
+    				}
+
+    				return credList;
+
+    			}));
+    		}).then( function(credList) {
     			return credList;
+    		}).catch( function(err) {
+    			console.log("Credential lists cannot be retrieved: " + err);
+    		});
+
+    	} else {
+
+    		webauthnDB.getAll.then( function(list) {
+
+    			return Promise.all(list.map( function(descriptor) {
+    				
+    				return credList.push({ type: 'FIDO_2_0', id: descriptor.id});
+
+    			}));
+    		}).then( function(credList) {
+
+    			return credList;
+
+    		}).catch( function(err) {
+    			console.log("Credential lists cannot be retrieved: " + err);
     		});
     	}
     }
@@ -207,7 +231,7 @@ navigator.authentication = navigator.authentication || (function () {
     		
     		var allowlist = options ? options.allowList : undefined;
 
-			return getCredList(allowlist).then(function(credList) {
+			getCredList(allowlist).then( function(credList) {
 
 				var filter = { accept: credList }; 
 				var sigParams = undefined;
@@ -216,28 +240,35 @@ navigator.authentication = navigator.authentication || (function () {
 					sigParams = { userPrompt: options.extensions["webauthn_txAuthSimple"] }; 
 				}
 
-		        return msCredentials.getAssertion(challenge, filter, sigParams).then( function(sig) {
 
-					if (sig.type === "FIDO_2_0"){
+		        return msCredentials.getAssertion(challenge, filter, sigParams);
 
-						return Object.freeze({
+		    }).then( function(sig) {
 
-							credential: {type: "ScopedCred", id: sig.id},
-							clientData: sig.signature.clientData,
-							authenticatorData: sig.signature.authnrData,
-							signature: sig.signature.signature
+		    	var result; 
 
-						});
+				if (sig.type === "FIDO_2_0"){
 
-					} else {
-						return sig;
-					}
-				}).catch( function(err) {
+					result = Object.freeze({
 
-					// TODO: maybe the spec has other specification on which error to throw? 
-					throw new DOMException('NotSupportedError');
-				});
-			});    		
+						credential: {type: "ScopedCred", id: sig.id},
+						clientData: sig.signature.clientData,
+						authenticatorData: sig.signature.authnrData,
+						signature: sig.signature.signature
+
+					});
+
+				} else {
+					result = sig;
+				}
+
+				return result; 
+
+			}).catch( function(err) {
+
+					throw new DOMException('UnknownError');
+
+			});   		
     	}
 
 		catch (e) {
