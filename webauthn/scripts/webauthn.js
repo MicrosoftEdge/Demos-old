@@ -229,11 +229,9 @@ navigator.authentication = navigator.authentication || (function () {
 
 		    }).then( function(sig) {
 
-		    	var result; 
+				if (sig.type === "FIDO_2_0") {
 
-				if (sig.type === "FIDO_2_0"){
-
-					result = Object.freeze({
+					return Object.freeze({
 
 						credential: {type: "ScopedCred", id: sig.id},
 						clientData: sig.signature.clientData,
@@ -241,12 +239,9 @@ navigator.authentication = navigator.authentication || (function () {
 						signature: sig.signature.signature
 
 					});
-
-				} else {
-					result = sig;
 				}
 
-				return result; 
+				return sig;
 
 			}).catch( function(err) {
 
