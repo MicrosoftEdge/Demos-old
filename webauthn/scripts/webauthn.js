@@ -184,7 +184,8 @@ navigator.authentication = navigator.authentication || (function () {
 
     	if(allowlist) {
 
-    		return Promise.resolve().then( function() {
+    		return new Promise(function(resolve,reject) {
+
     			return Promise.all(allowlist.map( function(descriptor) {
 
     				if (descriptor.type === 'ScopedCred') {
@@ -195,10 +196,31 @@ navigator.authentication = navigator.authentication || (function () {
 
     				return credList;
 
-    			}));
-    		}).catch( function(err) {
-    			console.log("Credential lists cannot be retrieved: " + err);
-    		});
+    			}));    			
+
+    			resolve(credList);
+			});
+
+
+    		// return new Promise( function(resolve, reject) {
+
+    		// 	return Promise.all(allowlist.map( function(descriptor) {
+
+    		// 		if (descriptor.type === 'ScopedCred') {
+    		// 			credList.push({ type: 'FIDO_2_0', id: descriptor.id});
+    		// 		} else {
+    		// 			credList.push(descriptor);
+    		// 		}
+
+    		// 		return credList;
+
+    		// 	}));		
+    		// })
+    		// return Promise.resolve().then( function() {
+
+    		// }).catch( function(err) {
+    		// 	console.log("Credential lists cannot be retrieved: " + err);
+    		// });
 
     	} else {
 
