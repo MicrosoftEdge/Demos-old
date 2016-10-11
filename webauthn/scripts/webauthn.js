@@ -157,6 +157,10 @@ navigator.authentication = navigator.authentication || (function () {
 				} else {
 					return cred;
 				}
+			}).catch( function(err) {
+
+				// TODO: maybe the spec has other specification on which error to throw? 
+				throw new DOMException('NotSupportedError');
 			});
     	}
     	catch (err) {
@@ -212,7 +216,7 @@ navigator.authentication = navigator.authentication || (function () {
 					sigParams = { userPrompt: options.extensions["webauthn_txAuthSimple"] }; 
 				}
 
-		        return msCredentials.getAssertion(challenge, filter, sigParams).then(function (sig) {
+		        return msCredentials.getAssertion(challenge, filter, sigParams).then( function(sig) {
 
 					if (sig.type === "FIDO_2_0"){
 
@@ -228,6 +232,10 @@ navigator.authentication = navigator.authentication || (function () {
 					} else {
 						return sig;
 					}
+				}).catch( function(err) {
+
+					// TODO: maybe the spec has other specification on which error to throw? 
+					throw new DOMException('NotSupportedError');
 				});
 			});    		
     	}
