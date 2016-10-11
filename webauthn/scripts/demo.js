@@ -47,7 +47,7 @@ function createCredential() {
             .catch(function(reason) {
 
                     // Windows Hello isn't setup, show dialog explaining how to set it up
-                    setupOrSkip(reason.message);
+                    helpSetup(reason.message);
                 
             });
 
@@ -102,7 +102,7 @@ function log(message) {
 function helpSetup(reason) {
 
     // Windows Hello isn't setup, show dialog explaining how to set up
-    if (reason === 'NotSupportedError') {
+    if (reason === 'NotAllowedError') {
         showSetupWindowsHelloDialog(true);
     }
     else {

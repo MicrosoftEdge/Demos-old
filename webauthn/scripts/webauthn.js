@@ -163,7 +163,7 @@ navigator.authentication = navigator.authentication || (function () {
 
 			}).catch( function(err) {
 
-				throw new DOMException('UnknownError');
+				throw new DOMException('NotAllowedError');
 			});
     	}
     	catch (err) {
@@ -264,7 +264,7 @@ navigator.authentication = navigator.authentication || (function () {
 
 			}).catch( function(err) {
 
-					throw new DOMException('UnknownError');
+					throw new DOMException('NotAllowedError');
 
 			});   		
     	}
