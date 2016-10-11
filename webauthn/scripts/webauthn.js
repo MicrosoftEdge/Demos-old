@@ -188,16 +188,14 @@ navigator.authentication = navigator.authentication || (function () {
     			return Promise.all(allowlist.map( function(descriptor) {
 
     				if (descriptor.type === 'ScopedCred') {
-    					return credList.push({ type: 'FIDO_2_0', id: descriptor.id});
+    					credList.push({ type: 'FIDO_2_0', id: descriptor.id});
     				} else {
-    					return credList.push(descriptor);
+    					credList.push(descriptor);
     				}
 
     				return credList;
 
     			}));
-    		}).then( function(credList) {
-    			return credList;
     		}).catch( function(err) {
     			console.log("Credential lists cannot be retrieved: " + err);
     		});
