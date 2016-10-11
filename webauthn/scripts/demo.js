@@ -34,8 +34,7 @@ function createCredential() {
         // This ensures the assertions are freshly generated and not replays
         var attestationChallenge = 'Four score and seven years ago';
 
-        navigator.authentication.makeCredential(accountInfo, cryptoParameters, attestationChallenge, options)
-            .then( function (credInfo) {
+        navigator.authentication.makeCredential(accountInfo, cryptoParameters, attestationChallenge, options).then( function (credInfo) {
 
                 // Web developers can also store the credential id on their server.
                 localStorage.setItem('credentialId', credInfo.credential.id);

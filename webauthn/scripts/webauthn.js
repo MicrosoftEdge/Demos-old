@@ -143,28 +143,25 @@ navigator.authentication = navigator.authentication || (function () {
 
 			}
 
-	        msCredentials.makeCredential(acct, params).then(function (cred) {
+	        return msCredentials.makeCredential(acct, params).then(function (cred) {
 
-	        	var result;
+				if (cred.type === "FIDO_2_0") {
 
-	        	if (cred.type === "FIDO_2_0") {
-
-	        		result = Object.freeze({
-	        			credential: {type: "ScopedCred", id: cred.id},
+					var result = Object.freeze({
+						credential: {type: "ScopedCred", id: cred.id},
 						publicKey: JSON.parse(cred.publicKey),
 						attestation: cred.attestation
-	        		});
-	        	} else {
-	        		result = cred; 
-	        	}
+					});
 
-	        	return webauthnDB.store(result.credential.id, accountInfo);
+					return webauthnDB.store(result.credential.id, accountInfo).then(function() { 
+						return result; 
+					});
 
-	        }).then( function() {
-	        	
-	        	return result; 
+				} else {
+					return cred;
+				}
 
-	        }).catch( function(err) {
+			}).catch( function(err) {
 
 				throw new DOMException('UnknownError');
 			});
@@ -177,6 +174,7 @@ navigator.authentication = navigator.authentication || (function () {
 
     	
     }
+
 
 
 
