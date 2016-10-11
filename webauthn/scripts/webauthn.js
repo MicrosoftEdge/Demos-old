@@ -225,9 +225,7 @@ navigator.authentication = navigator.authentication || (function () {
 				}
 
 
-		        return msCredentials.getAssertion(challenge, filter, sigParams);
-
-		    }).then( function(sig) {
+		        return msCredentials.getAssertion(challenge, filter, sigParams).then( function(sig) {
 
 				if (sig.type === "FIDO_2_0") {
 
