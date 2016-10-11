@@ -180,56 +180,22 @@ navigator.authentication = navigator.authentication || (function () {
 
     function getCredList(allowlist) {
 
-		var credList = [];
-
     	if(allowlist) {
 
-    		return new Promise(function(resolve,reject) {
+    		return Promise.resolve(allowlist.map( function(descriptor) {
 
-    			return Promise.all(allowlist.map( function(descriptor) {
-
-    				if (descriptor.type === 'ScopedCred') {
-    					credList.push({ type: 'FIDO_2_0', id: descriptor.id});
-    				} else {
-    					credList.push(descriptor);
-    				}
-
-    				return credList;
-
-    			}));    			
-
-    			resolve(credList);
-			});
-
-
-    		// return new Promise( function(resolve, reject) {
-
-    		// 	return Promise.all(allowlist.map( function(descriptor) {
-
-    		// 		if (descriptor.type === 'ScopedCred') {
-    		// 			credList.push({ type: 'FIDO_2_0', id: descriptor.id});
-    		// 		} else {
-    		// 			credList.push(descriptor);
-    		// 		}
-
-    		// 		return credList;
-
-    		// 	}));		
-    		// })
-    		// return Promise.resolve().then( function() {
-
-    		// }).catch( function(err) {
-    		// 	console.log("Credential lists cannot be retrieved: " + err);
-    		// });
+				if (descriptor.type === 'ScopedCred') {
+					return { type: 'FIDO_2_0', id: descriptor.id};
+				}
+			    return descriptor;
+			}));
 
     	} else {
 
     		webauthnDB.getAll.then( function(list) {
 
-    			return Promise.all(list.map( function(descriptor) {
-    				
-    				return credList.push({ type: 'FIDO_2_0', id: descriptor.id});
-
+    			return Promise.resolve(list.map( function(descriptor) {
+    				return { type: 'FIDO_2_0', id: descriptor.id};
     			}));
     		}).then( function(credList) {
 
