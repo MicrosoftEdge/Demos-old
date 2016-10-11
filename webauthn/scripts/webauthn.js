@@ -215,7 +215,7 @@ navigator.authentication = navigator.authentication || (function () {
     		
     		var allowlist = options ? options.allowList : undefined;
 
-			getCredList(allowlist).then( function(credList) {
+			return getCredList(allowlist).then( function(credList) {
 
 				var filter = { accept: credList }; 
 				var sigParams = undefined;
@@ -227,27 +227,28 @@ navigator.authentication = navigator.authentication || (function () {
 
 		        return msCredentials.getAssertion(challenge, filter, sigParams).then( function(sig) {
 
-				if (sig.type === "FIDO_2_0") {
+					if (sig.type === "FIDO_2_0") {
 
-					return Object.freeze({
+						return Object.freeze({
 
-						credential: {type: "ScopedCred", id: sig.id},
-						clientData: sig.signature.clientData,
-						authenticatorData: sig.signature.authnrData,
-						signature: sig.signature.signature
+							credential: {type: "ScopedCred", id: sig.id},
+							clientData: sig.signature.clientData,
+							authenticatorData: sig.signature.authnrData,
+							signature: sig.signature.signature
 
-					});
-				}
+						});
+					}
 
-				return sig;
+					return sig;
 
-			}).catch( function(err) {
+				}).catch( function(err) {
 
 					throw new DOMException('NotAllowedError');
 
-			});   		
+				});   		
+    		});
     	}
-    	}
+    	
     	catch (e) {
 
 			throw new DOMException('NotAllowedError');
