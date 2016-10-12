@@ -225,31 +225,30 @@ navigator.authentication = navigator.authentication || (function () {
 				}
 
 
-		        return msCredentials.getAssertion(challenge, filter, sigParams)
+		        return msCredentials.getAssertion(challenge, filter, sigParams).then( function(sig) {
 
-		    }).then( function(sig) {
+					if (sig.type === "FIDO_2_0") {
 
-				if (sig.type === "FIDO_2_0") {
+						return Object.freeze({
 
-					return Promise.resolve(Object.freeze({
+							credential: {type: "ScopedCred", id: sig.id},
+							clientData: sig.signature.clientData,
+							authenticatorData: sig.signature.authnrData,
+							signature: sig.signature.signature
 
-						credential: {type: "ScopedCred", id: sig.id},
-						clientData: sig.signature.clientData,
-						authenticatorData: sig.signature.authnrData,
-						signature: sig.signature.signature
+						});
+					}
 
-					}));
-				}
+					return sig;
 
-				return Promise.resolve(sig);
-
-			}).catch( function(err) {
+				}).catch( function(err) {
 
 					throw new DOMException('NotAllowedError');
 
-			});   		
+				});   		
+    		}
     	}
-
+    	
 		catch (e) {
 
 			throw new DOMException('NotAllowedError');
