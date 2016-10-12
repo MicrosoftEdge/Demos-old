@@ -1,3 +1,28 @@
+// This file implements a polyfill that maps current Web Authentication API on 
+// top of the Microsoft Edge preliminary implementation.
+
+// The polyfill is up-to-date with the Editor's Draft of Sept 29th. Please refer
+// to this link for the spec: https://w3c.github.io/webauthn
+
+// This implementation inherits its limitations on parameter values from the 
+// Edge implementation.
+
+// Notes on limitations:
+// The polyfill only works if the user has created a PIN (and optionally Hello 
+// gestures) for themselves in Settings->Accounts->Sign-in options. Otherwise,
+// a DOMException error will be thrown. 
+// 
+// makeCredential:
+//    - timeout is ignored
+//    - all extensions are ignored
+//    - current implementation does not return attestation info
+// getAssertion:
+//    - timeout is ignored
+//    - all extensions are ignored except fido.txauth.simple
+//    - signature should be spec compliant if no extension used (signature 
+//      counter is always zero)
+
+
 "use strict";
 
 // Editor's draft of spec at https://w3c.github.io/webauthn/#api
@@ -135,6 +160,8 @@ navigator.authentication = navigator.authentication || (function () {
 
 
 			for ( i = 0; i < cryptoParams.length; i++ ) {
+
+				// The type identifier is changed from 'FIDO_2_0' to 'ScopedCred'
 				if ( cryptoParams[i].type === 'ScopedCred' ) {
 					params[i] = { type: 'FIDO_2_0', algorithm: cryptoParams[i].algorithm };
 				} else {
@@ -147,6 +174,7 @@ navigator.authentication = navigator.authentication || (function () {
 
 				if (cred.type === "FIDO_2_0") {
 
+					// The returned credential should be immutable, aka freezed. 
 					var result = Object.freeze({
 						credential: {type: "ScopedCred", id: cred.id},
 						publicKey: JSON.parse(cred.publicKey),
@@ -157,9 +185,9 @@ navigator.authentication = navigator.authentication || (function () {
 						return result; 
 					});
 
-				} else {
-					return cred;
 				}
+				
+				return cred;
 
 			}).catch( function(err) {
 
@@ -171,7 +199,6 @@ navigator.authentication = navigator.authentication || (function () {
     		throw new DOMException('NotAllowedError');
 
     	}
-
     	
     }
 
@@ -180,6 +207,9 @@ navigator.authentication = navigator.authentication || (function () {
 
     function getCredList(allowlist) {
 
+    	// According to the spec, if allowList is supplied, the credentialList 
+    	// comees from the allowList; otherwise the credentialList is comes 
+    	// from searching all previously stored valid credentials
     	if(allowlist) {
 
     		return Promise.resolve(allowlist.map( function(descriptor) {
@@ -224,8 +254,7 @@ navigator.authentication = navigator.authentication || (function () {
 					sigParams = { userPrompt: options.extensions["webauthn_txAuthSimple"] }; 
 				}
 
-
-		    	return msCredentials.getAssertion(challenge, filter, sigParams)
+		    	return msCredentials.getAssertion(challenge, filter, sigParams);
 
 		    }).then( function(sig) {
 
@@ -245,7 +274,7 @@ navigator.authentication = navigator.authentication || (function () {
 
 			}).catch( function(err) {
 
-					throw new DOMException('NotAllowedError');
+				throw new DOMException('NotAllowedError');
 
 			});   		
     	}
