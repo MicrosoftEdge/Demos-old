@@ -234,7 +234,7 @@
 		"keyword-spacing": "error",
 		"linebreak-style": 0,
 		"lines-around-comment": 0,
-		"lines-around-directive": "error",
+		"lines-around-directive": "warn",
 		"max-nested-callbacks": [
 			2,
 			5
@@ -242,8 +242,6 @@
 		"max-statements-per-line": "error",
 		"new-cap": 2,
 		"new-parens": 2,
-		"newline-after-var": "error",
-		"newline-before-return": "error",
 		"newline-per-chained-call": "error",
 		"no-array-constructor": 2,
 		"no-continue": "error",
@@ -265,7 +263,7 @@
 		"no-trailing-spaces": 2,
 		"no-underscore-dangle": 0,
 		"no-unneeded-ternary": 2,
-		"object-curly-newline": ["error", { "multiline": true }],
+		"object-curly-newline": ["warn", { "multiline": true }],
 		"object-curly-spacing": [
 			0,
 			"always",
@@ -306,7 +304,6 @@
 			2,
 			"always"
 		],
-		"sort-keys": "error",
 		"sort-vars": 0,
 		"space-in-parens": [
 			2,
@@ -338,14 +335,12 @@
 		"no-dupe-class-members": "error",
 		"no-useless-computed-key": "error",
 		"no-useless-rename": "error",
-		"no-var": "error",
+		"no-var": "warn",
 		"object-shorthand": "error",
-		"prefer-arrow-callback": "error",
-		"prefer-const": "error",
+		"prefer-const": "warn",
 		"prefer-numeric-literals": "error",
-		"prefer-rest-params": "error",
-		"prefer-spread":"error",
-		"prefer-template": "error",
+		"prefer-rest-params": "warn",
+		"prefer-template": "warn",
 		"template-curly-spacing": "error"
 	}
 }
