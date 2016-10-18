@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <!-- Copyright © Microsoft Corporation. All Rights Reserved. -->
+    <!-- Demo Author: Jason Weber, Microsoft Corporation -->    
+    <title>HTML5 Speed Reading</title>
+    <meta name="description" content="Thanks for checking out this Internet Explorer 9 Platform Preview demo. This demo uses animation techniques to flip 96 letters as fast as possible." />    
+    <link rel="stylesheet" type="text/css" href="SpeedReading.css" />
+    <meta name="t_omni_demopage" content="1" /><meta http-equiv="X-UA-Compatible" content="IE=edge" />
+</head>
+<body onload="Initialize()">
+    <canvas id="surfaceCanvas"></canvas>
+    <div class="SRDescription">Thanks for checking out this Internet Explorer 9 Platform Preview demo. This demo uses animation techniques to flip 96 letters as fast as possible. The more powerful the underlying computer and the browser, the faster the images will flip. This demo uses HTML5 Canvas and HTML5 Audio. It's a fun way to demonstrate how Internet Explorer 9's overall performance, from hardware accelerated graphics, to compiled javascript, to hardware accelerated canvas, will enable a new generation of HTML5 applications. The purpose of these demos is to convey a concept and is not intended to be used as a best practice for web development. To start the test please press the (Enter) key a few seconds after the page loads. Enjoy!</div>    
+    <audio id="SoundFlipRepeat" preload src="Sounds/FlipSoundRepeat.mp3"></audio>
+    <audio id="SoundFlipSingle" preload src="Sounds/FlipSoundSingle.mp3"></audio>
+    <script type="text/javascript" src="../../Includes/Script/FeatureDetectCanvas.js"></script>
+    <script type="text/javascript" src="Script/Application.js"></script>
+    <script type="text/javascript" src="Script/EventHandlers.js"></script>
+    <script type="text/javascript" src="Script/Resources.js"></script>
+    <script type="text/javascript" src="Script/Billboard.js"></script>
+    <script type="text/javascript" src="Script/Patterns.js"></script>
+    <script type="text/javascript" src="Script/Tile.js"></script>
+    <script type="text/javascript" src="Script/Message.js"></script>
+    <script type="text/javascript" src="Script/Performance.js"></script>
+    <script type="text/javascript" src="../../includes/script/TestDriveCommon.js"></script>
+    <script type="text/javascript" src="https://msedgecdn.azurewebsites.net/scripts/demo-header.js"></script>
+</body>
+</html>
