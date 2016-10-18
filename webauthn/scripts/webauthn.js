@@ -35,22 +35,22 @@
 navigator.authentication = navigator.authentication || (function () {
 	'use strict';
 
-	var webauthnDB = (function() {
-		var WEBAUTHN_DB_VERSION = 1;
-		var WEBAUTHN_DB_NAME = '_webauthn';
-		var WEBAUTHN_ID_TABLE = 'identities';
+	const webauthnDB = (function() {
+		const WEBAUTHN_DB_VERSION = 1;
+		const WEBAUTHN_DB_NAME = '_webauthn';
+		const WEBAUTHN_ID_TABLE = 'identities';
 
-		var db = null;
-		var initPromise = null;
+		let db = null;
+		let initPromise = null;
 
-		var initDB = function initDB() {
+		const initDB = function initDB() {
 	 /* to remove database, use window.indexedDB.deleteDatabase('_webauthn'); */
 			return new Promise(function(resolve, reject) {
-				var req = indexedDB.open(WEBAUTHN_DB_NAME, WEBAUTHN_DB_VERSION);
+				const req = indexedDB.open(WEBAUTHN_DB_NAME, WEBAUTHN_DB_VERSION);
 				req.onupgradeneeded = function() {
 					// new database - set up store
 					db = req.result;
-					var objectStore = db.createObjectStore(WEBAUTHN_ID_TABLE, { keyPath: 'id'});
+					db.createObjectStore(WEBAUTHN_ID_TABLE, { keyPath: 'id'});
 				};
 
 				req.onsuccess = function() {
@@ -64,14 +64,14 @@ navigator.authentication = navigator.authentication || (function () {
 			});
 		};
 
-		var doStore = function doStore(id, data) {
+		const doStore = function doStore(id, data) {
 			if (!db) {
 				throw new Error('DB not initialised');
 			}
 			return new Promise(function(resolve, reject) {
-				var tx = db.transaction(WEBAUTHN_ID_TABLE, 'readwrite');
-				var store = tx.objectStore(WEBAUTHN_ID_TABLE);
-				store.put({id: id, data: data});
+				const tx = db.transaction(WEBAUTHN_ID_TABLE, 'readwrite');
+				const store = tx.objectStore(WEBAUTHN_ID_TABLE);
+				store.put({id, data});
 
 				tx.oncomplete = function() {
 					resolve();
@@ -83,7 +83,7 @@ navigator.authentication = navigator.authentication || (function () {
 			});
 		};
 
-		var store = function store(id, data) {
+		const store = function store(id, data) {
 			if (!initPromise) {
 				initPromise = initDB();
 			}
@@ -92,26 +92,18 @@ navigator.authentication = navigator.authentication || (function () {
 			});
 		};
 
-		var getAll = function getAll() {
-			if (!initPromise) {
-				initPromise = initDB();
-			}
-			return initPromise.then(doGetAll);
-		};
-
-
-		var doGetAll = function doGetAll() {
+		const doGetAll = function doGetAll() {
 			if (!db) {
 				throw new Error('DB not initialised');
 			}
 
 			return new Promise(function(resolve, reject) {
-				var tx = db.transaction(WEBAUTHN_ID_TABLE, 'readonly');
-				var req = tx.objectStore(WEBAUTHN_ID_TABLE).openCursor();
-				var res = [];
+				const tx = db.transaction(WEBAUTHN_ID_TABLE, 'readonly');
+				const req = tx.objectStore(WEBAUTHN_ID_TABLE).openCursor();
+				const res = [];
 
 				req.onsuccess = function() {
-					var cur = req.result;
+					const cur = req.result;
 					if (cur) {
 						res.push({id: cur.value.id, data: cur.value.data});
 						cur.continue();
@@ -126,22 +118,32 @@ navigator.authentication = navigator.authentication || (function () {
 			});
 		};
 
+		const getAll = function getAll() {
+			if (!initPromise) {
+				initPromise = initDB();
+			}
+			return initPromise.then(doGetAll);
+		};
+
+
 		return {
-			store: store,
-			getAll: getAll
+			store,
+			getAll
 		};
 	}());
 
 
-	var makeCredential = function makeCredential(accountInfo, cryptoParams, attestChallenge, options) {
+	const makeCredential = function makeCredential(accountInfo, cryptoParams) {
 		try {
 			// Need to know the display name of the relying party, the display name
 			// of the user, and the user id to create a credential. For every user
 			// id, there is one credential stored by the authenticator.
-			var acct = {rpDisplayName: accountInfo.rpDisplayName,
-				userDisplayName: accountInfo.displayName, userId: accountInfo.id};
-			var params = [];
-			var i;
+			const acct = {
+				rpDisplayName: accountInfo.rpDisplayName,
+				userDisplayName: accountInfo.displayName, userId: accountInfo.id
+			};
+			const params = [];
+			let i;
 
 
 			if (accountInfo.name) {
@@ -164,7 +166,7 @@ navigator.authentication = navigator.authentication || (function () {
 			return msCredentials.makeCredential(acct, params).then(function (cred) {
 				if (cred.type === 'FIDO_2_0') {
 					// The returned credential should be immutable, aka freezed.
-					var result = Object.freeze({
+					const result = Object.freeze({
 						credential: {type: 'ScopedCred', id: cred.id},
 						publicKey: JSON.parse(cred.publicKey),
 						attestation: cred.attestation
@@ -176,8 +178,10 @@ navigator.authentication = navigator.authentication || (function () {
 				}
 
 				return cred;
-			}).catch(function(err) {
-				throw new DOMException('NotAllowedError');
+			})
+			.catch(function(err) {
+				console.log(`makeCredential failed: ${err}`);
+				throw new Error('NotAllowedError');
 			});
 		} catch (err) {
 			throw new DOMException('NotAllowedError');
@@ -185,7 +189,7 @@ navigator.authentication = navigator.authentication || (function () {
 	};
 
 
-	var getCredList = function getCredList(allowlist) {
+	const getCredList = function getCredList(allowlist) {
 		// According to the spec, if allowList is supplied, the credentialList
 		// comees from the allowList; otherwise the credentialList is comes
 		// from searching all previously stored valid credentials
@@ -203,26 +207,28 @@ navigator.authentication = navigator.authentication || (function () {
 			}));
 		}).then(function(credList) {
 			return credList;
-		}).catch(function(err) {
-			console.log('Credential lists cannot be retrieved: ' + err);
+		})
+		.catch(function(err) {
+			console.log(`Credential lists cannot be retrieved: ${err}`);
 		});
 	};
 
 
-	var getAssertion = function getAssertion(challenge, options) {
+	const getAssertion = function getAssertion(challenge, options) {
 		try {
-			var allowlist = options ? options.allowList : undefined;
+			const allowlist = options ? options.allowList : void 0;
 
 			return getCredList(allowlist).then(function(credList) {
-				var filter = { accept: credList };
-				var sigParams;
+				const filter = { accept: credList };
+				let sigParams;
 
 				if (options && options.extensions && options.extensions.webauthn_txAuthSimple) {
 					sigParams = { userPrompt: options.extensions.webauthn_txAuthSimple };
 				}
 
 				return msCredentials.getAssertion(challenge, filter, sigParams);
-			}).then(function(sig) {
+			})
+			.then(function(sig) {
 				if (sig.type === 'FIDO_2_0') {
 					return Promise.resolve(Object.freeze({
 
@@ -235,7 +241,9 @@ navigator.authentication = navigator.authentication || (function () {
 				}
 
 				return Promise.resolve(sig);
-			}).catch(function(err) {
+			})
+			.catch(function(err) {
+				console.log(`getAssertion failed: ${err}`);
 				throw new Error('NotAllowedError');
 			});
 		} catch (e) {
@@ -245,7 +253,7 @@ navigator.authentication = navigator.authentication || (function () {
 
 
 	return {
-		makeCredential: makeCredential,
-		getAssertion: getAssertion
+		makeCredential,
+		getAssertion
 	};
 }());
