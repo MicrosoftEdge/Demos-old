@@ -2,17 +2,17 @@
 	'use strict';
 
 	const hidePasswordField = function () {
-		document.getElementById('button-logon-with-password').style.display = 'none';
-		document.getElementById('input-password').style.display = 'none';
-		document.getElementById('button-logon-with-windows-hello').style.display = 'block';
-		document.getElementById('button-sign-in-with-password').style.display = 'block';
+		document.getElementById('button-logon-with-password').style.visibility = 'hidden';
+		document.getElementById('input-password').style.visibility = 'hidden';
+		document.getElementById('button-logon-with-windows-hello').style.visibility = 'visible';
+		document.getElementById('button-sign-in-with-password').style.visibility = 'visible';
 	};
 
 	const addPasswordField = function () {
-		document.getElementById('button-logon-with-password').style.display = 'block';
-		document.getElementById('input-password').style.display = 'block';
-		document.getElementById('button-logon-with-windows-hello').style.display = 'none';
-		document.getElementById('button-sign-in-with-password').style.display = 'none';
+		document.getElementById('button-logon-with-password').style.visibility = 'visible';
+		document.getElementById('input-password').style.visibility = 'visible';
+		document.getElementById('button-logon-with-windows-hello').style.visibility = 'hidden';
+		document.getElementById('button-sign-in-with-password').style.visibility = 'hidden';
 	};
 
 	const randomStr = function (length) {
@@ -91,11 +91,11 @@
 
 
 	const addDirectSignIn = function () {
-		document.getElementById('button-logon-with-password-only').style.display = 'block';
-		document.getElementById('input-password').style.display = 'block';
-		document.getElementById('button-logon-with-password').style.display = 'none';
-		document.getElementById('button-logon-with-windows-hello').style.display = 'none';
-		document.getElementById('button-sign-in-with-password').style.display = 'none';
+		document.getElementById('button-logon-with-password-only').style.visibility = 'visible';
+		document.getElementById('input-password').style.visibility = 'visible';
+		document.getElementById('button-logon-with-password').style.visibility = 'hidden';
+		document.getElementById('button-logon-with-windows-hello').style.visibility = 'hidden';
+		document.getElementById('button-sign-in-with-password').style.visibility = 'hidden';
 	};
 
 	document.addEventListener('DOMContentLoaded', function() {

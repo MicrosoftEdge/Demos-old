@@ -27,8 +27,72 @@ header {
     height: 3.7rem;
 }
 
-#button-sign-in-with-password{
+#button-sign-in-with-password {
     background-color: #778899;
+}
+
+#input-password {
+    visibility: hidden;
+    display: block;
+}
+
+#button-logon-with-password { 
+    visibility: hidden; 
+    display: block;
+}
+
+#button-logon-with-password-only { 
+    visibility: hidden;
+    display: block;
+}
+
+#button-logon-with-windows-hello {
+    visibility: hidden;
+    display: block;
+}
+
+#button-sign-in-with-password {
+    visibility: hidden;
+    display: block;
+}
+
+
+#link-reset-session {
+    visibility: hidden;
+}
+
+#idTd_HTP_Error_Password {
+    visibility: hidden;
+}
+
+#idTd_Tile_Error {
+    visibility: hidden;
+}
+
+#loginhead {
+    visibility: hidden;
+    white-space: nowrap;
+}
+
+#hello_logo { 
+    visibility: hidden;
+}
+
+#idDiv_Something_Went_Wrong {
+    visibility: hidden;
+    display: block;
+}
+
+#idTd_Tile_Error {
+    visibility: hidden;
+} 
+
+#idTd_HIP_Error_Password {
+    visibility: hidden;
+}
+
+#SetupWindowsHello {
+    visibility: hidden;
 }
 
 /* override demo template */

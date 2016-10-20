@@ -11,8 +11,6 @@
     <link href="./images/favicon.ico" rel="shortcut icon">
     <link rel="stylesheet" type="text/css" href="https://edgeportal.blob.core.windows.net/media/demotemplate.css">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
-
-    <meta name="GENERATOR" content="MSHTML 11.00.10537.1000">
 </head>
 
 <body class="login-background">
@@ -32,7 +30,7 @@
                                 <p class="subtitle">Please sign in to access your account and live home puppy cam.</p>
                             </div>
                             <div class="section">
-                                <div id="idTd_Tile_Error" aria-live="assertive" aria-relevant="text" style="display: none;" aria-atomic="true">
+                                <div id="idTd_Tile_Error" aria-live="assertive" aria-relevant="text" aria-atomic="true">
                                     <div class="errorDiv" id="idTd_Tile_ErrorMsg_Login"></div>
                                 </div>
                                 <div class="row textbox" id="idDiv_PWD_UsernameTb">
@@ -42,22 +40,22 @@
                                 </div>
                                 <div class="row textbox" id="idDiv_PWD_SUPasswordTb">
                                     <div>
-                                        <input name="passwd" id="input-password" aria-labelledby="idInput-password" type="password" maxlength="127" placeholder="Password" autocomplete="off" value="password" style="display: none;">
+                                        <input name="passwd" id="input-password" aria-labelledby="idInput-password" type="password" maxlength="127" placeholder="Password" autocomplete="off" value="password">
                                     </div>
                                 </div>
-                                <div id="idTd_HIP_Error_Password" aria-live="assertive" aria-relevant="text" style="display: none;" aria-atomic="true">
+                                <div id="idTd_HIP_Error_Password" aria-live="assertive" aria-relevant="text" aria-atomic="true">
                                     <div class="errorDiv" id="idTd_PWD_ErrorMsg_Password"></div>
                                 </div>
                                 <div class="row textbox" id="idDiv_PWD_SUPasswordTb">
                                 </div>
                             </div>
                             <div class="section">
-                                <button class="default" id="button-logon-with-password" style="display: none;">Sign In</button>
-                                <button class="default" id="button-logon-with-password-only" style="display: none;">Sign In</button>
-                                <button class="default" id="button-logon-with-windows-hello" style="display: none;">Sign In with Windows Hello</button>
+                                <button class="default" id="button-logon-with-password">Sign In</button>
+                                <button class="default" id="button-logon-with-password-only">Sign In</button>
+                                <button class="default" id="button-logon-with-windows-hello">Sign In with Windows Hello</button>
                             </div>
                             <div class="row small" id="register">
-                                <button id="button-sign-in-with-password" style="display: none;">Sign in with a password</button>
+                                <button id="button-sign-in-with-password">Sign in with a password</button>
                             </div>
                         </div>
                     </div>
@@ -66,7 +64,7 @@
         </div>
     </div>
     <footer id="reset">
-        <button class="reset-button" id="link-reset-session" onclick="resetPage()" style="display: inline;">Reset session</button>
+        <button class="reset-button" id="link-reset-session">Reset session</button>
     </footer>
     <!-- Polyfill for the WebAuthN API. The polyfill maps WebAuthN calls to msCredentials !--> 
     <script src="./scripts/webauthn.js"></script>

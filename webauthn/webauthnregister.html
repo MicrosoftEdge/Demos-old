@@ -13,8 +13,6 @@
     <link rel="stylesheet" type="text/css" href="./css/style.css">
 
     <script type="text/javascript"></script>
-
-    <meta name="GENERATOR" content="MSHTML 11.00.10537.1000">
 </head>
 
 <body class="login-background">
@@ -26,22 +24,22 @@
             <div class="content" id="mainTD">
                 <div class="sub-content" id="signInTD">
                     <div class="signInHeader" id="i0272">
-                        <h1 class="loginhead" style="display: inline; white-space: nowrap">Windows Hello  </h1>
-                        <img id="hello_logo" style="display: inline" src="./images/hello.png" />
+                        <h1 class="loginhead">Windows Hello  </h1>
+                        <img id="hello_logo" src="./images/hello.png" />
                     </div>
                     <div id="rightTD">
                         <div id="idDiv_FSI_HeaderInfo">
                             <p>Good news, your device supports Windows Hello and you can use it to authenticate with this demo site. With Windows Hello, you can log into this site on this PC without a password.</p>
                             <p>Do you want to enable Windows Hello for your next sign in?</p>
                         </div>
-                        <div id="idDiv_Something_Went_Wrong" style = "display: none">
+                        <div id="idDiv_Something_Went_Wrong">
                             <p>Sorry something went wrong when the credential is made. Let's go see the puppyies.</p>
                         </div>
                         <div class="section">
-                            <div id="idTd_Tile_Error" aria-live="assertive" aria-relevant="text" style="display: none;" aria-atomic="true">
+                            <div id="idTd_Tile_Error" aria-live="assertive" aria-relevant="text" aria-atomic="true">
                                 <div class="errorDiv" id="idTd_Tile_ErrorMsg_Login"></div>
                             </div>
-                            <div id="idTd_HIP_Error_Password" aria-live="assertive" aria-relevant="text" style="display: none;" aria-atomic="true">
+                            <div id="idTd_HIP_Error_Password" aria-live="assertive" aria-relevant="text" aria-atomic="true">
                                 <div class="errorDiv" id="idTd_PWD_ErrorMsg_Password"></div>
                             </div>
                             <div class="row textbox" id="idDiv_PWD_SUPasswordTb">
@@ -53,12 +51,10 @@
                             <button class="default" id="button-create-credential">Start using Windows Hello!</button>
                         </div>
                     </div>
-                    <div style="visibility: hidden;"></div>
                 </div>
-                <div class="signUpFloat"></div>
             </div>
             <div class="section">
-                <div id="SetupWindowsHello" style="display: none;">
+                <div id="SetupWindowsHello">
                     <h1>You need to setup Windows Hello</h1>
                     <p>Select the <b>Start</b> button, then select <b>Settings > Accounts > Sign-in</b> options to set up Windows Hello. Under <b>Windows Hello</b> , you’ll see options for face, fingerprint, or iris if your PC has a fingerprint reader or
                         a camera that supports it. Once you’re set up, you’ll be able to sign in with a quick swipe or glance. </p>
@@ -67,7 +63,6 @@
             </div>
         </div>
     </div>
-    <div style="height: 50px; clear: both;"></div>
     <script src="./scripts/webauthn.js"></script>
     <script src="./scripts/demo.js"></script>
     <!-- If Windows Hello is not set up, show setup dialog --> 
