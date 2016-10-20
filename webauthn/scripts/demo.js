@@ -5,12 +5,19 @@
 		console.log(msg);
 	};
 
+	// Show a dialog to help explain how to set up Windows Hello
 	const showSetupWindowsHelloDialog = function (bool) {
 		if (bool) {
 			document.getElementById('SetupWindowsHello').style.display = 'block';
 		} else {
 			document.getElementById('SetupWindowsHello').style.display = 'none';
 		}
+	};
+
+	const skipHello = function () {
+		// Display error messages and direct user to the inbox page
+		document.getElementById('idDiv_Something_Went_Wrong').style.display = 'block';
+		location.href = 'inbox.html';
 	};
 
 	const helpSetup = function (reason) {
@@ -20,7 +27,7 @@
 		} else {
 			// For other special error, direct to the regular inbox without
 			// bothering to set up with windows hello.
-			window.location = 'inbox.html';
+			skipHello();
 		}
 
 		log(`Windows Hello failed (${reason.message}).`);
@@ -29,6 +36,13 @@
 	const sendToServer = function () {
 		// This is where you would send data to the server.
 		// Currently nothing is actually sent.
+	};
+
+	const addPasswordField = function () {
+		document.getElementById('button-logon-with-password').style.display = 'block';
+		document.getElementById('input-password').style.display = 'block';
+		document.getElementById('button-logon-with-windows-hello').style.display = 'none';
+		document.getElementById('button-sign-in-with-password').style.display = 'none';
 	};
 
 	// Register user with Web AuthN API
@@ -66,7 +80,8 @@
 			// This ensures the assertions are freshly generated and not replays
 			const attestationChallenge = 'Four score and seven years ago';
 
-			navigator.authentication.makeCredential(accountInfo, cryptoParameters, attestationChallenge, options)
+			navigator.authentication
+				.makeCredential(accountInfo, cryptoParameters, attestationChallenge, options)
 				.then(function(credInfo) {
 					// Web developers can also store the credential id on their server.
 					localStorage.setItem('credentialId', credInfo.credential.id);
@@ -77,7 +92,7 @@
 				})
 
 				.catch(function(reason) {
-						// Windows Hello isn't setup, show dialog explaining how to set it up
+					// Windows Hello isn't setup, show dialog explaining how to set it up
 					helpSetup(reason.message);
 				});
 		} catch (ex) {
@@ -93,6 +108,7 @@
 		const challenge = 'Our fathers brought forth on this continent, a new nation';
 
 		const allowList = [{
+			// There is only one type defined in the spec.
 			type: 'ScopedCred',
 
 				// Because the current website only supports one user to login,
@@ -101,22 +117,24 @@
 		}];
 
 
-		return navigator.authentication.getAssertion(challenge, {allowList}).then(function(assertion) {
+		return navigator.authentication.getAssertion(challenge, {allowList})
+			.then(function(assertion) {
 			// Assertion calls succeeds
 			// Send assertion to the server
-			sendToServer(assertion);
+				sendToServer(assertion);
 
 			// If authenticated, sign in to regular inbox
-			window.location = 'inbox.html';
-		})
+				window.location = 'inbox.html';
+			})
 		.catch(function(err) {
 			log(`getAssertion() failed: ${err}`);
 
-			window.location = 'inbox.html';
+			document.getElementById('idTd_HIP_Error_Password').style.display = 'block';
+			addPasswordField();
 		});
 	};
 
-	const signInWoRegister = function () {
+	const stopCreateCredential = function () {
 		location.href = 'inbox.html';
 	};
 
@@ -126,7 +144,7 @@
 		document.getElementById('button-create-credential')
 			.addEventListener('click', createCredential);
 		document.getElementById('button-dont-create-credential')
-			.addEventListener('click', signInWoRegister);
+			.addEventListener('click', stopCreateCredential);
 		document.getElementById('button-show-setup-dialog')
 			.addEventListener('click', showSetupWindowsHelloDialog);
 	});
