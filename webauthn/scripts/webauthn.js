@@ -1,41 +1,44 @@
-// This file implements a polyfill that maps current Web Authentication API on
-// top of the Microsoft Edge preliminary implementation.
+/*
+Copyright (c) Microsoft Corporation. All rights reserved.
 
-// The polyfill is up-to-date with the Editor's Draft of Sept 29th. Please refer
-// to this link for the spec: https://w3c.github.io/webauthn
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use these files except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
 
-// This implementation inherits its limitations on parameter values from the
-// Edge implementation.
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+*/
 
-// Notes on limitations:
-// The polyfill only works if the user has created a PIN (and optionally Hello
-// gestures) for themselves in Settings->Accounts->Sign-in options. Otherwise,
-// a DOMException error will be thrown.
-//
-// makeCredential:
-//    - timeout is ignored
-//    - all extensions are ignored
-//    - current implementation does not return attestation info
-// getAssertion:
-//    - timeout is ignored
-//    - all extensions are ignored except fido.txauth.simple
-//    - signature should be spec compliant if no extension used (signature
-//      counter is always zero)
+/*
+This file implements a polyfill that maps current Web Authentication API on
+top of the Microsoft Edge preliminary implementation.
+It is available for Edge 14 and above.
 
+The polyfill is up-to-date with the Editor's Draft of Sept 28th. Please refer
+to this link for the spec: http://www.w3.org/TR/2016/WD-webauthn-20160928/
 
-// Editor's draft of spec at https://w3c.github.io/webauthn/#api
+This implementation inherits its limitations on parameter values from the
+Edge implementation.
 
-// The polyfill works on any machine carrying Web Authentication API and PCs
-// that installed Windows 8.1 and above.
+Notes on limitations:
+The polyfill only works if the user has created a PIN (and optionally Hello
+gestures) for themselves in Settings->Accounts->Sign-in options. Otherwise,
+a error will be thrown.
 
-// If Web Authenticaion API is available on the browser, use the API. Otherwise,
-// use the polyfill.
+makeCredential:
+	- the attestationChallenge parameter is ignored
+	- the options parameter ignored, including timeOutSeconds, rpId, and excludeList
+	- the returned signature is different between the current Web Authentication API
+	  and the polyfill
+
+getAssertion:
+ 	- two parameters of the option parameter, timeoutSeconds and rpId, are ignored
+ 	- the returned signature is different between the current Web Authentication API
+    and the polyfill
+*/
 
 /* global msCredentials */
 navigator.authentication = navigator.authentication || (function () {
 	'use strict';
 
-	const webauthnDB = (function() {
+	const webauthnDB = (function () {
 		const WEBAUTHN_DB_VERSION = 1;
 		const WEBAUTHN_DB_NAME = '_webauthn';
 		const WEBAUTHN_ID_TABLE = 'identities';
@@ -43,9 +46,9 @@ navigator.authentication = navigator.authentication || (function () {
 		let db = null;
 		let initPromise = null;
 
-		const initDB = function initDB() {
+		const initDB = function () {
 	 /* to remove database, use window.indexedDB.deleteDatabase('_webauthn'); */
-			return new Promise(function(resolve, reject) {
+			return new Promise((resolve, reject) => {
 				const req = indexedDB.open(WEBAUTHN_DB_NAME, WEBAUTHN_DB_VERSION);
 				req.onupgradeneeded = function() {
 					// new database - set up store
@@ -64,11 +67,11 @@ navigator.authentication = navigator.authentication || (function () {
 			});
 		};
 
-		const doStore = function doStore(id, data) {
+		const doStore = function (id, data) {
 			if (!db) {
 				throw new Error('DB not initialised');
 			}
-			return new Promise(function(resolve, reject) {
+			return new Promise((resolve, reject) => {
 				const tx = db.transaction(WEBAUTHN_ID_TABLE, 'readwrite');
 				const store = tx.objectStore(WEBAUTHN_ID_TABLE);
 				store.put({id, data});
@@ -83,21 +86,21 @@ navigator.authentication = navigator.authentication || (function () {
 			});
 		};
 
-		const store = function store(id, data) {
+		const store = function (id, data) {
 			if (!initPromise) {
 				initPromise = initDB();
 			}
-			return initPromise.then(function() {
+			return initPromise.then(() => {
 				return doStore(id, data);
 			});
 		};
 
-		const doGetAll = function doGetAll() {
+		const doGetAll = function () {
 			if (!db) {
 				throw new Error('DB not initialised');
 			}
 
-			return new Promise(function(resolve, reject) {
+			return new Promise((resolve, reject) => {
 				const tx = db.transaction(WEBAUTHN_ID_TABLE, 'readonly');
 				const req = tx.objectStore(WEBAUTHN_ID_TABLE).openCursor();
 				const res = [];
@@ -118,7 +121,7 @@ navigator.authentication = navigator.authentication || (function () {
 			});
 		};
 
-		const getAll = function getAll() {
+		const getAll = function () {
 			if (!initPromise) {
 				initPromise = initDB();
 			}
@@ -133,18 +136,17 @@ navigator.authentication = navigator.authentication || (function () {
 	}());
 
 
-	const makeCredential = function makeCredential(accountInfo, cryptoParams) {
+	const makeCredential = function (accountInfo, cryptoParams) {
 		try {
-			// Need to know the display name of the relying party, the display name
-			// of the user, and the user id to create a credential. For every user
-			// id, there is one credential stored by the authenticator.
+			/* Need to know the display name of the relying party, the display name
+			   of the user, and the user id to create a credential. For every user
+			   id, there is one credential stored by the authenticator. */
 			const acct = {
 				rpDisplayName: accountInfo.rpDisplayName,
-				userDisplayName: accountInfo.displayName, userId: accountInfo.id
+				userDisplayName: accountInfo.displayName,
+				userId: accountInfo.id
 			};
 			const params = [];
-			let i;
-
 
 			if (accountInfo.name) {
 				acct.accountName = accountInfo.name;
@@ -153,102 +155,102 @@ navigator.authentication = navigator.authentication || (function () {
 				acct.accountImageUri = accountInfo.imageUri;
 			}
 
-
-			for (i = 0; i < cryptoParams.length; i++) {
-				// The type identifier is changed from 'FIDO_2_0' to 'ScopedCred'
-				if (cryptoParams[i].type === 'ScopedCred') {
-					params[i] = { type: 'FIDO_2_0', algorithm: cryptoParams[i].algorithm };
+			for (const cryptoParam of cryptoParams) {
+				// The type identifier used to be 'FIDO_2_0' instead of 'ScopedCred'
+				if (cryptoParam.type === 'ScopedCred') {
+					params.push({ type: 'FIDO_2_0', algorithm: cryptoParam.algorithm });
 				} else {
-					params[i] = cryptoParams[i];
+					params.push(cryptoParam);
 				}
 			}
 
-			return msCredentials.makeCredential(acct, params).then(function (cred) {
-				if (cred.type === 'FIDO_2_0') {
+			return msCredentials.makeCredential(acct, params)
+				.then((cred) => {
+					if (cred.type === 'FIDO_2_0') {
 					// The returned credential should be immutable, aka freezed.
-					const result = Object.freeze({
-						credential: {type: 'ScopedCred', id: cred.id},
-						publicKey: JSON.parse(cred.publicKey),
-						attestation: cred.attestation
-					});
+						const result = Object.freeze({
+							credential: {type: 'ScopedCred', id: cred.id},
+							publicKey: JSON.parse(cred.publicKey),
+							attestation: cred.attestation
+						});
 
-					return webauthnDB.store(result.credential.id, accountInfo).then(function() {
-						return result;
-					});
-				}
+						return webauthnDB.store(result.credential.id, accountInfo).then(() => {
+							return result;
+						});
+					}
 
-				return cred;
-			})
-			.catch(function(err) {
+					return cred;
+				})
+			.catch((err) => {
 				console.log(`makeCredential failed: ${err}`);
 				throw new Error('NotAllowedError');
 			});
 		} catch (err) {
-			throw new DOMException('NotAllowedError');
+			throw new Error('NotAllowedError');
 		}
 	};
 
 
-	const getCredList = function getCredList(allowlist) {
-		// According to the spec, if allowList is supplied, the credentialList
-		// comees from the allowList; otherwise the credentialList is comes
-		// from searching all previously stored valid credentials
+	const getCredList = function (allowlist) {
+		/* According to the spec, if allowList is supplied, the credentialList
+		   comes from the allowList; otherwise the credentialList is from searching all
+		   previously stored valid credentials. */
 		if (allowlist) {
-			return Promise.resolve(allowlist.map(function(descriptor) {
+			return Promise.resolve(allowlist.map((descriptor) => {
 				if (descriptor.type === 'ScopedCred') {
 					return { type: 'FIDO_2_0', id: descriptor.id};
 				}
 				return descriptor;
 			}));
 		}
-		webauthnDB.getAll.then(function(list) {
-			return Promise.resolve(list.map(function(descriptor) {
-				return { type: 'FIDO_2_0', id: descriptor.id};
-			}));
-		}).then(function(credList) {
-			return credList;
-		})
-		.catch(function(err) {
+		webauthnDB.getAll()
+			.then((list) => {
+				return Promise.resolve(list.map((descriptor) => {
+					return { type: 'FIDO_2_0', id: descriptor.id};
+				}));
+			})
+		.catch((err) => {
 			console.log(`Credential lists cannot be retrieved: ${err}`);
 		});
 	};
 
 
-	const getAssertion = function getAssertion(challenge, options) {
+	const getAssertion = function (challenge, options) {
+		let allowlist;
 		try {
-			const allowlist = options ? options.allowList : void 0;
-
-			return getCredList(allowlist).then(function(credList) {
-				const filter = { accept: credList };
-				let sigParams;
-
-				if (options && options.extensions && options.extensions.webauthn_txAuthSimple) {
-					sigParams = { userPrompt: options.extensions.webauthn_txAuthSimple };
-				}
-
-				return msCredentials.getAssertion(challenge, filter, sigParams);
-			})
-			.then(function(sig) {
-				if (sig.type === 'FIDO_2_0') {
-					return Promise.resolve(Object.freeze({
-
-						credential: {type: 'ScopedCred', id: sig.id},
-						clientData: sig.signature.clientData,
-						authenticatorData: sig.signature.authnrData,
-						signature: sig.signature.signature
-
-					}));
-				}
-
-				return Promise.resolve(sig);
-			})
-			.catch(function(err) {
-				console.log(`getAssertion failed: ${err}`);
-				throw new Error('NotAllowedError');
-			});
+			 allowlist = options ? options.allowList : void 0;
 		} catch (e) {
 			throw new Error('NotAllowedError');
 		}
+
+		return getCredList(allowlist).then((credList) => {
+			const filter = { accept: credList };
+			let sigParams;
+
+			if (options && options.extensions && options.extensions.webauthn_txAuthSimple) {
+				sigParams = { userPrompt: options.extensions.webauthn_txAuthSimple };
+			}
+
+			return msCredentials.getAssertion(challenge, filter, sigParams);
+		})
+		.then((sig) => {
+			if (sig.type === 'FIDO_2_0') {
+				return Promise.resolve(Object.freeze({
+
+					credential: {type: 'ScopedCred', id: sig.id},
+					clientData: sig.signature.clientData,
+					authenticatorData: sig.signature.authnrData,
+					signature: sig.signature.signature
+
+				}));
+			}
+
+			return Promise.resolve(sig);
+		})
+		.catch((err) => {
+			console.log(`getAssertion failed: ${err}`);
+			throw new Error('NotAllowedError');
+		});
 	};
 
 
