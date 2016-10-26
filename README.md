@@ -1,6 +1,6 @@
 # About these demos
 
-This is a set of interoperable and open source demos. You can watch their live version in the [MS Edge Dev Site](http://dev.modern.ie/testdrive/). 
+This is a set of interoperable and open source demos. You can watch their live version in the [MS Edge Dev Site](https://dev.windows.com/en-us/microsoft-edge/testdrive/). 
 The main goal of this one is to show new web features (supported by Microsoft Edge) in a way that work across all modern browsers. If a feature 
 is supported in a browser and the demo doesn't work as expected you should file a bug!  
 
@@ -25,3 +25,6 @@ Mention @molant and optionally @melanierichards (for front-end/design review) in
 Previously, we had a demo generator script that will set up a basic demo for you. That script needs to be updated, so for now check out the 
 @supports, css3filters, or webaudiotuner demos for examples. Note that there are meta tags in the `<head>` of `index.html` that will need to 
 be populated with information about your demo.
+
+## Code of Conduct
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.

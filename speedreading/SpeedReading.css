@@ -1,0 +1,50 @@
+﻿html
+{
+    -ms-content-zooming: none;
+}
+
+body
+{
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+    background-color: White;
+    -ms-content-zooming: none;
+}
+
+#surfaceCanvas
+{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+}
+
+.SRDescription
+{
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+#ReturnButton
+{
+    position: absolute;
+    display: block;
+    top: 0px;
+    right: 6px;
+    width: 210px;
+    height: 29px;
+    opacity: 0.95;
+    background-image: url(../../includes/image/ReturnButton.png);
+    background-position: left top;
+    text-indent: -9999px;
+    z-index: 20;
+}
+
+#ReturnButton:hover
+{
+    background-image: url('../../Includes/Image/ReturnButtonHover.png');
+}

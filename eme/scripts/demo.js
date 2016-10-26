@@ -18,7 +18,7 @@
         baseUrl: 'https://samplestreamseu.streaming.mediaservices.windows.net/65b76566-1381-4540-87ab-7926568901d8/bbb_sunflower_1080p_30fps_normal.ism',
         fileName: 'manifest(format=mpd-time-csf)',
         licenseUrlPlayReady: 'https://samplestreamseu.keydelivery.mediaservices.windows.net/PlayReady/',
-        licenseUrlWideVine: 'http://axpr-wv-fe.cloudapp.net:8080/LicensingService'
+        licenseUrlWidevine: 'http://axpr-wv-fe.cloudapp.net:8080/LicensingService'
     }, {
         title: 'Not Your Father\'s Browser',
         property: 'Captioned',
@@ -140,7 +140,7 @@
                     if (xhr.status === 200) {
                         callback(that.parseManifest(baseUrl, xhr.responseXML));
                     } else {
-                        writeError('XHR failed (' + url + '). Status: ' + xhr.status + ' (' + xhr.statusText + ')');
+                        throw('XHR failed (' + url + '). Status: ' + xhr.status + ' (' + xhr.statusText + ')');
                     }
                 }
             };
@@ -443,7 +443,7 @@
         }
     };
 
-    // PlayReady and WideVine License Manager constructor
+    // PlayReady and Widevine License Manager constructor
     var LicenseManager = function (vid) {
         this.vid = vid;
         if (window.navigator.requestMediaKeySystemAccess) {
@@ -464,7 +464,7 @@
         LICENSE_TYPE_PLAYREADY: 2,
         licenseType: 0,
         licenseUrlPlayReady: null,
-        licenseUrlWideVine: null,
+        licenseUrlWidevine: null,
         playReadyKeySystem: {
             keySystem: 'com.microsoft.playready',
             supportedConfig: [
@@ -485,7 +485,7 @@
                 }
             ]
         },
-        wideVineKeySystem: {
+        widevineKeySystem: {
             keySystem: 'com.widevine.alpha',
             supportedConfig: [
                 {
@@ -528,9 +528,9 @@
                     that.onMediaKeyAcquired(that, createdMediaKeys);
                 }).catch('createMediaKeys() failed');
             }, function () {
-                // PlayReady didn't work. Try WideVine.
-                navigator.requestMediaKeySystemAccess(that.wideVineKeySystem.keySystem, that.wideVineKeySystem.supportedConfig).then(function (keySystemAccess) {
-                    console.log('createMediaKeys (WideVine)');
+                // PlayReady didn't work. Try Widevine.
+                navigator.requestMediaKeySystemAccess(that.widevineKeySystem.keySystem, that.widevineKeySystem.supportedConfig).then(function (keySystemAccess) {
+                    console.log('createMediaKeys (Widevine)');
                     that.licenseType = that.LICENSE_TYPE_WIDEVINE;
                     setLockAndMessage(true, 'Using unprefixed EME and Widevine DRM.');
                     keySystemAccess.createMediaKeys().then(function (createdMediaKeys) {
@@ -604,7 +604,7 @@
             }
             else
             {
-                // For WideVine CDMs, the challenge is the keyMessage.
+                // For Widevine CDMs, the challenge is the keyMessage.
                 challenge = keyMessage;
             }
 
@@ -630,7 +630,7 @@
                 return this.licenseUrlPlayReady;
             }
             else if (this.licenseType === this.LICENSE_TYPE_WIDEVINE) {
-                return this.licenseUrlWideVine;
+                return this.licenseUrlWidevine;
             }
             return '';
         },
@@ -756,7 +756,7 @@
             }
             video.licenseManager = new LicenseManager(video);
             video.licenseManager.licenseUrlPlayReady = videoLibrary[index].licenseUrlPlayReady || null;
-            video.licenseManager.licenseUrlWideVine = videoLibrary[index].licenseUrlWideVine || null;
+            video.licenseManager.licenseUrlWidevine = videoLibrary[index].licenseUrlWidevine || null;
             player = new Player(video, mse, manifest);
 
             // Configure UI controls.
@@ -826,11 +826,12 @@
                 if (selectedVideo === -1) {
                     defaultVideo = true;
                     selectedVideo = 0;
-                    document.getElementById('video' + selectedVideo).style.opacity = '1';
+                    document.getElementById('video' + selectedVideo).setAttribute('selected', 'selected');
                     loadVideo(selectedVideo);
                 }
             }
         }
+        
     };
     gatherVideos();
 } ());

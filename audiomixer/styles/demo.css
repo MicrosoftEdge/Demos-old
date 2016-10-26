@@ -80,7 +80,7 @@
 	outline: none;
 }
 
-#audiomixer a, a:visited {
+#audiomixer a, #audiomixer a:visited {
 	outline: none;
 	color: rgb(54, 154, 202);
 	transition: all .2s ease;
