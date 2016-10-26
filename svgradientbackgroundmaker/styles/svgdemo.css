@@ -16,10 +16,8 @@ body {
 	font-family: 'Montserrat', sans-serif;
 }
 
-fieldset {
-	border: none;
-	margin-left: 0;
-	padding: 0;
+h1 {
+	font-size: 2rem;
 }
 
 p {
@@ -36,6 +34,12 @@ label {
 	margin-right: 2rem;
 }
 
+fieldset {
+	border: none;
+	margin-left: 0;
+	padding: 0;
+}
+
 .container {
 	margin: auto 0;
 	width: 100%;
@@ -47,7 +51,7 @@ label {
 
 .sidebar {
 	width: 38rem;
-	padding: 1.2rem;
+	padding: 2rem;
 	background-color: #f2f2f2;
 }
 
@@ -61,9 +65,22 @@ label {
 	text-transform: uppercase;
 }
 
+.subtitle {
+	font-size: 1.4rem;
+}
+
+.demo--container {
+	margin-top: 4rem;
+}
+
 .demo--details {
 	margin: 3rem 0 0 0;
 	padding: 0 0 1.2rem 0;
+}
+
+.demo--details img {
+	width: 20rem;
+	margin-bottom: 2rem;
 }
 
 .clearfix {
@@ -85,8 +102,8 @@ label {
 .sizeThumbnail {
 	display: inline-block;
 	float: left;
-	font-size: 1rem;
-	width: 10rem;
+	font-size: 1.1rem;
+	width: 10.5rem;
 	height: 1.8rem;
 	margin: 0 .5rem .5rem 0;
 	padding: .7rem .6rem .3rem .6rem;
