@@ -235,11 +235,6 @@ textarea {
 	border: solid 1px #fff;
 }
 
-.svgradientbackgroundmaker tbody tr:nth-child(odd),
-.svgradientbackgroundmaker tbody tr:nth-child(even) {
-	background-color: hsla(0, 0%, 0%, 0);
-}
-
 #htxtLink {
 	font-style: italic;
 }
