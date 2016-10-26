@@ -40,8 +40,8 @@ var SVGBGMAKER = SVGBGMAKER || {};
 	];
 
 	SVGBGMAKER.clearImportGradMarkup = function () {
-		if (document.getElementById('markup-type').innerHTML === 'Cannot parse input.') {
-			document.getElementById('markup-type').innerHTML = '';
+		if (document.getElementById('markupType').innerHTML === 'Cannot parse input.') {
+			document.getElementById('markupType').innerHTML = '';
 		}
 	};
 
@@ -270,9 +270,9 @@ var SVGBGMAKER = SVGBGMAKER || {};
 
 		// Setting type
 		if (SVGBGMAKER.gradientType === 'linear') {
-			document.getElementById('g-type').gradtype[0].checked = true;
+			document.getElementById('gType').gradtype[0].checked = true;
 		} else if (SVGBGMAKER.gradientType === 'radial') {
-			document.getElementById('g-type').gradtype[1].checked = true;
+			document.getElementById('gType').gradtype[1].checked = true;
 		}
 		if (SVGBGMAKER.stops === null) {
 			// No stops detected
@@ -303,14 +303,14 @@ var SVGBGMAKER = SVGBGMAKER || {};
 	SVGBGMAKER.insertAllStops = function (color, offset) {
 		var nNewStop = nextStopCount - 1;
 
-		var thLabel = document.createElement('td');
-		document.getElementById('stops-label').insertBefore(thLabel, document.getElementById('last-label'));
+		var thLabel = document.createElement('div');
+		document.getElementById('stopsLabel').insertBefore(thLabel, document.getElementById('lastLabel'));
 		thLabel.id = 'stopRow' + nNewStop.toString() + 'label';
 		thLabel.appendChild(document.createTextNode('Stop'));
 		thLabel.style.fontWeight = 'normal';
 
-		var thOffset = document.createElement('td');
-		document.getElementById('stops-offset').insertBefore(thOffset, document.getElementById('last-offset'));
+		var thOffset = document.createElement('div');
+		document.getElementById('stopsOffset').insertBefore(thOffset, document.getElementById('lastOffset'));
 		thOffset.id = 'stopRow' + nNewStop.toString() + 'offset';
 		var input = document.createElement('input');
 		input.type = 'text';
@@ -322,8 +322,8 @@ var SVGBGMAKER = SVGBGMAKER || {};
 		};
 		thOffset.appendChild(input);
 
-		var thColor = document.createElement('td');
-		document.getElementById('stops-color').insertBefore(thColor, document.getElementById('last-color'));
+		var thColor = document.createElement('div');
+		document.getElementById('stopsColor').insertBefore(thColor, document.getElementById('lastColor'));
 		thColor.id = 'stopRow' + nNewStop.toString() + 'color';
 		input = document.createElement('input');
 		input.id = 'color' + nNewStop.toString();
@@ -332,14 +332,13 @@ var SVGBGMAKER = SVGBGMAKER || {};
 		thColor.appendChild(input);
 		SVGBGMAKER.repaint(input);
 
-		var thButton = document.createElement('td');
+		var thButton = document.createElement('div');
 		thButton.className = 'deletebutton';
-		document.getElementById('stops-button').insertBefore(thButton, document.getElementById('last-button'));
+		document.getElementById('stopsButton').insertBefore(thButton, document.getElementById('lastButton'));
 		thButton.id = 'stopRow' + nNewStop.toString() + 'button';
 		var button = document.createElement('button');
 		button.type = 'button';
 		button.id = nNewStop.toString();
-		button.innerHTML = 'Delete';
 		button.onclick = function () {
 			SVGBGMAKER.removeStop(this);
 		};
@@ -384,14 +383,14 @@ var SVGBGMAKER = SVGBGMAKER || {};
 		SVGBGMAKER.shape = 'none';
 		SVGBGMAKER.customAngleVal = null;
 		document.getElementById('sizes').style.display = 'none';
-		document.getElementById('custom-radial-svg').style.display = 'none';
+		document.getElementById('customRadialSvg').style.display = 'none';
 		SVGBGMAKER.createPositionPanel();
 	};
 
 	SVGBGMAKER.loadRadialTable = function (s) {
 		SVGBGMAKER.gradientType = 'radial';
 		SVGBGMAKER.shape = s;
-		document.getElementById('custom-linear-svg').style.display = 'none';
+		document.getElementById('customLinearSvg').style.display = 'none';
 		SVGBGMAKER.createPositionPanel();
 	};
 
@@ -399,12 +398,12 @@ var SVGBGMAKER = SVGBGMAKER || {};
 		SVGBGMAKER.clearPosPanel();
 		SVGBGMAKER.clearSizePanel();
 
-		var thumbnailPosPanel = document.createElement('table');
+		var thumbnailPosPanel = document.createElement('div');
 		thumbnailPosPanel.id = 'thumbnailPosPanel';
-		var tr = document.createElement('tr');
+		var tr = document.createElement('div');
 		thumbnailPosPanel.appendChild(tr);
 
-		var posPerRow = 10;
+		var posPerRow = 3;
 
 		var defaultpos;
 		if (SVGBGMAKER.gradientType === 'linear') {
@@ -414,11 +413,11 @@ var SVGBGMAKER = SVGBGMAKER || {};
 				defaultpos = SVGBGMAKER.selectedPos;
 			}
 			for (var i = 0; i < allLinearPos.length; i++) {
-				var th = document.createElement('td');
+				var th = document.createElement('div');
 				if (posPerRow === 0) {
-					tr = document.createElement('tr');
+					tr = document.createElement('div');
 					thumbnailPosPanel.appendChild(tr);
-					posPerRow = 5;
+					posPerRow = 2;
 				} else {
 					posPerRow--;
 				}
@@ -445,11 +444,11 @@ var SVGBGMAKER = SVGBGMAKER || {};
 				defaultsize = SVGBGMAKER.selectedSize;
 			}
 			for (i = 0; i < allRadialPos.length; i++) {
-				th = document.createElement('td');
+				th = document.createElement('div');
 				if (posPerRow === 0) {
-					tr = document.createElement('tr');
+					tr = document.createElement('div');
 					thumbnailPosPanel.appendChild(tr);
-					posPerRow = 5;
+					posPerRow = 2;
 				} else {
 					posPerRow--;
 				}
@@ -469,7 +468,7 @@ var SVGBGMAKER = SVGBGMAKER || {};
 			return;
 		}
 
-		document.getElementById('pos-panel').appendChild(thumbnailPosPanel);
+		document.getElementById('posPanel').appendChild(thumbnailPosPanel);
 		SVGBGMAKER.pickPos(defaultpos);
 		SVGBGMAKER.updateSample();
 	};
@@ -488,11 +487,11 @@ var SVGBGMAKER = SVGBGMAKER || {};
 
 		if (SVGBGMAKER.gradientType === 'linear') {
 			if (SVGBGMAKER.selectedPos === 'custom') {
-				document.getElementById('custom-linear-svg').style.display = '';
-				document.getElementById('linear-start').setAttribute('x', SVGBGMAKER.cusX1);
-				document.getElementById('linear-start').setAttribute('y', SVGBGMAKER.cusY1);
-				document.getElementById('linear-end').setAttribute('x', SVGBGMAKER.cusX2);
-				document.getElementById('linear-end').setAttribute('y', SVGBGMAKER.cusY2);
+				document.getElementById('customLinearSvg').style.display = '';
+				document.getElementById('linearStart').setAttribute('x', SVGBGMAKER.cusX1);
+				document.getElementById('linearStart').setAttribute('y', SVGBGMAKER.cusY1);
+				document.getElementById('linearEnd').setAttribute('x', SVGBGMAKER.cusX2);
+				document.getElementById('linearEnd').setAttribute('y', SVGBGMAKER.cusY2);
 				var linex1 = parseFloat(SVGBGMAKER.cusX1) / 100 * SVGBGMAKER.sampleWidth;
 				var liney1 = parseFloat(SVGBGMAKER.cusY1) / 100 * SVGBGMAKER.sampleHeight;
 				var linex2 = parseFloat(SVGBGMAKER.cusX2) / 100 * SVGBGMAKER.sampleWidth;
@@ -503,8 +502,8 @@ var SVGBGMAKER = SVGBGMAKER || {};
 		} else if (SVGBGMAKER.gradientType === 'radial') {
 			var pointcx, pointcy;
 			if (SVGBGMAKER.selectedPos === 'custom position') {
-				document.getElementById('custom-radial-svg').style.display = '';
-				document.getElementById('radial-center').style.display = '';
+				document.getElementById('customRadialSvg').style.display = '';
+				document.getElementById('radialCenter').style.display = '';
 
 				pointcx = parseFloat(SVGBGMAKER.cusCX) / 100 * SVGBGMAKER.sampleWidth;
 				pointcy = parseFloat(SVGBGMAKER.cusCY) / 100 * SVGBGMAKER.sampleHeight;
@@ -512,8 +511,8 @@ var SVGBGMAKER = SVGBGMAKER || {};
 			}
 
 			if (SVGBGMAKER.selectedSize === 'custom size') {
-				document.getElementById('custom-radial-svg').style.display = '';
-				document.getElementById('radial-radius').style.display = '';
+				document.getElementById('customRadialSvg').style.display = '';
+				document.getElementById('radialRadius').style.display = '';
 
 				var pos;
 				if (SVGBGMAKER.selectedPos === 'custom position') {
@@ -544,36 +543,36 @@ var SVGBGMAKER = SVGBGMAKER || {};
 
 			//Show custom radial tool
 			if ((SVGBGMAKER.selectedPos === 'custom position') || (SVGBGMAKER.selectedSize === 'custom size')) {
-				document.getElementById('custom-radial-svg').style.display = '';
+				document.getElementById('customRadialSvg').style.display = '';
 
 				if (SVGBGMAKER.selectedPos === 'custom position') {
-					document.getElementById('radial-center').style.display = '';
+					document.getElementById('radialCenter').style.display = '';
 				} else {
-					document.getElementById('radial-center').style.display = 'none';
+					document.getElementById('radialCenter').style.display = 'none';
 				}
 
 				if (SVGBGMAKER.selectedSize === 'custom size') {
-					document.getElementById('radial-radius').style.display = '';
+					document.getElementById('radialRadius').style.display = '';
 				} else {
-					document.getElementById('radial-radius').style.display = 'none';
+					document.getElementById('radialRadius').style.display = 'none';
 				}
 
 			} else {
-				document.getElementById('custom-radial-svg').style.display = 'none';
-				document.getElementById('radial-radius').style.display = 'none';
-				document.getElementById('radial-center').style.display = 'none';
+				document.getElementById('customRadialSvg').style.display = 'none';
+				document.getElementById('radialRadius').style.display = 'none';
+				document.getElementById('radialCenter').style.display = 'none';
 			}
 		}
 
 		//Show custom
 		if (SVGBGMAKER.selectedPos === 'custom') {
-			document.getElementById('custom-linear-svg').style.display = '';
+			document.getElementById('customLinearSvg').style.display = '';
 
-			document.getElementById('custom-radial-svg').style.display = 'none';
-			document.getElementById('radial-radius').style.display = 'none';
-			document.getElementById('radial-center').style.display = 'none';
+			document.getElementById('customRadialSvg').style.display = 'none';
+			document.getElementById('radialRadius').style.display = 'none';
+			document.getElementById('radialCenter').style.display = 'none';
 		} else {
-			document.getElementById('custom-linear-svg').style.display = 'none';
+			document.getElementById('customLinearSvg').style.display = 'none';
 		}
 
 		SVGBGMAKER.updateAllPanels();
@@ -600,35 +599,35 @@ var SVGBGMAKER = SVGBGMAKER || {};
 
 			//Show custom radial tool
 			if ((SVGBGMAKER.selectedPos === 'custom position') || (SVGBGMAKER.selectedSize === 'custom size')) {
-				document.getElementById('custom-radial-svg').style.display = '';
+				document.getElementById('customRadialSvg').style.display = '';
 
 				if (SVGBGMAKER.selectedPos === 'custom position') {
-					document.getElementById('radial-center').style.display = '';
+					document.getElementById('radialCenter').style.display = '';
 				} else {
-					document.getElementById('radial-center').style.display = 'none';
+					document.getElementById('radialCenter').style.display = 'none';
 				}
 
 				if (SVGBGMAKER.selectedSize === 'custom size') {
-					document.getElementById('radial-radius').style.display = '';
+					document.getElementById('radialRadius').style.display = '';
 				} else {
-					document.getElementById('radial-radius').style.display = 'none';
+					document.getElementById('radialRadius').style.display = 'none';
 				}
 
 			} else {
-				document.getElementById('custom-radial-svg').style.display = 'none';
-				document.getElementById('radial-radius').style.display = 'none';
-				document.getElementById('radial-center').style.display = 'none';
+				document.getElementById('customRadialSvg').style.display = 'none';
+				document.getElementById('radialRadius').style.display = 'none';
+				document.getElementById('radialCenter').style.display = 'none';
 			}
 		}
 		//Show custom
 		if (SVGBGMAKER.selectedPos === 'custom') {
-			document.getElementById('custom-linear-svg').style.display = '';
+			document.getElementById('customLinearSvg').style.display = '';
 
-			document.getElementById('custom-radial-svg').style.display = 'none';
-			document.getElementById('radial-radius').style.display = 'none';
-			document.getElementById('radial-center').style.display = 'none';
+			document.getElementById('customRadialSvg').style.display = 'none';
+			document.getElementById('radialRadius').style.display = 'none';
+			document.getElementById('radialCenter').style.display = 'none';
 		} else {
-			document.getElementById('custom-linear-svg').style.display = 'none';
+			document.getElementById('customLinearSvg').style.display = 'none';
 		}
 	};
 
@@ -651,13 +650,13 @@ var SVGBGMAKER = SVGBGMAKER || {};
 		if (thumbnailSizePanel !== null) {
 			thumbnailSizePanel.parentNode.removeChild(thumbnailSizePanel);
 		}
-		thumbnailSizePanel = document.createElement('table');
+		thumbnailSizePanel = document.createElement('div');
 		thumbnailSizePanel.id = 'thumbnailSizePanel';
-		var tr = document.createElement('tr');
+		var tr = document.createElement('div');
 		thumbnailSizePanel.appendChild(tr);
 
 		for (var i = 0; i < allRadialSizes.length; i++) {
-			var th = document.createElement('td');
+			var th = document.createElement('div');
 			tr.appendChild(th);
 			var thumbnail = document.createElement('div');
 			th.appendChild(thumbnail);
@@ -670,7 +669,7 @@ var SVGBGMAKER = SVGBGMAKER || {};
 			var markups = SVGBGMAKER.getMarkup(position, allRadialSizes[i]);
 			thumbnail.setAttribute('style', markups);
 		}
-		document.getElementById('size-panel').appendChild(thumbnailSizePanel);
+		document.getElementById('sizePanel').appendChild(thumbnailSizePanel);
 		document.getElementById('sizes').style.display = '';
 		if (SVGBGMAKER.selectedSize === null) {
 			SVGBGMAKER.pickSize(allRadialSizes[4]); //select default size
@@ -687,9 +686,9 @@ var SVGBGMAKER = SVGBGMAKER || {};
 		SVGBGMAKER.selectedSize = e.target.name;
 
 		if (SVGBGMAKER.selectedSize === 'custom size') {
-			document.getElementById('radial-radius').style.display = '';
+			document.getElementById('radialRadius').style.display = '';
 		} else {
-			document.getElementById('radial-radius').style.display = 'none';
+			document.getElementById('radialRadius').style.display = 'none';
 		}
 		SVGBGMAKER.updateAllPanels();
 	};
@@ -705,9 +704,9 @@ var SVGBGMAKER = SVGBGMAKER || {};
 			}
 		}
 		if (SVGBGMAKER.selectedSize === 'custom size') {
-			document.getElementById('radial-radius').style.display = '';
+			document.getElementById('radialRadius').style.display = '';
 		} else {
-			document.getElementById('radial-radius').style.display = 'none';
+			document.getElementById('radialRadius').style.display = 'none';
 		}
 		SVGBGMAKER.updateSample();
 	};
@@ -715,11 +714,11 @@ var SVGBGMAKER = SVGBGMAKER || {};
 	SVGBGMAKER.insertStop = function () {
 		var nNewStop = nextStopCount - 1;
 
-		var thLabel = document.createElement('td');
-		document.getElementById('stops-label').insertBefore(thLabel, document.getElementById('last-label'));
+		var thLabel = document.createElement('div');
+		document.getElementById('stopsLabel').insertBefore(thLabel, document.getElementById('lastLabel'));
 		thLabel.id = 'stopRow' + nNewStop.toString() + 'label';
 		thLabel.appendChild(document.createTextNode('Stop'));
-		thLabel.style.fontWeight = 'normal';
+		thLabel.className = 'controls--gradient-colors__label';
 
 		var prevStop = nextStopCount;
 		while ((document.getElementById('offset' + prevStop.toString()) === null) && (prevStop > 0)) {
@@ -729,8 +728,8 @@ var SVGBGMAKER = SVGBGMAKER || {};
 		var StopValue2 = 1;
 		var StopValue1 = (StopValue0 + StopValue2) / 2;
 
-		var thOffset = document.createElement('td');
-		document.getElementById('stops-offset').insertBefore(thOffset, document.getElementById('last-offset'));
+		var thOffset = document.createElement('div');
+		document.getElementById('stopsOffset').insertBefore(thOffset, document.getElementById('lastOffset'));
 		thOffset.id = 'stopRow' + nNewStop.toString() + 'offset';
 		var input = document.createElement('input');
 		input.type = 'text';
@@ -742,8 +741,8 @@ var SVGBGMAKER = SVGBGMAKER || {};
 		};
 		thOffset.appendChild(input);
 
-		var thColor = document.createElement('td');
-		document.getElementById('stops-color').insertBefore(thColor, document.getElementById('last-color'));
+		var thColor = document.createElement('div');
+		document.getElementById('stopsColor').insertBefore(thColor, document.getElementById('lastColor'));
 		thColor.id = 'stopRow' + nNewStop.toString() + 'color';
 		input = document.createElement('input');
 		input.id = 'color' + nNewStop.toString();
@@ -753,14 +752,13 @@ var SVGBGMAKER = SVGBGMAKER || {};
 		thColor.appendChild(input);
 		SVGBGMAKER.repaint(input);
 
-		var thButton = document.createElement('td');
+		var thButton = document.createElement('div');
 		thButton.className = 'deletebutton';
-		document.getElementById('stops-button').insertBefore(thButton, document.getElementById('last-button'));
+		document.getElementById('stopsButton').insertBefore(thButton, document.getElementById('lastButton'));
 		thButton.id = 'stopRow' + nNewStop.toString() + 'button';
 		var button = document.createElement('button');
 		button.type = 'button';
 		button.id = nNewStop.toString();
-		button.innerHTML = 'Delete';
 		button.onclick = function () {
 			SVGBGMAKER.removeStop(this);
 		};
@@ -824,15 +822,15 @@ var SVGBGMAKER = SVGBGMAKER || {};
 		}
 		var markup = SVGBGMAKER.getMarkup(SVGBGMAKER.selectedPos, SVGBGMAKER.selectedSize);
 
-		if (document.getElementById('other-source') !== null) {
-			document.getElementById('other-source').value = markup;
+		if (document.getElementById('otherSource') !== null) {
+			document.getElementById('otherSource').value = markup;
 		}
-		if (document.getElementById('svg-source') !== null) {
-			document.getElementById('svg-source').value = '<!-- SVG syntax --> \n' + svg;
+		if (document.getElementById('svgSource') !== null) {
+			document.getElementById('svgSource').value = '<!-- SVG syntax --> \n' + svg;
 		}
-		//document.getElementById("other-sample").setAttribute("style", markup);
-		document.getElementById('other-sample').style.backgroundImage = SVGBGMAKER.getRawMarkup(SVGBGMAKER.selectedPos, SVGBGMAKER.selectedSize);
-		document.getElementById('other-sample').style.backgroundRepeat = 'no-repeat';
+		//document.getElementById("otherSample").setAttribute("style", markup);
+		document.getElementById('otherSample').style.backgroundImage = SVGBGMAKER.getRawMarkup(SVGBGMAKER.selectedPos, SVGBGMAKER.selectedSize);
+		document.getElementById('otherSample').style.backgroundRepeat = 'no-repeat';
 	};
 
 	SVGBGMAKER.linearGradientSVG = function (inputPos) {
@@ -1079,12 +1077,12 @@ var SVGBGMAKER = SVGBGMAKER || {};
 	};
 
 	SVGBGMAKER.initCustomTools = function () {
-		document.getElementById('linear-start').onmousedown = SVGBGMAKER.linearStartMouseDown;
-		document.getElementById('linear-end').onmousedown = SVGBGMAKER.linearEndMouseDown;
-		document.getElementById('radial-center').onmousedown = SVGBGMAKER.radialCenterMouseDown;
-		document.getElementById('radial-radius').onmousedown = SVGBGMAKER.radialRadiusMouseDown;
-		SVGBGMAKER.sampleWidth = document.getElementById('other-sample').offsetWidth - 2;
-		SVGBGMAKER.sampleHeight = document.getElementById('other-sample').offsetHeight - 2;
+		document.getElementById('linearStart').onmousedown = SVGBGMAKER.linearStartMouseDown;
+		document.getElementById('linearEnd').onmousedown = SVGBGMAKER.linearEndMouseDown;
+		document.getElementById('radialCenter').onmousedown = SVGBGMAKER.radialCenterMouseDown;
+		document.getElementById('radialRadius').onmousedown = SVGBGMAKER.radialRadiusMouseDown;
+		SVGBGMAKER.sampleWidth = document.getElementById('otherSample').offsetWidth - 2;
+		SVGBGMAKER.sampleHeight = document.getElementById('otherSample').offsetHeight - 2;
 		SVGBGMAKER.setStartTo(0, 0);
 		SVGBGMAKER.setEndTo(SVGBGMAKER.sampleWidth, SVGBGMAKER.sampleHeight);
 		SVGBGMAKER.setCenterTo(SVGBGMAKER.sampleWidth / 2, SVGBGMAKER.sampleHeight / 2, false);
@@ -1122,47 +1120,47 @@ var SVGBGMAKER = SVGBGMAKER || {};
 	};
 
 	SVGBGMAKER.showImportGradMarkup = function () {
-		document.getElementById('htxtlink').style.display = 'none';
-		document.getElementById('parse-link').style.display = '';
-		document.getElementById('hide-link').style.display = '';
-		document.getElementById('markup-source').style.display = '';
+		document.getElementById('htxtLink').style.display = 'none';
+		document.getElementById('parseLink').style.display = '';
+		document.getElementById('hideLink').style.display = '';
+		document.getElementById('markupSource').style.display = '';
 	};
 
 	SVGBGMAKER.hideImportGradMarkup = function () {
-		document.getElementById('htxtlink').style.display = '';
-		document.getElementById('parse-link').style.display = 'none';
-		document.getElementById('hide-link').style.display = 'none';
-		document.getElementById('markup-source').style.display = 'none';
-		document.getElementById('markup-type').innerHTML = '';
+		document.getElementById('htxtLink').style.display = '';
+		document.getElementById('parseLink').style.display = 'none';
+		document.getElementById('hideLink').style.display = 'none';
+		document.getElementById('markupSource').style.display = 'none';
+		document.getElementById('markupType').innerHTML = '';
 	};
 
 	// Detect what type of markup it is
 	SVGBGMAKER.loadMarkup = function () {
-		SVGBGMAKER.markup = SVGBGMAKER.trimString(document.getElementById('markup-source').value);
+		SVGBGMAKER.markup = SVGBGMAKER.trimString(document.getElementById('markupSource').value);
 		if (SVGBGMAKER.markup.indexOf('base64') !== -1) {
-			document.getElementById('markup-type').innerHTML = 'Successfully parsed from base-64 URL.';
+			document.getElementById('markupType').innerHTML = 'Successfully parsed from base-64 URL.';
 			SVGBGMAKER.loadBase64URL();
 		} else if (SVGBGMAKER.markup.length === 0) {
 			// Empty textarea; do nothing
-			document.getElementById('markup-type').innerHTML = '';
+			document.getElementById('markupType').innerHTML = '';
 		} else {
-			document.getElementById('markup-type').innerHTML = 'Cannot parse input.';
-			document.getElementById('markup-type').style.color = 'red';
+			document.getElementById('markupType').innerHTML = 'Cannot parse input.';
+			document.getElementById('markupType').style.color = 'red';
 			return;
 		}
-		document.getElementById('markup-type').style.color = '#424242';
+		document.getElementById('markupType').style.color = '#424242';
 	};
 
 	SVGBGMAKER.initCustomTools();
-	document.getElementById('g-type').gradtype[0].checked = true;
-	document.getElementById('markup-source').onfocus = SVGBGMAKER.clearImportGradMarkup;
-	document.getElementById('pos-panel').onchange = SVGBGMAKER.updateAllPanels;
-	document.getElementById('size-panel').onchange = SVGBGMAKER.updateAllPanels;
-	document.getElementById('add-stop').onclick = SVGBGMAKER.insertStop;
-	document.getElementById('control-wrapper').onchange = SVGBGMAKER.updateSample;
-	document.getElementById('htxtlink').onclick = SVGBGMAKER.showImportGradMarkup;
-	document.getElementById('parse-link').onclick = SVGBGMAKER.loadMarkup;
-	document.getElementById('hide-link').onclick = SVGBGMAKER.hideImportGradMarkup;
+	document.getElementById('gType').gradtype[0].checked = true;
+	document.getElementById('markupSource').onfocus = SVGBGMAKER.clearImportGradMarkup;
+	document.getElementById('posPanel').onchange = SVGBGMAKER.updateAllPanels;
+	document.getElementById('sizePanel').onchange = SVGBGMAKER.updateAllPanels;
+	document.getElementById('addStop').onclick = SVGBGMAKER.insertStop;
+	document.getElementById('controlWrapper').onchange = SVGBGMAKER.updateSample;
+	document.getElementById('htxtLink').onclick = SVGBGMAKER.showImportGradMarkup;
+	document.getElementById('parseLink').onclick = SVGBGMAKER.loadMarkup;
+	document.getElementById('hideLink').onclick = SVGBGMAKER.hideImportGradMarkup;
 	document.getElementById('l-grad').onclick = SVGBGMAKER.loadLinearTable;
 	document.getElementById('e-grad').onclick = function () {
 		SVGBGMAKER.loadRadialTable('ellipse');
