@@ -1,3 +1,4 @@
 /.idea/
-/.vscode/
+webauthn/.vscode/
 /node_modules/
+webauthn/web.config
