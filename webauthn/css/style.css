@@ -1,157 +1,180 @@
 body {
-    background: #dbdbdb;
-    border-top: 6px solid #e57373;
+	background: #dbdbdb;
+	border-top: 0.5rem solid #e57373;
 }
 
 header {
-    height: 6rem;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 0 5rem;
-    background-color: hsla(28, 12%, 21%, 0.3);
+	height: 6rem;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	padding: 0 5rem;
+	background-color: hsla(28, 12%, 21%, 0.3);
 }
 
+.input_textbox {
+	display: block;
+}
+
+.default {
+	display: none;
+}
 
 /* Set the reset button at the lower right corner of the page */
-#reset {
-    position: fixed;
-    bottom: 5rem;
-    right: 5rem;
+#idDiv_Reset {
+	position: fixed;
+	bottom: 5rem;
+	right: 5rem;
 }
 
-#hello_logo {
-    width: 4.2rem;
-    height: 3.7rem;
+.loginHead {
+	display: inline;
+	white-space: nowrap;
+}
+
+#idImg_HelloLogo {
+	width: 4.2rem;
+	height: 3.7rem;
+	display: inline;
+}
+
+#idButton_Logon {
+	margin-top: 2rem;
+	display: none;
 }
 
 #button-sign-in-with-password{
-    background-color: #778899;
+	background-color: #778899;
+}
+
+.small_button {
+	display: inline;
 }
 
 /* override demo template */
 
 p {
-    margin-top: 1rem;
+	margin-top: 1rem;
 }
 
 
 /* override demo template */
 
 a {
-    background-color: #E57373;
-    color: #fff;
-    font-size: 1.5rem;
+	background-color: #E57373;
+	color: #fff;
+	font-size: 1.5rem;
 }
 
 a:visited {
-    color: #fff;
+	color: #fff;
 }
 
 .logo {
-    max-width: 22rem;
+	max-width: 22rem;
 }
 
 .login-background {
-    background: url('../images/puppy-cam-login.jpg') no-repeat center center fixed;
-    background-size: cover;
+	background: url('../images/puppy-cam-login.jpg') no-repeat center center fixed;
+	background-size: cover;
 }
 
 .nav-top {
-    padding: .4rem 1rem;
-    margin-top: 0rem;
-    background-color: hsla(0, 69%, 67%, 1);
-    color: #fff;
+	padding: .4rem 1rem;
+	margin-top: 0rem;
+	background-color: hsla(0, 69%, 67%, 1);
+	color: #fff;
 }
 
 .container {
-    margin-top: 14rem;
+	margin-top: 14rem;
 }
 
 
 /* Overwrite section class margin */
 
 .section {
-    margin-top: 0;
+	margin-top: 0;
 }
 
 .content {
-    display: flex;
-    margin: 0 auto;
-    max-width: 100rem;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: center;
+	display: flex;
+	margin: 0 auto;
+	max-width: 100rem;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	justify-content: center;
 }
 
 .content img {
-    margin: 0 auto;
+	margin: 0 auto;
 }
 
 .sub-content {
-    width: 43rem;
-    background-color: hsla(0, 0%, 86%, .9);
-    margin: 0 auto;
-    padding: 2rem 3rem;
+	width: 43rem;
+	background-color: hsla(0, 0%, 86%, .9);
+	margin: 0 auto;
+	padding: 2rem 3rem;
 }
 
 .login-container {
-    max-width: 48rem;
-    position: relative;
-    top: 14rem;
-    margin: 0 auto;
-    padding: 3rem;
-    text-align: center;
-    background-color: hsla(0, 0%, 86%, .9);
+	max-width: 48rem;
+	position: relative;
+	top: 14rem;
+	margin: 0 auto;
+	padding: 3rem;
+	text-align: center;
+	background-color: hsla(0, 0%, 86%, .9);
 }
 
 input,
 select,
 textarea {
-    border: none;
-    background-color: hsla(0, 0%, 100%, .4);
+	border: none;
+	background-color: hsla(0, 0%, 100%, .4);
 }
 
 input,
 select,
 textarea {
-    border-bottom: 4px solid #e57373;
-    padding: .4rem .8rem;
+	border-bottom: 0.5rem solid #e57373;
+	padding: .4rem .8rem;
 }
 
 input:focus {
-    border-bottom: 4px solid hsla(327, 100%, 12%, .8);
+	border-bottom: 1rem solid hsla(327, 100%, 12%, .8);
 }
 
 button,
 input[type=button] {
-    width: 100%;
-    background-color: hsla(0, 69%, 67%, 1);
+	width: 100%;
+	background-color: hsla(0, 69%, 67%, 1);
 }
 
 .button:link,
 .button:visited,
 button,
 input[type="button"] {
-    color: #fff;
+	color: #fff;
 }
 
-.video {
-    max-width: 48rem;
-    min-height: 15rem;
+.video-container {
+    max-width: 57.9rem;
+    min-height: 32.5rem;
     position: relative;
-    top: 12rem;
-    margin: 0 auto;
-    padding: 0rem;
+    top: 18rem;
+    right: 4rem;
+    display: block;
+    margin: auto;
     text-align: center;
     background: #EEEFF1;
-    border: 2px solid #D2CCCC;
-    border-bottom: 0px;
+    border: 0.1rem ridge #D2CCCC;
+    border-bottom: 0rem;
 }
 
-.video-icon {
-    max-width: 15rem;
-    margin: 5rem;
+#media_puppy {
+	width: 57.6rem;
+	height: 32.4rem;
 }

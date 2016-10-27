@@ -5,15 +5,13 @@
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<base href="https://fidodemo2.azurewebsites.net/webauthn/">
 
 <title>Sign in to your Microsoft account</title>
 
-<link href="./images/favicon.ico" rel="shortcut icon">
+<link href="images/favicon.ico" rel="shortcut icon">
 <link rel="stylesheet" type="text/css" href="https://edgeportal.blob.core.windows.net/media/demotemplate.css">
-<link rel="stylesheet" type="text/css" href="./css/style.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
 
-<meta name="GENERATOR" content="MSHTML 11.00.10537.1000">
 </head>
 
 <body class="login-background">
@@ -21,11 +19,11 @@
 		<img src="images/puppycamlogo.svg" alt="PuppyCam Logo" class="logo">
 		<p class="nav-top"><a href="index.html">Logout</a></p>
 	</header>
- 	<div class="video-container">
-		<div class="video">
-			<p class="title">The puppy is taking a break. </p>
-			<img src="images/golden-retriever.jpg" alt="no live video" />
-		</div>
- 	</div>
+	<div class="video-container">
+		<video controls preload="auto" muted autoplay loop id="media_puppy">
+			<source src="videos/happy_puppy.mp4" type="video/mp4">
+			You are signed in! Unfortunately, the puppy cam cannot be played on your browser.
+		</video>
+	</div>
  </body>
 </html>
