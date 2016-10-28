@@ -72,14 +72,14 @@
             tempCtx.setAttribute('width', WIDTH);
             tempCtx.setAttribute('height', HEIGHT);
             tempCtx.setAttribute('tabIndex', -1);
-            document.body.insertBefore(tempCtx, document.body.firstChild);
+            document.body.appendChild(tempCtx);
 
             var tempCtx3 = document.createElement("canvas");
             tempCtx3.id = "background";
             tempCtx3.setAttribute('width', WIDTH);
             tempCtx3.setAttribute('height', HEIGHT);
             tempCtx3.setAttribute('tabIndex', -1);
-            document.body.insertBefore(tempCtx3, document.body.firstChild);
+            document.body.appendChild(tempCtx3);
 
             ctx = tempCtx.getContext("2d");
 
