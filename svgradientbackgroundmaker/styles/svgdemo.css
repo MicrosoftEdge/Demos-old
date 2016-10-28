@@ -16,10 +16,6 @@ body {
 	font-family: 'Montserrat', sans-serif;
 }
 
-h1 {
-	font-size: 2rem;
-}
-
 p {
 	color: #7f7f7f;
 	margin: 0 0 1.2rem 0;
@@ -58,6 +54,11 @@ fieldset {
 .primary {
 	width: 64rem;
 	margin-left: 2rem;
+}
+
+.heading {
+	margin-top: 2rem;
+	font-size: 2rem;
 }
 
 .title {
