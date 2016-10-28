@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="227px" height="231px" viewBox="0 0 227 231" enable-background="new -0.748 -0.752 227 231">
+    <linearGradient id="TailGradient" gradientUnits="userSpaceOnUse" x1="236.4141" y1="-22.7866" x2="-77.0342" y2="354.2521">
+	    <stop offset="0" style="stop-color:#B93B36"/>
+	    <stop offset="0.1479" style="stop-color:#C14136"/>
+	    <stop offset="0.6318" style="stop-color:#D55235"/>
+	    <stop offset="1" style="stop-color:#DD5834"/>
+    </linearGradient>
+    <polygon fill="url(#TailGradient)" points="180.519,148.887 225.319,0 89.52,49.471 0,229.928 73.107,229.928 "/>
+</svg>
