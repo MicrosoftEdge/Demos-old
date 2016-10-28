@@ -6,7 +6,7 @@
 
     this.logoWidth = 165;
     this.logoHeight = 67;
-    this.logoTop = 38;
+    this.logoTop = 108;
     this.logoLeft = 48;
 
     this.Resize = function () {
