@@ -5,7 +5,7 @@
 	<meta name="description" content="Chromatic tuner implemented using Web Audio and Media Stream APIs"/>
 	<meta name="keywords" content="Media, web audio"/>
 	<meta name="author" content="quimbs"/>
-	<link rel="stylesheet" type="text/css" href="https://edgeportal.blob.core.windows.net/media/demotemplate.css">
+	<link rel="stylesheet" type="text/css" href="//edgeportal.blob.core.windows.net/media/demotemplate.css"/>
 	<link rel="stylesheet" type="text/css" href="styles/demo.css"/>
 </head>
 
@@ -25,7 +25,7 @@
 	</header>
 
 	<!-- DEMO CONTENT -->
-	<section class="section section--banner section--banner--light section--tuner">
+	<section class="section section--tuner">
 		<div class="container">
 			<h2 class="visually-hidden">Tuner</h2>
 			<div class="section__body tuner__body">
@@ -53,25 +53,33 @@
 					<p class="alert--error tuner__alert" id="errorMessage"></p>
 					<div class="tuner__controls">
 						<h3 class="subtitle">Tune using:</h3>
-	                    <button class="button tuner__input-button" id="micButton">Microphone</button>
-	                    <button class="button tuner__input-button" id="refButton">Reference tone</button>
+						<div class="actions">
+	                    	<button class="button tuner__input-button" id="micButton">Microphone</button>
+	                    	<button class="button tuner__input-button" id="refButton">Reference tone</button>
+						</div>
 	                    <div id="microphoneOptions" class="tuner__options">
 	                        <fieldset>
 	                            <legend class="subtitle">Base frequency</legend>
-	                            <button class="button tuner__options__button minusFreq">-</button>
-	                            <button class="button tuner__options__button plusFreq">+</button>
+								<div class="actions">
+									<button class="button tuner__options__button minusFreq">-</button>
+									<button class="button tuner__options__button plusFreq">+</button>
+								</div>
 	                        </fieldset>
 	                    </div>
 	                    <div id="referenceOptions" class="tuner__options">
 	                        <fieldset>
 	                            <legend class="subtitle">Base frequency</legend>
-	                            <button class="button tuner__options__button minusFreq">-</button>
-	                            <button class="button tuner__options__button plusFreq">+</button>
+								<div class="actions">
+									<button class="button tuner__options__button minusFreq">-</button>
+									<button class="button tuner__options__button plusFreq">+</button>
+								</div>
 	                        </fieldset>
 	                        <fieldset>
 	                            <legend class="subtitle">Note</legend>
-	                            <button class="button tuner__options__button" id="minusRefNote">-</button>
-	                            <button class="button tuner__options__button" id="plusRefNote">+</button>
+								<div class="actions">
+									<button class="button tuner__options__button" id="minusRefNote">-</button>
+									<button class="button tuner__options__button" id="plusRefNote">+</button>
+								</div>
 	                        </fieldset>
 	                    </div>
 					</div>

@@ -137,11 +137,6 @@
 	min-width: 200px;
 }
 
-#audiomixer .panel p {
-	max-width: none;
-	margin-bottom: 1rem;
-}
-
 #audiomixer .explainer {
 	margin: 20px 10px 0 10px;
 }
@@ -207,6 +202,7 @@
  *** Master ***
  **************/
 #audiomixer #master {
+	margin-top: 2.4rem;
 	color: #EBEBEB;
 	padding: 14px;
 	background-color: #333333;
@@ -240,7 +236,7 @@
 
 #audiomixer #master input {
 	float: left;
-	margin: 0;
+	margin: .4rem 0 0;
 }
 
 #audiomixer #master button {
@@ -415,7 +411,7 @@
 
 #audiomixer #saved-list-explainer {
 	color: #999999;
-	margin: 0.5rem 0.8rem;
+	margin: 2.4rem 0.8rem 0;
 	display: block;
 	text-shadow: 0 0 3px #111111;
 	font-size: 1.3rem;
@@ -772,17 +768,5 @@
 
 	#audiomixer #dash .track .grid li {
 		width: 60px;
-	}
-}
-
-@media (min-width: 33.75em) {
-	#audiomixer *+* {
-		margin-top: auto;
-	}
-}
-
-@media (max-width: 33.74em) {
-	#audiomixer *+* {
-		margin-top: auto;
 	}
 }
