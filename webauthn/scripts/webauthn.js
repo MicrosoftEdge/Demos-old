@@ -69,7 +69,7 @@ navigator.authentication = navigator.authentication || (function () {
 
 		const doStore = function (id, data) {
 			if (!db) {
-				throw new Error('DB not initialised');
+				throw new Error('UnknownError');
 			}
 			return new Promise((resolve, reject) => {
 				const tx = db.transaction(WEBAUTHN_ID_TABLE, 'readwrite');
@@ -97,7 +97,7 @@ navigator.authentication = navigator.authentication || (function () {
 
 		const doGetAll = function () {
 			if (!db) {
-				throw new Error('DB not initialised');
+				throw new Error('UnknownError');
 			}
 
 			return new Promise((resolve, reject) => {
