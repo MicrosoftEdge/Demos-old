@@ -13,7 +13,7 @@ body {
 	min-width: 960px;
 	max-width: 1080px;
 	padding: 0 4rem;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Montserrat', 'Segoe UI', sans-serif;
 }
 
 p {
@@ -68,6 +68,7 @@ fieldset {
 
 .subtitle {
 	font-size: 1.4rem;
+	padding: 1rem;
 }
 
 .demo--container {
