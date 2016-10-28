@@ -17,8 +17,15 @@
 	max-width: none;
 }
 
+.section--demo-mic {
+	padding: 4.8rem 0;
+	background: #414141;
+	color: #fff;
+}
+
 /* Generic Controls */
 .mic__heading {
+	margin-bottom: 2rem;
 	font-size: 1.2rem;
 	text-transform: uppercase;
 	letter-spacing: .125rem;
