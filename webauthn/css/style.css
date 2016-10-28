@@ -22,45 +22,10 @@ header {
 	display: none;
 }
 
-/* Set the reset button at the lower right corner of the page */
-#idDiv_Reset {
-	position: fixed;
-	bottom: 5rem;
-	right: 5rem;
-}
-
-.idH1_HelloHeader {
-	display: inline;
-	white-space: nowrap;
-}
-
-#idImg_HelloLogo {
-	width: 4.2rem;
-	height: 3.7rem;
-	display: inline;
-}
-
-#idButton_Logon {
-	margin-top: 2rem;
-}
-
-
-#idButton_LogonWPwd {
-	background-color: #778899;
-}
-
 .small_button {
 	display: inline;
 }
 
-#idInput_Pwd {
-    display: block;
-}
-
-#loginhead {
-	/*display: inline-block;*/
-    white-space: nowrap;
-}
 
 /* override demo template */
 
@@ -186,4 +151,35 @@ input[type="button"] {
 #idMedia_puppy {
 	width: 57.6rem;
 	height: 32.4rem;
+}
+
+/* Set the reset button at the lower right corner of the page */
+#idDiv_Reset {
+	position: fixed;
+	bottom: 5rem;
+	right: 5rem;
+}
+
+.idH1_HelloHeader {
+	display: inline;
+	white-space: nowrap;
+}
+
+#idImg_HelloLogo {
+	width: 4.2rem;
+	height: 3.7rem;
+	display: inline;
+}
+
+#idButton_Logon {
+	margin-top: 2rem;
+}
+
+#idInput_Pwd {
+	display: block;
+}
+
+
+#idButton_LogonWPwd {
+	background-color: #778899;
 }
