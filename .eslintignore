@@ -8,7 +8,7 @@
 
 # Demos to ignore because they are old or haven't been fixed yet. Goal should be to not have any here
 audiomixer/
-betafishie/
+betafish/
 blobbuilder/
 chalkboard/
 chess/scripts/libs/
