@@ -1,0 +1,195 @@
+@font-face {
+	font-family: 'Jester';	
+	src: local('☺'), url('../fonts/Jester.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+html
+{
+    overflow: hidden;
+    content-zooming: none;
+    -ms-content-zooming: none;
+    -webkit-content-zooming: none;
+    -moz-content-zooming: none;
+    /* Windows Phone */
+    -ms-text-size-adjust: auto;
+    user-scalable: none;
+}
+
+body
+{
+    font-family: Jester;
+    user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+
+select
+{
+    font-family: "Jester";    
+}
+
+body *
+{
+    transition-property: *;
+    transition-duration: 1s;
+    -ms-transition-property: *;
+    -ms-transition-duration: 1s;
+    -webkit-transition-property: *;
+    -webkit-transition-duration: 1s;
+    -moz-transition-property: *;
+    -moz-transition-duration: 1s;
+    font-size: 12pt;
+}
+
+canvas#backgroundGradient
+{
+    position: fixed;
+    top: -12%;
+    left: -200px;
+}
+
+div#sceneContainer
+{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: #D6EEEB;
+    overflow: hidden;
+}
+
+div#snowmanContainer
+{
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    right: 50%;
+    margin-left: -375px;
+    width: 750px;
+}
+
+svg#snowHeap
+{
+    position: absolute;
+    bottom: -5%;
+    height: 5%;
+}
+
+canvas#snowflakesCanvas
+{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    /* prevent default touch actions such as zoom */
+    -ms-touch-action: none;        
+}
+
+/* basic classes */
+
+.hidden
+{
+    display: none;
+}
+
+/* system information */
+
+div.si
+{
+    color: black;
+    position: absolute;
+    bottom: 10px;    
+}
+
+div#systemInformation
+{
+    left: 10px;
+}
+
+div.si span
+{
+    text-shadow: 0px 0px 1px white;
+}
+
+div#systemInformationFps
+{
+    right: 10px;
+}
+
+span#siFps
+{
+    font-weight: bold;        
+    font-size: 24pt;
+}
+
+/* postcard */
+
+div#postcardContainer
+{
+    overflow: visible;
+}
+
+div#postcard
+{
+    position: absolute;
+    left: 50%;
+    margin-left: -225px;
+    bottom: 305px;
+    width: 475px;
+    height: 314px;
+    background-color: #d8d8d8;
+    background-image: url("../Messages/Message2.png");
+}
+
+p#hint
+{
+    position: absolute;
+    left: 50%;
+    margin-left: -154px;
+    margin-bottom: -60px;
+    bottom: 395px;
+    font-size: 20pt;
+    line-height: 24pt;
+    max-width: 350px;
+    text-align: center;
+    color: rgba(0,0,0,0.15);
+    opacity: 0.0;
+    transform: rotate(-3deg);
+    -ms-transform: rotate(-3deg);
+    -webkit-transform: rotate(-3deg);
+    -moz-transform: rotate(-3deg);
+    transition-property: opacity;
+    transition-duration: 0.5s;
+    -ms-transition-property: opacity;
+    -ms-transition-duration: 0.5s;
+    -webkit-transition-property: opacity;
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-property: opacity;
+    -moz-transition-duration: 0.5s;
+}
+
+div#postcard > img
+{
+    width: 100%;
+    height: 100%;
+}
+
+div#postcard canvas
+{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+canvas.clearedSnowCanvas
+{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 1.0;
+}
