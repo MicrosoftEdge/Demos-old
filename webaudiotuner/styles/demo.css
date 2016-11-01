@@ -1,3 +1,12 @@
+* + .gist {
+	margin-top: 2.4rem;
+}
+
+.section--tuner {
+	padding: 4.8rem 0;
+	background: #f2f2f2;
+}
+
 .content--testdrive .section--tuner .button {
 	background-color: hsla(0,0%,0%,.2);
 	color: #000;
