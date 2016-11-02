@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="EN-US" dir="ltr">
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	<title>Sign in to your Microsoft account</title>
+
+	<link href="images/favicon.png" rel="shortcut icon">
+	<link rel="stylesheet" type="text/css" href="https://edgeportal.blob.core.windows.net/media/demotemplate.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+
+<body class="login-background">
+	<header>
+		<img src="images/puppycamlogo.svg" alt="PuppyCam Logo" class="logo">
+	</header>
+	<div class="centerParent">
+		<div class="center">
+			<div class="centerParent">
+				<div class="center">
+					<div class="login-container">
+						<div class="signInHeader">
+							<h1>Sign in</h1>
+						</div>
+						<div id="rightTD">
+							<div id="idDiv_FSI_HeaderInfo">
+								<p class="subtitle">Please sign in to access your account and live home puppy cam.</p>
+							</div>
+							<div class="section">
+								<div class="div_textbox" id="idDiv_PWD_UsernameTb">
+									<div>
+										<input name="loginfmt" class="input_textbox" id="idDiv_AcctName" aria-describedby="idTd_Tile_Error idTd_PWD_Error" aria-labelledby="idLbl_PWD_Username" lang="en" type="email" maxlength="113" placeholder="Email or phone" value="JohnDoe@outlook.com">
+									</div>
+								</div>
+								<div class="div_textbox" id="idDiv_PWD_SUPasswordTb">
+									<div>
+										<input name="passwd" class="input_textbox" id="idInput_Pwd" aria-labelledby="idInput-password" type="password" maxlength="127" placeholder="Password" autocomplete="off" value="password">
+									</div>
+								</div>
+							</div>
+							<div class="section">
+								<button class="default" id="idButton_Logon">Sign In</button>
+								<button class="default" id="idButton_LogonWoRegister">Sign In</button>
+								<button class="default" id="idButton_LogonWWinHello" hidden>Sign In with Windows Hello</button>
+							</div>
+							<div class="row small" id="register">
+								<button class="default" id="idButton_LogonWPwd">Sign in with a password</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer id="idDiv_Reset">
+		<button class="small_button" id="idButton_Reset">Reset session</button>
+	</footer>
+	<!-- Polyfill for the WebAuthN API. The polyfill maps WebAuthN calls to msCredentials !-->
+	<script src="./scripts/webauthn.js"></script>
+	<script src="./scripts/demo.js"></script>
+</body>
+</html>
