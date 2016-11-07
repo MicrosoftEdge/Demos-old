@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+    <head>
+        <!-- Copyright © Microsoft Corporation. All Rights Reserved. -->
+        <!-- Demo Author: Jason Weber, Microsoft Corporation -->
+        <meta http-equiv="X-UA-Compatible" content="IE=10" />
+        <title>HTML5 Fish Bowl</title>
+
+        <meta name="description" content="Find your innner fish." />
+        <link rel="shortcut icon" href="../Includes/Image/FavIcon.ico" />
+        <link rel="stylesheet" type="text/css" href="Fishbowl.css" />        
+        <meta name="t_omni_demopage" content="1" />
+    </head>
+    <body onload="Initialize()">
+        <div id="ReturnAndShareControls"></div>
+        <div id="DemoScreenreaderText">Thanks for checking out this Internet Explorer 9 Platform Preview demo. This demo uses animation techniques to display fish animating around a Fish Bowl. The faster your underlying browser and computer, the more Fish will appear on the screen.</div>
+        <canvas id="LoadingCanvas"></canvas>        
+        <audio id="WaterAudio" src="Audio/Background.mp3" preload autoplay loop></audio>
+        <video id="WaterVideo" src="Video/Water.mp4" preload autoplay loop></video>
+        <canvas id="FishBowlCanvas"></canvas>
+        <canvas id="FrameCanvas"></canvas>
+        <canvas id="LogoCanvas"></canvas>
+        <canvas id="FPSCanvas"></canvas>
+        <div id="FPSNeedle"></div>
+        <canvas id="PerformanceCanvas"></canvas>
+        <div id="ControlPanel">
+            <div id="FishHeading">Fish</div>
+            <div id="FishMenu">
+                <div class="FishMenuItem" onclick="ToggleMenu();"><span id="currentMenuItem" >test</span><img id="MenuChevron" src="Images/Chevron.png"></div>
+                <div class="FishMenuDivider"></div>
+                <div class="FishMenuItem" onclick="HandleMenuClick('Auto');">Auto</div>
+                <div class="FishMenuItem" onclick="HandleMenuClick(1);">1</div>
+                <div class="FishMenuItem" onclick="HandleMenuClick(5);">5</div>
+                <div class="FishMenuItem" onclick="HandleMenuClick(10);">10</div>
+                <div class="FishMenuItem" onclick="HandleMenuClick(25);">25</div>
+                <div class="FishMenuItem" onclick="HandleMenuClick(50);">50</div>
+                <div class="FishMenuItem" onclick="HandleMenuClick(100);">100</div>
+                <div class="FishMenuItem" onclick="HandleMenuClick(250);">250</div>
+                <div class="FishMenuItem" onclick="HandleMenuClick(500);">500</div>
+                <div class="FishMenuItem" onclick="HandleMenuClick(750);">750</div>
+                <div class="FishMenuItem" onclick="HandleMenuClick(1000);">1000</div>
+                <div class="FishMenuItem" onclick="HandleMenuClick(1250);">1250</div>
+                <div class="FishMenuItem" onclick="HandleMenuClick(1500);">1500</div>
+                <div class="FishMenuItem" onclick="HandleMenuClick(1750);">1750</div>
+                <div class="FishMenuItem" onclick="HandleMenuClick(2000);">2000</div>
+            </div>
+            <div id="LayersHeading">Layers</div>
+            <div id="chkWater" class="Control Enabled" onclick="water.ToggleVisibility();">Water</a></div>
+            <div id="chkFrame" class="Control Enabled" onclick="frame.ToggleVisibility();"></a>Frame</div>
+            <div id="chkBowlMask" class="Control Enabled" onclick="fishBowl.ToggleBowlMaskVisibility();">Mask</a></div>
+            <div id="chkBowlBack" class="Control Enabled" onclick="fishBowl.ToggleBowlBackVisibility();">Back</a></div>
+            <div id="chkFish" class="Control Enabled" onclick="fishBowl.ToggleFishVisibility();">Fish</a></div>
+            <div id="chkBowlFront" class="Control Enabled" onclick="fishBowl.ToggleBowlFrontVisibility();">Front</a></div>
+            <div id="chkBowlShine" class="Control Enabled" onclick="fishBowl.ToggleBowlShineVisibility();">Shine</a></div>
+            <div id="chkBowlShadow" class="Control Enabled" onclick="fishBowl.ToggleBowlShadowVisibility();">Shadow</a></div>
+            <div id="chkAudio" class="Control Enabled" onclick="water.ToggleAudio();">Audio</a></div>
+            <div id="chkLogo" class="Control Enabled" onclick="logo.ToggleVisibility();"></a>Logo</div>
+            <div id="chkFPSMeter" class="Control Enabled" onclick="fpsMeter.ToggleVisibility();">FPS</a></div>
+            <div id="chkFPSNeedle" class="Control Enabled" onclick="fpsMeter.ToggleNeedleVisibility();">Needle</a></div>
+        </div>
+        <script type="text/javascript" src="Script/Application.js"></script>
+        <script type="text/javascript" src="Script/LoadingCover.js"></script>
+        <script type="text/javascript" src="Script/Resources.js"></script>
+        <script type="text/javascript" src="Script/Water.js"></script>
+        <script type="text/javascript" src="Script/FishBowl.js"></script>
+        <script type="text/javascript" src="Script/Fish.js"></script>
+        <script type="text/javascript" src="Script/Frame.js"></script>
+        <script type="text/javascript" src="Script/Keyboard.js"></script>
+        <script type="text/javascript" src="Script/Logo.js"></script>
+        <script type="text/javascript" src="Script/FPSMeter.js"></script>
+        <script type="text/javascript" src="Script/Performance.js"></script>        
+        <script type="text/javascript" src="../includes/script/TestDriveCommon.js"></script>
+        <script type="text/javascript" src="https://msedgecdn.azurewebsites.net/scripts/demo-header.js"></script>
+    </body>
+
+</html>

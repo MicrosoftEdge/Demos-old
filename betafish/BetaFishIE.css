@@ -1,0 +1,855 @@
+﻿* {
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+}
+
+HTML {
+	width: 100%;
+	height: 100%;
+	background-color: #0C8791;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+    overflow: hidden;
+	x-border: 6px solid yellow;
+	background-image: url('Images/Glow.svg');
+	background-position: center center;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+
+a, a:visited, a:hover {
+	color: #00a3ef;
+	text-decoration: none;
+}
+
+a:hover, a:visited:hover {
+	color: #00a3ef;
+	text-decoration: underline;
+}
+
+#DemoScreenreaderText {
+	position: absolute;
+	left: -10000px;
+}
+
+#Logo {
+    position: fixed;
+    top: 100px;
+    right: 10px;
+    font-family: Segoe UI Light;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-transform-origin: 0px 0px;
+    -ms-transform: rotate(90deg) translateY(-200px);
+    -webkit-transform-origin: 0px 0px;
+    -webkit-transform: rotate(90deg) translateY(-200px);
+    -moz-transform-origin: 0px 0px;
+    -moz-transform: rotate(90deg) translateY(-200px);
+}
+
+#Title {
+    font-size: 36pt;
+    color: #0e4a51;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+
+#Subtitle {
+    margin-top: -14px;
+    margin-left: 4px;
+    font-size: 16pt;
+    color: #0e4a51;
+    letter-spacing: -0.6pt;
+    opacity: 0.5;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+
+#ControlPanel {
+    position: fixed;
+    bottom: 10px;
+    right: 28px;
+}
+
+#ButtonToggleSwimming {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-image: url('Images/ButtonPause.png');
+    opacity: 0.5;
+}
+
+#ButtonToggleSwimming:hover {
+    opacity: 0.9;
+}
+
+#ButtonReset {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-image: url('Images/ButtonReset.png');
+    opacity: 0.5;
+}
+
+#ButtonReset:hover {
+    opacity: 0.9;
+}
+
+#EightWatermark {
+    position: fixed;
+    height: 1600px;
+    top: -100px;
+    right: -240px;
+}
+
+#PerformanceCanvas {
+	display: block;
+	position: fixed;
+	height: 32px;
+	bottom: 0px;
+}
+
+.Paused {
+    -ms-animation-play-state: paused;
+    -webkit-animation-play-state: paused;
+    -moz-animation-play-state: paused;
+}
+
+#FishTank {
+  position: absolute;
+	width: 1200px;
+	height: 600px;
+	top: 50%;
+	margin-top: -300px;
+	left: 50%;
+	margin-left: -600px;
+	x-border: 4px solid purple;
+}
+
+#Fish {
+	position: absolute;
+	width: 700px;
+	height: 400px;
+	margin-left: -400px;
+	margin-top: -200px;
+    -ms-user-select: none;
+	x-border: 6px solid red;
+}
+
+.FishSwimming {
+	-ms-animation-duration: 21s;
+	-ms-animation-name: FishSwimming;
+	-ms-animation-iteration-count: infinite;
+	-ms-animation-timing-function: linear;
+	-ms-transform-origin: 400px 200px;
+	-webkit-animation-duration: 21s;
+	-webkit-animation-name: FishSwimming;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+	-webkit-transform-origin: 400px 200px;
+	-moz-animation-duration: 21s;
+	-moz-animation-name: FishSwimming;
+	-moz-animation-iteration-count: infinite;
+	-moz-animation-timing-function: linear;
+	-moz-transform-origin: 400px 200px;
+}
+
+@-ms-keyframes FishSwimming {
+	from {
+        top: 50%;
+        left: 0%;
+        -ms-transform: scaleX(1);
+	}
+	48% {
+        top: 50%;
+        left: 90%;
+        -ms-transform: scaleX(1);
+	}
+	50% {
+        top: 50%;
+        left: 100%;
+        -ms-transform: scaleX(-1);
+	}
+	98% {
+        top: 50%;
+        left: 10%;
+        -ms-transform: scaleX(-1);
+	}
+	to {
+        top: 50%;
+        left: 0%;
+        -ms-transform: scaleX(1);
+	}
+}
+
+@-webkit-keyframes FishSwimming {
+	from {
+        top: 50%;
+        left: 0%;
+        -webkit-transform: scaleX(1);
+	}
+	48% {
+        top: 50%;
+        left: 90%;
+        -webkit-transform: scaleX(1);
+	}
+	50% {
+        top: 50%;
+        left: 100%;
+        -webkit-transform: scaleX(-1);
+	}
+	98% {
+        top: 50%;
+        left: 10%;
+        -webkit-transform: scaleX(-1);
+	}
+	to {
+        top: 50%;
+        left: 0%;
+        -webkit-transform: scaleX(1);
+	}
+}
+
+@-moz-keyframes FishSwimming {
+	from {
+        top: 50%;
+        left: 0%;
+        -moz-transform: scaleX(1);
+	}
+	48% {
+        top: 50%;
+        left: 90%;
+        -moz-transform: scaleX(1);
+	}
+	50% {
+        top: 50%;
+        left: 100%;
+        -moz-transform: scaleX(-1);
+	}
+	98% {
+        top: 50%;
+        left: 10%;
+        -moz-transform: scaleX(-1);
+	}
+	to {
+        top: 50%;
+        left: 0%;
+        -moz-transform: scaleX(1);
+	}
+}
+
+@-ms-keyframes FishSwimmingSquare {
+	from {
+        top: 0%;
+        left: 0%;
+        -ms-transform: rotate(0deg);
+	}
+    24% {
+        top: 0%;
+        left: 100%;
+        -ms-transform: rotate(0deg);
+    }
+    26% {
+        top: 0%;
+        left: 100%;
+        -ms-transform: rotate(90deg);
+    }
+    49% {
+        top: 100%;
+        left: 100%;
+        -ms-transform: rotate(90deg);
+    }
+    51% {
+        top: 100%;
+        left: 100%;
+        -ms-transform: rotate(180deg);
+    }
+    74% {
+        top: 100%;
+        left: 0%;
+        -ms-transform: rotate(180deg);
+    }
+    76% {
+        top: 100%;
+        left: 0%;
+        -ms-transform: rotate(270deg);
+    }
+    99% {
+        top: 0%;
+        left: 0%;
+        -ms-transform: rotate(270deg);
+    }
+	to {
+        top: 0%;
+        left: 0%;
+        -ms-transform: rotate(360deg);
+	}
+}
+
+#FishBodyHolder {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+	-ms-animation-duration: 1s;
+	-ms-animation-name: FishBodyStretch;
+	-ms-animation-iteration-count: infinite; 
+	-ms-animation-direction: alternate;
+	-ms-animation-timing-function: ease-in-out;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-name: FishBodyStretch;
+	-webkit-animation-iteration-count: infinite; 
+	-webkit-animation-direction: alternate;
+	-webkit-animation-timing-function: ease-in-out;
+	-moz-animation-duration: 1s;
+	-moz-animation-name: FishBodyStretch;
+	-moz-animation-iteration-count: infinite; 
+	-moz-animation-direction: alternate;
+	-moz-animation-timing-function: ease-in-out;
+}
+
+@-ms-keyframes FishBodyStretch {
+	from {
+		-ms-transform: rotate(0deg) scaleX(0.998) scaleY(1.06);
+	}
+	to {
+		-ms-transform: rotate(-0.96deg) scaleX(1.03) scaleY(0.95);
+	}
+}
+
+@-webkit-keyframes FishBodyStretch {
+	from {
+		-webkit-transform: rotate(0deg) scaleX(0.998) scaleY(1.06);
+	}
+	to {
+		-webkit-transform: rotate(-0.96deg) scaleX(1.03) scaleY(0.95);
+	}
+}
+
+@-moz-keyframes FishBodyStretch {
+	from {
+		-moz-transform: rotate(0deg) scaleX(0.998) scaleY(1.06);
+	}
+	to {
+		-moz-transform: rotate(-0.96deg) scaleX(1.03) scaleY(0.95);
+	}
+}
+
+#FishBody {
+	position: absolute;
+	top: 106px;
+	left: 320px;
+    color: Red;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+	-ms-animation-duration: 1s;
+	-ms-animation-name: FishBodyColor;
+	-ms-animation-iteration-count: infinite; 
+	-ms-animation-direction: alternate;
+	-ms-animation-timing-function: ease-in-out;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-name: FishBodyColor;
+	-webkit-animation-iteration-count: infinite; 
+	-webkit-animation-direction: alternate;
+	-webkit-animation-timing-function: ease-in-out;
+    -moz-animation-duration: 1s;
+	-moz-animation-name: FishBodyColor;
+	-moz-animation-iteration-count: infinite; 
+	-moz-animation-direction: alternate;
+	-moz-animation-timing-function: ease-in-out;
+}
+
+@-ms-keyframes FishBodyColor {
+       from { color: #29DCFF; }
+       to { color: #27d9fc; }
+}
+
+@-webkit-keyframes FishBodyColor {
+       from { color: #29DCFF; }
+       to { color: #27d9fc; }
+}
+
+@-moz-keyframes FishBodyColor {
+       from { color: #29DCFF; }
+       to { color: #27d9fc; }
+}
+
+#FishTail {
+	position: absolute;
+	top: 136px;
+	left: 135px;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+	-ms-animation-duration: 0.9s;
+	-ms-animation-name: FishTailWiggle;
+	-ms-animation-iteration-count: infinite; 
+	-ms-animation-direction: alternate;
+	-ms-animation-timing-function: ease-in-out;
+	-ms-transform-origin: 225px 0px;
+	-webkit-animation-duration: 0.9s;
+	-webkit-animation-name: FishTailWiggle;
+	-webkit-animation-iteration-count: infinite; 
+	-webkit-animation-direction: alternate;
+	-webkit-animation-timing-function: ease-in-out;
+	-webkit-transform-origin: 225px 0px;
+	-moz-animation-duration: 0.9s;
+	-moz-animation-name: FishTailWiggle;
+	-moz-animation-iteration-count: infinite; 
+	-moz-animation-direction: alternate;
+	-moz-animation-timing-function: ease-in-out;
+	-moz-transform-origin: 225px 0px;
+}
+
+@-ms-keyframes FishTailWiggle {
+	from {  
+		-ms-transform: rotate(0deg) scaleX(1) scaleY(1) skew(-3deg);
+	}
+	to {
+		-ms-transform: rotate(14deg) scaleX(1.1) scaleY(0.7);
+	}  
+}
+
+@-webkit-keyframes FishTailWiggle {
+	from {  
+		-webkit-transform: rotate(0deg) scaleX(1) scaleY(1) skew(-3deg);
+	}
+	to {
+		-webkit-transform: rotate(14deg) scaleX(1.1) scaleY(0.7);
+	}  
+}
+
+@-moz-keyframes FishTailWiggle {
+	from {  
+		-moz-transform: rotate(0deg) scaleX(1) scaleY(1) skew(-3deg);
+	}
+	to {
+		-moz-transform: rotate(14deg) scaleX(1.1) scaleY(0.7);
+	}  
+}
+
+#FishHeadHolder {
+	position: absolute;
+	top: 148px;
+	left: 575px;
+	-ms-animation-duration: 1.3s;
+	-ms-animation-name: FishHeadHolderBobble;
+	-ms-animation-iteration-count: infinite; 
+	-ms-animation-direction: alternate;
+	-ms-animation-timing-function: ease-in-out;
+	-ms-transform-origin: 200px 40px;
+	-webkit-animation-duration: 1.3s;
+	-webkit-animation-name: FishHeadHolderBobble;
+	-webkit-animation-iteration-count: infinite; 
+	-webkit-animation-direction: alternate;
+	-webkit-animation-timing-function: ease-in-out;
+	-webkit-transform-origin: 200px 40px;
+	-moz-animation-duration: 1.3s;
+	-moz-animation-name: FishHeadHolderBobble;
+	-moz-animation-iteration-count: infinite; 
+	-moz-animation-direction: alternate;
+	-moz-animation-timing-function: ease-in-out;
+	-moz-transform-origin: 200px 40px;
+}
+
+@-ms-keyframes FishHeadHolderBobble {
+	from {  
+		-ms-transform: rotate(-0.25deg) scaleX(1) scaleY(1.01) skew(-1deg);
+	}
+	to {  
+		-ms-transform: rotate(0.75deg) scaleX(1.022) scaleY(1.01) skew(3deg);
+	}
+}
+
+@-webkit-keyframes FishHeadHolderBobble {
+	from {  
+		-webkit-transform: rotate(-0.25deg) scaleX(1) scaleY(1.01) skew(-1deg);
+	}
+	to {  
+		-webkit-transform: rotate(0.75deg) scaleX(1.022) scaleY(1.01) skew(3deg);
+	}
+}
+
+@-moz-keyframes FishHeadHolderBobble {
+	from {  
+		-moz-transform: rotate(-0.25deg) scaleX(1) scaleY(1.01) skew(-1deg);
+	}
+	to {  
+		-moz-transform: rotate(0.75deg) scaleX(1.022) scaleY(1.01) skew(3deg);
+	}
+}
+
+#FishPelvicFin {
+	position: absolute;
+	top: 201px;
+	left: 371px;
+	-ms-animation-duration: 1s;
+	-ms-animation-name: FishPelvicFinFlutter;
+	-ms-animation-iteration-count: infinite; 
+	-ms-animation-direction: alternate;
+	-ms-animation-timing-function: ease-in-out;
+	-ms-transform-origin: 106px 32px;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-name: FishPelvicFinFlutter;
+	-webkit-animation-iteration-count: infinite; 
+	-webkit-animation-direction: alternate;
+	-webkit-animation-timing-function: ease-in-out;
+	-webkit-transform-origin: 106px 32px;
+	-moz-animation-duration: 1s;
+	-moz-animation-name: FishPelvicFinFlutter;
+	-moz-animation-iteration-count: infinite; 
+	-moz-animation-direction: alternate;
+	-moz-animation-timing-function: ease-in-out;
+	-moz-transform-origin: 106px 32px;
+}
+
+@-ms-keyframes FishPelvicFinFlutter {
+	from {  
+		-ms-transform: rotate(-2deg) scaleX(0.96) scaleY(1.01) skew(4deg);
+        color: #AE1F2B;
+	}  
+	to {  
+		-ms-transform: rotate(-2deg) scaleX(1.04) scaleY(0.83) skew(-20deg);
+		color: #ab1e29;
+	}  
+}
+
+@-webkit-keyframes FishPelvicFinFlutter {
+	from {  
+		-webkit-transform: rotate(-2deg) scaleX(0.96) scaleY(1.01) skew(4deg);
+        color: #AE1F2B;
+	}  
+	to {  
+		-webkit-transform: rotate(-2deg) scaleX(1.04) scaleY(0.83) skew(-20deg);
+		color: #ab1e29;
+	}  
+}
+
+@-moz-keyframes FishPelvicFinFlutter {
+	from {  
+		-moz-transform: rotate(-2deg) scaleX(0.96) scaleY(1.01) skew(4deg);
+        color: #AE1F2B;
+	}  
+	to {  
+		-moz-transform: rotate(-2deg) scaleX(1.04) scaleY(0.83) skew(-20deg);
+		color: #ab1e29;
+	}  
+}
+
+#FishGillCover {
+	position: absolute;
+	top: 179px;
+	left: 522px;
+	-ms-animation-duration: 1.8s;
+	-ms-animation-name: FishGillCoverFlutter;
+	-ms-animation-iteration-count: infinite; 
+	-ms-animation-direction: alternate;
+	-ms-animation-timing-function: ease-in-out;
+	-ms-transform-origin: 160px 20px;
+	-webkit-animation-duration: 1.8s;
+	-webkit-animation-name: FishGillCoverFlutter;
+	-webkit-animation-iteration-count: infinite; 
+	-webkit-animation-direction: alternate;
+	-webkit-animation-timing-function: ease-in-out;
+	-webkit-transform-origin: 160px 20px;
+	-moz-animation-duration: 1.8s;
+	-moz-animation-name: FishGillCoverFlutter;
+	-moz-animation-iteration-count: infinite; 
+	-moz-animation-direction: alternate;
+	-moz-animation-timing-function: ease-in-out;
+	-moz-transform-origin: 160px 20px;
+}
+
+@-ms-keyframes FishGillCoverFlutter {
+	from {
+		-ms-transform: rotate(0deg) skew(-3deg);
+		color: #D93B36;
+	}  
+	to {  
+		-ms-transform: rotate(-1deg) scaleX(1.06) scaleY(0.94) skew(1deg);
+		color: #e0423d;
+	}
+}
+
+@-webkit-keyframes FishGillCoverFlutter {
+	from {
+		-webkit-transform: rotate(0deg) skew(-3deg);
+        color: #D93B36;
+	}  
+	to {  
+		-webkit-transform: rotate(-1deg) scaleX(1.06) scaleY(0.94) skew(1deg);
+		color: #e0423d;
+	}
+}
+
+@-moz-keyframes FishGillCoverFlutter {
+	from {  
+		-moz-transform: rotate(0deg) skew(-3deg);
+		color: #D93B36;
+	}  
+	to {  
+		-moz-transform: rotate(-1deg) scaleX(1.06) scaleY(0.94) skew(1deg);
+		color: #e0423d;
+	}
+}
+
+#FishDorsalFin {
+	position: absolute;
+	top: 48px;
+	left: 327px;
+	-ms-animation-duration: 1s;
+	-ms-animation-name: FishDorsalFinFlick;
+	-ms-animation-iteration-count: infinite; 
+	-ms-animation-direction: alternate;
+	-ms-animation-timing-function: ease-in-out;
+	-ms-transform-origin: 84px 70px;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-name: FishDorsalFinFlick;
+	-webkit-animation-iteration-count: infinite; 
+	-webkit-animation-direction: alternate;
+	-webkit-animation-timing-function: ease-in-out;
+	-webkit-transform-origin: 84px 70px;
+	-moz-animation-duration: 1s;
+	-moz-animation-name: FishDorsalFinFlick;
+	-moz-animation-iteration-count: infinite; 
+	-moz-animation-direction: alternate;
+	-moz-animation-timing-function: ease-in-out;
+	-moz-transform-origin: 84px 70px;
+}
+
+@-ms-keyframes FishDorsalFinFlick {
+	from {
+		-ms-transform: scaleY(0.99) skew(2deg);
+		color: #D93B36;
+	}
+	to {
+		-ms-transform: scaleY(1.03) skew(0deg);
+		color: #de3934;
+	}
+}
+
+@-webkit-keyframes FishDorsalFinFlick {
+	from {
+		-webkit-transform: scaleY(0.99) skew(2deg);
+		color: #D93B36;
+	}
+	to {
+		-webkit-transform: scaleY(1.03) skew(0deg);
+		color: #de3934;
+	}
+}
+
+@-moz-keyframes FishDorsalFinFlick {
+	from {
+		-moz-transform: scaleY(0.99) skew(2deg);
+		color: #D93B36;
+	}
+	to {
+		-moz-transform: scaleY(1.03) skew(0deg);
+		color: #de3934;
+	}
+}
+
+#FishHead {
+    color: #40C3D5; 
+	-ms-animation-duration: 1s;
+	-ms-animation-name: FishHeadColor;
+	-ms-animation-iteration-count: infinite; 
+	-ms-animation-direction: alternate;
+	-ms-animation-timing-function: ease-in-out;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-name: FishHeadColor;
+	-webkit-animation-iteration-count: infinite; 
+	-webkit-animation-direction: alternate;
+	-webkit-animation-timing-function: ease-in-out;
+	-moz-animation-duration: 1s;
+	-moz-animation-name: FishHeadColor;
+	-moz-animation-iteration-count: infinite; 
+	-moz-animation-direction: alternate;
+	-moz-animation-timing-function: ease-in-out;
+}
+
+@-ms-keyframes FishHeadColor {
+       from { color: #40C3D5; }
+       to { color: #3dbdce; }
+}
+
+@-webkit-keyframes FishHeadColor {
+       from { color: #40C3D5; }
+       to { color: #3dbdce; }
+}
+
+@-moz-keyframes FishHeadColor {
+       from { color: #40C3D5; }
+       to { color: #3dbdce; }
+}
+
+#FishEye {
+	position: absolute;
+	top: 37px;
+	left: 53px;
+	-ms-animation-duration: 1.4s;
+	-ms-animation-name: FishEyeTurn;
+	-ms-animation-iteration-count: infinite; 
+	-ms-animation-direction: alternate;
+	-ms-animation-timing-function: ease-in-out;
+	-webkit-animation-duration: 1.4s;
+	-webkit-animation-name: FishEyeTurn;
+	-webkit-animation-iteration-count: infinite; 
+	-webkit-animation-direction: alternate;
+	-webkit-animation-timing-function: ease-in-out;
+    -moz-animation-duration: 1.4s;
+	-moz-animation-name: FishEyeTurn;
+	-moz-animation-iteration-count: infinite; 
+	-moz-animation-direction: alternate;
+	-moz-animation-timing-function: ease-in-out;
+}
+
+@-ms-keyframes FishEyeTurn {
+	from {
+		-ms-transform: scaleY(0.99) skew(2deg) rotate(0deg);
+	}
+	to {
+		-ms-transform: scaleY(1.03) skew(-1deg) rotate(25deg);
+	}
+}
+
+@-webkit-keyframes FishEyeTurn {
+	from {
+		-webkit-transform: scaleY(0.99) skew(2deg) rotate(0deg);
+	}
+	to {
+		-webkit-transform: scaleY(1.03) skew(-1deg) rotate(25deg);
+	}
+}
+
+@-moz-keyframes FishEyeTurn {
+	from {
+		-moz-transform: scaleY(0.99) skew(2deg) rotate(0deg);
+	}
+	to {
+		-moz-transform: scaleY(1.03) skew(-1deg) rotate(25deg);
+	}
+}
+
+#FishEyeBall {
+	position: absolute;
+	top: 43px;
+	left: 59px;
+	-ms-animation-duration: 3.2s;
+	-ms-animation-name: FishEyeRotate;
+	-ms-animation-iteration-count: infinite;
+	-ms-animation-direction: alternate;
+	-ms-animation-timing-function: ease-in-out;
+	-webkit-animation-duration: 3.2s;
+	-webkit-animation-name: FishEyeRotate;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-direction: alternate;
+	-webkit-animation-timing-function: ease-in-out;
+	-moz-animation-duration: 3.2s;
+	-moz-animation-name: FishEyeRotate;
+	-moz-animation-iteration-count: infinite;
+	-moz-animation-direction: alternate;
+	-moz-animation-timing-function: ease-in-out;
+}
+
+@-ms-keyframes FishEyeRotate {
+	from {
+		-ms-transform: scaleY(0.9) skew(2deg);
+	}
+	to {
+		-ms-transform: scaleY(1.1) skew(-1deg);
+	}
+}
+
+@-webkit-keyframes FishEyeRotate {
+	from {
+		-webkit-transform: scaleY(0.9) skew(2deg);
+	}
+	to {
+		-webkit-transform: scaleY(1.1) skew(-1deg);
+	}
+}
+
+@-moz-keyframes FishEyeRotate {
+	from {
+		-moz-transform: scaleY(0.9) skew(2deg);
+	}
+	to {
+		-moz-transform: scaleY(1.1) skew(-1deg);
+	}
+}
+
+#FishEyeGlare {
+	position: absolute;
+	top: 44px;
+	left: 59px;
+	-ms-animation-duration: 4s;
+	-ms-animation-name: FishEyeGlareShift;
+	-ms-animation-iteration-count: infinite;
+	-ms-animation-direction: alternate;
+	-ms-animation-timing-function: linear;
+	-webkit-animation-duration: 4s;
+	-webkit-animation-name: FishEyeGlareShift;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-direction: alternate;
+	-webkit-animation-timing-function: linear;
+	-moz-animation-duration: 4s;
+	-moz-animation-name: FishEyeGlareShift;
+	-moz-animation-iteration-count: infinite;
+	-moz-animation-direction: alternate;
+	-moz-animation-timing-function: linear;
+    color: #FFFFFF;
+}
+
+@-ms-keyframes FishEyeGlareShift {
+	from {
+		-ms-transform: translateX(0px) scaleY(1) scaleY(1);
+		color: #FFFFFF;
+	}
+	50% {
+		-ms-transform: translateX(0.9px) translateY(-1.6px) scaleY(0.92);
+	}
+	to {
+		-ms-transform: translateX(1.6px) translateY(-3.25px) scaleY(0.85);
+		color: #cbcbcb;
+	}
+}
+
+@-webkit-keyframes FishEyeGlareShift {
+	from {
+		-webkit-transform: translateX(0px) scaleY(1) scaleY(1);
+		color: #FFFFFF;
+	}
+	50% {
+		-webkit-transform: translateX(0.9px) translateY(-1.6px) scaleY(0.92);
+	}
+	to {
+		-webkit-transform: translateX(1.6px) translateY(-3.25px) scaleY(0.85);
+		color: #cbcbcb;
+	}
+}
+
+@-moz-keyframes FishEyeGlareShift {
+	from {
+		-moz-transform: translateX(0px) scaleY(1) scaleY(1);
+		color: #FFFFFF;
+	}
+	50% {
+		-moz-transform: translateX(0.9px) translateY(-1.6px) scaleY(0.92);
+	}
+	to {
+		-moz-transform: translateX(1.6px) translateY(-3.25px) scaleY(0.85);
+		color: #cbcbcb;
+	}
+}

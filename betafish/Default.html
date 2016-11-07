@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Copyright © Microsoft Corporation. All Rights Reserved. -->
+        <!-- Demo Author: Jason Weber, Microsoft Corporation -->
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+        <title>BetaFishIE</title>
+        <meta name="description" content="HTML5 Fish, Touch and Performance Benchmark, HTML5 Test" />
+        <link rel="image_src" href="../../Views/Homepage/Icons/BetaFishIE.png" />        
+        <link rel="stylesheet" type="text/css" href="BetaFishIE.css" />
+        <meta name="t_omni_demopage" content="1" />
+    </head> 
+    <body>
+        <div id="DemoScreenreaderText">Thanks for checking out this Internet Explorer 9 Platform Preview demo. This demo uses common HTML5 animation techniques, Canvas, and touch to provide an interactive Fish experience.</div>
+        <img id="EightWatermark" src="Images/Eight.svg" />
+        <div id="Logo">
+            <div id="Title">Beta FishIE</div>
+            <div id="Subtitle">CSS3 Animation & Touch</div>
+        </div>
+        <div id="FishTank">
+            <div id="Fish" class="FishSwimming">
+                <div id="FishBodyHolder">
+                    <svg id="FishBody" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="284px" height="134px" viewBox="-0.558 -0.641 284 134" unselectable="on">
+                        <polygon fill="currentColor" points="282.885,45.032 164.654,0 87.627,11.133 0,44.364 63.217,125.435 137.535,132.672 221.35,126.313 264.428,88.087 "/>
+                    </svg>
+                    <svg id="FishTail" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="227px" height="231px" viewBox="0 0 227 231" unselectable="on">
+                        <linearGradient id="TailGradient" gradientUnits="userSpaceOnUse" x1="236.4141" y1="-22.7866" x2="-77.0342" y2="354.2521">
+	                        <stop offset="0" style="stop-color:#B93B36"/>
+	                        <stop offset="0.1479" style="stop-color:#C14136"/>
+	                        <stop offset="0.6318" style="stop-color:#D55235"/>
+	                        <stop offset="1" style="stop-color:#DD5834"/>
+                        </linearGradient>
+                        <polygon fill="url(#TailGradient)" points="180.519,148.887 225.319,0 89.52,49.471 0,229.928 73.107,229.928 "/>
+                    </svg>
+                    <svg id="FishDorsalFin" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="160px" height="88px" viewBox="-0.021 -0.713 160 88" unselectable="on">
+                        <polygon fill="currentColor" points="22.424,0.038 0,21.82 0.129,48.633 28.031,48.633 40.072,22.629 80.731,0.038 "/>
+                        <polygon fill="#AE1F2B" points="159.847,58.72 80.44,0 39.847,22.629 27.976,48.36 38.763,85.12 84.197,69.182 "/>
+                    </svg>
+                </div>
+                <div id="FishHeadHolder">
+                    <svg id="FishHead" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="109px" height="101px" viewBox="-0.274 -0.111 109 101" unselectable="on">
+                        <polygon fill="currentColor" points="108.398,47.783 36.357,0 18.498,1.225 0,44.279 2,85.629 13.495,100.708 55.137,95.338 92.051,76.321 "/>
+                    </svg>
+                    <svg id="FishEye" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="31px" height="31px" viewBox="-0.998 -0.532 31 31" unselectable="on">
+                        <path fill="#C4E7E7" d="M0,15.004C0,23.279,6.718,30,15.003,30C23.288,30,30,23.279,30,15.004C30,6.721,23.288,0,15.003,0 C6.718,0,0,6.721,0,15.004z"/>
+                    </svg>
+                    <svg id="FishEyeBall" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="19px" height="19px" viewBox="-0.358 0 19 19" unselectable="on">
+                        <path fill="#010101" stroke="#189FAE" stroke-width="1.9979" d="M0.999,9.294c0,4.578,3.712,8.291,8.294,8.291 c4.58,0,8.291-3.713,8.291-8.291c0-4.582-3.711-8.295-8.291-8.295C4.711,0.999,0.999,4.712,0.999,9.294z"/>
+                    </svg>
+                    <svg id="FishEyeGlare" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="8px" height="7px" viewBox="-0.461 -0.203 8 7" unselectable="on">
+                        <path fill="currentColor" d="M0,3.316c0,1.836,1.488,3.342,3.311,3.342c1.846,0,3.322-1.506,3.322-3.342C6.633,1.479,5.156,0,3.311,0 C1.488,0,0,1.479,0,3.316z"/>
+                    </svg>
+                </div>
+                <svg id="FishPelvicFin" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="190px" height="104px" viewBox="-0.391 -0.967 190 104" unselectable="on">
+                    <polygon fill="currentColor" points="189.521,48.574 65.045,102.706 0,57.627 19.301,0 169.148,24.275 "/>
+                </svg>
+                <svg id="FishGillCover" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="87px" height="84px" viewBox="-0.996 -0.083 87 84" unselectable="on">
+	                <polygon fill="currentColor" points="85.641,19.661 68.936,83.067 36.961,70.927 8.848,37.743 0,0"/>
+                </svg>
+            </div>
+        </div>
+        <canvas id="PerformanceCanvas" width="1000" height="32"></canvas>
+        <div id="ControlPanel">
+            <div id="ButtonToggleSwimming" title="Pause (P)" onclick="ToggleFishSwimming();"></div>
+            <div id="ButtonReset" title="Reset (R)" onclick="ResetDemo();"></div>
+        </div>
+        <script type="text/javascript" src="Script/Settings.js"></script>
+        <script type="text/javascript" src="Script/Performance.js"></script>
+        <script type="text/javascript" src="../../includes/script/TestDriveCommon.js"></script>
+		<script type="text/javascript" src="https://msedgecdn.azurewebsites.net/scripts/demo-header.js"></script>
+    </body>
+</html>

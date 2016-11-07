@@ -1,0 +1,50 @@
+﻿.infoPanel, .infoPanelTouch
+{
+    position: absolute;
+    top: 95px;
+    right: 15px;
+    width: 100px;
+    background-color: rgb(75,175,225); 
+    /*border-top: 1px solid rgba(0, 0, 0, .3);*/	
+    opacity: 1;
+    font-size: 18px;
+    font-family: Segoe UI, Verdana, Arial, Sans-Serif;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+	z-index:201;
+}
+.fpsometer
+{
+    position: absolute;
+    top: 45px;
+    right: 15px;
+    width: 100px;
+    font-size: 20px;
+    font-family: Segoe UI, Verdana, Arial, Sans-Serif;
+    color: black;
+    text-align: center;
+    z-index:203;
+	background-color: rgba(0,0,0,0);
+}
+
+#fpsCanvas
+{
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    font-size: 18px;
+    font-family: Segoe UI, Verdana, Arial, Sans-Serif;
+    text-align: center;
+    z-index:202;
+}
+.label{font-size: 14px;color:  rgb(40,40,40);}
+.data{margin-top:15px;}
+.infoPanel .control{font-size: 14px;}
+.infoPanelTouch .control{font-size: 18px; padding-top:4px; padding-bottom:4px;}
+.control{color: rgb(40,40,40);}
+.control A:link{color:rgb(40,40,40);}
+.control A:visited{color:rgb(40,40,40);}
+.meter{font-size: 28px;}
+.meterLabel{font-size: 14px;margin-top:-5px;}
+.settingsLabel{margin-top:15px;font-size: 14px;color:  rgb(40,40,40); border-bottom:2px;}

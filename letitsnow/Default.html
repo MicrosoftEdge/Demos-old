@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="HTML5, Canvas, SVG, CSS3 and more!" />
+    <meta name="t_omni_demopage" content="1" />
+    <title>Let It Snow</title>    
+    <link rel="Stylesheet" href="./css/default.css" />    
+</head>
+<body>
+    <div id="sceneContainer" class="">
+        <canvas id="backgroundGradient"></canvas>
+        <div id="postcardContainer">
+            <div id="postcard">
+            </div>
+            <p id="hint">
+                Hint: you can brush the snow away by mouse or touch</p>
+            <div id="snowmanContainer">
+                <svg id="snowHeap" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 236.738,0 C 140.386,0 52.918999,45.792 -1.2757446e-6,72.709 V 86.191 H 470.131 V 71.047 C 416.947,45.069 333.09,0 236.738,0 z" id="whiteSnow" style="fill:#ffffff;"></path>
+                    <path d="M 227.974,0.145 C 359.669,4.021 440.228,85.278 447.427,86.192 H 470.13 V 71.048 C 416.946,45.069 333.09,0 236.737,0 c -2.937,0 -5.85,0.048 -8.763,0.145 z" id="whiteSnowShadow" style="fill:#eff7f6;"></path>
+                </svg>
+                <img id="snowman" src="./res/Alpha2.png" />
+            </div>
+            <canvas id="snowflakesCanvas"></canvas>
+        </div>
+        <div id="systemInformation" class="si">
+            Snowflakes:
+            <select id="siSnowflakes">
+                <!--<option value="auto">Automatic</option>-->
+                <option value="100">100</option>
+                <option value="250" selected="selected">250</option>
+                <option value="500">500</option>
+                <option value="1000">1000</option>
+                <option value="2000">2000</option>
+                <option value="4000">4000</option>
+            </select>
+            <span id="siSnowflakesCount"></span>
+            <br>
+            Window size: <span id="siResolution"></span>
+        </div>
+        <!--<div id="systemInformationFps" class="si">
+            Current fps: <span id="siFps">...</span>
+        </div>-->  
+    </div>
+    <audio id="music" src="./res/LetItSnowShort.mp3" loop autoplay ></audio>
+    <!-- common libraries -->
+    <script type="text/javascript" src="./js/classes.js"></script>
+    <script type="text/javascript" src="./js/touch.js"></script>
+    <script type="text/javascript" src="./js/animation.js"></script>
+    <script type="text/javascript" src="./js/gfx.js"></script>
+    <!-- holidays postcard -->
+    <script type="text/javascript" src="./js/postcard.js"></script>
+    <!-- stars and snowflakes -->
+    <script type="text/javascript" src="./js/snowflakes.js"></script>
+    <!-- system information -->
+    <script type="text/javascript" src="./js/systemInformation.js"></script>
+    <!-- gradient animation -->
+    <script type="text/javascript" src="./js/gradient.js"></script>
+    <!-- UI and initialization code -->
+    <script type="text/javascript" src="./js/default.js"></script>
+    <!-- testdrive standard -->
+    <script type="text/javascript" src="../../Includes/Script/TestDriveCommon.js"></script>
+	<script type="text/javascript" src="https://msedgecdn.azurewebsites.net/scripts/demo-header.js"></script>    
+</body>
+</html>

@@ -1,0 +1,333 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!-- Copyright © Microsoft Corporation. All Rights Reserved. -->
+    
+    <title>FishIE Tank</title>
+    <meta name="description" content="Thanks for checking out this site. This demo uses the canvas element to draw fish swimming in a fish tank." />
+    <script type="text/javascript" src="../Includes/Script/FeatureDetectCanvas.js"></script>
+    <script type="text/javascript" src="./scripts/fpsometer.js"></script>
+    <link rel="stylesheet" type="text/css" href="./styles/fpsometer.css" />
+    <style>
+        #canvas1
+        {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+        html
+        {
+            height: 100%;
+        }
+        body
+        {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            -ms-content-zooming: none;
+            margin: 0;
+            padding: 0;
+        }
+        div.hidden {
+            position: absolute;
+            left: -10000px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+		div.control {
+		}
+    </style>    
+    <meta name="t_omni_demopage" content="1" /><meta http-equiv="X-UA-Compatible" content="IE=edge" />
+</head>
+<body>
+    <script>
+
+        var ctx;                     //canvas context for drawing the fish
+        var startFish = 20;          //number of fish to start with
+        var fish = [];               //array of fish
+        var fishW = 307;             //fish width
+        var fishH = 313;             //fish height
+        var velocity = 100;          //base velocity
+        var backgroundImage;         //background image
+        var backgroundImageW = 981;  //background image width
+        var backgroundImageH = 767;  //background image height
+        var imageStrip;              //fish image strip 
+        var WIDTH = document.body.offsetWidth;
+        var HEIGHT = document.body.offsetHeight;
+		var fpsMeter = null;
+
+        window.onload = init;
+
+        function init() {
+
+            //set up the fpsometer
+            fpsMeter = new FpsMeter(0, "fish");
+            fpsMeter.SetSettingsHtml("<div class='settingsLabel'>Choose number of fish</div><div class='control'><div class='control'><a class='control' href='javascript:createFish(1);'>1</a></div><div class='control'><a class='control' href='javascript:createFish(10);'>10</a></div><div class='control'><a class='control' href='javascript:createFish(20);'>20</a></div><div class='control'><a class='control' href='javascript:createFish(50);'>50</a></div><div class='control'><a class='control' href='javascript:createFish(100);'>100</a></div><div class='control'><a class='control' href='javascript:createFish(250);'>250</a></div><div class='control'><a class='control' href='javascript:createFish(500);'>500</a></div><div class='control'><a class='control' href='javascript:createFish(1000);'>1000</a></div>");
+
+            //set up the canvas
+            var tempCtx = document.createElement("canvas");
+            tempCtx.id = "canvas1";
+            tempCtx.setAttribute('width', WIDTH);
+            tempCtx.setAttribute('height', HEIGHT);
+            tempCtx.setAttribute('tabIndex', -1);
+            document.body.appendChild(tempCtx);
+
+            var tempCtx3 = document.createElement("canvas");
+            tempCtx3.id = "background";
+            tempCtx3.setAttribute('width', WIDTH);
+            tempCtx3.setAttribute('height', HEIGHT);
+            tempCtx3.setAttribute('tabIndex', -1);
+            document.body.appendChild(tempCtx3);
+
+            ctx = tempCtx.getContext("2d");
+
+            ctx3 = tempCtx3.getContext("2d");
+
+            //draw the background
+            backgroundImage = document.getElementById('backgroundImage');
+            drawBackground();
+
+            //create the fish
+            imageStrip = document.getElementById('imageStrip');
+            createFish(startFish);
+
+            //start animation
+            setInterval(function () { draw(); }, 16.7);
+			
+			window.addEventListener("resize", OnWindowResize, false);
+			window.addEventListener("contextmenu", function (e) { e.preventDefault(); }, false);
+
+			if (window.navigator.msPointerEnabled) {
+			    document.addEventListener("MSGestureHold", function (e) { e.preventDefault(); }, false);
+			}
+            
+        }
+        function createFish(max) {
+			
+			fpsMeter.Reset();
+			
+            if (fish.length < max) {
+                //add fish
+                for (var i = fish.length; i < max; i++) {
+                    fish.push(new Fish());
+                }
+            }
+            else {
+                //remove fish
+                fish.splice(max, fish.length - max);
+            }
+        }
+
+        function drawBackground() {
+
+            if (WIDTH < backgroundImageW) {
+               //Show a portion of the background if the window is more narrow than the backgroundImage
+               ctx3.drawImage(backgroundImage, 0, 0, backgroundImageW, HEIGHT);
+            }
+           else {
+                //tile the backgroundImage horizontally if the window is more wide than the image
+                var tileCount = Math.floor(WIDTH / backgroundImageW);
+                var flip = 1; //flip the image when flip==-1 for better looking tiles
+                for (i = 0; i <= tileCount; i++) {
+                    //loop through all the tiles that are needed and position them
+                    ctx3.save();
+                    ctx3.transform(flip, 0, 0, 1, 0, 0);
+                    ctx3.drawImage(backgroundImage, (flip-1)*backgroundImageW/2+flip*backgroundImageW*i, 0, backgroundImageW, HEIGHT);
+                    ctx3.restore();
+                    flip = flip * -1;
+                }
+            
+            }
+        }
+
+        function OnWindowResize(e) {
+			var bodyWidth = window.innerWidth;
+			var bodyHeight = window.innerHeight;
+			
+            if (typeof e == 'undefined')
+                e = window.event;
+            //on resize reset the WIDTH, HEIGHT and canvas sizes
+            WIDTH = bodyWidth;
+            HEIGHT = bodyHeight;
+            document.getElementById('canvas1').width = WIDTH;
+            document.getElementById('canvas1').height = HEIGHT;
+            document.getElementById('background').width = WIDTH;
+            document.getElementById('background').height = HEIGHT;
+            //redraw the background
+            ctx3.clearRect(0, 0, WIDTH, HEIGHT);
+            drawBackground();
+        }
+
+        function draw() {
+            //clear the canvas
+            ctx.clearRect(0, 0, WIDTH, HEIGHT);
+
+            //set velocity of fish as a function of FPS
+			var fps = fpsMeter.meterFps;
+					
+            power = Math.min(fps, 60);
+			if(isNaN(power)) power = 1;
+            //velocity = 100 + 100 * (power * power / 3600); //exponential curve between 100-200
+            velocity = Math.floor((power * power * .5) / 3) < 1 ? 1 : Math.floor((power * power * .5) / 3);  //exponential curve between 1 and 600.
+
+            // Draw each fish
+            for (var fishie in fish) {
+                fish[fishie].swim();
+            }   
+
+			//draw fpsometer with the current number of fish        
+            fpsMeter.Draw(fish.length);  
+        }
+
+        function Fish() {
+
+            var angle = Math.PI * 2 * Math.random();                            //set the x,y direction this fish swims
+            var xAngle = Math.cos(angle);                                       //set the x value of the angle
+            var yAngle = Math.sin(angle);                                       //set the y value of the angle
+            var zAngle = 1+-2*Math.round(Math.random());                        //set if the fish is swimming toward us or away. 1 = toward us; -1 = away from us
+            var x = Math.floor(Math.random() * (WIDTH - fishW) + fishW / 2);    //set the starting x location  
+            var y = Math.floor(Math.random() * (HEIGHT - fishH) + fishH / 2);   //set the starting y location  
+            var zFar = 100;                                                     //set how far away can a fish go
+            var zFarFactor = 1;                                                 //set the max size the fish can be. 1=100%
+            var zClose = 0;                                                     //set how near a fish can come
+            var z = Math.floor(Math.random() * ((zFar - zClose)));              //set the starting z location 
+            var scale = .1;                                                     //set the rate of scaling each frame
+            var flip = 1;                                                       //set the direction of the fish. 1=right; -1=left
+            var cellCount = 16;                                                 //set the number of cells (columns) in the image strip animation
+            var cell = Math.floor(Math.random() * (cellCount-1));               //set the first cell (columns) of the image strip animation
+            var cellReverse = -1;                                               //set which direction we go through the image strip
+            var species = Math.floor(Math.random() * 3);                        //set which species of fish this fish is. each species is a row in the image strip 
+                                             
+            // stop fish from swimming straight up or down
+            if (angle > Math.PI * 4 / 3 && angle < Math.PI * 5 / 3 || angle > Math.PI * 1 / 3 && angle < Math.PI * 2 / 3) {
+                angle = Math.PI * 1 / 3 * Math.random();
+                xAngle = Math.cos(angle);
+                yAngle = Math.sin(angle);
+            }
+            // face the fish the right way if angle is between 6 o'clock and 12 o'clock
+            if (angle > Math.PI / 2 && angle < Math.PI / 2 * 3) {
+                flip = -1;
+            }
+
+            // draw the fish each frame -------------------------------------------------------------------------------            
+            function swim() {
+             
+                // Calculate next position of fish
+                var nextX = x + xAngle * velocity * fpsMeter.timeDeltaS;
+                var nextY = y + yAngle * velocity * fpsMeter.timeDeltaS;
+                var nextZ = z + zAngle * .1 * velocity * fpsMeter.timeDeltaS;
+                var nextScale = Math.abs(nextZ) / (zFar - zClose);
+ 
+                // If fish is going to move off right side of screen
+                if (nextX + fishW / 2 * scale > WIDTH) {
+                    // If angle is between 3 o'clock and 6 o'clock
+                    if ((angle >= 0 && angle < Math.PI / 2)) {
+                        angle = Math.PI - angle;
+                        xAngle = Math.cos(angle);
+                        yAngle = Math.sin(angle) * Math.random();
+                        flip = -flip;
+                    }
+                    // If angle is between 12 o'clock and 3 o'clock
+                    else if (angle > Math.PI / 2 * 3) {
+                        angle = angle - (angle - Math.PI / 2 * 3) * 2
+                        xAngle = Math.cos(angle);
+                        yAngle = Math.sin(angle) * Math.random();
+                        flip = -flip;
+                    }
+                }
+
+                // If fish is going to move off left side of screen
+                if (nextX - fishW / 2 * scale < 0) {
+                    // If angle is between 6 o'clock and 9 o'clock
+                    if ((angle > Math.PI / 2 && angle < Math.PI)) {
+                        angle = Math.PI - angle;
+                        xAngle = Math.cos(angle);
+                        yAngle = Math.sin(angle) * Math.random();
+                        flip = -flip;
+                    }
+                    // If angle is between 9 o'clock and 12 o'clock
+                    else if (angle > Math.PI && angle < Math.PI / 2 * 3) {
+                        angle = angle + (Math.PI / 2 * 3 - angle) * 2
+                        xAngle = Math.cos(angle);
+                        yAngle = Math.sin(angle) * Math.random();
+                        flip = -flip;
+                    }
+                }
+
+                // If fish is going to move off bottom side of screen
+                if (nextY + fishH / 2 * scale > HEIGHT) {
+                    // If angle is between 3 o'clock and 9 o'clock
+                    if ((angle > 0 && angle < Math.PI)) {
+                        angle = Math.PI * 2 - angle;
+                        xAngle = Math.cos(angle);
+                        yAngle = Math.sin(angle) * Math.random();
+                    }
+                }
+
+                // If fish is going to move off top side of screen
+                if (nextY - fishH / 2 * scale < 0) {
+                    // If angle is between 9 o'clock and 3 o'clock
+                    if ((angle > Math.PI && angle < Math.PI * 2)) {
+                        angle = angle - (angle - Math.PI) * 2;
+                        xAngle = Math.cos(angle);
+                        yAngle = Math.sin(angle);
+                    }
+                }
+
+                // If fish is going too far (getting too small)
+                if (nextZ <= zClose && zAngle < 0) {
+                    zAngle = -zAngle;
+
+                }
+                // If fish is getting to close (getting too large)
+                if (((WIDTH / fishW) * 10) < ((fishW * fish.length) / WIDTH)) {
+                    zFarFactor = .3
+                }
+                else if (((WIDTH / fishW) * 2) < ((fishW * fish.length) / WIDTH)) {
+                    zFarFactor = .5
+                }
+                else { zFarFactor = 1 }
+
+                if (nextZ >= zFar * zFarFactor && zAngle > 0) {
+                    zAngle = -zAngle;
+
+                }
+                if (scale < .1) { scale = .1 }; //don't let fish get too tiny
+                
+                //draw the fish
+                //locate the fish
+                ctx.save();
+                ctx.translate(x, y);
+                ctx.scale(scale, scale); // make the fish bigger or smaller depending on how far away it is.
+                ctx.transform(flip, 0, 0, 1, 0, 0); //make the fish face the way he's swimming.
+                ctx.drawImage(imageStrip, fishW * cell, fishH * species, fishW, fishH, -fishW / 2, -fishH / 2, fishW, fishH); //draw the fish
+                ctx.save();
+                scale = nextScale // increment scale for next time 
+                ctx.restore();
+                ctx.restore();
+                
+                //increment to next state
+                x = nextX;
+                y = nextY;
+                z = nextZ;
+                if (cell >= cellCount-1 || cell <= 0) { cellReverse = cellReverse * -1; } //go through each cell in the animation
+                cell = cell + 1 * cellReverse; //go back down once we hit the end of the animation
+            }
+            return {
+                swim: swim
+            }
+        }
+
+    </script>
+    <img id="imageStrip" src="./images/fishstrip.png" style="display: none" tabIndex="-1">             <!--image strip with the fish animation-->
+    <img id="backgroundImage" src="./images/background-flip2.jpg" style="display: none" tabIndex="-1"> <!--background image-->
+    <div class="hidden" tabIndex="-1">Thanks for checking out this site. This demo uses the canvas element to draw fish swimming in a fish tank. The FPS count tells you how many frames per second the browser is able to draw. If you add or remove fish, the frames per second will go up or down depending on how much work the browser is able to do each frame.  
+        The UI is primarliy driven through Javascript and Canvas. The purpose of these demos is to convey a concept and not intended to be used as a best practice for web development. 
+        It’s not the cleanest code, and in some places we took shortcuts to get more demos to you. Enjoy! </div> <!--description for screen readers-->
+    
+    <script type="text/javascript" src="../includes/script/TestDriveCommon.js"></script>
+    <script type="text/javascript" src="https://msedgecdn.azurewebsites.net/scripts/demo-header.js"></script>	
+</body>
+</html>
