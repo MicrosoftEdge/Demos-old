@@ -1,5 +1,6 @@
 ﻿.overflow-wrap {
 	display: block;
+	margin-bottom: 2.4rem;
 	width: 100%;
 	overflow-x: auto;
 }
@@ -26,6 +27,10 @@
 	background: #107C10;
 	border-radius: 3px 3px 3px 3px;
 	box-sizing: content-box;
+}
+
+button {
+	margin-top: 1.2rem;
 }
 
 /* These classes added in JS */

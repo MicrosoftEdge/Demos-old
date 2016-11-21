@@ -6,7 +6,7 @@
 	<meta name="description" content="Show how to enhance your example with responsive images">
 	<meta name="keywords" content="picture, srcset, sizes, responsive images">
 	<meta name="author" content="gregwhitworth">
-	<link rel="stylesheet" type="text/css" href="https://edgeportal.blob.core.windows.net/media/demotemplate.css">
+	<link rel="stylesheet" type="text/css" href="//edgeportal.blob.core.windows.net/media/demotemplate.css"/>
 	<link rel="stylesheet" type="text/css" href="styles/demo.css">
 </head>
 
@@ -20,20 +20,16 @@
 			</div>
 		</div>
 	</header>
-			
-	<section class="section section--image-banner">
-		<div class="image-banner__background">
+
+	<section class="section hero hero--dark">
+		<div class="hero__bg">
 			<img src="https://edgeportal.blob.core.windows.net/demos/blog-hero-xlarge.jpg" srcset="https://edgeportal.blob.core.windows.net/demos/blog-hero-small.jpg 625w, https://edgeportal.blob.core.windows.net/demos/blog-hero-med.jpg 1250w, https://edgeportal.blob.core.windows.net/demos/blog-hero-xlarge.jpg 2500w" class="image-banner__background__image" alt="Something descriptive" />
 		</div>
-		<div class="container">
-			<div class="tile image-banner__tile">
-				<h3 class="tile__heading">Read the blog post</h3>
-				<div class="tile__body">
-					<p>If you're new to responsive images, you may want to read our in-depth blog post on the various technologies that make up responsive images and how they work under the hood, as well as how to utilize them.</p>
-				</div>
-				<div class="actions">
-					<a href="http://blogs.windows.com/msedgedev/2015/10/07/using-extended-srcset-and-the-picture-element-to-tailor-your-image-to-every-device-and-layout" class="button" title="Do something" target="_blank">Read on the dev blog</a>
-				</div>
+		<div class="hero__container">
+			<div class="hero__content">
+				<h1 class="hero__title">Read the blog post</h1>
+				<p class="hero__subtitle">If you're new to responsive images, you may want to read our in-depth blog post on the various technologies that make up responsive images and how they work under the hood, as well as how to utilize them.</p>
+				<a href="http://blogs.windows.com/msedgedev/2015/10/07/using-extended-srcset-and-the-picture-element-to-tailor-your-image-to-every-device-and-layout" class="button button--cta">Read on the dev blog</a>
 			</div>
 		</div>
 	</section>
@@ -76,13 +72,13 @@
 					</div>
 				</div>
 								
-				<div class="layout layout--halves">
+				<div class="subsection layout layout--halves">
 					<div class="module">
 						<p><strong>Live Example</strong></p>
-						<div class="picture__example">
+						<div class="rendered-result">
 							<article>
 								<header>
-									<img class="hero" src="https://edgeportal.blob.core.windows.net/demos/hero-xlarge.jpg" alt="A portrait painting of a woman on a couch" />
+									<img class="sample-hero" src="https://edgeportal.blob.core.windows.net/demos/hero-xlarge.jpg" alt="A portrait painting of a woman on a couch" />
 									<h1 class="title">Capturing dramatic lighting in portrait painting</p>
 								</header>
 								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu congue lorem. Nunc sagittis consectetur lectus, non volutpat massa iaculis porta. Duis vulputate est at tortor maximus condimentum. Cras tristique nec nisl sit amet dignissim. Sed interdum eget leo in hendrerit. Integer nisl nunc, posuere nec arcu non, tempor tincidunt enim. Quisque eget tortor ligula. Sed fringilla nisl id sem pretium elementum. Aenean in ex velit. Morbi aliquet ligula arcu, eget ornare mauris tempor eget. Vivamus purus dui, posuere sit amet tortor at, euismod consequat erat. Morbi elit turpis, malesuada a velit id, efficitur sollicitudin tellus. Donec vel sapien at mi ultricies iaculis.</p>
@@ -148,13 +144,13 @@
 					</div>
 				</div>
 				
-				<div class="layout layout--halves">
+				<div class="subsection layout layout--halves">
 					<div class="module">
 						<p><strong>Live Example</strong></p>
-						<div class="picture__example">
+						<div class="rendered-result">
 							<article>
 								<header>
-									<img class="hero" 
+									<img class="sample-hero" 
 									     src="https://edgeportal.blob.core.windows.net/demos/hero-xlarge.jpg" 
 										 srcset="https://edgeportal.blob.core.windows.net/demos/hero-small.jpg 480w,
 										         https://edgeportal.blob.core.windows.net/demos/hero-med.jpg 960w,
@@ -242,10 +238,10 @@
 				</div>				
 				
 				<!-- Example 3 -->
-				<div class="layout layout--halves">
+				<div class="subsection layout layout--halves">
 					<div class="module">
 						<p><strong>Live Example</strong></p>
-						<div class="picture__example">
+						<div class="rendered-result">
 							<article>
 								<header>
 									<picture>
@@ -254,7 +250,7 @@
 												        https://edgeportal.blob.core.windows.net/demos/hero-med.jxr 960w,
 														https://edgeportal.blob.core.windows.net/demos/hero-large.jxr 1920w,
 														https://edgeportal.blob.core.windows.net/demos/hero-xlarge.jxr 2500w">
-										<img class="hero" 
+										<img class="sample-hero" 
 											src="https://edgeportal.blob.core.windows.net/demos/hero-xlarge.jpg" 
 											srcset="https://edgeportal.blob.core.windows.net/demos/hero-small.jpg 480w,
 													https://edgeportal.blob.core.windows.net/demos/hero-med.jpg 960w,
@@ -289,7 +285,7 @@
 				<div class="layout layout--halves">
 					<div class="module ">
 						<p><strong>Live Example</strong></p>
-						<div class="picture__example">
+						<div class="rendered-result">
 							<article>
 								<header>
 									<picture>
@@ -302,7 +298,7 @@
 												        https://edgeportal.blob.core.windows.net/demos/hero-med.jxr 960w,
 														https://edgeportal.blob.core.windows.net/demos/hero-large.jxr 1920w,
 														https://edgeportal.blob.core.windows.net/demos/hero-xlarge.jxr 2500w">
-										<img class="hero" 
+										<img class="sample-hero" 
 											src="https://edgeportal.blob.core.windows.net/demos/hero-xlarge.jpg" 
 											srcset="https://edgeportal.blob.core.windows.net/demos/hero-small.jpg 480w,
 													https://edgeportal.blob.core.windows.net/demos/hero-med.jpg 960w,
@@ -332,15 +328,15 @@
 			    <h2>Comparing the initial image solution verses the solution utilizing responsive images</h2>
 			</div>
 			
-			<div class="section_body">
+			<div class="section__body">
 				<p>As you can see responsive images gives us the tools to not only avoid redundant downloads, but unlocks additional performance optimizations via the type attribute. Additionally it unlocks the capability for you to provide the best cropped image based on the layout of the image.</p>
 				
 				<p>To close, let's compare our initial implementation to the solution that utilizes the technology behind responsive images.</p>
 				
-				<div class="layout layout--halves">
+				<div class="subsection layout layout--halves">
 					<div class="module">
 						<p><strong>With Responsive Images</strong></p>
-						<div class="picture__example">
+						<div class="rendered-result">
 							<article>
 								<header>
 									<picture>
@@ -348,7 +344,7 @@
 										        srcset="https://edgeportal.blob.core.windows.net/demos/hero-med-vert.jpg 245w
 												        https://edgeportal.blob.core.windows.net/demos/hero-large-vert.jpg 490w,
 												        https://edgeportal.blob.core.windows.net/demos/hero-xlarge-vert.jpg 980w">
-										<img class="hero" 
+										<img class="sample-hero" 
 											src="https://edgeportal.blob.core.windows.net/demos/hero-xlarge.jpg" 
 											srcset="https://edgeportal.blob.core.windows.net/demos/hero-small.jpg 480w,
 													https://edgeportal.blob.core.windows.net/demos/hero-med.jpg 960w,
@@ -363,10 +359,10 @@
 					</div>
 					<div class="module">
 						<p><strong>Without Responsive Images</strong></p>
-						<div class="picture__example">
+						<div class="rendered-result">
 								<article>
 									<header>
-										<img class="hero" src="https://edgeportal.blob.core.windows.net/demos/hero-xlarge.jpg" alt="A portrait painting of a woman on a couch" />
+										<img class="sample-hero" src="https://edgeportal.blob.core.windows.net/demos/hero-xlarge.jpg" alt="A portrait painting of a woman on a couch" />
 										<h1 class="title">Capturing dramatic lighting in portrait painting</p>
 									</header>
 									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu congue lorem. Nunc sagittis consectetur lectus, non volutpat massa iaculis porta. Duis vulputate est at tortor maximus condimentum. Cras tristique nec nisl sit amet dignissim. Sed interdum eget leo in hendrerit. Integer nisl nunc, posuere nec arcu non, tempor tincidunt enim. Quisque eget tortor ligula. Sed fringilla nisl id sem pretium elementum. Aenean in ex velit. Morbi aliquet ligula arcu, eget ornare mauris tempor eget. Vivamus purus dui, posuere sit amet tortor at, euismod consequat erat. Morbi elit turpis, malesuada a velit id, efficitur sollicitudin tellus. Donec vel sapien at mi ultricies iaculis.</p>

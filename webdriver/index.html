@@ -7,7 +7,7 @@
 	<meta name="description" content="Discover how WebDriver works in Microsoft Edge"/>
 	<meta name="keywords" content="WebDriver, Test Automation"/>
 	<meta name="author" content="instylevii"/>
-	<link rel="stylesheet" type="text/css" href="https://edgeportal.blob.core.windows.net/media/demotemplate.css"/>
+	<link rel="stylesheet" type="text/css" href="//edgeportal.blob.core.windows.net/media/demotemplate.css"/>
 	<link rel="stylesheet" type="text/css" href="styles/demo.css"/>
 </head>
 <body>
@@ -86,20 +86,18 @@
 										<textarea id="content-area"></textarea>
 									</div>
 								</div>
-								<button id="send-request" class="button button--primary button--page-primary">Send Request</button>
+								<div class="actions">
+									<button id="send-request" class="button button--primary button--page-primary">Send Request</button>
+								</div>
 							</div>
 						</div>
 						<div class="subsection">
-							<header class="subsection__header">
-								<h3>Server Log</h3>
-							</header>
-							<div class="subsection__body">
-								<div class="actions">
-									<button id="clear-log" class="button">Clear Log</button>
-							        <button id="clear-all" class="button">Clear All</button>
-								</div>
-							    <div id="log-contents"></div>
+							<h3>Server Log</h3>
+							<div class="actions">
+								<button id="clear-log" class="button">Clear Log</button>
+								<button id="clear-all" class="button">Clear All</button>
 							</div>
+							<div id="log-contents"></div>
 						</div>
 					</div>
 				</div>

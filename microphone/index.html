@@ -6,7 +6,7 @@
 	<meta name="description" content=""/>
 	<meta name="keywords" content="Media, webaudio, getusermedia"/>
 	<meta name="author" content="jdsmith3000"/>
-	<link rel="stylesheet" type="text/css" href="https://edgeportal.blob.core.windows.net/media/demotemplate.css">
+	<link rel="stylesheet" type="text/css" href="https://edgeportal.blob.core.windows.net/media/demotemplate.css"/>
 	<link rel="stylesheet" type="text/css" href="styles/demo.css"/>
 </head>
 
@@ -17,20 +17,22 @@
 		<div class="container">
 			<div class="section__header">
 				<h1>Microphone Streaming &amp; Web Audio Demo</h1>
-				<p class="title">Record, play, save and load streaming audio acquired using getUserMedia; and apply Web Audio visualizations, effects and filters to stream data.</p>
-				<p class="subtitle">Getting started: Grant access to your microphone when prompted.  The speaker is muted by default to avoid possible mic feedback.</p>
-				<button class="button" type="button" id="start" style="display:none">Start Demo</button>
+				<p>Record, play, save and load streaming audio acquired using getUserMedia; and apply Web Audio visualizations, effects and filters to stream data.</p>
+				<p>Getting started: Grant access to your microphone when prompted.  The speaker is muted by default to avoid possible mic feedback.</p>
+				<div class="actions">
+					<button class="button" type="button" id="start" style="display:none">Start Demo</button>
+				</div>
 			</div>
 		</div>
 	</header>
 
 	<!-- DEMO CONTENT -->
-		<div id="alert-banner" class="section section--banner section--alert">
+		<div id="alert-banner" class="section section--alert">
 			<div class="container">
 				<p class="title">Demo requires features supported by Microsoft Edge & access to microphone.</p>
 			</div>
 		</div>
-		<section id="demo-banner" class="section section--banner section--demo-mic" style="display:none">
+		<section id="demo-banner" class="section section--demo-mic" style="display:none">
 		<div class="container">
 			<div class="section__body">
 
