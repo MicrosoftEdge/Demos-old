@@ -8,16 +8,7 @@ html {
 }
 
 body {
-<<<<<<< HEAD
-	position: relative;
-	margin: 0 auto;
-	min-width: 960px;
-	max-width: 1080px;
-	padding: 0 4rem;
-	font-family: 'Montserrat', sans-serif;
-=======
 	font-family: 'Montserrat', 'Segoe UI', sans-serif;
->>>>>>> MicrosoftEdge/master
 }
 
 p {
@@ -41,16 +32,11 @@ fieldset {
 }
 
 .container {
-<<<<<<< HEAD
-	margin: auto 0;
-	width: 100%;
-=======
 	padding: 0 2rem;
 	margin: 0 auto;
 	width: 100%;
 	min-width: 960px;
 	max-width: 1200px;
->>>>>>> MicrosoftEdge/master
 }
 
 .content {
@@ -80,11 +66,8 @@ fieldset {
 
 .subtitle {
 	font-size: 1.4rem;
-<<<<<<< HEAD
-=======
 	padding: 1rem 0;
 	max-width: 84rem;
->>>>>>> MicrosoftEdge/master
 }
 
 .demo--container {
