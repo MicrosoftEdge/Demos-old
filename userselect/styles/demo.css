@@ -1,13 +1,24 @@
+html {
+	font-size: 62.5%;
+}
+
 body {
 	font-family: 'Segoe UI', Arial, sans-serif;
 }
 
+p {
+	font-size: 1.5rem;
+}
+
+.subtitle {
+	font-size: 1.8rem;
+}
+
 .container {
-	position: relative;
 	margin: 0 auto;
 	min-width: 96rem;
 	max-width: 120rem;
-	padding: 0 4rem;
+	padding: 0 2rem;
 }
 
 #demo-screenreader-text {
@@ -17,7 +28,7 @@ body {
 
 #demo-title {
 	padding: 4rem 0 0 0;
-	font-size: 2.4rem;
+	font-size: 3.4rem;
 	font-weight: normal;
 	color: #00a3ef;
 }
@@ -37,42 +48,47 @@ body {
 }
 
 #code {
-	margin-top: 20px;
-	/* width:400px;*/
-
-	height: 200px;
-	border: solid;
+	margin-top: 2rem;
+	height: 20rem;
+	background-color: #ebebeb;
 }
 
 #code pre {
 	margin: 0;
 	background-color: transparent;
-	font-size: 13px;
+	font-size: 1.5rem;
 	line-height: normal;
 	padding: 1rem;
 	border: none;
 }
 
 .userselect-container select {
-	width: 320px;
+	width: 32rem;
+}
+
+.breadcrumb-list {
+	font-size: 1.4rem;
+	margin-bottom: 3.4rem;
+}
+
+.breadcrumb-list a {
+	color: #006fd5;
 }
 
 #controls {
-	padding-bottom: 20px;
-	margin-right: 15px;
+	padding-bottom: 2rem;
+	margin-right: 1.5rem;
 	float: left;
-	width: 320px;
+	width: 32rem;
 }
 
 #sample-content {
 	border-bottom: solid thin;
-	padding-top: 20px;
-	padding-left: 6px;
-	padding-right: 6px;
-	height: 40px;
+	padding: .5rem;
+	height: 4rem;
 	background-color: rgb(170, 221, 255);
 	box-sizing: content-box;
-	font-size: 1.5em;
+	font-size: 2.2rem;
 }
 
 #sample-content * + * {
@@ -85,7 +101,7 @@ body {
 
 #blog {
 	display: inline-block;
-	min-width: 550px;
-	max-width: 650px;
+	min-width: 56rem;
+	max-width: 64rem;
 	margin-top: 0;
 }
