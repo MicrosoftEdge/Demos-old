@@ -1,7 +1,7 @@
 /.idea/
 /.vscode/
-/.DS_Store/
 /node_modules/
 webauthn/.vscode/
 webauthn/web.config
 webauthn/.idea/
+.DS_Store
