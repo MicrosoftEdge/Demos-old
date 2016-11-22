@@ -10,8 +10,61 @@ p {
 	font-size: 1.5rem;
 }
 
+.title {
+	font-size: 2.4rem;
+}
+
 .subtitle {
 	font-size: 1.8rem;
+}
+
+.clear {
+	clear: both;
+}
+
+/* COMMENTS SECTION */
+
+.avatar {
+	float: left;
+	max-width: 3rem;
+	max-height: 3rem;
+	border: 3px solid #b5b5b5;
+}
+
+.date {
+	font-size: 1.3rem;
+	color: #6a6a6a;
+}
+
+.comments {
+	border: 1px solid #c1c1c1;
+	padding: 1rem;
+}
+
+.comment {
+	margin-bottom: 2rem;
+}
+
+.comment--reply {
+	margin-left: 6rem;
+	padding: 1rem;
+	background-color: #f0f0f0;
+}
+
+.comment__content {
+	margin-left: 6rem;
+}
+
+.comment__content p {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.comment--user {
+	font-size: 1.2rem;
+	color: #5a5a77;
+	text-transform: uppercase;
+	font-weight: bold;
 }
 
 .container {
@@ -19,6 +72,10 @@ p {
 	min-width: 96rem;
 	max-width: 120rem;
 	padding: 0 2rem;
+}
+
+#demo-introduction {
+	margin-bottom: 4rem;
 }
 
 #demo-screenreader-text {
@@ -80,15 +137,6 @@ p {
 	margin-right: 1.5rem;
 	float: left;
 	width: 32rem;
-}
-
-#sample-content {
-	border-bottom: solid thin;
-	padding: .5rem;
-	height: 4rem;
-	background-color: rgb(170, 221, 255);
-	box-sizing: content-box;
-	font-size: 2.2rem;
 }
 
 #sample-content * + * {

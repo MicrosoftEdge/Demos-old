@@ -6,7 +6,7 @@
 	<title>User Selection via CSS</title>
 	<meta name="og:title" content="user select"/>
 	<meta name="keywords" content="input"/>
-	<link rel="stylesheet" type="text/css" href="styles/demotemplate.css"/>
+
 	<link rel="stylesheet" type="text/css" href="styles/demo.css"/>
 	<link rel="stylesheet" type="text/css" href="styles/normal_off.css" id="normal_off_sheet" class="styles"/>
 	<link rel="stylesheet" type="text/css" href="styles/all_off.css" id="all_off_sheet" class="styles"/>
@@ -90,10 +90,7 @@
 		</div>
 		<div id="blog">
 			<div id="sample-content" >
-				<span>&#160; &nbsp;</span>
-				<div style="color: #0066aa; font-weight: bold; float: left;"><a href="#">IEBlog</a>
-				</div>
-				<div style="color: #0066aa; float: right;">The Internet Explorer Weblog</div>
+				<img src="images/user-select.svg" alt="IEBlog The Internet Explorer Weblog" />
 			</div>
 			<p class="breadcrumb-list">
 				<a href="#">MSDN Blogs</a> \ 
@@ -101,8 +98,8 @@
 				HTML5 History in IE10
 			</p>
 
-			<h2>HTML5 History in IE10</h2>
-			<p style="color:gray;"><a href="#">ieblog</a> 31 Oct 2011 3:42 PM</p>
+			<p class="title">HTML5 History in IE10</p>
+			<p class="date"><a href="#">ieblog</a> 31 Oct 2011 3:42 PM</p>
 
 			<p id="blog-post">Building fast and functional sites is a challenge with which most Web developers are
 				familiar. Loading a new page every time the user clicks a link is slow. Fetching all content dynamically
@@ -115,51 +112,45 @@
 			<p>...</p>
 
 			<p class="subtitle">Comments</p>
-
-			<div class="comment">
-				<img src="http://blogs.msdn.com/utility/anonymous.gif" style="float:left;max-height:32px;max-width:32px; "/>
-
-				<p>Paul</p>
-
-				<p>Excellent and much needed feature!</p></div>
-			<div class="comment"><img src="http://blogs.msdn.com/utility/anonymous.gif" style="float:left;max-height:32px;max-width:32px; "/>
-
-				<p>Will</p>
-
-				<p>Thank you!!!</p></div>
-			<h3>Leave a Comment</h3>
+			<div class="comments">
+				<div class="comment">
+					<img src="images/avatar_1.svg" class="avatar" alt="avatar" role="presentation" />
+					<div class="comment__content">
+						<p class="comment--user">Paul</p>
+						<p>Excellent and much needed feature!</p>
+					</div>
+				</div>
+				<div class="comment--reply clear">
+					<img src="images/avatar_1.svg" class="avatar" alt="avatar" role="presentation" />
+					<div class="comment__content">
+						<p class="comment--user">Will</p>
+						<p>Thank you!!!</p>
+					</div>
+				</div>
+			</div>
+			<p class="subtitle">Leave a Comment</p>
 			<label>Name</label><br/>
 			<input type="text" style="width:400px;"><br/>
 			<label>Comment</label><br/>
 			<textarea style="width:400px;height:100px;"></textarea>
 		</div>
 	</div>
-
-
 	<div id="demo-details" style="clear:both; margin-top:20px;">
-		<h3>-ms-user-select: none</h3>
+		<p class="subtitle">-ms-user-select: none</p>
+			<p><code>-ms-user-select:none</code> will block selection from starting on that element. It will not block an
+				existing selection from entering the element.</p>
+				<p style="-ms-user-select:none;margin-left:40px;">This paragraph blocks selection from starting here.</p>
 
-		<p><code>-ms-user-select:none</code> will block selection from starting on that element. It will not block an
-			existing selection from entering the element.</p>
+		<p class="subtitle">-ms-user-select: element</p>
+			<p><code>-ms-user-select:element</code> enables selection to start within the element, however, the selection
+				will be contained by the bounds of that element.</p>
+				<p style="-ms-user-select:element;margin-left:40px;">This paragraph limits selection to within it's bounds.</p>
 
-		<p style="-ms-user-select:none;margin-left:40px;">This paragraph blocks selection from starting here.</p>
+		<p class="subtitle">-ms-user-select: text</p>
+			<p><code>-ms-user-select:text</code> enables selection to start within the element and extend past the element's bounds.</p>
+			<p style="-ms-user-select:text;margin-left:40px;">This paragraph allows unbounded selection.</p>
 
-		<h3>-ms-user-select: element</h3>
-
-		<p><code>-ms-user-select:element</code> enables selection to start within the element, however, the selection
-			will
-			be contained by the bounds of that element.</p>
-
-		<p style="-ms-user-select:element;margin-left:40px;">This paragraph limits selection to within it's bounds.</p>
-
-		<h3>-ms-user-select: text</h3>
-
-		<p><code>-ms-user-select:text</code> enables selection to start within the element and extend past the element's
-			bounds.</p>
-
-		<p style="-ms-user-select:text;margin-left:40px;">This paragraph allows unbounded selection.</p>
-
-		<h3>Interop Notes</h3>
+		<p class="subtitle">Interop Notes</p>
 
 		<p><code>user-select</code> is not currently part of any W3C CSS specification. It was originally proposed in
 			the <a
@@ -167,7 +158,7 @@
 			">User Interface for CSS3</a> module; this module has since been superseded by <a
 				href="http://www.w3.org/TR/css3-ui/ ">CSS3 Basic User Interface Module</a> which does not define the
 			<code>user-select</code>
-			property. Both <a href="https://developer.mozilla.org/en/CSS/-moz-user-select ">Mozilla</a> and <a
+			property. Both <a href="https://developer.mozilla.org/en/CSS/-moz-user-select">Mozilla</a> and <a
 				href="http://developer.apple.com/library/safari/#documentation/AppleApplications/Reference/SafariCSSRef/Articles/StandardCSSProperties.html#//apple_ref/css/property/-webkit-user-select ">Webkit</a>
 			support their own prefixed versions of this property. There are minor differences between the three
 			implementations so be sure to test your application across browsers.</p>
