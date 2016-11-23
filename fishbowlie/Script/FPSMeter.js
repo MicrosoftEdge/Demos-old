@@ -8,7 +8,7 @@
     this.width = 163;
     this.height = 94;
     this.padding = 26;
-    this.top = 132;
+    this.top = 202;
     this.left = 49;
 
     this.fpsNeedle;

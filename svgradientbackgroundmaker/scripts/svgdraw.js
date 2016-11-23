@@ -68,10 +68,10 @@ var SVGBGMAKER = SVGBGMAKER || {};
 	};
 
 	SVGBGMAKER.setStartTo = function (posx, posy) {
-		var line = document.getElementById('linear-line');
+		var line = document.getElementById('linearLine');
 		line.setAttribute('x1', posx);
 		line.setAttribute('y1', posy);
-		var start = document.getElementById('linear-start');
+		var start = document.getElementById('linearStart');
 		start.setAttribute('x', posx - 4);
 		start.setAttribute('y', posy - 4);
 		SVGBGMAKER.cusX1 = (posx / SVGBGMAKER.sampleWidth) * 100 + '%';
@@ -83,10 +83,10 @@ var SVGBGMAKER = SVGBGMAKER || {};
 	};
 
 	SVGBGMAKER.setEndTo = function (posx, posy) {
-		var line = document.getElementById('linear-line');
+		var line = document.getElementById('linearLine');
 		line.setAttribute('x2', posx);
 		line.setAttribute('y2', posy);
-		var end = document.getElementById('linear-end');
+		var end = document.getElementById('linearEnd');
 		end.setAttribute('x', posx - 4);
 		end.setAttribute('y', posy - 4);
 		SVGBGMAKER.cusX2 = (posx / SVGBGMAKER.sampleWidth) * 100 + '%';
@@ -99,7 +99,7 @@ var SVGBGMAKER = SVGBGMAKER || {};
 
 	SVGBGMAKER.setCenterTo = function (posx, posy, isFromImport) {
 		SVGBGMAKER.cusPAspectRatio = ' preserveAspectRatio="xMidYMid"';
-		var c = document.getElementById('radial-center');
+		var c = document.getElementById('radialCenter');
 		c.setAttribute('cx', posx);
 		c.setAttribute('cy', posy);
 		SVGBGMAKER.cusCX = (posx / SVGBGMAKER.sampleWidth) * 100 + '%';
@@ -112,7 +112,7 @@ var SVGBGMAKER = SVGBGMAKER || {};
 	};
 
 	SVGBGMAKER.setRadiusTo = function (posx, posy) {
-		var r = document.getElementById('radial-radius');
+		var r = document.getElementById('radialRadius');
 
 		var centerx, centery, X, Y;
 		if (SVGBGMAKER.selectedPos === 'custom position') {
@@ -309,7 +309,7 @@ var SVGBGMAKER = SVGBGMAKER || {};
 	};
 
 	SVGBGMAKER.startOrEndMouseDown = function (e, setter) {
-		var op = document.getElementById('other-sample');
+		var op = document.getElementById('otherSample');
 		var rect = op.getBoundingClientRect();
 
 		document.body.style.cursor = 'crosshair';

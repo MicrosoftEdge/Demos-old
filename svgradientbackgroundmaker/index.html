@@ -11,158 +11,160 @@
 	<meta name="og:title" content="IE10 Test Drive Demo: SVG Gradient Background Maker"/>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 
-	<link rel="stylesheet" type="text/css" href="styles/demo.css"/>
-	<link rel="stylesheet" type="text/css" href="Styles/demotemplate.css"/>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="styles/svgdemo.css"/>
 </head>
 
 <body>
-<div class="container svgradientbackgroundmaker">
-	<h1 id="demo-title">
-		SVG Gradient Background Maker
-	</h1>
-
-	<div id="demo-introduction">
-		<p> Use this demo to create SVG-based CSS background-image gradients. The CSS markup works in browsers which
-			support SVG as a background-image including Internet Explorer 9, Chrome, Safari, and Opera. <img
-				src="images/SVGBanner.png" width="200" style="float:right; padding-top: 15px"/></p>
-	</div>
-	<div class="clear"></div>
-	<div id="demo-content">
-		<table id="control-wrapper">
-			<tr>
-				<td class="label-cell"> Existing markup:</td>
-				<td class="data-cell"><a href="#" id="htxtlink">Click to paste existing CSS base64-URL background-image
-					markup</a>
-					<textarea style="display: none;" id="markup-source"></textarea>
-
-					<div><a id="parse-link" href="#" style="float: left; display: none; padding-right: 5px;">Parse</a>
-
-						<div id="markup-type" style="float: left;"></div>
-						<a id="hide-link" href="#" style="float: right; display: none; padding: 0px;">Hide</a></div>
-				</td>
-			</tr>
-			<tr>
-				<td class="label-cell"> Gradient style:</td>
-				<td class="data-cell">
-					<form id="g-type">
-						<fieldset>
-							<input type="radio" id="l-grad" name="gradtype" value="Linear"/>
-							<label for="l-grad">Linear</label>
-							<input type="radio" id="e-grad" name="gradtype" value="Elliptical"/>
-							<label for="e-grad">Radial</label>
-						</fieldset>
-					</form>
-				</td>
-			</tr>
-			<tr>
-				<td class="label-cell"> Stops:</td>
-				<td class="data-cell">
-					<!-- START table of stops -->
-					<table>
-						<tbody id="stops">
-						<tr id="stops-label">
-							<td></td>
-							<td> Start</td>
-							<td id="last-label"> End</td>
-						</tr>
-						<tr id="stops-offset">
-							<td> Offset:</td>
-							<td>
-								<input id="offset0" type="text" size="6" value="0"/></td>
-							<td id="last-offset">
-								<input id="offsetN" type="text" size="6" value="1"/></td>
-						</tr>
-						<tr id="stops-color">
-							<td style="font-weight: normal;"> Color:</td>
-							<td>
-								<input type="text" class="color" id="color0" size="6" value="FFFFFF"/></td>
-							<td id="last-color">
-								<input type="text" class="color" id="colorN" size="6" value="E3A820"/></td>
-						</tr>
-						<tr id="stops-button">
-							<td style="font-weight: normal;"><a href="#" id="add-stop">Add Stop</a></td>
-							<td/>
-							<td id="last-button"/>
-						</tr>
-						</tbody>
-					</table>
-					<!-- END table of stops -->
-				</td>
-			</tr>
-			<tr>
-				<td class="label-cell"> Start:</td>
-				<td class="data-cell" id="pos-panel">
-				<td>
-			</tr>
-			<tr id="sizes" style="display: none;">
-				<td class="label-cell"> Sizes:</td>
-				<td class="data-cell" id="size-panel">
-				<td>
-			</tr>
-			<tr>
-				<td class="label-cell"> Sample:</td>
-				<td class="data-cell">
-					<div id="other-sample">
-						<svg id="custom-linear-svg" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"
-							 style="display: none">
-							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" style="display: block">
-								<circle cx="0%" cy="0%" r="5" fill="none" stroke="gray" stroke-width="1"></circle>
-								<circle cx="50%" cy="0%" r="5" fill="none" stroke="gray" stroke-width="1"></circle>
-								<circle cx="100%" cy="0%" r="5" fill="none" stroke="gray" stroke-width="1"></circle>
-								<circle cx="0%" cy="50%" r="5" fill="none" stroke="gray" stroke-width="1"></circle>
-								<circle cx="50%" cy="50%" r="5" fill="none" stroke="gray" stroke-width="1"></circle>
-								<circle cx="100%" cy="50%" r="5" fill="none" stroke="gray" stroke-width="1"></circle>
-								<circle cx="0%" cy="100%" r="5" fill="none" stroke="gray" stroke-width="1"></circle>
-								<circle cx="50%" cy="100%" r="5" fill="none" stroke="gray" stroke-width="1"></circle>
-								<circle cx="100%" cy="100%" r="5" fill="none" stroke="gray" stroke-width="1"></circle>
-							</svg>
-							<line id="linear-line" x1="0%" x2="0%" y1="100%" y2="100%" fill="none" stroke="#666"
-								  stroke-width="1"></line>
-							<rect id="linear-start" x="0%" y="0%" width="8" height="8"></rect>
-							<rect id="linear-end" x="100%" y="100%" width="8" height="8"></rect>
-						</svg>
-						<svg id="custom-radial-svg" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"
-							 style="display: none">
-							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" style="display: block">
-								<circle cx="0%" cy="0%" r="5" fill="none" stroke="gray" stroke-width="1"></circle>
-								<circle cx="50%" cy="0%" r="5" fill="none" stroke="gray" stroke-width="1"></circle>
-								<circle cx="100%" cy="0%" r="5" fill="none" stroke="gray" stroke-width="1"></circle>
-								<circle cx="0%" cy="50%" r="5" fill="none" stroke="gray" stroke-width="1"></circle>
-								<circle cx="50%" cy="50%" r="5" fill="none" stroke="gray" stroke-width="1"></circle>
-								<circle cx="100%" cy="50%" r="5" fill="none" stroke="gray" stroke-width="1"></circle>
-								<circle cx="0%" cy="100%" r="5" fill="none" stroke="gray" stroke-width="1"></circle>
-								<circle cx="50%" cy="100%" r="5" fill="none" stroke="gray" stroke-width="1"></circle>
-								<circle cx="100%" cy="100%" r="5" fill="none" stroke="gray" stroke-width="1"></circle>
-							</svg>
-							<line id="radial-line" x1="0%" x2="0%" y1="100%" y2="100%" fill="none" stroke="#666"
-								  stroke-width="1"></line>
-							<circle id="radial-center" style="display: none" cx="50%" cy="50%" r="5"></circle>
-							<rect id="radial-radius" style="display: none" x="75%" y="75%" width="8" height="8"></rect>
-						</svg>
+	<article class="container">
+		<section>
+			<p class="heading">SVG Gradient Background Maker</p>
+			<p class="subtitle">Use this demo to create SVG-based CSS background-image gradients. The CSS markup works in browsers which support SVG as a background-image including Internet Explorer 9, Chrome, Safari, and Opera.</p>
+			<div class="demo--container">
+				<div id="controlWrapper" class="content">
+					<div class="sidebar">
+						<div class="controls">
+							<p class="title">Gradient Style</p>
+							<form id="gType">
+								<fieldset>
+									<input type="radio" id="l-grad" name="gradtype" value="Linear"/>
+									<label for="l-grad">Linear</label>
+									<input type="radio" id="e-grad" name="gradtype" value="Elliptical"/>
+									<label for="e-grad">Radial</label>
+								</fieldset>
+							</form>
+						</div>
+						<div class="controls">
+							<p class="title">Gradient Direction</p>
+							<div id="posPanel"></div>
+							<div></div>
+						</div>
+						<div class="controls clearfix" id="sizes" style="display: none;">
+							<p class="title">Sizes</p>
+							<div id="sizePanel"></div>
+						</div>
+						<div class="clearfix controls controls--gradient-colors">
+							<p class="title">Gradient Colors</p>
+							<!-- START div of stops -->
+							<div>
+								<div id="stops">
+									<div id="stopsLabel" class="controls--gradient-colors__col-alt">
+										<div></div>
+										<div class="controls--gradient-colors__label">Start</div>
+										<div id="lastLabel" class="controls--gradient-colors__label">End</div>
+									</div>
+									<div id="stopsColor" class="controls--gradient-colors__col">
+										<div class="controls--gradient-colors__label-alt">Color</div>
+										<div>
+											<input type="text" class="color" id="color0" size="6" value="ee4d5a"/>
+										</div>
+										<div id="lastColor">
+											<input type="text" class="color" id="colorN" size="6" value="8af0c1"/>
+										</div>
+									</div>
+									<div id="stopsOffset" class="controls--gradient-colors__col">
+										<div class="controls--gradient-colors__label-alt">Offset</div>
+										<div>
+											<input id="offset0" type="text" size="6" value="0"/>
+										</div>
+										<div id="lastOffset">
+											<input id="offsetN" type="text" size="6" value="1"/>
+										</div>
+									</div>
+									<div id="stopsButton" class="controls--gradient-colors__col">
+										<div id="lastButton"></div>
+									</div>
+									<div class="clearfix">
+										<a href="#" id="addStop" class="button">Add Stop</a>
+									</div>
+								</div>
+							</div>
+							<!-- END div of stops -->
+						</div>
+						<div class="clearfix">
+							<div class="controls--gradient-colors__label">Existing markup</div>
+								<div>
+									<a href="#" id="htxtLink">Click to paste existing CSS base64-URL background-image markup</a>
+									<textarea style="display: none;" id="markupSource"></textarea>
+								</div>
+								<div>
+									<a id="parseLink" href="#" style="float: left; display: none; padding-right: 5px;">Parse</a>
+									<div id="markupType" style="float: left;"></div>
+									<a id="hideLink" href="#" style="float: right; display: none; padding: 0px;">Hide</a>
+								</div>
+							</div>
+						</div>
+						<div class="primary">
+							<div class="svg-code--preview">
+								<p class="title">Sample</p>
+								<div>
+									<div id="otherSample" class="svg-code-preview__display">
+										<svg id="customLinearSvg" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"
+											 style="display: none">
+											<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" style="display: block">
+												<circle cx="0%" cy="0%" r="5" fill="none" stroke="gray" stroke-width="1"></circle>
+												<circle cx="50%" cy="0%" r="5" fill="none" stroke="gray" stroke-width="1"></circle>
+												<circle cx="100%" cy="0%" r="5" fill="none" stroke="gray" stroke-width="1"></circle>
+												<circle cx="0%" cy="50%" r="5" fill="none" stroke="gray" stroke-width="1"></circle>
+												<circle cx="50%" cy="50%" r="5" fill="none" stroke="gray" stroke-width="1"></circle>
+												<circle cx="100%" cy="50%" r="5" fill="none" stroke="gray" stroke-width="1"></circle>
+												<circle cx="0%" cy="100%" r="5" fill="none" stroke="gray" stroke-width="1"></circle>
+												<circle cx="50%" cy="100%" r="5" fill="none" stroke="gray" stroke-width="1"></circle>
+												<circle cx="100%" cy="100%" r="5" fill="none" stroke="gray" stroke-width="1"></circle>
+											</svg>
+											<line id="linearLine" x1="0%" x2="0%" y1="100%" y2="100%" fill="none" stroke="#666"
+												  stroke-width="1"></line>
+											<rect id="linearStart" x="0%" y="0%" width="8" height="8"></rect>
+											<rect id="linearEnd" x="100%" y="100%" width="8" height="8"></rect>
+										</svg>
+										<svg id="customRadialSvg" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"
+											 style="display: none">
+											<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" style="display: block">
+												<circle cx="0%" cy="0%" r="5" fill="none" stroke="gray" stroke-width="1"></circle>
+												<circle cx="50%" cy="0%" r="5" fill="none" stroke="gray" stroke-width="1"></circle>
+												<circle cx="100%" cy="0%" r="5" fill="none" stroke="gray" stroke-width="1"></circle>
+												<circle cx="0%" cy="50%" r="5" fill="none" stroke="gray" stroke-width="1"></circle>
+												<circle cx="50%" cy="50%" r="5" fill="none" stroke="gray" stroke-width="1"></circle>
+												<circle cx="100%" cy="50%" r="5" fill="none" stroke="gray" stroke-width="1"></circle>
+												<circle cx="0%" cy="100%" r="5" fill="none" stroke="gray" stroke-width="1"></circle>
+												<circle cx="50%" cy="100%" r="5" fill="none" stroke="gray" stroke-width="1"></circle>
+												<circle cx="100%" cy="100%" r="5" fill="none" stroke="gray" stroke-width="1"></circle>
+											</svg>
+											<line id="radialLine" x1="0%" x2="0%" y1="100%" y2="100%" fill="none" stroke="#666"
+												  stroke-width="1"></line>
+											<circle id="radialCenter" style="display: none" cx="50%" cy="50%" r="5"></circle>
+											<rect id="radialRadius" style="display: none" x="75%" y="75%" width="8" height="8"></rect>
+										</svg>
+									</div>
+								</div>
+							</div>
+							<div class="svg-code--source">
+								<p class="title">SVG source</p>
+								<div>
+									<textarea id="svgSource" readonly="true"></textarea>
+								</div>
+							</div>
+							<div class="svg-code--css">
+								<p class="title">CSS markup</p>
+								<div>
+									<textarea id="otherSource" readonly="true"></textarea>
+								</div>
+							</div>
+						</div>
 					</div>
-				</td>
-			</tr>
-			<tr>
-				<td class="label-cell"> SVG source:</td>
-				<td class="data-cell">
-					<textarea id="svg-source" readonly="true"></textarea>
-				</td>
-			</tr>
-			<tr>
-				<td class="label-cell"> CSS markup:</td>
-				<td class="data-cell">
-					<textarea id="other-source" readonly="true"></textarea>
-				</td>
-			</tr>
-		</table>
-	</div>
-	<div id="demo-details"> This demo uses <a href="http://jscolor.com">jscolor</a> (a JavaScript color picker developed
-		by <a href="http://odvarko.cz">Jan Odvarko</a>).
-	</div>
-</div>
+				</div>
+				<div class="demo--details">
+					<img src="images/svgbanner.png" alt="svg 1.1" />
+					<p>This demo uses <a href="http://jscolor.com">jscolor</a> (a JavaScript color picker developed by 
+					<a href="http://odvarko.cz">Jan Odvarko</a>).</p>
+				</div>
+			</section>
+		</article>
+
 <script type="text/javascript" src="scripts/svgdraw.js"></script>
 <script type="text/javascript" src="jscolor/jscolor.js"></script>
 <script type="text/javascript" src="scripts/demo.js"></script>
+<script type="text/javascript" src="https://msedgecdn.azurewebsites.net/scripts/demo-header.js"></script>
 </body>
 
 </html>
