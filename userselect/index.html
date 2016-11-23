@@ -37,55 +37,68 @@
 					<option value="blog_beyond">Selection Starts in Blog Post or Comments but can extend</option>
 				</select>
 			</div>
-			<div id="code"> 
-<pre id="normal_off">
-<code>#blog {
-	-ms-user-select:none;
-	-webkit-user-select:none;
-	-moz-user-select:-moz-none;
-	} </code>
-</pre>
-<pre id="all_off">
-<code>#blog, #blog input, #blog textarea,
-#blog *[contenteditable=true] {
-	-ms-user-select:none;
-	-webkit-user-select:none;
-	-moz-user-select: -moz-none;
-}
-</code>
-</pre>
-<pre id="blog_only">
-<code>#blogPost {
-	-ms-user-select:element;
-	-webkit-user-select:text;
-	-moz-user-select: text;
-	}
+			<div id="code">
+				<code id="normal_off">#blog {<br />
+					<div class="code--indent">
+					-ms-user-select:none;<br />
+					-webkit-user-select:none;<br />
+					-moz-user-select:-moz-none;<br />
+					</div>
+				}<br />
+				</code>
+				<code id="all_off">#blog, #blog input, #blog textarea,<br />
+				#blog *[contenteditable=true] {<br />
+					<div class="code--indent">
+					-ms-user-select:none;<br />
+					-webkit-user-select:none;<br />
+					-moz-user-select: -moz-none;<br />
+					</div>
+				}
+				</code>
+				<code id="blog_only">#blogPost {<br />
+					<div class="code--indent">
+					-ms-user-select:element;<br />
+					-webkit-user-select:text;<br />
+					-moz-user-select: text;<br />
+					</div>
+					}<br /><br />
 
-	#blog{
-	-ms-user-select:none;
-	-webkit-user-select:none;
-	-moz-user-select: -moz-none;
-	}</code></pre>
-<pre id="comments_only">
-<code>.comment {
-	-ms-user-select:element;
-	-moz-user-select:text;
-	-webkit-user-select:text;
-	}
+					#blog{<br />
+					<div class="code--indent">
+					-ms-user-select:none;<br />
+					-webkit-user-select:none;<br />
+					-moz-user-select: -moz-none;<br />
+					</div>
+					}
+				</code>
+				<code id="comments_only">.comment {<br />
+					<div class="code--indent">
+					-ms-user-select:element;<br />
+					-moz-user-select:text;<br />
+					-webkit-user-select:text;<br />
+					</div>
+					}<br /><br />
 
-	#blog{
-	-ms-user-select:none;
-	-moz-user-select:-moz-none;
-	-webkit-user-select:none;
-	}</code></pre> 
-<pre id="blog_beyond">
-<code>#blogPost, .comment {
-	-ms-user-select:text;
-	}
+					#blog{<br />
+					<div class="code--indent">
+					-ms-user-select:none;<br />
+					-moz-user-select:-moz-none;<br />
+					-webkit-user-select:none;<br />
+					</div>
+					}
+				</code>
+				<code id="blog_beyond">#blogPost, .comment {<br />
+					<div class="code--indent">
+					-ms-user-select:text;<br />
+					</div>
+					}<br /><br />
 
-	#blog {
-	-ms-user-select:none;
-	}</code></pre>
+					#blog {<br />
+					<div class="code--indent">
+					-ms-user-select:none;<br />
+					</div>
+					}
+				</code>
 			</div>
 		</div>
 		<div id="blog">
@@ -93,8 +106,8 @@
 				<img src="images/user-select.svg" alt="IEBlog The Internet Explorer Weblog" />
 			</div>
 			<p class="breadcrumb-list">
-				<a href="#">MSDN Blogs</a> \ 
-				<a href="#">IEBlog</a> \ 
+				<a href="#">MSDN Blogs</a> \
+				<a href="#">IEBlog</a> \
 				HTML5 History in IE10
 			</p>
 
@@ -130,25 +143,25 @@
 			</div>
 			<p class="subtitle">Leave a Comment</p>
 			<label>Name</label><br/>
-			<input type="text" style="width:400px;"><br/>
+			<input type="text"><br/><br/>
 			<label>Comment</label><br/>
-			<textarea style="width:400px;height:100px;"></textarea>
+			<textarea></textarea>
 		</div>
 	</div>
-	<div id="demo-details" style="clear:both; margin-top:20px;">
+	<div id="demo-details" class="clear">
 		<p class="subtitle">-ms-user-select: none</p>
 			<p><code>-ms-user-select:none</code> will block selection from starting on that element. It will not block an
 				existing selection from entering the element.</p>
-				<p style="-ms-user-select:none;margin-left:40px;">This paragraph blocks selection from starting here.</p>
+				<p style="-ms-user-select:none;" class="demo-details--examples">This paragraph blocks selection from starting here.</p>
 
 		<p class="subtitle">-ms-user-select: element</p>
 			<p><code>-ms-user-select:element</code> enables selection to start within the element, however, the selection
 				will be contained by the bounds of that element.</p>
-				<p style="-ms-user-select:element;margin-left:40px;">This paragraph limits selection to within it's bounds.</p>
+				<p style="-ms-user-select:element;" class="demo-details--examples">This paragraph limits selection to within it's bounds.</p>
 
 		<p class="subtitle">-ms-user-select: text</p>
 			<p><code>-ms-user-select:text</code> enables selection to start within the element and extend past the element's bounds.</p>
-			<p style="-ms-user-select:text;margin-left:40px;">This paragraph allows unbounded selection.</p>
+			<p style="-ms-user-select:text;" class="demo-details--examples">This paragraph allows unbounded selection.</p>
 
 		<p class="subtitle">Interop Notes</p>
 

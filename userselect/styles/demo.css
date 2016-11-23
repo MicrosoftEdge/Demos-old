@@ -22,8 +22,95 @@ p {
 	clear: both;
 }
 
-/* COMMENTS SECTION */
+.container {
+	margin: 0 auto;
+	min-width: 96rem;
+	max-width: 120rem;
+	padding: 0 2rem;
+}
 
+.userselect-containerpre {
+	display: none;
+}
+
+.userselect-container select {
+	width: 32rem;
+}
+
+.userselect-container div + p,
+.userselect-container div + h3 {
+	clear: both;
+}
+
+.breadcrumb-list {
+	font-size: 1.2rem;
+	margin-top: 2rem;
+	margin-bottom: 3.4rem;
+}
+
+.breadcrumb-list a {
+	color: #006fd5;
+}
+
+/* DEMO TEMPLATE MODIFIED CSS */
+#demo-introduction {
+	margin-bottom: 4rem;
+}
+
+#demo-title {
+	padding: 4rem 0 0 0;
+	font-size: 3.4rem;
+	font-weight: normal;
+	color: #00a3ef;
+}
+
+#demo-details {
+	margin-top: 2rem;
+}
+
+.demo-details--examples {
+	max-width: 38rem;
+	margin-left: 3rem;
+	padding: 2rem;
+	background-color: #f0f0f0;
+	text-align: center;;
+}
+
+/* FORMATTED CODE */
+#code {
+	margin-top: 2rem;
+	height: 20rem;
+	background-color: #ebebeb;
+	font-size: 1.3rem;
+	line-height: normal;
+	padding: 1.3rem;
+}
+
+.code--indent {
+	margin-left: 4rem;
+}
+
+/* BLOG CONTENT */
+#controls {
+	padding-bottom: 2rem;
+	margin-right: 1.5rem;
+	float: left;
+	width: 32rem;
+}
+
+#sample-content * + * {
+	margin-top: 0;
+}
+
+#blog {
+	display: inline-block;
+	min-width: 56rem;
+	max-width: 64rem;
+	margin-top: 0;
+	margin-left: 3rem;
+}
+
+/* COMMENTS SECTION */
 .avatar {
 	float: left;
 	max-width: 3rem;
@@ -67,89 +154,21 @@ p {
 	font-weight: bold;
 }
 
-.container {
-	margin: 0 auto;
-	min-width: 96rem;
-	max-width: 120rem;
-	padding: 0 2rem;
-}
-
-#demo-introduction {
-	margin-bottom: 4rem;
-}
-
-#demo-screenreader-text {
-	position: absolute;
-	left: -10000px;
-}
-
-#demo-title {
-	padding: 4rem 0 0 0;
-	font-size: 3.4rem;
-	font-weight: normal;
-	color: #00a3ef;
-}
-
-.userselect-containerpre {
-	display: none;
-}
-
-.userselect-container button {
-	margin-left: 10px;
-	padding: 3px;
-}
-
-.userselect-container div + p,
-.userselect-container div + h3 {
-	clear: both;
-}
-
-#code {
-	margin-top: 2rem;
-	height: 20rem;
-	background-color: #ebebeb;
-}
-
-#code pre {
-	margin: 0;
-	background-color: transparent;
-	font-size: 1.5rem;
-	line-height: normal;
-	padding: 1rem;
-	border: none;
-}
-
-.userselect-container select {
-	width: 32rem;
-}
-
-.breadcrumb-list {
-	font-size: 1.4rem;
-	margin-bottom: 3.4rem;
-}
-
-.breadcrumb-list a {
-	color: #006fd5;
-}
-
-#controls {
-	padding-bottom: 2rem;
-	margin-right: 1.5rem;
-	float: left;
-	width: 32rem;
-}
-
-#sample-content * + * {
-	margin-top: 0;
-}
-
 .comment img {
-	margin: 5px;
+	margin: .3rem;
 }
 
-#blog {
-	display: inline-block;
-	min-width: 56rem;
-	max-width: 64rem;
-	margin-top: 0;
+label {
+	font-size: 1.3rem;
+}
+
+input {
+	width: 100%;
+	margin-top: .5rem;
+}
+
+textarea {
+	width: 100%;
+	height: 20rem;
+		margin-top: .5rem;
 }
