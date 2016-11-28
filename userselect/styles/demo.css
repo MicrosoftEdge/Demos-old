@@ -53,13 +53,6 @@ p {
 	margin-top: 2rem;
 }
 
-.demo-details--examples {
-	max-width: 42rem;
-	margin-left: 3rem;
-	padding: 2rem;
-	background-color: #f0f0f0;
-}
-
 /* FORMATTED CODE */
 #code pre {
 	margin: 0;
