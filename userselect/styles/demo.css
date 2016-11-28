@@ -54,27 +54,16 @@ p {
 }
 
 .demo-details--examples {
-	max-width: 38rem;
+	max-width: 42rem;
 	margin-left: 3rem;
 	padding: 2rem;
 	background-color: #f0f0f0;
-	text-align: center;;
 }
 
 /* FORMATTED CODE */
-
-#code {
-	margin-top: 20px;
-
-	height: 200px;
-	border: solid;
-}
-
-
 #code pre {
 	margin: 0;
-	background-color: transparent;
-	font-size: 13px;
+	font-size: 1.3rem;
 	line-height: normal;
 	padding: 1rem;
 	border: none;
