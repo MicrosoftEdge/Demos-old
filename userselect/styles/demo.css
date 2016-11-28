@@ -18,7 +18,6 @@ p {
 	margin: 0 auto;
 	min-width: 96rem;
 	max-width: 120rem;
-	padding: 0 2rem;
 }
 
 .userselect-containerpre {
@@ -77,9 +76,14 @@ p {
 #blog {
 	display: inline-block;
 	min-width: 56rem;
-	max-width: 64rem;
+	max-width: 84rem;
+	width: 100%;
 	margin-top: 0;
-	margin-left: 3rem;
+	padding: 3rem;
+	border-top: 25px solid #eee;
+	border-right: 2px solid #eee;
+	border-bottom: 2px solid #eee;
+	border-left: 2px solid #eee;
 }
 
 /* COMMENTS SECTION */
