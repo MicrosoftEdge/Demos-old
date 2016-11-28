@@ -39,67 +39,51 @@
 				</select>
 			</div>
 			<div id="code">
-				<code id="normal_off">#blog {<br />
-					<div class="code--indent">
-					-ms-user-select:none;<br />
-					-webkit-user-select:none;<br />
-					-moz-user-select:-moz-none;<br />
-					</div>
-				}<br />
-				</code>
-				<code id="all_off">#blog, #blog input, #blog textarea,<br />
-				#blog *[contenteditable=true] {<br />
-					<div class="code--indent">
-					-ms-user-select:none;<br />
-					-webkit-user-select:none;<br />
-					-moz-user-select: -moz-none;<br />
-					</div>
-				}
-				</code>
-				<code id="blog_only">#blogPost {<br />
-					<div class="code--indent">
-					-ms-user-select:element;<br />
-					-webkit-user-select:text;<br />
-					-moz-user-select: text;<br />
-					</div>
-					}<br /><br />
+<pre id="normal_off">
+<code>#blog {
+	-ms-user-select:none;
+	-webkit-user-select:none;
+	-moz-user-select:-moz-none;
+} </code></pre>
+<pre id="all_off">
+<code>#blog, #blog input, #blog textarea,
+#blog *[contenteditable=true] {
+	-ms-user-select:none;
+	-webkit-user-select:none;
+	-moz-user-select: -moz-none;
+}</code></pre>
+<pre id="blog_only">
+<code>#blogPost {
+	-ms-user-select:element;
+	-webkit-user-select:text;
+	-moz-user-select: text;
+}
 
-					#blog{<br />
-					<div class="code--indent">
-					-ms-user-select:none;<br />
-					-webkit-user-select:none;<br />
-					-moz-user-select: -moz-none;<br />
-					</div>
-					}
-				</code>
-				<code id="comments_only">.comment {<br />
-					<div class="code--indent">
-					-ms-user-select:element;<br />
-					-moz-user-select:text;<br />
-					-webkit-user-select:text;<br />
-					</div>
-					}<br /><br />
+#blog{
+	-ms-user-select:none;
+	-webkit-user-select:none;
+	-moz-user-select: -moz-none;
+}</code></pre>
+<pre id="comments_only">
+<code>.comment {
+	-ms-user-select:element;
+	-moz-user-select:text;
+	-webkit-user-select:text;
+}
 
-					#blog{<br />
-					<div class="code--indent">
-					-ms-user-select:none;<br />
-					-moz-user-select:-moz-none;<br />
-					-webkit-user-select:none;<br />
-					</div>
-					}
-				</code>
-				<code id="blog_beyond">#blogPost, .comment {<br />
-					<div class="code--indent">
-					-ms-user-select:text;<br />
-					</div>
-					}<br /><br />
+#blog{
+	-ms-user-select:none;
+	-moz-user-select:-moz-none;
+	-webkit-user-select:none;
+}</code></pre>
+<pre id="blog_beyond">
+<code>#blogPost, .comment {
+	-ms-user-select:text;
+}
 
-					#blog {<br />
-					<div class="code--indent">
-					-ms-user-select:none;<br />
-					</div>
-					}
-				</code>
+#blog {
+	-ms-user-select:none;
+}</code></pre>
 			</div>
 		</div>
 		<div id="blog">

@@ -62,17 +62,22 @@ p {
 }
 
 /* FORMATTED CODE */
+
 #code {
-	margin-top: 2rem;
-	height: 20rem;
-	background-color: #ebebeb;
-	font-size: 1.3rem;
-	line-height: normal;
-	padding: 1.3rem;
+	margin-top: 20px;
+
+	height: 200px;
+	border: solid;
 }
 
-.code--indent {
-	margin-left: 4rem;
+
+#code pre {
+	margin: 0;
+	background-color: transparent;
+	font-size: 13px;
+	line-height: normal;
+	padding: 1rem;
+	border: none;
 }
 
 /* BLOG CONTENT */
