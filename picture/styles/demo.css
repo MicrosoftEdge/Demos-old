@@ -1,8 +1,12 @@
-.picture__example header {
+* + .gist {
+	margin-top: 2.4rem;
+}
+
+.rendered-result header {
   position: relative;
 }
 
-.picture__example .title {
+.rendered-result .title {
   position: absolute;
   bottom: 2px;
   left: 2px;
@@ -13,16 +17,11 @@
   font-size: 2em;
 }
 
-.picture__example article {
-	border: 1px solid black;
-	padding: 1em;
-}
-
-.picture__example p {
+.rendered-result p {
 	font-size: .75em;
 }
 
-.picture__example .hero {
+.rendered-result .sample-hero {
   width: 100%;
   margin: 0;
 }

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="EN-US" dir="ltr">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <title>Sign in Successful</title>
+
+    <link href="./images/favicon.png" rel="shortcut icon">
+    <link rel="stylesheet" type="text/css" href="https://edgeportal.blob.core.windows.net/media/demotemplate.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <script type="text/javascript"></script>
+
+</head>
+
+<body class="login-background">
+    <header>
+        <img src="images/puppycamlogo.svg" alt="PuppyCam Logo" class="logo">
+    </header>
+    <div id="shellTD">
+        <div class="container">
+            <div class="content">
+                <div class="sub-content">
+                    <div class="signInHeader">
+                        <h1 id="idH1_HelloHeader">Windows Hello  </h1>
+                        <img id="idImg_HelloLogo" src="images/hello.png" />
+                    </div>
+                    <div>
+                        <div id="idDiv_FSI_HeaderInfo">
+                            <p>Good news, your device supports Windows Hello and you can use it to authenticate with this demo site. With Windows Hello, you can log into this site on this PC without a password.</p>
+                            <p>Do you want to enable Windows Hello for your next sign in?</p>
+                        </div>
+                        <div class="section">
+                            <button id="idButton_MaybeLater">Maybe later</button>
+                            <button id="idButton_RegisterWinHello">Start using Windows Hello!</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section">
+                <div id="idDiv_SetupWindowsHello">
+                    <h1>You need to setup Windows Hello</h1>
+                    <p>Select the <b>Start</b> button, then select <b>Settings > Accounts > Sign-in</b> options to set up Windows Hello. Under <b>Windows Hello</b> , you’ll see options for face, fingerprint, or iris if your PC has a fingerprint reader or
+                        a camera that supports it. Once you’re set up, you’ll be able to sign in with a quick swipe or glance. </p>
+                    <button class="default" id="idButton_SetupWinHello">Okay</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./scripts/webauthn.js"></script>
+    <script src="./scripts/demo.js"></script>
+</body>
+
+</html>

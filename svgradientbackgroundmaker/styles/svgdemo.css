@@ -8,11 +8,6 @@ html {
 }
 
 body {
-	position: relative;
-	margin: 0 auto;
-	min-width: 960px;
-	max-width: 1080px;
-	padding: 0 4rem;
 	font-family: 'Montserrat', 'Segoe UI', sans-serif;
 }
 
@@ -37,8 +32,11 @@ fieldset {
 }
 
 .container {
-	margin: auto 0;
+	padding: 0 2rem;
+	margin: 0 auto;
 	width: 100%;
+	min-width: 960px;
+	max-width: 1200px;
 }
 
 .content {
@@ -68,7 +66,8 @@ fieldset {
 
 .subtitle {
 	font-size: 1.4rem;
-	padding: 1rem;
+	padding: 1rem 0;
+	max-width: 84rem;
 }
 
 .demo--container {

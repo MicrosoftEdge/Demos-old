@@ -6,44 +6,16 @@
         $('html, body').animate({scrollTop: top}, 800, 'easeInOutCirc');
     };
 
-    $('#top').click(function () {
-        scrollTo(0);
-    });
-
-    $('#introTiles').click(function () {
+    $('.illo-band').click(function () {
         var height = 0;
         var nav = $('.nav');
         if (nav.length > 0) {
             height = nav.height();
         }
-        var offset = $('#page01').offset().top - height;
+        var offset = $('.coloring-page').offset().top - height;
         scrollTo(offset);
         return false;
     });
-
-    $(window).scroll(function () {
-        var top = $('body').scrollTop(),
-            height = $(window).height();
-        $('#top').toggleClass('showing', top > height);
-    });
-
-
-    var updatePageSize = function () {
-        var startHeaderHeight = 114,
-            smallHeaderHeight = 64,
-            windowHeight = $(window).height();
-
-        $('.page').css({
-            minHeight: (windowHeight - smallHeaderHeight) + 'px'
-        });
-
-        $('#intro').css({
-            minHeight: (windowHeight - startHeaderHeight) + 'px'
-        });
-    };
-
-    $(window).resize(updatePageSize);
-    updatePageSize();
 
 }(jQuery));
 

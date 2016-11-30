@@ -1,4 +1,7 @@
-/* Your custom CSS goes here */
+* + .gist {
+	margin-top: 2.4rem;
+}
+
 .supports-demo__element {
 	display: block;
 	padding: 3rem;
