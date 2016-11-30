@@ -1,0 +1,336 @@
+.coloring-book {
+  background: #fcf6d9;
+}
+
+.coloring-book p,
+.coloring-book li {
+  widows: 3;
+}
+
+.accent-color,
+.next-activity {
+  color: #fdc641;
+}
+
+[class*="webnote-icon"] {
+  padding-right: 28px;
+  background: url("../images/webnote.png") no-repeat right center;
+  background-size: 24px 24px;
+}
+
+.webnote-icon--clip {
+  background-image: url("../images/clip.png");
+}
+
+.webnote-icon--comment {
+  background-image: url("../images/comment.png");
+}
+
+.webnote-icon--dark {
+  padding-right: 40px;
+  background-image: url("../images/webnotedark.png");
+  background-size: 36px 36px;
+}
+
+.webnote-icon--eraser {
+  background-image: url("../images/eraser.png");
+}
+
+.webnote-icon--exit {
+  background-image: url("../images/exit.png");
+}
+
+.webnote-icon--highlight {
+  background-image: url("../images/highlight.png");
+}
+
+.webnote-icon--hub {
+  background-image: url("../images/hub.png");
+}
+
+.webnote-icon--note {
+  background-image: url("../images/comment.png");
+}
+
+.webnote-icon--pan {
+  background-image: url("../images/pan.png");
+}
+
+.webnote-icon--pen {
+  background-image: url("../images/pen.png");
+}
+
+.webnote-icon--position {
+  background-image: url("../images/position.png");
+}
+
+.webnote-icon--save {
+  background-image: url("../images/save.png");
+}
+
+.webnote-icon--share {
+  background-image: url("../images/social.png");
+}
+
+/*
+ *	DEMO INTRO
+ *	---------------------------------------------
+ */
+
+.coloring-intro {
+  padding: 3.2rem 0;
+  background: #222;
+  color: #fcf6d9;
+}
+
+.coloring-intro a {
+  color: #fdc641;
+  text-decoration: underline;
+}
+
+.coloring-intro a:hover {
+  color: #fff;
+}
+
+.coloring-intro__title {
+  max-width: 64rem; /* Match the p max width */
+}
+
+.coloring-intro__content {
+  margin-top: 2.4rem;
+}
+
+@media (min-width: 33em) {
+  .coloring-intro {
+    padding: 3.2rem;
+  }
+}
+
+@media (min-width: 67.75em) {
+  .coloring-intro {
+    padding: 6.4rem 0;
+  }
+
+  .coloring-intro__title {
+    float: left;
+    width: 35%;
+  }
+
+  .coloring-intro__content {
+    float: right;
+    width: 60%;
+
+    margin-top: 0;
+  }
+}
+
+/*
+ *	BAND OF ILLUSTRATIONS
+ *	---------------------------------------------
+ */
+
+.illo-band:hover {
+  cursor: pointer;
+}
+
+.illo-band__block {
+  float: left;
+  width: 50%;
+
+  padding: 1.2rem;
+
+  text-align: center;
+}
+
+.illo-band__block:nth-child(5) {
+  display: none;
+}
+
+.illo-band__block img {
+  width: 100%;
+  max-width: 120px;
+  height: auto;
+}
+
+.illo-band__block:nth-child(1) {
+  background: #4db1ac;
+}
+
+.illo-band__block:nth-child(2) {
+  background: #fdc641;
+}
+
+.illo-band__block:nth-child(3) {
+  background: #456c80;
+}
+
+.illo-band__block:nth-child(4) {
+  background: #db4f44;
+}
+
+.illo-band__block:nth-child(5) {
+  background: #e16484;
+}
+
+@media (min-width: 48em) {
+
+  .illo-band__block {
+    width: 20%;
+
+    padding: 2rem 4rem;
+  }
+
+  .illo-band__block:nth-child(5) {
+    display: block;
+  }
+
+}
+
+@media (min-width: 48em) and (min-height: 41em) {
+
+  .illo-band__block img {
+    max-width: 200px;
+  }
+
+}
+
+/*
+ *  INSTRUCTIONS
+ *	---------------------------------------------
+ */
+
+.coloring-instructions {
+  padding-top: 3.2rem;
+  text-align: center;
+}
+
+.browser-illo {
+  display: block; /* Prevent space at bottom of image */
+  margin: 0 auto;
+}
+
+/*
+ *  COLORING PAGES
+ *	---------------------------------------------
+ */
+
+.coloring-instructions,
+.coloring-page {
+  border-bottom: 3px dashed #222529;
+}
+
+.coloring-page__instructions,
+.coloring-page__activity {
+  padding: 1.2rem;
+}
+
+.coloring-page__instructions {
+  background: #222529;
+  color: #fcf6d9;
+}
+
+.next-activity {
+  font-size: .75em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+@media (min-width: 33em) {
+  .coloring-page__instructions,
+  .coloring-page__activity {
+    padding: 3.2rem;
+  }
+}
+
+@media (min-width: 48em) {
+  .coloring-page {
+    display: table;
+  }
+
+  .coloring-page__instructions,
+  .coloring-page__activity {
+    display: table-cell;
+    vertical-align: top;
+  }
+
+  .coloring-page__instructions {
+    width: 33%;
+  }
+}
+
+@media (min-width: 67.75em) {
+  .coloring-page__instructions {
+    width: 28%;
+  }
+}
+
+/*
+ *	PRINT STYLES
+ *	---------------------------------------------
+ */
+
+@media print {
+
+  .coloring-book,
+  .accent-color {
+    color: #000;
+  }
+
+  .coloring-intro,
+  .illo-band,
+  .coloring-instructions,
+  .coloring-page__instructions p,
+  .coloring-page__instructions ol,
+  .coloring-page__instructions ul {
+    display: none;
+  }
+
+  .coloring-page {
+    page-break-inside: avoid;
+    border-bottom-width: 0;
+  }
+
+}
+
+/*
+ *	THEME: AUTUMN
+ *	---------------------------------------------
+ */
+
+.theme-autumn .illo-band__block:nth-child(1) {
+  background: #ba7b2f;
+}
+
+.theme-autumn .illo-band__block:nth-child(3) {
+  background: #e06924;
+}
+
+.theme-autumn .illo-band__block:nth-child(4) {
+  background: #656626;
+}
+
+.theme-autumn .illo-band__block:nth-child(5) {
+  background: #ba7b2f;
+}
+
+/*
+ *	THEME: CHRISTMAS
+ *	---------------------------------------------
+ */
+
+.theme-christmas .accent-color {
+  color: #4da44d;
+}
+
+.theme-christmas .illo-band__block:nth-child(odd) {
+  background: #428d42;
+}
+
+.theme-christmas .illo-band__block:nth-child(even) {
+  background: #db4f44;
+}
+
+.theme-christmas .coloring-intro a,
+.theme-christmas .next-activity {
+  color: #e06a60;
+}
