@@ -1,33 +1,12 @@
 {
-  "name": "microsoftedge-demos",
-  "version": "1.0.0",
-  "description": "Open source demos hosted in https://dev.microsoftedge.com",
-  "main": "index.js",
-  "scripts": {
-    "test": "grunt test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MicrosoftEdge/Demos.git"
-  },
-  "keywords": [
-    "demos",
-    "microsoft",
-    "edge",
-    "edge",
-    "javascript",
-    "asm.js"
-  ],
-  "author": "MicrosoftEdge",
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/MicrosoftEdge/Demos/issues"
-  },
-  "homepage": "https://github.com/MicrosoftEdge/Demos#readme",
+  "private": true,
   "devDependencies": {
     "grunt": "^1.0.1",
     "grunt-eslint": "^19.0.0",
     "load-grunt-tasks": "^3.5.0",
     "time-grunt": "^1.3.0"
+  },
+  "scripts": {
+    "test": "grunt test"
   }
 }
