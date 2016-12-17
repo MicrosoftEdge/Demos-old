@@ -193,7 +193,6 @@ var SVGBGMAKER = SVGBGMAKER || {};
 				SVGBGMAKER.stops.push(currStop);
 			}
 		}
-		//alert(printData());
 		SVGBGMAKER.updateGradControl();
 	};
 
@@ -293,7 +292,6 @@ var SVGBGMAKER = SVGBGMAKER || {};
 			SVGBGMAKER.insertAllStops(SVGBGMAKER.stops[i][0], SVGBGMAKER.stops[i][1]);
 		}
 
-		//alert(printData());
 		SVGBGMAKER.updateAllPanelsFromImport();
 	};
 
@@ -524,11 +522,8 @@ var SVGBGMAKER = SVGBGMAKER || {};
 		} else if (SVGBGMAKER.gradientType === 'radial') {
 			allpos = allRadialPos;
 		}
-		for (var i = 0; i < allpos.length; i++) {
-			document.getElementById('pos' + i).style.border = '2px solid white';
-		}
 
-		document.getElementById(e.target.id).style.border = '2px solid red';
+		document.getElementById(e.target.id).style.border = '1px solid red';
 		SVGBGMAKER.selectedPos = e.target.name;
 
 		if (SVGBGMAKER.gradientType === 'radial') {
@@ -581,10 +576,10 @@ var SVGBGMAKER = SVGBGMAKER || {};
 		for (var i = 0; i < allpos.length; i++) {
 			var currPos = document.getElementById('pos' + i);
 			if (currPos.name === position) {
-				currPos.style.border = '2px solid red';
+				currPos.style.border = '1px solid red';
 				SVGBGMAKER.selectedPos = currPos.name;
 			} else {
-				currPos.style.border = '2px solid white';
+				currPos.style.border = '';
 			}
 		}
 		if (SVGBGMAKER.gradientType === 'radial') {
@@ -669,10 +664,7 @@ var SVGBGMAKER = SVGBGMAKER || {};
 	};
 
 	SVGBGMAKER.selectSize = function (e) {
-		for (var i = 0; i < allRadialSizes.length; i++) {
-			document.getElementById('size' + i).style.border = '2px solid white';
-		}
-		document.getElementById(e.target.id).style.border = '2px solid red';
+		document.getElementById(e.target.id).style.border = '1px solid red';
 		SVGBGMAKER.selectedSize = e.target.name;
 
 		if (SVGBGMAKER.selectedSize === 'custom size') {
@@ -687,10 +679,10 @@ var SVGBGMAKER = SVGBGMAKER || {};
 		for (var i = 0; i < allRadialSizes.length; i++) {
 			var currSize = document.getElementById('size' + i);
 			if (currSize.name.toLowerCase() === size.toLowerCase()) {
-				currSize.style.border = '2px solid red';
+				currSize.style.border = '1px solid red';
 				SVGBGMAKER.selectedSize = currSize.name;
 			} else {
-				currSize.style.border = '2px solid white';
+				currSize.style.border = '';
 			}
 		}
 		if (SVGBGMAKER.selectedSize === 'custom size') {
@@ -704,11 +696,14 @@ var SVGBGMAKER = SVGBGMAKER || {};
 	SVGBGMAKER.insertStop = function () {
 		var nNewStop = nextStopCount - 1;
 
-		var thLabel = document.createElement('div');
-		document.getElementById('stopsLabel').insertBefore(thLabel, document.getElementById('lastLabel'));
-		thLabel.id = 'stopRow' + nNewStop.toString() + 'label';
-		thLabel.appendChild(document.createTextNode('Stop'));
-		thLabel.className = 'controls--gradient-colors__label';
+		var trLabel = document.createElement('tr');
+		document.getElementById('stopItems').insertBefore(trLabel, document.getElementById('lastLabel'));
+		trLabel.id = 'stopRow' + nNewStop.toString() + 'label';
+
+		var tdLabel = document.createElement('td');
+		tdLabel.textContent = 'Stop';
+		tdLabel.className = 'controls--gradient-colors__label';
+		trLabel.appendChild(tdLabel);
 
 		var prevStop = nextStopCount;
 		while ((document.getElementById('offset' + prevStop.toString()) === null) && (prevStop > 0)) {
@@ -718,10 +713,19 @@ var SVGBGMAKER = SVGBGMAKER || {};
 		var StopValue2 = 1;
 		var StopValue1 = (StopValue0 + StopValue2) / 2;
 
-		var thOffset = document.createElement('div');
-		document.getElementById('stopsOffset').insertBefore(thOffset, document.getElementById('lastOffset'));
-		thOffset.id = 'stopRow' + nNewStop.toString() + 'offset';
+		var tdColor = document.createElement('td');
+		trLabel.appendChild(tdColor);
 		var input = document.createElement('input');
+		input.id = 'color' + nNewStop.toString();
+		input.size = '6';
+		input.type = 'text';
+		input.value = SVGBGMAKER.randomColor();
+		tdColor.appendChild(input);
+		SVGBGMAKER.repaint(input);
+
+		var tdOffset = document.createElement('td');
+		trLabel.appendChild(tdOffset);
+		input = document.createElement('input');
 		input.type = 'text';
 		input.id = 'offset' + nNewStop.toString();
 		input.value = StopValue1;
@@ -729,30 +733,19 @@ var SVGBGMAKER = SVGBGMAKER || {};
 		input.onchange = function () {
 			SVGBGMAKER.updateAllPanels();
 		};
-		thOffset.appendChild(input);
+		tdOffset.appendChild(input);
 
-		var thColor = document.createElement('div');
-		document.getElementById('stopsColor').insertBefore(thColor, document.getElementById('lastColor'));
-		thColor.id = 'stopRow' + nNewStop.toString() + 'color';
-		input = document.createElement('input');
-		input.id = 'color' + nNewStop.toString();
-		input.size = '6';
-		input.type = 'text';
-		input.value = SVGBGMAKER.randomColor();
-		thColor.appendChild(input);
-		SVGBGMAKER.repaint(input);
-
-		var thButton = document.createElement('div');
-		thButton.className = 'deletebutton';
-		document.getElementById('stopsButton').insertBefore(thButton, document.getElementById('lastButton'));
-		thButton.id = 'stopRow' + nNewStop.toString() + 'button';
+		var tdButton = document.createElement('td');
+		tdButton.className = 'deletebutton';
+		trLabel.appendChild(tdButton);
+		tdButton.id = 'stopRow' + nNewStop.toString() + 'button';
 		var button = document.createElement('button');
 		button.type = 'button';
 		button.id = nNewStop.toString();
 		button.onclick = function () {
 			SVGBGMAKER.removeStop(this);
 		};
-		thButton.appendChild(button);
+		tdButton.appendChild(button);
 
 		nextStopCount++;
 
@@ -761,15 +754,8 @@ var SVGBGMAKER = SVGBGMAKER || {};
 
 	SVGBGMAKER.removeStop = function (obj) {
 		var num = obj.id;
-		var currLabel = document.getElementById('stopRow' + num + 'label');
-		var currOffset = document.getElementById('stopRow' + num + 'offset');
-		var currColor = document.getElementById('stopRow' + num + 'color');
-		var currButton = document.getElementById('stopRow' + num + 'button');
-
-		currLabel.parentNode.removeChild(currLabel);
-		currOffset.parentNode.removeChild(currOffset);
-		currColor.parentNode.removeChild(currColor);
-		currButton.parentNode.removeChild(currButton);
+		var currRow = document.getElementById('stopRow' + num + 'label');
+		currRow.parentNode.removeChild(currRow);
 
 		SVGBGMAKER.updateAllPanels();
 	};
@@ -1138,4 +1124,4 @@ var SVGBGMAKER = SVGBGMAKER || {};
 	};
 
 	SVGBGMAKER.loadLinearTable();
-}());
+} ());

@@ -138,7 +138,6 @@ fieldset {
 }
 
 .controls--gradient-colors__col-alt {
-	display: block;
 	float: left;
 	margin-right: 1rem;
 	margin-top: 3.1rem;
@@ -150,19 +149,19 @@ fieldset {
 }
 
 [class*=controls--gradient-colors__label] {
-	display: block;
-	margin-right: 1rem;
-	line-height: 2.6rem;
 	text-transform: uppercase;
 }
 
 .controls--gradient-colors__label {
 	font-size: 1.3rem;
+	min-width: 55px;
 }
 
 .controls--gradient-colors__label-alt {
 	font-size: 1.1rem;
 	color: #7f7f7f;
+	text-align: left;
+	font-weight: normal;
 }
 
 .controls--gradient-colors__hex {
@@ -183,12 +182,11 @@ input[type="text"] {
 	display: block;
 	position: relative;
 	width: 6rem;
-	margin: .9rem 0;
+	margin: .3rem 5px .3rem 0;
 	border: solid 1px #aaa;
 }
 
 .deletebutton button {
-	position: relative;
 	margin-bottom: .6rem;
 	top: 5.6rem;
 	height: 2rem;
