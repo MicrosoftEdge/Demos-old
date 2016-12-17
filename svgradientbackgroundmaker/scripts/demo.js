@@ -422,17 +422,13 @@ var SVGBGMAKER = SVGBGMAKER || {};
 					posPerRow--;
 				}
 				tr.appendChild(th);
-				var thumbnail = document.createElement('div');
+				var thumbnail = document.createElement('button');
 				th.appendChild(thumbnail);
 				thumbnail.className = 'positionThumbnail';
 				thumbnail.id = 'pos' + i;
 				thumbnail.name = allLinearPos[i];
 				thumbnail.appendChild(document.createTextNode(allLinearPos[i]));
-
-				var markups = SVGBGMAKER.getMarkup(allLinearPos[i], null);
-				thumbnail.setAttribute('style', markups);
 				thumbnail.addEventListener('click', SVGBGMAKER.selectPos, true);
-
 			}
 		} else if (SVGBGMAKER.gradientType === 'radial') {
 			var defaultsize;
@@ -453,15 +449,12 @@ var SVGBGMAKER = SVGBGMAKER || {};
 					posPerRow--;
 				}
 				tr.appendChild(th);
-				thumbnail = document.createElement('div');
+				thumbnail = document.createElement('button');
 				th.appendChild(thumbnail);
 				thumbnail.className = 'positionThumbnail';
 				thumbnail.id = 'pos' + i;
 				thumbnail.name = allRadialPos[i];
 				thumbnail.appendChild(document.createTextNode(allRadialPos[i]));
-
-				markups = SVGBGMAKER.getMarkup(allRadialPos[i], defaultsize);
-				thumbnail.setAttribute('style', markups);
 				thumbnail.addEventListener('click', SVGBGMAKER.selectPos, true);
 			}
 		} else {
@@ -658,16 +651,13 @@ var SVGBGMAKER = SVGBGMAKER || {};
 		for (var i = 0; i < allRadialSizes.length; i++) {
 			var th = document.createElement('div');
 			tr.appendChild(th);
-			var thumbnail = document.createElement('div');
+			var thumbnail = document.createElement('button');
 			th.appendChild(thumbnail);
 			thumbnail.className = 'sizeThumbnail';
 			thumbnail.id = 'size' + i;
 			thumbnail.name = allRadialSizes[i];
 			thumbnail.appendChild(document.createTextNode(allRadialSizes[i]));
 			thumbnail.addEventListener('click', SVGBGMAKER.selectSize, true);
-
-			var markups = SVGBGMAKER.getMarkup(position, allRadialSizes[i]);
-			thumbnail.setAttribute('style', markups);
 		}
 		document.getElementById('sizePanel').appendChild(thumbnailSizePanel);
 		document.getElementById('sizes').style.display = '';
@@ -828,7 +818,6 @@ var SVGBGMAKER = SVGBGMAKER || {};
 		if (document.getElementById('svgSource') !== null) {
 			document.getElementById('svgSource').value = '<!-- SVG syntax --> \n' + svg;
 		}
-		//document.getElementById("otherSample").setAttribute("style", markup);
 		document.getElementById('otherSample').style.backgroundImage = SVGBGMAKER.getRawMarkup(SVGBGMAKER.selectedPos, SVGBGMAKER.selectedSize);
 		document.getElementById('otherSample').style.backgroundRepeat = 'no-repeat';
 	};
@@ -1093,24 +1082,6 @@ var SVGBGMAKER = SVGBGMAKER || {};
 		var newPos = SVGBGMAKER.selectedPos;
 		var newSize = SVGBGMAKER.selectedSize;
 
-		//Updating the thumbnails
-		var thumbnail;
-		if (SVGBGMAKER.gradientType === 'linear') {
-			for (var i = 0; i < allLinearPos.length; i++) {
-				thumbnail = document.getElementById('pos' + i);
-				var markups = SVGBGMAKER.getMarkup(allLinearPos[i]);
-				thumbnail.setAttribute('style', markups);
-			}
-		} else if (SVGBGMAKER.gradientType === 'radial') {
-			for (i = 0; i < allRadialPos.length; i++) {
-				thumbnail = document.getElementById('pos' + i);
-				if (SVGBGMAKER.selectedSize === null) {
-					newSize = allRadialSizes[4];
-				}
-				markups = SVGBGMAKER.getMarkup(allRadialPos[i], newSize);
-				thumbnail.setAttribute('style', markups);
-			}
-		}
 		SVGBGMAKER.pickPos(newPos);
 		if ((SVGBGMAKER.gradientType === 'radial') && (newSize !== null)) {
 			SVGBGMAKER.createSizePanel(newPos);
