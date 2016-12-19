@@ -101,15 +101,13 @@ fieldset {
 
 .positionThumbnail,
 .sizeThumbnail {
-	display: inline-block;
-	float:left;
+	float: left;
 	font-family: 'Montserrat', 'Segoe UI', sans-serif;
 	box-sizing: content-box;
-	font-size: 1.1rem;
+	font-size: 1.05rem;
 	width: 10.5rem;
-	height: 1.8rem;
 	margin: 0 .5rem .5rem 0;
-	padding: .5rem .6rem .5rem .6rem;
+	padding: .7rem .6rem;
 	color: #000;
 	background-color: #fff;
 	background-image: none;
