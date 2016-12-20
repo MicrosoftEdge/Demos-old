@@ -216,10 +216,10 @@ var MusicLounge;
                     return;
                 }
                 if (_this._keysPressed.up) {
-                    point.z++;
+                    point.y++;
                 }
                 if (_this._keysPressed.down) {
-                    point.z--;
+                    point.y--;
                 }
                 if (_this._keysPressed.left) {
                     point.x++;
@@ -227,7 +227,7 @@ var MusicLounge;
                 if (_this._keysPressed.right) {
                     point.x--;
                 }
-                if (point.x !== 0 || point.z !== 0) {
+                if (point.x !== 0 || point.y !== 0) {
                     if (_this._timeoutId) {
                         clearTimeout(_this._timeoutId);
                         _this._launchTimeout();
@@ -239,7 +239,7 @@ var MusicLounge;
                 }
                 var screenPosition = selectedCube.getScreenPosition();
                 var origPosition = getGroundPosition(screenPosition.x, screenPosition.y);
-                var destPosition = getGroundPosition(screenPosition.x + point.x, screenPosition.y + point.z);
+                var destPosition = getGroundPosition(screenPosition.x + point.x, screenPosition.y + point.y);
                 if (!origPosition || !destPosition) {
                     return;
                 }

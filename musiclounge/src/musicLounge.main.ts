@@ -196,16 +196,16 @@ module MusicLounge {
                     case 9: //tab key
                         tab(evt);
                         break;
-                    case 65: //left
+                    case 65: //left (key A)
                         this._keysPressed.left = true;
                         break;
-                    case 87: //up
+                    case 87: //up (key W)
                         this._keysPressed.up = true;
                         break;
-                    case 68: //right
+                    case 68: //right (key D)
                         this._keysPressed.right = true;
                         break;
-                    case 83: //down
+                    case 83: //down (key S)
                         this._keysPressed.down = true;
                         break;
                 }
@@ -215,16 +215,16 @@ module MusicLounge {
                 var charCode = (typeof evt.which === "number") ? evt.which : evt.keyCode;
 
                 switch (charCode) {
-                    case 65: //left
+                    case 65: //left (key A)
                         this._keysPressed.left = false;
                         break;
-                    case 87: //up
+                    case 87: //up (key W)
                         this._keysPressed.up = false;
                         break;
-                    case 68: //right
+                    case 68: //right (key D)
                         this._keysPressed.right = false;
                         break;
-                    case 83: //down
+                    case 83: //down (key S)
                         this._keysPressed.down = false;
                         break;
                 }
@@ -263,11 +263,11 @@ module MusicLounge {
                 }
 
                 if (this._keysPressed.up) {
-                    point.z++;
+                    point.y++;
                 }
 
                 if (this._keysPressed.down) {
-                    point.z--;
+                    point.y--;
                 }
 
                 if (this._keysPressed.left) {
@@ -278,7 +278,7 @@ module MusicLounge {
                     point.x--;
                 }
 
-                if (point.x !== 0 || point.z !== 0) {
+                if (point.x !== 0 || point.y !== 0) {
                     if (this._timeoutId) {
                         clearTimeout(this._timeoutId);
                         this._launchTimeout();
@@ -292,7 +292,7 @@ module MusicLounge {
                 var screenPosition = selectedCube.getScreenPosition();
 
                 var origPosition = getGroundPosition(screenPosition.x, screenPosition.y);
-                var destPosition = getGroundPosition(screenPosition.x + point.x, screenPosition.y + point.z);
+                var destPosition = getGroundPosition(screenPosition.x + point.x, screenPosition.y + point.y);
 
                 if (!origPosition || !destPosition) {
                     return;
