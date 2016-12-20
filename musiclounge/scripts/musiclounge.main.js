@@ -1,8 +1,3 @@
-/// <reference path="./babylon.2.1.d.ts" />
-/// <reference path="./musicLounge.soundCube.ts" />
-/// <reference path="./musicLounge.soundsLoader.ts" />
-/// <reference path="./musicLoung.asgardRing.ts" />
-/// <reference path="./musicLounge.globalEqualizer.ts" />
 var MusicLounge;
 (function (MusicLounge) {
     var Main = (function () {
@@ -40,42 +35,31 @@ var MusicLounge;
             this._camera.upperRadiusLimit = 1000;
             this._scene.clearColor = new BABYLON.Color3(0, 0, 0);
             this._scene.fogColor = new BABYLON.Color3(0, 0, 0);
-            // Auto-rotate
             this._launchTimeout();
-            // Light
             var light = new BABYLON.SpotLight('spot', new BABYLON.Vector3(0, 50, 0), new BABYLON.Vector3(0, -1, 0.01), 3.2, 1.2, this._scene);
-            // Shadows 
             var shadowGenerator = new BABYLON.ShadowGenerator(2048, light);
             shadowGenerator.useBlurVarianceShadowMap = true;
             shadowGenerator.bias = 0;
-            // Particles
             this._globalParticleSystem = new MusicLounge.GlobalEqualizer(this._scene);
-            // Asgard
             this._ring = new MusicLounge.AsgardRing(this._scene);
-            // Ground
             var ground = BABYLON.Mesh.CreateGround('ground', 10000, 10000, 1, this._scene, false);
             var groundMaterial = new BABYLON.StandardMaterial('ground', this._scene);
             groundMaterial.specularColor = BABYLON.Color3.Black();
             ground.material = groundMaterial;
             ground.receiveShadows = true;
-            // Meshes
             this._soundCubes.push(new MusicLounge.SoundCube('red', new BABYLON.Vector3(-100, 10, 0), this._scene, BABYLON.Color3.Red(), shadowGenerator, this._soundsLoader.sounds[0]));
             this._soundCubes.push(new MusicLounge.SoundCube('purple', new BABYLON.Vector3(0, 10, 100), this._scene, BABYLON.Color3.Purple(), shadowGenerator, this._soundsLoader.sounds[3]));
             this._soundCubes.push(new MusicLounge.SoundCube('yellow', new BABYLON.Vector3(100, 10, 100), this._scene, BABYLON.Color3.Yellow(), shadowGenerator, this._soundsLoader.sounds[4]));
             this._soundCubes.push(new MusicLounge.SoundCube('blue', new BABYLON.Vector3(100, 10, 0), this._scene, BABYLON.Color3.Blue(), shadowGenerator, this._soundsLoader.sounds[2]));
             this._soundCubes.push(new MusicLounge.SoundCube('green', new BABYLON.Vector3(0, 10, -100), this._scene, BABYLON.Color3.Green(), shadowGenerator, this._soundsLoader.sounds[1]));
             this._soundCubes.push(new MusicLounge.SoundCube('white', new BABYLON.Vector3(-100, 10, -100), this._scene, BABYLON.Color3.White(), shadowGenerator, this._soundsLoader.sounds[5]));
-            // Events
             var canvas = this._engine.getRenderingCanvas();
             var startingPoint = {};
             var currentSoundCube = {};
-            //Collisions
             this._scene.collisionsEnabled = true;
-            //Movement managemnet
             var getGroundPosition = function (x, y) {
                 if (x === void 0) { x = _this._scene.pointerX; }
                 if (y === void 0) { y = _this._scene.pointerY; }
-                // Use a predicate to get position on the ground
                 var pickinfo = _this._scene.pick(x, y, function (mesh) { return (mesh === ground); });
                 if (pickinfo.hit) {
                     return pickinfo.pickedPoint;
@@ -86,7 +70,6 @@ var MusicLounge;
                 if (evt.button !== 0) {
                     return;
                 }
-                // check if we are under a mesh
                 var pickInfo = _this._scene.pick(_this._scene.pointerX, _this._scene.pointerY, function (mesh) { return (mesh !== ground); });
                 if (pickInfo.hit) {
                     var selectedMesh = pickInfo.pickedMesh;
@@ -104,7 +87,6 @@ var MusicLounge;
                 if (startingPoint[evt.pointerId]) {
                     _this._camera.attachControl(canvas, true);
                     startingPoint[evt.pointerId] = null;
-                    //currentSoundCube[evt.pointerId].tryMagnetize(this._soundCubes);
                     currentSoundCube[evt.pointerId].land();
                     return;
                 }
@@ -246,7 +228,6 @@ var MusicLounge;
                 var diff = origPosition.subtract(destPosition);
                 selectedCube.move(diff, _this._soundCubes);
             };
-            //Rendering loop
             this._engine.runRenderLoop(function () {
                 moveCube();
                 _this._scene.render();
