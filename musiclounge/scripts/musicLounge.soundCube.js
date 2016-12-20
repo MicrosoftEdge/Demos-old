@@ -133,7 +133,7 @@ var MusicLounge;
         ;
         SoundCube.prototype.move = function (point, checkCollisionWith) {
             //if (BABYLON.Vector3.Distance(point, BABYLON.Vector3.Zero()) > 30) {
-            //    this.deMagnetize(); 
+            //    this.deMagnetize();
             //    this.box.computeWorldMatrix(true);
             //}
             if (this.box.parent === undefined) {

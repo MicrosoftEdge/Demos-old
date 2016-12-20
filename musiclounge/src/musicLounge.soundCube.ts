@@ -154,7 +154,7 @@
 
         public move(point: BABYLON.Vector3, checkCollisionWith: Array<SoundCube>): void {
             //if (BABYLON.Vector3.Distance(point, BABYLON.Vector3.Zero()) > 30) {
-            //    this.deMagnetize(); 
+            //    this.deMagnetize();
             //    this.box.computeWorldMatrix(true);
             //}
 
