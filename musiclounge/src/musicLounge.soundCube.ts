@@ -76,7 +76,7 @@
             // Direction of each particle after it has been emitted
             particleSystem.direction1 = new BABYLON.Vector3(0, 1, 0);
             particleSystem.direction2 = new BABYLON.Vector3(0, 1, 0);
-            
+
             // Speed
             particleSystem.minEmitPower = 5;
             particleSystem.maxEmitPower = 15;
@@ -139,6 +139,18 @@
 
             return false;
         }
+
+        public getScreenPosition(): BABYLON.Vector3 {
+            var arr: BABYLON.VertexBuffer = this._box.getVertexBuffer(BABYLON.VertexBuffer.PositionKind);
+            var vertex = BABYLON.Vector3.FromArray(arr.getData(), 0);
+            var coords = BABYLON.Vector3.TransformCoordinates(vertex, this._box.getWorldMatrix());
+
+            var res = BABYLON.Vector3.Project(coords, BABYLON.Matrix.Identity(), this._scene.getTransformMatrix(), this._scene.activeCamera.viewport.toGlobal(this._scene.getEngine()));
+            res.x /= 2;
+            res.y /= 2;
+            res.z /= 2;
+            return res;
+        };
 
         public move(point: BABYLON.Vector3, checkCollisionWith: Array<SoundCube>): void {
             //if (BABYLON.Vector3.Distance(point, BABYLON.Vector3.Zero()) > 30) {

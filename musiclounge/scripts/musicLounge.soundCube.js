@@ -10,7 +10,7 @@ var MusicLounge;
             this._box = BABYLON.Mesh.CreateBox(name, this._boxSize, scene);
             this._material = new BABYLON.StandardMaterial(name + ' material', this._scene);
             this._material.diffuseColor = color;
-            var diffuseTexture = new BABYLON.Texture('assets/flare.png', scene);
+            var diffuseTexture = new BABYLON.Texture('/assets/flare.png', scene);
             diffuseTexture.hasAlpha = true;
             diffuseTexture.uScale = 0.5;
             diffuseTexture.vScale = 0.5;
@@ -120,9 +120,20 @@ var MusicLounge;
             }
             return false;
         };
+        SoundCube.prototype.getScreenPosition = function () {
+            var arr = this._box.getVertexBuffer(BABYLON.VertexBuffer.PositionKind);
+            var vertex = BABYLON.Vector3.FromArray(arr.getData(), 0);
+            var coords = BABYLON.Vector3.TransformCoordinates(vertex, this._box.getWorldMatrix());
+            var res = BABYLON.Vector3.Project(coords, BABYLON.Matrix.Identity(), this._scene.getTransformMatrix(), this._scene.activeCamera.viewport.toGlobal(this._scene.getEngine()));
+            res.x /= 2;
+            res.y /= 2;
+            res.z /= 2;
+            return res;
+        };
+        ;
         SoundCube.prototype.move = function (point, checkCollisionWith) {
             //if (BABYLON.Vector3.Distance(point, BABYLON.Vector3.Zero()) > 30) {
-            //    this.deMagnetize();
+            //    this.deMagnetize(); 
             //    this.box.computeWorldMatrix(true);
             //}
             if (this.box.parent === undefined) {
@@ -254,7 +265,6 @@ var MusicLounge;
             return false;
         };
         return SoundCube;
-    })();
+    }());
     MusicLounge.SoundCube = SoundCube;
 })(MusicLounge || (MusicLounge = {}));
-//# sourceMappingURL=musicLounge.soundCube.js.map

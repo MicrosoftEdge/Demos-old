@@ -74,7 +74,6 @@ var MusicLounge;
             particleSystem.start();
         };
         return GlobalEqualizer;
-    })();
+    }());
     MusicLounge.GlobalEqualizer = GlobalEqualizer;
 })(MusicLounge || (MusicLounge = {}));
-//# sourceMappingURL=musicLounge.globalEqualizer.js.map

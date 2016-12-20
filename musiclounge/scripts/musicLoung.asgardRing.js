@@ -48,7 +48,6 @@ var MusicLounge;
             particleSystem.start();
         }
         return AsgardRing;
-    })();
+    }());
     MusicLounge.AsgardRing = AsgardRing;
 })(MusicLounge || (MusicLounge = {}));
-//# sourceMappingURL=musicLoung.asgardRing.js.map
