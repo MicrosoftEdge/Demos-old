@@ -6,7 +6,7 @@
 	<meta name="description" content="Show how to enhance your example with responsive images">
 	<meta name="keywords" content="picture, srcset, sizes, responsive images">
 	<meta name="author" content="gregwhitworth">
-	<link rel="stylesheet" href="//edgeportal.blob.core.windows.net/media/demotemplate.css"/>
+	<link rel="stylesheet" href="https://edgeportal.blob.core.windows.net/media/demotemplate.css"/>
 	<link rel="stylesheet" href="styles/demo.css">
 </head>
 
@@ -87,7 +87,20 @@
 					</div>
 					<div class="module">
 						<p><strong>Code</strong></p>
-						<script src="https://gist.github.com/gregwhitworth/4b6e82d6f6d5d58a984f.js"></script>
+<pre><code>&lt;article>
+	&lt;header>
+		&lt;img class="hero" src="imgs/hero-xlarge.jpg" alt="A portrait painting of a woman on a couch" />
+		&lt;h1 class="title">Capturing dramatic lighting in portrait paintings&lt;/h1>
+	&lt;/header>
+	&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu congue lorem. 
+	   Nunc sagittis consectetur lectus, non volutpat massa iaculis porta. 
+	   Duis vulputate est at tortor maximus condimentum. Cras tristique nec nisl sit amet dignissim. 
+	   Sed interdum eget leo in hendrerit. Integer nisl nunc, posuere nec arcu non, tempor tincidunt enim. 
+	   Quisque eget tortor ligula. Sed fringilla nisl id sem pretium elementum. Aenean in ex velit. 
+	   Morbi aliquet ligula arcu, eget ornare mauris tempor eget. Vivamus purus dui, posuere sit 
+	   amet tortor at, euismod consequat erat. Morbi elit turpis, malesuada a velit id, efficitur sollicitudin tellus. 
+	   Donec vel sapien at mi ultricies iaculis.&lt;/p>
+&lt;/article></code></pre>
 					</div>				
 				</div>
 			</div>
@@ -151,11 +164,11 @@
 							<article>
 								<header>
 									<img class="sample-hero" 
-									     src="https://edgeportal.blob.core.windows.net/demos/hero-xlarge.jpg" 
+										 src="https://edgeportal.blob.core.windows.net/demos/hero-xlarge.jpg" 
 										 srcset="https://edgeportal.blob.core.windows.net/demos/hero-small.jpg 480w,
-										         https://edgeportal.blob.core.windows.net/demos/hero-med.jpg 960w,
+												 https://edgeportal.blob.core.windows.net/demos/hero-med.jpg 960w,
 												 https://edgeportal.blob.core.windows.net/demos/hero-large.jpg 1920w"
-									     alt="A portrait painting of a woman on a couch">
+										 alt="A portrait painting of a woman on a couch">
 									<h1 class="title">Capturing dramatic lighting in portrait painting</p>
 								</header>
 								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu congue lorem. Nunc sagittis consectetur lectus, non volutpat massa iaculis porta. Duis vulputate est at tortor maximus condimentum. Cras tristique nec nisl sit amet dignissim. Sed interdum eget leo in hendrerit. Integer nisl nunc, posuere nec arcu non, tempor tincidunt enim. Quisque eget tortor ligula. Sed fringilla nisl id sem pretium elementum. Aenean in ex velit. Morbi aliquet ligula arcu, eget ornare mauris tempor eget. Vivamus purus dui, posuere sit amet tortor at, euismod consequat erat. Morbi elit turpis, malesuada a velit id, efficitur sollicitudin tellus. Donec vel sapien at mi ultricies iaculis.</p>
@@ -164,7 +177,13 @@
 					</div>
 					<div class="module">
 						<p><strong>Code</strong></p>
-						<script src="https://gist.github.com/gregwhitworth/feb78cfe6daacd64b501.js"></script>
+<pre><code>&lt;img class="hero" 
+	src="imgs/hero-xlarge.jpg" 
+	sizes="100vw" 
+	srcset="imgs/hero-small.jpg 480w,
+		imgs/hero-med.jpg 960w,
+		imgs/hero-large.jpg 1920w"
+	alt="A portrait painting of a woman on a couch"></code></pre>
 					</div>
 				</div>
 			</div>
@@ -246,8 +265,8 @@
 								<header>
 									<picture>
 										<source type="image/vnd.ms-photo"
-										        srcset="https://edgeportal.blob.core.windows.net/demos/hero-small.jxr 480w,
-												        https://edgeportal.blob.core.windows.net/demos/hero-med.jxr 960w,
+												srcset="https://edgeportal.blob.core.windows.net/demos/hero-small.jxr 480w,
+														https://edgeportal.blob.core.windows.net/demos/hero-med.jxr 960w,
 														https://edgeportal.blob.core.windows.net/demos/hero-large.jxr 1920w,
 														https://edgeportal.blob.core.windows.net/demos/hero-xlarge.jxr 2500w">
 										<img class="sample-hero" 
@@ -265,7 +284,21 @@
 					</div>
 					<div class="module">
 						<p><strong>Code</strong></p>
-						<script src="https://gist.github.com/gregwhitworth/1a80a5948d496983d7d4.js"></script>
+<pre><code>&lt;picture>
+	&lt;source type="image/vnd.ms-photo"
+		sizes="100vw" 
+		srcset="imgs/hero-small.jxr 480w,
+				imgs/hero-med.jxr 960w,
+				imgs/hero-large.jxr 1920w,
+				imgs/hero-xlarge.jxr 2500w">
+	&lt;img class="hero" 
+		src="imgs/hero-xlarge.jpg" 
+		sizes="100vw" 
+		srcset="imgs/hero-small.jpg 480w,
+				imgs/hero-med.jpg 960w,
+				imgs/hero-large.jpg 1920w"
+	 alt="A portrait painting of a woman on a couch">
+&lt;/picture></code></pre>
 					</div>
 				</div>
 			</div>
@@ -290,12 +323,12 @@
 								<header>
 									<picture>
 										<source media="(max-width: 700px) and (orientation: portrait)"
-										        srcset="https://edgeportal.blob.core.windows.net/demos/hero-med-vert.jpg 245w
-												        https://edgeportal.blob.core.windows.net/demos/hero-large-vert.jpg 490w,
-												        https://edgeportal.blob.core.windows.net/demos/hero-xlarge-vert.jpg 980w">
+												srcset="https://edgeportal.blob.core.windows.net/demos/hero-med-vert.jpg 245w
+														https://edgeportal.blob.core.windows.net/demos/hero-large-vert.jpg 490w,
+														https://edgeportal.blob.core.windows.net/demos/hero-xlarge-vert.jpg 980w">
 										<source type="image/vnd.ms-photo"
-										        srcset="https://edgeportal.blob.core.windows.net/demos/hero-small.jxr 480w,
-												        https://edgeportal.blob.core.windows.net/demos/hero-med.jxr 960w,
+												srcset="https://edgeportal.blob.core.windows.net/demos/hero-small.jxr 480w,
+														https://edgeportal.blob.core.windows.net/demos/hero-med.jxr 960w,
 														https://edgeportal.blob.core.windows.net/demos/hero-large.jxr 1920w,
 														https://edgeportal.blob.core.windows.net/demos/hero-xlarge.jxr 2500w">
 										<img class="sample-hero" 
@@ -313,7 +346,11 @@
 					</div>
 					<div class="module">
 						<p><strong>Code</strong></p>
-						<script src="https://gist.github.com/gregwhitworth/ed8f4db319ba684a5b1a.js"></script>
+<pre><code>&lt;source media="(max-width: 700px) and (orientation: portrait)" 
+	sizes="100vw"
+	srcset="imgs/hero-med-vert.jpg 245w 
+		imgs/hero-large-vert.jpg 490w, 
+		imgs/hero-xlarge-vert.jpg 980w"></code></pre>
 					</div>				
 				</div>
 				
@@ -325,7 +362,7 @@
 	<section class="section">
 		<div class="container">	
 			<div class="section__header">
-			    <h2>Comparing the initial image solution verses the solution utilizing responsive images</h2>
+				<h2>Comparing the initial image solution verses the solution utilizing responsive images</h2>
 			</div>
 			
 			<div class="section__body">
@@ -341,9 +378,9 @@
 								<header>
 									<picture>
 										<source media="(max-width: 700px) and (orientation: portrait)"
-										        srcset="https://edgeportal.blob.core.windows.net/demos/hero-med-vert.jpg 245w
-												        https://edgeportal.blob.core.windows.net/demos/hero-large-vert.jpg 490w,
-												        https://edgeportal.blob.core.windows.net/demos/hero-xlarge-vert.jpg 980w">
+												srcset="https://edgeportal.blob.core.windows.net/demos/hero-med-vert.jpg 245w
+														https://edgeportal.blob.core.windows.net/demos/hero-large-vert.jpg 490w,
+														https://edgeportal.blob.core.windows.net/demos/hero-xlarge-vert.jpg 980w">
 										<img class="sample-hero" 
 											src="https://edgeportal.blob.core.windows.net/demos/hero-xlarge.jpg" 
 											srcset="https://edgeportal.blob.core.windows.net/demos/hero-small.jpg 480w,
