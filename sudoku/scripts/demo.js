@@ -705,8 +705,8 @@
 
 		var clearErrors = function () {
 
-			errorsFoundSpan.style.display = 'none';
-			noErrorsSpan.style.display = 'none';
+			errorsFoundSpan.setAttribute('hidden', true);
+			noErrorsSpan.setAttribute('hidden', true);
 
 			for (var i = 0; i < currentErrors.length; i++) {
 				currentErrors[i].setAttribute('class', currentErrors[i].getAttribute('class').replace(' error', ''));
@@ -719,12 +719,12 @@
 				var level = parseInt(difficulty.options[difficulty.selectedIndex].value);
 				amazing = true;
 				clearErrors();
-				finishedCalculatingDiv.style.display = 'none';
-				calculatingDiv.style.display = 'block';
+				finishedCalculatingDiv.setAttribute('hidden', true);
+				calculatingDiv.removeAttribute('hidden');
 
 				solveTest(level, function () {
-					finishedCalculatingDiv.style.display = 'block';
-					calculatingDiv.style.display = 'none';
+					finishedCalculatingDiv.removeAttribute('hidden');
+					calculatingDiv.setAttribute('hidden', true);
 					amazing = false;
 					currentPuzzle = hardPuzzle;
 				});
@@ -741,16 +741,16 @@
 			var result = verifySolution(board);
 			if (result.valid) {
 
-				var validMessages = ['LOOKIN GOOD', 'KEEP GOING', 'AWESOME', 'EXCELLENT',
-					'NICE', 'SWEET', 'LOOKS GOOD TO ME'
+				var validMessages = ['Looking good', 'Keep going!', 'Awesome', 'Excellent',
+					'Nice', 'Sweet', 'Looks good to me'
 				];
 
 				if (verifySolution(board, true).valid) {
-					winBlock.style.display = 'block';
+					winBlock.removeAttribute('hidden');
 				} else {
 					var randIndex = getRandom(validMessages.length);
 					noErrorsSpan.textContent = validMessages[randIndex];
-					noErrorsSpan.style.display = 'block';
+					noErrorsSpan.removeAttribute('hidden');
 				}
 			} else {
 				if ('badRow' in result) {
@@ -782,7 +782,7 @@
 					}
 
 				}
-				errorsFoundSpan.style.display = 'block';
+				errorsFoundSpan.removeAttribute('hidden');
 			}
 
 		}, false);
@@ -790,7 +790,7 @@
 		var winCloseButton = document.getElementById('win-close-button');
 
 		winCloseButton.addEventListener('click', function () {
-			winBlock.style.display = 'none';
+			winBlock.setAttribute('hidden', true);
 		}, false);
 
 		var winNewGameButton = document.getElementById('win-new-game-button');
@@ -800,7 +800,7 @@
 			var value = parseInt(difficulty.options[difficulty.selectedIndex].value);
 			currentPuzzle = generatePuzzle(value);
 			renderBoard(currentPuzzle);
-			winBlock.style.display = 'none';
+			winBlock.setAttribute('hidden', true);
 		}, false);
 
 		var newGameButton = document.getElementById('new-game-button');
@@ -821,7 +821,7 @@
 
 		addEventListener('mouseup', function (event) {
 			if (event.which === 1) {
-				noErrorsSpan.style.display = 'none';
+				noErrorsSpan.setAttribute('hidden', true);
 			}
 		}, false);
 	};
