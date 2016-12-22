@@ -6,7 +6,7 @@
  * 							-Controls (list of links)
  */
 function FpsMeter(initialScore, scoreLabel) {
-	//get browser information
+	// get browser information
 	var UA = navigator.userAgent.toLowerCase();
 	var index;
 
@@ -37,7 +37,7 @@ function FpsMeter(initialScore, scoreLabel) {
 		this.browserVersion = "" + parseFloat('' + UA.substring(index + 7));
 	}
 
-	//create canvas and divs
+	// create canvas and divs
 	this.canvas = document.createElement("canvas");
 	this.canvas.id = "fpsCanvas";
 	this.canvas.setAttribute('width', 110);
@@ -63,25 +63,24 @@ function FpsMeter(initialScore, scoreLabel) {
 	this.fpsometerDiv = document.createElement("div");
 	this.fpsometerDiv.setAttribute("id", "fpsometer");
 	this.fpsometerDiv.setAttribute("class", "fpsometer");
-	//document.body.insertBefore(this.fpsometerDiv, document.body.firstChild);
 	this.fpsometerDiv.innerHTML = "<div class='meter' id='fps'></div><div class='meterLabel' id='fpsLabel'>FPS</div>";
 
-	//add resize handlers
+	// add resize handlers
 	var self = this;
 	var resizeHandler = function (e) { self.OnWindowResize(e); }
 	window.addEventListener("resize", resizeHandler, false);
 
-	//populate fps-o-meter with initial data  
-	//this.infoPanelFps = document.getElementById("fps");  
-	//this.infoPanelFps.setAttribute("title", "Frames per second");
-	//this.infoPanelFps.innerHTML = 0;   
+	// populate fps-o-meter with initial data  
+	// this.infoPanelFps = document.getElementById("fps");  
+	// this.infoPanelFps.setAttribute("title", "Frames per second");
+	// this.infoPanelFps.innerHTML = 0;   
 
 	this.infoPanelScore = document.getElementById("score");
 	this.infoPanelScore.innerHTML = initialScore;
 
 	this.windowSize = document.getElementById("windowSize");
-	this.bodyWidth = window.innerWidth; //document.body.offsetWidth;
-	this.bodyHeight = window.innerHeight; //document.body.offsetHeight;
+	this.bodyWidth = window.innerWidth;
+	this.bodyHeight = window.innerHeight;
 	this.windowSize = this.bodyWidth + " x " + this.bodyHeight;
 
 	document.getElementById("scoreLabel").innerHTML = scoreLabel;
@@ -94,11 +93,11 @@ function FpsMeter(initialScore, scoreLabel) {
 /**
  * Class properties
  */
-FpsMeter.prototype.fps = 0;                            //how many frames per second are calculated.
-FpsMeter.prototype.displayedFps = 0;					//the displayed FPS. This is updated to match fps according to fpsDisplayUpdateFrequency
-FpsMeter.prototype.lastFrameTime = new Date();         //time of the last frame
-FpsMeter.prototype.timeDelta = .001;                      //milliseconds since the last frame
-FpsMeter.prototype.timeDeltaS = .1;                     //seconds since the last frame
+FpsMeter.prototype.fps = 0;								// how many frames per second are calculated.
+FpsMeter.prototype.displayedFps = 0;					// the displayed FPS. This is updated to match fps according to fpsDisplayUpdateFrequency
+FpsMeter.prototype.lastFrameTime = new Date();			// time of the last frame
+FpsMeter.prototype.timeDelta = .001;					// milliseconds since the last frame
+FpsMeter.prototype.timeDeltaS = .1;						// seconds since the last frame
 FpsMeter.prototype.currentSecond = 0;
 FpsMeter.prototype.framesThisSecond = 0;
 FpsMeter.prototype.timeDeltaSinceLastFrame = 0;
@@ -180,7 +179,7 @@ FpsMeter.prototype.Draw = function (score, snap) {
 		}
 	}
 
-	//if ((now - this.fpsResetTime < 1000) || snap) {
+	// if ((now - this.fpsResetTime < 1000) || snap) {
 	if ((now - this.fpsResetTime < 1000)) {
 		this.frames++;
 		// calculate frames live
@@ -189,15 +188,15 @@ FpsMeter.prototype.Draw = function (score, snap) {
 
 	}
 
-	//-----display the score-----------------------------------------------------------------------------------------------
+	// -----display the score-----------------------------------------------------------------------------------------------
 	if (score == undefined)
 		score = 0;
 	this.infoPanelScore.innerHTML = score;
 
-	//-----draw the FPS-o-meter--------------------------------------------------------------------------------------------
+	// -----draw the FPS-o-meter--------------------------------------------------------------------------------------------
 	this.ctx.clearRect(0, 0, 110, 110);
 
-	//draw translucent background
+	// draw translucent background
 	this.ctx.save();
 	this.ctx.beginPath();
 	this.ctx.fillStyle = "rgba(75,175,225,.75)";
@@ -213,7 +212,7 @@ FpsMeter.prototype.Draw = function (score, snap) {
 	this.ctx.fill();
 	this.ctx.restore();
 
-	//draw meter
+	// draw meter
 	if (this.displayedFps > 1) {
 		this.meterPercentGoal = (this.displayedFps > 60 ? 60 : this.displayedFps) / 60; //a maximum of 60fps are drawn so cap the gauge at 60fps.
 		if (this.meterPercent == -1) {
@@ -262,7 +261,7 @@ FpsMeter.prototype.Draw = function (score, snap) {
 		this.ctx.fill();
 	}
 
-	//draw line along bottom of the meter
+	// draw line along bottom of the meter
 	this.ctx.save();
 	this.ctx.beginPath();
 	this.ctx.moveTo(5, 55);
@@ -294,11 +293,9 @@ FpsMeter.prototype.Draw = function (score, snap) {
 	this.ctx.strokeStyle = "white";
 
 	this.ctx.fillStyle = "black";
-	//this.ctx.fill();
-	//this.ctx.stroke();
 	this.ctx.restore();
 
-	//draw needle
+	// draw needle
 	if (this.meterPercent != -1) {
 		this.ctx.save();
 		this.ctx.lineCap = "round";
@@ -316,13 +313,13 @@ FpsMeter.prototype.Draw = function (score, snap) {
 		this.ctx.restore();
 	}
 
-	//draw fps
+	// draw fps
 	this.ctx.save();
 	this.ctx.fillStyle = "black";
 	this.ctx.globalAlpha = .5;
 	this.ctx.font = "bold 15px arial";
 
-	//var fpsString = this.displayedFps+" FPS";
+	// var fpsString = this.displayedFps+" FPS";
 	var fpsString = "";
 	var displayedFps = Math.round((this.meterPercent * 60));
 	if (this.meterPercent > 0) {
@@ -334,7 +331,7 @@ FpsMeter.prototype.Draw = function (score, snap) {
 	var y = this.ctx.canvas.height / 2;
 
 	this.ctx.fillText(fpsString, x, y);
-	//this.ctx.fillText("ASDFASDF", 10, 10);
+	// this.ctx.fillText("ASDFASDF", 10, 10);
 	this.ctx.restore();
 }
 
@@ -344,7 +341,7 @@ FpsMeter.prototype.Draw = function (score, snap) {
  */
 FpsMeter.prototype.Hide = function () {
 	this.canvas.style.display = "none";
-	//this.infoPanel.style.display = "none";
+	// this.infoPanel.style.display = "none";
 }
 
 /**
@@ -353,7 +350,7 @@ FpsMeter.prototype.Hide = function () {
  */
 FpsMeter.prototype.Show = function () {
 	this.canvas.style.display = "inline";
-	//this.infoPanel.style.display = "inline";
+	// this.infoPanel.style.display = "inline";
 }
 
 /**
@@ -364,12 +361,12 @@ FpsMeter.prototype.OnWindowResize = function (e) {
 
 	if (typeof e == 'undefined') e = window.event;
 
-	//on resize update width and height
-	this.bodyWidth = window.innerWidth; //document.body.offsetWidth;
-	this.bodyHeight = window.innerHeight; //document.body.offsetHeight;
+	// on resize update width and height
+	this.bodyWidth = window.innerWidth;
+	this.bodyHeight = window.innerHeight;
 	this.windowSize = this.bodyWidth + " x " + this.bodyHeight;
 
-	//update infoPanel text
+	// update infoPanel text
 	document.getElementById("windowSizeLabel").innerHTML = this.windowSizeLabel;
 	document.getElementById("windowSize").innerHTML = this.windowSize;
 }
@@ -384,7 +381,7 @@ FpsMeter.prototype.CssRule = function (rulestr) {
 			var sheet = document.styleSheets[i];
 
 			for (var ruleIndex = 0; ruleIndex < sheet.cssRules.length; ruleIndex++) {
-				//gLog.Debug(rule.selectorText);
+				// gLog.Debug(rule.selectorText);
 				var rule = sheet.cssRules[ruleIndex];
 				if (rule.selectorText.toLowerCase() == rulestr) {
 					retVal = rule;
