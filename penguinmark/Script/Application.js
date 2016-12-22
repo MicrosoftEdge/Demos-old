@@ -14,12 +14,14 @@ function Initialize() {
     imgSnowflake.src = "Images/Snowflakes.png";
     ResizeScene();
 }
+
 document.addEventListener("DOMContentLoaded", Initialize, false);
 
 function RegisterEventHandlers() {
     window.addEventListener("resize", ResizeScene, false);
     document.getElementById("StartButton").addEventListener("click", StartPenguinMark, false);
     document.getElementById("ResetButton").addEventListener("click", ResetDemo, false);
+    document.getElementById("ToggleAudioButton").addEventListener("click", ToggleAudio, false);
 }
 
 function CalculateSceneDimensions() {
@@ -27,6 +29,24 @@ function CalculateSceneDimensions() {
     sceneTop = 0;
     sceneWidth = document.getElementById("Scene").offsetWidth;
     sceneHeight = document.getElementById("Scene").offsetHeight;
+}
+
+function ToggleAudio() {
+
+    var audioEntryElement = document.getElementById("AudioEntryElement");
+    var audioTrackElement = document.getElementById("AudioTrackElement");
+    var muteAudioButton = document.getElementById("ToggleAudioButton");
+
+    if (audioEntryElement.volume === 0) {
+        audioEntryElement.volume = 1;
+        audioTrackElement.volume = 1;
+        muteAudioButton.innerHTML = "Mute audio";
+    } else {
+        audioEntryElement.volume = 0;
+        audioTrackElement.volume = 0;
+        muteAudioButton.innerHTML = "Unmute audio";
+    }
+
 }
 
 function ResizeScene() {
@@ -40,6 +60,7 @@ function StartPenguinMark() {
         started = true;
         document.getElementById("WelcomeScreen").style.display = "none";
         document.getElementById("AudioEntryElement").pause();
+        document.getElementById("ToggleAudioButton").style.display = "none";
         document.getElementById("AudioTrackElement").play();
         characters.Start();
         snowstorm.Start();
