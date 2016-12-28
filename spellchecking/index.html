@@ -1,85 +1,70 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-	<title>Spellchecking</title>
-	<meta name="og:title" content="Spellchecking"/>
-	<meta name="description" content="Learn about Internet Explorer's support for spellchecking and how to use it"/>
-	<meta name="keywords" content="input, spellcheck, textarea, textbox, html5"/>
-	<link rel="stylesheet" type="text/css" href="styles/demotemplate.css"/>
-	<link rel="stylesheet" type="text/css" href="styles/demo.css"/>
-</head>
-<body>
-<div class="container spellchecking-container">
-	<h1 id="demo-title">
-		Spellchecking in IE10
-	</h1>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>Spellchecking</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="og:title" content="Spellchecking">
+		<meta name="description" content="Learn about Internet Explorer's support for spellchecking and how to use it">
+		<meta name="keywords" content="input, spellcheck, textarea, textbox, html5">
+		<link rel="stylesheet" href="https://edgeportal.blob.core.windows.net/media/demotemplate.css">
+		<link rel="stylesheet" href="styles/demo.css">
+	</head>
+	<body>
 
-	<div id="demo-screenreader-text">
-		IE10 now supports HTML5 spellchecking. As you type text into textarea and
-		contenteditable regions, the browser automatically checks your spelling.
-	</div>
-	<div id="demo-introduction">
-		<p>IE10 Spellchecking brings the "best in class" spelling engine and dictionaries used by
-			Microsoft to the browser. IE10 is also the first browser to support auto-correction of text while you type!
-			Try
-			it out.</p>
-	</div>
-	<div id="demo-content">
-		<p>Try typing the following commonly misspelled words into the edit box below. When a misspelled word is
-			identified,
-			place the cursor in the word and press Shift+F10 to bring up the correction menu.</p>
-		<table>
-			<tr>
-				<td>acceptible*</td>
-				<td>commited</td>
-				<td>dicipline*</td>
-			</tr>
-			<tr>
-				<td>recieve*</td>
-				<td>ocurrance</td>
-				<td>vaccume</td>
-			</tr>
-		</table>
-		<textarea placeholder="Try out your (mis-)spelling here"></textarea>
+		<main class="container">
+			<article class="content spellchecking-container">
 
-		<div>
-			<p>Preexisting text will not be spellchecked, however pasted text will be checked when it is inserted. Try
-				<b>copying
-					and pasting</b> the following text into the text area:</p>
+				<header>
+					<h1>Spellchecking in IE10</h1>
+				</header>
 
-			<p><span>IE10 spelling corection is based on the latest Microsoft spellchecing engine and dictionarys. IE10's spell checker also includes auto-correction to help corrct mistacks while you type!</span>
-			</p>
-		</div>
-	</div>
-	<div id="demo-details">
-		<h2 class="clear">Autocorrection</h2>
+				<section class="section">
+					<p class="visually-hidden">IE10 now supports HTML5 spellchecking. As you type text into textarea and contenteditable regions, the browser automatically checks your spelling.</p>
+					<p>IE10 Spellchecking brings the "best in class" spelling engine and dictionaries used by Microsoft to the browser. IE10 is also the first browser to support auto-correction of text while you type! Try it out.</p>
+					<p>Try typing the following commonly misspelled words into the edit box below. When a misspelled word is identified, place the cursor in the word and press Shift+F10 to bring up the correction menu.</p>
+					<ul class="bare layout layout--thirds example-words">
+						<li class="module">acceptible*</li>
+						<li class="module">commited</li>
+						<li class="module">dicipline*</li>
+						<li class="module">recieve*</li>
+						<li class="module">ocurrance</li>
+						<li class="module">vaccume</li>
+					</ul>
 
-		<p>Did you notice anything unusual about the above words with asterisks (*)?</p>
+					<label for="spellcheck-textarea">Try out your (mis-)spelling here:</label>
+					<textarea id="spellcheck-textarea" placeholder="Text entered here will be spell checked."></textarea>
 
-		<p>IE10+ also supports autocorrection or "correction-while-you-type." Commonly misspelled words will be
-			corrected
-			immediately, making your review process faster.</p>
+					<p>Preexisting text will not be spellchecked, however pasted text will be checked when it is inserted. Try <b>copying and pasting</b> the following text into the text area:</p>
+					<p>IE10 spelling corection is based on the latest Microsoft spellchecing engine and dictionarys. IE10's spell checker also includes auto-correction to help corrct mistacks while you type!</p>
+			</section>
 
-		<h2>The <span class="tt">spellcheck</span> attribute</h2>
+			<section class="section">
+				<header class="section__header">
+					<h2>Autocorrection</h2>
+				</header>
+				<div class="section__body">
+					<p>Did you notice anything unusual about the above words with asterisks (*)?</p>
+					<p>IE10+ also supports autocorrection or "correction-while-you-type." Commonly misspelled words will be corrected immediately, making your review process faster.</p>
+					<section class="subsection">
+						<h3 class="subsection__header">The <code>spellcheck</code> attribute</h3>
+						<div class="subsection__body">
+							<p>Spellchecking is active by default on <code>&lt;textarea&gt;</code> and <code>contenteditable</code> elements, and off by default for text boxes</p>
+							<p>Web developers can override the defaults using the <span class="tt">spellcheck</span> attribute.</p>
+							<fieldset>
+								<label for="input-spellcheck-disabled">Input with spellcheck disabled:</label>
+								<input id="input-spellcheck-disabled" type="text" spellcheck="false" placeholder="Text entered here will not be spell checked.">
+								<label for="input-spellcheck-enabled">Input with spellcheck enabled:</label>
+								<input id="input-spellcheck-enabled" type="text" spellcheck="true" placeholder="Text entered here will be spell checked.">
+							</fieldset>
+						</div>
+					</section>
+				</div>
+			</section>
 
-		<p>Spellchecking is active by default on &lt;textarea&gt; and <i>contenteditable</i> elements, and off by
-			default
-			for text boxes</p>
+		</article>
+	</main>
 
-		<p>Web developers can override the defaults using the <span class="tt">spellcheck</span> attribute.</p>
-		<fieldset>
-			<div>
-				<input type="text" class="spell-input" placeholder="This input has spellcheck=false"
-					   spellcheck="false"/>
-				<span class="tt">spellcheck=false</span> (disabled)
-			</div>
-			<div>
-				<input type="text" class="spell-input" placeholder="This input has spellcheck=true" spellcheck="true"/>
-				<span class="tt">spellcheck=true</span> (enabled)
-			</div>
-		</fieldset>
-	</div>
-</div>
 </body>
 </html>

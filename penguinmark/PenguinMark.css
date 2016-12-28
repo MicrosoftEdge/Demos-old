@@ -1,4 +1,4 @@
-﻿/* Base Styles ------------------------------------------------------------------------ */
+/* Base Styles ------------------------------------------------------------------------ */
 
 @font-face {
 	font-family: 'Cookies';
@@ -102,22 +102,26 @@ a:hover, a:visited:hover {
     text-align: right;
 }
 
-#StartButton {
-    font-family: Cookies;
-    position: absolute;
-    padding: 12px 18px 10px 18px;
-    margin: 0px 20px 0px 0px;
-    border-radius: 4px;
-    right: 0px;
+
+.btn {
     background-color: orange;
+    border-radius: 4px;
+    border: 0;
+    font-family: Cookies;
     font-size: 14pt;
 }
 
-    #StartButton:hover {
-        background-color: #ffc300;
-        cursor: pointer;
-    }
+.btn:hover {
+    background-color: #ffc300;
+    cursor: pointer;
+}
 
+#StartButton {
+    margin: 0 20px 0 0;
+    padding: 12px 18px 10px 18px;
+    position: absolute;
+    right: 0;
+}
 
 
 /* Welcome & Results Penguins --------------------------------------------------------- */
@@ -205,6 +209,7 @@ a:hover, a:visited:hover {
     float: right;
     width: 360px;
     padding-top: 40px;
+    text-align: center;
 }
 
 #ResultsHeading {
@@ -223,22 +228,10 @@ a:hover, a:visited:hover {
 }
 
 #ResetButton {
-    width: 140px;
-    text-align: center;
+    margin: 30px auto;
     padding: 12px 18px 10px 18px;
-    margin: 30px 0px 0px 90px;
-    border-radius: 4px;
-    bottom: 0px;
-    right: 0px;
-    background-color: orange;
-    font-size: 14pt;
+    width: 176px;
 }
-
-    #ResetButton:hover {
-        background-color: #ffc300;
-        cursor: pointer;
-    }
-
 
 
 
