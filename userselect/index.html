@@ -30,7 +30,7 @@
 	</div>
 </header>
 <section role="region "class="container section">
-<div class="userselect-container wrapper">
+<div class="userselect-container clear">
 	<div id="controls">
 		<select id="sel" class="controls-select">
 			<option selected value="on">Normal Selection</option>
@@ -135,58 +135,56 @@
 	</div>
 </section>
 <section role="region" class="container section">
-	<div class="wrapper">
-		<h2 class="section__header">User-select property values explained</h2>
-			<div class="section__body">
-				<div class="subsection">
-					<div class="layout layout--equal">
-						<div class="module">
-							<h3>-ms-user-select: none</h3>
-							<p><code>-ms-user-select:none</code> will block selection from starting on that element. It will not block an
-								existing selection from entering the element.</p>
-						</div>
-						<div class="module rendered-result">
-							<p style="-ms-user-select:none;">This paragraph blocks selection from starting here.</p>
-						</div>
+	<h2 class="section__header">User-select property values explained</h2>
+		<div class="section__body">
+			<div class="subsection">
+				<div class="layout layout--equal">
+					<div class="module">
+						<h3>-ms-user-select: none</h3>
+						<p><code>-ms-user-select:none</code> will block selection from starting on that element. It will not block an
+							existing selection from entering the element.</p>
 					</div>
-				</div>
-				<div class="subsection">
-					<div class="layout layout--equal">
-						<div class="module">
-							<h3>-ms-user-select: element</h3>
-							<p><code>-ms-user-select:element</code> enables selection to start within the element, however, the selection
-								will be contained by the bounds of that element.</p>
-						</div>
-						<div class="module rendered-result">
-							<p style="-ms-user-select:element;">This paragraph limits selection to within it's bounds.</p>
-						</div>
+					<div class="module rendered-result">
+						<p style="-ms-user-select:none;">This paragraph blocks selection from starting here.</p>
 					</div>
-				</div>
-				<div class="subsection">
-					<div class="layout layout--equal">
-						<div class="module">
-							<h3>-ms-user-select: text</h3>
-							<p><code>-ms-user-select:text</code> enables selection to start within the element and extend past the element's bounds.</p>
-						</div>
-						<div class="module rendered-result">
-							<p style="-ms-user-select:text;">This paragraph allows unbounded selection.</p>
-						</div>
-					</div>
-				</div>
-				<div class="subsection">
-					<h3>Interop Notes</h3>
-					<p><code>user-select</code> is not currently part of any W3C CSS specification. It was originally proposed in
-					the <a
-							href="http://www.w3.org/TR/2000/WD-css3-userint-20000216">User Interface for CSS3</a> module; this module has
-							since been superseded by <a	href="http://www.w3.org/TR/css3-ui/">CSS3 Basic User Interface Module</a> which
-							does not define the <code>user-select</code> property. Both <a href="https://developer.mozilla.org/en/CSS/-moz-user-select">Mozilla</a> and <a
-							href="http://developer.apple.com/library/safari/#documentation/AppleApplications/Reference/SafariCSSRef/Articles/StandardCSSProperties.html#//apple_ref/css/property/-webkit-user-select ">Webkit</a>
-						support their own prefixed versions of this property. There are minor differences between the three
-						implementations so be sure to test your application across browsers.</p>
-					<br/>
 				</div>
 			</div>
-	</div>
+			<div class="subsection">
+				<div class="layout layout--equal">
+					<div class="module">
+						<h3>-ms-user-select: element</h3>
+						<p><code>-ms-user-select:element</code> enables selection to start within the element, however, the selection
+							will be contained by the bounds of that element.</p>
+					</div>
+					<div class="module rendered-result">
+						<p style="-ms-user-select:element;">This paragraph limits selection to within it's bounds.</p>
+					</div>
+				</div>
+			</div>
+			<div class="subsection">
+				<div class="layout layout--equal">
+					<div class="module">
+						<h3>-ms-user-select: text</h3>
+						<p><code>-ms-user-select:text</code> enables selection to start within the element and extend past the element's bounds.</p>
+					</div>
+					<div class="module rendered-result">
+						<p style="-ms-user-select:text;">This paragraph allows unbounded selection.</p>
+					</div>
+				</div>
+			</div>
+			<div class="subsection">
+				<h3>Interop Notes</h3>
+				<p><code>user-select</code> is not currently part of any W3C CSS specification. It was originally proposed in
+				the <a
+						href="http://www.w3.org/TR/2000/WD-css3-userint-20000216">User Interface for CSS3</a> module; this module has
+						since been superseded by <a	href="http://www.w3.org/TR/css3-ui/">CSS3 Basic User Interface Module</a> which
+						does not define the <code>user-select</code> property. Both <a href="https://developer.mozilla.org/en/CSS/-moz-user-select">Mozilla</a> and <a
+						href="http://developer.apple.com/library/safari/#documentation/AppleApplications/Reference/SafariCSSRef/Articles/StandardCSSProperties.html#//apple_ref/css/property/-webkit-user-select ">Webkit</a>
+					support their own prefixed versions of this property. There are minor differences between the three
+					implementations so be sure to test your application across browsers.</p>
+				<br/>
+			</div>
+		</div>
 </section>
 <script type="text/javascript" src="scripts/demo.js"></script>
 </body>

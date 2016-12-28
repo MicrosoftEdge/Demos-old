@@ -1,24 +1,3 @@
-html {
-	font-size: 62.5%;
-}
-
-body {
-	font-family: 'Segoe UI', Arial, sans-serif;
-}
-
-p {
-	font-size: 1.5rem;
-}
-
-.clear {
-	clear: both;
-}
-
-.wrapper {
-	margin: 0 auto;
-	max-width: 120rem;
-}
-
 .userselect-containerpre {
 	display: none;
 }
