@@ -1,478 +1,471 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <title>HTML5 Sudoku</title>
-    <meta name="og:title" content="HTML5 Sudoku"/>
-    <meta http-equiv="Content-Language" content="en-us"/>
-    <meta name="description" content="Test your skills with this full HTML5 Sudoku"/>
-    <meta name="keywords" content="performance, javascript"/>
-    <link rel="stylesheet" href="styles/demo.css"/>
-    <link rel="shortcut icon" href="favicon.ico"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<title>HTML5 Sudoku</title>
+	<meta name="og:title" content="HTML5 Sudoku"/>
+	<meta http-equiv="Content-Language" content="en-us"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="description" content="Test your skills with this full HTML5 Sudoku"/>
+	<meta name="keywords" content="performance, javascript"/>
+	<link rel="stylesheet" href="https://edgeportal.blob.core.windows.net/media/demotemplate.css">
+	<link rel="stylesheet" href="styles/demo.css"/>
 </head>
 <body>
-<div id="sudoku-wrapper">
-    <div id="main">
-        <div id="heading-section">
-            <div id="heading-contents">
-                <h1 id="page-title">HTML5 Sudoku</h1>
-            </div>
-        </div>
-        <div id="content">
-            <div id="column1"><span role="tab" aria-selected="true" aria-controls="demoIntro" tabindex="100">In this demo we take the well-known game of Sudoku, and demonstrate how developers can use HTML5 and JavaScript to create an efficient algorithm to solve these puzzles. The algorithms draw heavily on the Chakra engine’s support for ECMAScript 5 standard array operations to rapidly solve many Sudoku games. You can also manually solve Sudoku puzzles.</span>
-                <br/>
-                <br/>
-                <br/>
-                <label># of Games:</label>&nbsp;&nbsp;
-                <select id="games-quantity">
-                    <option value="1">1000</option>
-                    <option value="2" selected>5000</option>
-                    <option value="3">10000</option>
-                </select>
-                <input id="amaze-button" type="submit" value="SOLVE GAMES"/>
-                <br/>
-                <br/>
 
-                <div id="calculating" style="display: none;"><img src="images/iconTime.png"
-                                                                  alt="Calculating Clock"/><span class="finished-label">Solving puzzles...</span>
-                </div>
-                <div role="tab" aria-selected="true" aria-controls="perfResults" tabindex="200" id="finished-calculating"
-                     style="display: none;">
-                    <img src="images/iconTime.png" alt="Calculating Clock"/><span
-                        class="finished-label">Finished In:</span>
-                    <br/> <span id="time-finished"></span></div>
-            </div>
-            <div id="sudoku-board">
-                <table cellspacing="0" cellpadding="0">
-                    <tr>
-                        <td class="board-cell-groupA">
-                            <table cellspacing="1" cellpadding="0">
-                                <tr>
-                                    <td class="board-cell">
-                                        <div id="00" class="static-value"><span>6</span></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="01" class="edit-value">
-                                            <input/></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="02" class="edit-value">
-                                            <input/></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="board-cell">
-                                        <div id="10" class="edit-value">
-                                            <input/></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="11" class="edit-value">
-                                            <input/></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="12" class="static-value"><span>4</span></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="board-cell">
-                                        <div id="20" class="static-value"><span>2</span></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="21" class="edit-value">
-                                            <input/></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="22" class="static-value"><span>8</span></div>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td class="board-cell-groupB">
-                            <table cellspacing="1" cellpadding="0">
-                                <tr>
-                                    <td class="board-cell">
-                                        <div id="03" class="edit-value">
-                                            <input/></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="04" class="static-value"><span>9</span></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="05" class="static-value"><span>8</span></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="board-cell">
-                                        <div id="13" class="edit-value">
-                                            <input/></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="14" class="edit-value">
-                                            <input/></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="15" class="edit-value">
-                                            <input/></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="board-cell">
-                                        <div id="23" class="edit-value">
-                                            <input/></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="24" class="edit-value">
-                                            <input/></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="25" class="edit-value">
-                                            <input/></div>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td class="board-cell-groupA">
-                            <table cellspacing="1" cellpadding="0">
-                                <tr>
-                                    <td class="board-cell">
-                                        <div id="06" class="edit-value">
-                                            <input/></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="07" class="static-value"><span>2</span></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="08" class="static-value"><span>4</span></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="board-cell">
-                                        <div id="16" class="static-value"><span>8</span></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="17" class="static-value"><span>3</span></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="18" class="edit-value">
-                                            <input/></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="board-cell">
-                                        <div id="26" class="static-value"><span>1</span></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="27" class="edit-value">
-                                            <input/></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="28" class="static-value"><span>9</span></div>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="board-cell-groupB">
-                            <table cellspacing="1" cellpadding="0">
-                                <tr>
-                                    <td class="board-cell">
-                                        <div id="30" class="edit-value">
-                                            <input/></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="31" class="static-value"><span>6</span></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="32" class="edit-value">
-                                            <input/></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="board-cell">
-                                        <div id="40" class="edit-value">
-                                            <input/></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="41" class="static-value"><span>9</span></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="42" class="edit-value">
-                                            <input/></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="board-cell">
-                                        <div id="50" class="edit-value">
-                                            <input/></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="51" class="static-value"><span>5</span></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="52" class="static-value"><span>1</span></div>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td class="board-cell-groupA">
-                            <table cellspacing="1" cellpadding="0">
-                                <tr>
-                                    <td class="board-cell">
-                                        <div id="33" class="edit-value">
-                                            <input/></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="34" class="static-value"><span>8</span></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="35" class="edit-value">
-                                            <input/></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="board-cell">
-                                        <div id="43" class="static-value"><span>1</span></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="44" class="edit-value">
-                                            <input/></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="45" class="static-value"><span>4</span></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="board-cell">
-                                        <div id="53" class="edit-value">
-                                            <input/></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="54" class="static-value"><span>2</span></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="55" class="edit-value">
-                                            <input/></div>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td class="board-cell-groupB">
-                            <table cellspacing="1" cellpadding="0">
-                                <tr>
-                                    <td class="board-cell">
-                                        <div id="36" class="static-value"><span>3</span></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="37" class="static-value"><span>5</span></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="38" class="edit-value">
-                                            <input/></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="board-cell">
-                                        <div id="46" class="edit-value">
-                                            <input/></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="47" class="static-value"><span>8</span></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="48" class="edit-value">
-                                            <input/></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="board-cell">
-                                        <div id="56" class="edit-value">
-                                            <input/></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="57" class="static-value"><span>9</span></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="58" class="edit-value">
-                                            <input/></div>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="board-cell-groupA">
-                            <table cellspacing="1" cellpadding="0">
-                                <tr>
-                                    <td class="board-cell">
-                                        <div id="60" class="static-value"><span>5</span></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="61" class="edit-value">
-                                            <input/></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="62" class="static-value"><span>6</span></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="board-cell">
-                                        <div id="70" class="edit-value">
-                                            <input/></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="71" class="static-value"><span>2</span></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="72" class="static-value"><span>9</span></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="board-cell">
-                                        <div id="80" class="static-value"><span>7</span></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="81" class="static-value"><span>8</span></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="82" class="edit-value">
-                                            <input/></div>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td class="board-cell-groupB">
-                            <table cellspacing="1" cellpadding="0">
-                                <tr>
-                                    <td class="board-cell">
-                                        <div id="63" class="edit-value error">
-                                            <input/></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="64" class="edit-value">
-                                            <input/></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="65" class="edit-value">
-                                            <input/></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="board-cell">
-                                        <div id="73" class="edit-value">
-                                            <input/></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="74" class="edit-value">
-                                            <input/></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="75" class="edit-value">
-                                            <input/></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="board-cell">
-                                        <div id="83" class="static-value"><span>5</span></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="84" class="static-value"><span>1</span></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="85" class="edit-value">
-                                            <input/></div>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td class="board-cell-groupA">
-                            <table cellspacing="1" cellpadding="0">
-                                <tr>
-                                    <td class="board-cell">
-                                        <div id="66" class="static-value"><span>9</span></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="67" class="edit-value">
-                                            <input/></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="68" class="static-value"><span>8</span></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="board-cell">
-                                        <div id="76" class="static-value"><span>5</span></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="77" class="edit-value">
-                                            <input/></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="78" class="edit-value">
-                                            <input/></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="board-cell">
-                                        <div id="86" class="edit-value">
-                                            <input/></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="87" class="edit-value">
-                                            <input/></div>
-                                    </td>
-                                    <td class="board-cell">
-                                        <div id="88" class="static-value"><span>6</span></div>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            <div id="column2">
-                <div class="game-control-set">
-                    <input id="new-game-button" type="submit" value="NEW GAME" class="game-controls"/>
-                    <br/>
-                    <label> Level: </label>&nbsp;&nbsp;
-                    <select id="difficulty">
-                        <option value="1" selected>Easy</option>
-                        <option value="2">Medium</option>
-                        <option value="3">Hard</option>
-                        <option value="4">Very Hard</option>
-                        <option value="5">Insane</option>
-                    </select>
-                </div>
-                <div class="game-control-set">
-                    <input id="check-button" type="submit" value="CHECK &#x2713;" class="game-controls"/>
-                    <br/> <span id="errors-found" class="errors-found" style="display: none;" role="tab"
-                                aria-selected="true" aria-controls="ErrorsFound"
-                                tabindex="300">MISTAKE FOUND</span> <span id="no-errors" class="no-errors"
-                                                                          style="display: none;" role="tab"
-                                                                          aria-selected="true"
-                                                                          aria-controls="NoErrorsFound" tabindex="400">LOOKIN GOOD</span>
-                </div>
-                <div class="game-control-set">
-                    <input id="solve-button" type="submit" value="SOLVE" class="game-controls"/></div>
-            </div>
-        </div>
-    </div>
-    <div id="you-won" style="display: none;">
-    	<div>
-	    	<span role="alert" aria-selected="true" aria-controls="youWin" tabindex="500">YOU WIN!</span>
-	        <br/>
-	        <small role="tab" aria-selected="true" aria-controls="youWinText" tabindex="600">
-	            Great job. Can you do it again?
-	        </small>
-	        <br/>
-	        <br/>
-	        <input id="win-new-game-button" type="submit" value="NEW GAME" class="game-controls"/>
-	        <input id="win-close-button" type="submit" value="CLOSE" class="game-controls"/>
-        </div>
-	</div>
-</div>
-<script src="scripts/demo.js"></script>
-<script src="https://msedgecdn.azurewebsites.net/scripts/demo-header.js"></script>
+	<article class="content">
+		<header class="container header--alt">
+			<h1>HTML5 Sudoku</h1>
+		</header>
+		<section class="container section">
+			<div class="layout layout--basic">
+				<div class="module module--secondary">
+					<p>In this demo we take the well-known game of Sudoku, and demonstrate how developers can use HTML5 and JavaScript to create an efficient algorithm to solve these puzzles. The algorithms draw heavily on the Chakra engine’s support for ECMAScript 5 standard array operations to rapidly solve many Sudoku games. You can also manually solve Sudoku puzzles.</p>
+
+					<label for="difficulty">Level</label>
+					<select id="difficulty">
+						<option value="1" selected>Easy</option>
+						<option value="2">Medium</option>
+						<option value="3">Hard</option>
+						<option value="4">Very Hard</option>
+						<option value="5">Ridiculous</option>
+					</select>
+
+					<!-- RAPID-SOLVE CONTROLS -->
+					<h2 class="subtitle">Rapid-solve games</h2>
+					<label for="games-quantity">>Number of Games:</label>
+					<div class="rapid-controls">
+						<select id="games-quantity">
+							<option value="1">1000</option>
+							<option value="2" selected>5000</option>
+							<option value="3">10000</option>
+						</select>
+						<button id="amaze-button" class="button--primary">Solve games</button>
+					</div>
+
+					<!-- RAPID-SOLVE STATUSES -->
+					<p id="calculating" hidden>Solving puzzles...</p>
+					<p id="finished-calculating" hidden>Finished in: <span id="time-finished"></span></p>
+
+					<!-- THIS-GAME CONTROLS -->
+					<h2 class="subtitle">This game</h2>
+					<div class="actions">
+						<button id="check-button">Check work</button>
+						<button id="solve-button">Show solution</button>
+						<button id="new-game-button">New game</button>
+					</div>
+
+					<!-- THIS-GAME STATUSES -->
+					<p id="errors-found" class="note--error" hidden>Mistake found!</p>
+					<p id="no-errors" hidden>Looking good!</p>
+
+					<div id="you-won" class="sudoku-status" hidden>
+						<h2 class="subtitle">You win!</h2>
+						<p>Great job. Can you do it again? <button id="win-new-game-button" class="button--text">New game</button></p>
+						<div class="actions">
+							<button id="win-close-button" class="button--text">Close</button>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="module module--primary">
+
+					<!-- SUDOKU BOARD -->
+					<div id="sudoku-board">
+						<table cellspacing="0" cellpadding="0">
+							<tr>
+								<td>
+									<table cellspacing="1" cellpadding="0">
+										<tr>
+											<td class="board-cell">
+												<div id="00" class="static-value"><span>6</span></div>
+											</td>
+											<td class="board-cell">
+												<div id="01" class="edit-value">
+													<input/></div>
+											</td>
+											<td class="board-cell">
+												<div id="02" class="edit-value">
+													<input/></div>
+											</td>
+										</tr>
+										<tr>
+											<td class="board-cell">
+												<div id="10" class="edit-value">
+													<input/></div>
+											</td>
+											<td class="board-cell">
+												<div id="11" class="edit-value">
+													<input/></div>
+											</td>
+											<td class="board-cell">
+												<div id="12" class="static-value"><span>4</span></div>
+											</td>
+										</tr>
+										<tr>
+											<td class="board-cell">
+												<div id="20" class="static-value"><span>2</span></div>
+											</td>
+											<td class="board-cell">
+												<div id="21" class="edit-value">
+													<input/></div>
+											</td>
+											<td class="board-cell">
+												<div id="22" class="static-value"><span>8</span></div>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td>
+									<table cellspacing="1" cellpadding="0">
+										<tr>
+											<td class="board-cell">
+												<div id="03" class="edit-value">
+													<input/></div>
+											</td>
+											<td class="board-cell">
+												<div id="04" class="static-value"><span>9</span></div>
+											</td>
+											<td class="board-cell">
+												<div id="05" class="static-value"><span>8</span></div>
+											</td>
+										</tr>
+										<tr>
+											<td class="board-cell">
+												<div id="13" class="edit-value">
+													<input/></div>
+											</td>
+											<td class="board-cell">
+												<div id="14" class="edit-value">
+													<input/></div>
+											</td>
+											<td class="board-cell">
+												<div id="15" class="edit-value">
+													<input/></div>
+											</td>
+										</tr>
+										<tr>
+											<td class="board-cell">
+												<div id="23" class="edit-value">
+													<input/></div>
+											</td>
+											<td class="board-cell">
+												<div id="24" class="edit-value">
+													<input/></div>
+											</td>
+											<td class="board-cell">
+												<div id="25" class="edit-value">
+													<input/></div>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td>
+									<table cellspacing="1" cellpadding="0">
+										<tr>
+											<td class="board-cell">
+												<div id="06" class="edit-value">
+													<input/></div>
+											</td>
+											<td class="board-cell">
+												<div id="07" class="static-value"><span>2</span></div>
+											</td>
+											<td class="board-cell">
+												<div id="08" class="static-value"><span>4</span></div>
+											</td>
+										</tr>
+										<tr>
+											<td class="board-cell">
+												<div id="16" class="static-value"><span>8</span></div>
+											</td>
+											<td class="board-cell">
+												<div id="17" class="static-value"><span>3</span></div>
+											</td>
+											<td class="board-cell">
+												<div id="18" class="edit-value">
+													<input/></div>
+											</td>
+										</tr>
+										<tr>
+											<td class="board-cell">
+												<div id="26" class="static-value"><span>1</span></div>
+											</td>
+											<td class="board-cell">
+												<div id="27" class="edit-value">
+													<input/></div>
+											</td>
+											<td class="board-cell">
+												<div id="28" class="static-value"><span>9</span></div>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<table cellspacing="1" cellpadding="0">
+										<tr>
+											<td class="board-cell">
+												<div id="30" class="edit-value">
+													<input/></div>
+											</td>
+											<td class="board-cell">
+												<div id="31" class="static-value"><span>6</span></div>
+											</td>
+											<td class="board-cell">
+												<div id="32" class="edit-value">
+													<input/></div>
+											</td>
+										</tr>
+										<tr>
+											<td class="board-cell">
+												<div id="40" class="edit-value">
+													<input/></div>
+											</td>
+											<td class="board-cell">
+												<div id="41" class="static-value"><span>9</span></div>
+											</td>
+											<td class="board-cell">
+												<div id="42" class="edit-value">
+													<input/></div>
+											</td>
+										</tr>
+										<tr>
+											<td class="board-cell">
+												<div id="50" class="edit-value">
+													<input/></div>
+											</td>
+											<td class="board-cell">
+												<div id="51" class="static-value"><span>5</span></div>
+											</td>
+											<td class="board-cell">
+												<div id="52" class="static-value"><span>1</span></div>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td>
+									<table cellspacing="1" cellpadding="0">
+										<tr>
+											<td class="board-cell">
+												<div id="33" class="edit-value">
+													<input/></div>
+											</td>
+											<td class="board-cell">
+												<div id="34" class="static-value"><span>8</span></div>
+											</td>
+											<td class="board-cell">
+												<div id="35" class="edit-value">
+													<input/></div>
+											</td>
+										</tr>
+										<tr>
+											<td class="board-cell">
+												<div id="43" class="static-value"><span>1</span></div>
+											</td>
+											<td class="board-cell">
+												<div id="44" class="edit-value">
+													<input/></div>
+											</td>
+											<td class="board-cell">
+												<div id="45" class="static-value"><span>4</span></div>
+											</td>
+										</tr>
+										<tr>
+											<td class="board-cell">
+												<div id="53" class="edit-value">
+													<input/></div>
+											</td>
+											<td class="board-cell">
+												<div id="54" class="static-value"><span>2</span></div>
+											</td>
+											<td class="board-cell">
+												<div id="55" class="edit-value">
+													<input/></div>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td>
+									<table cellspacing="1" cellpadding="0">
+										<tr>
+											<td class="board-cell">
+												<div id="36" class="static-value"><span>3</span></div>
+											</td>
+											<td class="board-cell">
+												<div id="37" class="static-value"><span>5</span></div>
+											</td>
+											<td class="board-cell">
+												<div id="38" class="edit-value">
+													<input/></div>
+											</td>
+										</tr>
+										<tr>
+											<td class="board-cell">
+												<div id="46" class="edit-value">
+													<input/></div>
+											</td>
+											<td class="board-cell">
+												<div id="47" class="static-value"><span>8</span></div>
+											</td>
+											<td class="board-cell">
+												<div id="48" class="edit-value">
+													<input/></div>
+											</td>
+										</tr>
+										<tr>
+											<td class="board-cell">
+												<div id="56" class="edit-value">
+													<input/></div>
+											</td>
+											<td class="board-cell">
+												<div id="57" class="static-value"><span>9</span></div>
+											</td>
+											<td class="board-cell">
+												<div id="58" class="edit-value">
+													<input/></div>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<table cellspacing="1" cellpadding="0">
+										<tr>
+											<td class="board-cell">
+												<div id="60" class="static-value"><span>5</span></div>
+											</td>
+											<td class="board-cell">
+												<div id="61" class="edit-value">
+													<input/></div>
+											</td>
+											<td class="board-cell">
+												<div id="62" class="static-value"><span>6</span></div>
+											</td>
+										</tr>
+										<tr>
+											<td class="board-cell">
+												<div id="70" class="edit-value">
+													<input/></div>
+											</td>
+											<td class="board-cell">
+												<div id="71" class="static-value"><span>2</span></div>
+											</td>
+											<td class="board-cell">
+												<div id="72" class="static-value"><span>9</span></div>
+											</td>
+										</tr>
+										<tr>
+											<td class="board-cell">
+												<div id="80" class="static-value"><span>7</span></div>
+											</td>
+											<td class="board-cell">
+												<div id="81" class="static-value"><span>8</span></div>
+											</td>
+											<td class="board-cell">
+												<div id="82" class="edit-value">
+													<input/></div>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td>
+									<table cellspacing="1" cellpadding="0">
+										<tr>
+											<td class="board-cell">
+												<div id="63" class="edit-value error">
+													<input/></div>
+											</td>
+											<td class="board-cell">
+												<div id="64" class="edit-value">
+													<input/></div>
+											</td>
+											<td class="board-cell">
+												<div id="65" class="edit-value">
+													<input/></div>
+											</td>
+										</tr>
+										<tr>
+											<td class="board-cell">
+												<div id="73" class="edit-value">
+													<input/></div>
+											</td>
+											<td class="board-cell">
+												<div id="74" class="edit-value">
+													<input/></div>
+											</td>
+											<td class="board-cell">
+												<div id="75" class="edit-value">
+													<input/></div>
+											</td>
+										</tr>
+										<tr>
+											<td class="board-cell">
+												<div id="83" class="static-value"><span>5</span></div>
+											</td>
+											<td class="board-cell">
+												<div id="84" class="static-value"><span>1</span></div>
+											</td>
+											<td class="board-cell">
+												<div id="85" class="edit-value">
+													<input/></div>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td>
+									<table cellspacing="1" cellpadding="0">
+										<tr>
+											<td class="board-cell">
+												<div id="66" class="static-value"><span>9</span></div>
+											</td>
+											<td class="board-cell">
+												<div id="67" class="edit-value">
+													<input/></div>
+											</td>
+											<td class="board-cell">
+												<div id="68" class="static-value"><span>8</span></div>
+											</td>
+										</tr>
+										<tr>
+											<td class="board-cell">
+												<div id="76" class="static-value"><span>5</span></div>
+											</td>
+											<td class="board-cell">
+												<div id="77" class="edit-value">
+													<input/></div>
+											</td>
+											<td class="board-cell">
+												<div id="78" class="edit-value">
+													<input/></div>
+											</td>
+										</tr>
+										<tr>
+											<td class="board-cell">
+												<div id="86" class="edit-value">
+													<input/></div>
+											</td>
+											<td class="board-cell">
+												<div id="87" class="edit-value">
+													<input/></div>
+											</td>
+											<td class="board-cell">
+												<div id="88" class="static-value"><span>6</span></div>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<!-- /END SUDOKU BOARD -->
+				</div>
+			</div>
+		</section>
+	</article>
+
+	<script src="scripts/demo.js"></script>
 </body>
 </html>
