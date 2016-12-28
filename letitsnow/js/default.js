@@ -12,6 +12,7 @@
     var togglePlaybackCode = 112;
     var secretCode = 114;
     var previousImage;
+    var toggleSoundButton = document.getElementById("toggleSoundButton");
 
     // preparing the elements we'll need further
     var snowflakesCanvas = document.getElementById("snowflakesCanvas");
@@ -35,9 +36,31 @@
         backgroundGradientCanvas.height = window.innerHeight + 400;
     }
 
+    function pauseMusic() {
+         music.pause();
+         musicIsPlaying = false;
+         toggleSoundButton.innerHTML = "Play music";
+    }
+
+    function playMusic() {
+         music.play();
+         musicIsPlaying = true;
+         toggleSoundButton.innerHTML = "Pause music";
+    }
+
+    function toggleMusic() {
+        musicIsPlaying ? pauseMusic() : playMusic();
+    }
+
+    toggleSoundButton.addEventListener("click", toggleMusic);
+
     document.addEventListener("keypress", function (evt) {
+
         // do a secret move
-        if (evt.keyCode === secretCode) {
+        var charCode = (typeof evt.which === "number") ? evt.which : evt.keyCode;
+
+        if (charCode === secretCode) {
+
             alternativeIsPlaying = !alternativeIsPlaying;
             var personalizedGreeting = document.getElementById("personalizedGreeting");
             if (alternativeIsPlaying) {
@@ -50,13 +73,19 @@
                 snowman.src = defaultSnowmanImage;
                 personalizedGreeting.src = previousImage;
             }
+
+            if (!musicIsPlaying) {
+                playMusic();
+            }
+
         }
-        if (evt.keyCode === togglePlaybackCode) {
-            musicIsPlaying = !musicIsPlaying;
-            var toggleFunction = (musicIsPlaying) ? music.play() : music.pause();
-            if (toggleFunction) { toggleFunction(); }
+
+        if (charCode === togglePlaybackCode) {
+            toggleMusic();
         }
+
     });
+
 
     document.addEventListener("DOMContentLoaded", function () {
 

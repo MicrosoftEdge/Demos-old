@@ -101,17 +101,17 @@ fieldset {
 
 .positionThumbnail,
 .sizeThumbnail {
-	display: inline-block;
 	float: left;
-	font-size: 1.1rem;
+	font-family: 'Montserrat', 'Segoe UI', sans-serif;
+	box-sizing: content-box;
+	font-size: 1.05rem;
 	width: 10.5rem;
-	height: 1.8rem;
 	margin: 0 .5rem .5rem 0;
-	padding: .7rem .6rem .3rem .6rem;
+	padding: .7rem .6rem;
 	color: #000;
 	background-color: #fff;
-	background-image: none !important;
-	border: 1px solid #7f7f7f !important;
+	background-image: none;
+	border: 1px solid #7f7f7f;
 	text-align: center;
 	text-transform: uppercase;
 }
@@ -136,7 +136,6 @@ fieldset {
 }
 
 .controls--gradient-colors__col-alt {
-	display: block;
 	float: left;
 	margin-right: 1rem;
 	margin-top: 3.1rem;
@@ -148,19 +147,19 @@ fieldset {
 }
 
 [class*=controls--gradient-colors__label] {
-	display: block;
-	margin-right: 1rem;
-	line-height: 2.6rem;
 	text-transform: uppercase;
 }
 
 .controls--gradient-colors__label {
 	font-size: 1.3rem;
+	min-width: 55px;
 }
 
 .controls--gradient-colors__label-alt {
 	font-size: 1.1rem;
 	color: #7f7f7f;
+	text-align: left;
+	font-weight: normal;
 }
 
 .controls--gradient-colors__hex {
@@ -181,12 +180,11 @@ input[type="text"] {
 	display: block;
 	position: relative;
 	width: 6rem;
-	margin: .9rem 0;
+	margin: .3rem 5px .3rem 0;
 	border: solid 1px #aaa;
 }
 
 .deletebutton button {
-	position: relative;
 	margin-bottom: .6rem;
 	top: 5.6rem;
 	height: 2rem;
