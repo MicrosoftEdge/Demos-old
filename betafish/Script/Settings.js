@@ -1,17 +1,24 @@
-﻿// This file manages the demo settings including play, pause, and reset.
+// This file manages the demo settings including play, pause, and reset.
 
 var fishSwimming = true;
 
 function ToggleFishSwimming() {
+
+    var toggleSwimmingButton = document.getElementById("ButtonToggleSwimming");
+
     if (fishSwimming === true) {
         fishSwimming = false;
         document.getElementById("Fish").className = "FishSwimming Paused";
-        document.getElementById("ButtonToggleSwimming").style.backgroundImage = "url('Images/ButtonPlay.png')";
+        toggleSwimmingButton.setAttribute("aria-label", "Play demo");
+        toggleSwimmingButton.title = "Play (P)";
+        toggleSwimmingButton.style.backgroundImage = "url('Images/ButtonPlay.png')";
     }
     else {
         fishSwimming = true;
         document.getElementById("Fish").className = "FishSwimming";
-        document.getElementById("ButtonToggleSwimming").style.backgroundImage = "url('Images/ButtonPause.png')";
+        toggleSwimmingButton.setAttribute("aria-label", "Pause demo");
+        toggleSwimmingButton.title = "Pause (P)";
+        toggleSwimmingButton.style.backgroundImage = "url('Images/ButtonPause.png')";
     }
 }
 
