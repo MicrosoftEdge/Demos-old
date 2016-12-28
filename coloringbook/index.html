@@ -1,137 +1,177 @@
 <!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <title>Web Note Coloring Book</title>
     <meta name="description" content="Web Note is a new feature of Microsoft Edge that helps you write, draw, make notes and share web pages.">
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" type="text/css" href="https://edgeportal.blob.core.windows.net/media/demotemplate.css">
-    <link rel="stylesheet" type="text/css" href="css/app.css">
+    <link rel="stylesheet" href="https://edgeportal.blob.core.windows.net/media/demotemplate.css">
+    <link rel="stylesheet" href="styles/demo.css">
 </head>
 
 <body>
-    <div id="webnoteColorPages" class="autumnEdition">
-        <div id="pages">
-            <div id="intro" class="page">
-                <div id="introTop">
-                    <div id="introTitleContent">
-                        <div id="introTitle"></div>
-                        <div id="introText">
-                            <p>Web Note is a new feature of <a href="https://www.microsoft.com/en-us/windows/microsoft-edge" target="_blank">Microsoft Edge</a>. It helps you write, draw and make notes directly on the web page. You can also share the web page with your notes on it. </p>
-                            <p>This autumn themed coloring book will take you through how to use Web Note. Click the <i class="webnote icon"></i> and scroll down to start with the monkey maze.</p>                            
-                        </div>
-                    </div>
-                </div>
-                
-                <div id="introTiles">
-                    <div class="introTile" style="background-image: url(images/autumn/04.png);"></div>
-                    <div class="introTile" style="background-image: url(images/autumn/01.png);"></div>
-                    <div class="introTile" style="background-image: url(images/autumn/05.png);"></div>
-                    <div class="introTile" style="background-image: url(images/autumn/08.png);"></div>
-                    <div class="introTile" style="background-image: url(images/autumn/07.png);"></div>
-                    <div class="introTile" style="background-image: url(images/autumn/09.png);"></div>
-                    <div class="introTile" style="background-image: url(images/autumn/06.png);"></div>
-                </div>
-
-                <div id="introBottom">
-                    <div id="introBottomContent">
-                        <h4>Click the browser's Web Note icon <i class="webnotedark icon"></i> and then scroll to get started!</h4>
-                        <img id="introBrowser" src="images/browser.png"></div>
-                    </div>
-
+    <div class="coloring-book theme-autumn">
+        <header class="clear coloring-intro">
+            <div class="container">
+                <h1 class="coloring-intro__title">The Web Note <span class="accent-color">coloring book</span> and practice guide</h1>
+                <div class="subtitle coloring-intro__content">
+                    <p>Web Note is a new feature of <a href="https://www.microsoft.com/en-us/windows/microsoft-edge">Microsoft Edge</a>. It helps you write, draw and make notes directly on the web page. You can also share the web page with your notes on it. </p>
+                    <p>This autumn themed coloring book will take you through how to use Web Note. Click the <span class="webnote-icon">Web Note icon</span> and scroll down to start with the maze.</p>                            
                 </div>
             </div>
-            <div id="page01" class="page">
-            <div class="pageInfo">                    
-                    <h3>Complete the Maze</h3>
-                    <p>Click the Pen <i class="pen icon"></i>.</p>
-                    <p>Trace a path through the maze to get to the acorn.</p>
-                    <p class="nextStep">Scroll down to continue with Connect the Dots.</p>
-                </div>
-                <div class="pageContent" style="background-image: url(images/autumn/01.png);" ></div>
+        </header>
+        <div class="clear illo-band">
+            <div class="illo-band__block">
+                <img src="images/autumn/04.png" alt="Illustration of a cornucopia" />
             </div>
-            <div id="page02" class="page">
-                <div class="pageInfo">
-                    <h3>Connect the Dots</h3>
-                    <p>Select the pen <i class="pen icon"></i> tool again to select color and size. Then try connecting the dots to complete the autumn leaves. </p>
-                    <p>You can clip a selection of the page to your clipboard by using the Clip tool <i class="clip icon"></i>. Once copied to the clipboard, you can paste it anywhere.</p>
-                    <p>Select the pen or highlighter to exit Clip mode.</p>
-                    <p class="nextStep">Scroll down to continue with the Autumn Word Jumble.</p>
-                </div>
-                <div class="pageContent" style="background-image: url(images/autumn/02.png);" ></div>
+            <div class="illo-band__block">
+                <img src="images/autumn/01.png" alt="Illustration of a maze with a squirrel" />
             </div>
-            <div id="page03" class="page">
-                <div class="pageInfo">
-                    <h3>Autumn Word Jumble</h3>
-                    <p>Select a pen <i class="icon pen"></i> color. We recommend the medium size pen for this activity.</p>
-                    <p>Draw a continuous line in any direction across the letters to cross out the autumn words hidden in the word jumble.</p>
-                    <p>You can save your web notes and come back to the later by clicking Save <i class="icon save"></i> and then choosing OneNote, Favorites or Reading List. Your Web Note will be saved and be available for you via OneNote, Favorites or Reading List.</p>
-                    <p class="nextStep">Scroll down to continue with the coloring book.</p>
-                </div>
-                <div class="pageContent" style="background-image: url(images/autumn/03.png)"></div>
+            <div class="illo-band__block">
+                <img src="images/autumn/05.png" alt="Illustration of a pair of rainboots" />
             </div>
-            <div id="page04" class="page">
-                <div class="pageInfo">
-                    <h3>Color in the Cornucopia</h3>
-                    <p>Select the highlighter <i class="icon highlight"></i> for coloring the cornucopia so you can see the outline while you color. </p>
-                    <p>Select a color and brush size to begin. </p>
-                    <p>You can change your highlighter color and size at any time to do different parts of the cornucopia.</p>
-                    <p>You can also erase your markings by selecting the Eraser <i class="icon eraser"></i> and then strike through your markups for them to be erased.</p>
-                    <p>Switch back to the pen or highlighter when you’re done erasing.</p>
-                </div>
-                <div class="pageContent" style="background-image: url(images/autumn/04.png)"></div>
+            <div class="illo-band__block">
+                <img src="images/autumn/08.png" alt="Illustration of a farm" />
             </div>
-            <div id="page05" class="page">
-                <div class="pageInfo">
-                    <h3>Color in the Boots</h3>
-                    <p>Select the highlighter <i class="icon highlight"></i> for coloring the boots so you can see the outline while you color. </p>
-                    <p>Select a color and brush size to begin. You can change your highlighter color and size at any time to do different parts of the boots.</p>
-                </div>
-                <div class="pageContent" style="background-image: url(images/autumn/05.png)"></div>
+            <div class="illo-band__block">
+                <img src="images/autumn/07.png" alt="Illustration of a turkey feast" />
             </div>
-            <div id="page06" class="page">
-                <div class="pageInfo">
-                    <h3>Color in the Turkey</h3>
-                    <p>Select the highlighter <i class="icon highlight"></i> for coloring the turkey so you can see the outline while you color. </p>
-                    <p>You can clip a selection of the page to your clipboard by using the Clip tool <i class="icon clip"></i>.</p>
-                    <p>You can also email your clip or share it on Facebook or Twitter via Share <i class="icon social"></i>.</p>
-                    <p>You can also have Facebook or Twitter show as options on the Share panel once you install the apps from Windows Store.</p>
-                    <p class="nextStep">Scroll down for more autumn fun <span class="nowrap">to color.</span></p>
-                </div>
-                <div class="pageContent" style="background-image: url(images/autumn/06.png)"></div>
-            </div>
-            <div id="page07" class="page">
-                <div class="pageInfo">
-                    <h3>Color in the Feast</h3>
-                    <p>Select the highlighter <i class="icon highlight"></i> for coloring the feast so you can see the outline while you color. </p>
-                    <p>If you open Web Note on a web page that has content to the right or left of what you can see, you can pan the web note view by using the Pan tool <i class="icon pan"></i>.</p>
-                    <p>Touch one of the other Web Note tools to exit panning mode.</p>
-                    <p class="nextStep">Scroll down for more autumn fun <span class="nowrap">to color.</span></p>
-                </div>
-                <div class="pageContent" style="background-image: url(images/autumn/07.png)"></div>
-            </div>
-            <div id="page08" class="page">
-                <div class="pageInfo">
-                    <h3>Color in the Harvest</h3>
-                    <p>Select the highlighter <i class="icon highlight"></i> for coloring the harvest so you can see the outline while you color. </p>
-                    <p>You can save your Web Note and come back to it later by clicking Save <i class="icon save"></i> and then choosing OneNote, Favorites or Reading List. You can access your Favorites or Reading list via Hub <i class="icon hub"></i>. You can open your OneNote app from the Start menu. </p>
-                    <p>Scroll down to continue with the coloring book. You can exit Web Note mode at any time by clicking <strong>Exit</strong>. If you haven’t saved your Web Note, it will be discarded when you exit. So be sure to Save if you want to continue again later.</p>
-                    <p class="nextStep">Scroll down for the final picture <span class="nowrap">to color.</span></p>
-                </div>
-                <div class="pageContent" style="background-image: url(images/autumn/08.png)"></div>
-            </div>
-            <div id="page09" class="page noBorder">
-                <div class="pageInfo">
-                    <h3>Color in the Pumpkin</h3>
-                    <p>Select the highlighter <i class="icon highlight"></i> for coloring the pumpkin so you can see the outline while you color. </p>
-                    <p>You can add a typed comment to the page by selecting the Typed note icon <i class="icon comment"></i>. Use your keyboard to type a note and use your mouse to drag the position of the note around the page and collapse the note.</p>
-                    <p>You can expand and collapse notes using the note anchor <i class="icon position"></i> on the page. </p>
-                    <p>You can exit Web Note mode by clicking <strong>Exit</strong>. Any unsaved notes you’ve made will be discarded and you’ll return to the web page.</p>
-                </div>
-                <div class="pageContent" style="background-image: url(images/autumn/09.png)"></div>
-            </div>
-            
         </div>
-        <div id="top"></div>
+
+        <section class="coloring-instructions">
+            <div class="container">
+                <h2 class="section__header">Click the browser's <span class="webnote-icon--dark">Web Note icon</span> and then scroll to get started!</h2>
+                <div class="section__body">
+                    <img class="browser-illo" src="images/browser.png" alt="Preview of the Microsoft Edge browser" />
+                </div>
+            </div>
+        </section>
+
+        <section class="coloring-page">
+            <div class="coloring-page__instructions">
+                <h3 class="subheading accent-color">Complete the maze</h3>
+                <ol class="bare subtitle">
+                    <li>Click the <span class="webnote-icon--pen">Pen icon</span>.</li>
+                    <li>Trace a path through the maze to get to the acorn.</li>
+                    <li class="next-activity">Scroll down to continue with connect the dots.</li>
+                </ol>
+            </div>
+            <div class="coloring-page__activity">
+                <img src="images/autumn/01.png" alt="A maze activity" />
+            </div>
+        </section>
+        <section class="coloring-page">
+            <div class="coloring-page__instructions">
+                <h3 class="subheading accent-color">Connect the dots</h3>
+                <ol class="bare subtitle">
+                    <li>Select the <span class="webnote-icon--pen">pen tool</span> again to select color and size. Then try connecting the dots to complete the autumn leaves. </li>
+                    <li>You can clip a selection of the page to your clipboard by using the <span class="webnote-icon--clip">Clip tool</span>. Once copied to the clipboard, you can paste it anywhere.</li>
+                    <li>Select the pen or highlighter to exit Clip mode.</li>
+                    <li class="next-activity">Scroll down to continue with the autumn word jumble.</li>
+                </ol>
+            </div>
+            <div class="coloring-page__activity">
+                <img src="images/autumn/02.png" alt="A connect-the-dots activity" />
+            </div>
+        </section>
+        <section class="coloring-page">
+            <div class="coloring-page__instructions">
+                <h3 class="subheading accent-color">Autumn word jumble</h3>
+                <ol class="bare subtitle">
+                    <li>Select a <span class="webnote-icon--pen">pen</span> color. We recommend the medium size pen for this activity.</li>
+                    <li>Draw a continuous line in any direction across the letters to cross out the autumn words hidden in the word jumble.</li>
+                    <li>You can save your web notes and come back to the later by clicking <span class="webnote-icon--save">Save</span> and then choosing OneNote, Favorites or Reading List. Your Web Note will be saved and be available for you via OneNote, Favorites or Reading List.</li>
+                    <li class="next-activity">Scroll down to continue with the coloring book.</li>
+                </ol>
+            </div>
+            <div class="coloring-page__activity">
+                <img src="images/autumn/03.png" alt="A word jumble activity" />
+            </div>
+        </section>
+        <section class="coloring-page">
+            <div class="coloring-page__instructions">
+                <h3 class="subheading accent-color">Color in the cornucopia</h3>
+                <ol class="bare subtitle">
+                    <li>Select the <span class="webnote-icon--highlight">highlighter</span> for coloring the cornucopia so you can see the outline while you color. </li>
+                    <li>Select a color and brush size to begin. </li>
+                    <li>You can change your highlighter color and size at any time to do different parts of the cornucopia.</li>
+                    <li>You can also erase your markings by selecting the <span class="webnote-icon--eraser">Eraser</span> and then strike through your markups for them to be erased.</li>
+                    <li>Switch back to the pen or highlighter when you’re done erasing.<li>
+                </ol>
+            </div>
+            <div class="coloring-page__activity">
+                <img src="images/autumn/04.png" alt="Illustration of a cornucopia" />
+            </div>
+        </section>
+        <section class="coloring-page">
+            <div class="coloring-page__instructions">
+                <h3 class="subheading accent-color">Color in the boots</h3>
+                <ol class="bare subtitle">
+                    <li>Select the <span class="webnote-icon--highlight">highlighter</span> for coloring the boots so you can see the outline while you color.</li>
+                    <li>Select a color and brush size to begin. You can change your highlighter color and size at any time to do different parts of the boots.</li>
+                </ol>
+            </div>
+            <div class="coloring-page__activity">
+                <img src="images/autumn/05.png" alt="Illustration of a pair of rainboots" />
+            </div>
+        </section>
+        <section class="coloring-page">
+            <div class="coloring-page__instructions">
+                <h3 class="subheading accent-color">Color in the turkey</h3>
+                <ol class="bare subtitle">
+                    <li>Select the <span class="webnote-icon--highlight">highlighter</span> for coloring the turkey so you can see the outline while you color.</li>
+                    <li>You can clip a selection of the page to your clipboard by using the <span class="webnote-icon--clip">Clip tool</span>.</li>
+                    <li>You can also email your clip or share it on Facebook or Twitter via <span class="webnote-icon--share">Share</span>.</li>
+                    <li>You can also have Facebook or Twitter show as options on the Share panel once you install the apps from Windows Store.</li>
+                    <li class="next-activity">Scroll down for more autumn fun to color.</li>
+                </ol>
+            </div>
+            <div class="coloring-page__activity">
+                <img src="images/autumn/06.png" alt="Illustration of a turkey" />
+            </div>
+        </section>
+        <section class="coloring-page">
+            <div class="coloring-page__instructions">
+                <h3 class="subheading accent-color">Color in the feast</h3>
+                <ol class="bare subtitle">
+                    <li>Select the <span class="webnote-icon--highlight">highlighter</span> for coloring the feast so you can see the outline while you color.</li>
+                    <li>If you open Web Note on a web page that has content to the right or left of what you can see, you can pan the web note view by using the <span class="webnote-icon--pan">Pan tool</span>.</p>
+                    <li>Touch one of the other Web Note tools to exit panning mode.</li>
+                    <li class="next-activity">Scroll down for more autumn fun to color.</li>
+                </ol>
+            </div>
+            <div class="coloring-page__activity">
+                <img src="images/autumn/07.png" alt="Illustration of a feast" />
+            </div>
+        </section>
+        <section class="coloring-page">
+            <div class="coloring-page__instructions">
+                <h3 class="subheading accent-color">Color in the harvest</h3>
+                <ol class="bare subtitle">
+                    <li>Select the <span class="webnote-icon--highlight">highlighter</span> for coloring the harvest so you can see the outline while you color.</li>
+                    <li>You can save your Web Note and come back to it later by clicking <span class="webnote-icon--save">Save</span> and then choosing OneNote, Favorites or Reading List. You can access your Favorites or Reading list via <span class="webnote-icon--hub">Hub</span>. You can open your OneNote app from the Start menu.</li>
+                    <li>Scroll down to continue with the coloring book. You can exit Web Note mode at any time by clicking <strong>Exit</strong>. If you haven’t saved your Web Note, it will be discarded when you exit. So be sure to Save if you want to continue again later.</li>
+                    <li class="next-activity">Scroll down for the final picture to color.</li>
+                </ol>
+            </div>
+            <div class="coloring-page__activity">
+                <img src="images/autumn/08.png" alt="Illustration of the harvest" />
+            </div>
+        </section>
+        <section class="coloring-page">
+            <div class="coloring-page__instructions">
+                <h3 class="subheading accent-color">Color in the pumpkin</h3>
+                <ol class="bare subtitle">
+                    <li>Select the <span class="webnote-icon--highlight">highlighter</span> for coloring the pumpkin so you can see the outline while you color.</li>
+                    <li>You can add a typed comment to the page by selecting the <span class="webnote-icon--note">Typed note icon</span>. Use your keyboard to type a note and use your mouse to drag the position of the note around the page and collapse the note.</li>
+                    <li>You can expand and collapse notes using the <span class="webnote-icon--position">note anchor</span> on the page.</li>
+                    <li>You can exit Web Note mode by clicking <strong>Exit</strong>. Any unsaved notes you’ve made will be discarded and you’ll return to the web page.</li>
+                </ol>
+            </div>
+            <div class="coloring-page__activity">
+                <img src="images/autumn/09.png" alt="Illustration of a pumpkin" />
+            </div>
+        </section>
     </div>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.4.min.js"></script>
     <script src="scripts/demo.js"></script>
