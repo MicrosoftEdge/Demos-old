@@ -1,4 +1,12 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
 var SINGLE_CYCLE = 16.7;
+=======
+﻿var SINGLE_CYCLE = 16.7;
+>>>>>>> 96b2627167265f0827e85a352a80981497967b7d
+=======
+var SINGLE_CYCLE = 16.7;
+>>>>>>> MicrosoftEdge/master
 
 var debug = false, started = false;
 var sceneLeft, sceneTop, sceneWidth, sceneHeight;
@@ -36,6 +44,8 @@ function ResizeScene() {
 }
 
 function StartPenguinMark() {
+<<<<<<< HEAD
+<<<<<<< HEAD
 
     var welcomeScreen = document.getElementById("WelcomeScreen");
 
@@ -43,6 +53,20 @@ function StartPenguinMark() {
         started = true;
         welcomeScreen.style.display = "none";
         welcomeScreen.setAttribute("aria-hidden", "true");
+=======
+    if (started == false) {
+        started = true;
+        document.getElementById("WelcomeScreen").style.opacity = 0;
+>>>>>>> 96b2627167265f0827e85a352a80981497967b7d
+=======
+
+    var welcomeScreen = document.getElementById("WelcomeScreen");
+
+    if (started == false) {
+        started = true;
+        welcomeScreen.style.display = "none";
+        welcomeScreen.setAttribute("aria-hidden", "true");
+>>>>>>> MicrosoftEdge/master
         document.getElementById("AudioEntryElement").pause();
         document.getElementById("AudioTrackElement").play();
         characters.Start();
