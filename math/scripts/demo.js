@@ -18,8 +18,8 @@
 		left: 100
 	};
 
-	var width = 1000;
-	var height = 500;
+	var width = 1200;
+	var height = 600;
 
 	var totalWidth = width + margin.left + margin.right;
 	var totalHeight = height + margin.top + margin.bottom;
