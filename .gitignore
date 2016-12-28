@@ -4,7 +4,4 @@
 webauthn/.vscode/
 webauthn/web.config
 webauthn/.idea/
-<<<<<<< HEAD
-.DS_Store
-=======
->>>>>>> 96b2627167265f0827e85a352a80981497967b7d
+/.DS_Store/
