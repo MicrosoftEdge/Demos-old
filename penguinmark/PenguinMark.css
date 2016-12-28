@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* Base Styles ------------------------------------------------------------------------ */
 =======
 ﻿/* Base Styles ------------------------------------------------------------------------ */
 >>>>>>> 96b2627167265f0827e85a352a80981497967b7d
+=======
+/* Base Styles ------------------------------------------------------------------------ */
+>>>>>>> MicrosoftEdge/master
 
 @font-face {
 	font-family: 'Cookies';
@@ -107,6 +111,7 @@ a:hover, a:visited:hover {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 .btn {
     background-color: orange;
@@ -135,16 +140,32 @@ a:hover, a:visited:hover {
     margin: 0px 20px 0px 0px;
     border-radius: 4px;
     right: 0px;
+=======
+
+.btn {
+>>>>>>> MicrosoftEdge/master
     background-color: orange;
+    border-radius: 4px;
+    border: 0;
+    font-family: Cookies;
     font-size: 14pt;
 }
 
-    #StartButton:hover {
-        background-color: #ffc300;
-        cursor: pointer;
-    }
+.btn:hover {
+    background-color: #ffc300;
+    cursor: pointer;
+}
 
+<<<<<<< HEAD
 >>>>>>> 96b2627167265f0827e85a352a80981497967b7d
+=======
+#StartButton {
+    margin: 0 20px 0 0;
+    padding: 12px 18px 10px 18px;
+    position: absolute;
+    right: 0;
+}
+>>>>>>> MicrosoftEdge/master
 
 
 /* Welcome & Results Penguins --------------------------------------------------------- */
@@ -233,9 +254,13 @@ a:hover, a:visited:hover {
     width: 360px;
     padding-top: 40px;
 <<<<<<< HEAD
+<<<<<<< HEAD
     text-align: center;
 =======
 >>>>>>> 96b2627167265f0827e85a352a80981497967b7d
+=======
+    text-align: center;
+>>>>>>> MicrosoftEdge/master
 }
 
 #ResultsHeading {
@@ -255,6 +280,7 @@ a:hover, a:visited:hover {
 
 #ResetButton {
 <<<<<<< HEAD
+<<<<<<< HEAD
     margin: 30px auto;
     padding: 12px 18px 10px 18px;
     width: 176px;
@@ -263,15 +289,14 @@ a:hover, a:visited:hover {
 =======
     width: 140px;
     text-align: center;
+=======
+    margin: 30px auto;
+>>>>>>> MicrosoftEdge/master
     padding: 12px 18px 10px 18px;
-    margin: 30px 0px 0px 90px;
-    border-radius: 4px;
-    bottom: 0px;
-    right: 0px;
-    background-color: orange;
-    font-size: 14pt;
+    width: 176px;
 }
 
+<<<<<<< HEAD
     #ResetButton:hover {
         background-color: #ffc300;
         cursor: pointer;
@@ -279,6 +304,8 @@ a:hover, a:visited:hover {
 
 
 >>>>>>> 96b2627167265f0827e85a352a80981497967b7d
+=======
+>>>>>>> MicrosoftEdge/master
 
 
 /* Penguin Container ------------------------------------------------------------------------ */
