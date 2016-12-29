@@ -29,9 +29,10 @@
 		</div>
 	</div>
 </header>
-<section role="region "class="container section">
+<section class="container section">
 <div class="userselect-container clear">
 	<div id="controls">
+		<label for="sel">User Select Options</label>
 		<select id="sel" class="controls-select">
 			<option selected value="on">Normal Selection</option>
 			<option value="normal_off">Turn off selection except in editable content</option>
@@ -50,41 +51,41 @@
 <pre id="all_off">
 <code>#blog, #blog input, #blog textarea,
 #blog *[contenteditable=true] {
--ms-user-select:none;
--webkit-user-select:none;
+-ms-user-select: none;
+-webkit-user-select: none;
 -moz-user-select: -moz-none;
 }</code></pre>
 <pre id="blog_only">
 <code>#blogPost {
--ms-user-select:element;
--webkit-user-select:text;
+-ms-user-select: element;
+-webkit-user-select: text;
 -moz-user-select: text;
 }
 
 #blog{
--ms-user-select:none;
--webkit-user-select:none;
+-ms-user-select: none;
+-webkit-user-select: none;
 -moz-user-select: -moz-none;
 }</code></pre>
 <pre id="comments_only">
 <code>.comment {
--ms-user-select:element;
--moz-user-select:text;
--webkit-user-select:text;
+-ms-user-select: element;
+-moz-user-select: text;
+-webkit-user-select: text;
 }
 
 #blog{
--ms-user-select:none;
--moz-user-select:-moz-none;
--webkit-user-select:none;
+-ms-user-select: none;
+-moz-user-select: -moz-none;
+-webkit-user-select: none;
 }</code></pre>
 <pre id="blog_beyond">
 <code>#blogPost, .comment {
--ms-user-select:text;
+-ms-user-select: text;
 }
 
 #blog {
--ms-user-select:none;
+-ms-user-select: none;
 }</code></pre>
 		</div>
 	</div>
@@ -92,14 +93,14 @@
 		<div id="sample-content">
 			<img src="images/user-select.svg" alt="IEBlog The Internet Explorer Weblog" />
 		</div>
-		<p class="breadcrumb-list">
-			<a href="#">MSDN Blogs</a> \
-			<a href="#">IEBlog</a> \
-			HTML5 History in IE10
-		</p>
+		<ul class="breadcrumb-list">
+			<li>MSDN Blogs \</li>
+			<li>IEBlog \</li>
+			<li>HTML5 History in IE10</li>
+		</ul>
 
 		<p class="title">HTML5 History in IE10</p>
-		<p class="date"><a href="#">ieblog</a> 31 Oct 2011 3:42 PM</p>
+		<p class="date">ieblog | 31 Oct 2011 3:42 PM</p>
 
 		<p id="blog-post">Building fast and functional sites is a challenge with which most Web developers are
 			familiar. Loading a new page every time the user clicks a link is slow. Fetching all content dynamically
@@ -113,14 +114,14 @@
 		<p class="subtitle">Comments</p>
 		<div class="comments">
 			<div class="comment">
-				<img src="images/avatar_1.svg" class="avatar" alt="avatar" role="presentation" />
+				<img src="images/avatar_1.svg" class="avatar" role="presentation" />
 				<div class="comment__content">
 					<p class="comment--user">Paul</p>
 					<p>Excellent and much needed feature!</p>
 				</div>
 			</div>
 			<div class="comment--reply clear">
-				<img src="images/avatar_1.svg" class="avatar" alt="avatar" role="presentation" />
+				<img src="images/avatar_1.svg" class="avatar" role="presentation" />
 				<div class="comment__content">
 					<p class="comment--user">Will</p>
 					<p>Thank you!!!</p>
@@ -128,13 +129,13 @@
 			</div>
 		</div>
 		<p class="subtitle">Leave a Comment</p>
-		<label>Name</label><br/>
-		<input type="text"><br/><br/>
-		<label>Comment</label><br/>
-		<textarea></textarea>
+		<label for="name">Name</label><br/>
+		<input id="name" type="text"><br/><br/>
+		<label for="comment-body">Comment</label><br/>
+		<textarea id="comment-body"></textarea>
 	</div>
 </section>
-<section role="region" class="container section">
+<section class="container section">
 	<h2 class="section__header">User-select property values explained</h2>
 		<div class="section__body">
 			<div class="subsection">

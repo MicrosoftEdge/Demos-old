@@ -12,13 +12,15 @@
 }
 
 .breadcrumb-list {
+	display: block;
 	font-size: 1.2rem;
-	margin-top: 2rem;
-	margin-bottom: 3.4rem;
+	margin: 2rem 0 3.4rem 0;
+	list-style: none;
 }
 
-.breadcrumb-list a {
-	color: #006fd5;
+ul, li {
+	margin-top: 0;
+	display: inline-block;
 }
 
 /* BLOG CONTENT */
@@ -32,7 +34,11 @@
 
 /* override default styling for alignment */
 .controls-select {
-	margin-top: 0;
+	margin-top: .7rem;
+}
+
+pre:first-child {
+	margin-top: 2.4rem;
 }
 
 #blog {
