@@ -36,13 +36,9 @@ function ResizeScene() {
 }
 
 function StartPenguinMark() {
-
-    var welcomeScreen = document.getElementById("WelcomeScreen");
-
     if (started == false) {
         started = true;
-        welcomeScreen.style.display = "none";
-        welcomeScreen.setAttribute("aria-hidden", "true");
+        document.getElementById("WelcomeScreen").style.display = "none";
         document.getElementById("AudioEntryElement").pause();
         document.getElementById("AudioTrackElement").play();
         characters.Start();
