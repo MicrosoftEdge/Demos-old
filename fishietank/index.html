@@ -6,7 +6,7 @@
     <!-- Copyright © Microsoft Corporation. All Rights Reserved. -->
 
     <title>FishIE Tank</title>
-    <meta name="description" content="Thanks for checking out this site. This demo uses the canvas element to draw fish swimming in a fish tank." />
+    <meta name="description" content="Thanks for checking out this site. This demo uses the canvas element to draw fish swimming in a fish tank."/>
     <script src="../Includes/Script/FeatureDetectCanvas.js"></script>
     <script src="./scripts/fpsometer.js"></script>
     <link rel="stylesheet" href="./styles/fpsometer.css" />
@@ -38,14 +38,11 @@
             height: 1px;
             overflow: hidden;
         }
-		div.control {
-		}
     </style>
     <meta name="t_omni_demopage" content="1" />
 </head>
 <body>
     <script>
-
         var ctx;                     //canvas context for drawing the fish
         var startFish = 20;          //number of fish to start with
         var fish = [];               //array of fish
@@ -58,12 +55,11 @@
         var imageStrip;              //fish image strip 
         var WIDTH = document.body.offsetWidth;
         var HEIGHT = document.body.offsetHeight;
-		var fpsMeter = null;
+        var fpsMeter = null;
 
         window.onload = init;
 
         function init() {
-
             //set up the fpsometer
             fpsMeter = new FpsMeter(0, "fish");
             fpsMeter.SetSettingsHtml("<div class='settingsLabel'>Choose number of fish</div><div class='control'><div class='control'><a class='control' href='javascript:createFish(1);'>1</a></div><div class='control'><a class='control' href='javascript:createFish(10);'>10</a></div><div class='control'><a class='control' href='javascript:createFish(20);'>20</a></div><div class='control'><a class='control' href='javascript:createFish(50);'>50</a></div><div class='control'><a class='control' href='javascript:createFish(100);'>100</a></div><div class='control'><a class='control' href='javascript:createFish(250);'>250</a></div><div class='control'><a class='control' href='javascript:createFish(500);'>500</a></div><div class='control'><a class='control' href='javascript:createFish(1000);'>1000</a></div>");
@@ -97,19 +93,18 @@
 
             //start animation
             setInterval(function () { draw(); }, 16.7);
-			
-			window.addEventListener("resize", OnWindowResize, false);
-			window.addEventListener("contextmenu", function (e) { e.preventDefault(); }, false);
 
-			if (window.navigator.msPointerEnabled) {
-			    document.addEventListener("MSGestureHold", function (e) { e.preventDefault(); }, false);
-			}
-            
+            window.addEventListener("resize", OnWindowResize, false);
+            window.addEventListener("contextmenu", function (e) { e.preventDefault(); }, false);
+
+            if (window.navigator.msPointerEnabled) {
+                document.addEventListener("MSGestureHold", function (e) { e.preventDefault(); }, false);
+            }
         }
+
         function createFish(max) {
-			
-			fpsMeter.Reset();
-			
+            fpsMeter.Reset();
+
             if (fish.length < max) {
                 //add fish
                 for (var i = fish.length; i < max; i++) {
@@ -123,12 +118,11 @@
         }
 
         function drawBackground() {
-
             if (WIDTH < backgroundImageW) {
-               //Show a portion of the background if the window is more narrow than the backgroundImage
-               ctx3.drawImage(backgroundImage, 0, 0, backgroundImageW, HEIGHT);
+                //Show a portion of the background if the window is more narrow than the backgroundImage
+                ctx3.drawImage(backgroundImage, 0, 0, backgroundImageW, HEIGHT);
             }
-           else {
+            else {
                 //tile the backgroundImage horizontally if the window is more wide than the image
                 var tileCount = Math.floor(WIDTH / backgroundImageW);
                 var flip = 1; //flip the image when flip==-1 for better looking tiles
@@ -136,18 +130,17 @@
                     //loop through all the tiles that are needed and position them
                     ctx3.save();
                     ctx3.transform(flip, 0, 0, 1, 0, 0);
-                    ctx3.drawImage(backgroundImage, (flip-1)*backgroundImageW/2+flip*backgroundImageW*i, 0, backgroundImageW, HEIGHT);
+                    ctx3.drawImage(backgroundImage, (flip - 1) * backgroundImageW / 2 + flip * backgroundImageW * i, 0, backgroundImageW, HEIGHT);
                     ctx3.restore();
                     flip = flip * -1;
                 }
-            
             }
         }
 
         function OnWindowResize(e) {
-			var bodyWidth = window.innerWidth;
-			var bodyHeight = window.innerHeight;
-			
+            var bodyWidth = window.innerWidth;
+            var bodyHeight = window.innerHeight;
+
             if (typeof e == 'undefined')
                 e = window.event;
             //on resize reset the WIDTH, HEIGHT and canvas sizes
@@ -167,28 +160,27 @@
             ctx.clearRect(0, 0, WIDTH, HEIGHT);
 
             //set velocity of fish as a function of FPS
-			var fps = fpsMeter.meterFps;
-					
+            var fps = fpsMeter.meterFps;
+
             power = Math.min(fps, 60);
-			if(isNaN(power)) power = 1;
+            if (isNaN(power)) power = 1;
             //velocity = 100 + 100 * (power * power / 3600); //exponential curve between 100-200
             velocity = Math.floor((power * power * .5) / 3) < 1 ? 1 : Math.floor((power * power * .5) / 3);  //exponential curve between 1 and 600.
 
             // Draw each fish
             for (var fishie in fish) {
                 fish[fishie].swim();
-            }   
+            }
 
-			//draw fpsometer with the current number of fish        
-            fpsMeter.Draw(fish.length);  
+            //draw fpsometer with the current number of fish        
+            fpsMeter.Draw(fish.length);
         }
 
         function Fish() {
-
             var angle = Math.PI * 2 * Math.random();                            //set the x,y direction this fish swims
             var xAngle = Math.cos(angle);                                       //set the x value of the angle
             var yAngle = Math.sin(angle);                                       //set the y value of the angle
-            var zAngle = 1+-2*Math.round(Math.random());                        //set if the fish is swimming toward us or away. 1 = toward us; -1 = away from us
+            var zAngle = 1 + -2 * Math.round(Math.random());                        //set if the fish is swimming toward us or away. 1 = toward us; -1 = away from us
             var x = Math.floor(Math.random() * (WIDTH - fishW) + fishW / 2);    //set the starting x location  
             var y = Math.floor(Math.random() * (HEIGHT - fishH) + fishH / 2);   //set the starting y location  
             var zFar = 100;                                                     //set how far away can a fish go
@@ -198,10 +190,10 @@
             var scale = .1;                                                     //set the rate of scaling each frame
             var flip = 1;                                                       //set the direction of the fish. 1=right; -1=left
             var cellCount = 16;                                                 //set the number of cells (columns) in the image strip animation
-            var cell = Math.floor(Math.random() * (cellCount-1));               //set the first cell (columns) of the image strip animation
+            var cell = Math.floor(Math.random() * (cellCount - 1));               //set the first cell (columns) of the image strip animation
             var cellReverse = -1;                                               //set which direction we go through the image strip
             var species = Math.floor(Math.random() * 3);                        //set which species of fish this fish is. each species is a row in the image strip 
-                                             
+
             // stop fish from swimming straight up or down
             if (angle > Math.PI * 4 / 3 && angle < Math.PI * 5 / 3 || angle > Math.PI * 1 / 3 && angle < Math.PI * 2 / 3) {
                 angle = Math.PI * 1 / 3 * Math.random();
@@ -215,13 +207,12 @@
 
             // draw the fish each frame -------------------------------------------------------------------------------            
             function swim() {
-             
                 // Calculate next position of fish
                 var nextX = x + xAngle * velocity * fpsMeter.timeDeltaS;
                 var nextY = y + yAngle * velocity * fpsMeter.timeDeltaS;
                 var nextZ = z + zAngle * .1 * velocity * fpsMeter.timeDeltaS;
                 var nextScale = Math.abs(nextZ) / (zFar - zClose);
- 
+
                 // If fish is going to move off right side of screen
                 if (nextX + fishW / 2 * scale > WIDTH) {
                     // If angle is between 3 o'clock and 6 o'clock
@@ -297,7 +288,7 @@
 
                 }
                 if (scale < .1) { scale = .1 }; //don't let fish get too tiny
-                
+
                 //draw the fish
                 //locate the fish
                 ctx.save();
@@ -309,27 +300,31 @@
                 scale = nextScale // increment scale for next time 
                 ctx.restore();
                 ctx.restore();
-                
+
                 //increment to next state
                 x = nextX;
                 y = nextY;
                 z = nextZ;
-                if (cell >= cellCount-1 || cell <= 0) { cellReverse = cellReverse * -1; } //go through each cell in the animation
+                if (cell >= cellCount - 1 || cell <= 0) { cellReverse = cellReverse * -1; } //go through each cell in the animation
                 cell = cell + 1 * cellReverse; //go back down once we hit the end of the animation
             }
             return {
                 swim: swim
             }
         }
-
     </script>
-    <img id="imageStrip" src="./images/fishstrip.png" style="display: none" tabIndex="-1">             <!--image strip with the fish animation-->
-    <img id="backgroundImage" src="./images/background-flip2.jpg" style="display: none" tabIndex="-1"> <!--background image-->
-    <div class="hidden" tabIndex="-1">Thanks for checking out this site. This demo uses the canvas element to draw fish swimming in a fish tank. The FPS count tells you how many frames per second the browser is able to draw. If you add or remove fish, the frames per second will go up or down depending on how much work the browser is able to do each frame.  
-        The UI is primarliy driven through Javascript and Canvas. The purpose of these demos is to convey a concept and not intended to be used as a best practice for web development. 
-        It’s not the cleanest code, and in some places we took shortcuts to get more demos to you. Enjoy! </div> <!--description for screen readers-->
-
+    <!--image strip with the fish animation-->
+    <img id="imageStrip" src="./images/fishstrip.png" style="display: none" tabIndex="-1" role="none">
+    <!--background image-->
+    <img id="backgroundImage" src="./images/background-flip2.jpg" style="display: none" tabIndex="-1" role="none">
+    <!--description for screen readers-->
+    <div class="hidden" tabIndex="-1">Thanks for checking out this site. This demo uses the canvas element to draw fish swimming in a fish tank. The FPS count
+        tells you how many frames per second the browser is able to draw. If you add or remove fish, the frames per second will
+        go up or down depending on how much work the browser is able to do each frame. The UI is primarliy driven through Javascript
+        and Canvas. The purpose of these demos is to convey a concept and not intended to be used as a best practice for web
+        development. It’s not the cleanest code, and in some places we took shortcuts to get more demos to you. Enjoy! </div>
     <script src="../includes/script/TestDriveCommon.js"></script>
     <script src="https://msedgecdn.azurewebsites.net/scripts/demo-header.js"></script>
 </body>
+
 </html>
