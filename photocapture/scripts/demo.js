@@ -71,9 +71,9 @@
     };
 
     var isEnterKey = function (evt) {
-        var charCode = (typeof evt.which === "number") ? evt.which : evt.keyCode;
+        var charCode = (typeof evt.which === 'number') ? evt.which : evt.keyCode;
 
-        if (charCode !== 13) {
+        if (charCode !== 13 && charCode !== 32) {
             return false;
         }
 
@@ -85,6 +85,7 @@
     // 2. savePhoto()
     var savePhotoWithKey = function (evt) {
         if (isEnterKey(evt)) {
+            evt.preventDefault();
             savePhoto();
         }
     }
@@ -140,7 +141,7 @@
                 currentCam = 0;
             }
             var video = document.getElementById('videoTag');
-            if (typeof (video.srcObject) !== 'undefined') video.srcObject = null;
+            if (typeof video.srcObject !== 'undefined') video.srcObject = null;
             video.src = null;
             if (mediaStream) {
                 var videoTracks = mediaStream.getVideoTracks();
@@ -158,8 +159,8 @@
                 height: 360,
                 deviceId: { exact: webcamList[currentCam] }
             }
-        }).then(function () {
-            initializeVideoStream();
+        }).then(function (stream) {
+            initializeVideoStream(stream);
             switchButton.focus();
         }).catch(getUserMediaError);
     };
