@@ -125,8 +125,7 @@ a:hover, a:visited:hover {
     text-decoration: underline;
 }
 
-button:focus,
-a:focus {
+.button:focus {
     outline: 2px dotted #000;
     outline-offset: 1px;
 }
