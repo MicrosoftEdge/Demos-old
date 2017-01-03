@@ -765,6 +765,7 @@
             bitrateSlider.value = bitrateSlider.max / 3;
             bitrateSlider.onchange = (function () {
                 var change = function () {
+                    bitrateSlider.setAttribute('value', bitrateSlider.value);
                     bitrateLabel.innerHTML = Math.round(manifest.videoStreams[bitrateSlider.value].bandwidth / 1000) + ' kbps';
                     player.setQualityLevel(0, bitrateSlider.value);
                 };
@@ -831,7 +832,6 @@
                 }
             }
         }
-        
     };
     gatherVideos();
 } ());
