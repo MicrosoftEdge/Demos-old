@@ -1,11 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-US">
 <head>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="description" content="HTML5, Canvas, SVG, CSS3 and more!" />
     <meta name="t_omni_demopage" content="1" />
-    <title>Let It Snow</title>    
-    <link rel="Stylesheet" href="./css/default.css" />    
+    <title>Let It Snow</title>
+    <link rel="Stylesheet" href="./css/default.css" />
 </head>
 <body>
     <div id="sceneContainer" class="">
@@ -38,10 +39,12 @@
             <span id="siSnowflakesCount"></span>
             <br>
             Window size: <span id="siResolution"></span>
+            <button id="toggleSoundButton">Pause music</button>
         </div>
+
         <!--<div id="systemInformationFps" class="si">
             Current fps: <span id="siFps">...</span>
-        </div>-->  
+        </div>-->
     </div>
     <audio id="music" src="./res/LetItSnowShort.mp3" loop autoplay ></audio>
     <!-- common libraries -->
