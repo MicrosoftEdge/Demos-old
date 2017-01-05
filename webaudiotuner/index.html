@@ -158,7 +158,7 @@ sourceAudioNode.start();
 // the A4 frequency we are using as a reference
 var changeBaseFreq = function(delta) {
 	var newBaseFreq = baseFreq + delta;
-	if(newBaseFreq >= 432 && newBaseFreq <= 446) {
+	if(newBaseFreq >= 432 &amp;&amp; newBaseFreq <= 446) {
 			baseFreq = newBaseFreq;
 			notesArray = freqTable[baseFreq.toString()];
 
@@ -177,7 +177,7 @@ var changeBaseFreq = function(delta) {
 var changeReferenceSoundNote = function(delta) {
 	if(isRefSoundPlaying) {
 			var newNoteIndex = currentNoteIndex + delta;
-			if(newNoteIndex >= 0 && newNoteIndex < notesArray.length) {
+			if(newNoteIndex >= 0 &amp;&amp; newNoteIndex < notesArray.length) {
 					currentNoteIndex = newNoteIndex;
 					var newNoteFreq = notesArray[currentNoteIndex].frequency;
 					sourceAudioNode.frequency.value = newNoteFreq;
@@ -243,7 +243,7 @@ navigator.getUserMedia({audio: true}, streamReceived);</code></pre>
 							<h5>Example</h5>
 <pre><code>var isGetUserMediaSupported = function(){
 	navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
-	if((navigator.mediaDevices && navigator.mediaDevices.getUserMedia) || navigator.getUserMedia){
+	if((navigator.mediaDevices &amp;&amp; navigator.mediaDevices.getUserMedia) || navigator.getUserMedia){
 			return true;
 	}
 	
@@ -251,7 +251,7 @@ navigator.getUserMedia({audio: true}, streamReceived);</code></pre>
 };
 
 if(isGetUserMediaSupported()){
-	var getUserMedia = navigator.mediaDevices && navigator.mediaDevices.getUserMedia ?
+	var getUserMedia = navigator.mediaDevices &amp;&amp; navigator.mediaDevices.getUserMedia ?
 		navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices) :
 		function (constraints) {
 			return new Promise(function (resolve, reject) {
