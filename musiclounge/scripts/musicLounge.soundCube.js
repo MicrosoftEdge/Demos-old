@@ -25,40 +25,27 @@ var MusicLounge;
             this._originHeight = this._box.position.y;
             this._lastPosition = position.clone();
             shadowGenerator.getShadowMap().renderList.push(this._box);
-            // Generate internal particules
-            // Create a particle system
             var particleSystem = new BABYLON.ParticleSystem('particles', 200, scene);
-            //Texture of each particle
             particleSystem.particleTexture = new BABYLON.Texture('assets/lens4.png', scene);
-            // Where the particles come from
             particleSystem.emitter = this._box;
-            particleSystem.minEmitBox = new BABYLON.Vector3(-1, 0, -1); // Starting all from
-            particleSystem.maxEmitBox = new BABYLON.Vector3(1, 0, 1); // To...
-            // Colors of all particles
+            particleSystem.minEmitBox = new BABYLON.Vector3(-1, 0, -1);
+            particleSystem.maxEmitBox = new BABYLON.Vector3(1, 0, 1);
             var particleColor = new BABYLON.Color4(color.r, color.g, color.b, 1.0);
             particleSystem.color1 = particleColor;
             particleSystem.color2 = particleColor.scale(0.5);
             particleSystem.colorDead = new BABYLON.Color4(0, 0, 0, 0.0);
-            // Size of each particle (random between...
             particleSystem.minSize = 3;
             particleSystem.maxSize = 10;
-            // Life time of each particle (random between...
             particleSystem.minLifeTime = 0.3;
             particleSystem.maxLifeTime = 1.5;
-            // Emission rate
             particleSystem.emitRate = 100;
-            // Blend mode : BLENDMODE_ONEONE, or BLENDMODE_STANDARD
             particleSystem.blendMode = BABYLON.ParticleSystem.BLENDMODE_ONEONE;
-            // Set the gravity of all particles
             particleSystem.gravity = new BABYLON.Vector3(0, 0, 0);
-            // Direction of each particle after it has been emitted
             particleSystem.direction1 = new BABYLON.Vector3(0, 1, 0);
             particleSystem.direction2 = new BABYLON.Vector3(0, 1, 0);
-            // Speed
             particleSystem.minEmitPower = 5;
             particleSystem.maxEmitPower = 15;
             particleSystem.updateSpeed = 0.05;
-            // Start the particle system
             particleSystem.start();
             if (attachedSound) {
                 attachedSound.attachToMesh(this._box);
@@ -120,11 +107,18 @@ var MusicLounge;
             }
             return false;
         };
+        SoundCube.prototype.getScreenPosition = function () {
+            var arr = this._box.getVertexBuffer(BABYLON.VertexBuffer.PositionKind);
+            var vertex = BABYLON.Vector3.FromArray(arr.getData(), 0);
+            var coords = BABYLON.Vector3.TransformCoordinates(vertex, this._box.getWorldMatrix());
+            var res = BABYLON.Vector3.Project(coords, BABYLON.Matrix.Identity(), this._scene.getTransformMatrix(), this._scene.activeCamera.viewport.toGlobal(this._scene.getEngine()));
+            res.x /= 2;
+            res.y /= 2;
+            res.z /= 2;
+            return res;
+        };
+        ;
         SoundCube.prototype.move = function (point, checkCollisionWith) {
-            //if (BABYLON.Vector3.Distance(point, BABYLON.Vector3.Zero()) > 30) {
-            //    this.deMagnetize();
-            //    this.box.computeWorldMatrix(true);
-            //}
             if (this.box.parent === undefined) {
                 this.box.position.addInPlace(point);
                 this.box.computeWorldMatrix(true);
@@ -254,7 +248,6 @@ var MusicLounge;
             return false;
         };
         return SoundCube;
-    })();
+    }());
     MusicLounge.SoundCube = SoundCube;
 })(MusicLounge || (MusicLounge = {}));
-//# sourceMappingURL=musicLounge.soundCube.js.map

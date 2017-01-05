@@ -30,7 +30,6 @@ var MusicLounge;
             }
         };
         return SoundsLoader;
-    })();
+    }());
     MusicLounge.SoundsLoader = SoundsLoader;
 })(MusicLounge || (MusicLounge = {}));
-//# sourceMappingURL=musicLounge.soundsLoader.js.map
