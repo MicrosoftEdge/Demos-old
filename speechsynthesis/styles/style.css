@@ -8,38 +8,8 @@ body {
 }
 
 header {
-	margin: 3em 1em;
-	max-width: 300px;
-	height: 60px;
-}
-
-
-.speech-status {
-	position: absolute;
-	right: 20px;
-	top: 60px;
-	width: 32px;
-	visibility: hidden;
-}
-
-ul {
-	list-style-type: none;
-	margin: 1em auto;
-	min-width: 500px;
-	max-width: 60%;
-	text-align: center;
-}
-
-li {
-	display: inline-block;
-}
-
-#container {
-	min-width: 500px;
-	max-width: 60%;
-	background: #001129;
-	padding: 1em;
-	margin: 1em auto;
+	margin: 3.5rem 1.5rem;
+	max-width: 21rem;
 }
 
 h1 {
@@ -48,51 +18,85 @@ h1 {
 	text-align: center;
 }
 
-#js-support-message {
+#container {
+	min-width: 20rem;
+	max-width: 64rem;
+	width: 60%;
+	background: #001129;
+	padding: 1rem;
+	margin: 1rem auto;
+}
+
+.speech-status {
+	position: absolute;
+	right: 1.2rem;
+	top: 4rem;
+	width: 2rem;
+	visibility: hidden;
+}
+
+#support-message {
 	position: absolute;
 	top: 0;
 	color: #fff;
 	background-color: #000;
 	left: 0;
-	padding: 10px 0;
+	padding: .7rem 0;
 	margin: 0 auto;
 	width: 100%;
-	font-size: .7em;
+	font-size: 1rem;
 	text-align: center;
 }
 
-#js-support-message strong {
+#support-message strong {
 	color: #4c9d4c;
 }
 
-#js-support-message.unSupported strong {
+#support-message.unSupported strong {
 	color: #800;
 }
 
 input[type="text"] {
 	box-sizing: border-box;
 	width: 100%;
-	padding: .5em;
-	font-size: 1.2em;
-	border: 1px solid #cccedb;
-	height: 40px;
+	padding: .5rem;
+	font-size: 1.2rem;
+	height: 2.5rem;
 }
 
 input[type="range"] {
-	width: 68%;
+	width: 100%;
 	background-color: #001129;
-	padding: .7em 0;
+	padding: .7rem 0;
+}
+
+input[type="text"]:focus,
+select:focus {
+	border: 2px solid #ffa940;
 }
 
 label {
-	display: inline-block;
-	width: 20%;
+	float: left;
+	max-width: 6rem;
+	width: 100%;
+	font-size: 1.1rem;
 	color: #fff;
-	font-size: 1em;
+}
+
+@media (min-width: 33.75em) {
+
+	label {
+		margin: 1.5rem 0;
+	}
+
+	input[type="range"] {
+		width: 75%;
+	}
+
 }
 
 .option {
-	margin: 1.5em 0;
+	margin-bottom: 1.5rem;
 }
 
 #buttons-container {
@@ -103,8 +107,8 @@ button {
 	display: inline-block;
 	border: none;
 	font-size: .9rem;
-	padding: .5rem .8em;
-	background: #4c9d4c;
+	padding: .5rem .8rem;
+	background: #167d3e;
 	color: #fff;
 	font-weight: bold;
 	margin: 0 0 5px 0;
@@ -139,25 +143,25 @@ button {
 	z-index: -1;
 }
 
-
 #speech-bubble {
 	position: relative;
-	top: -10px;
+	top: -.5rem;
 	left: 0;
 	width: 0;
 	height: 0;
 	border-style: solid;
-	border-width: 32px 31px 0 0;
+	border-width: 2rem 1.9rem 0 0;
 	border-color: #fff transparent transparent transparent;
 }
 
 #text-container {
-	margin: 0 0 40px 0;
+	margin: 0 0 2.2rem 0;
 	background-color: #fff;
 	border-radius: 6px;
-	padding: .5em;
+	padding: .7rem;
 	width: 100%;
-	height: 55px;
+	max-width: 96rem;
+	height: 4rem;
 }
 
 .soundwave {
@@ -167,12 +171,19 @@ button {
 	z-index: -1;
 }
 
-.drop-down {
-	width: auto;
-	height:auto;;
-	font-size: 1em;
+.dropdown {
+	height: auto;
+	font-size: 1rem;
 	background-color: hsla(328, 100%, 100%, 1);
-	padding-right: 1.7em;
+	padding-right: 1.7rem;
+}
+
+.dropdown--voice {
+	width: 20rem;
+}
+
+.dropdown--language {
+	width: 8rem;
 }
 
 input[type=range]::-webkit-slider-runnable-track {
