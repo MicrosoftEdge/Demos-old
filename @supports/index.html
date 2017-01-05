@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="en-US">
 <head>
 	<meta charset="utf-8">
 	<title>@Supports - Test Whether Certain CSS Properties and Values are Supported</title>
@@ -41,20 +41,16 @@
 					<div class="subsection__body">
 						<div class="layout layout--equal">
 							<div class="module">
-								<h5>CSS</h5>
-								<script
-									src="https://gist.github.com/aarongustafson/d93fe2e887261309c03a.js?file=rgba.css"></script>
-								<noscript>
-									<pre><code class="css">b {
+								<h4>CSS</h4>
+<pre><code>b {
 	background-color: black;
 	color: white;
 	background-color: rgba(255, 255, 255, 1);
 	color: rgba(0, 0, 0, 1);
 }</code></pre>
-								</noscript>
 							</div>
 							<div class="module">
-								<h5>Result</h5>
+								<h4>Result</h4>
 								<div class="rendered-result supports-demo" id="ex-1">
 									<b class="supports-demo__element">Browsers that support RGBa will display this as black text on a white field. Browsers that don’t will display it as white text on a black field.</b>
 								</div>
@@ -77,11 +73,8 @@
 					<div class="subsection__body">
 						<div class="layout layout--equal">
 							<div class="module">
-								<h5>CSS</h5>
-								<script
-									src="https://gist.github.com/aarongustafson/d93fe2e887261309c03a.js?file=selector-filter.css"></script>
-								<noscript>
-									<pre><code class="css">b {
+								<h4>CSS</h4>
+<pre><code>b {
 	background-color: black;
 	color: white;
 }
@@ -93,7 +86,7 @@ b:only-child {
 								</noscript>
 							</div>
 							<div class="module">
-								<h5>Result</h5>
+								<h4>Result</h4>
 								<div class="supports-demo rendered-result" id="ex-2">
 									<b class="supports-demo__element">Browsers that support <code>:only-child</code> will display this as black text on a white field. Browsers that don’t will display it as white text on a black field.</b>
 								</div>
@@ -118,11 +111,8 @@ b:only-child {
 					<div class="subsection__body">
 						<div class="layout layout--equal">
 							<div class="module">
-								<h5>CSS</h5>
-								<script
-									src="https://gist.github.com/aarongustafson/d93fe2e887261309c03a.js?file=block-filter.css"></script>
-								<noscript>
-									<pre><code class="css">b {
+								<h4>CSS</h4>
+<pre><code>b {
 	background-color: black;
 	color: white;
 }
@@ -133,10 +123,9 @@ b:only-child {
 		color: black;
 	}
 }</code></pre>
-								</noscript>
 							</div>
 							<div class="module">
-								<h5>Result</h5>
+								<h4>Result</h4>
 								<div class="supports-demo rendered-result" id="ex-3">
 									<b class="supports-demo__element">Browsers that support media queries will display this as black text on a white field. Browsers that don’t will display it as white text on a black field.</b>
 								</div>
@@ -169,11 +158,8 @@ b:only-child {
 					<div class="subsection__body">
 						<div class="layout layout--equal">
 							<div class="module">
-								<h5>CSS</h5>
-								<script
-									src="https://gist.github.com/aarongustafson/d93fe2e887261309c03a.js?file=supports-filter.css"></script>
-								<noscript>
-									<pre><code class="css">b {
+								<h4>CSS</h4>
+<pre><code>b {
 	background-color: black;
 	color: white;
 }
@@ -184,10 +170,9 @@ b:only-child {
 		color: black;
 	}
 }</code></pre>
-								</noscript>
 							</div>
 							<div class="module">
-								<h5>Result</h5>
+								<h4>Result</h4>
 								<div class="supports-demo rendered-result" id="ex-4">
 									<b class="supports-demo__element">Browsers that support linear gradients (and <code>@supports</code>) will display this as black text on a white field. Browsers that don’t will display it as white text on a black field.</b>
 								</div>

@@ -56,8 +56,8 @@
 	var sizeCanvas = function () {
 		canvasElm = document.getElementById('canvas');
 
-		canvasElm.width = canvasElm.clientWidth;
-		canvasElm.height = canvasElm.clientWidth * 9 / 16;
+		canvasElm.width = window.innerWidth;
+		canvasElm.height = window.innerHeight;
 	};
 
 	// Create physics objects for the particles
@@ -386,15 +386,15 @@
 		// prep for draw
 		switch (blurMode) {
 			case BLUR_MODE_OFF:
-			{
-				context.globalAlpha = 1;
-				break;
-			}
+				{
+					context.globalAlpha = 1;
+					break;
+				}
 			case BLUR_MODE_ON:
-			{
-				context.globalAlpha = 0.2;
-				break;
-			}
+				{
+					context.globalAlpha = 0.2;
+					break;
+				}
 		}
 
 		context.fillStyle = 'rgb(0, 0, 0)';
@@ -574,4 +574,4 @@
 		sizeCanvas();
 		setupWorld();
 	}, false);
-}());
+} ());

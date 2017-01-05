@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -52,7 +52,7 @@
         var backgroundImage;         //background image
         var backgroundImageW = 981;  //background image width
         var backgroundImageH = 767;  //background image height
-        var imageStrip;              //fish image strip 
+        var imageStrip;              //fish image strip
         var WIDTH = document.body.offsetWidth;
         var HEIGHT = document.body.offsetHeight;
         var fpsMeter = null;
@@ -62,7 +62,7 @@
         function init() {
             //set up the fpsometer
             fpsMeter = new FpsMeter(0, "fish");
-            fpsMeter.SetSettingsHtml("<div class='settingsLabel'>Choose number of fish</div><div class='control'><div class='control'><a class='control' href='javascript:createFish(1);'>1</a></div><div class='control'><a class='control' href='javascript:createFish(10);'>10</a></div><div class='control'><a class='control' href='javascript:createFish(20);'>20</a></div><div class='control'><a class='control' href='javascript:createFish(50);'>50</a></div><div class='control'><a class='control' href='javascript:createFish(100);'>100</a></div><div class='control'><a class='control' href='javascript:createFish(250);'>250</a></div><div class='control'><a class='control' href='javascript:createFish(500);'>500</a></div><div class='control'><a class='control' href='javascript:createFish(1000);'>1000</a></div>");
+            fpsMeter.SetSettingsHtml("<div class='settingsLabel'>Choose number of fish</div><div class='control'><div class='control'><a class='control' href='javascript:createFish(1);' aria-label='1 fish'>1</a></div><div class='control'><a class='control' href='javascript:createFish(10);' aria-label='10 fish'>10</a></div><div class='control'><a class='control' href='javascript:createFish(20);' aria-label='20 fish'>20</a></div><div class='control'><a class='control' href='javascript:createFish(50);' aria-label='50 fish'>50</a></div><div class='control'><a class='control' href='javascript:createFish(100);' aria-label='100 fish'>100</a></div><div class='control'><a class='control' href='javascript:createFish(250);' aria-label='250 fish'>250</a></div><div class='control'><a class='control' href='javascript:createFish(500);' aria-label='500 fish'>500</a></div><div class='control'><a class='control' href='javascript:createFish(1000);' aria-label='1000 fish'>1000</a></div>");
 
             //set up the canvas
             var tempCtx = document.createElement("canvas");
@@ -172,7 +172,7 @@
                 fish[fishie].swim();
             }
 
-            //draw fpsometer with the current number of fish        
+            //draw fpsometer with the current number of fish
             fpsMeter.Draw(fish.length);
         }
 
@@ -181,18 +181,18 @@
             var xAngle = Math.cos(angle);                                       //set the x value of the angle
             var yAngle = Math.sin(angle);                                       //set the y value of the angle
             var zAngle = 1 + -2 * Math.round(Math.random());                        //set if the fish is swimming toward us or away. 1 = toward us; -1 = away from us
-            var x = Math.floor(Math.random() * (WIDTH - fishW) + fishW / 2);    //set the starting x location  
-            var y = Math.floor(Math.random() * (HEIGHT - fishH) + fishH / 2);   //set the starting y location  
+            var x = Math.floor(Math.random() * (WIDTH - fishW) + fishW / 2);    //set the starting x location
+            var y = Math.floor(Math.random() * (HEIGHT - fishH) + fishH / 2);   //set the starting y location
             var zFar = 100;                                                     //set how far away can a fish go
             var zFarFactor = 1;                                                 //set the max size the fish can be. 1=100%
             var zClose = 0;                                                     //set how near a fish can come
-            var z = Math.floor(Math.random() * ((zFar - zClose)));              //set the starting z location 
+            var z = Math.floor(Math.random() * ((zFar - zClose)));              //set the starting z location
             var scale = .1;                                                     //set the rate of scaling each frame
             var flip = 1;                                                       //set the direction of the fish. 1=right; -1=left
             var cellCount = 16;                                                 //set the number of cells (columns) in the image strip animation
             var cell = Math.floor(Math.random() * (cellCount - 1));               //set the first cell (columns) of the image strip animation
             var cellReverse = -1;                                               //set which direction we go through the image strip
-            var species = Math.floor(Math.random() * 3);                        //set which species of fish this fish is. each species is a row in the image strip 
+            var species = Math.floor(Math.random() * 3);                        //set which species of fish this fish is. each species is a row in the image strip
 
             // stop fish from swimming straight up or down
             if (angle > Math.PI * 4 / 3 && angle < Math.PI * 5 / 3 || angle > Math.PI * 1 / 3 && angle < Math.PI * 2 / 3) {
@@ -205,7 +205,7 @@
                 flip = -1;
             }
 
-            // draw the fish each frame -------------------------------------------------------------------------------            
+            // draw the fish each frame -------------------------------------------------------------------------------
             function swim() {
                 // Calculate next position of fish
                 var nextX = x + xAngle * velocity * fpsMeter.timeDeltaS;
@@ -297,7 +297,7 @@
                 ctx.transform(flip, 0, 0, 1, 0, 0); //make the fish face the way he's swimming.
                 ctx.drawImage(imageStrip, fishW * cell, fishH * species, fishW, fishH, -fishW / 2, -fishH / 2, fishW, fishH); //draw the fish
                 ctx.save();
-                scale = nextScale // increment scale for next time 
+                scale = nextScale // increment scale for next time
                 ctx.restore();
                 ctx.restore();
 
