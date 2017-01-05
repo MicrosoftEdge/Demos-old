@@ -105,6 +105,11 @@ a:hover, a:visited:hover {
     opacity: 0.9;
 }
 
+.button {
+    border: 0;
+    background-color: transparent;
+}
+
 #EightWatermark {
     position: fixed;
     height: 1600px;
@@ -302,17 +307,17 @@ a:hover, a:visited:hover {
     height: 100%;
 	-ms-animation-duration: 1s;
 	-ms-animation-name: FishBodyStretch;
-	-ms-animation-iteration-count: infinite; 
+	-ms-animation-iteration-count: infinite;
 	-ms-animation-direction: alternate;
 	-ms-animation-timing-function: ease-in-out;
 	-webkit-animation-duration: 1s;
 	-webkit-animation-name: FishBodyStretch;
-	-webkit-animation-iteration-count: infinite; 
+	-webkit-animation-iteration-count: infinite;
 	-webkit-animation-direction: alternate;
 	-webkit-animation-timing-function: ease-in-out;
 	-moz-animation-duration: 1s;
 	-moz-animation-name: FishBodyStretch;
-	-moz-animation-iteration-count: infinite; 
+	-moz-animation-iteration-count: infinite;
 	-moz-animation-direction: alternate;
 	-moz-animation-timing-function: ease-in-out;
 }
@@ -354,17 +359,17 @@ a:hover, a:visited:hover {
     -moz-user-select: none;
 	-ms-animation-duration: 1s;
 	-ms-animation-name: FishBodyColor;
-	-ms-animation-iteration-count: infinite; 
+	-ms-animation-iteration-count: infinite;
 	-ms-animation-direction: alternate;
 	-ms-animation-timing-function: ease-in-out;
 	-webkit-animation-duration: 1s;
 	-webkit-animation-name: FishBodyColor;
-	-webkit-animation-iteration-count: infinite; 
+	-webkit-animation-iteration-count: infinite;
 	-webkit-animation-direction: alternate;
 	-webkit-animation-timing-function: ease-in-out;
     -moz-animation-duration: 1s;
 	-moz-animation-name: FishBodyColor;
-	-moz-animation-iteration-count: infinite; 
+	-moz-animation-iteration-count: infinite;
 	-moz-animation-direction: alternate;
 	-moz-animation-timing-function: ease-in-out;
 }
@@ -393,49 +398,49 @@ a:hover, a:visited:hover {
     -moz-user-select: none;
 	-ms-animation-duration: 0.9s;
 	-ms-animation-name: FishTailWiggle;
-	-ms-animation-iteration-count: infinite; 
+	-ms-animation-iteration-count: infinite;
 	-ms-animation-direction: alternate;
 	-ms-animation-timing-function: ease-in-out;
 	-ms-transform-origin: 225px 0px;
 	-webkit-animation-duration: 0.9s;
 	-webkit-animation-name: FishTailWiggle;
-	-webkit-animation-iteration-count: infinite; 
+	-webkit-animation-iteration-count: infinite;
 	-webkit-animation-direction: alternate;
 	-webkit-animation-timing-function: ease-in-out;
 	-webkit-transform-origin: 225px 0px;
 	-moz-animation-duration: 0.9s;
 	-moz-animation-name: FishTailWiggle;
-	-moz-animation-iteration-count: infinite; 
+	-moz-animation-iteration-count: infinite;
 	-moz-animation-direction: alternate;
 	-moz-animation-timing-function: ease-in-out;
 	-moz-transform-origin: 225px 0px;
 }
 
 @-ms-keyframes FishTailWiggle {
-	from {  
+	from {
 		-ms-transform: rotate(0deg) scaleX(1) scaleY(1) skew(-3deg);
 	}
 	to {
 		-ms-transform: rotate(14deg) scaleX(1.1) scaleY(0.7);
-	}  
+	}
 }
 
 @-webkit-keyframes FishTailWiggle {
-	from {  
+	from {
 		-webkit-transform: rotate(0deg) scaleX(1) scaleY(1) skew(-3deg);
 	}
 	to {
 		-webkit-transform: rotate(14deg) scaleX(1.1) scaleY(0.7);
-	}  
+	}
 }
 
 @-moz-keyframes FishTailWiggle {
-	from {  
+	from {
 		-moz-transform: rotate(0deg) scaleX(1) scaleY(1) skew(-3deg);
 	}
 	to {
 		-moz-transform: rotate(14deg) scaleX(1.1) scaleY(0.7);
-	}  
+	}
 }
 
 #FishHeadHolder {
@@ -444,47 +449,47 @@ a:hover, a:visited:hover {
 	left: 575px;
 	-ms-animation-duration: 1.3s;
 	-ms-animation-name: FishHeadHolderBobble;
-	-ms-animation-iteration-count: infinite; 
+	-ms-animation-iteration-count: infinite;
 	-ms-animation-direction: alternate;
 	-ms-animation-timing-function: ease-in-out;
 	-ms-transform-origin: 200px 40px;
 	-webkit-animation-duration: 1.3s;
 	-webkit-animation-name: FishHeadHolderBobble;
-	-webkit-animation-iteration-count: infinite; 
+	-webkit-animation-iteration-count: infinite;
 	-webkit-animation-direction: alternate;
 	-webkit-animation-timing-function: ease-in-out;
 	-webkit-transform-origin: 200px 40px;
 	-moz-animation-duration: 1.3s;
 	-moz-animation-name: FishHeadHolderBobble;
-	-moz-animation-iteration-count: infinite; 
+	-moz-animation-iteration-count: infinite;
 	-moz-animation-direction: alternate;
 	-moz-animation-timing-function: ease-in-out;
 	-moz-transform-origin: 200px 40px;
 }
 
 @-ms-keyframes FishHeadHolderBobble {
-	from {  
+	from {
 		-ms-transform: rotate(-0.25deg) scaleX(1) scaleY(1.01) skew(-1deg);
 	}
-	to {  
+	to {
 		-ms-transform: rotate(0.75deg) scaleX(1.022) scaleY(1.01) skew(3deg);
 	}
 }
 
 @-webkit-keyframes FishHeadHolderBobble {
-	from {  
+	from {
 		-webkit-transform: rotate(-0.25deg) scaleX(1) scaleY(1.01) skew(-1deg);
 	}
-	to {  
+	to {
 		-webkit-transform: rotate(0.75deg) scaleX(1.022) scaleY(1.01) skew(3deg);
 	}
 }
 
 @-moz-keyframes FishHeadHolderBobble {
-	from {  
+	from {
 		-moz-transform: rotate(-0.25deg) scaleX(1) scaleY(1.01) skew(-1deg);
 	}
-	to {  
+	to {
 		-moz-transform: rotate(0.75deg) scaleX(1.022) scaleY(1.01) skew(3deg);
 	}
 }
@@ -495,55 +500,55 @@ a:hover, a:visited:hover {
 	left: 371px;
 	-ms-animation-duration: 1s;
 	-ms-animation-name: FishPelvicFinFlutter;
-	-ms-animation-iteration-count: infinite; 
+	-ms-animation-iteration-count: infinite;
 	-ms-animation-direction: alternate;
 	-ms-animation-timing-function: ease-in-out;
 	-ms-transform-origin: 106px 32px;
 	-webkit-animation-duration: 1s;
 	-webkit-animation-name: FishPelvicFinFlutter;
-	-webkit-animation-iteration-count: infinite; 
+	-webkit-animation-iteration-count: infinite;
 	-webkit-animation-direction: alternate;
 	-webkit-animation-timing-function: ease-in-out;
 	-webkit-transform-origin: 106px 32px;
 	-moz-animation-duration: 1s;
 	-moz-animation-name: FishPelvicFinFlutter;
-	-moz-animation-iteration-count: infinite; 
+	-moz-animation-iteration-count: infinite;
 	-moz-animation-direction: alternate;
 	-moz-animation-timing-function: ease-in-out;
 	-moz-transform-origin: 106px 32px;
 }
 
 @-ms-keyframes FishPelvicFinFlutter {
-	from {  
+	from {
 		-ms-transform: rotate(-2deg) scaleX(0.96) scaleY(1.01) skew(4deg);
         color: #AE1F2B;
-	}  
-	to {  
+	}
+	to {
 		-ms-transform: rotate(-2deg) scaleX(1.04) scaleY(0.83) skew(-20deg);
 		color: #ab1e29;
-	}  
+	}
 }
 
 @-webkit-keyframes FishPelvicFinFlutter {
-	from {  
+	from {
 		-webkit-transform: rotate(-2deg) scaleX(0.96) scaleY(1.01) skew(4deg);
         color: #AE1F2B;
-	}  
-	to {  
+	}
+	to {
 		-webkit-transform: rotate(-2deg) scaleX(1.04) scaleY(0.83) skew(-20deg);
 		color: #ab1e29;
-	}  
+	}
 }
 
 @-moz-keyframes FishPelvicFinFlutter {
-	from {  
+	from {
 		-moz-transform: rotate(-2deg) scaleX(0.96) scaleY(1.01) skew(4deg);
         color: #AE1F2B;
-	}  
-	to {  
+	}
+	to {
 		-moz-transform: rotate(-2deg) scaleX(1.04) scaleY(0.83) skew(-20deg);
 		color: #ab1e29;
-	}  
+	}
 }
 
 #FishGillCover {
@@ -552,19 +557,19 @@ a:hover, a:visited:hover {
 	left: 522px;
 	-ms-animation-duration: 1.8s;
 	-ms-animation-name: FishGillCoverFlutter;
-	-ms-animation-iteration-count: infinite; 
+	-ms-animation-iteration-count: infinite;
 	-ms-animation-direction: alternate;
 	-ms-animation-timing-function: ease-in-out;
 	-ms-transform-origin: 160px 20px;
 	-webkit-animation-duration: 1.8s;
 	-webkit-animation-name: FishGillCoverFlutter;
-	-webkit-animation-iteration-count: infinite; 
+	-webkit-animation-iteration-count: infinite;
 	-webkit-animation-direction: alternate;
 	-webkit-animation-timing-function: ease-in-out;
 	-webkit-transform-origin: 160px 20px;
 	-moz-animation-duration: 1.8s;
 	-moz-animation-name: FishGillCoverFlutter;
-	-moz-animation-iteration-count: infinite; 
+	-moz-animation-iteration-count: infinite;
 	-moz-animation-direction: alternate;
 	-moz-animation-timing-function: ease-in-out;
 	-moz-transform-origin: 160px 20px;
@@ -574,8 +579,8 @@ a:hover, a:visited:hover {
 	from {
 		-ms-transform: rotate(0deg) skew(-3deg);
 		color: #D93B36;
-	}  
-	to {  
+	}
+	to {
 		-ms-transform: rotate(-1deg) scaleX(1.06) scaleY(0.94) skew(1deg);
 		color: #e0423d;
 	}
@@ -585,19 +590,19 @@ a:hover, a:visited:hover {
 	from {
 		-webkit-transform: rotate(0deg) skew(-3deg);
         color: #D93B36;
-	}  
-	to {  
+	}
+	to {
 		-webkit-transform: rotate(-1deg) scaleX(1.06) scaleY(0.94) skew(1deg);
 		color: #e0423d;
 	}
 }
 
 @-moz-keyframes FishGillCoverFlutter {
-	from {  
+	from {
 		-moz-transform: rotate(0deg) skew(-3deg);
 		color: #D93B36;
-	}  
-	to {  
+	}
+	to {
 		-moz-transform: rotate(-1deg) scaleX(1.06) scaleY(0.94) skew(1deg);
 		color: #e0423d;
 	}
@@ -609,19 +614,19 @@ a:hover, a:visited:hover {
 	left: 327px;
 	-ms-animation-duration: 1s;
 	-ms-animation-name: FishDorsalFinFlick;
-	-ms-animation-iteration-count: infinite; 
+	-ms-animation-iteration-count: infinite;
 	-ms-animation-direction: alternate;
 	-ms-animation-timing-function: ease-in-out;
 	-ms-transform-origin: 84px 70px;
 	-webkit-animation-duration: 1s;
 	-webkit-animation-name: FishDorsalFinFlick;
-	-webkit-animation-iteration-count: infinite; 
+	-webkit-animation-iteration-count: infinite;
 	-webkit-animation-direction: alternate;
 	-webkit-animation-timing-function: ease-in-out;
 	-webkit-transform-origin: 84px 70px;
 	-moz-animation-duration: 1s;
 	-moz-animation-name: FishDorsalFinFlick;
-	-moz-animation-iteration-count: infinite; 
+	-moz-animation-iteration-count: infinite;
 	-moz-animation-direction: alternate;
 	-moz-animation-timing-function: ease-in-out;
 	-moz-transform-origin: 84px 70px;
@@ -661,20 +666,20 @@ a:hover, a:visited:hover {
 }
 
 #FishHead {
-    color: #40C3D5; 
+    color: #40C3D5;
 	-ms-animation-duration: 1s;
 	-ms-animation-name: FishHeadColor;
-	-ms-animation-iteration-count: infinite; 
+	-ms-animation-iteration-count: infinite;
 	-ms-animation-direction: alternate;
 	-ms-animation-timing-function: ease-in-out;
 	-webkit-animation-duration: 1s;
 	-webkit-animation-name: FishHeadColor;
-	-webkit-animation-iteration-count: infinite; 
+	-webkit-animation-iteration-count: infinite;
 	-webkit-animation-direction: alternate;
 	-webkit-animation-timing-function: ease-in-out;
 	-moz-animation-duration: 1s;
 	-moz-animation-name: FishHeadColor;
-	-moz-animation-iteration-count: infinite; 
+	-moz-animation-iteration-count: infinite;
 	-moz-animation-direction: alternate;
 	-moz-animation-timing-function: ease-in-out;
 }
@@ -700,17 +705,17 @@ a:hover, a:visited:hover {
 	left: 53px;
 	-ms-animation-duration: 1.4s;
 	-ms-animation-name: FishEyeTurn;
-	-ms-animation-iteration-count: infinite; 
+	-ms-animation-iteration-count: infinite;
 	-ms-animation-direction: alternate;
 	-ms-animation-timing-function: ease-in-out;
 	-webkit-animation-duration: 1.4s;
 	-webkit-animation-name: FishEyeTurn;
-	-webkit-animation-iteration-count: infinite; 
+	-webkit-animation-iteration-count: infinite;
 	-webkit-animation-direction: alternate;
 	-webkit-animation-timing-function: ease-in-out;
     -moz-animation-duration: 1.4s;
 	-moz-animation-name: FishEyeTurn;
-	-moz-animation-iteration-count: infinite; 
+	-moz-animation-iteration-count: infinite;
 	-moz-animation-direction: alternate;
 	-moz-animation-timing-function: ease-in-out;
 }

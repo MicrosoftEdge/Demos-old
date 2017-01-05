@@ -1,5 +1,5 @@
 @font-face {
-	font-family: 'Jester';	
+	font-family: 'Jester';
 	src: local('☺'), url('../fonts/Jester.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
@@ -28,7 +28,7 @@ body
 
 select
 {
-    font-family: "Jester";    
+    font-family: "Jester";
 }
 
 body *
@@ -87,7 +87,7 @@ canvas#snowflakesCanvas
     right: 0px;
     bottom: 0px;
     /* prevent default touch actions such as zoom */
-    -ms-touch-action: none;        
+    -ms-touch-action: none;
 }
 
 /* basic classes */
@@ -103,7 +103,7 @@ div.si
 {
     color: black;
     position: absolute;
-    bottom: 10px;    
+    bottom: 10px;
 }
 
 div#systemInformation
@@ -123,7 +123,7 @@ div#systemInformationFps
 
 span#siFps
 {
-    font-weight: bold;        
+    font-weight: bold;
     font-size: 24pt;
 }
 
@@ -192,4 +192,10 @@ canvas.clearedSnowCanvas
     top: 0px;
     left: 0px;
     opacity: 1.0;
+}
+
+#toggleSoundButton {
+    display: block;
+    margin: 10px auto;
+    width: 100%;
 }

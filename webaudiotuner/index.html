@@ -1,5 +1,6 @@
-<html lang="en">
+<html lang="en-US">
 <head>
+	<meta charset="utf-8">
 	<title>Web Audio Tuner</title>
 	<meta name="og:title" content="Web Audio tuner"/>
 	<meta name="description" content="Chromatic tuner implemented using Web Audio and Media Stream APIs"/>
@@ -59,26 +60,26 @@
 						</div>
 						<div id="microphoneOptions" class="tuner__options">
 							<fieldset>
-								<legend class="subtitle">Base frequency</legend>
+								<legend id="micBaseFreq" class="subtitle">Base frequency</legend>
 								<div class="actions">
-									<button class="button tuner__options__button minusFreq">-</button>
-									<button class="button tuner__options__button plusFreq">+</button>
+									<button id="micDecreaseBaseFreqButton" class="button tuner__options__button minusFreq" aria-label="decrease" aria-labelledby="micDecreaseBaseFreqButton micButton micBaseFreq">-</button>
+									<button id="micIncreaseBaseFreqButton" class="button tuner__options__button plusFreq" aria-label="increase" aria-labelledby="micIncreaseBaseFreqButton micButton micBaseFreq">+</button>
 								</div>
 							</fieldset>
 						</div>
 						<div id="referenceOptions" class="tuner__options">
 							<fieldset>
-								<legend class="subtitle">Base frequency</legend>
+								<legend id="refBaseFreq" class="subtitle">Base frequency</legend>
 								<div class="actions">
-									<button class="button tuner__options__button minusFreq">-</button>
-									<button class="button tuner__options__button plusFreq">+</button>
+									<button id="refDecreaseBaseFreqButton" class="button tuner__options__button minusFreq" aria-label="decrease" aria-labelledby="refDecreaseBaseFreqButton refButton refBaseFreq">-</button>
+									<button id="refIncreaseBaseFreqButton" class="button tuner__options__button plusFreq" aria-label="increase" aria-labelledby="refIncreaseBaseFreqButton refButton refBaseFreq">+</button>
 								</div>
 							</fieldset>
 							<fieldset>
-								<legend class="subtitle">Note</legend>
+								<legend id="refNote" class="subtitle">Note</legend>
 								<div class="actions">
-									<button class="button tuner__options__button" id="minusRefNote">-</button>
-									<button class="button tuner__options__button" id="plusRefNote">+</button>
+									<button id="refDecreaseNoteButton" class="button tuner__options__button" aria-label="decrease" aria-labelledby="refDecreaseNoteButton refButton refNote">-</button>
+									<button id="refIncreaseNoteButton" class="button tuner__options__button" aria-label="increase" aria-labelledby="refIncreaseNoteButton refButton refNote">+</button>
 								</div>
 							</fieldset>
 						</div>
@@ -295,7 +296,7 @@ if(isGetUserMediaSupported()){
 										<li>Accumulate those products over a series of times (1000 in our code)</li>
 										<li>Divide by the number of samples to get the average</li>
 									</ol>
-								<p>As seen in <a href="http://www.phy.mtu.edu/~suits/autocorrelation.html" target="_blank">this page</a>, the resulting formula would be something like this:</p>
+								<p>As seen on <a href="http://www.phy.mtu.edu/~suits/autocorrelation.html" target="_blank">this page about autocorrelation</a>, the resulting formula would be something like this:</p>
 								<p>\[ R(k) = \frac{1}{t_{max} - t_{min}} \int_{t_{min}}^{t_{max}}s(t)s(t+k)dt \]</p>
 								<p>In addition, as you can see in the example, we also normalize the data. Since we are working with an array of bytes (0-255), we subtract 128 and divide by the same value.</p>
 								<p>Remember that we are working with periodic signals. As you may imagine, the highest correlation will happen once that signal "repeats itself", i.e. that \(bestK\) will match the period (in frames) of the fundamental frequency. In order to get that frequency we just need to divide the sampling rate by that distance \(bestK\).</p>
@@ -436,9 +437,7 @@ var findClosestNote = function(freq, notes) {
 <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 <script src="scripts/demo.js"></script>
 <script src="https://bernii.github.io/gauge.js/dist/gauge.min.js"></script>
-<script
-	src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 </body>
 </html>
