@@ -34,20 +34,20 @@
 				<div class="module module--secondary">
 					<div class="tuner__gauge-wrap">
 						<div class="tuner__values clear">
-	                        <div class="tuner__value">
-	                        	<h5>Pitch</h5>
+							<div class="tuner__value">
+								<h5>Pitch</h5>
 								<span class="subtitle" id="pitch">-- Hz</span>
-	                        </div>
-	                        <div class="tuner__value">
-	                        	<h5>Cents</h5>
+							</div>
+							<div class="tuner__value">
+								<h5>Cents</h5>
 								<span class="subtitle" id="cents"></span>
-	                        </div>
-	                        <div class="tuner__value">
-	                        	<h5>Note</h5>
+							</div>
+							<div class="tuner__value">
+								<h5>Note</h5>
 								<span class="subtitle" id="note">--</span>
-	                        </div>
-	                    </div>
-	                    <canvas class="tuner__gauge" id="gaugeCanvas"></canvas>
+							</div>
+						</div>
+						<canvas class="tuner__gauge" id="gaugeCanvas"></canvas>
 					</div>
 				</div>
 				<div class="module module--primary">
@@ -90,14 +90,14 @@
 		</div>
 	</section>
 
-    <!-- APIS USED -->
-    <section class="section">
-    	<div class="container">
+	<!-- APIS USED -->
+	<section class="section">
+		<div class="container">
 			<header class="section__header section__header--alt">
 				<h2>APIs used</h2>
 			</header>
 			<div class="section__body">
-	            <section class="subsection">
+				<section class="subsection">
 					<header class="subsection__header">
 						<h3 class="title">Web Audio</h3>
 					</header>
@@ -105,54 +105,126 @@
 						<p>This API is the core of this demo. We use it to perform different tasks, from generating synthetic sounds, to analysing the sound we get, to chanelling the sound to whatever the default audio output device is.</p>
 						<p><strong>Note: </strong>Some of the code snippets below are fragments of the source code of this demo, and as such the initialization of some variables may not appear in them. You can find them in other sections on this page and/or the source code of the demo.</p>
 						<div class="subsection">
-							<div class="layout layout--basic">
+							<h4 class="subsection__header">AudioContext</h4>
+							<div class="subsection__body layout layout--basic">
 								<div class="module module--secondary">
-		                            <h4>AudioContext</h4>
-		                            <p>This is the entry point of Web Audio, and responsible of generating all the AudioNode instances we use throughout of this demo.</p>
-		                            <p>We start by checking if the browser supports Web Audio by looking at whether window.AudioContext (or its webkit prefixed version) is defined. This also will set <em>window.AudioContext</em> so we can easily instance it later if the browser, in fact, supports it.</p>
+									<p>This is the entry point of Web Audio, and responsible of generating all the AudioNode instances we use throughout of this demo.</p>
+									<p>We start by checking if the browser supports Web Audio by looking at whether window.AudioContext (or its webkit prefixed version) is defined. This also will set <em>window.AudioContext</em> so we can easily instance it later if the browser, in fact, supports it.</p>
 								</div>
 								<div class="module module--primary">
 									<h5>Example</h5>
-									<script src="https://gist.github.com/MSEdge/b260e76373b789c9f6dc.js"></script>
+<pre><code>var isAudioContextSupported = function () {
+	// This feature is still prefixed in Safari
+	window.AudioContext = window.AudioContext || window.webkitAudioContext;
+	if(window.AudioContext){
+		return true;
+	}
+	else {
+		return false;
+	}
+};
+
+var audioContext;
+if(isAudioContextSupported()) {
+	audioContext = new window.AudioContext();
+}</code></pre>
 								</div>
 							</div>
 						</div>
 						<div class="subsection">
-							<div class="layout layout--basic">
+							<h4 class="subtitle subsection__header">OscillatorNode</h4>
+							<div class="subsection__body layout layout--basic">
 								<div class="module module--secondary">
-									<h4 class="subtitle">OscillatorNode</h4>
-		                            <p>In order to generate a synthetic sound to tune by ear we use an OscillatorNode, which we can configure to play at a specific frequency.
-		                            </p>
-		                            <p>The "Base frequency" controls that you see when you enable this part of the tuner adjusts the frequency of A4, which is used as a reference for the rest of the notes. Although all of them can be calculated from A4's frequency, we have pre-calculated them and placed them in a <a href="https://gist.github.com/quimbs/fe52bc25dca44cd3fcb8#file-notes-json" target="_blank">notes.json</a> file that we dynamically load at runtime. After that, it's just a matter of iterating through the array of notes for a particular A4 frequency and set the correct frequency in the oscillator node.
-		                            </p>
+									<p>In order to generate a synthetic sound to tune by ear we use an OscillatorNode, which we can configure to play at a specific frequency.
+									</p>
+									<p>The "Base frequency" controls that you see when you enable this part of the tuner adjusts the frequency of A4, which is used as a reference for the rest of the notes. Although all of them can be calculated from A4's frequency, we have pre-calculated them and placed them in a <a href="https://gist.github.com/quimbs/fe52bc25dca44cd3fcb8#file-notes-json" target="_blank">notes.json</a> file that we dynamically load at runtime. After that, it's just a matter of iterating through the array of notes for a particular A4 frequency and set the correct frequency in the oscillator node.
+									</p>
 								</div>
 								<div class="module module--primary">
 									<h5>Example</h5>
-									<script src="https://gist.github.com/quimbs/fe52bc25dca44cd3fcb8.js?file=oscillatorNode.js"></script>
+<pre><code>var freqTable, baseFreq = 440, currentNodeIndex = 57; // A4 in the array of notes
+$.getJSON('notes.json', function(data) {
+	freqTable = data;
+});
+
+var audioContext = new window.AudioContext();
+var notesArray = freqTable[baseFreq];
+var sourceAudioNode = audioContext.createOscillator();
+sourceAudioNode.frequency.value = notesArray[currentNoteIndex].frequency;
+sourceAudioNode.connect(audioContext.destination);
+sourceAudioNode.start();
+
+// This function is called passing either a +2 or a -2 to increase or decrease
+// the A4 frequency we are using as a reference
+var changeBaseFreq = function(delta) {
+	var newBaseFreq = baseFreq + delta;
+	if(newBaseFreq >= 432 &amp;&amp; newBaseFreq <= 446) {
+			baseFreq = newBaseFreq;
+			notesArray = freqTable[baseFreq.toString()];
+
+			// We set this flag to 'true' when the reference sound feature is enabled
+			if(isRefSoundPlaying){
+					// Only change the frequency if we are playing a reference sound, since
+					// sourceAudioNode will be an instance of OscillatorNode
+					var newNoteFreq = notesArray[currentNoteIndex].frequency;
+					sourceAudioNode.frequency.value = newNoteFreq;
+			}
+	}
+};
+
+// This function is used to change the note we are currently playing, using 
+// whatever the current set of notes is (changed by the function above)
+var changeReferenceSoundNote = function(delta) {
+	if(isRefSoundPlaying) {
+			var newNoteIndex = currentNoteIndex + delta;
+			if(newNoteIndex >= 0 &amp;&amp; newNoteIndex < notesArray.length) {
+					currentNoteIndex = newNoteIndex;
+					var newNoteFreq = notesArray[currentNoteIndex].frequency;
+					sourceAudioNode.frequency.value = newNoteFreq;
+			}
+	}
+};</code></pre>
 								</div>
 							</div>
 						</div>
 						<div class="subsection">
-							<div class="layout layout--basic">
+							<h4 class="subtitle subsection__header">MediaStreamAudioSourceNode</h4>
+							<div class="subsection__body layout layout--basic">
 								<div class="module module--secondary">
-		                            <h4 class="subtitle">MediaStreamAudioSourceNode</h4>
-		                            <p>We use this type of node as a source AudioNode with the stream of data we get from the Media Stream API (see below). You should take into account that <strong>the sampling frequency used will match the sampling rate that your output device uses (typically 44.1kHz or 48kHz).</strong></p>
+									<p>We use this type of node as a source AudioNode with the stream of data we get from the Media Stream API (see below). You should take into account that <strong>the sampling frequency used will match the sampling rate that your output device uses (typically 44.1kHz or 48kHz).</strong></p>
 								</div>
 								<div class="module module--primary">
 									<h5>Example</h5>
-		                            <script src="https://gist.github.com/quimbs/1744eb50a461257af4ad.js"></script>
+<pre><code>// micStream is the MediaStream object we get from the Media Stream API
+var sourceAudioNode = audioContext.createMediaStreamSource(micStream);
+sourceAudioNode.connect(analyserAudioNode); // See initialization in the AnalyserNode section of the demo.</code></pre>
 								</div>
 							</div>
 						</div>
 						<div class="subsection">
-							<div class="layout layout--basic">
+							<h4 class="subtitle subsection__header">AnalyserNode</h4>
+							<div class="subsection__body layout layout--basic">
 								<div class="module module--secondary">
-		                            <h4 class="subtitle">AnalyserNode</h4>
-		                            <p>This node receives data from the MediaStreamAudioSourceNode and performs a Fast Fourier Transform on those samples. This data is later used by an autocorrelation algorithm to detect the pitch of the sound. For this node we set an fftSize of 2048 (the maximum allowed by the Web Audio API), which although is very tight for such a big sampling rate (we can only fit a tiny fraction of a second in that space) it is the best we can do without downsampling the stream by ourselves.</p>
+									<p>This node receives data from the MediaStreamAudioSourceNode and performs a Fast Fourier Transform on those samples. This data is later used by an autocorrelation algorithm to detect the pitch of the sound. For this node we set an fftSize of 2048 (the maximum allowed by the Web Audio API), which although is very tight for such a big sampling rate (we can only fit a tiny fraction of a second in that space) it is the best we can do without downsampling the stream by ourselves.</p>
 								</div>
 								<div class="module module--primary">
 									<h5>Example</h5>
-		                            <script src="https://gist.github.com/quimbs/44f68f011c2c36690f2e.js"></script>
+<pre><code>var analyserAudioNode, sourceAudioNode, micStream;
+var streamReceived = function(stream) {
+	micStream = stream;
+
+	analyserAudioNode = audioContext.createAnalyser();
+	analyserAudioNode.fftSize = 2048;
+
+	sourceAudioNode = audioContext.createMediaStreamSource(micStream);
+	sourceAudioNode.connect(analyserAudioNode);
+
+	/* This is our pitch detection algorithm.
+		 You can find its implementation in the Autocorrelation section of this demo. */
+	detectPitch();
+};
+
+navigator.getUserMedia({audio: true}, streamReceived);</code></pre>
 								</div>
 							</div>
 						</div>
@@ -165,23 +237,42 @@
 				<div class="subsection__body">
 					<div class="layout layout--basic">
 						<div class="module module--secondary">
-                            <p>From this API we only use one specific function to access the audio input device, generally the microphone: <strong>getUserMedia</strong>. Just like with AudioContext, we whould consider the possibility that the API may be prefixed in some browsers or older versions of them.</p>
+							<p>From this API we only use one specific function to access the audio input device, generally the microphone: <strong>getUserMedia</strong>. Just like with AudioContext, we whould consider the possibility that the API may be prefixed in some browsers or older versions of them.</p>
 						</div>
 						<div class="module module--primary">
 							<h5>Example</h5>
-                            <script src="https://gist.github.com/quimbs/cedded5dcebba82421e6.js"></script>
-                        </div>
+<pre><code>var isGetUserMediaSupported = function(){
+	navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+	if((navigator.mediaDevices &amp;&amp; navigator.mediaDevices.getUserMedia) || navigator.getUserMedia){
+			return true;
+	}
+	
+	return false;
+};
+
+if(isGetUserMediaSupported()){
+	var getUserMedia = navigator.mediaDevices &amp;&amp; navigator.mediaDevices.getUserMedia ?
+		navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices) :
+		function (constraints) {
+			return new Promise(function (resolve, reject) {
+				navigator.getUserMedia(constraints, resolve, reject);
+			});
+		};
+
+	getUserMedia({audio: true}).then(streamReceived).catch(reportError);
+}</code></pre>
+						</div>
 					</div>
 				</div>
 			</section>
 			</div>
-    	</div>
+		</div>
 	</section>
 
 	<!-- GRID -->
 	<section class="section">
 		<div class="container">
-			<header class="section-header section__header--alt">
+			<header class="section__header section__header--alt">
 				<h2>Pitch detection</h2>
 			</header>
 			<div class="section__body">
@@ -192,27 +283,87 @@
 					<div class="subsection__body">
 						<div class="layout layout--basic">
 							<div class="module module--secondary">
-			                    <p>There is a variety of methods to detect the pitch of a sound, some work in the frequency domain (like <em>HPS</em>, or <em>Harmonic Product Spectrum</em>), while some others do in the time domain (like <em>Autocorrelation</em>). With such a high sampling rate, we can only fit a small fraction of a second in the buffer used by the AnalyserNode. In these conditions, the latter algorithm usually does a better job than the former, and this is why we chose it for this demo.</p>
-			                    <p>Autocorrelation is the process of cross-correlating a signal with a time-delayed version of itself. In other words, we will be comparing a signal at two different points in time. As <a href="http://en.wikipedia.org/wiki/Autocorrelation" target="_blank">Wikipedia</a> puts it:</p>
-			                    <blockquote cite="http://en.wikipedia.org/wiki/Autocorrelation">
-			                        <p>It is a mathematical tool for finding repeating patterns, such as the presence of a periodic signal obscured by noise, or identifying the missing fundamental frequency in a signal implied by its harmonic frequencies.</p>
-			                    </blockquote>
-			                    <p>Given a delay time \(k\) we:</p>
-			                        <ol>
-			                            <li>Find the value at a time \(t\)</li>
-			                            <li>Find the value at a time \(t+k\)</li>
-			                            <li>Multiply those values together</li>
-			                            <li>Accumulate those products over a series of times (1000 in our code)</li>
-			                            <li>Divide by the number of samples to get the average</li>
-			                        </ol>
-			                    <p>As seen on <a href="http://www.phy.mtu.edu/~suits/autocorrelation.html" target="_blank">this page about autocorrelation</a>, the resulting formula would be something like this:</p>
-			                    <p>\[ R(k) = \frac{1}{t_{max} - t_{min}} \int_{t_{min}}^{t_{max}}s(t)s(t+k)dt \]</p>
-			                    <p>In addition, as you can see in the example, we also normalize the data. Since we are working with an array of bytes (0-255), we subtract 128 and divide by the same value.</p>
+								<p>There is a variety of methods to detect the pitch of a sound, some work in the frequency domain (like <em>HPS</em>, or <em>Harmonic Product Spectrum</em>), while some others do in the time domain (like <em>Autocorrelation</em>). With such a high sampling rate, we can only fit a small fraction of a second in the buffer used by the AnalyserNode. In these conditions, the latter algorithm usually does a better job than the former, and this is why we chose it for this demo.</p>
+								<p>Autocorrelation is the process of cross-correlating a signal with a time-delayed version of itself. In other words, we will be comparing a signal at two different points in time. As <a href="http://en.wikipedia.org/wiki/Autocorrelation" target="_blank">Wikipedia</a> puts it:</p>
+								<blockquote cite="http://en.wikipedia.org/wiki/Autocorrelation">
+									<p>It is a mathematical tool for finding repeating patterns, such as the presence of a periodic signal obscured by noise, or identifying the missing fundamental frequency in a signal implied by its harmonic frequencies.</p>
+								</blockquote>
+								<p>Given a delay time \(k\) we:</p>
+									<ol>
+										<li>Find the value at a time \(t\)</li>
+										<li>Find the value at a time \(t+k\)</li>
+										<li>Multiply those values together</li>
+										<li>Accumulate those products over a series of times (1000 in our code)</li>
+										<li>Divide by the number of samples to get the average</li>
+									</ol>
+								<p>As seen on <a href="http://www.phy.mtu.edu/~suits/autocorrelation.html" target="_blank">this page about autocorrelation</a>, the resulting formula would be something like this:</p>
+								<p>\[ R(k) = \frac{1}{t_{max} - t_{min}} \int_{t_{min}}^{t_{max}}s(t)s(t+k)dt \]</p>
+								<p>In addition, as you can see in the example, we also normalize the data. Since we are working with an array of bytes (0-255), we subtract 128 and divide by the same value.</p>
 								<p>Remember that we are working with periodic signals. As you may imagine, the highest correlation will happen once that signal "repeats itself", i.e. that \(bestK\) will match the period (in frames) of the fundamental frequency. In order to get that frequency we just need to divide the sampling rate by that distance \(bestK\).</p>
 							</div>
 							<div class="module module--primary">
 								<h5>Example</h5>
-								<script src="https://gist.github.com/quimbs/9a7bf7ddd161dac727c6.js"></script>
+<pre><code>var findFundamentalFreq = function(buffer, sampleRate) {
+	// We use Autocorrelation to find the fundamental frequency.
+	
+	// In order to correlate the signal with itself (hence the name of the algorithm), we will check two points 'k' frames away. 
+	// The autocorrelation index will be the average of these products. At the same time, we normalize the values.
+	// Source: http://www.phy.mty.edu/~suits/autocorrelation.html
+	// Assuming the sample rate is 48000Hz, a 'k' equal to 1000 would correspond to a 48Hz signal (48000/1000 = 48), 
+	// while a 'k' equal to 8 would correspond to a 6000Hz one, which is enough to cover most (if not all) 
+	// the notes we have in the notes.json file.
+	var n = 1024, bestR = 0, bestK = -1;
+	for(var k = 8; k <= 1000; k++){
+		var sum = 0;
+		
+		for(var i = 0; i < n; i++){
+			sum += ((buffer[i] - 128) / 128) * ((buffer[i + k] - 128) / 128);
+		}
+		
+		var r = sum / (n + k);
+
+		if(r > bestR){
+			bestR = r;
+			bestK = k;
+		}
+
+		if(r > 0.9) {
+			// Let's assume that this is good enough and stop right here
+			break;
+		}
+	}
+	
+	if(bestR > 0.0025) {
+		// The period (in frames) of the fundamental frequency is 'bestK'. Getting the frequency from there is trivial.
+		var fundamentalFreq = sampleRate / bestK;
+		return fundamentalFreq;
+	}
+	else {
+		// We haven't found a good correlation
+		return -1;
+	}
+};
+
+var frameId;
+var detectPitch = function () {
+	var buffer = new Uint8Array(analyserAudioNode.fftSize);
+	// See initializations in the AudioContent and AnalyserNode sections of the demo.
+	analyserAudioNode.getByteTimeDomainData(buffer); 
+	var fundalmentalFreq = findFundamentalFreq(buffer, audioContext.sampleRate);
+
+	if (fundalmentalFreq !== -1) {
+		var note = findClosestNote(fundalmentalFreq, notesArray); // See the 'Finding the right note' section.
+		var cents = findCentsOffPitch(fundalmentalFreq, note.frequency); // See the 'Calculating the cents off pitch' section.
+		updateNote(note.note); // Function that updates the note on the page (see demo source code).
+		updateCents(cents); // Function that updates the cents on the page and the gauge control (see demo source code).
+	}
+	else {
+		updateNote('--');
+		updateCents(-50);
+	}
+
+	frameId = window.requestAnimationFrame(detectPitch);
+};</code></pre>
 							</div>
 						</div>
 					</div>
@@ -228,12 +379,32 @@
 							</div>
 							<div class="module module--primary">
 								<h5>Example</h5>
-								<script src="https://gist.github.com/quimbs/61914ff8bbc0fd72eaf4.js"></script>
+<pre><code>// 'notes' is an array of objects like { note: 'A4', frequency: 440 }.
+// See initialization in the source code of the demo
+var findClosestNote = function(freq, notes) {
+	// Use binary search to find the closest note
+	var low = -1, high = notes.length;
+	while (high - low > 1) {
+			var pivot = Math.round((low + high) / 2);
+			if (notes[pivot].frequency <= freq) {
+					low = pivot;
+			} else {
+					high = pivot;
+			}
+	}
+	
+	if(Math.abs(notes[high].frequency - freq) <= Math.abs(notes[low].frequency - freq)) {
+			// notes[high] is closer to the frequency we found
+			return notes[high];
+	}
+	
+	return notes[low];
+};</code></pre>
 							</div>
 						</div>
-			        </div>
-	            </section>
-	            <section class="subsection">
+					</div>
+				</section>
+				<section class="subsection">
 					<header class="subsection__header">
 						<h3 class="title">Calculating the cents off pitch</h3>
 					</header>
@@ -246,20 +417,27 @@
 							</div>
 							<div class="module module--primary">
 								<h5>Example</h5>
-								<script src="https://gist.github.com/quimbs/e91f0ce6997514c967a3.js"></script>
+<pre><code>var findCentsOffPitch = function(freq, refFreq) {
+		// We need to find how far freq is from baseFreq in cents
+		var log2 = 0.6931471805599453; // Math.log(2)
+		var multiplicativeFactor = freq / refFreq;
+		
+		// We use Math.floor to get the integer part and ignore decimals
+		var cents = Math.floor(1200 * (Math.log(multiplicativeFactor) / log2));
+		return cents;
+};</code></pre>
 							</div>
 						</div>
-			        </div>
-	            </section>
-	        </div>
+					</div>
+				</section>
+			</div>
 		</div>
 	</section>
 
 <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 <script src="scripts/demo.js"></script>
 <script src="https://bernii.github.io/gauge.js/dist/gauge.min.js"></script>
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 </body>
 </html>
