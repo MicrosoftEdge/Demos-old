@@ -3,11 +3,7 @@
 	'use strict';
 
 	var toArray = function (collection) {
-		var array = [];
-		for (var i = 0, li = collection.length; i < li; i++) {
-			array.push(collection[i]);
-		}
-		return array;
+		return [].slice.call(collection);
 	};
 
 	var ui = {
