@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="en-US">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -6,7 +6,7 @@
 		<meta name="keywords" content="performance, settimeout, setimmediate, yielding, javascript, es5, ecmascript"/>
 		<meta name="og:title" content="JavaScript yielding"/>
 		<title>Efficient Script Yielding in JavaScript</title>
-		<link rel="stylesheet" href="//edgeportal.blob.core.windows.net/media/demotemplate.css"/>
+		<link rel="stylesheet" href="https://edgeportal.blob.core.windows.net/media/demotemplate.css"/>
 		<link rel="stylesheet" href="styles/demo.css"/>
 	</head>
 
@@ -29,23 +29,23 @@
 				</div>
 				<div class="layout layout--quarters">
 					<div class="module">
-						<p class="subtitle">HTML4 (~15ms Timers)</p>
-						<button id="sort15Button">Run Test</button>
+						<p id="sort15Subtitle" class="subtitle">HTML4 (~15ms Timers)</p>
+						<button id="sort15Button" aria-labelledby="sort15Button sort15Subtitle">Run Test</button>
 						<p class="caption" id="HTML4TestResuts"></p>
 					</div>
 					<div class="module">
-						<p class="subtitle">HTML5 (4ms Timers)</p>
-						<button id="sort0Button">Run Test</button>
+						<p id="sort0Subtitle" class="subtitle">HTML5 (4ms Timers)</p>
+						<button id="sort0Button" aria-labelledby="sort0Button sort0Subtitle">Run Test</button>
 						<p class="caption" id="HTML5TestResults"></p>
 					</div>
 					<div class="module">
-						<p class="subtitle">PostMessage</p>
-						<button id="postMessageTestButton">Run Test</button>
+						<p id="postMessageTestSubtitle" class="subtitle">PostMessage</p>
+						<button id="postMessageTestButton" aria-labelledby="postMessageTestButton postMessageTestSubtitle">Run Test</button>
 						<p class="caption" id="postMessageTestResults"></p>
 					</div>
 					<div class="module">
-						<p class="subtitle">setImmediate</p>
-						<button id="setImmediateTestButton">Run Test</button>
+						<p id="setImmediateTestSubtitle" class="subtitle">setImmediate</p>
+						<button id="setImmediateTestButton" aria-labelledby="setImmediateTestButton setImmediateTestSubtitle">Run Test</button>
 						<p class="caption" id="setImmediateTestResults"></p>
 					</div>
 				</div>

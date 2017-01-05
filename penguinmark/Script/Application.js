@@ -1,4 +1,4 @@
-﻿var SINGLE_CYCLE = 16.7;
+var SINGLE_CYCLE = 16.7;
 
 var debug = false, started = false;
 var sceneLeft, sceneTop, sceneWidth, sceneHeight;
@@ -38,7 +38,7 @@ function ResizeScene() {
 function StartPenguinMark() {
     if (started == false) {
         started = true;
-        document.getElementById("WelcomeScreen").style.opacity = 0;
+        document.getElementById("WelcomeScreen").style.display = "none";
         document.getElementById("AudioEntryElement").pause();
         document.getElementById("AudioTrackElement").play();
         characters.Start();

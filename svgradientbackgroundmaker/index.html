@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
 	<meta charset="utf-8">
 	<!-- Credits: jscolor, by Jan Odvarko (http://odvarko.cz) -->
@@ -48,32 +48,31 @@
 							<!-- START div of stops -->
 							<div>
 								<div id="stops">
-									<div id="stopsLabel" class="controls--gradient-colors__col-alt">
-										<div></div>
-										<div class="controls--gradient-colors__label">Start</div>
-										<div id="lastLabel" class="controls--gradient-colors__label">End</div>
-									</div>
-									<div id="stopsColor" class="controls--gradient-colors__col">
-										<div class="controls--gradient-colors__label-alt">Color</div>
-										<div>
-											<input type="text" class="color" id="color0" size="6" value="ee4d5a"/>
-										</div>
-										<div id="lastColor">
-											<input type="text" class="color" id="colorN" size="6" value="8af0c1"/>
-										</div>
-									</div>
-									<div id="stopsOffset" class="controls--gradient-colors__col">
-										<div class="controls--gradient-colors__label-alt">Offset</div>
-										<div>
-											<input id="offset0" type="text" size="6" value="0"/>
-										</div>
-										<div id="lastOffset">
-											<input id="offsetN" type="text" size="6" value="1"/>
-										</div>
-									</div>
-									<div id="stopsButton" class="controls--gradient-colors__col">
-										<div id="lastButton"></div>
-									</div>
+									<table>
+										<thead>
+											<tr>
+												<th></th>
+												<th class="controls--gradient-colors__label-alt">
+													Color
+												</th>
+												<th class="controls--gradient-colors__label-alt">
+													Offset
+												</th>
+											</tr>
+										</thead>
+										<tbody id="stopItems">
+											<tr>
+												<td class="controls--gradient-colors__label">Start</td>
+												<td><input type="text" class="color" id="color0" size="6" value="ee4d5a"/></td>
+												<td><input id="offset0" type="text" size="6" value="0"/></td>
+											</tr>
+											<tr id="lastLabel">
+												<td class="controls--gradient-colors__label">End</td>
+												<td><input type="text" class="color" id="colorN" size="6" value="8af0c1"/></td>
+												<td><input id="offsetN" type="text" size="6" value="1"/></td>
+											</tr>
+										</tbody>
+									</table>
 									<div class="clearfix">
 										<a href="#" id="addStop" class="button">Add Stop</a>
 									</div>

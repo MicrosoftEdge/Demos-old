@@ -1,72 +1,12 @@
+body {
+	background-color: #fff;
+}
+
 .spellchecking-container {
-	min-width: 960px;
-	max-width: 1080px;
-	padding: 0 40px 0 40px;
-	font-size: 1.5rem;
+	max-width: 42em;
 }
 
-.spellchecking-container table {
-	width: 500px;
-}
-
-#demo-screenreader-text {
-	position: absolute;
-	left: -10000px;
-}
-
-.spellchecking-container td {
+.example-words {
 	font-family: Consolas, "Courier New";
 	font-weight: bold;
-	padding: 0;
-}
-
-.spellchecking-container tbody tr,
-.spellchecking-container tbody tr:nth-child(odd) {
-	background-color: hsla(0, 0%, 0%, 0);
-}
-
-.spellchecking-container textarea {
-	width: 520px;
-	height: 150px;
-	margin-right: 30px;
-}
-
-.spellchecking-container fieldset {
-	padding: 1em;
-}
-
-[placeholder]:-ms-input-placeholder {
-	color: Gray;
-	font-style: italic;
-}
-
-.spellchecking-container .spell-input {
-	height: 2.5em;
-	width: 500px;
-	margin-bottom: 10px;
-}
-
-.spellchecking-container label {
-	padding-right: 40px;
-}
-
-.spellchecking-container input[type=text],
-.spellchecking-container textarea {
-	padding-left: 10px;
-}
-
-.spellchecking-container h2 {
-	margin: 0.5em 0;
-}
-
-.spellchecking-container span {
-	font-family: Consolas, Courier New;
-}
-
-.clear {
-	clear: both;
-}
-
-.spellchecking-container .tt {
-	font-family: "Lucida Console", monospace;
 }
