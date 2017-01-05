@@ -18,7 +18,7 @@
             this._material = new BABYLON.StandardMaterial(name + ' material', this._scene);
             this._material.diffuseColor = color;
 
-            var diffuseTexture = new BABYLON.Texture('/assets/flare.png', scene);
+            var diffuseTexture = new BABYLON.Texture('assets/flare.png', scene);
             diffuseTexture.hasAlpha = true;
             diffuseTexture.uScale = 0.5;
             diffuseTexture.vScale = 0.5;
