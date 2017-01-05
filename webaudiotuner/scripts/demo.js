@@ -311,8 +311,8 @@ $(document).ready(function () {
 	$('#micButton').click(toggleMicrophone);
 	$('.minusFreq').click(-2, baseFreqChangeHandler);
 	$('.plusFreq').click(2, baseFreqChangeHandler);
-	$('#minusRefNote').click(-1, referenceSoundNoteHandler);
-	$('#plusRefNote').click(1, referenceSoundNoteHandler);
+	$('#refDecreaseNoteButton').click(-1, referenceSoundNoteHandler);
+	$('#refIncreaseNoteButton').click(1, referenceSoundNoteHandler);
 
 	init();
 });

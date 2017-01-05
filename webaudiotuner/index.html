@@ -55,34 +55,34 @@
 					<div class="tuner__controls">
 						<h3 class="subtitle">Tune using:</h3>
 						<div class="actions">
-	                    	<button class="button tuner__input-button" id="micButton">Microphone</button>
-	                    	<button class="button tuner__input-button" id="refButton">Reference tone</button>
+							<button class="button tuner__input-button" id="micButton">Microphone</button>
+							<button class="button tuner__input-button" id="refButton">Reference tone</button>
 						</div>
-	                    <div id="microphoneOptions" class="tuner__options">
-	                        <fieldset>
-	                            <legend class="subtitle">Base frequency</legend>
+						<div id="microphoneOptions" class="tuner__options">
+							<fieldset>
+								<legend id="micBaseFreq" class="subtitle">Base frequency</legend>
 								<div class="actions">
-									<button class="button tuner__options__button minusFreq">-</button>
-									<button class="button tuner__options__button plusFreq">+</button>
+									<button id="micDecreaseBaseFreqButton" class="button tuner__options__button minusFreq" aria-label="decrease" aria-labelledby="micDecreaseBaseFreqButton micButton micBaseFreq">-</button>
+									<button id="micIncreaseBaseFreqButton" class="button tuner__options__button plusFreq" aria-label="increase" aria-labelledby="micIncreaseBaseFreqButton micButton micBaseFreq">+</button>
 								</div>
-	                        </fieldset>
-	                    </div>
-	                    <div id="referenceOptions" class="tuner__options">
-	                        <fieldset>
-	                            <legend class="subtitle">Base frequency</legend>
+							</fieldset>
+						</div>
+						<div id="referenceOptions" class="tuner__options">
+							<fieldset>
+								<legend id="refBaseFreq" class="subtitle">Base frequency</legend>
 								<div class="actions">
-									<button class="button tuner__options__button minusFreq">-</button>
-									<button class="button tuner__options__button plusFreq">+</button>
+									<button id="refDecreaseBaseFreqButton" class="button tuner__options__button minusFreq" aria-label="decrease" aria-labelledby="refDecreaseBaseFreqButton refButton refBaseFreq">-</button>
+									<button id="refIncreaseBaseFreqButton" class="button tuner__options__button plusFreq" aria-label="increase" aria-labelledby="refIncreaseBaseFreqButton refButton refBaseFreq">+</button>
 								</div>
-	                        </fieldset>
-	                        <fieldset>
-	                            <legend class="subtitle">Note</legend>
+							</fieldset>
+							<fieldset>
+								<legend id="refNote" class="subtitle">Note</legend>
 								<div class="actions">
-									<button class="button tuner__options__button" id="minusRefNote">-</button>
-									<button class="button tuner__options__button" id="plusRefNote">+</button>
+									<button id="refDecreaseNoteButton" class="button tuner__options__button" aria-label="decrease" aria-labelledby="refDecreaseNoteButton refButton refNote">-</button>
+									<button id="refIncreaseNoteButton" class="button tuner__options__button" aria-label="increase" aria-labelledby="refIncreaseNoteButton refButton refNote">+</button>
 								</div>
-	                        </fieldset>
-	                    </div>
+							</fieldset>
+						</div>
 					</div>
 				</div>
 			</div>
