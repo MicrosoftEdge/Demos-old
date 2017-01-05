@@ -1,3 +1,7 @@
+body{
+    margin: 0;
+}
+
 .container {
 	position: relative;
 	overflow: hidden;
@@ -16,7 +20,7 @@
 
 #demo-controls {
     position: absolute;
-    bottom: 0;
+    bottom: 5px;
     left: 0;
     height: 130px;
     background-color: #ffffff;
@@ -107,12 +111,10 @@
 }
 
 #canvas {
-    background-color: #000;
     -ms-touch-action: none;
     touch-action: none;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
 	margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
