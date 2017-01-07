@@ -1,4 +1,10 @@
-﻿module MusicLounge {
+﻿/// <reference path="./babylon.2.1.d.ts" />
+/// <reference path="./musicLounge.soundCube.ts" />
+/// <reference path="./musicLounge.soundsLoader.ts" />
+/// <reference path="./musicLoung.asgardRing.ts" />
+/// <reference path="./musicLounge.globalEqualizer.ts" />
+
+module MusicLounge {
     export class Main {
         private _canvas;
         private _engine;
@@ -9,6 +15,13 @@
         private _timeoutId: number;
         private _ring: AsgardRing;
         private _soundsLoader: SoundsLoader;
+        private _cubeSelected: number = -1;
+        private _keysPressed = {
+            up: false,
+            down: false,
+            left: false,
+            right: false
+        };
 
         constructor() {
             this._canvas = document.getElementById('renderCanvas');
@@ -25,7 +38,7 @@
             this._scene.fogMode = BABYLON.Scene.FOGMODE_LINEAR;
             this._scene.fogStart = 500;
             this._scene.fogEnd = 1000;
-            
+
             this._camera = new BABYLON.ArcRotateCamera('Camera', 0, 0, 10, new BABYLON.Vector3(0, 0, 0), this._scene);
             this._camera.setPosition(new BABYLON.Vector3(20, 200, 400));
             this._camera.attachControl(this._canvas, false);
@@ -66,10 +79,10 @@
 
             // Meshes
             this._soundCubes.push(new SoundCube('red', new BABYLON.Vector3(-100, 10, 0), this._scene, BABYLON.Color3.Red(), shadowGenerator, this._soundsLoader.sounds[0]));
-            this._soundCubes.push(new SoundCube('green', new BABYLON.Vector3(0, 10, -100), this._scene, BABYLON.Color3.Green(), shadowGenerator, this._soundsLoader.sounds[1]));
-            this._soundCubes.push(new SoundCube('blue', new BABYLON.Vector3(100, 10, 0), this._scene, BABYLON.Color3.Blue(), shadowGenerator, this._soundsLoader.sounds[2]));
             this._soundCubes.push(new SoundCube('purple', new BABYLON.Vector3(0, 10, 100), this._scene, BABYLON.Color3.Purple(), shadowGenerator, this._soundsLoader.sounds[3]));
             this._soundCubes.push(new SoundCube('yellow', new BABYLON.Vector3(100, 10, 100), this._scene, BABYLON.Color3.Yellow(), shadowGenerator, this._soundsLoader.sounds[4]));
+            this._soundCubes.push(new SoundCube('blue', new BABYLON.Vector3(100, 10, 0), this._scene, BABYLON.Color3.Blue(), shadowGenerator, this._soundsLoader.sounds[2]));
+            this._soundCubes.push(new SoundCube('green', new BABYLON.Vector3(0, 10, -100), this._scene, BABYLON.Color3.Green(), shadowGenerator, this._soundsLoader.sounds[1]));
             this._soundCubes.push(new SoundCube('white', new BABYLON.Vector3(-100, 10, -100), this._scene, BABYLON.Color3.White(), shadowGenerator, this._soundsLoader.sounds[5]));
 
             // Events
@@ -81,9 +94,9 @@
             this._scene.collisionsEnabled = true;
 
             //Movement managemnet
-            var getGroundPosition = () => {
+            var getGroundPosition = (x = this._scene.pointerX, y = this._scene.pointerY) => {
                 // Use a predicate to get position on the ground
-                var pickinfo = this._scene.pick(this._scene.pointerX, this._scene.pointerY, mesh => (mesh === ground));
+                var pickinfo = this._scene.pick(x, y, mesh => (mesh === ground));
                 if (pickinfo.hit) {
                     return pickinfo.pickedPoint;
                 }
@@ -135,7 +148,7 @@
                 }
 
                 var current = getGroundPosition();
-                
+
                 if (!current) {
                     return;
                 }
@@ -146,18 +159,153 @@
                 startingPoint[evt.pointerId] = current;
             }
 
+            var tab = (evt) => {
+                var currentSelected: SoundCube = this._soundCubes[this._cubeSelected];
+
+                if ((this._cubeSelected !== this._soundCubes.length - 1 || evt.shiftKey) && (this._cubeSelected !== 0 || !evt.shiftKey)) {
+                    evt.preventDefault();
+                }
+
+                if (currentSelected) {
+                    currentSelected.land();
+                }
+
+                if (evt.shiftKey) {
+                    if (!currentSelected) {
+                        this._cubeSelected = this._soundCubes.length - 1;
+                    } else {
+                        this._cubeSelected--;
+                    }
+                } else {
+                    this._cubeSelected++;
+                }
+
+                if (this._cubeSelected >= this._soundCubes.length || this._cubeSelected < 0) {
+                    this._cubeSelected = -1;
+                    return;
+                }
+
+                this._soundCubes[this._cubeSelected].takeoff();
+                return;
+            }
+
+            var onKeyDown = (evt) => {
+                var charCode = (typeof evt.which === "number") ? evt.which : evt.keyCode;
+
+                switch (charCode) {
+                    case 9: //tab key
+                        tab(evt);
+                        break;
+                    case 65: //left (key A)
+                        this._keysPressed.left = true;
+                        break;
+                    case 87: //up (key W)
+                        this._keysPressed.up = true;
+                        break;
+                    case 68: //right (key D)
+                        this._keysPressed.right = true;
+                        break;
+                    case 83: //down (key S)
+                        this._keysPressed.down = true;
+                        break;
+                }
+            }
+
+            var onKeyUp = (evt) => {
+                var charCode = (typeof evt.which === "number") ? evt.which : evt.keyCode;
+
+                switch (charCode) {
+                    case 65: //left (key A)
+                        this._keysPressed.left = false;
+                        break;
+                    case 87: //up (key W)
+                        this._keysPressed.up = false;
+                        break;
+                    case 68: //right (key D)
+                        this._keysPressed.right = false;
+                        break;
+                    case 83: //down (key S)
+                        this._keysPressed.down = false;
+                        break;
+                }
+            }
+
+            var onBlur = (evt) => {
+                for (var i = 0, li = this._soundCubes.length; i < li; i++) {
+                    this._soundCubes[i].land();
+                }
+
+                this._cubeSelected = -1;
+            }
+
             canvas.addEventListener('pointerdown', onPointerDown, false);
             canvas.addEventListener('pointerup', onPointerUp, false);
             canvas.addEventListener('pointermove', onPointerMove, false);
+            canvas.addEventListener('keydown', onKeyDown, false);
+            canvas.addEventListener('keyup', onKeyUp, false);
+            canvas.addEventListener('blur', onBlur, false);
 
             this._scene.onDispose = () => {
                 canvas.removeEventListener('pointerdown', onPointerDown);
                 canvas.removeEventListener('pointerup', onPointerUp);
                 canvas.removeEventListener('pointermove', onPointerMove);
+                canvas.removeEventListener('keydown', onKeyDown, false);
+                canvas.removeEventListener('keyup', onKeyUp, false);
+                canvas.removeEventListener('blur', onBlur, false);
             }
+
+            var moveCube = () => {
+                var selectedCube: SoundCube = this._soundCubes[this._cubeSelected];
+                var point: BABYLON.Vector3 = new BABYLON.Vector3(0, 0, 0);
+
+                if (!selectedCube) {
+                    return;
+                }
+
+                if (this._keysPressed.up) {
+                    point.y++;
+                }
+
+                if (this._keysPressed.down) {
+                    point.y--;
+                }
+
+                if (this._keysPressed.left) {
+                    point.x++;
+                }
+
+                if (this._keysPressed.right) {
+                    point.x--;
+                }
+
+                if (point.x !== 0 || point.y !== 0) {
+                    if (this._timeoutId) {
+                        clearTimeout(this._timeoutId);
+                        this._launchTimeout();
+                    }
+
+                    this._scene.beforeRender = null;
+                } else {
+                    return;
+                }
+
+                var screenPosition = selectedCube.getScreenPosition();
+
+                var origPosition = getGroundPosition(screenPosition.x, screenPosition.y);
+                var destPosition = getGroundPosition(screenPosition.x + point.x, screenPosition.y + point.y);
+
+                if (!origPosition || !destPosition) {
+                    return;
+                }
+
+                var diff = origPosition.subtract(destPosition);
+
+                selectedCube.move(diff, this._soundCubes);
+            };
 
             //Rendering loop
             this._engine.runRenderLoop(() => {
+                moveCube();
                 this._scene.render();
             });
 

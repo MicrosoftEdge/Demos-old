@@ -2,6 +2,15 @@
 	margin-top: 2.4rem;
 }
 
+/*
+	@Bug: The following is done so that the MathML examples remain visible.
+	https://github.com/MicrosoftEdge/Demos/issues/328#issuecomment-269772211
+*/
+
+[aria-hidden="true"] {
+	display: inline;
+}
+
 #microphoneOptions,
 #referenceOptions {
 	display: none;
@@ -55,8 +64,8 @@ fieldset {
 
 blockquote {
 	margin-right: 8%;
-    margin-left: 8%;
-    font-style: italic;
+	margin-left: 8%;
+	font-style: italic;
 }
 
 @media (min-width: 48em) {
