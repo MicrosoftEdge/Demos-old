@@ -1,0 +1,112 @@
+<html>
+<head>
+	<title>Getting Started With PaymentRequest</title>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="W3C Payment Request API, Web Payments, tutorial, samples">
+	<meta name="description" content="Getting started with the W3C Payment Request API">
+	<meta property="og:title" content="Getting started with the W3C Payment Request API">
+	<meta property="og:description" content="The W3C Payment Request API is for fast, easy payments on the web">
+	<meta property="twitter:title" content="Getting started with the W3C Payment Request API">
+	<meta property="twitter:description" content="The W3C Payment Request API is for fast, easy payments on the web">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" type="image/png" href="wallet.png"/>
+	<link rel="stylesheet" href="styles/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/github.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/highlight.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="title">
+			<h1>W3C Payment Request API Samples</h1>
+		</div>
+		<hr>
+		<div id="not-supported">
+		</div>
+		<div class="sample">
+			<h2>Static shipping</h2>
+			<p>A sample that accepts credit card payments and provides a couple of shipping options</p>
+			<div class="btn-wrapper">
+					<button id="static-shipping">DEMO</button>
+			</div>
+			<div class="sample-wrapper">
+				<div class="top-bar">
+					See the code
+				</div>
+				<div class="expander">
+					<pre>
+							<code class="javascript" id="static-shipping-sample">
+							</code>
+					</pre>
+				</div>
+			</div>
+		</div>
+		<div class="sample">
+			<h2>Dynamic Shipping</h2>
+			<p>This sample accepts credit card payments and varies the availability and price of shipping options depending on the shipping address. See how the shipping price increases when the item is being shipped outside of Washington State.</p>
+			<p>Try this Washington address:</p>
+			<div class="address">
+				<span>400 Broad St</span>
+				<br>
+				<span>Seattle, WA 98109</span>
+			</div>
+			<div class="btn-wrapper">
+					<button id="dynamic-shipping">DEMO</button>
+			</div>
+			<div class="sample-wrapper">
+				<div class="top-bar">
+					See the code
+				</div>
+				<div class="expander">
+					<pre>
+							<code class="javascript" id="dynamic-shipping-sample">
+							</code>
+					</pre>
+				</div>
+			</div>
+		</div>
+		<div class="sample">
+			<h2>Digital Merchandise</h2>
+			<p>A sample that accepts credit card payments and does not request shipping information</p>
+			<div class="btn-wrapper">
+					<button id="no-shipping">DEMO</button>
+			</div>
+			<div class="sample-wrapper">
+				<div class="top-bar">
+					See the code
+				</div>
+				<div class="expander">
+					<pre>
+							<code class="javascript" id="no-shipping-sample">
+							</code>
+					</pre>
+				</div>
+			</div>
+		</div>
+		<div class="sample">
+			<h2>Contact Info</h2>
+			<p>A sample that accepts credit card payments and requests user's contact information</p>
+			<div class="btn-wrapper">
+					<button id="request-contact-info">DEMO</button>
+			</div>
+			<div class="sample-wrapper">
+				<div class="top-bar">
+					See the code
+				</div>
+				<div class="expander">
+					<pre>
+							<code class="javascript" id="request-contact-sample">
+							</code>
+					</pre>
+				</div>
+			</div>
+		</div>
+		<hr>
+		<h2>Resources</h2>
+		<ul>
+			<li><a href="https://w3c.github.io/browser-payment-api/">W3C Payment Request API Spec</a></li>
+		</ul>
+	</div>
+	<script src="scripts/samples.js"></script>
+	<script src="scripts/index.js"></script>
+</body>
+</html>
