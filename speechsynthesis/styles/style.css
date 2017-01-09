@@ -70,9 +70,14 @@ input[type="range"] {
 	padding: .7rem 0;
 }
 
-input[type="text"]:focus,
+input[type="text"]:focus {
+	border: 1px solid #ffa940;
+}
+
+input[type="range"]:focus,
 select:focus {
-	border: 2px solid #ffa940;
+	outline: 1px dashed #ffffff;
+	outline-offset: 1px;
 }
 
 label {
