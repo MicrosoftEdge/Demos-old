@@ -18,6 +18,10 @@ h1 {
   line-height: 1em;
 }
 
+h2 {
+  padding: 10px 0px;
+}
+
 #not-supported {
   font-weight: 600;
   color:#2980b9;
@@ -51,17 +55,19 @@ h1 {
   height:100%;
   transition: height .4s ease-in-out;
   overflow: auto;
-
 }
 
 .hljs {
   tab-size: 2;
 }
 
+.btn-wrapper {
+  margin: 10px 0px;
+}
 button {
-  background-color: #337ab7;
-  border-color:#2e6da4;
-  color:white;
+  background-color: #337ab7 !important;
+  border-color:#2e6da4 !important;
+  color:white !important;
   display: inline-block;
   padding: 6px 12px;
   margin-bottom: 0;
