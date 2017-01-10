@@ -71,10 +71,7 @@ input[type="range"] {
 }
 
 input[type="text"]:focus {
-	border: 1px solid #ffa940;
-
-	/* high contrast outline */
-	outline: 1px dashed #ffffff;
+	outline: 1px dashed #ffa940;
 	outline-offset: 1px;
 }
 
