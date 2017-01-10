@@ -72,6 +72,10 @@ input[type="range"] {
 
 input[type="text"]:focus {
 	border: 1px solid #ffa940;
+
+	/* high contrast outline */
+	outline: 1px dashed #ffffff;
+	outline-offset: 1px;
 }
 
 input[type="range"]:focus,
@@ -110,7 +114,7 @@ label {
 
 button {
 	display: inline-block;
-	border: none;
+	border: 1px solid #167d3e;
 	font-size: .9rem;
 	padding: .5rem .8rem;
 	background: #167d3e;
@@ -184,7 +188,7 @@ button {
 }
 
 .dropdown--voice {
-	width: 20rem;
+	width: 25rem;
 }
 
 .dropdown--language {
