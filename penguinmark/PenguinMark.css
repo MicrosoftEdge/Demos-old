@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+﻿/* Base Styles ------------------------------------------------------------------------ */
+=======
 /* Base Styles ------------------------------------------------------------------------ */
+>>>>>>> MicrosoftEdge/master
 
 @font-face {
 	font-family: 'Cookies';
@@ -102,6 +106,24 @@ a:hover, a:visited:hover {
     text-align: right;
 }
 
+<<<<<<< HEAD
+#StartButton {
+    font-family: Cookies;
+    position: absolute;
+    padding: 12px 18px 10px 18px;
+    margin: 0px 20px 0px 0px;
+    border-radius: 4px;
+    right: 0px;
+    background-color: orange;
+    font-size: 14pt;
+}
+
+    #StartButton:hover {
+        background-color: #ffc300;
+        cursor: pointer;
+    }
+
+=======
 
 .btn {
     background-color: orange;
@@ -122,6 +144,7 @@ a:hover, a:visited:hover {
     position: absolute;
     right: 0;
 }
+>>>>>>> MicrosoftEdge/master
 
 
 /* Welcome & Results Penguins --------------------------------------------------------- */
@@ -209,7 +232,10 @@ a:hover, a:visited:hover {
     float: right;
     width: 360px;
     padding-top: 40px;
+<<<<<<< HEAD
+=======
     text-align: center;
+>>>>>>> MicrosoftEdge/master
 }
 
 #ResultsHeading {
@@ -228,11 +254,31 @@ a:hover, a:visited:hover {
 }
 
 #ResetButton {
+<<<<<<< HEAD
+    width: 140px;
+    text-align: center;
+    padding: 12px 18px 10px 18px;
+    margin: 30px 0px 0px 90px;
+    border-radius: 4px;
+    bottom: 0px;
+    right: 0px;
+    background-color: orange;
+    font-size: 14pt;
+}
+
+    #ResetButton:hover {
+        background-color: #ffc300;
+        cursor: pointer;
+    }
+
+
+=======
     margin: 30px auto;
     padding: 12px 18px 10px 18px;
     width: 176px;
 }
 
+>>>>>>> MicrosoftEdge/master
 
 
 /* Penguin Container ------------------------------------------------------------------------ */
