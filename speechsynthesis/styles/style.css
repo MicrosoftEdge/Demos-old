@@ -71,13 +71,13 @@ input[type="range"] {
 }
 
 input[type="text"]:focus {
-	outline: 1px dashed #ffa940;
+	outline: 1px dashed #000;
 	outline-offset: 1px;
 }
 
 input[type="range"]:focus,
 select:focus {
-	outline: 1px dashed #ffffff;
+	outline: 1px dashed #fff;
 	outline-offset: 1px;
 }
 
