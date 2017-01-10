@@ -1,4 +1,6 @@
-var Global = {}
+"use strict";
+
+window.Global = {}
 
 Global.startPaymentRequestStaticShipping = function () {
 
@@ -76,7 +78,7 @@ Global.startPaymentRequestStaticShipping = function () {
 		if (pr.shippingOption) {
 			for (var index = 0; index < details.shippingOptions.length; index++) {
 				var opt = details.shippingOptions[index];
-				if (opt.id == pr.shippingOption) {
+				if (opt.id === pr.shippingOption) {
 					var shippingOption = opt;
 					break;
 				}
@@ -174,7 +176,7 @@ Global.startPaymentRequestDynamicShipping = function () {
 		if (pr.shippingOption) {
 			for (var index = 0; index < details.shippingOptions.length; index++) {
 				var opt = details.shippingOptions[index];
-				if (opt.id == pr.shippingOption) {
+				if (opt.id === pr.shippingOption) {
 					var shippingOption = opt;
 					break;
 				}

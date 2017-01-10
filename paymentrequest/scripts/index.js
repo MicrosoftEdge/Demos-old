@@ -6,9 +6,9 @@ window.onload = function() {
 		staticShippingBtn = document.getElementById('static-shipping'),
 		dynamicShippingBtn = document.getElementById('dynamic-shipping'),
 		noShippingBtn = document.getElementById('no-shipping'),
-		requestContactBtn = document.getElementById('request-contact-info')
-		notSupportedMessage = document.getElementById('not-supported')
-
+		requestContactBtn = document.getElementById('request-contact-info'),
+		notSupportedMessage = document.getElementById('not-supported'),
+		Global = window.Global
 	//Loading the same code into the HTML
 	staticShipping.innerHTML = Global.startPaymentRequestStaticShipping.toString();
 	dynamicShipping.innerHTML = Global.startPaymentRequestDynamicShipping.toString();
