@@ -104,6 +104,10 @@ button:disabled:hover {
   border:none;
 }
 
+button:focus {
+  outline:none;
+}
+
 .address {
   color:#767676;
   margin-bottom: 20px;
