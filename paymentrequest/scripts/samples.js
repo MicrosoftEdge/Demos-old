@@ -1,9 +1,10 @@
-"use strict";
+(function(){
+	'use strict';
+})
 
-window.Global = {}
+window.Global = {};
 
 Global.startPaymentRequestStaticShipping = function () {
-
 	var methodData = [{
 		supportedMethods: ['basic-card'],
 		data: {
@@ -69,8 +70,8 @@ Global.startPaymentRequestStaticShipping = function () {
 	//to the server side for processing.
 	.then(function (result) {
 		return result.complete('success');
-	}).catch(function(){
-		console.error("Uh oh, bad payment response!", err.message);
+	}).catch(function(err){
+		console.error('Uh oh, bad payment response!', err.message);
 		paymentResponse.complete("fail")
 	});
 

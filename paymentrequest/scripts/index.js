@@ -1,4 +1,7 @@
+
 window.onload = function() {
+	'use strict';
+
 	var staticShipping = document.getElementById('static-shipping-sample'),
 		dynamicShipping = document.getElementById('dynamic-shipping-sample'),
 		noShipping = document.getElementById('no-shipping-sample'),
@@ -8,7 +11,7 @@ window.onload = function() {
 		noShippingBtn = document.getElementById('no-shipping'),
 		requestContactBtn = document.getElementById('request-contact-info'),
 		notSupportedMessage = document.getElementById('not-supported'),
-		Global = window.Global
+		Global = window.Global;
 	//Loading the same code into the HTML
 	staticShipping.innerHTML = Global.startPaymentRequestStaticShipping.toString();
 	dynamicShipping.innerHTML = Global.startPaymentRequestDynamicShipping.toString();
