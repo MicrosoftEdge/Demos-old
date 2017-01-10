@@ -7,175 +7,186 @@
 	<title>User Selection via CSS</title>
 	<meta name="og:title" content="user select"/>
 	<meta name="keywords" content="input"/>
-	<link rel="stylesheet" href="styles/demotemplate.css"/>
-	<link rel="stylesheet" href="styles/demo.css"/>
-	<link rel="stylesheet" href="styles/normal_off.css" id="normal_off_sheet" class="styles"/>
-	<link rel="stylesheet" href="styles/all_off.css" id="all_off_sheet" class="styles"/>
-	<link rel="stylesheet" href="styles/blog_only.css" id="blog_only_sheet" class="styles"/>
-	<link rel="stylesheet" href="styles/comments_only.css" id="comments_only_sheet" class="styles"/>
-	<link rel="stylesheet" href="styles/blog_beyond.css" id="blog_beyond_sheet" class="styles"/>
+
+	<link rel="stylesheet" type="text/css" href="https://edgeportal.blob.core.windows.net/media/demotemplate.css">
+	<link rel="stylesheet" type="text/css" href="styles/demo.css"/>
+	<link rel="stylesheet" type="text/css" href="styles/normal_off.css" id="normal_off_sheet" class="styles"/>
+	<link rel="stylesheet" type="text/css" href="styles/all_off.css" id="all_off_sheet" class="styles"/>
+	<link rel="stylesheet" type="text/css" href="styles/blog_only.css" id="blog_only_sheet" class="styles"/>
+	<link rel="stylesheet" type="text/css" href="styles/comments_only.css" id="comments_only_sheet" class="styles"/>
+	<link rel="stylesheet" type="text/css" href="styles/blog_beyond.css" id="blog_beyond_sheet" class="styles"/>
 </head>
 
 <body>
-<div class="container userselect-container">
-	<h1 id="demo-title">
-		User-Select
-	</h1>
 
-	<div id="demo-introduction">
-		<p><code>-ms-user-select</code> is a new CSS property that lets web developers control where users are able to
-			select text within their web pages.</p>
+<!-- DEMO INTRO -->
+<header class="section section--page-intro demo__header">
+	<div class="container">
+		<div class="section__header">
+			<h1>User-Select</h1>
+			<p class="subtitle"><code>-ms-user-select</code> is a new CSS property that lets web developers control where users are able to
+				select text within their web pages.</p>
+		</div>
 	</div>
-	<div id="demo-content">
-		<div id="controls">
-			<div>
-				<select id="sel">
-					<option selected value="on">Normal Selection</option>
-					<option value="normal_off">Turn off selection except in editable content</option>
-					<option value="all_off">Turn off selection everywhere</option>
-					<option value="blog_only">Select Blog Post Content only</option>
-					<option value="comments_only">Select Comments only</option>
-					<option value="blog_beyond">Selection Starts in Blog Post or Comments but can extend</option>
-				</select>
-			</div>
-			<div id="code"> <pre id="normal_off">
+</header>
+<section class="container section">
+<div class="userselect-container clear">
+	<div id="controls">
+		<label for="sel">User Select Options</label>
+		<select id="sel" class="controls-select">
+			<option selected value="on">Normal Selection</option>
+			<option value="normal_off">Turn off selection except in editable content</option>
+			<option value="all_off">Turn off selection everywhere</option>
+			<option value="blog_only">Select Blog Post Content only</option>
+			<option value="comments_only">Select Comments only</option>
+			<option value="blog_beyond">Selection Starts in Blog Post or Comments but can extend</option>
+		</select>
+	<div id="code">
+<pre id="normal_off">
 <code>#blog {
-	-ms-user-select:none;
-	-webkit-user-select:none;
-	-moz-user-select:-moz-none;
-	} </code></pre>
-            <pre id="all_off">
+-ms-user-select: none;
+-webkit-user-select: none;
+-moz-user-select:-moz-none;
+} </code></pre>
+<pre id="all_off">
 <code>#blog, #blog input, #blog textarea,
-	#blog *[contenteditable=true] {
-	-ms-user-select:none;
-	-webkit-user-select:none;
-	-moz-user-select: -moz-none;
-	}</code></pre> <pre id="blog_only">
+#blog *[contenteditable=true] {
+-ms-user-select: none;
+-webkit-user-select: none;
+-moz-user-select: -moz-none;
+}</code></pre>
+<pre id="blog_only">
 <code>#blogPost {
-	-ms-user-select:element;
-	-webkit-user-select:text;
-	-moz-user-select: text;
-	}
+-ms-user-select: element;
+-webkit-user-select: text;
+-moz-user-select: text;
+}
 
-	#blog{
-	-ms-user-select:none;
-	-webkit-user-select:none;
-	-moz-user-select: -moz-none;
-	}</code></pre><pre id="comments_only">
+#blog{
+-ms-user-select: none;
+-webkit-user-select: none;
+-moz-user-select: -moz-none;
+}</code></pre>
+<pre id="comments_only">
 <code>.comment {
-	-ms-user-select:element;
-	-moz-user-select:text;
-	-webkit-user-select:text;
-	}
+-ms-user-select: element;
+-moz-user-select: text;
+-webkit-user-select: text;
+}
 
-	#blog{
-	-ms-user-select:none;
-	-moz-user-select:-moz-none;
-	-webkit-user-select:none;
-	}</code></pre> <pre id="blog_beyond">
+#blog{
+-ms-user-select: none;
+-moz-user-select: -moz-none;
+-webkit-user-select: none;
+}</code></pre>
+<pre id="blog_beyond">
 <code>#blogPost, .comment {
-	-ms-user-select:text;
-	}
+-ms-user-select: text;
+}
 
-	#blog {
-	-ms-user-select:none;
-	}</code></pre>
-			</div>
+#blog {
+-ms-user-select: none;
+}</code></pre>
 		</div>
-		<div id="blog">
-			<div id="sample-content" >
-				<span>&#160; &nbsp;</span>
+	</div>
+	<div id="blog">
+		<div id="sample-content">
+			<img src="images/user-select.svg" alt="IEBlog The Internet Explorer Weblog" />
+		</div>
+		<ul class="breadcrumb-list">
+			<li>MSDN Blogs \</li>
+			<li>IEBlog \</li>
+			<li>HTML5 History in IE10</li>
+		</ul>
 
-				<div style="color: #0066aa; font-weight: bold; float: left;"><a href="#">IEBlog</a>
-				</div>
-				<div style="color: #0066aa; float: right;">The Internet Explorer Weblog</div>
-			</div>
-			<p class="breadcrumb-list" style="font-weight:bold;"><a href="#">MSDN Blogs</a> &gt; <a href="#">IEBlog</a>
-				&gt;
-				<a href="">HTML5 History in IE10 </a>
-			</p>
+		<p class="title">HTML5 History in IE10</p>
+		<p class="date">ieblog | 31 Oct 2011 3:42 PM</p>
 
-			<h2>HTML5 History in IE10</h2>
+		<p id="blog-post">Building fast and functional sites is a challenge with which most Web developers are
+			familiar. Loading a new page every time the user clicks a link is slow. Fetching all content dynamically
+			effectively disables the back button. Working with hashes is better, but still not ideal. Internet Explorer 10 in
+			the Windows Developer Preview eliminates the compromise by adding support for HTML5 History. The pushState,
+			replaceState, and popstate APIs provide fine-grained control over the behavior of the back button and
+			the URL presented to the user for dynamic content. Together these APIs help you improve the performance of
+			your site without sacrificing usability.</p>
+		<p>...</p>
 
-			<p style="color:gray;"><a href="#">ieblog</a> 31 Oct 2011 3:42 PM</p>
-
-			<p id="blog-post">Building fast and functional sites is a challenge with which most Web developers are
-				familiar.
-				Loading a new page every time the user clicks a link is slow. Fetching all content dynamically
-				effectively
-				disables the back button. Working with hashes is better, but still not ideal. Internet Explorer 10 in
-				the
-				Windows Developer Preview eliminates the compromise by adding support for HTML5 History. The pushState,
-				replaceState, and popstate APIs provide fine-grained control over the behavior of the back button and
-				the
-				URL presented to the user for dynamic content. Together these APIs help you improve the performance of
-				your
-				site without sacrificing usability.</p>
-
-			<p>...</p>
-
-			<h3>Comments</h3>
-
+		<p class="subtitle">Comments</p>
+		<div class="comments">
 			<div class="comment">
-				<img src="http://blogs.msdn.com/utility/anonymous.gif"
-					 style="float:left;max-height:32px;max-width:32px; "/>
-
-				<p>Paul</p>
-
-				<p>Excellent and much needed feature!</p></div>
-			<div class="comment"><img src="http://blogs.msdn.com/utility/anonymous.gif"
-									  style="float:left;max-height:32px;max-width:32px; "/>
-
-				<p>Will</p>
-
-				<p>Thank you!!!</p></div>
-			<h3>Leave a Comment</h3>
-			<label>Name</label><br/>
-			<input type="text" style="width:400px;"><br/>
-			<label>Comment</label><br/>
-			<textarea style="width:400px;height:100px;"></textarea>
+				<img src="images/avatar_1.svg" class="avatar" role="presentation" />
+				<div class="comment__content">
+					<p class="comment--user">Paul</p>
+					<p>Excellent and much needed feature!</p>
+				</div>
+			</div>
+			<div class="comment--reply clear">
+				<img src="images/avatar_1.svg" class="avatar" role="presentation" />
+				<div class="comment__content">
+					<p class="comment--user">Will</p>
+					<p>Thank you!!!</p>
+				</div>
+			</div>
 		</div>
+		<p class="subtitle">Leave a Comment</p>
+		<label for="name">Name</label><br/>
+		<input id="name" type="text"><br/><br/>
+		<label for="comment-body">Comment</label><br/>
+		<textarea id="comment-body"></textarea>
 	</div>
-
-
-	<div id="demo-details" style="clear:both; margin-top:20px;">
-		<h3>-ms-user-select: none</h3>
-
-		<p><code>-ms-user-select:none</code> will block selection from starting on that element. It will not block an
-			existing selection from entering the element.</p>
-
-		<p style="-ms-user-select:none;margin-left:40px;">This paragraph blocks selection from starting here.</p>
-
-		<h3>-ms-user-select: element</h3>
-
-		<p><code>-ms-user-select:element</code> enables selection to start within the element, however, the selection
-			will
-			be contained by the bounds of that element.</p>
-
-		<p style="-ms-user-select:element;margin-left:40px;">This paragraph limits selection to within it's bounds.</p>
-
-		<h3>-ms-user-select: text</h3>
-
-		<p><code>-ms-user-select:text</code> enables selection to start within the element and extend past the element's
-			bounds.</p>
-
-		<p style="-ms-user-select:text;margin-left:40px;">This paragraph allows unbounded selection.</p>
-
-		<h3>Interop Notes</h3>
-
-		<p><code>user-select</code> is not currently part of any W3C CSS specification. It was originally proposed in
-			the <a
-				href="http://www.w3.org/TR/2000/WD-css3-userint-20000216
-			">User Interface for CSS3</a> module; this module has since been superseded by <a
-				href="http://www.w3.org/TR/css3-ui/ ">CSS3 Basic User Interface Module</a> which does not define the
-			<code>user-select</code>
-			property. Both <a href="https://developer.mozilla.org/en/CSS/-moz-user-select ">Mozilla</a> and <a
-				href="http://developer.apple.com/library/safari/#documentation/AppleApplications/Reference/SafariCSSRef/Articles/StandardCSSProperties.html#//apple_ref/css/property/-webkit-user-select ">Webkit</a>
-			support their own prefixed versions of this property. There are minor differences between the three
-			implementations so be sure to test your application across browsers.</p>
-		<br/>
-	</div>
-</div>
-<script src="scripts/demo.js"></script>
+</section>
+<section class="container section">
+	<h2 class="section__header">User-select property values explained</h2>
+		<div class="section__body">
+			<div class="subsection">
+				<div class="layout layout--equal">
+					<div class="module">
+						<h3>-ms-user-select: none</h3>
+						<p><code>-ms-user-select:none</code> will block selection from starting on that element. It will not block an
+							existing selection from entering the element.</p>
+					</div>
+					<div class="module rendered-result">
+						<p style="-ms-user-select:none;">This paragraph blocks selection from starting here.</p>
+					</div>
+				</div>
+			</div>
+			<div class="subsection">
+				<div class="layout layout--equal">
+					<div class="module">
+						<h3>-ms-user-select: element</h3>
+						<p><code>-ms-user-select:element</code> enables selection to start within the element, however, the selection
+							will be contained by the bounds of that element.</p>
+					</div>
+					<div class="module rendered-result">
+						<p style="-ms-user-select:element;">This paragraph limits selection to within it's bounds.</p>
+					</div>
+				</div>
+			</div>
+			<div class="subsection">
+				<div class="layout layout--equal">
+					<div class="module">
+						<h3>-ms-user-select: text</h3>
+						<p><code>-ms-user-select:text</code> enables selection to start within the element and extend past the element's bounds.</p>
+					</div>
+					<div class="module rendered-result">
+						<p style="-ms-user-select:text;">This paragraph allows unbounded selection.</p>
+					</div>
+				</div>
+			</div>
+			<div class="subsection">
+				<h3>Interop Notes</h3>
+				<p><code>user-select</code> is not currently part of any W3C CSS specification. It was originally proposed in
+				the <a
+						href="http://www.w3.org/TR/2000/WD-css3-userint-20000216">User Interface for CSS3</a> module; this module has
+						since been superseded by <a	href="http://www.w3.org/TR/css3-ui/">CSS3 Basic User Interface Module</a> which
+						does not define the <code>user-select</code> property. Both <a href="https://developer.mozilla.org/en/CSS/-moz-user-select">Mozilla</a> and <a
+						href="http://developer.apple.com/library/safari/#documentation/AppleApplications/Reference/SafariCSSRef/Articles/StandardCSSProperties.html#//apple_ref/css/property/-webkit-user-select ">Webkit</a>
+					support their own prefixed versions of this property. There are minor differences between the three
+					implementations so be sure to test your application across browsers.</p>
+				<br/>
+			</div>
+		</div>
+</section>
+<script type="text/javascript" src="scripts/demo.js"></script>
 </body>
 </html>

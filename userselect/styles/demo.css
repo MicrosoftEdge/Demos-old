@@ -2,9 +2,8 @@
 	display: none;
 }
 
-.userselect-container button {
-	margin-left: 10px;
-	padding: 3px;
+.userselect-container select {
+	width: 32rem;
 }
 
 .userselect-container div + p,
@@ -12,56 +11,107 @@
 	clear: both;
 }
 
-#code {
-	margin-top: 20px;
-	/* width:400px;*/
-
-	height: 200px;
-	border: solid;
+.breadcrumb-list {
+	display: block;
+	font-size: 1.2rem;
+	margin: 2rem 0 3.4rem 0;
+	list-style: none;
 }
 
-#code pre {
-	margin: 0;
-	background-color: transparent;
-	font-size: 13px;
-	line-height: normal;
-	padding: 1rem;
-	border: none;
-}
-
-.userselect-container select {
-	width: 320px;
-}
-
-#controls {
-	padding-bottom: 20px;
-	margin-right: 15px;
-	float: left;
-	width: 320px;
-}
-
-#sample-content {
-	border-bottom: solid thin;
-	padding-top: 20px;
-	padding-left: 6px;
-	padding-right: 6px;
-	height: 40px;
-	background-color: rgb(170, 221, 255);
-	box-sizing: content-box;
-	font-size: 1.5em;
-}
-
-#sample-content * + * {
+ul, li {
 	margin-top: 0;
+	display: inline-block;
 }
 
-.comment img {
-	margin: 5px;
+/* BLOG CONTENT */
+#controls {
+	width: 100%;
+	max-width: 32rem;
+	padding-bottom: 2rem;
+	margin-right: 1.5rem;
+	float: left;
+}
+
+/* override default styling for alignment */
+.controls-select {
+	margin-top: .7rem;
+}
+
+pre:first-child {
+	margin-top: 2.4rem;
 }
 
 #blog {
 	display: inline-block;
-	min-width: 550px;
-	max-width: 650px;
+	width: 100%;
+	max-width: 64rem;
 	margin-top: 0;
+	padding: 3rem;
+	border: 2px solid #dedede;
+	border-top-width: 25px;
+}
+
+
+/* COMMENTS SECTION */
+.avatar {
+	float: left;
+	max-width: 3rem;
+	max-height: 3rem;
+	border: 3px solid #b5b5b5;
+}
+
+.date {
+	font-size: 1.3rem;
+	color: #6a6a6a;
+}
+
+.comments {
+	border: 1px solid #c1c1c1;
+	padding: 1rem;
+}
+
+.comment {
+	margin-bottom: 2rem;
+}
+
+.comment--reply {
+	margin-left: 6rem;
+	padding: 1rem;
+	background-color: #f0f0f0;
+}
+
+.comment__content {
+	margin-top: 0;
+	margin-left: 6rem;
+}
+
+.comment__content p {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.comment--user {
+	font-size: 1.2rem;
+	color: #5a5a77;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.comment img {
+	margin: .3rem;
+}
+
+label {
+	font-size: 1.3rem;
+}
+
+input {
+	width: 100%;
+	margin-top: .5rem;
+}
+
+textarea {
+	width: 100%;
+	height: 20rem;
+	margin-top: .5rem;
 }

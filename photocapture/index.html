@@ -55,7 +55,7 @@
                                 <span id="videoViewText" class="view-text__instructions"></span>
                             </h3>
                             <div class="view--video">
-                                <video id="videoTag" src="" autoplay muted class="view--video__video"></video>
+                                <video tabindex="0" id="videoTag" src="" autoplay muted class="view--video__video"></video>
                             </div>
                             <h3 class="subtitle view-text view-text--snapshot">
                                 <span>Snapshot view</span>
@@ -67,7 +67,7 @@
                             </div>
                         </div>
                         <p class="alert--error" class="hide" id="tooltip"></p>
-                        <button class="button" type="button" disabled id="switch" style="display:none">Switch Camera</button>
+                        <button class="button" type="button" disabled id="switch" style="display:none" autocomplete="off">Switch Camera</button>
                     </div>
                 </div>
             </div>

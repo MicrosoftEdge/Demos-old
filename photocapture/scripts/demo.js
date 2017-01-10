@@ -1,24 +1,24 @@
-(function(){
+(function () {
     'use strict';
 
     var mediaStream = null;
     var webcamList;
     var currentCam = null;
     var photoReady = false;
-    
+
     // writeError(string) - Provides a way to display errors to the user
 
-    var writeError = function(string) {
+    var writeError = function (string) {
         var elem = document.getElementById('error');
         var p = document.createElement('div');
         p.appendChild(document.createTextNode('ERROR: ' + string));
         elem.appendChild(p);
     };
-    
+
     // initializeVideoStream() - Callback function when getUserMedia() returns successfully with a mediaStream object,
     // set the mediaStream on the video tag
 
-    var initializeVideoStream = function(stream) {
+    var initializeVideoStream = function (stream) {
         mediaStream = stream;
 
         var video = document.getElementById('videoTag');
@@ -36,7 +36,7 @@
     // getUserMediaError() - Callback function when getUserMedia() returns error
     // 1. Show the error message with the error.name
 
-    var getUserMediaError = function(e) {
+    var getUserMediaError = function (e) {
         if (e.name.indexOf('NotFoundError') >= 0) {
             writeError('Webcam not found.');
         }
@@ -49,7 +49,7 @@
     // 1. If msSaveBlob is supported, get the the photo blob from the canvas and save the image file
     // 2. Otherwise, set up the download attribute of the anchor element and download the image file
 
-    var savePhoto = function() {
+    var savePhoto = function () {
         if (photoReady) {
             var canvas = document.getElementById('canvasTag');
             if (navigator.msSaveBlob) {
@@ -64,16 +64,36 @@
                 link.click();
             }
             canvas.removeEventListener('click', savePhoto);
+            canvas.removeEventListener('keydown', savePhotoWithKey, false);
             document.getElementById('photoViewText').innerHTML = '';
             photoReady = false;
         }
     };
 
+    var isEnterKey = function (evt) {
+        var charCode = (typeof evt.which === 'number') ? evt.which : evt.keyCode;
+
+        if (charCode !== 13 && charCode !== 32) {
+            return false;
+        }
+
+        return true;
+    }
+
+    // savePhotoWithKey() - Function invoked when click on the canvas element
+    // 1. Check if the key is the "Enter" key
+    // 2. savePhoto()
+    var savePhotoWithKey = function (evt) {
+        if (isEnterKey(evt)) {
+            evt.preventDefault();
+            savePhoto();
+        }
+    }
+
     // capture() - Function called when click on video tag
     // 1. Capture a video frame from the video tag and render on the canvas element
 
-    var capture = function() {
-
+    var capture = function () {
         if (!mediaStream) {
             return;
         }
@@ -81,6 +101,7 @@
         var video = document.getElementById('videoTag');
         var canvas = document.getElementById('canvasTag');
         canvas.removeEventListener('click', savePhoto);
+        canvas.removeEventListener('keydown', savePhotoWithKey, false);
         var videoWidth = video.videoWidth;
         var videoHeight = video.videoHeight;
 
@@ -93,25 +114,36 @@
         ctx.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
         photoReady = true;
         document.getElementById('photoViewText').innerHTML = 'Click or tap below to save to a file';
+        canvas.setAttribute('tabindex', '0');
         canvas.addEventListener('click', savePhoto);
+        canvas.addEventListener('keydown', savePhotoWithKey);
+    };
 
+    // captureWithKey() - Function called when press a key on video tag
+    // 1. Check if the key is the "Enter" key
+    // 2. capture()
+    var captureWithKey = function (evt) {
+        if (isEnterKey(evt)) {
+            capture();
+        }
     };
 
     // nextWebCam() - Function to rotate through the webcam device list
     // 1. Release the current webcam (if there is one in use)
     // 2. Call getUserMedia() to access the next webcam
 
-    var nextWebCam = function() {
-        document.getElementById('switch').disabled = true;
-        if(currentCam !== null) {
+    var nextWebCam = function () {
+        var switchButton = document.getElementById('switch');
+        switchButton.disabled = true;
+        if (currentCam !== null) {
             currentCam++;
-            if(currentCam >= webcamList.length) {
+            if (currentCam >= webcamList.length) {
                 currentCam = 0;
             }
             var video = document.getElementById('videoTag');
-            if (typeof(video.srcObject) !== 'undefined') video.srcObject = null;
+            if (typeof video.srcObject !== 'undefined') video.srcObject = null;
             video.src = null;
-            if(mediaStream) {
+            if (mediaStream) {
                 var videoTracks = mediaStream.getVideoTracks();
                 videoTracks[0].stop();
                 mediaStream = null;
@@ -127,12 +159,15 @@
                 height: 360,
                 deviceId: { exact: webcamList[currentCam] }
             }
-        }).then(initializeVideoStream).catch(getUserMediaError);
+        }).then(function (stream) {
+            initializeVideoStream(stream);
+            switchButton.focus();
+        }).catch(getUserMediaError);
     };
-    
+
     // enumerateMediaDevices() - function to start enumerateDevices() and define the callback functions
 
-    var enumerateMediaDevices = function() {
+    var enumerateMediaDevices = function () {
         /*eslint-disable*/
         navigator.mediaDevices.enumerateDevices().then(devicesCallback).catch(getUserMediaError);
         /*eslint-enable*/
@@ -142,13 +177,13 @@
     // 1. Reset webcamList
     // 2. Re-enumerate webcam devices
 
-    var deviceChanged = function() {
+    var deviceChanged = function () {
         navigator.mediaDevices.removeEventListener('devicechange', deviceChanged);
         // Reset the webcam list and re-enumerate
         webcamList = [];
         enumerateMediaDevices();
     };
-    
+
     // devicesCallback() - Callback function for device enumeration
     // 1. Identify all webcam devices and store the info in the webcamList
     // 2. Start the demo with the first webcam on the list
@@ -156,7 +191,7 @@
     // 4. Show error message when there is no webcam
     // 5. Register event listener (devicechange) to respond to device plugin or unplug
 
-    var devicesCallback = function(devices) {
+    var devicesCallback = function (devices) {
         // Identify all webcams
         webcamList = [];
         for (var i = 0; i < devices.length; i++) {
@@ -185,21 +220,23 @@
     // 1. Enumerate the webcam devices
     // 2. Set up event listner for the webcam 'switch' button
 
-    var demoSetup = function() {
-
-        document.getElementById('videoTag').addEventListener('click', capture, false);
+    var demoSetup = function () {
+        var videoTag = document.getElementById('videoTag');
+        videoTag.addEventListener('click', capture, false);
+        videoTag.addEventListener('keydown', captureWithKey, false);
         document.getElementById('start').style.display = 'none';
         document.getElementById('switch').style.display = '';
         document.getElementById('democontent').style.display = '';
 
         enumerateMediaDevices();
         document.getElementById('switch').addEventListener('click', nextWebCam, false);
-    }; 
+        videoTag.focus();
+    };
 
     // init() - The entry point to the demo code
     // 1. Detect whether getUserMedia() is supported, show an error if not
 
-    var init = function() {
+    var init = function () {
         if (navigator.getUserMedia) {
             document.getElementById('start').style.display = 'block';
             document.getElementById('start').addEventListener('click', demoSetup, false);
@@ -211,4 +248,4 @@
 
     init();
 
-}());
+} ());
