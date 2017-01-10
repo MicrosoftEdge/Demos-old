@@ -20,35 +20,36 @@ window.onload = function() {
 
 	//attaching event listeners
 	staticShippingBtn.addEventListener('click', Global.startPaymentRequestStaticShipping);
-	dynamicShippingBtn.addEventListener('click',Global.startPaymentRequestDynamicShipping);
+	dynamicShippingBtn.addEventListener('click', Global.startPaymentRequestDynamicShipping);
 	noShippingBtn.addEventListener('click', Global.startPaymentRequestDigitalMerchandise);
 	requestContactBtn.addEventListener('click', Global.startPaymentRequestWithContactInfo);
+
+	//helper functio
+	function forEach(selector, iteratee) {
+		Array.prototype.forEach.call(document.querySelectorAll(selector), iteratee);
+	}
 
 	//Hide demo buttons if the browser doesn't support the Payment Request API
 	if (!('PaymentRequest' in window)) {
 		notSupportedMessage.innerHTML = 'This browser does not support web payments. You should try the Microsoft Edge browser!';
 		forEach('button', function(button){
-			button.disabled = true
-		})
+			button.disabled = true;
+		});
 	}
 
 	//Expand or contract code displayer
 	forEach('.top-bar', function(div) {
 		div.addEventListener('click', function(event) {
-			var expander = event.target.parentElement.querySelector('.expander')
-			var text = expander.classList.contains('expand') ? 'See the code' : 'Hide the code'
-			event.target.innerHTML = text
-			expander.classList.toggle('expand')
-		})
+			var expander = event.target.parentElement.querySelector('.expander');
+			var text = expander.classList.contains('expand') ? 'See the code' : 'Hide the code';
+			event.target.innerHTML = text;
+			expander.classList.toggle('expand');
+		});
 	});
 
 	//highlighting samples
 	forEach('pre code', function(div) {
 		hljs.highlightBlock(div);
 	});
-
-	function forEach(selector, iteratee) {
-		Array.prototype.forEach.call(document.querySelectorAll(selector), iteratee);
-	}
 
 }
