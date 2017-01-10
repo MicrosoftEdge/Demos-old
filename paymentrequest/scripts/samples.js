@@ -1,10 +1,41 @@
 (function(){
 	'use strict';
 })
+//shipping option change handler
+var onShippingOptionChange = function(pr) {
+	if (pr.shippingOption) {
+		for (var index = 0; index < details.shippingOptions.length; index++) {
+			var opt = details.shippingOptions[index];
+			if (opt.id === pr.shippingOption) {
+				var shippingOption = opt;
+				break;
+			}
+		}
+		if (!shippingOption) {
+			return;
+		}
+		console.log('shippingOptionChange: ' + shippingOption.label);
+		var shippingCost = Number(shippingOption.amount.value);
+
+		details.displayItems = [{
+			label: 'Sub-total',
+			amount: { currency: 'USD', value: subtotal.toFixed(2) }
+		}, {
+			label: 'Shipping',
+			amount: { currency: 'USD', value: shippingCost.toFixed(2) },
+			pending: false
+		}, {
+			label: 'Sales Tax',
+			amount: { currency: 'USD', value: tax.toFixed(2) }
+		}]
+		var totalAmount = subtotal + shippingCost + tax;
+		details.total.amount.value = Math.max(0, totalAmount).toFixed(2);
+	}
+}
 
 window.Global = {};
 
-Global.startPaymentRequestStaticShipping = function () {
+window.Global.startPaymentRequestStaticShipping = function () {
 	var methodData = [{
 		supportedMethods: ['basic-card'],
 		data: {
@@ -74,41 +105,9 @@ Global.startPaymentRequestStaticShipping = function () {
 		console.error('Uh oh, bad payment response!', err.message);
 		paymentResponse.complete("fail")
 	});
-
-	function onShippingOptionChange(pr) {
-		if (pr.shippingOption) {
-			for (var index = 0; index < details.shippingOptions.length; index++) {
-				var opt = details.shippingOptions[index];
-				if (opt.id === pr.shippingOption) {
-					var shippingOption = opt;
-					break;
-				}
-			}
-			if (!shippingOption) {
-				return;
-			}
-			console.log('shippingOptionChange: ' + shippingOption.label);
-			var shippingCost = Number(shippingOption.amount.value);
-
-			details.displayItems = [{
-				label: 'Sub-total',
-				amount: { currency: 'USD', value: subtotal.toFixed(2) }
-			}, {
-				label: 'Shipping',
-				amount: { currency: 'USD', value: shippingCost.toFixed(2) },
-				pending: false
-			}, {
-				label: 'Sales Tax',
-				amount: { currency: 'USD', value: tax.toFixed(2) }
-			}]
-			var totalAmount = subtotal + shippingCost + tax;
-			details.total.amount.value = Math.max(0, totalAmount).toFixed(2);
-		}
-	}
 }
 
-Global.startPaymentRequestDynamicShipping = function () {
-
+window.Global.startPaymentRequestDynamicShipping = function () {
 	var methodData = [{
 		supportedMethods: ['basic-card'],
 		data: {
@@ -173,51 +172,6 @@ Global.startPaymentRequestDynamicShipping = function () {
 		paymentResponse.complete("fail")
 	});
 
-	function onShippingOptionChange(pr) {
-		if (pr.shippingOption) {
-			for (var index = 0; index < details.shippingOptions.length; index++) {
-				var opt = details.shippingOptions[index];
-				if (opt.id === pr.shippingOption) {
-					var shippingOption = opt;
-					break;
-				}
-			}
-			if (!shippingOption) {
-				return;
-			}
-			console.log('shippingOptionChange: ' + shippingOption.label);
-			var shippingCost = Number(shippingOption.amount.value);
-
-			details.displayItems = [{
-				label: 'Sub-total',
-				amount: { currency: 'USD', value: subtotal.toFixed(2) }
-			}, {
-				label: 'Shipping',
-				amount: { currency: 'USD', value: shippingCost.toFixed(2) },
-				pending: false
-			}, {
-				label: 'Sales Tax',
-				amount: { currency: 'USD', value: tax.toFixed(2) }
-			}]
-			var totalAmount = subtotal + shippingCost + tax;
-			details.total.amount.value = Math.max(0, totalAmount).toFixed(2);
-		}
-	}
-
-	function onShippingAddressChange(pr) {
-		var addr = pr.shippingAddress;
-		var strAddr = addr.addressLine[0] + ', ' + addr.region + ' ' + addr.postalCode
-		console.log('shippingAddressChange: ' + strAddr);
-
-		if (addr.country === 'US') {
-			details.shippingOptions = getShippingOptions(addr.region);
-			// shipping no longer pending, pre-selected
-			details.displayItems[1].pending = false;
-		} else {
-			delete details.shippingOptions;
-		}
-	}
-
 	function getShippingOptions(state) {
 		switch (state) {
 			case 'WA':
@@ -252,10 +206,23 @@ Global.startPaymentRequestDynamicShipping = function () {
 				}];
 		}
 	}
+
+	function onShippingAddressChange(pr) {
+		var addr = pr.shippingAddress;
+		var strAddr = addr.addressLine[0] + ', ' + addr.region + ' ' + addr.postalCode
+		console.log('shippingAddressChange: ' + strAddr);
+
+		if (addr.country === 'US') {
+			details.shippingOptions = getShippingOptions(addr.region);
+			// shipping no longer pending, pre-selected
+			details.displayItems[1].pending = false;
+		} else {
+			delete details.shippingOptions;
+		}
+	}
 }
 
-Global.startPaymentRequestDigitalMerchandise = function () {
-
+window.Global.startPaymentRequestDigitalMerchandise = function () {
 	var methodData = [{
 		supportedMethods: ['basic-card'],
 		data: {
@@ -303,8 +270,7 @@ Global.startPaymentRequestDigitalMerchandise = function () {
 		});
 }
 
-Global.startPaymentRequestWithContactInfo = function () {
-
+window.Global.startPaymentRequestWithContactInfo = function () {
 	var methodData = [{
 		supportedMethods: ['basic-card'],
 		data: {
@@ -376,36 +342,4 @@ Global.startPaymentRequestWithContactInfo = function () {
 		console.error("Uh oh, bad payment response!", err.message);
 		paymentResponse.complete("fail")
 	});
-
-
-	function onShippingOptionChange(pr) {
-		if (pr.shippingOption) {
-			for (var index = 0; index < details.shippingOptions.length; index++) {
-				var opt = details.shippingOptions[index];
-				if (opt.id == pr.shippingOption) {
-					var shippingOption = opt;
-					break;
-				}
-			}
-			if (!shippingOption) {
-				return;
-			}
-			console.log('shippingOptionChange: ' + shippingOption.label);
-			var shippingCost = Number(shippingOption.amount.value);
-
-			details.displayItems = [{
-				label: 'Sub-total',
-				amount: { currency: 'USD', value: subtotal.toFixed(2) }
-			}, {
-				label: 'Shipping',
-				amount: { currency: 'USD', value: shippingCost.toFixed(2) },
-				pending: false
-			}, {
-				label: 'Sales Tax',
-				amount: { currency: 'USD', value: tax.toFixed(2) }
-			}]
-			var totalAmount = subtotal + shippingCost + tax;
-			details.total.amount.value = Math.max(0, totalAmount).toFixed(2);
-		}
-	}
 }

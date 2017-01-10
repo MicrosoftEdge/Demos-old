@@ -1,7 +1,6 @@
 
 window.onload = function() {
 	'use strict';
-
 	var staticShipping = document.getElementById('static-shipping-sample'),
 		dynamicShipping = document.getElementById('dynamic-shipping-sample'),
 		noShipping = document.getElementById('no-shipping-sample'),
@@ -51,5 +50,4 @@ window.onload = function() {
 	forEach('pre code', function(div) {
 		hljs.highlightBlock(div);
 	});
-
 }
