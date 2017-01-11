@@ -1,25 +1,27 @@
+/* global PaymentRequest */
 (function(){
 	'use strict';
-})
+});
 
 //Global object
 window.Global = {};
 
 //shipping option change handler
-var onShippingOptionChange = function(pr, details, subtotal, tax) {
+const onShippingOptionChange = function(pr, details, subtotal, tax) {
 	if (pr.shippingOption) {
-		for (var index = 0; index < details.shippingOptions.length; index++) {
-			var opt = details.shippingOptions[index];
+		let shippingOption;
+		for (let index = 0; index < details.shippingOptions.length; index++) {
+			const opt = details.shippingOptions[index];
 			if (opt.id === pr.shippingOption) {
-				var shippingOption = opt;
+				shippingOption = opt;
 				break;
 			}
 		}
 		if (!shippingOption) {
 			return;
 		}
-		console.log('shippingOptionChange: ' + shippingOption.label);
-		var shippingCost = Number(shippingOption.amount.value);
+		console.log(`shippingOptionChange: ${shippingOption.label}`);
+		const shippingCost = Number(shippingOption.amount.value);
 
 		details.displayItems = [{
 			label: 'Sub-total',
@@ -31,15 +33,15 @@ var onShippingOptionChange = function(pr, details, subtotal, tax) {
 		}, {
 			label: 'Sales Tax',
 			amount: { currency: 'USD', value: tax.toFixed(2) }
-		}]
-		var totalAmount = subtotal + shippingCost + tax;
+		}];
+		const totalAmount = subtotal + shippingCost + tax;
 		details.total.amount.value = Math.max(0, totalAmount).toFixed(2);
 	}
 };
 window.Global.onShippingOptionChange = onShippingOptionChange;
 
 //function to get shipping address for dynamic shipping example
-var getShippingOptions = function(state) {
+const getShippingOptions = function(state) {
 	switch (state) {
 		case 'WA':
 			return [{
@@ -76,10 +78,10 @@ var getShippingOptions = function(state) {
 window.Global.getShippingOptions = getShippingOptions;
 
 //shipping address change handler
-var onShippingAddressChange = function(pr, details) {
-	var addr = pr.shippingAddress;
-	var strAddr = addr.addressLine[0] + ', ' + addr.region + ' ' + addr.postalCode
-	console.log('shippingAddressChange: ' + strAddr);
+const onShippingAddressChange = function(pr, details) {
+	const addr = pr.shippingAddress;
+	const strAddr = `${addr.addressLine[0]}, ${addr.region} ${addr.postalCode}`;
+	console.log(`shippingAddressChange: ${strAddr}`);
 
 	if (addr.country === 'US') {
 		details.shippingOptions = getShippingOptions(addr.region);
@@ -88,11 +90,11 @@ var onShippingAddressChange = function(pr, details) {
 	} else {
 		delete details.shippingOptions;
 	}
-}
+};
 window.Global.onShippingAddressChange = onShippingAddressChange;
 
 window.Global.startPaymentRequestStaticShipping = function () {
-	var methodData = [{
+	const methodData = [{
 		supportedMethods: ['basic-card'],
 		data: {
 			supportedNetworks: ['visa', 'mastercard', 'amex'],
@@ -100,9 +102,9 @@ window.Global.startPaymentRequestStaticShipping = function () {
 		}
 	}];
 
-	var subtotal = 44.00;
-	var tax = 4.40;
-	var details = {
+	const subtotal = 44.00;
+	const tax = 4.40;
+	const details = {
 		total: {
 			label: 'Total due',
 			amount: { currency: 'USD', value: (subtotal + tax).toFixed(2) }
@@ -134,12 +136,10 @@ window.Global.startPaymentRequestStaticShipping = function () {
 		}]
 	};
 
-	var options = {
-		requestShipping: true
-	};
+	const options = {requestShipping: true};
 
 	//constructor
-	var request = new PaymentRequest(methodData, details, options);
+	const request = new PaymentRequest(methodData, details, options);
 
 	//Listen to a shipping option change
 	request.addEventListener('shippingoptionchange', function (changeEvent) {
@@ -159,12 +159,11 @@ window.Global.startPaymentRequestStaticShipping = function () {
 		return result.complete('success');
 	}).catch(function(err){
 		console.error('Uh oh, bad payment response!', err.message);
-		result.complete('fail');
 	});
-}
+};
 
 window.Global.startPaymentRequestDynamicShipping = function () {
-	var methodData = [{
+	const methodData = [{
 		supportedMethods: ['basic-card'],
 		data: {
 			supportedNetworks: ['visa', 'mastercard', 'amex'],
@@ -172,9 +171,9 @@ window.Global.startPaymentRequestDynamicShipping = function () {
 		}
 	}];
 
-	var subtotal = 44.00;
-	var tax = 4.40;
-	var details = {
+	const subtotal = 44.00;
+	const tax = 4.40;
+	const details = {
 		total: {
 			label: 'Total due',
 			amount: { currency: 'USD', value: (subtotal + tax).toFixed(2) }
@@ -192,12 +191,10 @@ window.Global.startPaymentRequestDynamicShipping = function () {
 		}]
 	};
 
-	var options = {
-		requestShipping: true
-	};
+	const options = {requestShipping: true};
 
 	//constructor
-	var request = new PaymentRequest(methodData, details, options);
+	const request = new PaymentRequest(methodData, details, options);
 
 	//Listen to a shipping address change
 	request.addEventListener('shippingaddresschange', function (changeEvent) {
@@ -225,12 +222,11 @@ window.Global.startPaymentRequestDynamicShipping = function () {
 		return result.complete('success');
 	}).catch(function(err){
 		console.error('Uh oh, bad payment response!', err.message);
-		result.complete('fail');
 	});
-}
+};
 
 window.Global.startPaymentRequestDigitalMerchandise = function () {
-	var methodData = [{
+	const methodData = [{
 		supportedMethods: ['basic-card'],
 		data: {
 			supportedNetworks: ['visa', 'mastercard', 'amex'],
@@ -238,10 +234,10 @@ window.Global.startPaymentRequestDigitalMerchandise = function () {
 		}
 	}];
 
-	var subtotal = 44.00;
-	var tax = 4.40;
+	const subtotal = 44.00;
+	const tax = 4.40;
 
-	var details = {
+	const details = {
 		total: {
 			label: 'Total due',
 			amount: { currency: 'USD', value: (subtotal + tax).toFixed(2) }
@@ -255,12 +251,10 @@ window.Global.startPaymentRequestDigitalMerchandise = function () {
 		}]
 	};
 
-	var options = {
-		requestPayerEmail: true
-	};
+	const options = {requestPayerEmail: true};
 
 	//constructor
-	var request = new PaymentRequest(methodData, details, options);
+	const request = new PaymentRequest(methodData, details, options);
 
 	//Show the Native UI
 	request.show()
@@ -272,12 +266,11 @@ window.Global.startPaymentRequestDigitalMerchandise = function () {
 		return result.complete('success');
 	}).catch(function(err){
 		console.error('Uh oh, bad payment response!', err.message);
-		result.complete('fail');
 	});
-}
+};
 
 window.Global.startPaymentRequestWithContactInfo = function () {
-	var methodData = [{
+	const methodData = [{
 		supportedMethods: ['basic-card'],
 		data: {
 			supportedNetworks: ['visa', 'mastercard', 'amex'],
@@ -285,10 +278,10 @@ window.Global.startPaymentRequestWithContactInfo = function () {
 		}
 	}];
 
-	var subtotal = 44.00;
-	var tax = 4.40;
+	const subtotal = 44.00;
+	const tax = 4.40;
 
-	var details = {
+	const details = {
 		total: {
 			label: 'Total due',
 			amount: { currency: 'USD', value: (subtotal + tax).toFixed(2) }
@@ -319,14 +312,14 @@ window.Global.startPaymentRequestWithContactInfo = function () {
 		}]
 	};
 
-	var options = {
+	const options = {
 		requestPayerEmail: true,
 		requestPayerPhone: true,
 		requestShipping: true
 	};
 
 	//constructor
-	var request = new PaymentRequest(methodData, details, options);
+	const request = new PaymentRequest(methodData, details, options);
 
 	//Listen to a shipping option change
 	request.addEventListener('shippingoptionchange', function (changeEvent) {
@@ -346,6 +339,5 @@ window.Global.startPaymentRequestWithContactInfo = function () {
 		return result.complete('success');
 	}).catch(function(err){
 		console.error('Uh oh, bad payment response!', err.message);
-		result.complete('fail');
 	});
 };

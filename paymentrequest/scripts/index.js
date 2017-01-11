@@ -1,7 +1,8 @@
 
 window.onload = function() {
 	'use strict';
-	var staticShipping = document.getElementById('static-shipping-sample'),
+
+	let staticShipping = document.getElementById('static-shipping-sample'),
 		dynamicShipping = document.getElementById('dynamic-shipping-sample'),
 		noShipping = document.getElementById('no-shipping-sample'),
 		requestContact = document.getElementById('request-contact-sample'),
@@ -11,16 +12,15 @@ window.onload = function() {
 		requestContactBtn = document.getElementById('request-contact-info'),
 		notSupportedMessage = document.getElementById('not-supported'),
 		Global = window.Global,
-		shippingOptionChangeHandlerString = '\n\nvar onShippingOptionChange = ' + Global.onShippingOptionChange.toString(),
-		shippingAddressHandlerString = '\n\nvar onShippingAddressChange = ' + Global.onShippingAddressChange.toString(),
-		getShippingOptionsString = '\n\nvar onShippingOptionChange = ' +Global.getShippingOptions.toString();
+		shippingOptionChangeHandlerString = `\n\nvar onShippingOptionChange = ${Global.onShippingOptionChange.toString()}`,
+		shippingAddressHandlerString = `\n\nvar onShippingAddressChange = ${Global.onShippingAddressChange.toString()}`,
+		getShippingOptionsString = `\n\nvar onShippingOptionChange = ${Global.getShippingOptions.toString()}`;
 
 	//Loading the same code into the HTML
 	staticShipping.innerHTML = Global.startPaymentRequestStaticShipping.toString() + shippingOptionChangeHandlerString;
-	dynamicShipping.innerHTML = Global.startPaymentRequestDynamicShipping.toString() + shippingOptionChangeHandlerString + shippingOptionChangeHandlerString + shippingAddressHandlerString;
+	dynamicShipping.innerHTML = Global.startPaymentRequestDynamicShipping.toString() + getShippingOptionsString + shippingOptionChangeHandlerString + shippingAddressHandlerString;
 	noShipping.innerHTML = Global.startPaymentRequestDigitalMerchandise.toString() + shippingAddressHandlerString + shippingOptionChangeHandlerString;
 	requestContact.innerHTML = Global.startPaymentRequestWithContactInfo.toString() + shippingOptionChangeHandlerString;
-
 
 	//attaching event listeners
 	staticShippingBtn.addEventListener('click', Global.startPaymentRequestStaticShipping);
@@ -44,8 +44,8 @@ window.onload = function() {
 	//Expand or contract code displayer
 	forEach('.top-bar', function(div) {
 		div.addEventListener('click', function(event) {
-			var expander = event.target.parentElement.querySelector('.expander');
-			var text = expander.classList.contains('expand') ? 'See the code' : 'Hide the code';
+			const expander = event.target.parentElement.querySelector('.expander');
+			const text = expander.classList.contains('expand') ? 'See the code' : 'Hide the code';
 			event.target.innerHTML = text;
 			expander.classList.toggle('expand');
 		});
@@ -55,4 +55,4 @@ window.onload = function() {
 	forEach('pre code', function(div) {
 		hljs.highlightBlock(div);
 	});
-}
+};
