@@ -1,6 +1,10 @@
 (function(){
 	'use strict';
 })
+
+//Global object
+window.Global = {};
+
 //shipping option change handler
 var onShippingOptionChange = function(pr, details, subtotal, tax) {
 	if (pr.shippingOption) {
@@ -31,21 +35,9 @@ var onShippingOptionChange = function(pr, details, subtotal, tax) {
 		var totalAmount = subtotal + shippingCost + tax;
 		details.total.amount.value = Math.max(0, totalAmount).toFixed(2);
 	}
-}
-//shipping address change handler
-var onShippingAddressChange = function(pr, details) {
-	var addr = pr.shippingAddress;
-	var strAddr = addr.addressLine[0] + ', ' + addr.region + ' ' + addr.postalCode
-	console.log('shippingAddressChange: ' + strAddr);
+};
+window.Global.onShippingOptionChange = onShippingOptionChange;
 
-	if (addr.country === 'US') {
-		details.shippingOptions = getShippingOptions(addr.region);
-		// shipping no longer pending, pre-selected
-		details.displayItems[1].pending = false;
-	} else {
-		delete details.shippingOptions;
-	}
-}
 //function to get shipping address for dynamic shipping example
 var getShippingOptions = function(state) {
 	switch (state) {
@@ -80,9 +72,24 @@ var getShippingOptions = function(state) {
 				amount: { currency: 'USD', value: '8.00' }
 			}];
 	}
-}
+};
+window.Global.getShippingOptions = getShippingOptions;
 
-window.Global = {};
+//shipping address change handler
+var onShippingAddressChange = function(pr, details) {
+	var addr = pr.shippingAddress;
+	var strAddr = addr.addressLine[0] + ', ' + addr.region + ' ' + addr.postalCode
+	console.log('shippingAddressChange: ' + strAddr);
+
+	if (addr.country === 'US') {
+		details.shippingOptions = getShippingOptions(addr.region);
+		// shipping no longer pending, pre-selected
+		details.displayItems[1].pending = false;
+	} else {
+		delete details.shippingOptions;
+	}
+}
+window.Global.onShippingAddressChange = onShippingAddressChange;
 
 window.Global.startPaymentRequestStaticShipping = function () {
 	var methodData = [{
@@ -152,7 +159,7 @@ window.Global.startPaymentRequestStaticShipping = function () {
 		return result.complete('success');
 	}).catch(function(err){
 		console.error('Uh oh, bad payment response!', err.message);
-		paymentResponse.complete('fail');
+		result.complete('fail');
 	});
 }
 
@@ -216,9 +223,9 @@ window.Global.startPaymentRequestDynamicShipping = function () {
 	//to the server side for processing.
 	.then(function (result) {
 		return result.complete('success');
-	}).catch(function(){
+	}).catch(function(err){
 		console.error('Uh oh, bad payment response!', err.message);
-		paymentResponse.complete('fail');
+		result.complete('fail');
 	});
 }
 
@@ -263,9 +270,9 @@ window.Global.startPaymentRequestDigitalMerchandise = function () {
 	//to the server side for processing.
 	.then(function (result) {
 		return result.complete('success');
-	}).catch(function(){
+	}).catch(function(err){
 		console.error('Uh oh, bad payment response!', err.message);
-		paymentResponse.complete('fail');
+		result.complete('fail');
 	});
 }
 
@@ -337,8 +344,8 @@ window.Global.startPaymentRequestWithContactInfo = function () {
 	//to the server side for processing.
 	.then(function (result) {
 		return result.complete('success');
-	}).catch(function(){
+	}).catch(function(err){
 		console.error('Uh oh, bad payment response!', err.message);
-		paymentResponse.complete('fail');
+		result.complete('fail');
 	});
-}
+};
