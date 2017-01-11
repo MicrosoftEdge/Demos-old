@@ -2,7 +2,7 @@
 	'use strict';
 })
 //shipping option change handler
-var onShippingOptionChange = function(pr) {
+var onShippingOptionChange = function(pr, details, subtotal, tax) {
 	if (pr.shippingOption) {
 		for (var index = 0; index < details.shippingOptions.length; index++) {
 			var opt = details.shippingOptions[index];
@@ -30,6 +30,55 @@ var onShippingOptionChange = function(pr) {
 		}]
 		var totalAmount = subtotal + shippingCost + tax;
 		details.total.amount.value = Math.max(0, totalAmount).toFixed(2);
+	}
+}
+//shipping address change handler
+var onShippingAddressChange = function(pr, details) {
+	var addr = pr.shippingAddress;
+	var strAddr = addr.addressLine[0] + ', ' + addr.region + ' ' + addr.postalCode
+	console.log('shippingAddressChange: ' + strAddr);
+
+	if (addr.country === 'US') {
+		details.shippingOptions = getShippingOptions(addr.region);
+		// shipping no longer pending, pre-selected
+		details.displayItems[1].pending = false;
+	} else {
+		delete details.shippingOptions;
+	}
+}
+//function to get shipping address for dynamic shipping example
+var getShippingOptions = function(state) {
+	switch (state) {
+		case 'WA':
+			return [{
+				id: 'NO_RUSH',
+				label: 'No-Rush Shipping',
+				amount: { currency: 'USD', value: '0.00' },
+				selected: true
+			}, {
+				id: 'STANDARD',
+				label: 'Standard Shipping',
+				amount: { currency: 'USD', value: '5.00' }
+			}, {
+				id: 'EXPEDITED',
+				label: 'Two-Day Shipping',
+				amount: { currency: 'USD', value: '7.00' }
+			}];
+		default:
+			return [{
+				id: 'NO_RUSH',
+				label: 'No-Rush Shipping',
+				amount: { currency: 'USD', value: '0.00' },
+				selected: true
+			}, {
+				id: 'STANDARD',
+				label: 'Standard Shipping',
+				amount: { currency: 'USD', value: '6.00' }
+			}, {
+				id: 'EXPEDITED',
+				label: 'Two-Day Shipping',
+				amount: { currency: 'USD', value: '8.00' }
+			}];
 	}
 }
 
@@ -88,7 +137,7 @@ window.Global.startPaymentRequestStaticShipping = function () {
 	//Listen to a shipping option change
 	request.addEventListener('shippingoptionchange', function (changeEvent) {
 		changeEvent.updateWith(new Promise(function (resolve) {
-			onShippingOptionChange(request);
+			onShippingOptionChange(request, details, subtotal, tax);
 			resolve(details);
 		}));
 	});
@@ -103,7 +152,7 @@ window.Global.startPaymentRequestStaticShipping = function () {
 		return result.complete('success');
 	}).catch(function(err){
 		console.error('Uh oh, bad payment response!', err.message);
-		paymentResponse.complete("fail")
+		paymentResponse.complete('fail');
 	});
 }
 
@@ -146,7 +195,7 @@ window.Global.startPaymentRequestDynamicShipping = function () {
 	//Listen to a shipping address change
 	request.addEventListener('shippingaddresschange', function (changeEvent) {
 		changeEvent.updateWith(new Promise(function (resolve) {
-			onShippingAddressChange(request);
+			onShippingAddressChange(request, details);
 			resolve(details);
 		}));
 	});
@@ -154,7 +203,7 @@ window.Global.startPaymentRequestDynamicShipping = function () {
 	//Listen to a shipping option change
 	request.addEventListener('shippingoptionchange', function (changeEvent) {
 		changeEvent.updateWith(new Promise(function (resolve) {
-			onShippingOptionChange(request);
+			onShippingOptionChange(request, details, subtotal, tax);
 			resolve(details);
 		}));
 	});
@@ -168,58 +217,9 @@ window.Global.startPaymentRequestDynamicShipping = function () {
 	.then(function (result) {
 		return result.complete('success');
 	}).catch(function(){
-		console.error("Uh oh, bad payment response!", err.message);
-		paymentResponse.complete("fail")
+		console.error('Uh oh, bad payment response!', err.message);
+		paymentResponse.complete('fail');
 	});
-
-	function getShippingOptions(state) {
-		switch (state) {
-			case 'WA':
-				return [{
-					id: 'NO_RUSH',
-					label: 'No-Rush Shipping',
-					amount: { currency: 'USD', value: '0.00' },
-					selected: true
-				}, {
-					id: 'STANDARD',
-					label: 'Standard Shipping',
-					amount: { currency: 'USD', value: '5.00' }
-				}, {
-					id: 'EXPEDITED',
-					label: 'Two-Day Shipping',
-					amount: { currency: 'USD', value: '7.00' }
-				}];
-			default:
-				return [{
-					id: 'NO_RUSH',
-					label: 'No-Rush Shipping',
-					amount: { currency: 'USD', value: '0.00' },
-					selected: true
-				}, {
-					id: 'STANDARD',
-					label: 'Standard Shipping',
-					amount: { currency: 'USD', value: '6.00' }
-				}, {
-					id: 'EXPEDITED',
-					label: 'Two-Day Shipping',
-					amount: { currency: 'USD', value: '8.00' }
-				}];
-		}
-	}
-
-	function onShippingAddressChange(pr) {
-		var addr = pr.shippingAddress;
-		var strAddr = addr.addressLine[0] + ', ' + addr.region + ' ' + addr.postalCode
-		console.log('shippingAddressChange: ' + strAddr);
-
-		if (addr.country === 'US') {
-			details.shippingOptions = getShippingOptions(addr.region);
-			// shipping no longer pending, pre-selected
-			details.displayItems[1].pending = false;
-		} else {
-			delete details.shippingOptions;
-		}
-	}
 }
 
 window.Global.startPaymentRequestDigitalMerchandise = function () {
@@ -255,19 +255,18 @@ window.Global.startPaymentRequestDigitalMerchandise = function () {
 	//constructor
 	var request = new PaymentRequest(methodData, details, options);
 
+	//Show the Native UI
+	request.show()
 
-		//Show the Native UI
-		request.show()
-
-		//When the promise is fulfilled, show the Wallet's success view
-		//In a real world scenario, the result obj would be sent
-		//to the server side for processing.
-		.then(function (result) {
-			return result.complete('success');
-		}).catch(function(){
-			console.error("Uh oh, bad payment response!", err.message);
-			paymentResponse.complete("fail")
-		});
+	//When the promise is fulfilled, show the Wallet's success view
+	//In a real world scenario, the result obj would be sent
+	//to the server side for processing.
+	.then(function (result) {
+		return result.complete('success');
+	}).catch(function(){
+		console.error('Uh oh, bad payment response!', err.message);
+		paymentResponse.complete('fail');
+	});
 }
 
 window.Global.startPaymentRequestWithContactInfo = function () {
@@ -325,7 +324,7 @@ window.Global.startPaymentRequestWithContactInfo = function () {
 	//Listen to a shipping option change
 	request.addEventListener('shippingoptionchange', function (changeEvent) {
 		changeEvent.updateWith(new Promise(function (resolve) {
-			onShippingOptionChange(request);
+			onShippingOptionChange(request, details, subtotal, tax);
 			resolve(details);
 		}));
 	});
@@ -339,7 +338,7 @@ window.Global.startPaymentRequestWithContactInfo = function () {
 	.then(function (result) {
 		return result.complete('success');
 	}).catch(function(){
-		console.error("Uh oh, bad payment response!", err.message);
-		paymentResponse.complete("fail")
+		console.error('Uh oh, bad payment response!', err.message);
+		paymentResponse.complete('fail');
 	});
 }

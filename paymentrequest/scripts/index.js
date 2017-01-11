@@ -10,12 +10,17 @@ window.onload = function() {
 		noShippingBtn = document.getElementById('no-shipping'),
 		requestContactBtn = document.getElementById('request-contact-info'),
 		notSupportedMessage = document.getElementById('not-supported'),
-		Global = window.Global;
+		Global = window.Global,
+		shippingOptionChangeHandlerString = '\n\nvar onShippingOptionChange = ' + Global.onShippingOptionChange.toString(),
+		shippingAddressHandlerString = '\n\nvar onShippingAddressChange = ' + Global.onShippingAddressChange.toString(),
+		getShippingOptionsString = '\n\nvar onShippingOptionChange = ' +Global.getShippingOptions.toString();
+
 	//Loading the same code into the HTML
-	staticShipping.innerHTML = Global.startPaymentRequestStaticShipping.toString();
-	dynamicShipping.innerHTML = Global.startPaymentRequestDynamicShipping.toString();
-	noShipping.innerHTML = Global.startPaymentRequestDigitalMerchandise.toString();
-	requestContact.innerHTML = Global.startPaymentRequestWithContactInfo.toString();
+	staticShipping.innerHTML = Global.startPaymentRequestStaticShipping.toString() + shippingOptionChangeHandlerString;
+	dynamicShipping.innerHTML = Global.startPaymentRequestDynamicShipping.toString() + shippingOptionChangeHandlerString + shippingOptionChangeHandlerString + shippingAddressHandlerString;
+	noShipping.innerHTML = Global.startPaymentRequestDigitalMerchandise.toString() + shippingAddressHandlerString + shippingOptionChangeHandlerString;
+	requestContact.innerHTML = Global.startPaymentRequestWithContactInfo.toString() + shippingOptionChangeHandlerString;
+
 
 	//attaching event listeners
 	staticShippingBtn.addEventListener('click', Global.startPaymentRequestStaticShipping);
