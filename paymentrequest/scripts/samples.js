@@ -157,7 +157,8 @@ window.Global.startPaymentRequestStaticShipping = function () {
 	//to the server side for processing.
 	.then(function (result) {
 		return result.complete('success');
-	}).catch(function(err){
+	})
+	.catch(function(err){
 		console.error('Uh oh, bad payment response!', err.message);
 	});
 };
@@ -220,7 +221,8 @@ window.Global.startPaymentRequestDynamicShipping = function () {
 	//to the server side for processing.
 	.then(function (result) {
 		return result.complete('success');
-	}).catch(function(err){
+	})
+	.catch(function(err){
 		console.error('Uh oh, bad payment response!', err.message);
 	});
 };
@@ -264,7 +266,8 @@ window.Global.startPaymentRequestDigitalMerchandise = function () {
 	//to the server side for processing.
 	.then(function (result) {
 		return result.complete('success');
-	}).catch(function(err){
+	})
+	.catch(function(err){
 		console.error('Uh oh, bad payment response!', err.message);
 	});
 };
@@ -337,7 +340,8 @@ window.Global.startPaymentRequestWithContactInfo = function () {
 	//to the server side for processing.
 	.then(function (result) {
 		return result.complete('success');
-	}).catch(function(err){
+	})
+	.catch(function(err){
 		console.error('Uh oh, bad payment response!', err.message);
 	});
 };
