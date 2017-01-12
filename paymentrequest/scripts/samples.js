@@ -1,6 +1,7 @@
 /* global PaymentRequest */
 (function(){
 	'use strict';
+
 	//Global object
 	window.Global = {};
 
@@ -343,4 +344,4 @@
 			console.error('Uh oh, bad payment response!', err.message);
 		});
 	};
-})();
+}());

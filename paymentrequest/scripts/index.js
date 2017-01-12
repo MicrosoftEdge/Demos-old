@@ -29,9 +29,9 @@ window.onload = function() {
 	requestContactBtn.addEventListener('click', Global.startPaymentRequestWithContactInfo);
 
 	//helper function
-	var forEach = function(selector, iteratee) {
+	const forEach = function(selector, iteratee) {
 		Array.prototype.forEach.call(document.querySelectorAll(selector), iteratee);
-	}
+	};
 
 	//Hide demo buttons if the browser doesn't support the Payment Request API
 	if (!('PaymentRequest' in window)) {
