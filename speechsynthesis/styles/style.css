@@ -89,6 +89,16 @@ label {
 	color: #fff;
 }
 
+.custom-label {
+	position: relative;
+	width: 54rem;
+	max-width: 54rem;
+	margin: 0;
+	color: #000;
+	font-size: 1rem;
+}
+
+
 @media (min-width: 33.75em) {
 
 	label {
@@ -167,7 +177,7 @@ button {
 	padding: .7rem;
 	width: 100%;
 	max-width: 96rem;
-	height: 4rem;
+	height: 6rem;
 }
 
 .soundwave {
