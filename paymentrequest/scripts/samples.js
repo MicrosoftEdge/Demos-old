@@ -38,7 +38,7 @@
 	};
 	window.Global.onShippingOptionChange = onShippingOptionChange;
 
-	//function to get shipping address for dynamic shipping example
+	//function to get shipping options per state
 	const getShippingOptions = function(state) {
 		switch (state) {
 			case 'WA':

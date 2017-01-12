@@ -1,4 +1,4 @@
-
+/* global hljs */
 window.onload = function() {
 	'use strict';
 
@@ -28,8 +28,8 @@ window.onload = function() {
 	noShippingBtn.addEventListener('click', Global.startPaymentRequestDigitalMerchandise);
 	requestContactBtn.addEventListener('click', Global.startPaymentRequestWithContactInfo);
 
-	//helper functio
-	function forEach(selector, iteratee) {
+	//helper function
+	var forEach = function(selector, iteratee) {
 		Array.prototype.forEach.call(document.querySelectorAll(selector), iteratee);
 	}
 
