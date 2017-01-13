@@ -47,8 +47,8 @@ h2 {
 }
 
 .expander{
-  height:0%;
-  overflow: hidden;
+  height:0px;
+  overflow:hidden;
 }
 
 .expander.expand {
