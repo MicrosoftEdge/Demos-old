@@ -39,14 +39,14 @@
             <span id="siSnowflakesCount"></span>
             <br>
             Window size: <span id="siResolution"></span>
-            <button id="toggleSoundButton">Pause music</button>
+            <audio id="music" src="./res/LetItSnowShort.mp3" loop autoplay ></audio>
+            <button id="toggleSoundButton" aria-controls="music">Pause music</button>
         </div>
 
         <!--<div id="systemInformationFps" class="si">
             Current fps: <span id="siFps">...</span>
         </div>-->
     </div>
-    <audio id="music" src="./res/LetItSnowShort.mp3" loop autoplay ></audio>
     <!-- common libraries -->
     <script src="./js/classes.js"></script>
     <script src="./js/touch.js"></script>
