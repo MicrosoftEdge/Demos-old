@@ -184,9 +184,9 @@ var MusicLounge;
             canvas.addEventListener('keyup', onKeyUp, false);
             canvas.addEventListener('blur', onBlur, false);
             this._scene.onDispose = function () {
-                canvas.removeEventListener('pointerdown', onPointerDown);
-                canvas.removeEventListener('pointerup', onPointerUp);
-                canvas.removeEventListener('pointermove', onPointerMove);
+                canvas.removeEventListener('pointerdown', onPointerDown, false);
+                canvas.removeEventListener('pointerup', onPointerUp, false);
+                canvas.removeEventListener('pointermove', onPointerMove, false);
                 canvas.removeEventListener('keydown', onKeyDown, false);
                 canvas.removeEventListener('keyup', onKeyUp, false);
                 canvas.removeEventListener('blur', onBlur, false);

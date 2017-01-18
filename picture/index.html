@@ -33,17 +33,17 @@
 			</div>
 		</div>
 	</section>
-			
+
 	<!-- Responsive images section -->
 	<section class="section">
-		<div class="container">	
+		<div class="container">
 			<div class="section__header">
 				<h2>Why do we need responsive images?</h2>
 			</div>
 			<div class="section__body">
-				
+
 				<div class="layout layout--halves">
-					<div class="module">				
+					<div class="module">
 						<p>The suite of technologies that make up responsive images (srcset, sizes, and picture) are all necessary to allow a developer to target the best image for the given device and expected layout. If you don’t have these capabilities then you’ll need to depend on JavaScript to switch out the correct image which results in more image downloads than necessary for the site and slower performance since JavaScript can’t react until the DOM is ready in most cases. With srcset you get the capability to do basic resolution switching, with sizes this provides enhanced resolution switching, and with picture you are provided art direction and image format selection. Let’s start digging into the new technologies to understand how each of these compliment and build upon one another to provide a comprehensive responsive images solution.</p>
 					</div>
 					<div class="module">
@@ -53,7 +53,7 @@
 			</div>
 		</div>
 	</section>
-	
+
 	<!-- The Usecase and Example 1 -->
 	<section class="section">
 		<div class="container">
@@ -61,17 +61,17 @@
 				<h2>The usecase</h2>
 			</div>
 			<div class="section__body">
-				
+
 				<div class="layout layout--halves">
 					<div class="module">
 						<p>You have a client that is an artist, they want a blog where they provide the story behind the painting and they want as much imagery as possible. In the wireframe you can see that your designer mocks up a blog where the art piece being featured is in the header with the title on top of it. On smaller viewports the hero image becomes like a magazine cover with the image and title filling the majority of the viewport.</p>
 						<p>So let’s get started with the basic layout and initially we’ll start with no responsive images so that we can see how they help us out. Let’s see what we have:</p>
 					</div>
-					<div class="module">				
+					<div class="module">
 						<img src="imgs/Wireframe.jpg" alt="A wireframe of the responsive site we'll be building.">
 					</div>
 				</div>
-								
+
 				<div class="subsection layout layout--halves">
 					<div class="module">
 						<p><strong>Live Example</strong></p>
@@ -92,32 +92,32 @@
 		&lt;img class="hero" src="imgs/hero-xlarge.jpg" alt="A portrait painting of a woman on a couch" />
 		&lt;h1 class="title">Capturing dramatic lighting in portrait paintings&lt;/h1>
 	&lt;/header>
-	&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu congue lorem. 
-	   Nunc sagittis consectetur lectus, non volutpat massa iaculis porta. 
-	   Duis vulputate est at tortor maximus condimentum. Cras tristique nec nisl sit amet dignissim. 
-	   Sed interdum eget leo in hendrerit. Integer nisl nunc, posuere nec arcu non, tempor tincidunt enim. 
-	   Quisque eget tortor ligula. Sed fringilla nisl id sem pretium elementum. Aenean in ex velit. 
-	   Morbi aliquet ligula arcu, eget ornare mauris tempor eget. Vivamus purus dui, posuere sit 
-	   amet tortor at, euismod consequat erat. Morbi elit turpis, malesuada a velit id, efficitur sollicitudin tellus. 
+	&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu congue lorem.
+	   Nunc sagittis consectetur lectus, non volutpat massa iaculis porta.
+	   Duis vulputate est at tortor maximus condimentum. Cras tristique nec nisl sit amet dignissim.
+	   Sed interdum eget leo in hendrerit. Integer nisl nunc, posuere nec arcu non, tempor tincidunt enim.
+	   Quisque eget tortor ligula. Sed fringilla nisl id sem pretium elementum. Aenean in ex velit.
+	   Morbi aliquet ligula arcu, eget ornare mauris tempor eget. Vivamus purus dui, posuere sit
+	   amet tortor at, euismod consequat erat. Morbi elit turpis, malesuada a velit id, efficitur sollicitudin tellus.
 	   Donec vel sapien at mi ultricies iaculis.&lt;/p>
 &lt;/article></code></pre>
-					</div>				
+					</div>
 				</div>
 			</div>
-		</div>		
+		</div>
 	</section>
-	
+
 	<!-- Improving Perf and Example 2 -->
 	<section class="section">
-		<div class="container">	
-			<div class="section__header">				
+		<div class="container">
+			<div class="section__header">
 				<h2>Improving performance by adding resolution switching</h2>
 			</div>
-			
+
 			<div class="section__body">
 				<div class="layout layout--halves">
 					<div class="module">
-						<p>Now that we have the initial layout, it’s responsive, but some issues do exist that we responsive images can help with. The first issue is that while the image we included will work fine on all devices, it won’t be the best experience for people on a slower connection. The image that we are currently using is 2500x1435 and weighs in at 567KB (this is with 60% quality jpg compression) which is only desirable if you are on a high definition device or a large display.</p> 
+						<p>Now that we have the initial layout, it’s responsive, but some issues do exist that we responsive images can help with. The first issue is that while the image we included will work fine on all devices, it won’t be the best experience for people on a slower connection. The image that we are currently using is 2500x1435 and weighs in at 567KB (this is with 60% quality jpg compression) which is only desirable if you are on a high definition device or a large display.</p>
 						<p>Especially on mobile devices, you want to save memory usage and battery life by limiting the size of the image to what is actually needed. To do this, I have created three additional sizes along with the extra-large version, look at the associate table to see the download impact by providing the correct image for the correct device.</p>
 					</div>
 					<div class="module">
@@ -156,15 +156,15 @@
 						</div>
 					</div>
 				</div>
-				
+
 				<div class="subsection layout layout--halves">
 					<div class="module">
 						<p><strong>Live Example</strong></p>
 						<div class="rendered-result">
 							<article>
 								<header>
-									<img class="sample-hero" 
-										 src="https://edgeportal.blob.core.windows.net/demos/hero-xlarge.jpg" 
+									<img class="sample-hero"
+										 src="https://edgeportal.blob.core.windows.net/demos/hero-xlarge.jpg"
 										 srcset="https://edgeportal.blob.core.windows.net/demos/hero-small.jpg 480w,
 												 https://edgeportal.blob.core.windows.net/demos/hero-med.jpg 960w,
 												 https://edgeportal.blob.core.windows.net/demos/hero-large.jpg 1920w"
@@ -177,9 +177,9 @@
 					</div>
 					<div class="module">
 						<p><strong>Code</strong></p>
-<pre><code>&lt;img class="hero" 
-	src="imgs/hero-xlarge.jpg" 
-	sizes="100vw" 
+<pre><code>&lt;img class="hero"
+	src="imgs/hero-xlarge.jpg"
+	sizes="100vw"
 	srcset="imgs/hero-small.jpg 480w,
 		imgs/hero-med.jpg 960w,
 		imgs/hero-large.jpg 1920w"
@@ -189,22 +189,22 @@
 			</div>
 		</div>
 	</section>
-	
+
 	<!-- Using the type attribute and Example 3 -->
 	<section class="section">
-		<div class="container">	
+		<div class="container">
 			<div class="section__header">
 				<h2>Using the type attribute for improved download speeds and better image quality</h2>
 			</div>
-			
+
 			<div class="section__body">
-				
+
 				<div class="layout layout--halves">
-					<div class="module">						
+					<div class="module">
 						<p>We’re starting to get there, we have a responsive site that loads in the necessary image depending on the width of the viewport which gives us better performance but we can do better. By using a better image format we can further reduce the filesize for the browsers that support them. In this example I’ll only be using <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/hh707223(v=vs.85).aspx" target="_blank" title="Overview of JPEG-XR">JPEG-XR</a>, supported by Internet Explorer 9+ and Microsoft Edge, but you should consider compressing to <a href="https://developers.google.com/speed/webp/" target="_blank" title="Overview of WebP media format">WebP</a> and <a href="https://blog.mozilla.org/research/2014/03/05/introducing-the-mozjpeg-project/" target="_blank" title="Overview of MozJPG">MozJPEG</a> depending on your use case. In the accompanied table you can see the JPEG-XR images to compare with the regular JPG images.</p>
 						<p>Now that we have the JXR images let's utilize the source element with the type attrivute to serve them only to browsers that can render them.</p>
 					</div>
-					<div class="module">				
+					<div class="module">
 						<div class="table--overflow">
 							<table>
 								<thead>
@@ -254,8 +254,8 @@
 							</table>
 						</div>
 					</div>
-				</div>				
-				
+				</div>
+
 				<!-- Example 3 -->
 				<div class="subsection layout layout--halves">
 					<div class="module">
@@ -269,8 +269,8 @@
 														https://edgeportal.blob.core.windows.net/demos/hero-med.jxr 960w,
 														https://edgeportal.blob.core.windows.net/demos/hero-large.jxr 1920w,
 														https://edgeportal.blob.core.windows.net/demos/hero-xlarge.jxr 2500w">
-										<img class="sample-hero" 
-											src="https://edgeportal.blob.core.windows.net/demos/hero-xlarge.jpg" 
+										<img class="sample-hero"
+											src="https://edgeportal.blob.core.windows.net/demos/hero-xlarge.jpg"
 											srcset="https://edgeportal.blob.core.windows.net/demos/hero-small.jpg 480w,
 													https://edgeportal.blob.core.windows.net/demos/hero-med.jpg 960w,
 													https://edgeportal.blob.core.windows.net/demos/hero-large.jpg 1920w"
@@ -286,14 +286,14 @@
 						<p><strong>Code</strong></p>
 <pre><code>&lt;picture>
 	&lt;source type="image/vnd.ms-photo"
-		sizes="100vw" 
+		sizes="100vw"
 		srcset="imgs/hero-small.jxr 480w,
 				imgs/hero-med.jxr 960w,
 				imgs/hero-large.jxr 1920w,
 				imgs/hero-xlarge.jxr 2500w">
-	&lt;img class="hero" 
-		src="imgs/hero-xlarge.jpg" 
-		sizes="100vw" 
+	&lt;img class="hero"
+		src="imgs/hero-xlarge.jpg"
+		sizes="100vw"
 		srcset="imgs/hero-small.jpg 480w,
 				imgs/hero-med.jpg 960w,
 				imgs/hero-large.jpg 1920w"
@@ -304,16 +304,16 @@
 			</div>
 		</div>
 	</section>
-	
+
 	<section class="section">
-		<div class="container">	
+		<div class="container">
 			<div class="section__header">
 				<h2>Using the media attribute for art direction</h2>
 			</div>
-			
+
 			<div class="section__body">
-				<p>Now that we’ve improved our performance using resolution switching we can now focus on how the image actually looks when the viewport is at various sizes. On desktop viewports the layout works exactly like our wireframe suggested, but once we start getting to smaller viewports you start to see issues where the image gets really small and the headline begins to cover up the image.</p>					
-								
+				<p>Now that we’ve improved our performance using resolution switching we can now focus on how the image actually looks when the viewport is at various sizes. On desktop viewports the layout works exactly like our wireframe suggested, but once we start getting to smaller viewports you start to see issues where the image gets really small and the headline begins to cover up the image.</p>
+
 				<!-- Example 4 -->
 				<div class="layout layout--halves">
 					<div class="module ">
@@ -331,8 +331,8 @@
 														https://edgeportal.blob.core.windows.net/demos/hero-med.jxr 960w,
 														https://edgeportal.blob.core.windows.net/demos/hero-large.jxr 1920w,
 														https://edgeportal.blob.core.windows.net/demos/hero-xlarge.jxr 2500w">
-										<img class="sample-hero" 
-											src="https://edgeportal.blob.core.windows.net/demos/hero-xlarge.jpg" 
+										<img class="sample-hero"
+											src="https://edgeportal.blob.core.windows.net/demos/hero-xlarge.jpg"
 											srcset="https://edgeportal.blob.core.windows.net/demos/hero-small.jpg 480w,
 													https://edgeportal.blob.core.windows.net/demos/hero-med.jpg 960w,
 													https://edgeportal.blob.core.windows.net/demos/hero-large.jpg 1920w"
@@ -346,30 +346,30 @@
 					</div>
 					<div class="module">
 						<p><strong>Code</strong></p>
-<pre><code>&lt;source media="(max-width: 700px) and (orientation: portrait)" 
+<pre><code>&lt;source media="(max-width: 700px) and (orientation: portrait)"
 	sizes="100vw"
-	srcset="imgs/hero-med-vert.jpg 245w 
-		imgs/hero-large-vert.jpg 490w, 
+	srcset="imgs/hero-med-vert.jpg 245w
+		imgs/hero-large-vert.jpg 490w,
 		imgs/hero-xlarge-vert.jpg 980w"></code></pre>
-					</div>				
+					</div>
 				</div>
-				
+
 				<p>With this code update the browser will select the vertically cropped image if the viewport has a max-width of 700px and the orientation is portrait.</p>
 			</div>
 		</div>
 	</section>
-	
+
 	<section class="section">
-		<div class="container">	
+		<div class="container">
 			<div class="section__header">
 				<h2>Comparing the initial image solution verses the solution utilizing responsive images</h2>
 			</div>
-			
+
 			<div class="section__body">
 				<p>As you can see responsive images gives us the tools to not only avoid redundant downloads, but unlocks additional performance optimizations via the type attribute. Additionally it unlocks the capability for you to provide the best cropped image based on the layout of the image.</p>
-				
+
 				<p>To close, let's compare our initial implementation to the solution that utilizes the technology behind responsive images.</p>
-				
+
 				<div class="subsection layout layout--halves">
 					<div class="module">
 						<p><strong>With Responsive Images</strong></p>
@@ -381,8 +381,8 @@
 												srcset="https://edgeportal.blob.core.windows.net/demos/hero-med-vert.jpg 245w
 														https://edgeportal.blob.core.windows.net/demos/hero-large-vert.jpg 490w,
 														https://edgeportal.blob.core.windows.net/demos/hero-xlarge-vert.jpg 980w">
-										<img class="sample-hero" 
-											src="https://edgeportal.blob.core.windows.net/demos/hero-xlarge.jpg" 
+										<img class="sample-hero"
+											src="https://edgeportal.blob.core.windows.net/demos/hero-xlarge.jpg"
 											srcset="https://edgeportal.blob.core.windows.net/demos/hero-small.jpg 480w,
 													https://edgeportal.blob.core.windows.net/demos/hero-med.jpg 960w,
 													https://edgeportal.blob.core.windows.net/demos/hero-large.jpg 1920w"
@@ -406,10 +406,10 @@
 								</article>
 							</div>
 						</div>
-					</div>				
+					</div>
 				</div>
-				
-				<p>&copy; Copyright "Samantha" Oil on Canvas by Karen Whitworth. All Rights Reserved.</p> 
+
+				<p>&copy; Copyright "Samantha" Oil on Canvas by Karen Whitworth. All Rights Reserved.</p>
 			</div>
 		</div>
 	</section>

@@ -1,4 +1,4 @@
-﻿var modeApple = false, modeDean = false, modeOops = false, modePrivacy = false, modeCambridge;
+var modeApple = false, modeDean = false, modeOops = false, modePrivacy = false, modeCambridge;
 
 window.addEventListener("keydown", OnKeyDown, false);
 
@@ -57,8 +57,7 @@ function OnKeyDown(e) {
             break;
 
         case 77: // M: Mute Mode
-            document.getElementById("AudioEntryElement").pause();
-            document.getElementById("AudioTrackElement").pause();
+            ToggleAudio();
             break;
 
         case 79: // O: Oops Mode

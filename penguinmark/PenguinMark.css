@@ -39,9 +39,37 @@ a:hover, a:visited:hover {
 	text-decoration: underline;
 }
 
+.btn {
+    background-color: orange;
+    border-radius: 4px;
+    border: 0;
+    font-family: Cookies;
+    font-size: 14pt;
+}
+
+.btn:hover {
+    background-color: #ffc300;
+    cursor: pointer;
+}
+
+.btn:disabled {
+    background-color: hsla(0, 0%, 0%, .2);
+    color: hsla(0, 0%, 0%, .2);
+    cursor: not-allowed;
+    outline: 0;
+}
+
 #DemoScreenreaderText {
 	position: absolute;
 	left: -10000px;
+}
+
+#ToggleAudioButton {
+    padding: 12px 18px 10px 18px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 176px;
 }
 
 
@@ -83,7 +111,6 @@ a:hover, a:visited:hover {
     opacity: 1;
 }
 
-
 #WelcomeLogo {
     display: inline-block;
     float: right;
@@ -100,20 +127,6 @@ a:hover, a:visited:hover {
 #WelcomeSubText {
     font-size: 14pt;
     text-align: right;
-}
-
-
-.btn {
-    background-color: orange;
-    border-radius: 4px;
-    border: 0;
-    font-family: Cookies;
-    font-size: 14pt;
-}
-
-.btn:hover {
-    background-color: #ffc300;
-    cursor: pointer;
 }
 
 #StartButton {
@@ -1574,4 +1587,3 @@ a:hover, a:visited:hover {
         -moz-transform: translateX(0px) translateY(0px) rotate(300deg);
 	}
 }
-
