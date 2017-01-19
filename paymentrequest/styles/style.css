@@ -1,0 +1,28 @@
+#not-supported {
+  margin-top: 2.4rem;
+  padding: 2.4rem;
+  background: #fff999;
+}
+
+.layout + .layout {
+  margin-top: 2.4rem;
+}
+
+.ex-webframe {
+  display: block;
+  width: 100%;
+  padding: 3.2rem;
+  
+  border: 3px solid #ccc;
+  border-top-width: 24px;
+
+  text-align: center;
+}
+
+.payment-sample {
+  max-height: 28rem;
+}
+
+.payment-sample--full {
+  max-height: none;
+}
