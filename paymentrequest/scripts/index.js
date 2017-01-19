@@ -33,21 +33,21 @@ window.onload = function() {
 		Array.prototype.forEach.call(document.querySelectorAll(selector), iteratee);
 	};
 
-	//Hide demo buttons if the browser doesn't support the Payment Request API
+	//Show message if the browser doesn't support the Payment Request API
 	if (!('PaymentRequest' in window)) {
 		notSupportedMessage.innerHTML = 'This browser does not support web payments. You should try the Microsoft Edge browser!';
-		forEach('button', function(button){
-			button.disabled = true;
-		});
 	}
 
-	//Expand or contract code displayer
-	forEach('.top-bar', function(div) {
-		div.addEventListener('click', function(event) {
-			const expander = event.target.parentElement.querySelector('.expander');
-			const text = expander.classList.contains('expand') ? 'See the code' : 'Hide the code';
-			event.target.innerHTML = text;
-			expander.classList.toggle('expand');
+	//Expand/minimize code sample height
+	forEach('.code-expander', function(button) {
+		button.addEventListener('click', function(event) {
+			const currButton = event.target;
+			const text = currButton.classList.contains('activated') ? 'Expand code sample' : 'Minimize code sample';
+			const codeSample = document.getElementById(currButton.dataset.sample).parentNode;
+			currButton.innerHTML = text;
+			currButton.classList.toggle('activated');
+			console.log(codeSample);
+			codeSample.classList.toggle('payment-sample--full');
 		});
 	});
 
