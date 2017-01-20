@@ -49,8 +49,16 @@
   
   border: 3px solid #ccc;
   border-top-width: 24px;
-
+  
   text-align: center;
+
+  box-shadow: 12px 12px 0 #e6e6e6;
+}
+
+.ex-webframe p {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 22em;
 }
 
 .payment-sample {
