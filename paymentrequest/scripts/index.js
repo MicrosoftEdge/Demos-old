@@ -1,23 +1,23 @@
-/* global hljs */
+/* global Global, hljs */
 addEventListener('load', function() {
 	'use strict';
 
 	//Helper functions
-	function forEach(selector, iteratee) {
+	var forEach = function(selector, iteratee) {
 		Array.prototype.forEach.call(document.querySelectorAll(selector), iteratee);
-	}
+	};
 
-	function getSource(func) {
+	var getSource = function(func) {
 		var source = (func + '')
 			.replace(/^.*?\{.*\n*/, '')
 			.replace(/\s*\}\s*$/, '');
 
-		var indent = /^[\t ]+/.exec(source)[0];
+		var indent = (/^[\t ]+/).exec(source)[0];
 		return source
 			.replace(RegExp('^' + indent, 'gm'), '')
 			.replace(/ /g, '\xa0')
 			.replace(/\t/g, '\xa0\xa0');
-	}
+	};
 
 	//Hide message if the browser supports the Payment Request API
 	if (!('PaymentRequest' in window)) {

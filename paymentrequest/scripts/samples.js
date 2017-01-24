@@ -1,4 +1,4 @@
-/* global PaymentRequest */
+/* global Global, PaymentRequest */
 (function() {
 	'use strict';
 
