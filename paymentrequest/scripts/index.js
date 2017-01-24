@@ -19,7 +19,7 @@ addEventListener('load', function() {
 			.replace(/\t/g, '\xa0\xa0');
 	};
 
-	//Hide message if the browser supports the Payment Request API
+	//Show message if the browser supports the Payment Request API
 	if (!('PaymentRequest' in window)) {
 		document.getElementById('not-supported').style.display = '';
 	}
