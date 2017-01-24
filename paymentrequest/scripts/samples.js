@@ -7,36 +7,30 @@
 
 	//Shipping option change handler
 	Global.onShippingOptionChange = function(pr, details, subtotal, tax) {
-		if (pr.shippingOption) {
-			var shippingOption;
-			for (var index = 0; index < details.shippingOptions.length; index++) {
-				var opt = details.shippingOptions[index];
-				if (opt.id === pr.shippingOption) {
-					shippingOption = opt;
-					break;
-				}
-			}
-			if (!shippingOption) {
-				return;
-			}
-			console.log('shippingOptionChange: ' + shippingOption.label);
+		var shippingOption = details.shippingOptions.find(function(opt) {
+			return opt.id === pr.shippingOption;
+		});
 
-			var shippingCost = Number(shippingOption.amount.value);
-			details.displayItems = [{
-				label: 'Sub-total',
-				amount: { currency: 'USD', value: subtotal.toFixed(2) }
-			}, {
-				label: 'Shipping',
-				amount: { currency: 'USD', value: shippingCost.toFixed(2) },
-				pending: false
-			}, {
-				label: 'Sales Tax',
-				amount: { currency: 'USD', value: tax.toFixed(2) }
-			}];
-
-			var totalAmount = subtotal + shippingCost + tax;
-			details.total.amount.value = Math.max(0, totalAmount).toFixed(2);
+		if (!shippingOption) {
+			return;
 		}
+		console.log('shippingOptionChange: ' + shippingOption.label);
+
+		var shippingCost = Number(shippingOption.amount.value);
+		details.displayItems = [{
+			label: 'Sub-total',
+			amount: { currency: 'USD', value: subtotal.toFixed(2) }
+		}, {
+			label: 'Shipping',
+			amount: { currency: 'USD', value: shippingCost.toFixed(2) },
+			pending: false
+		}, {
+			label: 'Sales Tax',
+			amount: { currency: 'USD', value: tax.toFixed(2) }
+		}];
+
+		var totalAmount = subtotal + shippingCost + tax;
+		details.total.amount.value = Math.max(0, totalAmount).toFixed(2);
 	};
 
 	//Function to get shipping options per state
@@ -79,12 +73,13 @@
 	Global.onShippingAddressChange = function(pr, details) {
 		var addr = pr.shippingAddress;
 		var strAddr = addr.addressLine[0] + ', ' + addr.region + ' ' + addr.postalCode;
+
 		console.log('shippingAddressChange: ' + strAddr);
 
 		if (addr.country === 'US') {
-			details.shippingOptions = Global.getShippingOptions(addr.region);
 			//Shipping no longer pending, pre-selected
 			details.displayItems[1].pending = false;
+			details.shippingOptions = Global.getShippingOptions(addr.region);
 		} else {
 			delete details.shippingOptions;
 		}
@@ -231,7 +226,6 @@
 
 		var subtotal = 44.00;
 		var tax = 4.40;
-
 		var details = {
 			total: {
 				label: 'Total due',
@@ -274,7 +268,6 @@
 
 		var subtotal = 44.00;
 		var tax = 4.40;
-
 		var details = {
 			total: {
 				label: 'Total due',
