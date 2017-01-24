@@ -1,3 +1,7 @@
+.demo-content {
+  padding-bottom: 2.4rem;
+}
+
 .payment-masthead {
   padding: 2.4rem 0;
   background: #dff1fa;
@@ -18,6 +22,10 @@
 
 @media (min-width: 48em) {
 
+  .demo-content {
+    padding-bottom: 3.2rem;
+  }
+
   .payment-masthead {
     padding: 3.2rem 0;
   }
@@ -25,6 +33,10 @@
 }
 
 @media (min-width: 60em) {
+
+  .demo-content {
+    padding-bottom: 4.8rem;
+  }
 
   .payment-masthead {
     padding: 4.8rem 0;
