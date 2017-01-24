@@ -3,8 +3,8 @@ addEventListener('load', function() {
 	'use strict';
 
 	//Helper functions
-	var forEach = function(selector, iteratee) {
-		Array.prototype.forEach.call(document.querySelectorAll(selector), iteratee);
+	var $ = function(selector) {
+		return Array.prototype.slice.call(document.querySelectorAll(selector));
 	};
 
 	var getSource = function(func) {
@@ -53,7 +53,7 @@ addEventListener('load', function() {
 	);
 
 	//Expand/minimize code sample height
-	forEach('.code-expander', function(button) {
+	$('.code-expander').forEach(function(button) {
 		button.addEventListener('click', function(event) {
 			var currButton = event.target,
 				codeSample = document.getElementById(currButton.dataset.sample).parentNode;
@@ -65,7 +65,7 @@ addEventListener('load', function() {
 	});
 
 	//Highlighting samples
-	forEach('pre code', hljs.highlightBlock);
+	$('pre code').forEach(hljs.highlightBlock);
 
 	//Attaching event listeners
 	document.getElementById('static-shipping')
