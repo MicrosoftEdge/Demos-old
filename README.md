@@ -9,16 +9,20 @@ too sentimental). Some others are new. In any case, we are working on adding mor
 
 ## Contributing
 
+### Timelines
+
+If your PR contains a new demo, it must be submitted **at least one week** in advance of the intended publication.
+
 ### Git workflow
 
 1. Fork this project and [set up a remote](https://help.github.com/articles/configuring-a-remote-for-a-fork/) to file pull requests
 against later.
 2. Create a feature branch for your new demo off of the master branch.
-3. Before starting any work, and preferrably before designing the experience of your demo, review the [accessibility requirements](.github/ACCESSIBILITY_REQS.md) that your demo must meet.
+3. Before starting any work, and preferrably before designing the experience of your demo, review the [accessibility requirements](.github/ACCESSIBILITY_REQS.md) that your demo must meet. If you'd like help with design work, please chat with @melanierichards.
 4. Before creating a pull request, make sure your feature branch is up to date with the latest changes to MicrosoftEdge/Demos/master (the
 remote you set up).
 5. Create a pull request against MicrosoftEdge/Demos/master with the changes from your branch. Title with the name of your demo or fixes.
-Request a review from @molant and @melanierichards. If your PR contains a new demo, it must be submitted at least one week in advance of the intended publication.
+Request a review from @molant and @melanierichards.
 6. Push any changes based on feedback to your feature branch. This will update the PR with the most recent changes.
 
 ### What code should I use?
