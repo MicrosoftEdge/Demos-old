@@ -22,9 +22,19 @@ Mention @molant and optionally @melanierichards (for front-end/design review) in
 
 ### What code should I use?
 
-Previously, we had a demo generator script that will set up a basic demo for you. That script needs to be updated, so for now check out the
-@supports, css3filters, or webaudiotuner demos for examples. Note that there are meta tags in the `<head>` of `index.html` that will need to
-be populated with information about your demo.
+Duplicate the `demo-template/` directory and start from there. Be sure to add your demo's details in the meta data.
+
+#### If you're creating an immersive experience
+
+The demo template is quite permissive; it pretty much just adds a universal header to the top of the page. While we suggest chatting with @melanierichards about design needs, the demos are a nice place to explore different approaches. As long as your demo reflects a cheerful optimism and technical competency, it should be appropriate for this context.
+
+#### If you'd like your demo to be a more simple walkthrough (like @supports or css3filters)
+
+We'd prefer that your demo follow Microsoft design styles more strictly and not reinvent the wheel for simple things. Here's how to do that:
+
+1. Internal folks: chat with @melanierichards
+2. Un-comment the CSS file reference in the head of the demo-template HTML file
+3. Remove the `demo-header.js` reference in that same HTML file
 
 ## Code of Conduct
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
