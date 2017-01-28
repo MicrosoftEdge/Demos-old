@@ -87,7 +87,7 @@
 
 	Global.startPaymentRequestStaticShipping = function() {
 		var methodData = [{
-			supportedMethods: ['basic-card'],
+			supportedMethods: ['visa', 'mastercard', 'amex'],
 			data: {
 				supportedNetworks: ['visa', 'mastercard', 'amex'],
 				supportedTypes: ['credit']
@@ -155,7 +155,7 @@
 
 	Global.startPaymentRequestDynamicShipping = function() {
 		var methodData = [{
-			supportedMethods: ['basic-card'],
+			supportedMethods: ['visa', 'mastercard', 'amex'],
 			data: {
 				supportedNetworks: ['visa', 'mastercard', 'amex'],
 				supportedTypes: ['credit']
@@ -217,7 +217,7 @@
 
 	Global.startPaymentRequestDigitalMerchandise = function() {
 		var methodData = [{
-			supportedMethods: ['basic-card'],
+			supportedMethods: ['visa', 'mastercard', 'amex'],
 			data: {
 				supportedNetworks: ['visa', 'mastercard', 'amex'],
 				supportedTypes: ['credit']
@@ -259,7 +259,7 @@
 
 	Global.startPaymentRequestWithContactInfo = function() {
 		var methodData = [{
-			supportedMethods: ['basic-card'],
+			supportedMethods: ['visa', 'mastercard', 'amex'],
 			data: {
 				supportedNetworks: ['visa', 'mastercard', 'amex'],
 				supportedTypes: ['credit']
