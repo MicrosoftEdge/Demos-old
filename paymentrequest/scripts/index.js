@@ -14,18 +14,22 @@ addEventListener('load', function() {
 	};
 
 	var normalize = function(source, indention) {
-		source = (source + '');
-		var oldIndent = (/^[\t ]+/).exec(getBody(source))[0];
+		var string = (source + '');
+		var body = getBody(string);
+		var oldIndent = (/^[\t ]+/).exec(body)[0];
 		var newIndent = Array((indention || 0) + 1).join(' ');
-		return source
-			.replace(RegExp('^' + oldIndent, 'gm'), newIndent)
+		var newBody = body.replace(RegExp('^' + oldIndent, 'gm'), newIndent);
+		return string
+			.replace(body, newBody)
 			.replace(/\bfunction\s+\(/g, 'function(')
+			.replace(/[\t ]*\}\s*$/, '}')
 			.replace(/ /g, '\xa0')
 			.replace(/\t/g, '\xa0\xa0');
 	};
 
 	var getSource = function(func) {
-		return getBody(normalize(func));
+		return getBody(normalize(func, 0))
+			.replace(/\bGlobal\./g, '');
 	};
 
 	//Show message if the browser supports the Payment Request API
@@ -33,9 +37,9 @@ addEventListener('load', function() {
 		document.getElementById('not-supported').style.display = '';
 	}
 
-	var shippingOptionChangeHandlerString = '\n\nvar onShippingOptionChange = ' + normalize(Global.onShippingOptionChange, 2),
-		shippingAddressHandlerString = '\n\nvar onShippingAddressChange = ' + normalize(Global.onShippingAddressChange, 2),
-		getShippingOptionsString = '\n\nvar onShippingOptionChange = ' + normalize(Global.getShippingOptions, 2);
+	var shippingOptionChangeHandlerString = '\n\nvar onShippingOptionChange = ' + normalize(Global.onShippingOptionChange, 2) + ';',
+		shippingAddressHandlerString = '\n\nvar onShippingAddressChange = ' + normalize(Global.onShippingAddressChange, 2) + ';',
+		getShippingOptionsString = '\n\nvar onShippingOptionChange = ' + normalize(Global.getShippingOptions, 2) + ';';
 
 	//Loading the same code into the HTML
 	document.getElementById('static-shipping-sample').textContent = (
