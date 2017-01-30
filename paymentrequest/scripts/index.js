@@ -32,9 +32,12 @@ addEventListener('load', function() {
 			.replace(/\bGlobal\./g, '');
 	};
 
+	var warning = document.getElementById('not-supported');
+
 	//Show message if the browser supports the Payment Request API
 	if (!('PaymentRequest' in window)) {
-		document.getElementById('not-supported').style.display = '';
+		warning.style.display = '';
+		warning.innerHTML = '<p>This browser does not support web payments. You should try the <a href="https://microsoft.com/windows/microsoft-edge">Microsoft Edge</a> browser!</p>';
 	}
 
 	var shippingOptionChangeHandlerString = '\n\nvar onShippingOptionChange = ' + normalize(Global.onShippingOptionChange, 2) + ';',
