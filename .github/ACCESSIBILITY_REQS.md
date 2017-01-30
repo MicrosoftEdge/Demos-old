@@ -12,7 +12,7 @@ I can verify that the changes made by my PR meet all the following accessibility
 
 ## Focus and keyboard access
 * Tab order matches the flow of the content [WCAG on tab order](http://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-focus-order.html)
-* Focus state is visible [WCAG on focus state](http://www.w3.org/TR/2012/NOTE-UNDERSTANDING-WCAG20-20120103/navigation-mechanisms-focus-visible.html) on all focusable items
+* Focus state is visible on all focusable items [WCAG on focus state](http://www.w3.org/TR/2012/NOTE-UNDERSTANDING-WCAG20-20120103/navigation-mechanisms-focus-visible.html)
 * Focus doesn't trigger changes in context or activate functionality [WCAG on focus context](http://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-receive-focus.html)
 * No keyboard traps: the user can remove focus from an item using the same input they used to place focus [WCAG on keyboard traps](http://www.w3.org/TR/UNDERSTANDING-WCAG20/keyboard-operation-trapping.html)
 * The user can use a keyboard to complete any tasks on the page [WCAG on keyboard use](http://www.w3.org/TR/UNDERSTANDING-WCAG20/keyboard-operation-keyboard-operable.html)
