@@ -40,6 +40,7 @@ We'd prefer that your demo follow Microsoft design styles more strictly and not 
 1. Internal folks: chat with [`@melanierichards`](https://github.com/melanierichards)
 2. Un-comment the CSS file reference in the head of the demo-template HTML file
 3. Remove the `demo-header.js` reference in that same HTML file
+4. Remove `config.json` from the root directory of your demo. This config file tells dev.microsoftedge.com to display the demo in its own window instead of inline on the site, which would not be needed in this case.
 
 ## Code of Conduct
 
