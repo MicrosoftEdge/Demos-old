@@ -75,13 +75,20 @@
 	};
 
 	Global.startPaymentRequestStaticShipping = function() {
-		var methodData = [{
-			supportedMethods: ['visa', 'mastercard', 'amex'],
-			data: {
-				supportedNetworks: ['visa', 'mastercard', 'amex'],
-				supportedTypes: ['credit']
+		var methodData = [
+			//Older implementation (for some versions of Chrome on Android)
+			{
+				supportedMethods: ['visa', 'mastercard', 'amex']
+			},
+			//Newer implementation
+			{
+				supportedMethods: ['basic-card'],
+				data: {
+					supportedNetworks: ['visa', 'mastercard', 'amex'],
+					supportedTypes: ['credit']
+				}
 			}
-		}];
+		];
 
 		var subtotal = 44.00;
 		var tax = 4.40;
@@ -143,13 +150,20 @@
 	};
 
 	Global.startPaymentRequestDynamicShipping = function() {
-		var methodData = [{
-			supportedMethods: ['visa', 'mastercard', 'amex'],
-			data: {
-				supportedNetworks: ['visa', 'mastercard', 'amex'],
-				supportedTypes: ['credit']
+		var methodData = [
+			//Older implementation
+			{
+				supportedMethods: ['visa', 'mastercard', 'amex']
+			},
+			//Newer implementation
+			{
+				supportedMethods: ['basic-card'],
+				data: {
+					supportedNetworks: ['visa', 'mastercard', 'amex'],
+					supportedTypes: ['credit']
+				}
 			}
-		}];
+		];
 
 		var subtotal = 44.00;
 		var tax = 4.40;
@@ -205,13 +219,20 @@
 	};
 
 	Global.startPaymentRequestDigitalMerchandise = function() {
-		var methodData = [{
-			supportedMethods: ['visa', 'mastercard', 'amex'],
-			data: {
-				supportedNetworks: ['visa', 'mastercard', 'amex'],
-				supportedTypes: ['credit']
+		var methodData = [
+			//Older implementation
+			{
+				supportedMethods: ['visa', 'mastercard', 'amex']
+			},
+			//Newer implementation
+			{
+				supportedMethods: ['basic-card'],
+				data: {
+					supportedNetworks: ['visa', 'mastercard', 'amex'],
+					supportedTypes: ['credit']
+				}
 			}
-		}];
+		];
 
 		var subtotal = 44.00;
 		var tax = 4.40;
