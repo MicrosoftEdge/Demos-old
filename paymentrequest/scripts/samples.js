@@ -36,38 +36,26 @@
 
 	//Function to get shipping options per state
 	Global.getShippingOptions = function(state) {
-		switch (state) {
-			case 'WA':
-				return [{
-					id: 'NO_RUSH',
-					label: 'No-Rush Shipping',
-					amount: { currency: 'USD', value: '0.00' },
-					selected: true
-				}, {
-					id: 'STANDARD',
-					label: 'Standard Shipping',
-					amount: { currency: 'USD', value: '5.00' }
-				}, {
-					id: 'EXPEDITED',
-					label: 'Two-Day Shipping',
-					amount: { currency: 'USD', value: '7.00' }
-				}];
-			default:
-				return [{
-					id: 'NO_RUSH',
-					label: 'No-Rush Shipping',
-					amount: { currency: 'USD', value: '0.00' },
-					selected: true
-				}, {
-					id: 'STANDARD',
-					label: 'Standard Shipping',
-					amount: { currency: 'USD', value: '6.00' }
-				}, {
-					id: 'EXPEDITED',
-					label: 'Two-Day Shipping',
-					amount: { currency: 'USD', value: '8.00' }
-				}];
+		var options = [{
+			id: 'NO_RUSH',
+			label: 'No-Rush Shipping',
+			amount: { currency: 'USD', value: '0.00' },
+			selected: true
+		}, {
+			id: 'STANDARD',
+			label: 'Standard Shipping',
+			amount: { currency: 'USD', value: '6.00' }
+		}, {
+			id: 'EXPEDITED',
+			label: 'Two-Day Shipping',
+			amount: { currency: 'USD', value: '8.00' }
+		}];
+
+		if (state === 'WA') {
+			options[1].amount.value = '5.00';
+			options[2].amount.value = '7.00';
 		}
+		return options;
 	};
 
 	//Shipping address change handler
