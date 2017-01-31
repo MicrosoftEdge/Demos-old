@@ -17,6 +17,8 @@
 		console.log('shippingOptionChange: ' + shippingOption.label);
 
 		var shippingCost = Number(shippingOption.amount.value);
+		var totalAmount = subtotal + shippingCost + tax;
+
 		details.displayItems = [{
 			label: 'Sub-total',
 			amount: { currency: 'USD', value: subtotal.toFixed(2) }
@@ -29,7 +31,6 @@
 			amount: { currency: 'USD', value: tax.toFixed(2) }
 		}];
 
-		var totalAmount = subtotal + shippingCost + tax;
 		details.total.amount.value = Math.max(0, totalAmount).toFixed(2);
 	};
 
