@@ -2,4 +2,4 @@
 
 ## Requirements
 
-* [ ] My PR follows all applicable accessibility requirements (See `/.github/ACCESSIBILITY_REQS.md`)
+* [ ] My PR follows all applicable accessibility requirements (See [/.github/ACCESSIBILITY_REQS.md](/.github/ACCESSIBILITY_REQS.md))
