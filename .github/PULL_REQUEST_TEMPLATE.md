@@ -1,5 +1,5 @@
-# What this PR does
+## What this PR does
 
 ## Requirements
 
-* [ ] My PR follows all applicable accessibility requirements (See [/.github/ACCESSIBILITY_REQS.md](/.github/ACCESSIBILITY_REQS.md))
+* [ ] My PR follows all applicable accessibility requirements (See [`.github/ACCESSIBILITY_REQS.md`](https://github.com/MicrosoftEdge/Demos/blob/master/.github/ACCESSIBILITY_REQS.md)).
