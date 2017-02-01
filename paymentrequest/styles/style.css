@@ -50,6 +50,14 @@
   background: #fff999;
 }
 
+#not-supported p {
+  max-width: none;
+}
+
+#not-supported a {
+  color: #006cc2;
+}
+
 .layout + .layout {
   margin-top: 2.4rem;
 }

@@ -37,7 +37,7 @@ addEventListener('load', function() {
 	//Show message if the browser supports the Payment Request API
 	if (!('PaymentRequest' in window)) {
 		warning.style.display = '';
-		warning.innerHTML = 'This browser does not support web payments. You should try <a href="https://microsoft.com/windows/microsoft-edge">Microsoft Edge</a>, or <a href="http://caniuse.com/#search=Payment%20Request%20API">other browsers</a> that support them.';
+		warning.innerHTML = '<p>This browser does not support web payments. You should try <a href="https://microsoft.com/windows/microsoft-edge">Microsoft Edge</a>, or <a href="http://caniuse.com/#search=Payment%20Request%20API">other browsers</a> that support them.</p>';
 	}
 
 	var shippingOptionChangeHandlerString = '\n\nvar onShippingOptionChange = ' + normalize(Global.onShippingOptionChange, 2) + ';',
