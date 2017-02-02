@@ -38,9 +38,9 @@ The demo template is quite permissive; it pretty much just adds a universal head
 We'd prefer that your demo follow Microsoft design styles more strictly and not reinvent the wheel for simple things. Here's how to do that:
 
 1. Internal folks: chat with [`@melanierichards`](https://github.com/melanierichards)
-2. Un-comment the CSS file reference in the head of the demo-template HTML file
-3. Remove the `demo-header.js` reference in that same HTML file
-4. Remove `config.json` from the root directory of your demo. This config file tells dev.microsoftedge.com to display the demo in its own window instead of inline on the site, which would not be needed in this case.
+2. Un-comment the [CSS file reference](https://github.com/MicrosoftEdge/Demos/blob/master/demo-template/index.html#L11) in the head of the demo-template HTML file
+3. Remove the [demo-header.js reference](https://github.com/MicrosoftEdge/Demos/blob/master/demo-template/index.html#L20) in that same HTML file
+4. Remove [config.json](https://github.com/MicrosoftEdge/Demos/blob/master/demo-template/config.json) from the root directory of your demo. This config file tells dev.microsoftedge.com to display the demo in its own window instead of inline on the site, which would not be needed in this case.
 
 ## Code of Conduct
 
