@@ -125,6 +125,11 @@ a:hover, a:visited:hover {
     text-decoration: underline;
 }
 
+.button:focus {
+    outline: 2px dotted #000;
+    outline-offset: 1px;
+}
+
 @font-face {
 	font-family: 'GillesHandwriting';	
 	src: local('☺'), url('Fonts/GillesHandwriting.woff') format('woff');
