@@ -1,12 +1,13 @@
-<html>
+<html lang="en-US">
 	<head>
+		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 		<meta name="description" content="Compare the difference techniques for script yielding in JavaScript"/>
 		<meta name="keywords" content="performance, settimeout, setimmediate, yielding, javascript, es5, ecmascript"/>
 		<meta name="og:title" content="JavaScript yielding"/>
 		<title>Efficient Script Yielding in JavaScript</title>
-		<link rel="stylesheet" type="text/css" href="https://edgeportal.blob.core.windows.net/media/demotemplate.css">
-		<link rel="stylesheet" type="text/css" href="styles/demo.css"/>
+		<link rel="stylesheet" href="//edgeportal.blob.core.windows.net/media/demotemplate.css"/>
+		<link rel="stylesheet" href="styles/demo.css"/>
 	</head>
 
 	<body>
@@ -26,31 +27,31 @@
 				<div class="overflow-wrap overflow-wrap--setimmediatesorting">
 					<div id="test-graph"></div>
 				</div>
-				<div class="layout layout--equal">
+				<div class="layout layout--quarters">
 					<div class="module">
-						<h3 class="subtitle">HTML4 (~15ms Timers)</h3>
-						<input type="button" value="Run Test" id="sort15Button">
+						<p id="sort15Subtitle" class="subtitle">HTML4 (~15ms Timers)</p>
+						<button id="sort15Button" aria-labelledby="sort15Button sort15Subtitle">Run Test</button>
 						<p class="caption" id="HTML4TestResuts"></p>
 					</div>
 					<div class="module">
-						<h3 class="subtitle">HTML5 (4ms Timers)</h3>
-						<input type="button" value="Run Test" id="sort0Button">
+						<p id="sort0Subtitle" class="subtitle">HTML5 (4ms Timers)</p>
+						<button id="sort0Button" aria-labelledby="sort0Button sort0Subtitle">Run Test</button>
 						<p class="caption" id="HTML5TestResults"></p>
 					</div>
 					<div class="module">
-						<h3 class="subtitle">PostMessage</h3>
-						<input id="postMessageTestButton" type="button" value="Run Test">
+						<p id="postMessageTestSubtitle" class="subtitle">PostMessage</p>
+						<button id="postMessageTestButton" aria-labelledby="postMessageTestButton postMessageTestSubtitle">Run Test</button>
 						<p class="caption" id="postMessageTestResults"></p>
 					</div>
 					<div class="module">
-						<h3 class="subtitle">setImmediate</h3>
-						<input id="setImmediateTestButton" type="button" value="Run Test">
+						<p id="setImmediateTestSubtitle" class="subtitle">setImmediate</p>
+						<button id="setImmediateTestButton" aria-labelledby="setImmediateTestButton setImmediateTestSubtitle">Run Test</button>
 						<p class="caption" id="setImmediateTestResults"></p>
 					</div>
 				</div>
 				<section class="subsection">
-					<h2 class="title">Efficient Script Yielding W3C Specification</h2>
-					<div class="longform-text">
+					<h2 class="title subsection__header">Efficient Script Yielding W3C Specification</h2>
+					<div class="longform-text subsection__body">
 						<p>
 							The <a href="https://dvcs.w3.org/hg/webperf/raw-file/tip/specs/setImmediate/Overview.html">W3C Efficient
 							Script
@@ -136,6 +137,6 @@
 			</div>
 		</section>
 
-		<script type="text/javascript" src="scripts/demo.js"></script>
+		<script src="scripts/demo.js"></script>
 	</body>
 </html>

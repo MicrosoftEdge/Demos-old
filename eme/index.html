@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 
 <head>
+    <meta charset="utf-8">
     <title>Using Encrypted Media Extensions.</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="og:title" content="Using Playready content protection and other APIs to produce professional quality video."
@@ -10,8 +11,8 @@
     <meta name="keywords" content="Media, Playready, Encrypted Media Extensions, EME, DRM, Cacheless XMLHttpRequests, Touch, Video, Bitrate, Protected content, Widevine"
     />
     <meta name="author" content="InternetExplorer" />
-    <link rel="stylesheet" type="text/css" href="https://edgeportal.blob.core.windows.net/media/demotemplate.css">
-    <link rel="stylesheet" type="text/css" href="styles/demo.css" />
+    <link rel="stylesheet" href="https://edgeportal.blob.core.windows.net/media/demotemplate.css">
+    <link rel="stylesheet" href="styles/demo.css" />
 </head>
 
 <body>
@@ -63,10 +64,10 @@
                             <div class="controls">
                                 <video id="video" poster="images/Big_Buck_Bunny.jpg" controls></video>
                                 <div class="cell">
-                                    <p class="label">Video Bitrate</p>
+                                    <label for="bitrateSlider">Video Bitrate</label>
                                 </div>
                                 <div class="cell">
-                                    <input type="range" id="bitrateSlider" style="padding-top: 30px; padding-bottom: 30px;">
+                                    <input type="range" value="0" id="bitrateSlider" style="padding-top: 30px; padding-bottom: 30px;">
                                 </div>
                                 <div class="cell">
                                     <p id="bitrateLabel" class="label">0 kbps</p>
@@ -86,7 +87,7 @@
             </div>
         </section>
     </article>
-    <script type="text/javascript" src="scripts/demo.js"></script>
+    <script src="scripts/demo.js"></script>
 </body>
 
 </html>

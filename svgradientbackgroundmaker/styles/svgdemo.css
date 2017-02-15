@@ -1,0 +1,248 @@
+/*
+ *	SVG GRADIENT MAKER DEMO
+ *	=============================================
+ */
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-family: 'Montserrat', 'Segoe UI', sans-serif;
+}
+
+p {
+	color: #7f7f7f;
+	margin: 0 0 1.2rem 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+label {
+	font-size: 1.2rem;
+	margin-right: 2rem;
+}
+
+fieldset {
+	border: none;
+	margin-left: 0;
+	padding: 0;
+}
+
+.container {
+	padding: 0 2rem;
+	margin: 0 auto;
+	width: 100%;
+	min-width: 960px;
+	max-width: 1200px;
+}
+
+.content {
+	display: flex;
+}
+
+.sidebar {
+	width: 38rem;
+	padding: 2rem;
+	background-color: #f2f2f2;
+}
+
+.primary {
+	width: 64rem;
+	margin-left: 2rem;
+}
+
+.heading {
+	margin-top: 2rem;
+	font-size: 2rem;
+}
+
+.title {
+	font-size: 1.6rem;
+	text-transform: uppercase;
+}
+
+.subtitle {
+	font-size: 1.4rem;
+	padding: 1rem 0;
+	max-width: 84rem;
+}
+
+.demo--container {
+	margin-top: 4rem;
+}
+
+.demo--details {
+	margin: 3rem 0 0 0;
+	padding: 0 0 1.2rem 0;
+}
+
+.demo--details img {
+	width: 20rem;
+	margin-bottom: 2rem;
+}
+
+.clearfix {
+	clear: both;
+}
+
+/* SIDEBAR & GRADIENT STYLE CONTROL PANEL */
+#control-wrapper {
+	width: 100%;
+	max-width: 1600px;
+}
+
+.controls {
+	margin: 0 0 3rem 0;
+	overflow: hidden;
+}
+
+.positionThumbnail,
+.sizeThumbnail {
+	float: left;
+	font-family: 'Montserrat', 'Segoe UI', sans-serif;
+	box-sizing: content-box;
+	font-size: 1.05rem;
+	width: 10.5rem;
+	margin: 0 .5rem .5rem 0;
+	padding: .7rem .6rem;
+	color: #000;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #7f7f7f;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.positionThumbnail:hover,
+.sizeThumbnail:hover {
+	color: #fff;
+	background-color: #086bff;
+	border: 1px solid #333;
+}
+
+.positionThumbnail:active {
+	color: #fff;
+	background-color: #086bff;
+	border: 1px solid #333;
+}
+
+.controls--gradient-colors__col {
+	display: block;
+	float: left;
+	margin-right: 1rem;
+}
+
+.controls--gradient-colors__col-alt {
+	float: left;
+	margin-right: 1rem;
+	margin-top: 3.1rem;
+}
+
+.controls--gradient-colors__col input[type="color"] {
+	display: block;
+	position: relative;
+}
+
+[class*=controls--gradient-colors__label] {
+	text-transform: uppercase;
+}
+
+.controls--gradient-colors__label {
+	font-size: 1.3rem;
+	min-width: 55px;
+}
+
+.controls--gradient-colors__label-alt {
+	font-size: 1.1rem;
+	color: #7f7f7f;
+	text-align: left;
+	font-weight: normal;
+}
+
+.controls--gradient-colors__hex {
+	font-size: 1.2rem;
+	margin: 0;
+	line-height: 3rem;
+}
+
+input[type="color"] {
+	height: 3rem;
+	width: 6rem;
+	padding: 0;
+	background-color: hsla(0, 0%, 100%, 0);
+	border: none;
+}
+
+input[type="text"] {
+	display: block;
+	position: relative;
+	width: 6rem;
+	margin: .3rem 5px .3rem 0;
+	border: solid 1px #aaa;
+}
+
+.deletebutton button {
+	margin-bottom: .6rem;
+	top: 5.6rem;
+	height: 2rem;
+	background-image: url('../images/btn_delete.svg');
+	background-position: 100% 100%;
+	background-repeat: no-repeat;
+	background-color: #f2f2f2;
+	border: none;
+	cursor: pointer;
+}
+
+.button {
+	display: inline-block;
+	margin-top: 2rem;
+	padding: .7rem 1.5rem;
+	font-size: 1.2rem;
+	color: #fff;
+	background-color: #166ef3;
+	border: 1px solid transparent;
+	text-transform: uppercase;
+}
+
+.button:hover {
+	background-color: hsla(223, 100%, 32%, 1);
+	border: 1px solid #7f7f7f;
+}
+
+/* SVG GRADIENT PREVIEW & CODE BOXES */
+[class*=svg-code--] {
+	padding: 1.2rem;
+	border: 1px solid #7f7f7f;
+	margin-bottom: 3rem;
+}
+
+textarea {
+	width: 64rem;
+	height: 10em;
+	max-width: 100%;
+	font-family: Consolas, Monospace;
+	line-height: 1.2em;
+	border: solid 1px #fff;
+}
+
+.svg-code-preview__display {
+	width: 100%;
+	height: 28rem;
+	border: solid 1px #fff;
+}
+
+#htxtLink {
+	font-style: italic;
+}
+
+svg {
+	overflow: visible;
+}
+
+#dastart,
+#daend {
+	cursor: crosshair;
+}

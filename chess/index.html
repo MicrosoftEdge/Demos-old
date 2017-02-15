@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
     <head>
         <title>Chess</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width">
-        <link rel="stylesheet" type="text/css" href="https://edgeportal.blob.core.windows.net/media/demotemplate.css">
-        <link rel="stylesheet" type="text/css" href="css/app.css">
+        <link rel="stylesheet" href="https://edgeportal.blob.core.windows.net/media/demotemplate.css"/>
+        <link rel="stylesheet" href="css/app.css">
     </head>
     <body class="chess">
 
@@ -14,14 +14,14 @@
             <div class="container">
                 <div class="section__header">
                     <h1>Asm.js Chess Battle</h1>
-                </div>                
+                </div>
                 <div id="chess__enable-asm">
                     <div id="chess__enable-asm-overlay"></div>
                     Tip: Enable asm.js in Microsoft Edge<br>(and check support for other browsers)
                     <div id="chess__enable-asm-detail">
                         <div id="chess__enable-asm-close">Hide</div>
                         <p>
-                        Asm.js is enabled by default in Microsoft Edge in the Windows 10 Insider Preview fast or slow rings. 
+                        Asm.js is enabled by default in Microsoft Edge in the Windows 10 Insider Preview fast or slow rings.
                         </p>
                         <p>
                         On earlier releases of Microsoft Edge, you can enable asm.js for Microsoft Edge by navigating to <a href="about:config" target="_blank">about:config</a> and selecting "Enable asm.js" in the JavaScript section.
@@ -57,16 +57,16 @@
                                 Initializing...
                             </div>
                             <div id="chess__start-prompt">
-                                Start a Match<br>
-                                <div id="chess__start-stop-button"></div><br>
-                                <div id="chess__options-button">Options</div>
+                                Start a Match
+                                <button id="chess__start-stop-button" aria-label="Start a match"></button>
+                                <button id="chess__options-button">Options</button>
                             </div>
                             <div id="chess__board-message">
                                 <span></span><br>
                                 <small>Refresh this page to play again</small>
                             </div>
                              <div id="chess__options">
-                                <div id="chess__options-hide-button"><span>Hide Options</span></div>
+                                 <button id="chess__options-hide-button" aria-label="Hide Options"></button>
                                 <label for="chess__option-range-time-per-turn">
                                     Time per turn: <span id="chess__option-range-time-per-turn-value" class="chess__options-value"></span> ms<br>
                                     <small>The amount of time given to each player to find a best move. Up to a point, smaller numbers tend to give an advantage to the Asm.js optimized code.</small>
@@ -94,7 +94,7 @@
                         <!-- <details role="group" open> -->
                             <!-- <summary role="button" aria-expanded="false">Predicted Winner</summary>                             -->
                             <h3>Winner Prediction</h3>
-                            
+
                             <div class="layout--equal">
                                 <div class="module chess__score chess__score-asm">
                                     <h3>Asm.js</h3>
@@ -151,7 +151,7 @@
                                     <img class="chess__holding-piece chess__holding-piece-wP" src="images/small/wP.png">
                                     <img class="chess__holding-piece chess__holding-piece-wP" src="images/small/wP.png">
                                     <img class="chess__holding-piece chess__holding-piece-wP" src="images/small/wP.png">
-                                </div>                            
+                                </div>
                                 <div class="module chess__holding-area chess__nopadding">
                                     <h4>Captured Pieces</h4>
                                     <span id="chess__none-captured-b">None</span>
@@ -172,11 +172,11 @@
                                     <img class="chess__holding-piece chess__holding-piece-bP" src="images/small/bP.png">
                                     <img class="chess__holding-piece chess__holding-piece-bP" src="images/small/bP.png">
                                     <img class="chess__holding-piece chess__holding-piece-bP" src="images/small/bP.png">
-                                </div>  
+                                </div>
                             </div>
 
                             <p>
-                            Note: Advantage scoring is provided by the <a href="https://github.com/official-stockfish/Stockfish">Stockfish Chess Engine</a> in centipawns, a <a href="http://chess.wikia.com/wiki/Centipawn">standard unit of measure for chess advantage</a> that accounts for pieces on the board and their relative positions. Our winner prediction is then derived from the advantage score based on the fascinating correlation found <a href="https://chessprogramming.wikispaces.com/Pawn+Advantage%2C+Win+Percentage%2C+and+ELO">here</a>.
+                            Note: Advantage scoring is provided by the <a href="https://github.com/official-stockfish/Stockfish">Stockfish Chess Engine</a> in centipawns, a <a href="http://chess.wikia.com/wiki/Centipawn">standard unit of measure for chess advantage</a> that accounts for pieces on the board and their relative positions. Our winner prediction is then derived from the advantage score based on the fascinating <a href="https://chessprogramming.wikispaces.com/Pawn+Advantage%2C+Win+Percentage%2C+and+ELO">correlation between the win percentage, pawn advantage, and the Elo rating</a>.
                             </p>
 
                             <div id="chess__game-detail">
@@ -202,7 +202,7 @@
                                     </div>
                                 </details>
                             </div>
-                        </div>                        
+                        </div>
                     </div>
                 </div>
             </div>

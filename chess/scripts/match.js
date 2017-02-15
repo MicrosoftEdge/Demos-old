@@ -213,14 +213,20 @@
 		stats.dTime = dTime;
 		stats.relNodes = stats.nps / this.p2Stats.nps;
 
-		$('<div/>').text(addCommasToNumber(stats.totalNodes)).appendTo($stats);
-		$('<h5/>').text('Nodes Visited').appendTo($stats);
+		$('<div/>').text(addCommasToNumber(stats.totalNodes))
+			.appendTo($stats);
+		$('<h5/>').text('Nodes Visited')
+			.appendTo($stats);
 
-		$('<div/>').text(addCommasToNumber(stats.totalTime) + ' ms').appendTo($stats);
-		$('<h5/>').text('Total Time').appendTo($stats);
+		$('<div/>').text(addCommasToNumber(stats.totalTime) + ' ms')
+			.appendTo($stats);
+		$('<h5/>').text('Total Time')
+			.appendTo($stats);
 
-		$('<div/>').text(addCommasToNumber(stats.maxDepth)).appendTo($stats);
-		$('<h5/>').text('Node Search Depth').appendTo($stats);
+		$('<div/>').text(addCommasToNumber(stats.maxDepth))
+			.appendTo($stats);
+		$('<h5/>').text('Node Search Depth')
+			.appendTo($stats);
 
 		this.$scoreP1Score.text(addCommasToNumber(this.p1Stats.score));
 		this.$scoreP2Score.text(addCommasToNumber(this.p2Stats.score));
@@ -273,7 +279,8 @@
 
 		$('#chess__board-message span').html(message);
 		$('#chess__board-overlay').fadeIn(500);
-		$('#chess__board-overlay').delay(1000).addClass('chess__show-message');
+		$('#chess__board-overlay').delay(1000)
+			.addClass('chess__show-message');
 	};
 
 	Match.prototype.onCapturedPiece = function(result) {
@@ -310,7 +317,8 @@
 				break;
 		}
 
-		$('.chess__holding-piece-' + piece).not('.chess__holding-captured').first()
+		$('.chess__holding-piece-' + piece).not('.chess__holding-captured')
+			.first()
 			.addClass('chess__holding-captured');
 	};
 
@@ -327,7 +335,8 @@
 		if (mv) {
 			$('<span/>')
 				.addClass('chess__color' + mv.color)
-				.html(history.length + '. ' + mv.piece.toUpperCase() + '' + mv.from + ' ' + mv.to).appendTo(this.$gameHistory);
+				.html(history.length + '. ' + mv.piece.toUpperCase() + '' + mv.from + ' ' + mv.to)
+				.appendTo(this.$gameHistory);
 		}
 
 		if (this.game.turn() === this.player1.color) {

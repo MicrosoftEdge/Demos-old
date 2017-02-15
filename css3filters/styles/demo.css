@@ -1,3 +1,7 @@
+* + .gist {
+	margin-top: 2.4rem;
+}
+
 /* You can add -webkit- and -moz- prefixes for webkit browsers and firefox. */
 .animated-filters {
 	-webkit-animation: filter-animation 10s infinite;

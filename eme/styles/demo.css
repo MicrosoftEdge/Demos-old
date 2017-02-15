@@ -74,16 +74,16 @@ div.cell {
     vertical-align: middle;
 }
 
+.cell label {
+    white-space: nowrap;
+    font-size: 12px;
+}
+
 input[type='range'] {
     width: 150px;
     height: auto;
     border: auto;
     padding: auto;
-}
-
-.label {
-    white-space: nowrap;
-    font-size: 12px;
 }
 
 .icon--link {

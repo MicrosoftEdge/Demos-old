@@ -3,11 +3,14 @@
 # Ignore files compiled from TypeScript and CoffeeScript
 **/*.{ts,coffee}.js
 
+
 # gruntfiles in some demos and the root of this project
 **/{G,g}runtfile.js
 
+
 # Demos to ignore because they are old or haven't been fixed yet. Goal should be to not have any here
 audiomixer/
+betafish/
 blobbuilder/
 chalkboard/
 chess/scripts/libs/
@@ -18,18 +21,22 @@ css3mediaqueries/
 editingpasteimage/
 eme/
 familysearch/
-fishbowl/
+fishbowlie/
+fishietank/
 html5forms/
 Includes/
+letitsnow/
 mandelbrot/
 math/
 mazesolver/
 microphone/
 musiclounge/
 particleacceleration/
+penguinmark/
 photocapture/
 readingview/
 setimmediatesorting/
+speedreading/
 sudoku/
 svgradientbackgroundmaker/
 toucheffects/

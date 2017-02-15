@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 <head>
+	<meta charset="utf-8">
 	<title>Microsoft Edge Audio Mixer</title>
 	<meta name="og:title" content="Microsoft Edge Audio Mixer"/>
 	<meta name="description" content="This application uses Web Audio to play sounds at specific points in time and IndexedDB to save and load songs and their settings."/>
 	<meta name="keywords" content="Media, web, audio"/>
 	<meta name="author" content="aliams"/>
 	<meta name="viewport" content="width=device-width"/>
-	<link rel="stylesheet" type="text/css" href="//edgeportal.blob.core.windows.net/media/demotemplate.css"/>
-	<link rel="stylesheet" type="text/css" href="styles/demo.css"/>
+	<link rel="stylesheet" href="https://edgeportal.blob.core.windows.net/media/demotemplate.css"/>
+	<link rel="stylesheet" href="styles/demo.css"/>
 </head>
 
 <body>
@@ -55,7 +56,7 @@
 						<input name="name" type="text" placeholder="Name" maxlength="30">
 						<input name="author" type="text" placeholder="Author" maxlength="30">
 						<input name="genre" type="text" placeholder="Genre" maxlength="30">
-						<button type="submit" class="disabled">Save</button>
+						<button id="button-save" type="submit" class="disabled">Save</button>
 						<button id="button-new" type="button">New</button>
 					</form>
 				</div>
@@ -68,7 +69,7 @@
 
 		<section class="panel">
 			<h1>Music</h1>
-			<small id="saved-list-explainer">You have no songs in your library. Compose a song in the mixer above then provide a name, author, and genre and click save to add it here. If you like, you can <a href="#">load in some presets by clicking here</a>.</small>
+			<p id="saved-list-explainer">You have no songs in your library. Compose a song in the mixer above then provide a name, author, and genre and click save to add it here. If you like, you can <a href="#">load in some presets by clicking here</a>.</p>
 			<table id="saved-list" class="panel-content">
 				<thead>
 					<tr>
@@ -85,10 +86,10 @@
 		</section>
 	</div>
 
-	<script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.min.js"></script>
-	<script type="text/javascript" src="scripts/ui.js"></script>
-	<script type="text/javascript" src="scripts/audio.js"></script>
-	<script type="text/javascript" src="scripts/db.js"></script>
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="scripts/ui.js"></script>
+	<script src="scripts/audio.js"></script>
+	<script src="scripts/db.js"></script>
 
 </body>
 </html>

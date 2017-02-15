@@ -1,5 +1,5 @@
-/* eslint strict: [2, "global"]
-*/
+/* eslint strict: [2, "global"]*/
+
 'use strict';
 
 module.exports = function (grunt) {
@@ -10,9 +10,7 @@ module.exports = function (grunt) {
 	grunt.initConfig({
 		eslint: {
 			demos: {
-				files: {
-					src: ['**/*.js']
-				},
+				files: {src: ['**/*.js']},
 				options: {
 					configFile: '.eslintrc.json',
 					ignorePath: '.eslintignore',

@@ -1,0 +1,1589 @@
+/* Base Styles ------------------------------------------------------------------------ */
+
+@font-face {
+	font-family: 'Cookies';
+	src: local('☺'), url('Fonts/Cookies.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+* {
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+}
+
+HTML {
+	width: 100%;
+	height: 100%;
+    background-color: #A3E9FF;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+    overflow: hidden;
+	background-position: center center;
+    font-family: Verdana;
+}
+
+a, a:visited, a:hover {
+	color: #00a3ef;
+	text-decoration: none;
+}
+
+a:hover, a:visited:hover {
+	color: #00a3ef;
+	text-decoration: underline;
+}
+
+.btn {
+    background-color: orange;
+    border-radius: 4px;
+    border: 0;
+    font-family: Cookies;
+    font-size: 14pt;
+}
+
+.btn:hover {
+    background-color: #ffc300;
+    cursor: pointer;
+}
+
+.btn:disabled {
+    background-color: hsla(0, 0%, 0%, .2);
+    color: hsla(0, 0%, 0%, .2);
+    cursor: not-allowed;
+    outline: 0;
+}
+
+#DemoScreenreaderText {
+	position: absolute;
+	left: -10000px;
+}
+
+#ToggleAudioButton {
+    padding: 12px 18px 10px 18px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 176px;
+}
+
+
+
+/* Scene Layers ------------------------------------------------------------------------ */
+
+#Scene {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+#SnowstormCanvas {
+
+}
+
+#PerformanceCanvas {
+	display: block;
+	position: fixed;
+	height: 32px;
+	bottom: 0px;
+}
+
+
+
+/* Welcome Screen ------------------------------------------------------------------------ */
+
+#WelcomeScreen {
+    position: fixed;
+    width: 708px;
+    height: 250px;
+    top: -webkit-calc(50% - 130px);
+    top:         calc(50% - 130px);
+    left: -webkit-calc(50% - 350px);
+    left:         calc(50% - 350px);
+    transition: opacity 1.4s;
+    opacity: 1;
+}
+
+#WelcomeLogo {
+    display: inline-block;
+    float: right;
+    width: 480px;
+}
+
+#WelcomeHeading {
+    width: 480px;
+    height: 134px;
+    background-image: url('images/Logo.png');
+    margin-top: 60px;
+}
+
+#WelcomeSubText {
+    font-size: 14pt;
+    text-align: right;
+}
+
+#StartButton {
+    margin: 0 20px 0 0;
+    padding: 12px 18px 10px 18px;
+    position: absolute;
+    right: 0;
+}
+
+
+/* Welcome & Results Penguins --------------------------------------------------------- */
+
+#WelcomeTree {
+    display: inline-block;
+    width: 220px;
+    height: 250px;
+}
+
+#ResultsTree {
+    display: inline-block;
+    width: 220px;
+    height: 250px;
+}
+
+.PenguinTreeDancing {
+    animation-duration: 2.4s;
+    animation-name: PenguinTreeDancing;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-direction: alternate;
+    transform-origin: 50% 90%;
+    -webkit-animation-duration: 2.4s;
+    -webkit-animation-name: PenguinContainerRotateClockwise;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-direction: alternate;
+    -webkit-transform-origin: 50% 90%;
+    -moz-animation-duration: 2.4s;
+    -moz-animation-name: PenguinContainerRotateClockwise;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -moz-animation-direction: alternate;
+    -moz-transform-origin: 50% 90%;
+}
+
+@keyframes PenguinTreeDancing {
+	from {
+        transform: rotate(3deg);
+	}
+	100% {
+        transform: rotate(-3deg);
+	}
+}
+
+@-webkit-keyframes PenguinTreeDancing {
+	from {
+        -webkit-transform: rotate(3deg);
+	}
+	100% {
+        -webkit-transform: rotate(-3deg);
+	}
+}
+
+@-moz-keyframes PenguinTreeDancing {
+	from {
+        -moz-transform: rotate(3deg);
+	}
+	100% {
+        -moz-transform: rotate(-3deg);
+	}
+}
+
+
+
+/* Results Screen --------------------------------------------------------------------------- */
+
+#ResultsScreen {
+    visibility: hidden;
+    opacity: 0;
+    position: fixed;
+    width: 600px;
+    height: 250px;
+    top: -webkit-calc(50% - 130px);
+    top:         calc(50% - 130px);
+    left: -webkit-calc(50% - 300px);
+    left:         calc(50% - 300px);
+    transition: opacity 1.4s;
+    font-family: Cookies;
+}
+
+#ResultsLogo {
+    display: inline-block;
+    float: right;
+    width: 360px;
+    padding-top: 40px;
+    text-align: center;
+}
+
+#ResultsHeading {
+    font-size: 60pt;
+    text-align: center;
+}
+
+#ResultsLabel {
+    font-size: 14pt;
+    text-align: center;
+}
+
+#ResultsBrowser {
+    font-size: 14pt;
+    text-align: center;
+}
+
+#ResetButton {
+    margin: 30px auto;
+    padding: 12px 18px 10px 18px;
+    width: 176px;
+}
+
+
+
+/* Penguin Container ------------------------------------------------------------------------ */
+
+#PenguinContainer {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.PenguinContainerRotateClockwise {
+    animation-duration: 5s;
+    animation-name: PenguinContainerRotateClockwise;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-direction: alternate;
+    transform-origin: 50% 50%;
+    -webkit-animation-duration: 5s;
+    -webkit-animation-name: PenguinContainerRotateClockwise;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-direction: alternate;
+    -webkit-transform-origin: 50% 50%;
+    -moz-animation-duration: 5s;
+    -moz-animation-name: PenguinContainerRotateClockwise;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -moz-animation-direction: alternate;
+    -moz-transform-origin: 50% 50%;
+}
+
+@keyframes PenguinContainerRotateClockwise {
+	from {
+        transform: rotate(6deg);
+	}
+	100% {
+        transform: rotate(-6deg);
+	}
+}
+
+@-webkit-keyframes PenguinContainerRotateClockwise {
+	from {
+        -webkit-transform: rotate(6deg);
+	}
+	100% {
+        -webkit-transform: rotate(-6deg);
+	}
+}
+
+@-moz-keyframes PenguinContainerRotateClockwise {
+	from {
+        -moz-transform: rotate(6deg);
+	}
+	100% {
+        -moz-transform: rotate(-6deg);
+	}
+}
+
+.PenguinContainerDancing {
+    animation-duration: 10s;
+    animation-name: PenguinContainerDancing;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+    transform-origin: 50% 65%;
+    -webkit-animation-duration: 10s;
+    -webkit-animation-name: PenguinContainerDancing;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-direction: alternate;
+    -webkit-transform-origin: 50% 65%;
+    -moz-animation-duration: 10s;
+    -moz-animation-name: PenguinContainerDancing;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: ease-in-out;
+    -moz-animation-direction: alternate;
+    -moz-transform-origin: 50% 65%;
+}
+
+@keyframes PenguinContainerDancing {
+	from {
+        transform: scale(1) rotate(0deg);
+	}
+	20% {
+        transform: scale(0.5) rotate(0deg);
+	}
+	40% {
+        transform: scale(1) rotate(0deg);
+	}
+
+	100% {
+        transform: scale(5) rotate(360deg);
+	}
+}
+
+@-webkit-keyframes PenguinContainerDancing {
+	from {
+        -webkit-transform: scale(1) rotate(0deg);
+	}
+	20% {
+        -webkit-transform: scale(0.5) rotate(0deg);
+	}
+	40% {
+        -webkit-transform: scale(1) rotate(0deg);
+	}
+
+	100% {
+        -webkit-transform: scale(5) rotate(360deg);
+	}
+}
+
+@-moz-keyframes PenguinContainerDancing {
+	from {
+        -moz-transform: scale(1) rotate(0deg);
+	}
+	20% {
+        -moz-transform: scale(0.5) rotate(0deg);
+	}
+	40% {
+        -moz-transform: scale(1) rotate(0deg);
+	}
+
+	100% {
+        -moz-transform: scale(5) rotate(360deg);
+	}
+}
+
+.PenguinContainerHide {
+    visibility: hidden;
+}
+
+
+
+/* Internet Explorer ------------------------------------------------------------------------ */
+
+#PenguinIEContainer {
+    visibility: hidden;
+    position: absolute;
+	width: 480px;
+	height: 500px;
+    left: -webkit-calc(50% - 240px);
+    left:         calc(50% - 240px);
+    bottom: -100px;
+}
+
+#PenguinIE {
+    width: 100%;
+    height: 100%;
+    background-image: url('images/IEPenguin.png');
+}
+
+#PenguinIEBeakUpper {
+    position: absolute;
+    top: 213px;
+    left: 222px;
+    width: 22px;
+    height: 22px;
+    background-image: url('images/IEPenguinBeakUpper.png');
+}
+
+#PenguinIEBeakLower {
+    position: absolute;
+    top: 217px;
+    left: 222px;
+    width: 22px;
+    height: 24px;
+    background-image: url('images/IEPenguinBeakLower.png');
+}
+
+.PenguinIESinging {
+    animation-duration: 0.64s;
+    animation-name: PenguinIEBeakSinging;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate-reverse;
+    transform-origin: 11px 0px;
+    -webkit-animation-duration: 0.64s;
+    -webkit-animation-name: PenguinIEBeakSinging;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-direction: alternate-reverse;
+    -webkit-transform-origin: 11px 0px;
+    -moz-animation-duration: 0.64s;
+    -moz-animation-name: PenguinIEBeakSinging;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: ease-in-out;
+    -moz-animation-direction: alternate-reverse;
+    -moz-transform-origin: 11px 0px;
+}
+
+@keyframes PenguinIEBeakSinging {
+	from {
+        transform: scaleY(0.752) rotate(-2deg);
+	}
+	100% {
+        transform: scaleY(0.884) rotate(-6deg);
+	}
+}
+
+@-webkit-keyframes PenguinIEBeakSinging {
+	from {
+        -webkit-transform: scaleY(0.752) rotate(-2deg);
+	}
+	100% {
+        -webkit-transform: scaleY(0.884) rotate(-6deg);
+	}
+}
+
+@-moz-keyframes PenguinIEBeakSinging {
+	from {
+        -moz-transform: scaleY(0.752) rotate(-2deg);
+	}
+	100% {
+        -moz-transform: scaleY(0.884) rotate(-6deg);
+	}
+}
+
+.PenguinIESilent {
+    visibility: hidden;
+}
+
+.PenguinIEDancing {
+	animation-duration: 2.6s;
+	animation-name: PenguinIEDancing;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+    animation-direction: alternate;
+	transform-origin: 240px 440px;
+	-webkit-animation-duration: 2.6s;
+	-webkit-animation-name: PenguinIEDancing;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+    -webkit-animation-direction: alternate;
+	-webkit-transform-origin: 240px 440px;
+	-moz-animation-duration: 2.6s;
+	-moz-animation-name: PenguinIEDancing;
+	-moz-animation-iteration-count: infinite;
+	-moz-animation-timing-function: linear;
+    -moz-animation-direction: alternate;
+	-moz-transform-origin: 240px 440px;
+}
+
+@keyframes PenguinIEDancing {
+	from {
+        transform: rotate(-10deg) scaleX(1.0);
+	}
+	to {
+        transform: rotate(10deg) scaleX(1.01);
+	}
+}
+
+@-webkit-keyframes PenguinIEDancing {
+	from {
+        -webkit-transform: rotate(-10deg) scaleX(1.0);
+	}
+	to {
+        -webkit-transform: rotate(10deg) scaleX(1.01);
+	}
+}
+
+@-moz-keyframes PenguinIEDancing {
+	from {
+        -moz-transform: rotate(-10deg) scaleX(1.0);
+	}
+	to {
+        -moz-transform: rotate(10deg) scaleX(1.01);
+	}
+}
+
+.PenguinIEAnimateOffScreen {
+	animation-duration: 0.28s;
+	animation-name: PenguinIEAnimateOffScreen;
+	animation-iteration-count: 1;
+	animation-timing-function: linear;
+    animation-fill-mode:forwards;
+	-webkit-animation-duration: 0.28s;
+	-webkit-animation-name: PenguinIEAnimateOffScreen;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: linear;
+    -webkit-animation-fill-mode:forwards;
+	-moz-animation-duration: 0.28s;
+	-moz-animation-name: PenguinIEAnimateOffScreen;
+	-moz-animation-iteration-count: 1;
+	-moz-animation-timing-function: linear;
+    -moz-animation-fill-mode:forwards;
+}
+
+@keyframes PenguinIEAnimateOffScreen {
+	from {
+        transform: translateY(0px);
+	}
+	to {
+        transform: translateY(500px);
+	}
+}
+
+@-webkit-keyframes PenguinIEAnimateOffScreen {
+	from {
+        -webkit-transform: translateY(0px);
+	}
+	to {
+        -webkit-transform: translateY(500px);
+	}
+}
+
+@-moz-keyframes PenguinIEAnimateOffScreen {
+	from {
+        -moz-transform: translateY(0px);
+	}
+	to {
+        -moz-transform: translateY(500px);
+	}
+}
+
+.PenguinIEAnimateOnScreen {
+	animation-duration: 0.28s;
+	animation-name: PenguinIEAnimateOnScreen;
+	animation-iteration-count: 1;
+	animation-timing-function: linear;
+    animation-fill-mode:forwards;
+	-webkit-animation-duration: 0.28s;
+	-webkit-animation-name: PenguinIEAnimateOnScreen;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: linear;
+    -webkit-animation-fill-mode:forwards;
+	-moz-animation-duration: 0.28s;
+	-moz-animation-name: PenguinIEAnimateOnScreen;
+	-moz-animation-iteration-count: 1;
+	-moz-animation-timing-function: linear;
+    -moz-animation-fill-mode:forwards;
+}
+
+@keyframes PenguinIEAnimateOnScreen {
+	from {
+        transform: translateY(400px);
+	}
+	to {
+        transform: translateY(0px);
+	}
+}
+
+@-webkit-keyframes PenguinIEAnimateOnScreen {
+	from {
+        -webkit-transform: translateY(400px);
+	}
+	to {
+        -webkit-transform: translateY(0px);
+	}
+}
+
+@-moz-keyframes PenguinIEAnimateOnScreen {
+	from {
+        -moz-transform: translateY(400px);
+	}
+	to {
+        -moz-transform: translateY(0px);
+	}
+}
+
+
+
+/* Opera -------------------------------------------------------------------------------- */
+
+#PenguinOperaContainer {
+    visibility: hidden;
+    position: absolute;
+	width: 480px;
+	height: 500px;
+    bottom: -webkit-calc(50% - 300px);
+    bottom: calc(50% - 300px);
+    left: -10%;
+}
+
+#PenguinOpera {
+    width: 100%;
+    height: 100%;
+    background-image: url('images/OperaPenguin.png');
+}
+
+#PenguinOperaBeakUpper {
+    position: absolute;
+    top: 230px;
+    left: 226px;
+    width: 32px;
+    height: 26px;
+    background-image: url('images/OperaPenguinBeakUpper.png');
+}
+
+#PenguinOperaBeakLower {
+    position: absolute;
+    top: 231px;
+    left: 226px;
+    width: 32px;
+    height: 30px;
+    background-image: url('images/OperaPenguinBeakLower.png');
+}
+
+.PenguinOperaSinging {
+    animation-duration: 0.595s;
+    animation-name: PenguinOperaBeakSinging;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate-reverse;
+    transform-origin: 11px 0px;
+    -webkit-animation-duration: 0.595s;
+    -webkit-animation-name: PenguinOperaBeakSinging;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-direction: alternate-reverse;
+    -webkit-transform-origin: 11px 0px;
+    -moz-animation-duration: 0.595s;
+    -moz-animation-name: PenguinOperaBeakSinging;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: ease-in-out;
+    -moz-animation-direction: alternate-reverse;
+    -moz-transform-origin: 11px 0px;
+}
+
+@keyframes PenguinOperaBeakSinging {
+	from {
+        transform: scaleY(0.752) rotate(0deg);
+	}
+	50% {
+        transform: scaleY(1.02) rotate(1deg);
+	}
+	75% {
+        transform: scaleY(1.04) rotate(2deg);
+	}
+	100% {
+        transform: scaleY(1.04) rotate(1deg);
+	}
+}
+
+@-webkit-keyframes PenguinOperaBeakSinging {
+	from {
+        -webkit-transform: scaleY(0.752) rotate(0deg);
+	}
+	50% {
+        -webkit-transform: scaleY(1.02) rotate(1deg);
+	}
+	75% {
+        -webkit-transform: scaleY(1.04) rotate(2deg);
+	}
+	100% {
+        -webkit-transform: scaleY(1.04) rotate(1deg);
+	}
+}
+
+@-moz-keyframes PenguinOperaBeakSinging {
+	from {
+        -moz-transform: scaleY(0.752) rotate(0deg);
+	}
+	50% {
+        -moz-transform: scaleY(1.02) rotate(1deg);
+	}
+	75% {
+        -moz-transform: scaleY(1.04) rotate(2deg);
+	}
+	100% {
+        -moz-transform: scaleY(1.04) rotate(1deg);
+	}
+}
+
+.PenguinOperaSilent {
+    visibility: hidden;
+}
+
+.PenguinOperaDancing {
+	animation-duration: 2.6s;
+	animation-name: PenguinOperaDancing;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+    animation-direction: alternate;
+    transform-origin: 240px 430px;
+	-webkit-animation-duration: 2.6s;
+	-webkit-animation-name: PenguinOperaDancing;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+    -webkit-animation-direction: alternate;
+    -webkit-transform-origin: 240px 430px;
+	-moz-animation-duration: 2.6s;
+	-moz-animation-name: PenguinOperaDancing;
+	-moz-animation-iteration-count: infinite;
+	-moz-animation-timing-function: linear;
+    -moz-animation-direction: alternate;
+    -moz-transform-origin: 240px 430px;
+}
+
+@keyframes PenguinOperaDancing {
+	from {
+        transform: rotate(-9deg) scaleX(1);
+	}
+	to {
+        transform: rotate(9deg) scaleX(1.01);
+	}
+}
+
+@-webkit-keyframes PenguinOperaDancing {
+	from {
+        -webkit-transform: rotate(-9deg) scaleX(1);
+	}
+	to {
+        -webkit-transform: rotate(9deg) scaleX(1.01);
+	}
+}
+
+@-moz-keyframes PenguinOperaDancing {
+	from {
+        -moz-transform: rotate(-9deg) scaleX(1);
+	}
+	to {
+        -moz-transform: rotate(9deg) scaleX(1.01);
+	}
+}
+
+.PenguinOperaAnimateOffScreen {
+	animation-duration: 0.42s;
+	animation-name: PenguinOperaAnimateOffScreen;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    -webkit-animation-duration: 0.42s;
+	-webkit-animation-name: PenguinOperaAnimateOffScreen;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: linear;
+    -webkit-animation-fill-mode:forwards;
+    -moz-animation-duration: 0.42s;
+	-moz-animation-name: PenguinOperaAnimateOffScreen;
+	-moz-animation-iteration-count: 1;
+	-moz-animation-timing-function: linear;
+    -moz-animation-fill-mode:forwards;
+}
+
+@keyframes PenguinOperaAnimateOffScreen {
+	from {
+        transform: translateX(0px) translateY(0px) rotate(70deg);
+	}
+	to {
+        transform: translateX(-400px) translateY(80px) rotate(70deg);
+	}
+}
+
+@-webkit-keyframes PenguinOperaAnimateOffScreen {
+	from {
+        -webkit-transform: translateX(0px) translateY(0px) rotate(70deg);
+	}
+	to {
+        -webkit-transform: translateX(-400px) translateY(80px) rotate(70deg);
+	}
+}
+
+@-moz-keyframes PenguinOperaAnimateOffScreen {
+	from {
+        -moz-transform: translateX(0px) translateY(0px) rotate(70deg);
+	}
+	to {
+        -moz-transform: translateX(-400px) translateY(80px) rotate(70deg);
+	}
+}
+
+.PenguinOperaAnimateOnScreen {
+	animation-duration: 0.42s;
+	animation-name: PenguinOperaAnimateOnScreen;
+	animation-iteration-count: 1;
+	animation-timing-function: linear;
+    animation-fill-mode:forwards;
+	-webkit-animation-duration: 0.42s;
+	-webkit-animation-name: PenguinOperaAnimateOnScreen;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: linear;
+    -webkit-animation-fill-mode:forwards;
+	-moz-animation-duration: 0.42s;
+	-moz-animation-name: PenguinOperaAnimateOnScreen;
+	-moz-animation-iteration-count: 1;
+	-moz-animation-timing-function: linear;
+    -moz-animation-fill-mode:forwards;
+}
+
+@keyframes PenguinOperaAnimateOnScreen {
+	from {
+        transform: translateX(-400px) translateY(80px) rotate(70deg);
+	}
+	to {
+        transform: translateX(0px) translateY(0px) rotate(70deg);
+	}
+}
+
+@-webkit-keyframes PenguinOperaAnimateOnScreen {
+	from {
+        -webkit-transform: translateX(-400px) translateY(80px) rotate(70deg);
+	}
+	to {
+        -webkit-transform: translateX(0px) translateY(0px) rotate(70deg);
+	}
+}
+
+@-moz-keyframes PenguinOperaAnimateOnScreen {
+	from {
+        -moz-transform: translateX(-400px) translateY(80px) rotate(70deg);
+	}
+	to {
+        -moz-transform: translateX(0px) translateY(0px) rotate(70deg);
+	}
+}
+
+
+
+/* Firefox -------------------------------------------------------------------------------- */
+
+#PenguinFirefoxContainer {
+    visibility: hidden;
+    position: absolute;
+	width: 480px;
+	height: 500px;
+    top: -14%;
+    left: 8%;
+}
+
+#PenguinFirefox {
+    width: 100%;
+    height: 100%;
+    background-image: url('images/FirefoxPenguin.png');
+}
+
+#PenguinFirefoxBeakUpper {
+    position: absolute;
+    top: 228px;
+    left: 216px;
+    width: 32px;
+    height: 24px;
+    background-image: url('images/FirefoxPenguinBeakUpper.png');
+}
+
+#PenguinFirefoxBeakLower {
+    position: absolute;
+    top: 229px;
+    left: 218px;
+    width: 26px;
+    height: 28px;
+    background-image: url('images/FirefoxPenguinBeakLower.png');
+}
+
+.PenguinFirefoxSinging {
+    animation-duration: 0.812s;
+    animation-name: PenguinFirefoxBeakSinging;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate-reverse;
+    transform-origin: 11px 0px;
+    -webkit-animation-duration: 0.812s;
+    -webkit-animation-name: PenguinFirefoxBeakSinging;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-direction: alternate-reverse;
+    -webkit-transform-origin: 11px 0px;
+    -moz-animation-duration: 0.812s;
+    -moz-animation-name: PenguinFirefoxBeakSinging;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: ease-in-out;
+    -moz-animation-direction: alternate-reverse;
+    -moz-transform-origin: 11px 0px;
+}
+
+@keyframes PenguinFirefoxBeakSinging {
+	from {
+        transform: scaleY(0.752) rotate(-1deg);
+	}
+	50% {
+        transform: scaleY(1.02) rotate(-5deg);
+	}
+	75% {
+        transform: scaleY(1.04) rotate(-3deg);
+	}
+	100% {
+        transform: scaleY(1.04) rotate(-4deg);
+	}
+}
+
+@-webkit-keyframes PenguinFirefoxBeakSinging {
+	from {
+        -webkit-transform: scaleY(0.752) rotate(-1deg);
+	}
+	50% {
+        -webkit-transform: scaleY(1.02) rotate(-5deg);
+	}
+	75% {
+        -webkit-transform: scaleY(1.04) rotate(-3deg);
+	}
+	100% {
+        -webkit-transform: scaleY(1.04) rotate(-4deg);
+	}
+}
+
+@-moz-keyframes PenguinFirefoxBeakSinging {
+	from {
+        -moz-transform: scaleY(0.752) rotate(-1deg);
+	}
+	50% {
+        -moz-transform: scaleY(1.02) rotate(-5deg);
+	}
+	75% {
+        -moz-transform: scaleY(1.04) rotate(-3deg);
+	}
+	100% {
+        -moz-transform: scaleY(1.04) rotate(-4deg);
+	}
+}
+
+.PenguinFirefoxSilent {
+    visibility: hidden;
+}
+
+.PenguinFirefoxDancing {
+	animation-duration: 2.6s;
+	animation-name: PenguinFirefoxDancing;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+    animation-direction: alternate;
+    transform-origin: 240px 430px;
+	-webkit-animation-duration: 2.6s;
+	-webkit-animation-name: PenguinFirefoxDancing;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+    -webkit-animation-direction: alternate;
+    -webkit-transform-origin: 240px 430px;
+	-moz-animation-duration: 2.6s;
+	-moz-animation-name: PenguinFirefoxDancing;
+	-moz-animation-iteration-count: infinite;
+	-moz-animation-timing-function: linear;
+    -moz-animation-direction: alternate;
+    -moz-transform-origin: 240px 430px;
+}
+
+@keyframes PenguinFirefoxDancing {
+	from {
+        transform: rotate(-9deg) scaleX(1);
+	}
+	to {
+        transform: rotate(9deg) scaleX(1.01);
+	}
+}
+
+@-webkit-keyframes PenguinFirefoxDancing {
+	from {
+        -webkit-transform: rotate(-9deg) scaleX(1);
+	}
+	to {
+        -webkit-transform: rotate(9deg) scaleX(1.01);
+	}
+}
+
+@-moz-keyframes PenguinFirefoxDancing {
+	from {
+        -moz-transform: rotate(-9deg) scaleX(1);
+	}
+	to {
+        -moz-transform: rotate(9deg) scaleX(1.01);
+	}
+}
+
+.PenguinFirefoxAnimateOffScreen {
+	animation-duration: 0.68s;
+	animation-name: PenguinFirefoxAnimateOffScreen;
+	animation-iteration-count: 1;
+	animation-timing-function: linear;
+    animation-fill-mode:forwards;
+	-webkit-animation-duration: 0.68s;
+	-webkit-animation-name: PenguinFirefoxAnimateOffScreen;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: linear;
+    -webkit-animation-fill-mode:forwards;
+	-moz-animation-duration: 0.68s;
+	-moz-animation-name: PenguinFirefoxAnimateOffScreen;
+	-moz-animation-iteration-count: 1;
+	-moz-animation-timing-function: linear;
+    -moz-animation-fill-mode:forwards;
+}
+
+@keyframes PenguinFirefoxAnimateOffScreen {
+	from {
+        transform: translateX(0px) translateY(0px) rotate(160deg);
+	}
+	to {
+        transform: translateX(-200px) translateY(-320px) rotate(160deg);
+	}
+}
+
+@-webkit-keyframes PenguinFirefoxAnimateOffScreen {
+	from {
+        -webkit-transform: translateX(0px) translateY(0px) rotate(160deg);
+	}
+	to {
+        -webkit-transform: translateX(-200px) translateY(-320px) rotate(160deg);
+	}
+}
+
+@-moz-keyframes PenguinFirefoxAnimateOffScreen {
+	from {
+        -moz-transform: translateX(0px) translateY(0px) rotate(160deg);
+	}
+	to {
+        -moz-transform: translateX(-200px) translateY(-320px) rotate(160deg);
+	}
+}
+
+.PenguinFirefoxAnimateOnScreen {
+	animation-duration: 0.68s;
+	animation-name: PenguinFirefoxAnimateOnScreen;
+	animation-iteration-count: 1;
+	animation-timing-function: linear;
+    animation-fill-mode:forwards;
+	-webkit-animation-duration: 0.68s;
+	-webkit-animation-name: PenguinFirefoxAnimateOnScreen;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: linear;
+    -webkit-animation-fill-mode:forwards;
+	-moz-animation-duration: 0.68s;
+	-moz-animation-name: PenguinFirefoxAnimateOnScreen;
+	-moz-animation-iteration-count: 1;
+	-moz-animation-timing-function: linear;
+    -moz-animation-fill-mode:forwards;
+}
+
+@keyframes PenguinFirefoxAnimateOnScreen {
+	from {
+        transform: translateX(-200px) translateY(-320px) rotate(160deg);
+	}
+	to {
+        transform: translateX(0px) translateY(0px) rotate(160deg);
+	}
+}
+
+@-webkit-keyframes PenguinFirefoxAnimateOnScreen {
+	from {
+        -webkit-transform: translateX(-200px) translateY(-320px) rotate(160deg);
+	}
+	to {
+        -webkit-transform: translateX(0px) translateY(0px) rotate(160deg);
+	}
+}
+
+@-moz-keyframes PenguinFirefoxAnimateOnScreen {
+	from {
+        -moz-transform: translateX(-200px) translateY(-320px) rotate(160deg);
+	}
+	to {
+        -moz-transform: translateX(0px) translateY(0px) rotate(160deg);
+	}
+}
+
+
+
+/* Safari -------------------------------------------------------------------------------- */
+
+#PenguinSafariContainer {
+    visibility: hidden;
+    position: absolute;
+	width: 480px;
+	height: 500px;
+    top: -10%;
+    right: -10%;
+}
+
+#PenguinSafari {
+    width: 100%;
+    height: 100%;
+    background-image: url('images/SafariPenguin.png');
+}
+
+#PenguinSafariBeakUpper {
+    position: absolute;
+    top: 223px;
+    left: 227px;
+    width: 22px;
+    height: 20px;
+    background-image: url('images/SafariPenguinBeakUpper.png');
+}
+
+#PenguinSafariBeakLower {
+    position: absolute;
+    top: 224px;
+    left: 229px;
+    width: 22px;
+    height: 26px;
+    background-image: url('images/SafariPenguinBeakLower.png');
+}
+
+.PenguinSafariSinging {
+    animation-duration: 0.516s;
+    animation-name: PenguinSafariBeakSinging;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate-reverse;
+    transform-origin: 11px 0px;
+    -webkit-animation-duration: 0.516s;
+    -webkit-animation-name: PenguinSafariBeakSinging;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-direction: alternate-reverse;
+    -webkit-transform-origin: 11px 0px;
+    -moz-animation-duration: 0.516s;
+    -moz-animation-name: PenguinSafariBeakSinging;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: ease-in-out;
+    -moz-animation-direction: alternate-reverse;
+    -moz-transform-origin: 11px 0px;
+}
+
+@keyframes PenguinSafariBeakSinging {
+	from {
+        transform: scaleY(0.752) rotate(-2deg);
+	}
+	50% {
+        transform: scaleY(1.02) rotate(-3deg);
+	}
+	75% {
+        transform: scaleY(1.01) rotate(-4deg);
+	}
+	100% {
+        transform: scaleY(1.04) rotate(-3deg);
+	}
+}
+
+@-webkit-keyframes PenguinSafariBeakSinging {
+	from {
+        -webkit-transform: scaleY(0.752) rotate(-2deg);
+	}
+	50% {
+        -webkit-transform: scaleY(1.02) rotate(-3deg);
+	}
+	75% {
+        -webkit-transform: scaleY(1.01) rotate(-4deg);
+	}
+	100% {
+        -webkit-transform: scaleY(1.04) rotate(-3deg);
+	}
+}
+
+@-moz-keyframes PenguinSafariBeakSinging {
+	from {
+        -moz-transform: scaleY(0.752) rotate(-2deg);
+	}
+	50% {
+        -moz-transform: scaleY(1.02) rotate(-3deg);
+	}
+	75% {
+        -moz-transform: scaleY(1.01) rotate(-4deg);
+	}
+	100% {
+        -moz-transform: scaleY(1.04) rotate(-3deg);
+	}
+}
+
+.PenguinSafariSilent {
+    visibility: hidden;
+}
+
+.PenguinSafariDancing {
+	animation-duration: 2.6s;
+	animation-name: PenguinSafariDancing;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+    animation-direction: alternate;
+    transform-origin: 240px 430px;
+	-webkit-animation-duration: 2.6s;
+	-webkit-animation-name: PenguinSafariDancing;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+    -webkit-animation-direction: alternate;
+    -webkit-transform-origin: 240px 430px;
+	-moz-animation-duration: 2.6s;
+	-moz-animation-name: PenguinSafariDancing;
+	-moz-animation-iteration-count: infinite;
+	-moz-animation-timing-function: linear;
+    -moz-animation-direction: alternate;
+    -moz-transform-origin: 240px 430px;
+}
+
+@keyframes PenguinSafariDancing {
+	from {
+        transform: rotate(-9deg) scaleX(1);
+	}
+	to {
+        transform: rotate(9deg) scaleX(1.01);
+	}
+}
+
+@-webkit-keyframes PenguinSafariDancing {
+	from {
+        -webkit-transform: rotate(-9deg) scaleX(1);
+	}
+	to {
+        -webkit-transform: rotate(9deg) scaleX(1.01);
+	}
+}
+
+@-moz-keyframes PenguinSafariDancing {
+	from {
+        -moz-transform: rotate(-9deg) scaleX(1);
+	}
+	to {
+        -moz-transform: rotate(9deg) scaleX(1.01);
+	}
+}
+
+.PenguinSafariAnimateOffScreen {
+	animation-duration: 0.51s;
+	animation-name: PenguinSafariAnimateOffScreen;
+	animation-iteration-count: 1;
+	animation-timing-function: linear;
+    animation-fill-mode:forwards;
+	-webkit-animation-duration: 0.51s;
+	-webkit-animation-name: PenguinSafariAnimateOffScreen;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: linear;
+    -webkit-animation-fill-mode:forwards;
+	-moz-animation-duration: 0.51s;
+	-moz-animation-name: PenguinSafariAnimateOffScreen;
+	-moz-animation-iteration-count: 1;
+	-moz-animation-timing-function: linear;
+    -moz-animation-fill-mode:forwards;
+}
+
+@keyframes PenguinSafariAnimateOffScreen {
+	from {
+        transform: translateX(0px) translateY(0px) rotate(220deg);
+	}
+	to {
+        transform: translateX(120px) translateY(-400px) rotate(220deg);
+	}
+}
+
+@-webkit-keyframes PenguinSafariAnimateOffScreen {
+	from {
+        -webkit-transform: translateX(0px) translateY(0px) rotate(220deg);
+	}
+	to {
+        -webkit-transform: translateX(120px) translateY(-400px) rotate(220deg);
+	}
+}
+
+@-moz-keyframes PenguinSafariAnimateOffScreen {
+	from {
+        -moz-transform: translateX(0px) translateY(0px) rotate(220deg);
+	}
+	to {
+        -moz-transform: translateX(120px) translateY(-400px) rotate(220deg);
+	}
+}
+
+.PenguinSafariAnimateOnScreen {
+	animation-duration: 0.51s;
+	animation-name: PenguinSafariAnimateOnScreen;
+	animation-iteration-count: 1;
+	animation-timing-function: linear;
+    animation-fill-mode:forwards;
+	-webkit-animation-duration: 0.51s;
+	-webkit-animation-name: PenguinSafariAnimateOnScreen;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: linear;
+    -webkit-animation-fill-mode:forwards;
+	-moz-animation-duration: 0.51s;
+	-moz-animation-name: PenguinSafariAnimateOnScreen;
+	-moz-animation-iteration-count: 1;
+	-moz-animation-timing-function: linear;
+    -moz-animation-fill-mode:forwards;
+}
+
+@keyframes PenguinSafariAnimateOnScreen {
+	from {
+        transform: translateX(120px) translateY(-400px) rotate(220deg);
+	}
+	to {
+        transform: translateX(0px) translateY(0px) rotate(220deg);
+	}
+}
+
+@-webkit-keyframes PenguinSafariAnimateOnScreen {
+	from {
+        -webkit-transform: translateX(120px) translateY(-400px) rotate(220deg);
+	}
+	to {
+        -webkit-transform: translateX(0px) translateY(0px) rotate(220deg);
+	}
+}
+
+@-moz-keyframes PenguinSafariAnimateOnScreen {
+	from {
+        -moz-transform: translateX(120px) translateY(-400px) rotate(220deg);
+	}
+	to {
+        -moz-transform: translateX(0px) translateY(0px) rotate(220deg);
+	}
+}
+
+
+
+/* Chrome -------------------------------------------------------------------------------- */
+
+#PenguinChromeContainer {
+    visibility: hidden;
+    position: absolute;
+	width: 480px;
+	height: 500px;
+    bottom: -0%;
+    right: -11%;
+}
+
+#PenguinChrome {
+    width: 100%;
+    height: 100%;
+    background-image: url('images/ChromePenguin.png');
+}
+
+#PenguinChromeBeakUpper {
+    position: absolute;
+    top: 206px;
+    left: 220px;
+    width: 24px;
+    height: 22px;
+    background-image: url('images/ChromePenguinBeakUpper.png');
+}
+
+#PenguinChromeBeakLower {
+    position: absolute;
+    top: 207px;
+    left: 222px;
+    width: 22px;
+    height: 30px;
+    background-image: url('images/ChromePenguinBeakLower.png');
+}
+
+.PenguinChromeSinging {
+    animation-duration: 0.812s;
+    animation-name: PenguinChromeBeakSinging;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate-reverse;
+    transform-origin: 11px 0px;
+    -webkit-animation-duration: 0.812s;
+    -webkit-animation-name: PenguinChromeBeakSinging;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-direction: alternate-reverse;
+    -webkit-transform-origin: 11px 0px;
+    -moz-animation-duration: 0.812s;
+    -moz-animation-name: PenguinChromeBeakSinging;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: ease-in-out;
+    -moz-animation-direction: alternate-reverse;
+    -moz-transform-origin: 11px 0px;
+}
+
+@keyframes PenguinChromeBeakSinging {
+	from {
+        transform: scaleY(0.752) rotate(-1deg);
+	}
+	50% {
+        transform: scaleY(1.02) rotate(-2deg);
+	}
+	75% {
+        transform: scaleY(1.04) rotate(-3deg);
+	}
+	100% {
+        transform: scaleY(0.99) rotate(-4deg);
+	}
+}
+
+@-webkit-keyframes PenguinChromeBeakSinging {
+	from {
+        -webkit-transform: scaleY(0.752) rotate(-1deg);
+	}
+	50% {
+        -webkit-transform: scaleY(1.02) rotate(-2deg);
+	}
+	75% {
+        -webkit-transform: scaleY(1.04) rotate(-3deg);
+	}
+	100% {
+        -webkit-transform: scaleY(0.99) rotate(-4deg);
+	}
+}
+
+@-moz-keyframes PenguinChromeBeakSinging {
+	from {
+        -moz-transform: scaleY(0.752) rotate(-1deg);
+	}
+	50% {
+        -moz-transform: scaleY(1.02) rotate(-2deg);
+	}
+	75% {
+        -moz-transform: scaleY(1.04) rotate(-3deg);
+	}
+	100% {
+        -moz-transform: scaleY(0.99) rotate(-4deg);
+	}
+}
+
+.PenguinChromeSilent {
+    visibility: hidden;
+}
+
+.PenguinChromeDancing {
+	animation-duration: 2.6s;
+	animation-name: PenguinChromeDancing;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+    animation-direction: alternate;
+    transform-origin: 240px 430px;
+	-webkit-animation-duration: 2.6s;
+	-webkit-animation-name: PenguinChromeDancing;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+    -webkit-animation-direction: alternate;
+    -webkit-transform-origin: 240px 430px;
+	-moz-animation-duration: 2.6s;
+	-moz-animation-name: PenguinChromeDancing;
+	-moz-animation-iteration-count: infinite;
+	-moz-animation-timing-function: linear;
+    -moz-animation-direction: alternate;
+    -moz-transform-origin: 240px 430px;
+}
+
+@keyframes PenguinChromeDancing {
+	from {
+        transform: rotate(-9deg) scale(1);
+	}
+	to {
+        transform: rotate(9deg) scale(1.001);
+	}
+}
+
+@-webkit-keyframes PenguinChromeDancing {
+	from {
+        -webkit-transform: rotate(-9deg) scale(1);
+	}
+	to {
+        -webkit-transform: rotate(9deg) scale(1.001);
+	}
+}
+
+@-moz-keyframes PenguinChromeDancing {
+	from {
+        -moz-transform: rotate(-9deg) scale(1);
+	}
+	to {
+        -moz-transform: rotate(9deg) scale(1.001);
+	}
+}
+
+.PenguinChromeAnimateOffScreen {
+	animation-duration: 0.33s;
+	animation-name: PenguinChromeAnimateOffScreen;
+	animation-iteration-count: 1;
+	animation-timing-function: linear;
+    animation-fill-mode:forwards;
+	-webkit-animation-duration: 0.33s;
+	-webkit-animation-name: PenguinChromeAnimateOffScreen;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: linear;
+    -webkit-animation-fill-mode:forwards;
+	-moz-animation-duration: 0.33s;
+	-moz-animation-name: PenguinChromeAnimateOffScreen;
+	-moz-animation-iteration-count: 1;
+	-moz-animation-timing-function: linear;
+    -moz-animation-fill-mode:forwards;
+}
+
+@keyframes PenguinChromeAnimateOffScreen {
+	from {
+        transform: translateX(0px) translateY(0px) rotate(300deg);
+	}
+	to {
+        transform: translateX(280px) translateY(335px) rotate(300deg);
+	}
+}
+
+@-webkit-keyframes PenguinChromeAnimateOffScreen {
+	from {
+        -webkit-transform: translateX(0px) translateY(0px) rotate(300deg);
+	}
+	to {
+        -webkit-transform: translateX(280px) translateY(335px) rotate(300deg);
+	}
+}
+
+@-moz-keyframes PenguinChromeAnimateOffScreen {
+	from {
+        -moz-transform: translateX(0px) translateY(0px) rotate(300deg);
+	}
+	to {
+        -moz-transform: translateX(280px) translateY(335px) rotate(300deg);
+	}
+}
+
+.PenguinChromeAnimateOnScreen {
+	animation-duration: 0.33s;
+	animation-name: PenguinChromeAnimateOnScreen;
+	animation-iteration-count: 1;
+	animation-timing-function: linear;
+    animation-fill-mode:forwards;
+	-webkit-animation-duration: 0.33s;
+	-webkit-animation-name: PenguinChromeAnimateOnScreen;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: linear;
+    -webkit-animation-fill-mode:forwards;
+	-moz-animation-duration: 0.33s;
+	-moz-animation-name: PenguinChromeAnimateOnScreen;
+	-moz-animation-iteration-count: 1;
+	-moz-animation-timing-function: linear;
+    -moz-animation-fill-mode:forwards;
+}
+
+@keyframes PenguinChromeAnimateOnScreen {
+	from {
+        transform: translateX(280px) translateY(335px) rotate(300deg);
+	}
+	to {
+        transform: translateX(0px) translateY(0px) rotate(300deg);
+	}
+}
+
+@-webkit-keyframes PenguinChromeAnimateOnScreen {
+	from {
+        -webkit-transform: translateX(280px) translateY(335px) rotate(300deg);
+	}
+	to {
+        -webkit-transform: translateX(0px) translateY(0px) rotate(300deg);
+	}
+}
+
+@-moz-keyframes PenguinChromeAnimateOnScreen {
+	from {
+        -moz-transform: translateX(280px) translateY(335px) rotate(300deg);
+	}
+	to {
+        -moz-transform: translateX(0px) translateY(0px) rotate(300deg);
+	}
+}

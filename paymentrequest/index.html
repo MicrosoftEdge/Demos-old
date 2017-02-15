@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<title>Getting Started With PaymentRequest</title>
+	<meta name="keywords" content="W3C Payment Request API, Web Payments, tutorial, samples">
+	<meta name="description" content="Getting started with the W3C Payment Request API">
+	<meta property="og:title" content="Getting started with the W3C Payment Request API">
+	<meta property="og:description" content="The W3C Payment Request API is for fast, easy payments on the web">
+	<meta property="twitter:title" content="Getting started with the W3C Payment Request API">
+	<meta property="twitter:description" content="The W3C Payment Request API is for fast, easy payments on the web">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://edgeportal.blob.core.windows.net/media/demotemplate.css"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/github.min.css">
+	<link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+	<article class="demo-content">
+
+		<header class="payment-masthead">
+			<div class="container">
+				<div class="layout layout--basic">
+					<div class="module module--primary">
+						<h1>W3C Payment Request API samples</h1>
+						<p>The Payment Request API was designed with the goal of standardizing communication across merchants, browsers, and payment methods to provide a better experience for users, and a single, consistent API for developers.</p>
+						<p>In Microsoft Edge, the Payment Request API connects to Microsoft Wallet (with the user’s permission), allowing easy access to payment information associated with the user’s Microsoft Account. The wallet can provide a faster and more consistent experience across websites, which saves shoppers time and effort by allowing them to securely share saved payment information. <a href="https://blogs.windows.com/msedgedev/2016/12/15/payment-request-api-edge/#5CwWwToEm9YiVdyQ.97">Read more about the Payment Request API on our blog</a>.</p>
+					</div>
+					<div class="module module--secondary payment-masthead__preview">
+						<img src="images/walletui-s.png" alt="Screenshot of the Wallet UI">
+					</div>
+				</div>
+			</div>
+		</header>
+		<div id="not-supported" class="container" style="display:none"></div>
+
+		<section class="section container">
+			<h2 class="section__header">Static shipping</h2>
+			<div class="section__body">
+				<div class="layout layout--basic">
+					<div class="module module--secondary">
+						<div class="ex-webframe">
+							<img class="sample-icon" src="images/icon-truck.svg" alt="" role="none" />
+							<p>A sample that accepts credit card payments and provides a couple of shipping options</p>
+							<div class="actions">
+								<button class="button--cta" id="static-shipping">Demo payment</button>
+							</div>
+						</div>
+					</div>
+					<div class="module module--primary">
+<pre class="payment-sample"><code class="javascript" id="static-shipping-sample">
+</code></pre>
+						<div class="actions">
+							<button class="button--text code-expander" aria-hidden="true" data-sample="static-shipping-sample">Expand code sample</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<hr>
+		<section class="section container">
+			<h2 class="section__header">Dynamic shipping</h2>
+			<div class="section__body">
+				<div class="layout layout--basic">
+					<div class="module module--secondary">
+						<div class="ex-webframe">
+							<img class="sample-icon" src="images/icon-airplane.svg" alt="" role="none" />
+							<p>This sample accepts credit card payments and varies the availability and price of shipping options depending on the shipping address. See how the shipping price increases when the item is being shipped outside of Washington State.</p>
+							<p>Try this Washington address in the demo:<br />
+							<strong>400 Broad St, Seattle, WA 98109</strong></p>
+							<div class="actions">
+								<button class="button--cta" id="dynamic-shipping">Demo payment</button>
+							</div>
+						</div>
+					</div>
+					<div class="module module--primary">
+<pre class="payment-sample"><code class="javascript" id="dynamic-shipping-sample">
+</code></pre>
+						<div class="actions">
+							<button class="button--text code-expander" aria-hidden="true" data-sample="dynamic-shipping-sample">Expand code sample</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<hr>
+		<section class="section container">
+			<h2 class="section__header">Digital merchandise</h2>
+			<div class="section__body">
+				<div class="layout layout--basic">
+					<div class="module module--secondary">
+						<div class="ex-webframe">
+							<img class="sample-icon" src="images/icon-digital.svg" alt="" role="none" />
+							<p>A sample that accepts credit card payments and does not request shipping information</p>
+							<div class="actions">
+								<button class="button--cta" id="no-shipping">Demo payment</button>
+							</div>
+						</div>
+					</div>
+					<div class="module module--primary">
+<pre class="payment-sample"><code class="javascript" id="no-shipping-sample">
+</code></pre>
+						<div class="actions">
+							<button class="button--text code-expander" aria-hidden="true" data-sample="no-shipping-sample">Expand code sample</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<hr>
+		<section class="section container">
+			<h2 class="section__header">Contact Info</h2>
+			<div class="section__body">
+				<div class="layout layout--basic">
+					<div class="module module--secondary">
+						<div class="ex-webframe">
+							<img class="sample-icon" src="images/icon-contact.svg" alt="" role="none" />
+							<p>A sample that accepts credit card payments and requests user's contact information</p>
+							<div class="actions">
+								<button class="button--cta" id="request-contact-info">Demo payment</button>
+							</div>
+						</div>
+					</div>
+					<div class="module module--primary">
+<pre class="payment-sample"><code class="javascript" id="request-contact-sample">
+</code></pre>
+						<div class="actions">
+							<button class="button--text code-expander" aria-hidden="true" data-sample="request-contact-sample">Expand code sample</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<hr>
+		<section class="section container">
+			<h2 class="section__header">Resources</h2>
+			<div class="section__body">
+				<ul>
+					<li><a href="https://w3c.github.io/browser-payment-api/">W3C Payment Request API Spec</a></li>
+					<li><a href="https://developer.microsoft.com/en-us/microsoft-edge/platform/documentation/dev-guide/device/payment-request-api/">Edge Payment Request API Documentation</a></li>
+					<li><a href="https://blogs.windows.com/msedgedev/2016/12/15/payment-request-api-edge/">Edge Payment Request API Blog Post</a></li>
+				</ul>
+			</div>
+		</section>
+
+	</article>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/highlight.min.js"></script>
+	<script src="scripts/samples.js"></script>
+	<script src="scripts/index.js"></script>
+</body>
+</html>

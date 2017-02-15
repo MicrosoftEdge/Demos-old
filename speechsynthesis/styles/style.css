@@ -1,0 +1,219 @@
+html {
+	font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+	font-size: 100%;
+}
+
+body {
+	background: #001129;
+}
+
+header {
+	margin: 3.5rem 1.5rem;
+	max-width: 21rem;
+}
+
+h1 {
+	color: #fff;
+	background: #002050;
+	text-align: center;
+}
+
+#container {
+	min-width: 20rem;
+	max-width: 64rem;
+	width: 60%;
+	background: #001129;
+	padding: 1rem;
+	margin: 1rem auto;
+}
+
+.speech-status {
+	position: absolute;
+	right: 1.2rem;
+	top: 4rem;
+	width: 2rem;
+	visibility: hidden;
+}
+
+#support-message {
+	position: absolute;
+	top: 0;
+	color: #fff;
+	background-color: #000;
+	left: 0;
+	padding: .7rem 0;
+	margin: 0 auto;
+	width: 100%;
+	font-size: 1rem;
+	text-align: center;
+}
+
+#support-message strong {
+	color: #4c9d4c;
+}
+
+#support-message.unSupported strong {
+	color: #800;
+}
+
+input[type="text"] {
+	box-sizing: border-box;
+	width: 100%;
+	padding: .5rem;
+	font-size: 1.2rem;
+	height: 2.5rem;
+}
+
+input[type="range"] {
+	width: 100%;
+	background-color: #001129;
+	padding: .7rem 0;
+}
+
+input[type="text"]:focus {
+	outline: 1px dashed #000;
+	outline-offset: 1px;
+}
+
+input[type="range"]:focus,
+select:focus {
+	outline: 1px dashed #fff;
+	outline-offset: 1px;
+}
+
+label {
+	float: left;
+	max-width: 6rem;
+	width: 100%;
+	font-size: 1.1rem;
+	color: #fff;
+}
+
+.custom-label {
+	position: relative;
+	width: 54rem;
+	max-width: 54rem;
+	margin: 0;
+	color: #000;
+	font-size: 1rem;
+}
+
+
+@media (min-width: 33.75em) {
+
+	label {
+		margin: 1.5rem 0;
+	}
+
+	input[type="range"] {
+		width: 75%;
+	}
+
+}
+
+.option {
+	margin-bottom: 1.5rem;
+}
+
+#buttons-container {
+	text-align: center;
+}
+
+button {
+	display: inline-block;
+	border: 1px solid #167d3e;
+	font-size: .9rem;
+	padding: .5rem .8rem;
+	background: #167d3e;
+	color: #fff;
+	font-weight: bold;
+	margin: 0 0 5px 0;
+	width: 32%;
+	text-align: center;
+}
+
+button:hover, button:focus {
+	opacity: .75;
+	cursor: pointer;
+}
+
+button {
+	transition: all ease-in .5s;
+}
+
+/* Steph Edits */
+
+#parrot-1 {
+	position: absolute;
+	width: 16%;
+	left: 0;
+	top: 30%;
+	z-index: -1;
+}
+
+#parrot-2 {
+	position: absolute;
+	width: 16%;
+	right: 0;
+	top: 50%;
+	z-index: -1;
+}
+
+#speech-bubble {
+	position: relative;
+	top: -.5rem;
+	left: 0;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 2rem 1.9rem 0 0;
+	border-color: #fff transparent transparent transparent;
+}
+
+#text-container {
+	margin: 0 0 2.2rem 0;
+	background-color: #fff;
+	border-radius: 6px;
+	padding: .7rem;
+	width: 100%;
+	max-width: 96rem;
+	height: 6rem;
+}
+
+.soundwave {
+	position: absolute;
+	bottom: 0;
+	opacity: .3;
+	z-index: -1;
+}
+
+.dropdown {
+	height: auto;
+	font-size: 1rem;
+	background-color: hsla(328, 100%, 100%, 1);
+	padding-right: 1.7rem;
+}
+
+.dropdown--voice {
+	width: 25rem;
+}
+
+.dropdown--language {
+	width: 8rem;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+	background-color: hsla(328, 100%, 100%, 1);
+}
+
+input[type=range]::-moz-range-track {
+	background-color: hsla(328, 100%, 100%, 1);
+}
+
+input[type=range]:focus::-moz-range-track {
+    background-color: #367ebd;
+}
+
+input[type=range]::-ms-track {
+	background-color: hsla(328, 100%, 100%, 1);
+}
