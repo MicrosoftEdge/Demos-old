@@ -1,0 +1,22 @@
+{
+  "name": "text-encoder-lite",
+  "version": "1.0.0",
+  "homepage": "https://github.com/coolaj86/text-encoder-lite",
+  "authors": [
+    "AJ ONeal <awesome@coolaj86.com>"
+  ],
+  "description": "Polyfill for the Encoding Living Standard's API",
+  "main": [ "index.js" ],
+  "keywords": [
+    "decoding",
+    "encoding",
+    "living",
+    "standards"
+  ],
+  "license": "Apache-2.0",
+  "ignore": [
+    "**/.*",
+    "test",
+    "*examples*.html"
+  ]
+}

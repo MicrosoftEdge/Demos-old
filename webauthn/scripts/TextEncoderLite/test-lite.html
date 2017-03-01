@@ -1,0 +1,9 @@
+<script src="index.js"></script>
+<script>
+  var te = new TextEncoderLite("UTF-8");
+  console.log(te.encode("I ½ ♥ 𩶘"));
+
+  var td = new TextDecoderLite("UTF-8");
+  //console.log(td.decode([ 73, 32, 194, 189, 32, 226, 153, 165, 32, 240, 169, 182, 152 ]));
+  console.log(td.decode(new Uint8Array([ 73, 32, 194, 189, 32, 226, 153, 165, 32, 240, 169, 182, 152 ])));
+</script>
