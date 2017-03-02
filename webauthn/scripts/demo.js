@@ -15,12 +15,17 @@
 	const buttonSetupWinHello = document.getElementById('idButton_SetupWinHello');
 	const divSetupwWinHello = document.getElementById('idDiv_SetupWindowsHello');
 
-	/*
-		The following function utf8ToBytes, utf8Slice, and decodeUtf8Char comes from TextEncoderLite:
-	 		https://github.com/coolaj86/TextEncoderLite
-	 	Thank you coolaj.86 and Feross et al! :-)
-		The TextEncoderLite is licensed under the Apache License, Version 2.0 (the "License"); you may not use these files except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
-	*/
+	/* eslint-disable */
+
+		// License and other comments
+		// library code
+
+		/*
+			The following function utf8ToBytes, utf8Slice, and decodeUtf8Char comes from TextEncoderLite:
+	 			https://github.com/coolaj86/TextEncoderLite
+	 		Thank you coolaj.86 and Feross et al! :-)
+			The TextEncoderLite is licensed under the Apache License, Version 2.0 (the "License"); you may not use these files except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+		*/
 
 	const utf8ToBytes = function (string, units) {
 		units = units || Infinity
@@ -102,6 +107,8 @@
 
 		return bytes
 	}
+
+	/* eslint-enable */
 
 
 	const gotoHome = function() {
