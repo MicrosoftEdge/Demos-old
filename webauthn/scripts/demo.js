@@ -1,7 +1,7 @@
 (function () {
 	'use strict';
 
-	const credAlgorithm = 'RSASSA-PKCS1-v1_5';
+	const credAlgorithm = 'RS256';
 
 	const buttonLogon = document.getElementById('idButton_Logon');
 	const buttonLogonWWinHello = document.getElementById('idButton_LogonWWinHello');
