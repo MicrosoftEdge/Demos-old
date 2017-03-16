@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", function() {
       window[this.id]();
     });
   };
+
+  featureDetectFloatCalc();
 });
 
 var night = function() {
@@ -70,4 +72,14 @@ function getVars(variables) {
   }, this);
 
   code.textContent = text;
+}
+
+function featureDetectFloatCalc() {
+  var fd = document.getElementById('feature-detection');
+  var noCalc = document.getElementsByClassName('no-rgb-calc')[0];
+  var bc = window.getComputedStyle(fd).getPropertyValue('background-color');
+
+  if(bc == "rgba(0, 0, 0, 0)" || bc == "transparent") {
+    noCalc.style.display = "block";
+  }
 }

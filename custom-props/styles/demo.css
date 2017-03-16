@@ -64,7 +64,7 @@ code
 {
     position: relative;
 
-    width: 90%;
+    width: 70%;
     margin: auto;
 }
 
@@ -74,6 +74,25 @@ svg#container
 
     border: 2px solid white;
     background: linear-gradient(to bottom, var(--sky-start), var(--sky-end) 25%);
+}
+
+#feature-detection {
+    background-color: rgb(calc(250 * .01), calc(250 * .01), calc(250 * .01));
+}
+
+#feature-detection .no-vars,
+#feature-detection .no-rgb-calc {
+    background: #FE4365;
+    padding: 10px;
+    font-size: 1.5em;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+#feature-detection .no-rgb-calc {
+    display: none;
 }
 
 /* UI */
@@ -699,5 +718,11 @@ svg#container
     .thumbnails {
         flex-direction: row;
         flex: 0 1 auto;
+    }
+}
+
+@supports (--custom: "supports css variables") {
+    #feature-detection .no-vars {
+        display: none;
     }
 }

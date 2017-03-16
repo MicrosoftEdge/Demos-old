@@ -10,8 +10,13 @@
 	
 	<link rel="stylesheet" href="styles/demo.css">
 </head>
-<body>
+<body>        
         <section id="wrapper" role="presentation">
+            <div id="feature-detection">
+                <div class="no-vars">This demo requires CSS Custom Property support</div>
+                <div class="no-rgb-calc">This demo works best with calc() support of float values within rgb()</div>
+            </div>
+
             <section role="img" class="day" id="custom-prop-image" aria-label="A pooch wags its tail in a city park.">
                 <?xml version="1.0" encoding="utf-8"?>
                 <!-- Generator: Adobe Illustrator 21.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
@@ -1589,7 +1594,7 @@
             </aside>
         </section><!-- wrapper -->
 
-        
+
     <!-- #Assets -->
     <script type="text/javascript" src="script.js"></script>
 	<!-- Adds a universal header to the top of the page -->
