@@ -47,10 +47,7 @@ body {
     flex-direction: column;
     background: #eee;
     justify-content: center;
-}
-
-body > * {
-    outline: 3px solid red;
+    height: 100vh;
 }
 
 code {
@@ -63,7 +60,7 @@ code {
 
 #wrapper {
     width: 80%;
-    height: 50%;
+    min-height: 50%;
     margin: auto;
     position: relative;
 }
