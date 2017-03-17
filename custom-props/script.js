@@ -12,9 +12,11 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   };
 
+  // Do feature detection for custom props and float support in calc()
   featureDetectFloatCalc();
 });
 
+// Change custom props to night
 var night = function() {
   vars = [
     {name: "--sky-start", value: "rgb(100, 75, 128)"},
@@ -35,6 +37,7 @@ var night = function() {
   getVars(vars);
 }
 
+// Change custom props to day
 var day = function() {
   vars = [
     {name: "--dog-coat-r-mod", value: 0},
@@ -58,12 +61,17 @@ var day = function() {
   getVars(vars);
 }
 
+// Set Vars 
+// This will loop over the variables and set them
 function setVars(variables) {
   variables.forEach(function(prop) {
     rootStyle.setProperty(prop.name, prop.value);
   }, this);
 }
 
+// Get Vars
+// This will fetch the variables on the root and then
+// put them in the UI to show their current values
 function getVars(variables) {
   var text = "";
   variables.forEach(function (prop) {
@@ -74,6 +82,8 @@ function getVars(variables) {
   code.textContent = text;
 }
 
+// Feature Detect Float in noCalc
+// This will determine if you support floats inside of calc
 function featureDetectFloatCalc() {
   var fd = document.getElementById('feature-detection');
   var noCalc = document.getElementsByClassName('no-rgb-calc')[0];
