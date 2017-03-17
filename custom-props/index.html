@@ -13,15 +13,15 @@
 <body>        
         <section id="wrapper" role="presentation">
             <div id="feature-detection">
-                <div class="no-vars">This demo requires CSS Custom Property support</div>
-                <div class="no-rgb-calc">This demo works best with calc() support of float values within rgb()</div>
+                <div class="no-vars" role="heading">Warning: demo requires CSS Custom Property support</div>
+                <div class="no-rgb-calc" role="heading">Warning: This demo works best with calc() support of float values within rgb()</div>
             </div>
 
             <section role="img" class="day" id="custom-prop-image" aria-label="A pooch wags its tail in a city park.">
                 <?xml version="1.0" encoding="utf-8"?>
                 <!-- Generator: Adobe Illustrator 21.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
                 <svg id="container" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                    viewBox="0 0 1300 750" preserveAspectRatio="xMaxYMin" style="enable-background:new 0 0 1300 750;">
+                    viewBox="0 0 1300 750" aria-hidden="true" preserveAspectRatio="xMaxYMin" style="enable-background:new 0 0 1300 750;">
                 <g id="lightsource">
                     <g id="primary-circle">
                         <circle r="87" cx="861" class="light-source" cy="134" />
@@ -1572,8 +1572,8 @@
                         <h2 aria-label="Environment: Switch the time of day and watch the environment change via custom properties">Environment</h2>
                     </header>
                     <div class="thumbnails" role="presentation">
-                        <img src="img/night_scene.png" id="night" role="button" alt="Night" aria-label="Select this to switch to night time" />
-                        <img src="img/day_scene.png" id="day" role="button" alt="Day" aria-label="Select this to switch to day time" />
+                        <img src="img/night_scene.png" id="night" role="option" alt="Night" aria-label="Select this to switch to night time" />
+                        <img src="img/day_scene.png" id="day"  aria-selected="true" role="option" alt="Day" aria-label="Select this to switch to day time" />
                     </div>
                 </section>
                 <section id="results" role="presentation">

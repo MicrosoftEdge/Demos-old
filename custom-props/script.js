@@ -18,6 +18,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // Change custom props to night
 var night = function() {
+  nButton.setAttribute('aria-selected', "true");
+  dButton.setAttribute('aria-selected', "false");
   vars = [
     {name: "--sky-start", value: "rgb(100, 75, 128)"},
     {name: "--sky-end", value: "rgb(45, 45, 81)"},
@@ -39,6 +41,8 @@ var night = function() {
 
 // Change custom props to day
 var day = function() {
+  nButton.setAttribute('aria-selected', "false");
+  dButton.setAttribute('aria-selected', "true");
   vars = [
     {name: "--dog-coat-r-mod", value: 0},
     {name: "--dog-coat-g-mod", value: 0},
