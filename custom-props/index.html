@@ -1594,16 +1594,56 @@
             </aside>
         </section><!-- wrapper -->
 
+        <article>
+            <p class="subhead">Custom properties in Microsoft Edge</p>
+            <p>Custom properties are a very powerful tool for web developers to create
+                amazing web experiences on the web. We'll take a quick look at how we built this demo.
+                If you don't know what custom properties are or how they work, we suggest reading our blog post "CSS Custom Properties in Microsoft Edge"
+                which covers them in detail.</p>
+
+            <p class="subhead">Deciding on the demo</p>
+
+            <p>When discussing various demo ideas for custom properties we wanted
+            to highlight what can be done by cascading the values. One of the things we considered would be
+            powerful is color math as you can have one value impact any colors that utilize the custom property.
+            We decided to utilize this approach for changing the time of day as one of the most noticeable changes in your
+            surrounding environment throughought the day is the change of colors from warm to cool (depending on the amount of sun of course).</p>
+
+            <p class="subhead">Creating the feel of day to night</p>
+            <p>In order to do this, designer Stephanie Drescher, worked out the various levels that
+                had similiar color values and could be adjusted together. The percentage change was provided
+                to Greg Whitworth who applied these to rgb() modifiers of the custom properties in the demo. 
+                Here's an example of the building custom properties:</p>
+
+            <script src="https://gist.github.com/gregwhitworth/c109a0fba0583393aca594acd25de8b6.js"></script>
+            
+            <p>And then to utilize this on one of the buildings we do the following:</p>
+
+            <script src="https://gist.github.com/gregwhitworth/cdc73ff44073ceffee2712255fcf93df.js"></script>
+
+            <p class="subhead">Changing the time of day</p>
+            
+            <p>In order for you to be able to click the button and have it switch we needed to utilize setProperty() method. Since we have
+                many custom properties, we created an array of name/value pairs and passed it to a function to update all of them. Here is the code
+                to change from day to night:</p>
+
+            <script src="https://gist.github.com/gregwhitworth/8a9827e1ee8b10c3cd9e36d604cce667.js"></script>
+
+            <p class="subhead">Animating the dog's tail</p>
+            <p>Another aspect of custom properties we wanted our demo to highlight was that you can animate a custom property.
+               However, since custom properties can't be interpolated we needed an animation that would look fine without interpolation.
+               We discussed this, and decided to make the dog's tail wag because this occurs quickly in real life so your brain fills in the gaps
+               even though it isn't interpolating.</p>
+
+            <p>Here is the code for the dog's tail:</p>
+
+            <script src="https://gist.github.com/gregwhitworth/1a832b4956db34d4d32f6b9228b321d2.js"></script>
+
+        </article>
 
     <!-- #Assets -->
     <script type="text/javascript" src="script.js"></script>
 	<!-- Adds a universal header to the top of the page -->
 	<script src="https://msedgecdn.azurewebsites.net/scripts/demo-header.js"></script>
-</body>
-</html>
-
-
-
-    
 </body>
 </html>

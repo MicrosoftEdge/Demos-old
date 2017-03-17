@@ -35,16 +35,13 @@
 /* Base */
 body
 {
-    display: flex;
-    flex-direction: column;
-
-    height: 100vh;
-    margin: 0;
-    padding: 0;
+    min-height: 100vh;
 
     background: #eee;
 
     justify-content: center;
+
+    font-family: 'Segoe UI', sans-serif;
 }
 
 code
@@ -65,7 +62,7 @@ code
     position: relative;
 
     width: 70%;
-    margin: auto;
+    margin: 10px auto;
 }
 
 svg#container
@@ -76,6 +73,22 @@ svg#container
     background: linear-gradient(to bottom, var(--sky-start), var(--sky-end) 25%);
 }
 
+/* Article */
+article {
+    width: 50%;
+    margin: 10px auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+article .subhead {
+    background: none;
+    font-size: 1.5em;
+    color: #666;
+}
+
+/* Feature Detection */
+
 #feature-detection {
     background-color: rgb(calc(250 * .01), calc(250 * .01), calc(250 * .01));
 }
@@ -85,8 +98,7 @@ svg#container
     background: #FE4365;
     padding: 10px;
     font-size: 1.5em;
-    color: white;
-    font-family: 'Segoe UI', sans-serif;
+    color: white;    
     border-radius: 10px;
     margin-bottom: 5px;
 }
@@ -685,6 +697,10 @@ svg#container
         margin: 20px auto;
     }
 
+    article {
+        width: 80%;
+    }
+
     /* UI */
     #ui
     {
@@ -707,6 +723,10 @@ svg#container
 @media screen and (max-width: 650px) { 
 
     /* UI */
+    article {
+        width: 80%;
+    }
+    
     #ui {
         display: block;
     }
