@@ -1601,52 +1601,54 @@
             </aside>
         </section><!-- wrapper -->
 
-        <article>
-            <p class="subhead">Custom properties in Microsoft Edge</p>
-            <p>Custom properties are a very powerful tool for web developers to create
-                amazing web experiences.
-                If you don't know what custom properties are or how they work, we suggest reading our blog post <span style="background: yellow;">CSS Custom Properties in Microsoft Edge" [LINK]</span>
-                which covers them in detail.</p>
+        <section id="article-wrapper">
+            <article>
+                <p class="subhead" role="heading"> properties in Microsoft Edge</p>
+                <p>Custom properties are a very powerful tool for web developers to create
+                    amazing web experiences.
+                    If you don't know what custom properties are or how they work, we suggest reading our blog post <span style="background: yellow;">CSS Custom Properties in Microsoft Edge" [LINK]</span>
+                    which covers them in detail.</p>
 
-            <p class="subhead">Deciding on the demo</p>
+                <p class="subhead" role="heading">Deciding on the demo</p>
 
-            <p>When discussing the various demo ideas for custom properties we wanted to ensure it covered the major benefits of custom properties; cascade, dynamic update, animatable. 
-            One of the things we realized where custom properties are really powerful is color math within color functions.
-            We decided to utilize this approach for changing the time of day because one of the most noticeable changes in your
-            surrounding environment throughought the day is the change of colors from warm to cool (depending on the amount of sun of course).</p>
+                <p>When discussing the various demo ideas for custom properties we wanted to ensure it covered the major benefits of custom properties; cascade, dynamic update, animatable. 
+                One of the things we realized where custom properties are really powerful is color math within color functions.
+                We decided to utilize this approach for changing the time of day because one of the most noticeable changes in your
+                surrounding environment throughought the day is the change of colors from warm to cool (depending on the amount of sun of course).</p>
 
-            <p class="subhead">Creating the feel of day to night</p>
-            <p>In order to do this, designer Stephanie Drescher, worked out the various levels that
-                had similiar color values and could be adjusted together. 
-                These levels within the illustration and their percentage adjustment were provided
-                to Greg Whitworth who applied these to rgb() modifiers of the custom properties. 
-                Here's an example of one of these levels and its associated rgb() custom property modifiers:</p>
+                <p class="subhead" role="heading">Creating the feel of day to night</p>
+                <p>In order to do this, designer Stephanie Drescher, worked out the various levels that
+                    had similiar color values and could be adjusted together. 
+                    These levels within the illustration and their percentage adjustment were provided
+                    to Greg Whitworth who applied these to rgb() modifiers of the custom properties. 
+                    Here's an example of one of these levels and its associated rgb() custom property modifiers:</p>
 
-            <script src="https://gist.github.com/gregwhitworth/c109a0fba0583393aca594acd25de8b6.js"></script>
-            
-            <p>And then to utilize this on one of the buildings we do the following:</p>
+                <script src="https://gist.github.com/gregwhitworth/c109a0fba0583393aca594acd25de8b6.js"></script>
+                
+                <p>And then to utilize this on one of the buildings we do the following:</p>
 
-            <script src="https://gist.github.com/gregwhitworth/cdc73ff44073ceffee2712255fcf93df.js"></script>
+                <script src="https://gist.github.com/gregwhitworth/cdc73ff44073ceffee2712255fcf93df.js"></script>
 
-            <p class="subhead">Changing the time of day</p>
-            
-            <p>In order for you to be able to click the button and have it switch we needed to utilize the setProperty() method. Since we have
-                many custom properties, we created an array of name/value pairs and passed it to a function to update all of them. Here is the code
-                to change from day to night:</p>
+                <p class="subhead" role="heading">Changing the time of day</p>
+                
+                <p>In order for you to be able to click the button and have it switch we needed to utilize the setProperty() method. Since we have
+                    many custom properties, we created an array of name/value pairs and passed it to a function to update all of them. Here is the code
+                    to change from day to night:</p>
 
-            <script src="https://gist.github.com/gregwhitworth/8a9827e1ee8b10c3cd9e36d604cce667.js"></script>
+                <script src="https://gist.github.com/gregwhitworth/8a9827e1ee8b10c3cd9e36d604cce667.js"></script>
 
-            <p class="subhead">Animating the dog's tail</p>
-            <p>Another aspect of custom properties we wanted our demo to highlight was that you can animate a custom property.
-               However, since custom properties can't be interpolated we needed an animation that would look fine without interpolation.
-               We discussed this, and decided to make the dog's tail wag because this occurs quickly in real life so your brain fills in the gaps
-               even though it isn't interpolating. We did this for the twinkling stars and window lights turning on and off as well.</p>
+                <p class="subhead" role="heading">Animating the dog's tail</p>
+                <p>Another aspect of custom properties we wanted our demo to highlight was that you can animate a custom property.
+                However, since custom properties can't be interpolated we needed an animation that would look fine without interpolation.
+                We discussed this, and decided to make the dog's tail wag because this occurs quickly in real life so your brain fills in the gaps
+                even though it isn't interpolating. We did this for the twinkling stars and window lights turning on and off as well.</p>
 
-            <p>Here is the code for the dog's tail:</p>
+                <p>Here is the code for the dog's tail:</p>
 
-            <script src="https://gist.github.com/gregwhitworth/1a832b4956db34d4d32f6b9228b321d2.js"></script>
+                <script src="https://gist.github.com/gregwhitworth/1a832b4956db34d4d32f6b9228b321d2.js"></script>
 
-        </article>
+            </article>
+        </section>
 
     <!-- #Assets -->
     <script type="text/javascript" src="script.js"></script>

@@ -73,14 +73,14 @@ svg#container
 }
 
 /* Article */
-article {
+#article-wrapper {
     width: 50%;
     margin: 10px auto;
     padding: 20px;
     box-sizing: border-box;
 }
 
-article .subhead {
+#article-wrapper .subhead {
     background: none;
     font-size: 1.5em;
     color: #666;
@@ -684,7 +684,7 @@ article .subhead {
         left: 0;
     }
 
-    article {
+    #article-wrapper {
         width: 80%;
     }
 
@@ -710,7 +710,7 @@ article .subhead {
 @media screen and (max-width: 650px) { 
 
     /* UI */
-    article {
+    #article-wrapper {
         width: 80%;
     }
 
