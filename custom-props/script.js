@@ -2,7 +2,7 @@
 
 	const nButton = document.getElementById('night');
 	const dButton = document.getElementById('day');
-	const code = document.getElementById('code');
+	const codez = document.getElementById('code');
 	const buttons = [nButton, dButton];
 	const rootStyle = document.documentElement.style;
 	let vars = [];
@@ -30,7 +30,7 @@
 			text += '\n';
 		});
 
-		code.textContent = text;
+		codez.textContent = text;
 	};
 
 	// Feature Detect Float in noCalc
@@ -48,7 +48,7 @@
 	};
 
 		// Change custom props to night
-	const night = function() {
+	const changeToNight = function() {
 		'use strict';
 
 		nButton.setAttribute('aria-selected', 'true');
@@ -74,7 +74,7 @@
 	};
 
 	// Change custom props to day
-	const day = function() {
+	const changeToDay = function() {
 		'use strict';
 
 		nButton.setAttribute('aria-selected', 'false');
@@ -108,9 +108,9 @@
 		for (let i = 0; i < buttons.length; i++) {
 			buttons[i].addEventListener('click', function() {
 				if (buttons[i].id === 'night') {
-					night();
+					changeToNight();
 				}				else {
-					day();
+					changeToDay();
 				}
 			});
 		}

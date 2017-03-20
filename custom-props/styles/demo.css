@@ -30,6 +30,8 @@
     --ui-dark: rgb(51, 32, 25);
     --ui-med: rgb(123, 109, 97);
     --ui-header: linear-gradient(rgb(74, 47, 37), var(--ui-dark));
+
+    --fd-color: .01;
 }
 
 /* Base */
@@ -70,6 +72,8 @@ svg#container
     transition: background 1s;
 
     background: linear-gradient(to bottom, var(--sky-start), var(--sky-end) 25%);
+
+    position: relative;
 }
 
 /* Article */
@@ -89,7 +93,7 @@ svg#container
 /* Feature Detection */
 
 #feature-detection {
-    background-color: rgb(calc(250 * .01), calc(250 * .01), calc(250 * .01));
+    background-color: rgb(calc(250 * var(--fd-color)), calc(250 * var(--fd-color)), calc(250 * var(--fd-color)));
 }
 
 #feature-detection .no-vars,
@@ -98,7 +102,6 @@ svg#container
     padding: 10px;
     font-size: 1.5em;
     color: white;    
-    border-radius: 10px;
     margin-bottom: 5px;
 }
 
