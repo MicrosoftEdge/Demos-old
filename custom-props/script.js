@@ -3,7 +3,9 @@
 	const nButton = document.getElementById('night');
 	const dButton = document.getElementById('day');
 	const codez = document.getElementById('code');
-	const buttons = [nButton, dButton];
+	const toggleAnimationButton = document.getElementById('toggleAnimations');
+	const buttons = [nButton, dButton, toggleAnimationButton];
+	const bodyEl = document.getElementsByTagName('body')[0];
 	const rootStyle = document.documentElement.style;
 	let vars = [];
 
@@ -32,6 +34,22 @@
 
 		codez.textContent = text;
 	};
+
+	// Toggle Animations
+	// For a11y reasons we need to provide a way for users
+	// to pause/start all animations.
+	const toggleAnimations = function(elem) {
+		'use strict';
+		
+		if(bodyEl.classList.contains('noAnimations')) {
+			bodyEl.classList.remove('noAnimations');
+			elem.textContent = "Pause Animations";
+		}
+		else {
+			bodyEl.classList.add('noAnimations');
+			elem.textContent = "Start Animations";
+		}
+	}
 
 	// Feature Detect Float in noCalc
 	// This will determine if you support floats inside of calc
@@ -109,8 +127,12 @@
 			buttons[i].addEventListener('click', function() {
 				if (buttons[i].id === 'night') {
 					changeToNight();
-				}				else {
+				}
+				else if (buttons[i].id === 'day') {
 					changeToDay();
+				}
+				else if (buttons[i].id == 'toggleAnimations') {
+					toggleAnimations(buttons[i]);
 				}
 			});
 		}

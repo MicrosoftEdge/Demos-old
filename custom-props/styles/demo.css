@@ -73,57 +73,74 @@
 body
 {
     min-height: 100vh;
-
     font-family: 'Segoe UI', sans-serif;
+}
+
+body.noAnimations * {
+    transition: none !important;
+    animation: none !important;
 }
 
 code
 {
     display: block;
-
-    padding: 5px;    
-
+    padding: 5px;
     color: #000;
-
     white-space: pre-wrap;
-
     font-size: 1em;
 }
 
-#wrapper
+#wrapper,
+#a11y-button-wrapper
 {
     position: relative;
-
-    padding: 0 1.25em;
-
     max-width: 1200px;
-
     margin: 2em auto;
+    box-sizing: border-box;
 }
 
 #container
 {
     background: linear-gradient(to bottom, var(--sky-start), var(--sky-end) 25%);
-
     transition: background 1s;
+}
+
+#a11y-button-wrapper {
+    margin: 1em auto;
+}
+
+#toggleAnimations {
+    float: right;
+    box-sizing: border-box;
+}
+
+#toggleAnimations,
+#article-wrapper a {    
+    border: 0;
+    border-bottom: 1px solid transparent;   
+	background: transparent;
+    color: #0078d7;
+	font: 400 1em/1.5 "Segoe UI", Segoe, "Segoe WP", "Lucida Grande", "Lucida Sans", Verdana, sans-serif;	
+	text-decoration: none;
+    cursor: pointer;    	
+}
+
+#toggleAnimations:hover,
+#article-wrapper a:hover {
+    border-bottom-color: currentColor;
 }
 
 /* Article */
 #article-wrapper {
     width: 50%;
-
     margin: 1em auto;
-
     padding: 20px;
-
     box-sizing: border-box;
 }
 
 #article-wrapper .subhead {
     background: none;
-
     color: #000;
-
     font-size: 1.5em;
 }
 
@@ -137,13 +154,9 @@ code
 #feature-detection .no-rgb-calc 
 {
     padding: 10px;
-
-    margin-bottom: .2em;
-    
-    background: #FE4365;
-    
+    margin-bottom: .2em;    
+    background: #FE4365;    
     color: #fff;
-
     font-size: 1.5em;
 }
 
@@ -156,62 +169,49 @@ code
 
 #ui
 {
-    position: absolute;
-    
-    right: 0;
-    
-    bottom: 5px;
-    
+    position: absolute;    
+    right: 0;    
+    bottom: 5px;    
     box-sizing: border-box;
-
     background: var(--ui-header);
 }
 
 .subhead
 {   
     color: #fff;
-
     background: var(--ui-header);
-
     font-family: 'Segoe UI Semilight', 'Segoe UI', sans-serif;
 }
 
 #ui .subhead
 {
     margin: 0;
-
     padding: .25em;
 }
 
 #ui section
 {
     border: 5px solid var(--ui-dark);
-
     background: var(--ui-med);
 }
 
 .thumbnails
 {
     display: flex;
-
     width: 100%;
-
     padding: 4px;
 }
 
 .thumbnails img
 {
-    margin: 2px; 
-
-    flex: 0 1 auto;   
-
+    margin: 2px;
+    flex: 0 1 auto;
     border: 2px solid var(--ui-dark);
 }
 
 .thumbnails img:hover
 {
     border-color: #fff;
-
     cursor: pointer;
 }
 
@@ -219,14 +219,12 @@ code
 .light-source
 {
     fill: var(--light-source);
-
     opacity: .75;
 }
 
 .sunray-container
 {
     clip-path: url(#SVGID_2_);
-
     opacity: .43;
 }
 
@@ -250,44 +248,32 @@ code
 
 .clouds
 {
-    position: absolute;
-    
+    position: absolute;    
     --cloud-left: 0;
-
     left: var(--cloud-left);
-
-    width: 100%;    
-
+    width: 100%;
     fill: rgb(
     calc(249 + var(--light-r-mod)),
     calc(223 + var(--light-g-mod)),
     calc(185 + var(--light-b-mod))
     );
-
     transition: all;
-
     transition-timing-function: linear;
-
     animation: floatClouds 300s infinite;
 }
 
 .stars
 {
     --star-opacity: .7;
-
     display: var(--show-stars);
-
     opacity: var(--star-opacity);
-
     transition: all 5s;    
 }
 
 .stars__twinkle
 {
     --star-opacity: .7;
-
-    opacity: var(--star-opacity);   
-
+    opacity: var(--star-opacity);
     animation: twinkle 5s infinite;
 }
 
@@ -653,9 +639,7 @@ code
 .tail
 {
     transform: translateY(10px) rotate(var(--tail-rotate));
-
     transform-origin: 60% 84%;
-
     animation: wagTail 250ms infinite;
 }
 
@@ -725,7 +709,6 @@ code
     body 
     {
         padding: 20px;
-
         height: auto;
     }
 
@@ -748,21 +731,18 @@ code
     #ui
     {
         display: flex;
-
         position: static;        
     }
 
     #results 
     {
         border-left-width: 0 !important;
-
         flex: 1 1 auto;        
     }
 
     .thumbnails 
     {
         width: auto;
-
         flex-direction: column;        
     }
 }
@@ -793,7 +773,6 @@ code
     .thumbnails 
     {
         flex-direction: row;
-
         flex: 0 1 auto;
     }
 }
