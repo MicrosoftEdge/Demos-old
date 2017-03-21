@@ -40,16 +40,15 @@
 	// to pause/start all animations.
 	const toggleAnimations = function(elem) {
 		'use strict';
-		
-		if(bodyEl.classList.contains('noAnimations')) {
+
+		if (bodyEl.classList.contains('noAnimations')) {
 			bodyEl.classList.remove('noAnimations');
-			elem.textContent = "Pause Animations";
-		}
-		else {
+			elem.textContent = 'Pause Animations';
+		}		else {
 			bodyEl.classList.add('noAnimations');
-			elem.textContent = "Start Animations";
+			elem.textContent = 'Start Animations';
 		}
-	}
+	};
 
 	// Feature Detect Float in noCalc
 	// This will determine if you support floats inside of calc
@@ -127,11 +126,9 @@
 			buttons[i].addEventListener('click', function() {
 				if (buttons[i].id === 'night') {
 					changeToNight();
-				}
-				else if (buttons[i].id === 'day') {
+				}				else if (buttons[i].id === 'day') {
 					changeToDay();
-				}
-				else if (buttons[i].id == 'toggleAnimations') {
+				}				else if (buttons[i].id === 'toggleAnimations') {
 					toggleAnimations(buttons[i]);
 				}
 			});
