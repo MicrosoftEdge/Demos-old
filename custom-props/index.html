@@ -23,18 +23,14 @@
 
             <aside id="ui"  role="presentation">        
                 <section id="environment" role="presentation">
-                    <header class="subhead" role="presentation">
-                        <h2 aria-label="Environment: Switch the time of day and watch the environment change via custom properties">Environment</h2>
-                    </header>
+                    <h2 class="subhead" aria-label="Environment: Switch the time of day and watch the environment change via custom properties">Environment</h2>
                     <div class="thumbnails" role="presentation">
                         <img src="img/night_scene.png" id="night" role="option" alt="Night" aria-label="Select this to switch to night time" />
                         <img src="img/day_scene.png" id="day"  aria-selected="true" role="option" alt="Day" aria-label="Select this to switch to day time" />
                     </div>
                 </section>
                 <section id="results" role="presentation">
-                    <header class="subhead">
-                        <h2>Custom props modified</h2>
-                    </header>
+                    <h2 class="subhead">Custom props modified</h2>
                     <code id="code">--dog-coat-r-mod: 0;
 --dog-coat-g-mod: 0;
 --dog-coat-b-mod: 0;
@@ -58,20 +54,20 @@
 
         <section id="article-wrapper">
             <article>
-                <p class="subhead" role="heading">Custom properties in Microsoft Edge</p>
+                <h4 class="subhead">Custom properties in Microsoft Edge</h4>
                 <p>Custom properties are a very powerful tool for web developers to create
                     amazing web experiences.
                     If you don't know what custom properties are or how they work, we suggest reading our blog post <span style="background: yellow;">CSS Custom Properties in Microsoft Edge" [LINK]</span>
                     which covers them in detail.</p>
 
-                <p class="subhead" role="heading">Deciding on the demo</p>
+                <h4 class="subhead">Deciding on the demo</h4>
 
                 <p>When discussing the various demo ideas for custom properties we wanted to ensure it covered the major benefits of custom properties; cascade, dynamic update, animatable. 
                 One of the things we realized where custom properties are really powerful is color math within color functions.
                 We decided to utilize this approach for changing the time of day because one of the most noticeable changes in your
                 surrounding environment throughought the day is the change of colors from warm to cool (depending on the amount of sun of course).</p>
 
-                <p class="subhead" role="heading">Creating the feel of day to night</p>
+                <h4 class="subhead">Creating the feel of day to night</h4>
                 <p>In order to do this, designer Stephanie Drescher, worked out the various levels that
                     had similiar color values and could be adjusted together. 
                     These levels within the illustration and their percentage adjustment were provided
@@ -84,7 +80,7 @@
 
                 <script src="https://gist.github.com/gregwhitworth/cdc73ff44073ceffee2712255fcf93df.js"></script>
 
-                <p class="subhead" role="heading">Changing the time of day</p>
+                <h4 class="subhead">Changing the time of day</h4>
                 
                 <p>In order for you to be able to click the button and have it switch we needed to utilize the setProperty() method. Since we have
                     many custom properties, we created an array of name/value pairs and passed it to a function to update all of them. Here is the code
@@ -92,7 +88,7 @@
 
                 <script src="https://gist.github.com/gregwhitworth/8a9827e1ee8b10c3cd9e36d604cce667.js"></script>
 
-                <p class="subhead" role="heading">Animating the dog's tail</p>
+                <h4 class="subhead">Animating the dog's tail</h4>
                 <p>Another aspect of custom properties we wanted our demo to highlight was that you can animate a custom property.
                 However, since custom properties can't be interpolated we needed an animation that would look fine without interpolation.
                 We discussed this, and decided to make the dog's tail wag because this occurs quickly in real life so your brain fills in the gaps
