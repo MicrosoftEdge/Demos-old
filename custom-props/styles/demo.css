@@ -97,12 +97,14 @@ code
     max-width: 1200px;
     margin: 2em auto;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 #container
 {
     background: linear-gradient(to bottom, var(--sky-start), var(--sky-end) 25%);
     transition: background 1s;
+    overflow: hidden;
 }
 
 #a11y-button-wrapper {
@@ -148,7 +150,8 @@ code
 /* Feature Detection */
 
 #feature-detection {
-    background-color: rgb(calc(250 * .01), calc(250 * .01), calc(250 * .01));
+    --feature-detect: .01;
+    background-color: rgb(calc(250 * var(--feature-detect)), calc(250 * var(--feature-detect)), calc(250 * var(--feature-detect)));
 }
 
 #feature-detection .no-vars,
