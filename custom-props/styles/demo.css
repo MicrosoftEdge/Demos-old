@@ -118,6 +118,7 @@ code
 #article-wrapper a {    
     border: 0;
     border-bottom: 1px solid transparent;   
+    padding: 0;
 	background: transparent;
     color: #0078d7;
 	font: 400 1em/1.5 "Segoe UI", Segoe, "Segoe WP", "Lucida Grande", "Lucida Sans", Verdana, sans-serif;	
@@ -181,6 +182,7 @@ code
     color: #fff;
     background: var(--ui-header);
     font-family: 'Segoe UI Semilight', 'Segoe UI', sans-serif;
+    font-weight: 300;
 }
 
 #ui .subhead
@@ -249,8 +251,9 @@ code
 .clouds
 {
     position: absolute;    
-    --cloud-left: 0;
+    --cloud-left: 120%;
     left: var(--cloud-left);
+    top: -30px;
     width: 100%;
     fill: rgb(
     calc(249 + var(--light-r-mod)),
@@ -259,7 +262,7 @@ code
     );
     transition: all;
     transition-timing-function: linear;
-    animation: floatClouds 300s infinite;
+    animation: floatClouds 200s infinite;
 }
 
 .stars
@@ -679,7 +682,7 @@ code
 {
     from
     {
-        left: 85%;
+        left: 80%;
     }
     to
     {
