@@ -38,7 +38,7 @@
 	// Toggle Animations
 	// For a11y reasons we need to provide a way for users
 	// to pause/start all animations.
-	const toggleAnimations = function(elem) {
+	const toggleAnimationz = function(elem) {
 		'use strict';
 
 		if (bodyEl.classList.contains('noAnimations')) {
@@ -129,7 +129,7 @@
 				}				else if (buttons[i].id === 'day') {
 					changeToDay();
 				}				else if (buttons[i].id === 'toggleAnimations') {
-					toggleAnimations(buttons[i]);
+					toggleAnimationz(buttons[i]);
 				}
 			});
 		}
