@@ -1,0 +1,792 @@
+:root
+{
+    --dog-coat-r-mod: 0;
+    --dog-coat-g-mod: 0;
+    --dog-coat-b-mod: 0;
+    --dog__light: rgb(166, 125, 83);
+    --park-r-mod: 0;
+    --park-g-mod: 0;
+    --park-b-mod: 0;
+    --building-r-mod: 0;
+    --building-g-mod: 0;
+    --building-b-mod: 0;
+    --light-r-mod: 0;
+    --light-g-mod: 0;
+    --light-b-mod: 0;
+    --light-source: rgb(245, 169, 95);
+    --show-stars: none;
+    --sky-start: rgb(95, 171, 217);
+    --sky-end: rgb(216, 150, 115);
+    --window-color: rgb(
+                        calc(89 + (89 * var(--building-r-mod))),
+                        calc(61 + (61 * var(--building-g-mod))),
+                        calc(66 + (66 * var(--building-b-mod)))
+                        );
+    --window-lights-color: rgb(
+                            calc(198 + (198 * var(--building-r-mod))),
+                            calc(159 + (159 * var(--building-g-mod))),
+                            calc(128 + (128 * var(--building-b-mod)))
+                            );
+    --ui-dark: rgb(51, 32, 25);
+    --ui-med: rgb(123, 109, 97);
+    --ui-header: linear-gradient(rgb(74, 47, 37), var(--ui-dark));
+}
+
+/* Base */
+
+@font-face 
+{
+	font-family: base;
+	src: local("Segoe UI Light"),
+	     url("https://c.s-microsoft.com/static/fonts/segoe-ui/west-european/light/latest.woff2") format("woff2"),
+	     url("https://c.s-microsoft.com/static/fonts/segoe-ui/west-european/light/latest.woff") format("woff");
+	font-weight: 200;
+}
+
+@font-face 
+{
+	font-family: base;
+	src: local("Segoe UI Semilight"),
+	     url("https://c.s-microsoft.com/static/fonts/segoe-ui/west-european/semilight/latest.woff2") format("woff2"),
+	     url("https://c.s-microsoft.com/static/fonts/segoe-ui/west-european/semilight/latest.woff") format("woff");
+	font-weight: 300;
+}
+
+@font-face 
+{
+	font-family: base;
+	src: local("Segoe UI"),
+	     url("https://c.s-microsoft.com/static/fonts/segoe-ui/west-european/normal/latest.woff2") format("woff2"),
+	     url("https://c.s-microsoft.com/static/fonts/segoe-ui/west-european/normal/latest.woff") format("woff");
+	font-weight: 400;
+}
+
+@font-face 
+{
+	font-family: base;
+	src: local("Segoe UI Semibold"),
+	     url("https://c.s-microsoft.com/static/fonts/segoe-ui/west-european/semibold/latest.woff2") format("woff2"),
+	     url("https://c.s-microsoft.com/static/fonts/segoe-ui/west-european/semibold/latest.woff") format("woff");
+	font-weight: 600;
+}
+
+body
+{
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body.noAnimations * {
+    transition: none !important;
+    animation: none !important;
+}
+
+code
+{
+    display: block;
+    padding: 5px;
+    color: #000;
+    white-space: pre-wrap;
+    font-size: 1em;
+}
+
+#wrapper,
+#a11y-button-wrapper
+{
+    position: relative;
+    max-width: 1200px;
+    margin: 2em auto;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+#container
+{
+    background: linear-gradient(to bottom, var(--sky-start), var(--sky-end) 25%);
+    transition: background 1s;
+    overflow: hidden;
+}
+
+#a11y-button-wrapper {
+    margin: 1em auto;
+}
+
+#toggleAnimations {
+    float: right;
+    box-sizing: border-box;
+}
+
+#toggleAnimations,
+#article-wrapper a {    
+    border: 0;
+    border-bottom: 1px solid transparent;   
+    padding: 0;
+	background: transparent;
+    color: #0078d7;
+	font: 400 1em/1.5 "Segoe UI", Segoe, "Segoe WP", "Lucida Grande", "Lucida Sans", Verdana, sans-serif;	
+	text-decoration: none;
+    cursor: pointer;    	
+}
+
+#toggleAnimations:hover,
+#article-wrapper a:hover {
+    border-bottom-color: currentColor;
+}
+
+/* Article */
+#article-wrapper {
+    width: 50%;
+    margin: 1em auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#article-wrapper .subhead {
+    background: none;
+    color: #000;
+    font-size: 1.5em;
+}
+
+/* Feature Detection */
+
+#feature-detection {
+    --feature-detect: .01;
+    background-color: rgb(calc(250 * var(--feature-detect)), calc(250 * var(--feature-detect)), calc(250 * var(--feature-detect)));
+}
+
+#feature-detection .no-vars,
+#feature-detection .no-rgb-calc 
+{
+    padding: 10px;
+    margin-bottom: .2em;    
+    background: #FE4365;    
+    color: #fff;
+    font-size: 1.5em;
+}
+
+#feature-detection .no-rgb-calc 
+{
+    display: none;
+}
+
+/* UI */
+
+#ui
+{
+    position: absolute;    
+    right: 0;    
+    bottom: 5px;    
+    box-sizing: border-box;
+    background: var(--ui-header);
+}
+
+.subhead
+{   
+    color: #fff;
+    background: var(--ui-header);
+    font-family: 'Segoe UI Semilight', 'Segoe UI', sans-serif;
+    font-weight: 300;
+}
+
+#ui .subhead
+{
+    margin: 0;
+    padding: .25em;
+}
+
+#ui section
+{
+    border: 5px solid var(--ui-dark);
+    background: var(--ui-med);
+}
+
+.thumbnails
+{
+    display: flex;
+    width: 100%;
+    padding: 4px;
+}
+
+.thumbnails img
+{
+    margin: 2px;
+    flex: 0 1 auto;
+    border: 2px solid var(--ui-dark);
+}
+
+.thumbnails img:hover
+{
+    border-color: #fff;
+    cursor: pointer;
+}
+
+/* Sky */
+.light-source
+{
+    fill: var(--light-source);
+    opacity: .75;
+}
+
+.sunray-container
+{
+    clip-path: url(#SVGID_2_);
+    opacity: .43;
+}
+
+.sunrays
+{
+    fill: rgb(
+    calc(251 + var(--light-r-mod)),
+    calc(197 + var(--light-g-mod)),
+    calc(170 + var(--light-b-mod))
+    );
+}
+
+.sunrays__dark
+{
+    fill: rgb(
+    calc(252 + var(--light-r-mod)),
+    calc(227 + var(--light-g-mod)),
+    calc(217 + var(--light-b-mod))
+    );
+}
+
+.clouds
+{
+    position: absolute;    
+    --cloud-left: 120%;
+    left: var(--cloud-left);
+    top: -30px;
+    width: 100%;
+    fill: rgb(
+    calc(249 + var(--light-r-mod)),
+    calc(223 + var(--light-g-mod)),
+    calc(185 + var(--light-b-mod))
+    );
+    transition: all;
+    transition-timing-function: linear;
+    animation: floatClouds 200s infinite;
+}
+
+.stars
+{
+    --star-opacity: .7;
+    display: var(--show-stars);
+    opacity: var(--star-opacity);
+    transition: all 5s;    
+}
+
+.stars__twinkle
+{
+    --star-opacity: .7;
+    opacity: var(--star-opacity);
+    animation: twinkle 5s infinite;
+}
+
+.fill-white
+{
+    fill: rgb(255, 255, 255);
+}
+
+/* Buildings */
+.distant-building
+{
+    fill: var(--window-color);
+}
+
+.distant-building__lights
+{
+    fill: var(--window-lights-color);
+}
+
+.distant-building__window
+{
+    fill: rgb(
+    calc(111 + (111 * var(--building-r-mod))),
+    calc(79 + (79 * var(--building-g-mod))),
+    calc(85 + (85 * var(--building-b-mod)))
+    );
+}
+
+.building__light-wash
+{
+    fill: rgb(
+    calc(179 + (179 * var(--building-r-mod))),
+    calc(142 + (142 * var(--building-g-mod))),
+    calc(135 + (135 * var(--building-b-mod)))
+    );
+}
+
+.building__dark-wash
+{
+    fill: rgb(
+    calc(163 + (163 * var(--building-r-mod))),
+    calc(125 + (125 * var(--building-g-mod))),
+    calc(118 + (118 * var(--building-b-mod)))
+    );
+}
+
+.curtains
+{
+    fill: rgb(
+    calc(87 + (87 * var(--building-r-mod))),
+    calc(51 + (51 * var(--building-g-mod))),
+    calc(70 + (70 * var(--building-b-mod)))
+    );
+}
+
+.door__salmon
+{
+    fill: rgb(
+    calc(173 + (173 * var(--building-r-mod))),
+    calc(123 + (123 * var(--building-g-mod))),
+    calc(120 + (120 * var(--building-b-mod)))
+    );
+}
+
+.door__maroon
+{
+    fill: rgb(
+    calc(99 + (99 * var(--building-r-mod))),
+    calc(49 + (49 * var(--building-g-mod))),
+    calc(48 + (48 * var(--building-b-mod)))
+    );
+}
+
+.door__brown
+{
+    fill: rgb(
+    calc(140 + (140 * var(--building-r-mod))),
+    calc(76 + (76 * var(--building-g-mod))),
+    calc(79 + (79 * var(--building-b-mod)))
+    );
+}
+
+.door__fuscha
+{
+    fill: rgb(
+    calc(120 + (120 * var(--building-r-mod))),
+    calc(76 + (76 * var(--building-g-mod))),
+    calc(104 + (104 * var(--building-b-mod)))
+    );
+}
+
+
+.door__drk-purple
+{
+    fill: rgb(
+    calc(71 + (71 * var(--building-r-mod))),
+    calc(39 + (39 * var(--building-g-mod))),
+    calc(56 + (56 * var(--building-b-mod)))
+    );
+}
+
+.door_purple
+{
+    fill: rgb(
+    calc(82 + (82 * var(--building-r-mod))),
+    calc(43 + (43 * var(--building-g-mod))),
+    calc(64 + (64 * var(--building-b-mod)))
+    );
+}
+
+.door__tan
+{
+    fill: rgb(
+    calc(185 + (185 * var(--building-r-mod))),
+    calc(140 + (140 * var(--building-g-mod))),
+    calc(137 + (137 * var(--building-b-mod)))
+    );
+}
+
+.door__light-blue
+{
+    fill: rgb(
+    calc(138 + (138 * var(--building-r-mod))),
+    calc(147 + (147 * var(--building-g-mod))),
+    calc(199 + (199 * var(--building-b-mod)))
+    );
+}
+
+.door__blue-purple
+{
+    fill: rgb(
+    calc(57 + (57 * var(--building-r-mod))),
+    calc(76 + (76 * var(--building-g-mod))),
+    calc(158 + (158 * var(--building-b-mod)))
+    );
+}
+
+.door__plum
+{
+    fill: rgb(
+    calc(50 + (50 * var(--building-r-mod))),
+    calc(23 + (23 * var(--building-g-mod))),
+    calc(37 + (37 * var(--building-b-mod)))
+    );
+}
+
+.door__eggplant
+{
+    fill: rgb(
+    calc(55 + (55 * var(--building-r-mod))),
+    calc(32 + (32 * var(--building-g-mod))),
+    calc(62 + (62 * var(--building-b-mod)))
+    );
+}
+
+.door__grape
+{
+    fill: rgb(
+    calc(108 + (108 * var(--building-r-mod))),
+    calc(61 + (61 * var(--building-g-mod))),
+    calc(91 + (91 * var(--building-b-mod)))
+    );
+}
+
+.door__rose
+{
+    fill: rgb(
+    calc(140 + (140 * var(--building-r-mod))),
+    calc(77 + (77 * var(--building-g-mod))),
+    calc(80 + (80 * var(--building-b-mod)))
+    );
+}
+
+.door__violet
+{
+    fill: rgb(
+    calc(35 + (35 * var(--building-r-mod))),
+    calc(56 + (56 * var(--building-g-mod))),
+    calc(108 + (108 * var(--building-b-mod)))
+    );
+}
+
+.window-sill__mauve
+{
+    fill: rgb(
+    calc(112 + (112 * var(--building-r-mod))),
+    calc(59 + (59 * var(--building-g-mod))),
+    calc(78 + (78 * var(--building-b-mod)))
+    );
+}
+
+.window-sill__purple
+{
+    fill: rgb(
+    calc(65 + (65 * var(--building-r-mod))),
+    calc(44 + (44 * var(--building-g-mod))),
+    calc(82 + (82 * var(--building-b-mod)))
+    );
+}
+
+.window-sill__eggplant
+{
+    fill: rgb(
+    calc(50 + (50 * var(--building-r-mod))),
+    calc(21 + (21 * var(--building-g-mod))),
+    calc(33 + (33 * var(--building-b-mod)))
+    );
+}
+
+.window-sill-shade
+{
+    fill: rgb(
+    calc(62 + (62 * var(--building-r-mod))),
+    calc(28 + (28 * var(--building-g-mod))),
+    calc(23 + (23 * var(--building-b-mod)))
+    );
+}
+
+.window-line
+{
+    fill: rgb(
+    calc(91 + (91 * var(--building-r-mod))),
+    calc(14 + (14 * var(--building-g-mod))),
+    calc(16 + (16 * var(--building-b-mod)))
+    );
+}
+
+.window__facade
+{
+    fill: rgb(
+    calc(121 + (121 * var(--building-r-mod))),
+    calc(76 + (76 * var(--building-g-mod))),
+    calc(105 + (105 * var(--building-b-mod)))
+    );
+}
+
+.fencing
+{
+    fill: rgb(
+    calc(24 + (24 * var(--building-r-mod))),
+    calc(24 + (24 * var(--building-g-mod))),
+    calc(24 + (26 * var(--building-b-mod)))
+    );
+}
+
+.building__trim
+{
+    fill: rgb(
+    calc(94 + (94 * var(--building-r-mod))),
+    calc(42 + (42 * var(--building-g-mod))),
+    calc(43 + (43 * var(--building-b-mod)))
+    );
+}
+
+.building__trim-notched
+{
+    fill: rgb(
+    calc(128 + (128 * var(--building-r-mod))),
+    calc(87 + (87 * var(--building-g-mod))),
+    calc(113 + (113 * var(--building-b-mod)))
+    );
+}
+
+.sidewalk
+{
+    fill: rgb(
+    calc(148 + (148 * var(--building-r-mod))),
+    calc(167 + (167 * var(--building-g-mod))),
+    calc(144 + (144 * var(--building-b-mod)))
+    );
+}
+
+.city__fade
+{
+    opacity: .3;
+
+    fill: rgb(
+    calc(215 + (215 * var(--building-r-mod))),
+    calc(192 + (192 * var(--building-g-mod))),
+    calc(184 + (184 * var(--building-b-mod)))
+    );
+}
+
+/* Nature */
+
+.tree__trunk
+{
+    fill: rgb(
+    calc(115 + (115 * var(--park-r-mod))),
+    calc(90 + (90 * var(--park-g-mod))),
+    calc(64 + (64 * var(--park-b-mod)))
+    );
+}
+
+.hill
+{
+    fill: rgb(
+    calc(155 + (155 * var(--park-r-mod))),
+    calc(187 + (187 * var(--park-g-mod))),
+    calc(141 + (141 * var(--park-b-mod)))
+    );
+}
+
+.tree__leaves
+{
+    fill: rgb(
+    calc(144 + (144 * var(--park-r-mod))),
+    calc(142 + (142 * var(--park-g-mod))),
+    calc(99 + (99 * var(--park-b-mod)))
+    );
+}
+
+.bush-med
+{
+    fill: rgb(
+    calc(170 + (170 * var(--park-r-mod))),
+    calc(175 + (175 * var(--park-g-mod))),
+    calc(138 + (138 * var(--park-b-mod)))
+    );
+}
+
+.bush-light
+{
+    fill: rgb(
+    calc(189 + (189 * var(--park-r-mod))),
+    calc(187 + (187 * var(--park-g-mod))),
+    calc(145 + (145 * var(--park-b-mod)))
+    );
+}
+
+/* Dog */
+
+.dog__leg
+{
+    fill: rgb(139, 100, 57);
+}
+
+.dog
+{
+    fill: rgb(166, 125, 83);
+}
+
+.dog__ear
+{
+    fill: rgb(96, 72, 50);
+}
+
+.dog__underbelly
+{
+    fill: var(--dog__light);
+}
+
+.dog__head
+{
+    fill: var(--dog__light);
+}
+
+.dog__paw
+{
+    fill: var(--dog__light);
+}
+
+.tail
+{
+    transform: translateY(10px) rotate(var(--tail-rotate));
+    transform-origin: 60% 84%;
+    animation: wagTail 250ms infinite;
+}
+
+.jacket__body
+{
+    fill: rgb(
+    calc(103 + (103 * var(--dog-coat-r-mod))),
+    calc(52 + (52 * var(--dog-coat-g-mod))),
+    calc(42 + (42 * var(--dog-coat-b-mod)))
+    );
+}
+
+.jacket__collar
+{
+    fill: rgb(
+    calc(73 + (73 * var(--dog-coat-r-mod))),
+    calc(26 + (26 * var(--dog-coat-g-mod))),
+    calc(14 + (14 * var(--dog-coat-b-mod)))
+    );
+}
+
+/* Animations */
+
+@keyframes wagTail
+{
+    from
+    {
+        --tail-rotate: 15deg;
+    }
+    to
+    {
+        --tail-rotate: 25deg;
+    }
+}
+
+@keyframes floatClouds
+{
+    from
+    {
+        left: 80%;
+    }
+    to
+    {
+        left: -100%;
+    }
+}
+
+@keyframes twinkle
+{
+    0%
+    {
+        --star-opacity: .7;
+    }
+    50%
+    {
+        --star-opacity: .50;
+    }
+    95%
+    {
+        --star-opacity: .7;
+    }
+}
+
+/* Media Queries */
+@media screen and (max-width: 1200px) {
+
+    body 
+    {
+        padding: 20px;
+        height: auto;
+    }
+
+    #wrapper 
+    {
+        margin: 1.25em auto;
+    }
+
+    #dog-container 
+    {
+        left: 0;
+    }
+
+    #article-wrapper 
+    {
+        width: 80%;
+    }
+
+    /* UI */
+    #ui
+    {
+        display: flex;
+        position: static;        
+    }
+
+    #results 
+    {
+        border-left-width: 0 !important;
+        flex: 1 1 auto;        
+    }
+
+    .thumbnails 
+    {
+        width: auto;
+        flex-direction: column;        
+    }
+}
+
+@media screen and (max-width: 650px) 
+{ 
+
+    /* UI */
+    #article-wrapper 
+    {
+        width: 80%;
+    }
+
+    #dog-container 
+    {
+        left: 0;
+    }
+
+    #ui {
+        display: block;
+    }
+
+    #results 
+    {
+        border-left-width: initial;
+    }
+
+    .thumbnails 
+    {
+        flex-direction: row;
+        flex: 0 1 auto;
+    }
+}
+
+@supports (--custom: "supports css variables") 
+{
+    #feature-detection .no-vars 
+    {
+        display: none;
+    }
+}
