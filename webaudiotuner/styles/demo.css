@@ -6,8 +6,7 @@
 	@Bug: The following is done so that the MathML examples remain visible.
 	https://github.com/MicrosoftEdge/Demos/issues/328#issuecomment-269772211
 */
-
-[aria-hidden="true"] {
+.web-tuner-demo [aria-hidden="true"] {
 	display: inline;
 }
 
