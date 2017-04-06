@@ -7,17 +7,17 @@
 
 	//Shipping option change handler
 	Global.onShippingOptionChange = function(pr, details, subtotal, tax) {
-		var shippingOption = details.shippingOptions.find(function(opt) {
+		const shippingOption = details.shippingOptions.find(function(opt) {
 			return opt.id === pr.shippingOption;
 		});
 
 		if (!shippingOption) {
 			return;
 		}
-		console.log('shippingOptionChange: ' + shippingOption.label);
+		console.log(`shippingOptionChange: ${shippingOption.label}`);
 
-		var shippingCost = Number(shippingOption.amount.value);
-		var totalAmount = subtotal + shippingCost + tax;
+		const shippingCost = Number(shippingOption.amount.value);
+		const totalAmount = subtotal + shippingCost + tax;
 
 		details.displayItems = [{
 			label: 'Sub-total',
@@ -36,7 +36,7 @@
 
 	//Function to get shipping options per state
 	Global.getShippingOptions = function(state) {
-		var options = [{
+		const options = [{
 			id: 'NO_RUSH',
 			label: 'No-Rush Shipping',
 			amount: { currency: 'USD', value: '0.00' },
@@ -60,10 +60,10 @@
 
 	//Shipping address change handler
 	Global.onShippingAddressChange = function(pr, details) {
-		var addr = pr.shippingAddress;
-		var strAddr = addr.addressLine[0] + ', ' + addr.region + ' ' + addr.postalCode;
+		const addr = pr.shippingAddress;
+		const strAddr = `${addr.addressLine[0]}, ${addr.region} ${addr.postalCode}`;
 
-		console.log('shippingAddressChange: ' + strAddr);
+		console.log(`shippingAddressChange: ${strAddr}`);
 
 		if (addr.country === 'US') {
 			//Shipping no longer pending, pre-selected
@@ -75,11 +75,9 @@
 	};
 
 	Global.startPaymentRequestStaticShipping = function() {
-		var methodData = [
+		const methodData = [
 			//Older implementation (for some versions of Chrome on Android)
-			{
-				supportedMethods: ['visa', 'mastercard', 'amex']
-			},
+			{supportedMethods: ['visa', 'mastercard', 'amex']},
 			//Newer implementation
 			{
 				supportedMethods: ['basic-card'],
@@ -90,9 +88,9 @@
 			}
 		];
 
-		var subtotal = 44.00;
-		var tax = 4.40;
-		var details = {
+		const subtotal = 44.00;
+		const tax = 4.40;
+		const details = {
 			total: {
 				label: 'Total due',
 				amount: { currency: 'USD', value: (subtotal + tax).toFixed(2) }
@@ -124,8 +122,8 @@
 			}]
 		};
 
-		var options = { requestShipping: true };
-		var request = new PaymentRequest(methodData, details, options);
+		const options = { requestShipping: true };
+		const request = new PaymentRequest(methodData, details, options);
 
 		//Listen to a shipping option change
 		request.addEventListener('shippingoptionchange', function(changeEvent) {
@@ -150,11 +148,9 @@
 	};
 
 	Global.startPaymentRequestDynamicShipping = function() {
-		var methodData = [
+		const methodData = [
 			//Older implementation
-			{
-				supportedMethods: ['visa', 'mastercard', 'amex']
-			},
+			{supportedMethods: ['visa', 'mastercard', 'amex']},
 			//Newer implementation
 			{
 				supportedMethods: ['basic-card'],
@@ -165,9 +161,9 @@
 			}
 		];
 
-		var subtotal = 44.00;
-		var tax = 4.40;
-		var details = {
+		const subtotal = 44.00;
+		const tax = 4.40;
+		const details = {
 			total: {
 				label: 'Total due',
 				amount: { currency: 'USD', value: (subtotal + tax).toFixed(2) }
@@ -185,8 +181,8 @@
 			}]
 		};
 
-		var options = { requestShipping: true };
-		var request = new PaymentRequest(methodData, details, options);
+		const options = { requestShipping: true };
+		const request = new PaymentRequest(methodData, details, options);
 
 		//Listen to a shipping address change
 		request.addEventListener('shippingaddresschange', function(changeEvent) {
@@ -219,11 +215,9 @@
 	};
 
 	Global.startPaymentRequestDigitalMerchandise = function() {
-		var methodData = [
+		const methodData = [
 			//Older implementation
-			{
-				supportedMethods: ['visa', 'mastercard', 'amex']
-			},
+			{supportedMethods: ['visa', 'mastercard', 'amex']},
 			//Newer implementation
 			{
 				supportedMethods: ['basic-card'],
@@ -234,9 +228,9 @@
 			}
 		];
 
-		var subtotal = 44.00;
-		var tax = 4.40;
-		var details = {
+		const subtotal = 44.00;
+		const tax = 4.40;
+		const details = {
 			total: {
 				label: 'Total due',
 				amount: { currency: 'USD', value: (subtotal + tax).toFixed(2) }
@@ -250,8 +244,8 @@
 			}]
 		};
 
-		var options = { requestPayerEmail: true };
-		var request = new PaymentRequest(methodData, details, options);
+		const options = { requestPayerEmail: true };
+		const request = new PaymentRequest(methodData, details, options);
 
 		//Show the Native UI
 		request
@@ -268,7 +262,7 @@
 	};
 
 	Global.startPaymentRequestWithContactInfo = function() {
-		var methodData = [{
+		const methodData = [{
 			supportedMethods: ['visa', 'mastercard', 'amex'],
 			data: {
 				supportedNetworks: ['visa', 'mastercard', 'amex'],
@@ -276,9 +270,9 @@
 			}
 		}];
 
-		var subtotal = 44.00;
-		var tax = 4.40;
-		var details = {
+		const subtotal = 44.00;
+		const tax = 4.40;
+		const details = {
 			total: {
 				label: 'Total due',
 				amount: { currency: 'USD', value: (subtotal + tax).toFixed(2) }
@@ -309,13 +303,13 @@
 			}]
 		};
 
-		var options = {
+		const options = {
 			requestPayerEmail: true,
 			requestPayerPhone: true,
 			requestShipping: true
 		};
 
-		var request = new PaymentRequest(methodData, details, options);
+		const request = new PaymentRequest(methodData, details, options);
 
 		//Listen to a shipping option change
 		request.addEventListener('shippingoptionchange', function(changeEvent) {

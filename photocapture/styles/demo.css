@@ -62,23 +62,23 @@
 		width: 50%;
 		max-width: none;
 	}
-	
+
 	.view-text--video {
 		-webkit-order: 1;
 		order: 1;
 	}
-	
+
 	.view-text--snapshot {
 		margin-top: 0;
 		-webkit-order: 2;
 		order: 2;
 	}
-	
+
 	.view--video {
 		-webkit-order: 3;
 		order: 3;
 	}
-	
+
 	.view--snapshot {
 		-webkit-order: 4;
 		order: 4;

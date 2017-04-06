@@ -1,4 +1,4 @@
-﻿UnderConstruction = {};
+UnderConstruction = {};
 
 (function() {
     UnderConstruction.redirect = function(msg) {

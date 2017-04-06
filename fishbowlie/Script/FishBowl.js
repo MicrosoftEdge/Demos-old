@@ -1,4 +1,4 @@
-﻿function FishBowl() {
+function FishBowl() {
 
     this.canvas;
     this.context;

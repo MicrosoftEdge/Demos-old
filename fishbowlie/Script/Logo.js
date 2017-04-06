@@ -1,4 +1,4 @@
-﻿function Logo() {
+function Logo() {
 
     this.canvas;
     this.context;

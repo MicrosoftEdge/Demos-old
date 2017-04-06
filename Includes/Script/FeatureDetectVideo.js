@@ -1,12 +1,12 @@
-﻿// Define general feature detect for HTML5 Video capabilities
+// Define general feature detect for HTML5 Video capabilities
 if(typeof($FeatureDetectVideo) == 'undefined')
 {
     self.$FeatureDetectVideo = {
 
-		test : function() 
+		test : function()
 		{
 			var video = document.createElement('video');
-			
+
 			if (!video.play) {
 			    $FeatureDetect.fail("Your browser doesn't support the HTML5 VIDEO tag.");
 			}

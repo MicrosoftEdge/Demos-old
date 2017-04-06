@@ -1,4 +1,4 @@
-﻿/* WOFF font */
+/* WOFF font */
 @font-face {
     font-family: "Pencil Grid";
     src: url("pencilgrid.woff");
@@ -259,7 +259,7 @@ html {
     width: 6px;
     height: 6px;
     position: absolute;
-    border-radius: 3px; 
+    border-radius: 3px;
     -moz-border-radius: 3px;
 }
 .visited {

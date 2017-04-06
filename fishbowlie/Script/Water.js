@@ -1,4 +1,4 @@
-﻿function Water() {
+function Water() {
 
     this.waterAudio;
     this.waterVideo;

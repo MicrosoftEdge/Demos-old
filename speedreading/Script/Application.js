@@ -1,4 +1,4 @@
-﻿
+
 /* -------------------------------------------------------- Speed Reading Application --- */
 
 var COUNT_HORIZONTAL_TILES = 16;

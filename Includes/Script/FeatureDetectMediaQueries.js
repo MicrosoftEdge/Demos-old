@@ -1,12 +1,12 @@
-﻿// Define general feature detect for MSGesture capabilities
+// Define general feature detect for MSGesture capabilities
 if(typeof($FeatureDetectCanvas) == 'undefined')
 {
     self.$FeatureDetectCanvas = {
 
-		test : function() 
+		test : function()
 		{
 			var media = !!window.styleMedia;
-			
+
 			if (!media) {
 			    $FeatureDetect.fail("Your browser doesn't support CSS3 Media Queries.");
 			}

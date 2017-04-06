@@ -1,4 +1,4 @@
-﻿
+
 
 /* ---------------------------------------------------------------- Performance Class --- */
 
@@ -53,7 +53,7 @@ function Performance() {
         this.drawCount++;
         this.averageDrawTime = Math.floor(this.totalDrawTime / this.drawCount);
 
-        // If we can display a frame in under 40ms play the repeat sound, otherwise we end up with hundreds 
+        // If we can display a frame in under 40ms play the repeat sound, otherwise we end up with hundreds
         // of sounds playing at once which sounds like a solid record scratch.
         if (this.currentDrawTime < 40) {
             repeatSound = true;
@@ -77,18 +77,18 @@ function Performance() {
 
         this.averageDrawTime = Math.floor(this.totalDrawTime / this.drawCount);
 
-        // If the drawing can occur faster than the draw loop is called back it means that the browser is capable 
-        // of flipping the graphics even faster. This function determines how additional processing could actually 
+        // If the drawing can occur faster than the draw loop is called back it means that the browser is capable
+        // of flipping the graphics even faster. This function determines how additional processing could actually
         // occur and we use that unused CPU time to flip additional characters. Because we end up drawing multiple
         // characters in a single frame (60hz for most LCD's which equates to 16.7ms) we call this compositing.
-        // On a Dell Precision workstation with a 3Ghz processor and NVIDIA graphics 39% of the CPU time is 
-        // spent in display (which only needs to happen once per interval) and 61% in other subsystems. Each 
-        // billboard draw (the billboard and characters) takes 6% of that 'other' CPU time. These numbers will vary 
+        // On a Dell Precision workstation with a 3Ghz processor and NVIDIA graphics 39% of the CPU time is
+        // spent in display (which only needs to happen once per interval) and 61% in other subsystems. Each
+        // billboard draw (the billboard and characters) takes 6% of that 'other' CPU time. These numbers will vary
         // slightly based on machine configuration but this is an objective baseline for the demo.
         //
-        // On an I7 with an ATI HD 5800 series IE9 can compose the entire alphabet multiple times. That doesn't 
-        // make for a compelling animation so we'll throttle that scenario later in the code. I bet you never 
-        // thought you would see the day where Internet Explorer was so fast that we actually have to *slow* 
+        // On an I7 with an ATI HD 5800 series IE9 can compose the entire alphabet multiple times. That doesn't
+        // make for a compelling animation so we'll throttle that scenario later in the code. I bet you never
+        // thought you would see the day where Internet Explorer was so fast that we actually have to *slow*
         // the browser down!
         //
         // Press "D" for debug mode and it will show you the draw time and animation steps for each loop on your
@@ -96,11 +96,11 @@ function Performance() {
         // Internet Explorer will take longer than a SINGLE_CYCLE to draw the animation so there will not be any
         // additional CPU time to flip the image additional times. In those situations the compositing is disabled.
         //
-        // For more information on how to calculate how much CPU and GPU time IE9 requires on your own machine 
+        // For more information on how to calculate how much CPU and GPU time IE9 requires on your own machine
         // we recomend reading the following blog post:
         // http://blogs.msdn.com/b/ie/archive/2010/06/21/measuring-browser-performance-with-the-windows-performance-tools.aspx
         //
-        // This approach applies to all browsers (harware accelerated or note) and works well to take advantage 
+        // This approach applies to all browsers (harware accelerated or note) and works well to take advantage
         // of the unused CPU time. Firefox 4 with hardware acceleration appears to be much less efficent
         // so using this algorithm benefits them. But you would be suspicious if we used a different algorithm
         // for each browser, so we'll use the same algorithm for everyone.

@@ -1,9 +1,9 @@
-﻿// Define general feature detect for EcmaScript 5 properties API
+// Define general feature detect for EcmaScript 5 properties API
 if(typeof($FeatureDetectES5Properties) == 'undefined')
 {
     self.$FeatureDetectES5Properties = {
 
-		test : function() 
+		test : function()
 		{
 			if (!Object.defineProperties || !Object.defineProperty) {
 				$FeatureDetect.fail("This demo requires ECMAScript 5 properties API support.");

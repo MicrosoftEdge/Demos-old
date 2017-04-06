@@ -1,8 +1,8 @@
-﻿if(typeof($FeatureDetectDOMTraversal) == 'undefined')
+if(typeof($FeatureDetectDOMTraversal) == 'undefined')
 {
     self.$FeatureDetectDOMTraversal = {
 
-		test : function() 
+		test : function()
 		{
 			if (!document.createNodeIterator) {
 				$FeatureDetect.fail("Your browser doesn't support DOM Traversal.");

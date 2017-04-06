@@ -34,7 +34,7 @@
 	display: inline-block;
 	margin: 0;
 	-ms-touch-action: none;
-	touch-action: none;	
+	touch-action: none;
 }
 
 /* Canvas fallback */
@@ -99,31 +99,31 @@ progress {
 }
 
 @media (min-width: 56.25em /* 900px */) {
-	
+
 	/* Layout */
 	.mandlebrot__canvas-wrap,
 	.mandlebrot__actions {
 		float: left;
 	}
-	
+
 	/* Canvas */
 	.mandlebrot__canvas-wrap {
 		margin-right: 3.2rem;
 	}
-	
+
 	/* Controls */
 	.mandlebrot__actions {
-		margin-top: 0;	
+		margin-top: 0;
 	}
-	
+
 	.mandlebrot__actions .button {
 		display: block;
 		margin: 0 .4rem .4rem 0;
 		width: 5em;
 	}
-	
+
 	.mandlebrot__actions .button--primary {
 		margin-top: 2rem;
 	}
-			
+
 }

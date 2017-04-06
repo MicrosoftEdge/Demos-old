@@ -1,4 +1,4 @@
-﻿function Fish() {
+function Fish() {
 
     this.MAX_SIZE = 52;
     this.MIN_SIZE = 16;

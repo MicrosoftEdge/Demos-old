@@ -1,9 +1,9 @@
-﻿// Define general feature detect for window.performance
+// Define general feature detect for window.performance
 if(typeof($FeatureDetectPerf) == 'undefined')
 {
     self.$FeatureDetectPerf = {
 
-		test : function() 
+		test : function()
 		{
 			if (!self.msPerformance && !self.webkitPerformance && !self.performance) {
 				$FeatureDetect.fail("Your browser doesn't support the W3C Navigation Timing interface.");

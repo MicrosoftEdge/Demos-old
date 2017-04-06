@@ -1,4 +1,16 @@
+# For more information about the configurations used
+# in this file, please see the Travis CI documentation:
+# https://docs.travis-ci.com
+
+before_install:
+  - npm install -g grunt-cli
+
 language: node_js
+
 node_js:
-- "6.8.1"
-before_install: npm install -g grunt-cli
+  - node
+
+notifications:
+  email:
+    on_failure: always
+    on_success: never
