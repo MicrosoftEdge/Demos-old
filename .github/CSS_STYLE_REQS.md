@@ -166,7 +166,7 @@ Currently we use the following meta-data keys:
 * @TODO: call out something that hasn't been completed yet and needs to be updated/fixed.
 * @Bug: link to a bug either in the project or a browser. Optionally describe the bug if context is needed. Use with @Browser if calling out a browser bug.
 * @Browser: notify if a piece of code is included for a particular browser (not needed if obvious, such as prefixes for old versions.)
-* @HACK: call out an ugly hack; either a CSS hack to work around browser issues, or a hacky piece of code that should be cleaned up later.
+* @HACK: call out an ugly hack; either a CSS hack to work around browser issues, or a hacky piece of code that should be cleaned up later. Include a URL here, too, that points to a description of browser-based hacks.
 
 
 ### Formatting values
@@ -259,7 +259,7 @@ Vendor prefixed properties should be ordered by length (`-webkit-` first, `-o-` 
 * Build responsiveness mobile-first, legacy first. That is, the base style should be the “mobile” size, with a max width set for old browsers that don’t understand media queries.
 * Add styles for wider levels using media queries, building from the smallest media query up. Minimize use of mutually-exclusive media queries (queries with a min and max).
 * Use `em` for media query values. Doing this ensures that when the user zooms in, the site will switch to the appropriate layout for how the text wraps at that zoom level.
-* Don’t collect all responsive styles into one section at the end of a stylesheet or in a new stylesheet altogether. Instead, add media queries directly beneath the selectors that the media queries modify.
+* Don’t collect all responsive styles into a new stylesheet. We prefer that you keep media queries in the section of the stylesheet that the styles pertain to, but if you are starting a new demo and find it easier to maintain a "media queries" section of your stylesheet, that is fine. If you are providing a fix to a current demo, follow the structure the original author has in place.
 * Add an empty line after the opening curly brace (`{`) and before the closing curly brace (`}`) of the media query.
 
 ```CSS
