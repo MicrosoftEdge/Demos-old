@@ -1,4 +1,4 @@
-﻿function Snowflake() {
+function Snowflake() {
 
     this.currentX = 0.5;
     this.currentY = 1;

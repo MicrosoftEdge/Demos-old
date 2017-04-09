@@ -1,12 +1,12 @@
-﻿// Define general feature detect for MSGesture capabilities
+// Define general feature detect for MSGesture capabilities
 if(typeof($FeatureDetectCanvas) == 'undefined')
 {
     self.$FeatureDetectCanvas = {
 
-		test : function() 
+		test : function()
 		{
 			var gesture = !!window.navigator.msPointerEnabled;
-			
+
 			if (!gesture) {
 			    $FeatureDetect.fail("Your browser doesn't support gestures.");
 			}

@@ -1,8 +1,8 @@
-﻿if(typeof($FeatureDetectES5Arrays) == 'undefined')
+if(typeof($FeatureDetectES5Arrays) == 'undefined')
 {
     self.$FeatureDetectES5Arrays = {
 
-		test : function() 
+		test : function()
 		{
 			if (![].filter) {
 				$FeatureDetect.fail("Your browser doesn't support ECMAScript 5 Array methods.");

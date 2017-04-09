@@ -1,12 +1,12 @@
-﻿// Define general feature detect for HTML5 Audio capabilities
+// Define general feature detect for HTML5 Audio capabilities
 if(typeof($FeatureDetectAudio) == 'undefined')
 {
     self.$FeatureDetectAudio = {
 
-		test : function() 
+		test : function()
 		{
 			var audio = document.createElement('audio');
-			
+
 			if (!audio.play) {
 				$FeatureDetect.fail("Your browser doesn't support the HTML5 AUDIO tag.");
 			}

@@ -35,7 +35,7 @@ var Performance = function () {
 	this.debugText = '';
 
 	this.initialize = function () {
-		this.startTime = new Date();		
+		this.startTime = new Date();
 
 		this.canvas = document.getElementById('performance-canvas');
 		this.context = this.canvas.getContext('2d');

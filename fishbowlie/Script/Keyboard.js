@@ -1,4 +1,4 @@
-﻿function KeyPress(e) {
+function KeyPress(e) {
 
     var key;
 

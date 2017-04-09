@@ -1,4 +1,4 @@
-﻿var DEBUG = false;
+var DEBUG = false;
 var SINGLE_CYCLE = 16.7;
 var INTRODUCTION_DELAY = 400;
 
@@ -70,7 +70,7 @@ function AttachEvents() {
     window.addEventListener("keydown", KeyPress, false);
     window.addEventListener("contextmenu", function (e) { e.preventDefault(); }, false);
 	document.addEventListener("MSGestureHold", function (e) { e.preventDefault(); }, false);
-	window.addEventListener("dragstart", function (e) { e.preventDefault(); }, false); 
+	window.addEventListener("dragstart", function (e) { e.preventDefault(); }, false);
 	window.addEventListener("selectstart", function (e) { e.preventDefault(); }, false);
 }
 

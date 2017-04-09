@@ -1,8 +1,8 @@
-﻿if(typeof($FeatureDetectPinning) == 'undefined')
+if(typeof($FeatureDetectPinning) == 'undefined')
 {
     self.$FeatureDetectDOMPinning = {
 
-		test : function() 
+		test : function()
 		{
 			if (!window.external.msSiteModeSetIconOverlay) {
 				$FeatureDetect.fail("Your browser doesn't support site mode.");

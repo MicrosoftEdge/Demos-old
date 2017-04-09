@@ -5,7 +5,7 @@ Animation = (function () {
 
     // collection of function to render single frame (snowflakes falling, background gradient animation)
     var frameRenderersCollection = [];
-    // each animation should be rendered on corresponding context. 
+    // each animation should be rendered on corresponding context.
     // If animation doesn't have context (non-visual parameter change every frame) - it should be last (several framerenderers can be last without contexts)
     var renderContextesCollection = [];
     // if animation is running

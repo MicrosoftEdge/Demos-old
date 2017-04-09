@@ -1,4 +1,4 @@
-﻿// Define general feature detect for h264 codec support
+// Define general feature detect for h264 codec support
 if(typeof($FeatureDetectVideoCodecH264) == 'undefined')
 {
     self.$FeatureDetectVideoCodecH264 = {

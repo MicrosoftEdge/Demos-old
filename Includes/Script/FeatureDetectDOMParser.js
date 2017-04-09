@@ -1,9 +1,9 @@
-﻿// Define general feature detect for DOMParser/XMLSerializer
+// Define general feature detect for DOMParser/XMLSerializer
 if(typeof($FeatureDetectDOMParser) == 'undefined')
 {
     self.$FeatureDetectDOMParser = {
 
-		test : function() 
+		test : function()
 		{
 			if (!self.DOMParser || !self.XMLSerializer) {
 				$FeatureDetect.fail("Your browser doesn't support DOMParser and/or XMLSerializer.");

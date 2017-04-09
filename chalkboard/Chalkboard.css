@@ -1,4 +1,4 @@
-﻿* {
+* {
     margin: 0px 0px 0px 0px;
     padding: 0px 0px 0px 0px;
 }
@@ -97,7 +97,7 @@ body {
 
 #RunAgain {
     font-size: 16pt;
-    margin-top: 40px;    
+    margin-top: 40px;
 }
 
 #StartButton {
@@ -131,7 +131,7 @@ a:hover, a:visited:hover {
 }
 
 @font-face {
-	font-family: 'GillesHandwriting';	
+	font-family: 'GillesHandwriting';
 	src: local('☺'), url('Fonts/GillesHandwriting.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;

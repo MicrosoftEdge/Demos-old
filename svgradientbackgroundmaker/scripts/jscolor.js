@@ -352,7 +352,7 @@ var jscolor = {
 			if (isPickerOwner()) {
 				removePicker();
 			}
-			//UpdateSample(); // KLUU: Added for the purpose of updating gradient color picker 
+			//UpdateSample(); // KLUU: Added for the purpose of updating gradient color picker
 			SVGBGMAKER.updateAllPanels(); //KLUU: Added to update position panel
 
 		};

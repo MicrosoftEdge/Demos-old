@@ -64,8 +64,8 @@ var Gradient = (function () {
             Math.ceil(colorStopElement * redIntensity) + ", " +
             Math.ceil(colorStopElement * greenIntensity) + ", " +
             Math.ceil(colorStopElement * blueIntensity) + ", " +
-            currentMovingStop / 1.25 + ")";        
-        
+            currentMovingStop / 1.25 + ")";
+
         // compose the gradient points dynamically for subtle glowing effect
         gradient.addColorStop(0, colorStart);
         gradient.addColorStop(currentMovingStop / 2, colorMidStop);
