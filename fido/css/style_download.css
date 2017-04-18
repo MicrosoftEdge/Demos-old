@@ -1,0 +1,153 @@
+@font-face {
+	font-family: Segoe UI Web Light;
+	src: local("Segoe UI Light"), local("Segoe UI"), local("Helvetica Neue");
+	font-weight: 100;
+	font-style: normal;
+	unicode-range: U+0000-00FF;
+}
+@font-face {
+	font-family: Segoe UI Web Regular;
+	src: local("Segoe UI"), local("Helvetica Neue");
+	font-weight: normal;
+	font-style: normal;
+	unicode-range: U+0000-00FF;
+}
+@font-face {
+	font-family: Segoe UI Web Semibold;
+	src: local("Segoe UI Semibold"), local("Segoe UI Bold"), local("Segoe UI"), local("Helvetica Neue");
+	font-weight: bold;
+	font-style: normal;
+	unicode-range: U+0000-00FF;
+}
+body {
+	margin: 0px; padding: 0px; border: currentColor; width: 475px; height: 490px; color: rgb(255, 255, 255); overflow: hidden; font-family: "Segoe UI Web Light","Segoe UI Light","Segoe UI Web Regular","Segoe UI","Helvetica Neue",Arial;
+}
+img {
+	border: currentColor;
+}
+div.mboxDefault {
+	visibility: hidden;
+}
+a {
+	border: 1px rgb(255, 255, 255); text-decoration: none; background-color: rgb(255, 255, 255);
+}
+a:hover {
+	border: 1px rgb(255, 255, 255); text-decoration: none; background-color: rgb(255, 255, 255);
+}
+a:visited {
+	border: 1px rgb(255, 255, 255); text-decoration: none; background-color: rgb(255, 255, 255);
+}
+a:hover {
+	opacity: 0.76;
+}
+a:active {
+	color: white; opacity: 1; background-color: black;
+}
+.standard h1 {
+	margin: 0px; padding: 0px; line-height: 29px; font-family: "Segoe UI Web Light"; font-size: 31px; font-weight: 100;
+}
+.small.standard h1 {
+	font-size: 26px;
+}
+.smallest.standard h1 {
+	line-height: 20px; font-size: 18px;
+}
+.standard h1.nosubheading {
+	padding: 10px 0px 28px;
+}
+.standard p {
+	margin: 12px 0px 18px; padding: 0px; line-height: 16px; font-family: "Segoe UI Web Regular"; font-size: 14px; font-weight: 100;
+}
+.small.standard p {
+	margin: 10px 0px 16px; font-size: 12px;
+}
+.standard a {
+	padding: 6px 7px; line-height: 10px; font-family: "Segoe UI Web Regular"; font-size: 13px; font-weight: 100; display: inline-block; visibility: hidden;
+}
+div.throttle.mboxDefault {
+	visibility: visible;
+}
+div#offer {
+	width: 475px; height: 490px; overflow: hidden;
+}
+div#offer img {
+	border: currentColor; width: 475px; height: 340px; display: block;
+}
+div#offer div#text {
+	padding: 15px 31px 25px; width: 413px; height: 150px;
+}
+.skydrive {
+	background-color: rgb(9, 74, 178);
+}
+.skydrive a {
+	color: rgb(9, 74, 178);
+}
+.skydrive a:hover {
+	color: rgb(9, 74, 178);
+}
+.skydrive a:visited {
+	color: rgb(9, 74, 178);
+}
+.hotmail {
+	background-color: rgb(38, 114, 236);
+}
+.hotmail a {
+	color: rgb(38, 114, 236);
+}
+.hotmail a:hover {
+	color: rgb(38, 114, 236);
+}
+.hotmail a:visited {
+	color: rgb(38, 114, 236);
+}
+.newmail {
+	background-color: rgb(0, 114, 198);
+}
+.newmail a {
+	color: rgb(0, 114, 198);
+}
+.newmail a:hover {
+	color: rgb(0, 114, 198);
+}
+.newmail a:visited {
+	color: rgb(0, 114, 198);
+}
+.outlook {
+	background-color: rgb(0, 114, 198);
+}
+.outlook a {
+	color: rgb(0, 114, 198);
+}
+.outlook a:hover {
+	color: rgb(0, 114, 198);
+}
+.outlook a:visited {
+	color: rgb(0, 114, 198);
+}
+.account {
+	background-color: rgb(38, 114, 236);
+}
+.account a {
+	color: rgb(38, 114, 236); visibility: hidden;
+}
+.account a:hover {
+	color: rgb(38, 114, 236); visibility: hidden;
+}
+.account a:visited {
+	color: rgb(38, 114, 236); visibility: hidden;
+}
+.skydrive a:active {
+	color: white; opacity: 1; background-color: black;
+}
+.hotmail a:active {
+	color: white; opacity: 1; background-color: black;
+}
+.newmail a:active {
+	color: white; opacity: 1; background-color: black;
+}
+.outlook a:active {
+	color: white; opacity: 1; background-color: black;
+}
+.account a:active {
+	color: white; opacity: 1; background-color: black;
+}
