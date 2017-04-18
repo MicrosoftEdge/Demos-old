@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<demochangelog>
+  <change>
+    <user>
+    </user>
+    <timestamp>10/15/2010 5:31:06 PM</timestamp>
+    <comments>Created by system.</comments>
+  </change>
+  <change>
+    <user>System</user>
+    <timestamp>10/16/2010 4:17:38 PM</timestamp>
+    <comments>Checked in - auto comments</comments>
+  </change>
+  <change>
+    <user>System</user>
+    <timestamp>10/18/2010 9:14:11 PM</timestamp>
+    <comments>Initial Checkin</comments>
+  </change>
+  <change>
+    <user>System</user>
+    <timestamp>10/19/2010 10:04:01 PM</timestamp>
+    <comments>Initial PPB6 Checkin</comments>
+  </change>
+  <change>
+    <user>System</user>
+    <timestamp>10/20/2010 4:42:20 PM</timestamp>
+    <comments>[sethmcl] added feature detection script - canvas</comments>
+  </change>
+  <change>
+    <user>System</user>
+    <timestamp>10/20/2010 6:37:29 PM</timestamp>
+    <comments>Updated Return Button Hover</comments>
+  </change>
+  <change>
+    <user>System</user>
+    <timestamp>11/14/2010 2:30:44 PM</timestamp>
+    <comments>Removing the bold styling on the debug text.</comments>
+  </change>
+  <change>
+    <user>jweber</user>
+    <timestamp>3/7/2011 10:29:19 PM</timestamp>
+    <comments>Updated MetaData</comments>
+  </change>
+  <change>
+    <user>jweber</user>
+    <timestamp>6/26/2011 12:05:16 PM</timestamp>
+    <comments>Updating Return Button</comments>
+  </change>
+  <change>
+    <user>jweber</user>
+    <timestamp>8/30/2011 8:39:52 PM</timestamp>
+    <comments>Updating demo to be more touch friendly.</comments>
+  </change>
+  <change>
+    <user>jonaneja</user>
+    <timestamp>4/9/2013 10:27:19 AM</timestamp>
+    <comments>Part of fix for PS#150211, updated browser detection logic</comments>
+  </change>
+</demochangelog>

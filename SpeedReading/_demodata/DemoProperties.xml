@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Please do not manually modify this file -->
+<demoproperties>
+  <!-- Name of demo. This is what appears on the Test Drive homepage -->
+  <name>Speed Reading</name>
+  <!-- Intended release milestone for demo. Example, PPB6, PPB7, etc. -->
+  <milestone>IE9 PPB 5 (Beta)</milestone>
+  <!-- Demo test drive category. Example, Performance, HTML5, etc. -->
+  <category>Performance</category>
+  <!-- Timestamp of last checkin -->
+  <lastcheckin>4/9/2013 10:27:19 AM</lastcheckin>
+  <!-- User who performed last checkin -->
+  <lastcheckinby>
+  </lastcheckinby>
+  <!-- Timestamp of last test sign off. Value should be 0 if Test has not signed off yet -->
+  <testsignoff>0</testsignoff>
+  <!-- Timestamp of last legal sign off. Value should be 0 if legal has not signed off yet -->
+  <legalsignoff>09/10/2010 12:00:00 AM</legalsignoff>
+  <!-- Timestamp of last content sign off. Value should be 0 if content has not signed off yet -->
+  <contentsignoff>09/10/2010 12:00:00 AM</contentsignoff>
+  <!-- Timestamp of last security sign off. Value should be 0 if security has not signed off yet -->
+  <securitysignoff>09/10/2010 12:00:00 AM</securitysignoff>
+  <!-- Timestamp of last acccessibility sign off. Value should be 0 if acccessibility has not signed off yet -->
+  <accessibilitysignoff>09/10/2010 12:00:00 AM</accessibilitysignoff>
+  <!-- Boolean value (0 or 1) indicating if demo has been approved for test drive site -->
+  <approved>1</approved>
+  <!-- Product Studio bug # used to track this demo -->
+  <pstrackingbug>0</pstrackingbug>
+  <!-- Demo author (example: sethmcl) -->
+  <author>jweber</author>
+  <!-- Demo test owner (example: karenand) -->
+  <testowner>Unknown</testowner>
+</demoproperties>
