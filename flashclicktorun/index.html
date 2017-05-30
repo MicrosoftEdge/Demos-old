@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+	<meta charset="utf-8">
+	<title>Flash Click-To-Play Demo</title>
+	<meta name="og:title" content="Flash Click-To-Play">
+	<meta name="description" content="Provide a seamless user experience on sites requiring Adobe Flash.">
+	<meta name="keywords" content="Misc, Flash">
+	<meta name="author" content="erikadoyle">
+    <link rel="stylesheet" href="https://edgeportal.blob.core.windows.net/media/demotemplate.css"/>
+	<link rel="stylesheet" href="styles/demo.css">
+		<script>
+            document.addEventListener("DOMContentLoaded", function() {
+                var hasFlash = false;
+                try {
+                    var objFlash = new ActiveXObject('ShockwaveFlash.ShockwaveFlash');
+                    if (objFlash) {
+                        hasFlash = true;
+                    }
+                } catch (e) {
+                    if (navigator.mimeTypes
+                            && navigator.mimeTypes['application/x-shockwave-flash'] != undefined
+                            && navigator.mimeTypes['application/x-shockwave-flash'].enabledPlugin) {
+                        hasFlash = true;
+                    }
+                }
+
+                if (hasFlash) {
+                    document.querySelector(".status").textContent = "Enabled";
+                    document.querySelector(".getflash img").style.display = "none";
+                    document.querySelector(".getflash label").style.display = "none";
+                    document.querySelector(".flashbox embed").style.display = "block";
+                }
+            });
+		</script>
+	</head>
+	<body>
+        <h1>Enabling Flash from Microsoft Edge</h1>
+        <div class="flashbox">
+            <div>Flash: <span class="status">Not Enabled</span></div>			
+            <div class="getflash" onclick="window.open('http://get.adobe.com/flashplayer', '_blank')">
+                <label for="flashlink">Click the image to display the browser prompt to enable Flash.</label>
+                <img id="flashlink" src="images/GetAdobeFlashPlayer_icon.png"/>
+            </div>	
+            <embed src="https://helpx.adobe.com/content/dam/help/en/flash-player/assets/tree_grow_small.swf" type="application/x-shockwave-flash">
+        </div> 
+	</body>
+</html>

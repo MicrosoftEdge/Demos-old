@@ -1,0 +1,20 @@
+body {
+    margin: 1.5em;
+}
+.flashbox {
+    margin: 2em;
+}
+.flashbox label {
+    display: block;
+    font-size: .8em;
+    margin-top: 2em;
+}
+.flashbox img {
+    margin: 20px 0;
+}
+.flashbox embed {
+    display: none;
+    height: 100px;
+    margin: 20px 0;
+    width: 300px;
+}
