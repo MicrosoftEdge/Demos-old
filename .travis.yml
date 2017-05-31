@@ -9,3 +9,8 @@ language: node_js
 
 node_js:
   - node
+
+notifications:
+  email:
+    on_failure: always
+    on_success: never
