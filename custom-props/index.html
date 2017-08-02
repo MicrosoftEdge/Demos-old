@@ -1,14 +1,18 @@
 <!doctype html>
 <html lang="en-us">
 <head>
-	<meta charset="utf-8">
-	<title>Custom Properties Pooch</title>
-	<meta name="og:title" content="Custom Properties pooch">
-	<meta name="description" content="See the power of CSS Custom Properties in a cute demo of an adorable pooch in a city park.">
-	<meta name="keywords" content="css, custom properties, variables">
-	<meta name="author" content="gregwhitworth">
+    <meta charset="utf-8">
+    <title>Custom Properties Pooch</title>
+    <meta name="og:title" content="Custom Properties pooch">
+    <meta name="description" content="See the power of CSS Custom Properties in a cute demo of an adorable pooch in a city park.">
+    <meta name="keywords" content="css, custom properties, variables">
+    <meta name="author" content="gregwhitworth">
 
-	<link rel="stylesheet" href="styles/demo.css">
+    <link rel="stylesheet" href="https://edgeportal.blob.core.windows.net/media/demotemplate.css">
+    <!-- Syntax Highlight -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github-gist.min.css">
+
+    <link rel="stylesheet" href="styles/demo.css">
 </head>
 <body>
         <section id="wrapper" role="presentation">
@@ -77,11 +81,19 @@
                     to Greg Whitworth who applied these to rgb() modifiers of the custom properties.
                     Here's an example of one of these levels and its associated rgb() custom property modifiers:</p>
 
-                <script src="https://gist.github.com/gregwhitworth/c109a0fba0583393aca594acd25de8b6.js"></script>
-
+                <pre><code class="css">--building-r-mod: 0;
+--building-g-mod: 0;
+--building-b-mod: 0;</code></pre>
                 <p>And then to utilize this on one of the buildings we do the following:</p>
 
-                <script src="https://gist.github.com/gregwhitworth/cdc73ff44073ceffee2712255fcf93df.js"></script>
+                <pre><code class="css">.distant-building__window
+{
+    fill: rgb(
+    calc(111 + (111 * var(--building-r-mod))),
+    calc(79 + (79 * var(--building-g-mod))),
+    calc(85 + (85 * var(--building-b-mod)))
+    );
+}</code></pre>
 
                 <h4 class="subhead">Changing the time of day</h4>
 
@@ -89,7 +101,31 @@
                     many custom properties, we created an array of name/value pairs and passed it to a function to update all of them. Here is the code
                     to change from day to night:</p>
 
-                <script src="https://gist.github.com/gregwhitworth/8a9827e1ee8b10c3cd9e36d604cce667.js"></script>
+                <pre><code class="javascript">var night = function() {
+  vars = [
+    {name: "--sky-start", value: "rgb(100, 75, 128)"},
+    {name: "--sky-end", value: "rgb(45, 45, 81)"},
+    {name: "--light-r-mod", value: "-17.5"},
+    {name: "--light-g-mod", value: "25"},
+    {name: "--light-b-mod", value: "110"},
+    {name: "--show-stars", value: "block"},
+    {name: "--building-r-mod", value: "-.25"},
+    {name: "--building-g-mod", value: 0},
+    {name: "--building-b-mod", value: ".15"},
+    {name: "--park-r-mod", value: "-.30"},
+    {name: "--park-g-mod", value: "-.20"},
+    {name: "--park-b-mod", value: "-.08"},
+    {name: "--light-source", value: "url(#moon)"}
+  ];
+  setVars(vars);
+  getVars(vars);
+}
+
+function setVars(variables) {
+  variables.forEach(function(prop) {
+    rootStyle.setProperty(prop.name, prop.value);
+  }, this);
+}</code></pre>
 
                 <h4 class="subhead">Animating the dog's tail</h4>
                 <p>Another aspect of custom properties we wanted our demo to highlight was that you can animate a custom property.
@@ -99,14 +135,34 @@
 
                 <p>Here is the code for the dog's tail:</p>
 
-                <script src="https://gist.github.com/gregwhitworth/1a832b4956db34d4d32f6b9228b321d2.js"></script>
+                <pre><code class="css">.tail
+{
+    transform: translateY(10px) rotate(var(--tail-rotate));
+    transform-origin: 60% 84%;
+    animation: wagTail 250ms infinite;
+}
+
+@keyframes wagTail
+{
+    from
+    {
+        --tail-rotate: 15deg;
+    }
+    to
+    {
+        --tail-rotate: 25deg;
+    }
+}</code></pre>
 
             </article>
         </section>
 
+    <!-- Syntax Highlight -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.0.0/highlightjs-line-numbers.min.js"></script>
     <!-- #Assets -->
     <script type="text/javascript" src="script.js"></script>
-	<!-- Adds a universal header to the top of the page -->
-	<script src="https://msedgecdn.azurewebsites.net/scripts/demo-header.js"></script>
+    <!-- Adds a universal header to the top of the page -->
+    <script src="https://msedgecdn.azurewebsites.net/scripts/demo-header.js"></script>
 </body>
 </html>
