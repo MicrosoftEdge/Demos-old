@@ -81,6 +81,17 @@ body.noAnimations * {
     animation: none !important;
 }
 
+pre
+{
+    border: 2px solid hsla(0,0%,0%,.08);
+    background: #f8f8f8;
+}
+
+.hljs
+{
+    background: #f8f8f8;
+}
+
 code
 {
     display: block;
