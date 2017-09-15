@@ -19,7 +19,7 @@ DEALINGS IN THE SOFTWARE.
 
 (function(window){
 
-  var WORKER_PATH = 'scripts/recorderWorker.js';
+  var WORKER_PATH = 'scripts/recorderworker.js';
 
   var Recorder = function(source, cfg){
     var config = cfg || {};
