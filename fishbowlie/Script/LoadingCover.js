@@ -1,4 +1,4 @@
-﻿function LoadingCover() {
+function LoadingCover() {
 
     var canvas;
     var context;

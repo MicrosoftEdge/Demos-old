@@ -1,9 +1,9 @@
-﻿// Define general feature detect for HTML5 Geolocation capabilities
+// Define general feature detect for HTML5 Geolocation capabilities
 if(typeof($FeatureDetectGeolocation) == 'undefined')
 {
     self.$FeatureDetectGeolocation = {
 
-		test : function() 
+		test : function()
 		{
 		    if (!(navigator && typeof navigator.geolocation != "undefined")) {
 			    $FeatureDetect.fail("Your browser doesn't support the HTML5 Geolocation API.", "fullie");

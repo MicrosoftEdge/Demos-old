@@ -1,5 +1,5 @@
 Classes = (function () {
-    
+
     "use strict";
 
     var _classesSeparator = " ";

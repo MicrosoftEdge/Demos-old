@@ -1,4 +1,4 @@
-﻿function Characters() {
+function Characters() {
 
     this.penguinContainer;
 

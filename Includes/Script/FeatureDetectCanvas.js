@@ -1,12 +1,12 @@
-﻿// Define general feature detect for HTML5 Canvas capabilities
+// Define general feature detect for HTML5 Canvas capabilities
 if(typeof($FeatureDetectCanvas) == 'undefined')
 {
     self.$FeatureDetectCanvas = {
 
-		test : function() 
+		test : function()
 		{
 			var canvas = document.createElement('canvas');
-			
+
 			if (!canvas.getContext) {
 			    $FeatureDetect.fail("Your browser doesn't support the HTML5 CANVAS tag.");
 			}

@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
 
     function configureUI() {
         if (window.MSApp)
@@ -54,7 +54,7 @@
         shareEmailElement.setAttribute('title', 'Email a link to this demo');
 
         containerElement.appendChild(returnElement);
-		
+
         containerElement.appendChild(shareFacebookElement);
         containerElement.appendChild(shareTwitterElement);
         containerElement.appendChild(shareEmailElement);

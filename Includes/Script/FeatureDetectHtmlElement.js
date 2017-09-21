@@ -1,16 +1,16 @@
-﻿// Define general feature detect for HTML5 Canvas capabilities
+// Define general feature detect for HTML5 Canvas capabilities
 if(typeof($FeatureDetectHtmlElement) == 'undefined')
 {
     self.$FeatureDetectHtmlElement = {
 
-		test : function() 
+		test : function()
 		{
 			if(typeof HTMLElement === 'undefined') {
 				$FeatureDetect.fail("Your browser doesn't support the HTMLElement object from script.");
-			}			
+			}
 		}
 	}
- 
+
 };
 
 // Define Feature Detect logic for displaying failure message

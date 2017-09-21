@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @classDescription	The FPS-O-Meter renders the frames per second and the following other metrics:
  * 					 		-Window dimensions (resolution)
  * 							-Browser name and version
@@ -70,10 +70,10 @@ function FpsMeter(initialScore, scoreLabel) {
 	var resizeHandler = function (e) { self.OnWindowResize(e); }
 	window.addEventListener("resize", resizeHandler, false);
 
-	// populate fps-o-meter with initial data  
-	// this.infoPanelFps = document.getElementById("fps");  
+	// populate fps-o-meter with initial data
+	// this.infoPanelFps = document.getElementById("fps");
 	// this.infoPanelFps.setAttribute("title", "Frames per second");
-	// this.infoPanelFps.innerHTML = 0;   
+	// this.infoPanelFps.innerHTML = 0;
 
 	this.infoPanelScore = document.getElementById("score");
 	this.infoPanelScore.innerHTML = initialScore;

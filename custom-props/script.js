@@ -1,4 +1,4 @@
-
+	/* globals hljs */
 
 	const nButton = document.getElementById('night');
 	const dButton = document.getElementById('day');
@@ -137,3 +137,6 @@
 	// Do feature detection for custom props and float support in calc()
 		featureDetectFloatCalc();
 	});
+
+	// Init Highlight
+	hljs.initHighlightingOnLoad();

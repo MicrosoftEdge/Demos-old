@@ -1,15 +1,15 @@
 /* Override module behavior for Bing results on "tablet" sizes */
 
 @media (min-width: 33.75em) and (max-width: 60em) {
-	
+
 	.layout--halves .module.bing-result {
 		float: none;
 		margin-top: 3.2rem;
 		width: 100%;
 	}
-	
+
 	.layout--halves .module.bing-result:first-child {
 		margin-top: 0;
 	}
-	
+
 }

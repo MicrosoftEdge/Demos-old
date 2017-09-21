@@ -73,7 +73,7 @@ mazeHelpers.builder = function(){
 
 	var deleteWall = function(cell1, cell2) {
 		var rowDiff = cell2.row - cell1.row;
-		var colDiff = cell2.column - cell1.column;   
+		var colDiff = cell2.column - cell1.column;
 
 		if(rowDiff == 1) {
 			cell1.walls -= 2;
@@ -127,7 +127,7 @@ mazeHelpers.builder = function(){
 				}
 			}
 
-			// Calculate the actual maze 
+			// Calculate the actual maze
 			buildMaze(size);
 		},
 	}
@@ -169,7 +169,7 @@ mazeHelpers.solver = function() {
 		return candidates;
 	}
 
-	return { 
+	return {
 		getSolutionStack: function() {
 			return solutionStack;
 		},
@@ -191,11 +191,11 @@ mazeHelpers.solver = function() {
 
 			// Initialize the solve stack with the entrance of the maze
 			solveStack.push(builder.getBoard()[builder.getEntrance().y][0]);
-		},   
+		},
 
 		next: function() {
 			var currentSolveCell = solveStack[solveStack.length-1];
-			
+
 			// reached the goal, stop solving
 			if(currentSolveCell.row == builder.getExit().y && currentSolveCell.column == builder.getExit().x) {
 				solutionStack.push(currentSolveCell);
@@ -265,7 +265,7 @@ function initialize() {
 
 	// Create the maze elements based on the underlying maze structure
 	createMazeElements();
-	
+
 	registerForKeyboardEvents();
 }
 
@@ -283,18 +283,18 @@ function handleKeyUp(e) {
 
 function toggleAutoMode() {
     isAutoMode = !isAutoMode;
-    
+
     // If we've exited automode we should allow the user to select a new size if this is not IE8
     if(!isAutoMode && (!$BrowserInfo.IsBrowserInternetExplorer() || ($BrowserInfo.IsBrowserInternetExplorer() && $BrowserInfo.IsBrowserInternetExplorer9RCPlusOrLater ()))) {
         document.getElementById("sizeSelector").disabled = false;
     }
-    
+
     // If we've just entered automode we should queue up a task to start solving the maze, if we're not already solving the maze
     if(isAutoMode) {
         document.getElementById("sizeSelector").selectedIndex = 0;
         document.getElementById("sizeSelector").disabled = true;
         changeMazeSize(20);
-        
+
         solveMaze();
     }
 }
@@ -349,7 +349,7 @@ function createMazeElements() {
 	rowBorders = new Array();
 	markers = new Array();
 
-	// Create the top maze borders 
+	// Create the top maze borders
 	var lBorderJoint = document.createElement("div");
 	lBorderJoint.className += " border row col";
 	maze.appendChild(lBorderJoint);
@@ -363,7 +363,7 @@ function createMazeElements() {
 		var joint = document.createElement("div");
 		joint.className += " border row col";
 		maze.appendChild(joint);
-	}   
+	}
 
 	// Create the rest of the maze
 	for(var i=0; i<mazeHelpers.builder.getSize(); i++) {
@@ -424,7 +424,7 @@ function createMazeElements() {
 				var joint = document.createElement("div");
 				joint.className += " border row col";
 				maze.appendChild(joint);
-			}   
+			}
 		}
 	}
 
@@ -458,7 +458,7 @@ function scaleAndCenterMaze(maze) {
             maze.style.OTransformOrigin = "top left";
             maze.style.OTransform = "translate("+translation+", 0px) scale("+baseSize/mazeHelpers.builder.getSize()+")";
         }
-    } 
+    }
 }
 
 function updateWalls() {
@@ -506,7 +506,7 @@ function solveMaze() {
 
     mazeHelpers.solver.initialize(mazeHelpers.builder);
     solveInterval = setInterval("solveStep()", 4);
-    
+
     startTime = new Date().getTime();
 }
 
@@ -522,8 +522,8 @@ function solveStep() {
 	// Get current time and compute the elapsed time since we started solving
 	var elapsedTime = (new Date().getTime()) - startTime;
 	var elapsedTimeString = (elapsedTime/1000).toFixed(1) + "s";
-	
-	// Only incur these costs if we're going to update the value onscreen 
+
+	// Only incur these costs if we're going to update the value onscreen
 	if(prev != elapsedTimeString) {
 		// Display the current elapsed time
 		if($BrowserInfo.IsBrowserInternetExplorer() && $BrowserInfo.GetBrowserVersion() < 9) {
@@ -595,7 +595,7 @@ function displaySolution() {
 
 	// Display the results panel
     var duration = endTime - startTime;
-	var totalTimeString = (duration/1000).toFixed((duration/1000 < 10 ? 1 : 0)) + " seconds"; 
+	var totalTimeString = (duration/1000).toFixed((duration/1000 < 10 ? 1 : 0)) + " seconds";
 
     if($BrowserInfo.IsBrowserInternetExplorer() && $BrowserInfo.GetBrowserVersion() < 9) {
 		document.getElementById("totalTime").innerText = totalTimeString;
@@ -604,7 +604,7 @@ function displaySolution() {
 	}
 
 	showSummary();
-	
+
 	// If we're in automode we should queue up a delayed task to start the next round of solving
 	setTimeout("delayedSolveMaze()", 1000);
 }

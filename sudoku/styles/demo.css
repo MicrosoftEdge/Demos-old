@@ -39,7 +39,7 @@
 
 	/* Top margin for the jaggedy edge */
 	margin: 12px 0 2rem;
-	
+
 	padding: .8rem;
 	font-size: 1.25em;
 	text-align: center;
@@ -73,7 +73,7 @@
 			transparent 66.667%
 		);
 	background-size: 12px 24px;
-	
+
 }
 
 #sudoku-board table,

@@ -10,7 +10,7 @@ Microsoft Corporation
 
 (function() {
 'use strict';
-		
+
 	var notSupported = function() {
 		var msg = document.getElementById('alert-banner');
 		msg.style.display = 'block';
@@ -19,19 +19,19 @@ Microsoft Corporation
 		var db = document.getElementById('demo-banner');
 		db.style.display = 'none';
 	};
-	
+
 	if(window.AudioContext || window.webkitAudioContext) {
 		var audioContext = new (window.AudioContext || window.webkitAudioContext)();
 	} else {
 		notSupported();
 		return;
 	}
-	
+
 	// map prefixed APIs
 	navigator.getUserMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
-													
+
 	// define global variables
-	var file = null;	
+	var file = null;
 	var button = null;
 	var recIndex = 0;
 	var sourceMic = null;
@@ -41,17 +41,17 @@ Microsoft Corporation
 	var playing = false;
 	var myAudio = document.getElementById('demoAudio');
 	var noSrc = true;
-	
+
 	//==============================
 	// create web audio nodes
 	//==============================
-	
+
 	// create notch filter for 60 Hz
 	var notchFilter = audioContext.createBiquadFilter();
 	notchFilter.frequency.value = 60.0;
 	notchFilter.type = 'notch';
 	notchFilter.Q.value = 10.0;
-	
+
 	var micGain = audioContext.createGain();				// for mic input mute
 	var sourceMix = audioContext.createGain();				// for mixing
 	var visualizerInput = audioContext.createGain();		// final gain for visualizers
@@ -59,24 +59,24 @@ Microsoft Corporation
 	outputGain.gain.value = 0;								// mute speakers initially
 	var dynComp = audioContext.createDynamicsCompressor();	// limit output
 	visualizerInput.gain.value = 5;
-	
+
 	// create a convolver node for room effects
 	var convolver = audioContext.createConvolver();
-	
+
 	// create a biquadfilter node for filtering
 	var filter = audioContext.createBiquadFilter();
-	
+
 	// create analyzer nodes for visualizations
 	var timeAnalyser = audioContext.createAnalyser();
 	timeAnalyser.minDecibels = -90;
 	timeAnalyser.maxDecibels = -10;
 	timeAnalyser.smoothingTimeConstant = 0.85;
-	
+
 	var freqAnalyser = audioContext.createAnalyser();
 	freqAnalyser.minDecibels = -90;
 	freqAnalyser.maxDecibels = -10;
 	freqAnalyser.smoothingTimeConstant = 0.85;
-	
+
 	// set up canvas contexts for visualizations
 	var freqCanvas = document.querySelector('.mic-vis__frequency');
 	var freqCanvasContext = freqCanvas.getContext('2d');
@@ -95,34 +95,34 @@ Microsoft Corporation
 				{
 					'audio': true
 				},
-				
+
 				// build audio graph with media stream and audio element as sources
 				function(stream) {
-					
+
 					// initialize mic source
 					sourceMic = audioContext.createMediaStreamSource(stream);
-					
+
 					// initialize audio element source
 					sourceAudio = audioContext.createMediaElementSource(myAudio);
-					
+
 					// mix sources
 					sourceMic.connect(notchFilter);
 					notchFilter.connect(micGain);
 					micGain.connect(sourceMix);
 					sourceAudio.connect(sourceMix);
-					
+
 					// connect source through filter and convolver to visualizer & output
 					sourceMix.connect(convolver);
 					convolver.connect(filter);
-					filter.connect(visualizerInput);				 
-					filter.connect(outputGain);				 
+					filter.connect(visualizerInput);
+					filter.connect(outputGain);
 					outputGain.connect(dynComp);
 					dynComp.connect(audioContext.destination);
 
 					// connect output to visualizers
 					visualizerInput.connect(timeAnalyser);
 					visualizerInput.connect(freqAnalyser);
-					
+
 					// initialize myRecorder (using recorder.js and recordworker.js)
 					myRecorder = new Recorder(sourceMix);
 				},
@@ -141,14 +141,14 @@ Microsoft Corporation
 		db.style.display = 'block';
 		runRecorder();
 	};
-	
+
 	var startButton = document.getElementById('start');
 	startButton.style.display = 'block';
 	startButton.addEventListener('click', demoSetup, false);
-	
+
 	var demoBanner = document.getElementById('demo-banner');
 	demoBanner.style.display = 'none';
-		
+
 	var toggleGainState = function(elementId, elementClass, outputElement){
 		var ele = document.getElementById(elementId);
 		return function(){
@@ -177,9 +177,9 @@ Microsoft Corporation
 			}
 		};
 	};
-	
+
 	var toggleLoop = toggleLoopState('loopButton', 'mic-controls__button--selected', myAudio);
-	
+
 	var stop = function() {
 		if(recording === true) {
 			myRecorder.stop();
@@ -200,7 +200,7 @@ Microsoft Corporation
 		button.classList.remove('mic-controls__button--selected');
 		button.classList.add('mic-controls__play');
 	};
-	
+
 	var toggleRecord = function() {
 		if(recording === false) {
 			recording = true;
@@ -213,7 +213,7 @@ Microsoft Corporation
 			stop();
 		}
 	};
-	
+
 	var togglePlay = function() {
 		if(noSrc === false && playing === false && recording !== true) {
 			stop();
@@ -226,11 +226,11 @@ Microsoft Corporation
 			stop();
 		}
 	};
-	
+
 	var playComplete = function() {
 		stop();
 	};
-			
+
 	// save file from url
 	var saveToDisk = function(url) {
 		var blob = null;
@@ -252,17 +252,17 @@ Microsoft Corporation
 		stop();
 		saveToDisk(myAudio.src);
 	};
-		
+
 	// initiate load file by clicking hidden type=file button
 	var loadFile = function() {
 		stop();
 		document.getElementById('loadFiles').click();
 		noSrc = false;
 	};
-	
+
 	// handle details of file load
-	var handleFileSelection = function(evt) {		
-		var files = evt.target.files;	
+	var handleFileSelection = function(evt) {
+		var files = evt.target.files;
 		file = files[0];
 		var url = URL.createObjectURL(file);
 		myAudio.src = url;
@@ -282,19 +282,19 @@ Microsoft Corporation
 			file: 'sounds/impulse-response/muffler.wav'
 		}
 	};
-	
+
 	// apply room effect
 	var applyEffect = function() {
 		var effectName = document.getElementById('effectmic-controls').value;
 		var selectedEffect = effects[effectName];
-		var effectFile = selectedEffect.file;	
-		
+		var effectFile = selectedEffect.file;
+
 		// retrieve the selected impulse response file
 		var request = new XMLHttpRequest();
 		request.open('GET', effectFile, true);
 
 		request.responseType = 'arraybuffer';
-		
+
 		// decode it and set it as the convolver buffer
 		request.onload = function(){
 			audioContext.decodeAudioData(request.response, function(buffer){
@@ -309,9 +309,9 @@ Microsoft Corporation
 		};
 		request.send();
 	};
-	
+
 	// apply filter
-	
+
 	var filters = {
 		allpass: {
 			frequency: 20000,
@@ -330,7 +330,7 @@ Microsoft Corporation
 			Q: 5
 		}
 	};
-	
+
 	var applyFilter = function() {
 		var filterName = document.getElementById('filtermic-controls').value;
 		var selectedFilter = filters[filterName];
@@ -338,7 +338,7 @@ Microsoft Corporation
 		filter.frequency.value = selectedFilter.frequency;
 		filter.Q.value = selectedFilter.Q;
 	};
-	
+
 	// define controls
 	window.onload = function() {
 		document.getElementById('demoAudio').onended = playComplete;
@@ -352,100 +352,100 @@ Microsoft Corporation
 		document.getElementById('effectmic-controls').onchange = applyEffect;
 		document.getElementById('filtermic-controls').onchange = applyFilter;
 	};
-	
+
 	//=============================
 	// visualize stream
 	//=============================
-	
+
 	var visualize = function() {
 		var FREQWIDTH = freqCanvas.width;
 		var FREQHEIGHT = freqCanvas.height;
 		var TIMEWIDTH = timeCanvas.width;
 		var TIMEHEIGHT = timeCanvas.height;
-				
+
 		// time visualization prep
 		timeAnalyser.fftSize = 2048;
 		var timeBufferLength = timeAnalyser.fftSize;
 		var timeDataArray = new Uint8Array(timeBufferLength);
-		
+
 		timeCanvasContext.clearRect(0, 0, TIMEWIDTH, TIMEHEIGHT);
-		
+
 		// frequency visualization prep
 		freqAnalyser.fftSize = 256;
 		var freqBufferLength = freqAnalyser.frequencyBinCount;
 		var freqDataArray = new Uint8Array(freqBufferLength);
-		
+
 		freqCanvasContext.clearRect(0, 0, FREQWIDTH, FREQHEIGHT);
-		
+
 		// create time based visualization
 		var drawTime = function() {
 			requestAnimationFrame(drawTime);
 			timeAnalyser.getByteTimeDomainData(timeDataArray);
-			
+
 			timeCanvasContext.fillStyle = 'rgb(0, 0, 0)';
 			timeCanvasContext.fillRect(0, 0, TIMEWIDTH, TIMEHEIGHT);
-			
+
 			timeCanvasContext.lineWidth = 2;
 			timeCanvasContext.strokeStyle = 'rgb(179, 252, 254)';
-			
+
 			timeCanvasContext.beginPath();
-			
+
 			var sliceWidth = TIMEWIDTH * 1.0 / timeBufferLength;
 			var x = 0;
-			
+
 			for(var i = 0; i < timeBufferLength; i++) {
-				
+
 				var v = timeDataArray[i] / 128.0;
 				var y = v * TIMEHEIGHT / 2;
-				
+
 				if (i === 0) {
 					timeCanvasContext.moveTo(x, y);
 				} else {
 					timeCanvasContext.lineTo(x, y);
 				}
-				
+
 				x += sliceWidth;
 			}
-			
+
 			timeCanvasContext.lineTo(timeCanvas.width, timeCanvas.height / 2);
 			timeCanvasContext.stroke();
 		};
-		
+
 		// create frequency based visualization
 		var drawFreq = function() {
-			requestAnimationFrame(drawFreq);			
+			requestAnimationFrame(drawFreq);
 			freqAnalyser.getByteFrequencyData(freqDataArray);
-			
+
 			freqCanvasContext.fillStyle = 'rgb(0, 0, 0)';
 			freqCanvasContext.fillRect(0, 0, FREQWIDTH, FREQHEIGHT);
-			
+
 			var barWidth = (FREQWIDTH / freqBufferLength);
 			var barHeight;
 			var x = 0;
-			
+
 			for(var i = 0; i < freqBufferLength; i++) {
 				barHeight = 1.5 * freqDataArray[i];
-				
+
 			// blue bars for low signal, red for high
 			freqCanvasContext.fillStyle = 'rgb(' + (179 + barHeight / 1.5) + ', ' + (252 - barHeight / 1.5) + ', 254)';
 				freqCanvasContext.fillRect(x, FREQHEIGHT - barHeight / 2, barWidth, barHeight / 2);
-				
+
 				x += barWidth + 1;
 			}
 		};
 		drawTime();
 		drawFreq();
 	};
-		
+
 	applyEffect();
 	applyFilter();
 	visualize();
-	
+
 	var init = function() {
 		document.getElementById('loadFiles').addEventListener('change', handleFileSelection, false);
 	};
-	
+
 	window.addEventListener('load', init, false);
-	
+
 	return true;
 }());

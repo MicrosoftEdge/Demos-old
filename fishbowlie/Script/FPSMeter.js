@@ -1,4 +1,4 @@
-﻿function FPSMeter() {
+function FPSMeter() {
 
     this.canvas;
     this.context;

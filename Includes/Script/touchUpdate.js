@@ -1,5 +1,5 @@
-﻿(function () {
-	function touchCallBack(e) { 
+(function () {
+	function touchCallBack(e) {
 		if(styleSet) return;
 		// check to see if the user is using a mouse
 		if(e.pointerId != 1) {
@@ -42,26 +42,26 @@
 				eval("window." + varNames[variable] + "=" + varValues[variable]);
 			}
 		}
-		
-		// disable selection at document level 
+
+		// disable selection at document level
 		if(disableSelection) {
 			document.onselectstart=function(){return false}
 		}
-		
+
 		// call any functions that we need to call
 		if(callFunctions) {
 			for(func in window.touchCallBackFuncs) {
 				window.touchCallBackFuncs[func]();
 			}
 		}
-		// disable drag 
+		// disable drag
 		document.ondragstart=function() {return false};
 		styleSet = true;
 		document.removeEventListener("MSPointerDown", touchCallBack, false);
 		document.removeEventListener("MSPointerMove", touchCallBack, false);
 	}
 	var scriptTag;
-	var CSSClasses = {}; 
+	var CSSClasses = {};
 	var newStyles = {};
 	var styleSet = false;
 	var varNames;
@@ -73,11 +73,11 @@
 		//parse and construct the required data
 		var scriptTags = document.getElementsByTagName("script");
         if(!scriptTags) return;
-        for(i in scriptTags) {            
+        for(i in scriptTags) {
             if(scriptTags[i].getAttribute("CSSSelector") !== null) {
                 scriptTag = scriptTags[i];
                 break;
-            }            
+            }
         }
 		if(typeof scriptTag !== 'undefined') {
 			CSSClasses=scriptTag.getAttribute("CSSSelector").split(";");
@@ -90,5 +90,5 @@
 		document.addEventListener("MSPointerDown", touchCallBack, false);
 		document.addEventListener("MSPointerMove", touchCallBack, false);
 	}
-	
+
 } ());

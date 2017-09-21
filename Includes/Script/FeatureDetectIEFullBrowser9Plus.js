@@ -1,7 +1,7 @@
-﻿if (typeof (self.$BrowserInfo) == "undefined") {
+if (typeof (self.$BrowserInfo) == "undefined") {
     self.$BrowserInfo = new function () {
 
-        var isPPB = false;                  // if true, browser is an Internet Explorer platform preview        
+        var isPPB = false;                  // if true, browser is an Internet Explorer platform preview
         var isPPB6 = false;                 // if true, browser is IE9 PPB6 or newer
         var isIE = false;                   // if true, browser is any version of Internet Explorer (including platform previews)
         var isChrome = false;               // if true, browser is any version of Chrome

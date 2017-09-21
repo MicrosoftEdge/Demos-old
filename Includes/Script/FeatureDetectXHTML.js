@@ -1,22 +1,22 @@
-﻿
+
 // Define general feature detect for HTML5 Audio capabilities
 if (typeof($FeatureDetectXHTML) == 'undefined') {
     self.$FeatureDetectXHTML = {
-    
+
         test: function(){
             if (!document.createElementNS) {
                 $FeatureDetect.fail("Your browser doesn't support XHTML documents.");
             }
             else {
                 var xhtml = document.createElementNS('http://www.w3.org/1999/xhtml', 'div');
-                if (!xhtml.tagName) 
+                if (!xhtml.tagName)
                     $FeatureDetect.fail("Your browser doesn't support XHTML documents.");
-                else 
+                else
                     window.location.replace("Default.xhtml");
             }
         }
     }
-    
+
 };
 
 // Define Feature Detect logic for displaying failure message

@@ -171,7 +171,7 @@ Snowflakes = (function () {
             sf.y += sf.vv * speedFactor;
             // while we're obeying the gravity, we do it with style
             sf.x += (sf.hd + sf.hv) * speedFactor;
-            // advance horizontal axis "bobbing"                
+            // advance horizontal axis "bobbing"
             sf.hd += sf.hdi;
             // inverse "bobbing" direction if we get to maximum delta limit
             if (sf.hd < -sf.mhd || sf.hd > sf.mhd) {
@@ -212,9 +212,9 @@ Snowflakes = (function () {
                     // leave a snowmark at random position
                     SnowPostcard.addSnowmark(
                         Math.random() * landingBounds.width,
-                        Math.random() * landingBounds.height, 
+                        Math.random() * landingBounds.height,
                         snowflakeSprites[sf.si]);
-                    // 
+                    //
                     sf.y = 0;
                     sf.x = Math.random() * bounds.width;
                 } else {
@@ -238,9 +238,9 @@ Snowflakes = (function () {
     }
 
     function renderFrame(context) {
-        // fall down one iteration            
+        // fall down one iteration
         advanceSnowFlakes();
-        // clear context and save it 
+        // clear context and save it
         context.clearRect(0, 0, context.canvas.width, context.canvas.height);
         for (var ii = 0; ii < snowflakes.length; ii++) {
             var sf = snowflakes[ii];

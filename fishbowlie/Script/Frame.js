@@ -1,4 +1,4 @@
-﻿function Frame() {
+function Frame() {
 
     this.canvas;
     this.context;
