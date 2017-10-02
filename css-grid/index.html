@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+	<meta charset="utf-8">
+	<title>CSS Grid Paradize Puzzle</title>
+	<link rel="stylesheet" href="https://edgeportal.blob.core.windows.net/media/demotemplate.css">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<main>
+		<section class="puzzle-game-wrapper">
+			<header class="puzzle-header">
+				<h1 class="puzzle-title">CSS Grid Paradise Puzzle</h1>
+				<a href="#playing-the-game" class="button button--primary">How to play</a>
+			</header>
+			<div class="puzzle-game">
+				<img tabindex=0 id="piece-1" src="grid_1.png" class="puzzle-game-image" aria-label="The">
+				<img tabindex=0 id="piece-2" src="grid_2.png" class="puzzle-game-image" aria-label="only">
+				<img tabindex=0 id="piece-3" src="grid_3.png" class="puzzle-game-image" aria-label="disability">
+				<img tabindex=0 id="piece-4" src="grid_4.png" class="puzzle-game-image" aria-label="in">
+				<img tabindex=0 id="piece-5" src="grid_5.png" class="puzzle-game-image" aria-label="life">
+				<img tabindex=0 id="piece-6" src="grid_6.png" class="puzzle-game-image" aria-label="is">
+				<img tabindex=0 id="piece-7" src="grid_7.png" class="puzzle-game-image" aria-label="a">
+				<img tabindex=0 id="piece-8" src="grid_8.png" class="puzzle-game-image" aria-label="bad">
+				<img tabindex=0 id="piece-9" src="grid_9.png" class="puzzle-game-image" aria-label="attitude">
+			</div>
+			<aside class="puzzle-score">
+				Clicks: <span id="clicks">0</span>
+				<p class="congratulations" aria-live="polite"></p>
+			</aside>
+			<img class="palm-tree" src="grid_game_extra_palm.svg" alt="" role="presentation">
+		</section>
+		<div class="demo-info">
+			<section class="section css-grid-content">
+					<h2 id="playing-the-game">How to play</h2>
+					<p>
+						With the Windows Fall Creator's Update we will be shipping an updated implementation of CSS Grid.
+					</p>
+					<p>
+						The game consists of a 3 by 3 grid with a shuffled set of images.
+						The goal of the game is to move one of the images that is next to the open
+						space into the open space. Continue this process until the order of the images is sequential.
+						If you're doing this game audibly, you will hear the following completed quote by Scott Hamilton.
+					</p>
+
+					<ul>
+						<li>Row 1: The only disability</li>
+						<li>Row 2: in life is</li>
+						<li>Row 3: a bad attitude</li>
+					</ul>
+
+					<h3>Options</h3>
+					<p>
+						<input type="checkbox" id="toggle-audio"><label for="toggle-audio">Turn <span>on</span> sounds for successful/unsuccessful moves</label>
+					</p>
+
+					<h3>Helpful keyboard shortcuts</h3>
+					<dl>
+						<dt>C</dt>
+							<dd>This will audibly outline the current state of the game telling you which pieces are in each row</dd>
+						<dt>H</dt>
+							<dd>This will audibly tell you in which row and column the open space is</dd>
+						<dt>M</dt>
+							<dd>This will audibly tell you which pieces are possible to move into the open space</dd>
+						<dt>w</dt>
+							<dd>This will move the piece below the empty space up up into the available space</dd>
+						<dt>a</dt>
+							<dd>This will move the piece to the right of the empty space into the available space</dd>
+						<dt>s</dt>
+							<dd>This will move the piece above the empty space down into the available space</dd>
+						<dt>d</dt>
+							<dd>This will move the piece to the left of the empty space into the available space</dd>
+						<dt>w, a, s, d</dt>
+							<dd>This will move the piece that is able to move in that direction. For example, if you press the up arrow key the piece that is directly below the open space will move up.</dd>
+						<dt>Numeric keys 1–9</dt>
+							<dd>This will try to move the image with that index</dd>
+					</dl>
+
+			</section>
+			<section class="section css-grid-content">
+					<h2 id="css-grid-resources">CSS Grid Resources</h2>
+					<ul>
+						<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout" target="_blank" rel="noopener noreferrer">CSS Grid MDN Docs</a></li>
+						<li><a href="https://gridbyexample.com/" target="_blank" rel="noopener noreferrer">Grid by Example</a>: An extensive set of Grid tutorials and examples by Rachel Andrew</li>
+						<li><a href="http://cssgridgarden.com/" target="_blank" rel="noopener noreferrer">CSS Grid Garden</a>: Learn CSS Grid the fun way, created by <a href="https://codepip.com/" target="_blank"  rel="noopener noreferrer">Codepip</a></li>
+						<li><a href="https://alistapart.com/article/the-story-of-css-grid-from-its-creators" rel="noopener noreferrer">The story of CSS Grid from its creators</a>: Learn the story about CSS Grid's origin and evolution by Aaron Gustafson</li>
+					</ul>
+			</section>
+		</div>
+	</main>
+
+	<script src="grid.js"></script>
+</body>
+</html>
