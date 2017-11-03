@@ -13,14 +13,27 @@ In order to have the smoothest pull request experience, we suggest reading the f
 
 If your PR contains a new demo, it must be submitted **at least one week** in advance of the intended publication.
 
-## Workflow
+## Worfklow and requirements
 
-1. Fork this project and [set up a remote](https://help.github.com/articles/configuring-a-remote-for-a-fork/) to file pull requests against later.
-2. Create a feature branch for your new demo or code fix off of the master branch.
-3. Before starting any work, and preferrably before designing the experience of your demo, review the [code style requirements](#code-style-requirements) that your demo must meet. If you'd like help with design work, please chat with @melanierichards.
-4. Before creating a PR, make sure your feature branch is up to date with the latest changes to `MicrosoftEdge/Demos/master`.
-5. Create a PR against MicrosoftEdge/Demos/master with the changes from your branch. Title with the name of your demo or fixes, and give a good description of the changes. If submitting a fix, your PR message should say something like `fixes #1234` so that the issue gets automagically linked to the PR. Mention [`@molant`](https://github.com/molant) and optionally [`@melanierichards`](https://github.com/melanierichards) (for front-end/design review) in the comments so we're aware of your PR.
-6. Push any changes based on feedback to your feature branch. This will update the PR with the most recent changes.
+### Setting up the project
+
+1. Fork this project and [set up a remote](https://help.github.com/articles/configuring-a-remote-for-a-fork/) to file pull requests
+against later.
+2. [Install Node](https://nodejs.org/en/), then do an `npm install` from the root of the Demos repo to install linting dependencies.
+3. Create a feature branch off of the master branch. Each new demo, or solution to an issue, gets its own branch / PR.
+4. Review the [accessibility requirements](.github/ACCESSIBILITY_REQS.md) that your demo must meet. If you'd like help with design work, please chat with @melanierichards.
+
+### Fixing issues
+
+In your commit message, please include "fixes #issueNumber" or "ref #issueNumber", and a short, present-tense description of what you did.
+
+### Submitting a pull request
+
+1. Lint your work using `npm run lint:css -- demoDirectoryName/**/*.css` and `npm run lint:js -- demoDirectoryName/**/*.js`. You can add a `--fix` flag to the end of the CSS linting command, and [the linter](https://stylelint.io/user-guide/cli/) will fix as much as it can.
+2. Update your feature branch with any new commits from MicrosoftEdge/Demos/master.
+3. Check your PR one last time for [accessibility issues](.github/ACCESSIBILITY_REQS.md).
+4. Create a pull request against MicrosoftEdge/Demos/master with the changes from your branch. Title with the name of your demo or fixes. Mention [`@molant`](https://github.com/molant) and optionally [`@melanierichards`](https://github.com/melanierichards) (for front-end/design review) in the comments so we're aware of your PR.
+5. Push any changes based on feedback to your feature branch. This will update the PR with the most recent changes.
 
 ## Code style requirements
 
@@ -28,6 +41,8 @@ We will be checking pull requests against the following guidelines and requireme
 
 * [Accessibility requirements](.github/ACCESSIBILITY_REQS.md)
 * [CSS code style](.github/CSS_STYLE_REQS.md)
+
+We will also ask you to lint your work using `npm run lint:css -- demoDirectoryName/**/*.css` and `npm run lint:js -- demoDirectoryName/**/*.js`. You can add a `--fix` flag to the end of the CSS linting command, and [the linter](https://stylelint.io/user-guide/cli/) will fix as much as it can.
 
 ## Demo template
 
