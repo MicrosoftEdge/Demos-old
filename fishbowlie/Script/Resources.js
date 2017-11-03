@@ -1,4 +1,4 @@
-﻿var resourceLoadCompleted = false;
+var resourceLoadCompleted = false;
 var resourcesToLoad = 0;
 var resourcesLoaded = 0;
 

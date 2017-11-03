@@ -6,9 +6,9 @@
 }
 
 .section--alert {
-	background-color: #C8EC56; 
+	background-color: #C8EC56;
 	color: #000;
-	text-align: center;  
+	text-align: center;
 	display: none;
 	padding: 2.4rem;
 }
@@ -82,7 +82,7 @@ input[type="radio"] + label {
 }
 
 .module--muting-recording .mic__heading {
-	padding-left: .8rem;	
+	padding-left: .8rem;
 }
 
 .mic-controls select {
@@ -136,18 +136,18 @@ input[type="radio"] + label {
 	.mic-controls select {
 		margin-top: 2rem;
 	}
-	
+
 	.module--effects-filters {
 		text-align: right;
 	}
-	
+
 	.mic-controls__effects,
 	.mic-controls__filters {
 		text-align: left;
 		margin-right: 0;
 		margin-left: 2rem;
 	}
-		
+
 }
 
 /* Controls Icons */
@@ -174,52 +174,52 @@ input[type="radio"] + label {
 }
 
 .mic-controls__play::before {
-	background-position: -100px 0;	
+	background-position: -100px 0;
 }
 
 
 .mic-controls__save::before {
-	background-position: -40px 0;	
+	background-position: -40px 0;
 }
 
 .mic-controls__save:active::before {
-	background-position: -40px -40px;	
+	background-position: -40px -40px;
 }
 
 .mic-controls__load::before {
-	background-position: -60px 0;	
+	background-position: -60px 0;
 }
 
 .mic-controls__load:active::before {
-	background-position: -60px -40px;	
+	background-position: -60px -40px;
 }
 
 .mic-controls__loop::before {
-	background-position: -80px 0;	
+	background-position: -80px 0;
 }
 
 .mic-controls__loop:active::before,
 .mic-controls__loop.mic-controls__button--selected::before {
-	background-position: -80px -40px;	
+	background-position: -80px -40px;
 }
 
 .mic-controls__mic-mute::before {
-	background-position: 0 -20px;	
+	background-position: 0 -20px;
 }
 
 .mic-controls__mic-mute:active::before,
 .mic-controls__mic-mute.mic-controls__button--selected::before {
-	background-position: -20px -60px;	
+	background-position: -20px -60px;
 }
 
 .mic-controls__speaker-mute::before {
 	width: 24px;
-	background-position: -60px -20px;	
+	background-position: -60px -20px;
 }
 
 .mic-controls__speaker-mute:active::before,
 .mic-controls__speaker-mute.mic-controls__button--selected::before {
-	background-position: -40px -60px;	
+	background-position: -40px -60px;
 }
 
 /* Visualizations */

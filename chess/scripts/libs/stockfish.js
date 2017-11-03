@@ -53,7 +53,7 @@ var $b=[Qv,Oc,uj,yj,pj,Fj,Kj,ms,Oj,ws,ji,ki,Pk,Uk,Bo,Go,up,wp,zp,cp,jp,mp,pp,_t,
 return Module;
 } /// End of load_stockfish()
 
-    
+
 return function ()
 {
     var my_console,
@@ -61,7 +61,7 @@ return function ()
         return_val,
         cmds = [],
         wait = typeof setImmediate === "function" ? setImmediate : setTimeout;
-    
+
     my_console = {
         log: function log(line)
         {
@@ -82,12 +82,12 @@ return function ()
             if (typeof console !== "undefined" && console.timeEnd) console.timeEnd(s);
         }
     };
-    
+
     return_val = {
         postMessage: function send_message(str)
         {
             cmds.push(str);
-            
+
             (function ccall()
             {
                 if (Module) {
@@ -98,23 +98,23 @@ return function ()
             }());
         }
     };
-    
+
     /// We need to give them a chance to set postMessage
     wait(function ()
     {
         Module = load_stockfish(my_console);
-        
+
         if (Module.print) {
             Module.print = my_console.log;
         }
         if (Module.printErr) {
             Module.printErr = my_console.log;
         }
-        
+
         /// Initialize.
         Module.ccall("init", "number", [], []);
     }, 1);
-    
+
     return return_val;
 };
 
@@ -125,21 +125,21 @@ return function ()
 {
     var is_node,
         stockfish;
-    
+
     try {
         is_node = Object.prototype.toString.call(global.process) === "[object process]";
     } catch(e) {}
-    
+
     if (is_node) {
         /// Was it called directly?
         if (require.main === module) {
             stockfish = STOCKFISH();
-            
+
             stockfish.onmessage = function onlog(line)
             {
                 console.log(line);
             };
-            
+
             require("readline").createInterface({
                 input: process.stdin,
                 output: process.stdout,
@@ -153,7 +153,7 @@ return function ()
                     stockfish.postMessage(line);
                 }
             });
-            
+
             process.stdin.on("end", function onend()
             {
                 process.exit();
@@ -162,20 +162,20 @@ return function ()
         } else {
             module.exports = STOCKFISH;
         }
-        
+
     /// Is it a web worker?
     } else if (typeof onmessage !== "undefined" && (typeof window === "undefined" || typeof window.document === "undefined")) {
         stockfish = STOCKFISH();
-        
+
         onmessage = function(event) {
             stockfish.postMessage(event.data);
         };
-        
+
         stockfish.onmessage = function onlog(line)
         {
             postMessage(line);
         };
-        
+
     }
     ///NOTE: If it's a normal browser, we don't need to do anything. The client can use the STOCKFISH() function directly.
 }());

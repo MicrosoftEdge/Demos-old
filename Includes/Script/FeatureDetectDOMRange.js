@@ -1,8 +1,8 @@
-﻿if(typeof($FeatureDetectDOMRange) == 'undefined')
+if(typeof($FeatureDetectDOMRange) == 'undefined')
 {
     self.$FeatureDetectDOMRange = {
 
-		test : function() 
+		test : function()
 		{
 			if (!document.createRange || !window.getSelection) {
 				$FeatureDetect.fail("Your browser doesn't support DOM Range and/or HTML5 Selection.");

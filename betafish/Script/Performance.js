@@ -1,4 +1,4 @@
-﻿// This file contains the performance type which uses requestAnimationFrame to measure
+// This file contains the performance type which uses requestAnimationFrame to measure
 // the callbacks per second and determine the FPS of the demo.
 
 var performance = new Performance();

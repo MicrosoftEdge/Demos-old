@@ -1,11 +1,11 @@
-﻿#infoPanel
+#infoPanel
 {
     position: absolute;
     top: 135px;
     right: 15px;
     width: 100px;
-    background-color: rgb(75,175,225); 
-    /*border-top: 1px solid rgba(0, 0, 0, .3);*/	
+    background-color: rgb(75,175,225);
+    /*border-top: 1px solid rgba(0, 0, 0, .3);*/
     opacity: 1;
     font-size: 18px;
     font-family: Segoe UI, Verdana, Arial, Sans-Serif;
@@ -20,8 +20,8 @@
     top: 135px;
     right: 15px;
     width: 100px;
-    background-color: rgb(75,175,225); 
-    /*border-top: 1px solid rgba(0, 0, 0, .3);*/	
+    background-color: rgb(75,175,225);
+    /*border-top: 1px solid rgba(0, 0, 0, .3);*/
     opacity: 1;
     font-size: 18px;
     font-family: Segoe UI, Verdana, Arial, Sans-Serif;

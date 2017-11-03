@@ -1,4 +1,4 @@
-﻿body
+body
 {
     padding: 0;
     margin: 0;
@@ -7,7 +7,7 @@
     text-align: center;
     font-size: 10pt;
     color: #424242;
-    
+
 }
 #returnbutton
 {
@@ -194,7 +194,7 @@ code, .code
 
 /*	clean up demo page printing
  */
-@media print 
+@media print
 {
 body { margin: 0; background-image: none; }
 #returnbutton, #legallinks, .noprint { display: none; }

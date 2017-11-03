@@ -1,4 +1,4 @@
-﻿.overflow-wrap {
+.overflow-wrap {
 	display: block;
 	margin-bottom: 2.4rem;
 	width: 100%;
@@ -48,7 +48,7 @@ button {
 
 /* Move to general CSS library? */
 @media (min-width: 40em) {
-	
+
 	.longform-text {
 		-webkit-columns: 2;
 		-moz-columns: 2;
@@ -57,5 +57,5 @@ button {
 		-moz-column-gap: 3.2em;
 		column-gap: 3.2em;
 	}
-	
+
 }

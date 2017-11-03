@@ -1,4 +1,4 @@
-﻿function Snowstorm() {
+function Snowstorm() {
 
     this.performance;
 

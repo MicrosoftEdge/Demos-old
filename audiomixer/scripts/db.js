@@ -149,7 +149,7 @@
 			return new Promise(function(resolve, reject) {
 				var tx = db._db.transaction([db.configsStoreName], 'readwrite');
 				var os = tx.objectStore(db.configsStoreName);
-				
+
 				if (obj.constructor !== Array) {
 					var request;
 
@@ -185,7 +185,7 @@
 		remove: function(id) {
 			return new Promise(function(resolve, reject) {
 				var tx = db._db.transaction([db.configsStoreName], 'readwrite');
-				
+
 				var request = tx.objectStore(db.configsStoreName).delete(id);
 
 				request.onsuccess = function(event) {

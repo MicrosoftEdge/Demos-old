@@ -1,14 +1,13 @@
-# Contributing to this demos
+# Contributing
 
-There are many ways you can contribute to these demos:
+Thanks for your interest in contributing! There are many ways to contribute: filing issues, fixing bugs, improving content, and adding new demos. All these ways are very much appreciated.
 
-## Filing issues, fixing issues and improving the content
-Some of these demos have been migrated from the old TestDrive website and might contain some bugs with some browsers or the code doesn't follow the latest standards. We've tried to do our best to prevent this but we all know things can happen. If you find a bug, open an issue. If you know how to fix it or improve a demo, do a Pull Request!
-  
-## Adding new demos
-If you are interested in contributing with an interoperable, open source demo, open an issue and we will see how we can do that!
+In order to have the smoothest pull request experience, we suggest reading the following guidelines so you know what to expect:
 
-Thank you for contributing!
+* [Timelines](#timelines)
+* [Workflow](#workflow)
+* [Code style requirements](#code-style-requirements)
+* [Demo template](#demo-template)
 
 ## Timelines
 
@@ -36,9 +35,18 @@ In your commit message, please include "fixes #issueNumber" or "ref #issueNumber
 4. Create a pull request against MicrosoftEdge/Demos/master with the changes from your branch. Title with the name of your demo or fixes. Mention [`@molant`](https://github.com/molant) and optionally [`@melanierichards`](https://github.com/melanierichards) (for front-end/design review) in the comments so we're aware of your PR.
 5. Push any changes based on feedback to your feature branch. This will update the PR with the most recent changes.
 
-## What code should I use?
+## Code style requirements
 
-Duplicate the `demo-template/` directory and start from there. Be sure to add your demo's details in the meta data.
+We will be checking pull requests against the following guidelines and requirements:
+
+* [Accessibility requirements](.github/ACCESSIBILITY_REQS.md)
+* [CSS code style](.github/CSS_STYLE_REQS.md)
+
+We will also ask you to lint your work using `npm run lint:css -- demoDirectoryName/**/*.css` and `npm run lint:js -- demoDirectoryName/**/*.js`. You can add a `--fix` flag to the end of the CSS linting command, and [the linter](https://stylelint.io/user-guide/cli/) will fix as much as it can.
+
+## Demo template
+
+Duplicate the `demo-template/` directory and start from there. **Be sure to add your demo's details in the meta data.**
 
 ### If you're creating an immersive experience
 

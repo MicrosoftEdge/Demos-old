@@ -1,5 +1,5 @@
-﻿var $QueryStringHelper = {
-    parse : function(variable) 
+var $QueryStringHelper = {
+    parse : function(variable)
     {
         var query = window.location.search.substring(1);
         var vars = query.split("&");
@@ -12,5 +12,5 @@
         }
 
         return false;
-    }    
-} 
+    }
+}

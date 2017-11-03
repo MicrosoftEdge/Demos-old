@@ -1,11 +1,11 @@
-﻿if(typeof($FeatureDetectSemanticElements) == 'undefined')
+if(typeof($FeatureDetectSemanticElements) == 'undefined')
 {
     self.$FeatureDetectSemanticElements = {
 
-		test : function() 
+		test : function()
 		{
 			var section = document.createElement('section');
-			
+
 			if (section.toString() != "[object HTMLElement]") {
 				$FeatureDetect.fail("Your browser doesn't support the HTML5 Semantic Elements.", "ppb");
 			}

@@ -1,8 +1,8 @@
-﻿if(typeof($FeatureDetectGetElementsByClassName) == 'undefined')
+if(typeof($FeatureDetectGetElementsByClassName) == 'undefined')
 {
     self.$FeatureDetectDOMGetElementsByClassName = {
 
-		test : function() 
+		test : function()
 		{
 			if (!document.getElementsByClassName) {
 				$FeatureDetect.fail("Your browser doesn't support DOM GetElementsByClassName.");

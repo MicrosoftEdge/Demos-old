@@ -1,21 +1,21 @@
-﻿/* SiteCatalyst code version: H.20.3 */
+/* SiteCatalyst code version: H.20.3 */
 var _om_gbls = {
-	s_account : "mswindowsie9td2", s_accountdev : "mswindowsie9tddev2",  host : "", path : "", href : "", extraRsids : "", extraevars : "", 
+	s_account : "mswindowsie9td2", s_accountdev : "mswindowsie9tddev2",  host : "", path : "", href : "", extraRsids : "", extraevars : "",
 	apl : "", split : "", addrsid : "",
-	getOmniMeta : function(mn){   
-		var m = document.getElementsByTagName('meta');   
+	getOmniMeta : function(mn){
+		var m = document.getElementsByTagName('meta');
 		for(var i in m) {
-			if(m[i].name == mn){      
-				return m[i].content;    
+			if(m[i].name == mn){
+				return m[i].content;
 			}
 		}
 	},
 	omniAddPVEvent : function() {
-		 if (!s.linkType) { 
+		 if (!s.linkType) {
 			 s.events=s.apl(s.events,"event1",",",2);
 		}
-	},	
-	modClick : function(obj,type,cat,text,dest,evts) {	
+	},
+	modClick : function(obj,type,cat,text,dest,evts) {
 		var oldltvars=s.linkTrackVars; var oldltevts=s.linkTrackEvents;
 		s.linkTrackVars="prop3,eVar3,events";
 		s.linkTrackEvents="event2,event3";
@@ -29,7 +29,7 @@ var _om_gbls = {
 			s.tl(true,"o",cat + ":" + text);
 		}
 		else {
-			s.tl(obj,"o",cat + ":" + text);	
+			s.tl(obj,"o",cat + ":" + text);
 		}
 		s.linkTrackEvents=oldltevts;s.linkTrackVars=oldltvars;
 		s.prop3=s.eVar3=s.events="";
@@ -50,14 +50,14 @@ _om_gbls.apl=new Function("l","v","d","u",""
 _om_gbls.split=new Function("l","d",""
 +"var i,x=0,a=new Array;while(l){i=l.indexOf(d);i=i>-1?i:l.length;a[x"
 +"++]=l.substring(0,i);l=l.substring(i+d.length);}return a");
-		
+
 
 _om_gbls.path = window.location.pathname.toLowerCase();
 _om_gbls.host = window.location.hostname.toLowerCase();
 // test values here
-	
+
 _om_gbls.href = _om_gbls.host + _om_gbls.path;
-	
+
 if (_om_gbls.href.indexOf("ie.microsoft.com/testdrive/") == -1) {
 	_om_gbls.s_account = _om_gbls.s_accountdev;
 }
@@ -81,37 +81,37 @@ s.events='';
 function s_doPlugins(s) {
 	var _ie_version="non-IE";
 	if (_om_gbls.getOmniMeta("t_omni_errorpage")) { s.pageType = "errorPage"; s.pageName=""; }
-	
+
 	_om_gbls.omniAddPVEvent();
 
 	s.eVar1="D=User-Agent";
-	s.prop1="D=v1";	
+	s.prop1="D=v1";
 
 	if(!s.campaign)
-		s.campaign=s.getQueryParam('cmxid'); 
+		s.campaign=s.getQueryParam('cmxid');
 	if(!s.campaign)
 		s.campaign=s.getQueryParam('ocid');
-	
+
 	s.campaign=s.getValOnce(s.campaign,"s_campaign",0);
 	s.prop4=s.getAndPersistValue(s.campaign,'s_prop4_persist',0);
-	
+
 	s.eVar11 = "D=g";
 	s.eVar12 = "D=pageName";
 
 	if(!s.eVar13)
 		s.eVar13=s.getQueryParam('icid');
 	s.eVar13=s.getValOnce(s.eVar13,"s_eVar13",0)
-	
+
 	if(s.prop2){s.eVar2="D=c2"}
 	if(s.prop3){s.eVar3="D=c3"}
-	
+
 	if(s.d.webkitVisibilityState&&s.d.webkitVisibilityState=='prerender'){
         s.prop5="Chrome Prerender";
     }
-	
+
 	if(typeof window.ActiveXObject != 'undefined')
 	{
-		_ie_version="IE other";		
+		_ie_version="IE other";
 		if(window.external == null)
 		{
 			_ie_version="PPB";
@@ -121,17 +121,17 @@ function s_doPlugins(s) {
 			var _ua = navigator.userAgent;
 			if ( _ua.indexOf("MSIE 9.0")>-1) {
 				_ie_version="IE 9.0";
-			}	
+			}
 			else if ( _ua.indexOf("MSIE 8.0")>-1) {
 				_ie_version="IE 8.0";
-			}	
+			}
 			else if ( _ua.indexOf("MSIE 7.0")>-1) {
 				_ie_version="IE 7.0";
-			}			
+			}
 		}
 	}
 	s.prop6 = s.eVar6 = _ie_version;
-	
+
 }
 s.doPlugins=s_doPlugins
 /************************** PLUGINS SECTION *************************/
@@ -204,7 +204,7 @@ s.split=new Function("l","d",""
 
 
 /*********************************************************************
-* Function p_fo(x,y): Ensures the plugin code is fired only on the 
+* Function p_fo(x,y): Ensures the plugin code is fired only on the
 *      first call of do_plugins
 *
 *
@@ -351,11 +351,11 @@ c=s_d(c);if(e>0){a=parseInt(i=v.substring(e+5));if(a>3)a=parseFloat(i)}else if(m
 (function () {
 	var tp = _om_gbls.path.toLowerCase();
 	//test vals here
-	//tp="/testdrive/"; 
-	
+	//tp="/testdrive/";
+
 	if (tp.indexOf("/")==0) tp = tp.substring(1);
 	var hp = "testdrive/";
-	s.pageName = (tp==hp) ? tp + "default.aspx" : tp;  
+	s.pageName = (tp==hp) ? tp + "default.aspx" : tp;
 	var pathlength = tp.split('/').length;
 	var ch = (pathlength > 1) ? tp.split('/')[1] : "";
 	s.channel = (ch) ? ch : "home";
@@ -364,8 +364,8 @@ c=s_d(c);if(e>0){a=parseInt(i=v.substring(e+5));if(a>3)a=parseFloat(i)}else if(m
 	tvar=_om_gbls.getOmniMeta("t_omni_pagename");  if (tvar) { s.pageName = tvar; }
 	tvar=_om_gbls.getOmniMeta("t_omni_channel");  if (tvar) { s.channel = tvar; }
 	tvar=_om_gbls.getOmniMeta("t_omni_pagetitle");  if (tvar) { s.prop3 = tvar; }
-	tvar=_om_gbls.getOmniMeta("t_omni_demopage");  if (tvar) { 
-		s.events=s.apl(s.events,"event4",",",2); 
+	tvar=_om_gbls.getOmniMeta("t_omni_demopage");  if (tvar) {
+		s.events=s.apl(s.events,"event4",",",2);
 		s.prop2 = s.pageName;
 	}
 }
@@ -376,7 +376,7 @@ try {
 } catch(e) {
 	_om_gbls.logError(e,"error in s.t call");
 }
-	
+
 
 
 

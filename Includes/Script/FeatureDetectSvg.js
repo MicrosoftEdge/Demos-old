@@ -1,4 +1,4 @@
-﻿// Define general feature detect for SVG support
+// Define general feature detect for SVG support
 if(typeof($FeatureDetectSvg) == 'undefined')
 {
     self.$FeatureDetectSvg = {

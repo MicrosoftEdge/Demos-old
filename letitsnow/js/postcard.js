@@ -28,7 +28,7 @@ SnowPostcard = (function () {
 
     // default greetings image
     var defaultImageLocation = "./Messages/Message2.png";
-    // alternative secret image 
+    // alternative secret image
     var defaultAlternativeImageLocation = "./Messages/alternativeImage.png";
 
     // external initilization
@@ -215,7 +215,7 @@ SnowPostcard = (function () {
             y - h / 2,
         // target width
             w * scale,
-        // target height 
+        // target height
             h * scale);
         // request to update that out of normal rendering loop
         requestFrameRender();

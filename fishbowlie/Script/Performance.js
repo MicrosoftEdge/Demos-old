@@ -1,4 +1,4 @@
-﻿function Performance() {
+function Performance() {
 
     // Browser Information
     this.browserCheck;

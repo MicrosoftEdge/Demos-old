@@ -1,4 +1,4 @@
-﻿window.requestAnimFrame = (function () { return window.requestAnimationFrame || window.mozRequestAnimationFrame || window.msRequestAnimationFrame || window.oRequestAnimationFrame || window.webkitRequestAnimationFrame || function (callback) { window.setTimeout(callback, 1000 / 60); }; })();
+window.requestAnimFrame = (function () { return window.requestAnimationFrame || window.mozRequestAnimationFrame || window.msRequestAnimationFrame || window.oRequestAnimationFrame || window.webkitRequestAnimationFrame || function (callback) { window.setTimeout(callback, 1000 / 60); }; })();
 window.cancelAnimFrame = (function () { return window.cancelAnimationFrame || window.mozCancelAnimationFrame || window.msCancelAnimationFrame || window.oCancelAnimationFrame || window.webkitCancelAnimationFrame })();
 window.requestCallback = (function () { return window.setImmediate || window.mozSetImmediate || window.msSetImmediate || window.oSetImmediate || window.webkitSetImmediate || function (callback) { window.setTimeout(callback, 0); }; })();
 
@@ -24,7 +24,7 @@ function GetBrowserInformation() {
         browserVersion = "(EdgeHTML " + parseFloat('' + UA.substring(index + 5)) + ")";
         browserTimerResolution = 16.7;
         browserPenguin = "IEPenguinFull.png";
-    }    
+    }
     else if (UA.indexOf('chrome') > -1) {
         index = UA.indexOf('chrome');
         browserCheck = "Chrome";
