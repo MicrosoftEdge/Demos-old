@@ -131,6 +131,16 @@ pre {
 }
 
 /*
+ *	FORM ELEMENTS
+ *	---------------------------------------------
+ */
+
+button {
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+
+/*
  *	UTILITIES
  *	---------------------------------------------
  */
