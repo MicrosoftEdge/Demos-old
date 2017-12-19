@@ -1,0 +1,643 @@
+/*
+ *	=============================================
+ *	VARIABLE FONTS
+ *	=============================================
+ */
+
+body {
+  color: #444;
+
+  /* Hide overflow from angled edges */
+  overflow-x: hidden;
+}
+
+/* DO NOT remove focus altogether, just style to your colors */
+:focus {
+  outline: 1px dotted #000;
+}
+
+::-moz-selection {
+  background: #c7d4de;
+}
+
+::selection {
+  background: #c7d4de;
+}
+
+a:link, a:visited {
+  color: #424f5e;
+}
+
+a:hover {
+  color: #5e7186;
+}
+
+/*
+ *	UNIVERSAL GUIDE-SPECIFIC STYLES
+ *	=============================================
+ */
+
+/*
+ *	TYPOGRAPHY
+ *	---------------------------------------------
+ */
+
+h1, h2 {
+  font-size: 2.75em;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+}
+
+h2 {
+  font-size: 2em;
+  line-height: 1.2;
+}
+
+h3, .h3 {
+  font-weight: 400;
+  font-size: 1.125em;
+  color: #57687c;
+}
+
+h2, h3,
+p, ul, ol,
+pre {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 36rem;
+}
+
+pre {
+  margin-top: 1.5em;
+}
+
+pre code {
+  display: block;
+  padding: 1em;
+  border: 3px solid #57687c;
+  font-size: 1.125em;
+  tab-size: 3;
+  color: #424f5e;
+}
+
+@media (min-width: 36em) {
+  h1 {
+    font-size: 5em;
+  }
+
+  h2 {
+    font-size: 3.375em;
+  }
+}
+
+/*
+ *	MEDIA + CODE
+ *	---------------------------------------------
+ */
+
+figure {
+  text-align: center;
+}
+
+figure + * {
+  margin-top: 2em;
+}
+
+img {
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}
+
+.caption {
+  margin: 1em auto 0;
+  max-width: 24em;
+  font-size: .875em;
+  line-height: 1.3;
+  text-align: left;
+  color: #666;
+}
+
+/*
+ *	ANGLED EDGES
+ *	---------------------------------------------
+ */
+
+.guide-content,
+.c-ex:nth-child(even),
+.c-outro {
+  position: relative;
+}
+
+.guide-content::before,
+.c-ex:nth-child(even)::before,
+.c-outro::before {
+  display: block;
+  position: absolute;
+  content: '';
+  left: 0;
+  width: 0;
+  border-left: 100vw solid transparent;
+}
+
+/*
+ *	GUIDE CONTENT
+ *	---------------------------------------------
+ */
+
+ .guide-content {
+  padding-top: 2vmin;
+}
+
+/* Angled edge */
+.guide-content::before {
+  top: -15vmin;
+  border-bottom: 15vmin solid #fff;
+}
+
+/*
+ *  LAYOUT: GRID
+ *	---------------------------------------------
+ */
+
+[class*="l-col-"] {
+  margin-top: 1.5em;
+}
+
+@media (min-width: 48em) {
+  .l-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 3em;
+  }
+
+  .l-col-quarter {
+    -ms-grid-column-span: 3;
+    grid-column: span 3;
+  }
+
+  .l-col-three-quarters {
+    -ms-grid-column-span: 9;
+    grid-column: span 9;
+  }
+
+  .l-col-half {
+    -ms-grid-column-span: 6;
+    grid-column: span 6;
+  }
+
+  .l-col-third {
+    -ms-grid-column-span: 4;
+    grid-column: span 4;
+  }
+
+  .l-col-two-thirds {
+    -ms-grid-column-span: 8;
+    grid-column: span 8;
+  }
+
+  @supports (display: grid) or (display: -ms-grid) {
+    [class*="l-col-"] {
+      margin-top: 0;
+    }
+  }
+}
+
+/*
+ *	LAYOUT: SECTION, HEADER, BODY
+ *	---------------------------------------------
+ */
+
+.l-section__header {
+  text-align: center;
+}
+
+.l-section__header > * {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.l-section__body {
+  margin-top: 2em;
+}
+
+/* Special section that has the line leading to it */
+.l-section--timeline {
+  position: relative;
+  padding-top: 9em;
+}
+
+.l-section--timeline::before {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -1px;
+  width: 1px;
+  height: 7em;
+  background: #424f5e;
+}
+
+@media (min-width: 48em) {
+  .l-section__body {
+    margin-top: 3em;
+  }
+}
+
+@media (min-width: 64em) {
+  .l-section--timeline {
+    padding-top: 17em;
+  }
+  
+  .l-section--timeline::before {
+    height: 14em;  
+  }
+}
+
+/*
+ *	OBJECT: LONG TEXT
+ *	---------------------------------------------
+ */
+
+.o-long-text {
+  -webkit-columns: 3 16em;
+  -moz-columns: 3 16em;
+  columns: 3 16em;
+  -webkit-column-gap: 2em;
+  -moz-column-gap: 2em;
+  column-gap: 2em;
+}
+
+/*
+ *	COMPONENT: TOGGLE
+ *	---------------------------------------------
+ */
+
+.c-toggle {
+  display: inline-block;
+  margin: 1em auto 0;
+  position: relative;
+}
+
+.c-toggle input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.c-toggle label,
+.c-toggle__hex,
+.c-toggle__hex path  {
+  transition: all 200ms ease-out;
+}
+
+.c-toggle label {
+  position: relative;
+  padding-left: 48px;
+  color: #57687c;
+}
+
+.c-toggle label:hover {
+  cursor: pointer;
+}
+
+.c-toggle label:before,
+.c-toggle__hex {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+}
+
+.c-toggle label:before {
+  margin-top: -9px;
+  border: 2px solid #57687c;
+  border-radius: 18px;
+  width: 36px;
+  height: 18px;
+}
+
+.c-toggle__hex {
+  margin-top: -3px;
+  left: 6px;
+  width: 12px;
+  height: 10px;
+}
+
+/* Checked toggle */
+.c-toggle input:checked + label:before {
+  background: #57687c;
+}
+
+input:checked + label .c-toggle__hex {
+  left: 24px;
+}
+
+input:checked + label .c-toggle__hex path {
+  fill: #fff;
+}
+
+/*
+ *	GUIDE SECTIONS
+ *	=============================================
+ */
+
+/*
+ *	SECTION: WHAT
+ *	---------------------------------------------
+ */
+
+/* Overlap the "timeline" on this section */ 
+.l-section--what {
+  margin-top: -10vmin;
+}
+
+/*
+ *	SECTION: RWD
+ *	---------------------------------------------
+ */
+
+.c-ex {
+  background: #fff;
+}
+
+.c-ex__demo {
+  margin-top: 1.5em;
+}
+
+/* Every other example */
+.c-ex:nth-child(even) {
+  margin-top: 20vmin;
+  background: #f2f3f4;
+}
+
+.c-ex:nth-child(even)::before {
+  top: -15vmin;
+  border-bottom: 15vmin solid #f2f3f4;
+}
+
+@media (min-width: 48em) {
+  .c-ex__grid {
+    display: -ms-grid;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+
+  .c-ex__info {
+    padding: 0 0 0 2em;
+  }
+
+  .c-ex__demo {
+    position: relative;
+    margin-top: 0;
+  }
+
+  /* Don't want toggle to contribute height in grid calculations */
+  .c-ex .c-toggle {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+  }
+
+  /* Every other example */
+  .c-ex:nth-child(even) .c-ex__demo {
+    grid-row: 1;
+    grid-column: 1;
+  }
+
+  .c-ex:nth-child(even) .c-ex__info {
+    grid-row: 1;
+    grid-column: 2;
+  }
+}
+
+@media (min-width: 64em) {
+  .c-ex {
+    padding: 6.25em 0;
+  }
+
+  .c-ex__info {
+    padding: 0 6em;
+  }
+}
+
+/*
+ *	SECTION: RESOURCES
+ *	---------------------------------------------
+ */
+
+/* Overlap the "timeline" on this section */
+.l-section--differentiation {
+  margin-top: -2em;
+}
+
+/*
+ *	SECTION: RESOURCES
+ *	---------------------------------------------
+ */
+
+.resources-grid {
+  grid-gap: 2em;
+  max-width: 64rem;
+}
+
+.c-resource-list {
+  list-style: none;
+}
+
+.snowflake {
+  display: inline-block;
+  margin-top: .2em;
+  height: 1em;
+  vertical-align: top;
+}
+
+/*
+ *	SCHEME FOR UNIVERSAL COMPONENTS
+ *	=============================================
+ */
+
+/*
+ *	COMPONENT: NAV BAR
+ *	---------------------------------------------
+ */
+
+.c-nav-bar {
+  background: #1e2830;
+  color: #ccc;
+}
+
+/* DO NOT remove focus altogether, just style to your colors */
+.c-nav-bar :focus {
+  outline: 1px dotted #fff;
+}
+
+.c-nav-bar a {
+  color: #f4f4f4;
+  border-bottom-color: rgba(255, 255, 255, .66);
+}
+
+/* Only used in mobile-first design */
+.c-nav-bar__context {
+  border-bottom-color: #444;
+}
+
+.c-nav-bar__title {
+  color: #f4f4f4;
+}
+
+/*
+ *	COMPONENT: GUIDE NAV
+ *	---------------------------------------------
+ */
+
+.c-guide-nav__btn {
+  background: #1e2830;
+  color: #fff;
+}
+
+.c-guide-nav__btn:hover,
+.c-guide-nav__btn:focus {
+  background: #222;
+}
+
+.c-guide-nav__btn:active {
+  background: #444;
+}
+
+.c-guide-nav__arrow path {
+  stroke: #fff;
+}
+
+.c-guide-nav__items {
+  background: #444;
+}
+
+.c-guide-nav__item a:hover {
+  background: #222;
+}
+
+/*
+ *	COMPONENT: INTRO
+ *	---------------------------------------------
+ */
+
+.c-intro {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  background: #424f5e;
+  text-align: center;
+}
+
+.c-intro__heading,
+.c-intro__subheading {
+  display: inline-block;
+  background: #fff;
+}
+
+.c-intro__heading {
+  padding: .25em .5em;
+  line-height: 1;
+}
+
+.c-intro__subheading {
+  margin-top: .5em;
+  padding: .5em .75em;
+  font-size: 2em;
+  color: #57687c;
+}
+
+/*
+ *	COMPONENT: OUTRO
+ *	---------------------------------------------
+ */
+
+.c-outro {
+  margin-top: 25vmin;
+  background: #424f5e;
+  color: #efefef;
+}
+
+/* Angled edge */
+.c-outro::before {
+  top: -15vmin;
+  border-bottom: 15vmin solid #424f5e;
+}
+
+.c-outro :focus {
+  outline: 1px dotted #fff;
+}
+
+.c-outro a {
+  color: #efefef;
+}
+
+.c-outro a:hover {
+  color: #fff;
+}
+
+a.c-outro__github {
+  position: relative;
+  border: 0;
+  background: #efefef;
+  color: #424f5e;
+  transition: transform 200ms ease-out;
+}
+
+/* Faux "cropped" corners */
+a.c-outro__github::before,
+a.c-outro__github::after {
+  display: block;
+  content: '';
+  position: absolute;
+  z-index: 1;
+  width: 0;
+  height
+}
+
+a.c-outro__github::before {
+  left: 0;
+  top: 0;
+  border-top: 8px solid #424f5e;
+  border-right: 8px solid transparent;
+}
+
+a.c-outro__github::after {
+  right: 0;
+  bottom: 0;
+  border-bottom: 8px solid #424f5e;
+  border-left: 8px solid transparent;
+}
+
+a.c-outro__github path {
+  fill: #424f5e;
+}
+
+a.c-outro__github span {
+  position: relative;
+  z-index: 2;
+}
+
+a.c-outro__github:hover {
+  background: #fff;
+  color: #262d36;
+  transform: translateX(4px);
+}
+
+a.c-outro__github:hover path {
+  fill: #424f5e;
+}
+
+a.c-outro__github:active {
+  color: #000;
+}
+
+a.c-outro__github:active path {
+  fill: #000;
+}
