@@ -71,6 +71,11 @@ a:hover {
   background: #f4f4f4;
 }
 
+.l-section--banner + .l-section--banner,
+.l-subsection--banner + .l-subsection--banner {
+  margin-top: 0;
+}
+
 @media (min-width: 36em) {
   .l-contain {
     padding-right: 3rem;
@@ -94,6 +99,11 @@ a:hover {
   .l-subsection--banner {
     padding-top: 3rem;
     padding-bottom: 3rem;
+  }
+
+  .l-section--banner + .l-section--banner,
+  .l-subsection--banner + .l-subsection--banner {
+    margin-top: 0;
   }
 }
 
