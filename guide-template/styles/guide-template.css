@@ -275,6 +275,7 @@ button {
 @media (min-width: 48em) {
   .c-guide-nav {
     position: fixed;
+    z-index: 9000; /* Unnecessarily high just in case… */
     top: 0;
     right: 2rem;
     width: 12em;
