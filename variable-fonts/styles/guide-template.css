@@ -3,7 +3,7 @@
  *	=============================================
  */
 
-* {
+ * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -71,6 +71,11 @@ a:hover {
   background: #f4f4f4;
 }
 
+.l-section--banner + .l-section--banner,
+.l-subsection--banner + .l-subsection--banner {
+  margin-top: 0;
+}
+
 @media (min-width: 36em) {
   .l-contain {
     padding-right: 3rem;
@@ -94,6 +99,11 @@ a:hover {
   .l-subsection--banner {
     padding-top: 3rem;
     padding-bottom: 3rem;
+  }
+
+  .l-section--banner + .l-section--banner,
+  .l-subsection--banner + .l-subsection--banner {
+    margin-top: 0;
   }
 }
 
@@ -275,6 +285,7 @@ button {
 @media (min-width: 48em) {
   .c-guide-nav {
     position: fixed;
+    z-index: 9000; /* Unnecessarily high just in case… */
     top: 0;
     right: 2rem;
     width: 12em;
