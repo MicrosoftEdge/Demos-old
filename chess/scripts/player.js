@@ -30,7 +30,7 @@
 	};
 
 	Player.prototype.onEngineMessage = function(event) {
-		var line;
+		let line;
 
 		if (event && typeof event === 'object') {
 			line = event.data;
@@ -47,7 +47,7 @@
 				this.onReady();
 			}
 		} else {
-			var match = line.match(/^bestmove ([a-h][1-8])([a-h][1-8])([qrbk])?/);
+			let match = line.match(/^bestmove ([a-h][1-8])([a-h][1-8])([qrbk])?/);
 			if (match) {
 				// the AI made a move
 				if (this.onMove) {
@@ -74,24 +74,24 @@
 	};
 
 	Player.prototype.startTurn = function(gameMoves, moveTime) {
-		this.uciCmd('position startpos moves' + (gameMoves || ''));
-		this.uciCmd('go movetime ' + (moveTime || 500));
+		this.uciCmd(`position startpos moves${gameMoves || ''}`);
+		this.uciCmd(`go movetime ${moveTime || 500}`);
 	};
 
 	Player.prototype.setSkillLevel = function(skill) {
-		var clampedSkill = Math.max(0, Math.min(skill, 20));
-		this.uciCmd('setoption name Skill Level value ' + clampedSkill);
+		const clampedSkill = Math.max(0, Math.min(skill, 20));
+		this.uciCmd(`setoption name Skill Level value ${clampedSkill}`);
 
 		// NOTE: Stockfish level 20 does not make errors (intentially),
 		// so these numbers have no effect on level 20.
 		// Level 0 starts at 1
-		var errorProbability = Math.round((clampedSkill * 6.35) + 1);
+		const errorProbability = Math.round((clampedSkill * 6.35) + 1);
 
 		// Level 0 starts at 10
-		var maxError = Math.round((clampedSkill * -0.5) + 10);
+		const maxError = Math.round((clampedSkill * -0.5) + 10);
 
-		this.uciCmd('setoption name Skill Level Maximum Error value ' + maxError);
-		this.uciCmd('setoption name Skill Level Probability value ' + errorProbability);
+		this.uciCmd(`setoption name Skill Level Maximum Error value ${maxError}`);
+		this.uciCmd(`setoption name Skill Level Probability value ${errorProbability}`);
 	};
 
 	Player.prototype.reset = function() {
@@ -101,11 +101,11 @@
 	};
 
 	Player.prototype.setContempt = function(contempt) {
-		this.uciCmd('setoption name Contempt value ' + contempt);
+		this.uciCmd(`setoption name Contempt value ${contempt}`);
 	};
 
 	Player.prototype.setAggressiveness = function(value) {
-		this.uciCmd('setoption name Aggressiveness value ' + value);
+		this.uciCmd(`setoption name Aggressiveness value ${value}`);
 	};
 
 	app.Player = Player;

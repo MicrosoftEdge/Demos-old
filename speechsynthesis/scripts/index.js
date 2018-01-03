@@ -1,26 +1,27 @@
 /*eslint-env es6 */
 (function () {
 	'use strict';
-	// Testing for browser support
-	var speechSynthesisSupported = 'speechSynthesis' in window;
 
-	var isPaused = false;
-	var isPlaying = false;
+	// Testing for browser support
+	const speechSynthesisSupported = 'speechSynthesis' in window;
+
+	let isPaused = false;
+	let isPlaying = false;
 
 	// Getting html elements
-	var supportMessageEle = document.getElementById('support-message');
-	var speakBtn = document.getElementById('speak-btn');
-	var pauseresumeBtn = document.getElementById('pauseresume-btn');
-	var cancelBtn = document.getElementById('cancel-btn');
-	var textToSpeechEle = document.getElementById('text-to-speech');
-	var voiceSelect = document.getElementById('voice');
-	var langSelect = document.getElementById('language');
-	var volumeRange = document.getElementById('volume');
-	var rateRange = document.getElementById('rate');
+	const supportMessageEle = document.getElementById('support-message');
+	const speakBtn = document.getElementById('speak-btn');
+	const pauseresumeBtn = document.getElementById('pauseresume-btn');
+	const cancelBtn = document.getElementById('cancel-btn');
+	const textToSpeechEle = document.getElementById('text-to-speech');
+	const voiceSelect = document.getElementById('voice');
+	const langSelect = document.getElementById('language');
+	const volumeRange = document.getElementById('volume');
+	const rateRange = document.getElementById('rate');
 	//	var pitchRange = document.getElementById('pitch');
-	var speechStatus = document.getElementById('speech-status');
+	const speechStatus = document.getElementById('speech-status');
 
-	var log = function (message) {
+	const log = function (message) {
 		console.log(`${message}<br/>`);
 	};
 
@@ -33,19 +34,19 @@
 
 	// Loading available voices for this browser/platform
 	// And displaying them into the combobox
-	var loadVoices = function () {
-		var voices = speechSynthesis.getVoices();
+	const loadVoices = function () {
+		const voices = speechSynthesis.getVoices();
 
 		voices.forEach((voice) => {
-			var option = document.createElement('option');
+			const option = document.createElement('option');
 			option.value = voice.name;
 			option.innerHTML = voice.name;
 			voiceSelect.appendChild(option);
 		});
 	};
 
-	var speak = function (textToSpeech) {
-		var synUtterance = new SpeechSynthesisUtterance();
+	const speak = function (textToSpeech) {
+		const synUtterance = new SpeechSynthesisUtterance();
 		synUtterance.text = textToSpeech;
 		if (voiceSelect.value) {
 			synUtterance.voice = speechSynthesis

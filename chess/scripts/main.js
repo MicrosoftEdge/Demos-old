@@ -18,7 +18,7 @@
 	};
 	/*eslint-enable*/
 
-	var match;
+	let match;
 
 	$(document).ready(function() {
 		/*eslint-disable no-unused-vars*/
