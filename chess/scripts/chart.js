@@ -2,7 +2,7 @@
 	'use strict';
 
 	// total number of values that are stored in the chart cache
-	var defaults = {
+	const defaults = {
 
 		// the width of an individual bar in pixels
 		barWidth: 2,
@@ -67,18 +67,18 @@
 	// a separate layer in the chart
 	Chart.prototype.pushValues = function() {
 		while (this.valueSets.length < arguments.length) {
-			var values = this.valuesCount === 0 ? [] :
+			const values = this.valuesCount === 0 ? [] :
 				Array.apply(null, Array(this.options.valuesCount)).map(Number.prototype.valueOf, 0);
 			this.valueSets.push(values);
 		}
 
-		for (var i = 0; i < arguments.length; i++) {
-			var val = arguments[i] ? arguments[i] : 0;
+		for (let i = 0; i < arguments.length; i++) {
+			const val = arguments[i] ? arguments[i] : 0;
 			this.valueSets[i].push(val);
 
 			if (val > this.maxValue) {
 				if (this.options.maxValueIncrement > 0) {
-					var max = this.maxValue;
+					let max = this.maxValue;
 					while (max < val) {
 						max += this.options.maxValueIncrement;
 					}
@@ -105,19 +105,19 @@
 			return [];
 		}
 
-		var groupedVals = [];
+		const groupedVals = [];
 
-		var groupSize = this.valuesCount <= (groupCount * this.options.minGroupSize) ?
+		let groupSize = this.valuesCount <= (groupCount * this.options.minGroupSize) ?
 				this.options.minGroupSize :
 				this.valuesCount / groupCount,
 			groupSum = 0,
 			groupBreak = Math.round(groupSize) - 1,
 			lastBreakIndex = -1;
 
-		for (var i = 0; i < this.valuesCount; i++) {
+		for (let i = 0; i < this.valuesCount; i++) {
 			groupSum += vals[i];
 			if (i >= groupBreak || i === this.valuesCount - 1) {
-				var sinceLastBreak = i - lastBreakIndex,
+				let sinceLastBreak = i - lastBreakIndex,
 					groupAverage = groupSum / sinceLastBreak;
 
 				groupedVals.push(groupAverage);
@@ -134,15 +134,15 @@
 		this.resize();
 		this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-		var groupCount = Math.floor((this.canvas.width - this.options.barGap) / (this.options.barWidth + this.options.barGap)) + 1;
+		const groupCount = Math.floor((this.canvas.width - this.options.barGap) / (this.options.barWidth + this.options.barGap)) + 1;
 
-		for (var v = 0; v < this.valueSets.length; v++) {
-			var x = 0,
+		for (let v = 0; v < this.valueSets.length; v++) {
+			let x = 0,
 				groupedVals = this.groupValues(this.valueSets[v], groupCount),
 				color = this.options.colors[v % this.valueSets.length];
 
-			for (var i = 0; i < groupedVals.length; i++) {
-				var val = groupedVals[i],
+			for (let i = 0; i < groupedVals.length; i++) {
+				let val = groupedVals[i],
 					height = (val / this.maxValue) * this.canvas.height;
 
 				this.drawBar(color, x, 0, height);

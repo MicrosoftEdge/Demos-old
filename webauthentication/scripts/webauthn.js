@@ -181,10 +181,10 @@ navigator.authentication = navigator.authentication || (function () {
 
 					return cred;
 				})
-			.catch((err) => {
-				console.log(`makeCredential failed: ${err}`);
-				throw new Error('NotAllowedError');
-			});
+				.catch((err) => {
+					console.log(`makeCredential failed: ${err}`);
+					throw new Error('NotAllowedError');
+				});
 		} catch (err) {
 			throw new Error('NotAllowedError');
 		}
@@ -209,9 +209,9 @@ navigator.authentication = navigator.authentication || (function () {
 					return { type: 'FIDO_2_0', id: descriptor.id};
 				}));
 			})
-		.catch((err) => {
-			console.log(`Credential lists cannot be retrieved: ${err}`);
-		});
+			.catch((err) => {
+				console.log(`Credential lists cannot be retrieved: ${err}`);
+			});
 	};
 
 
@@ -233,24 +233,24 @@ navigator.authentication = navigator.authentication || (function () {
 
 			return msCredentials.getAssertion(challenge, filter, sigParams);
 		})
-		.then((sig) => {
-			if (sig.type === 'FIDO_2_0') {
-				return Promise.resolve(Object.freeze({
+			.then((sig) => {
+				if (sig.type === 'FIDO_2_0') {
+					return Promise.resolve(Object.freeze({
 
-					credential: {type: 'ScopedCred', id: sig.id},
-					clientData: sig.signature.clientData,
-					authenticatorData: sig.signature.authnrData,
-					signature: sig.signature.signature
+						credential: {type: 'ScopedCred', id: sig.id},
+						clientData: sig.signature.clientData,
+						authenticatorData: sig.signature.authnrData,
+						signature: sig.signature.signature
 
-				}));
-			}
+					}));
+				}
 
-			return Promise.resolve(sig);
-		})
-		.catch((err) => {
-			console.log(`getAssertion failed: ${err}`);
-			throw new Error('NotAllowedError');
-		});
+				return Promise.resolve(sig);
+			})
+			.catch((err) => {
+				console.log(`getAssertion failed: ${err}`);
+				throw new Error('NotAllowedError');
+			});
 	};
 
 
