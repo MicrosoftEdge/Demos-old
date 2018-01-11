@@ -10,7 +10,7 @@
 
 	<link rel="stylesheet" href="https://az813057.vo.msecnd.net/styles/fonts-full-20180102.css">
 	<link rel="stylesheet" href="styles/demo-template.css">
-	<link rel="stylesheet" href="styles/demo.css">
+	<link rel="stylesheet" href="styles/yourDemo.css">
 </head>
 <body>
 	<nav class="c-nav-bar" data-menu>
@@ -38,15 +38,27 @@
 			<h2>Code Style</h2>
 			<p>PRs will be reviewed with respects to the <a href="https://github.com/MicrosoftEdge/Demos/blob/master/CONTRIBUTING.md#code-style-requirements">code demolines</a> outlined in our contribution demo.</p>
 		</section>
+
+		<section id="instructions" data-nav-label="Instructions" class="l-section">
+			<h2>Instructions</h2>
+			<ol>
+				<li>Copy this entire <code>demo-template</code> directory and rename it for your demo.</li>
+				<li>Open the <code>config.json</code> in your new directory and delete the line that says <code>"skip": true</code>. This is the line that prevented the demo processor from running on the demo template itself.</li>
+				<li>Rename <code>styles/yourDemo.css</code> and update the reference in this index file.</li>
+				<li>In the head of this file, fill out the title and metadata within the <code>&lt;head></code>.</li>
+				<li>See notes below on using the required components and (very light) included styles. Have fun!</li>
+			</ol>
+		</section>
+
 		<section id="components" data-nav-label="Required Components" class="l-section">
 			<h2>Required Components</h2>
 			<section class="l-subsection">
-				<h3>Nav bar</h3>
+				<h3>Nav Bar</h3>
 				<p>This component appears at the very top of the page. It sets the context for the demo, and provides navigation back to other demos.</p>
 				<p><strong>Overrideable styles</strong> can be found in the <code>COMPONENT: NAV BAR</code> section of <code>demo.css</code>. Do not override anything other than these styles, as it is very important this bar feels consistent from demo to demo. If you think you have a good idea for a universal change to this bar, <a href="https://github.com/MicrosoftEdge/Demos/issues">please file an issue</a>. The mechanism to explore more demos is likely to change.</p>
 			</section>
 			<section class="l-subsection">
-				<h3>demo Navigation</h3>
+				<h3>Demo Navigation</h3>
 				<p>This is the dropdown that lives in the nav bar. It is automagically populated with JavaScript based on the sections in your demo. For this to work, your section tags should be formed like this:</p>
 <pre>
 <code>
@@ -65,6 +77,7 @@
 				<p>This is the bar at the bottom of the demo which provides credits for the demo, a link to Github, and will eventually be expanded to include related demos. Fill out the names and URLs (Github preferred) for the contributors, as well as the Github URL.</p>
 			</section>
 		</section>
+
 		<section id="included-styles" data-nav-label="Included Styles" class="l-section">
 			<h2>Included Styles</h2>
 			<p>The demo template comes with very minimal styles, as we would like you to feel free to be creative. Here's what's included.</p>
