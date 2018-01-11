@@ -73,14 +73,14 @@ a:hover {
   color: #ccc;
 }
 
-/* DO NOT remove focus altogether, just style to your colors */
-.c-nav-bar :focus {
-  outline: 1px dotted #fff;
-}
-
 .c-nav-bar a {
   color: #fff;
   border-bottom-color: rgba(255, 255, 255, .66);
+}
+
+/* DO NOT remove focus altogether, just style to your colors */
+.c-nav-bar__context a:focus {
+  outline: 1px dotted #fff;
 }
 
 /* Only used in mobile-first design */
@@ -119,7 +119,8 @@ a:hover {
   background: #444;
 }
 
-.c-demo-nav__item a:hover {
+.c-demo-nav__item a:hover,
+.c-demo-nav__item a:focus {
   background: #222;
 }
 

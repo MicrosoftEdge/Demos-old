@@ -231,10 +231,6 @@ button {
  *	---------------------------------------------
  */
 
-.c-demo-nav {
-  width: 100%;
-}
-
 .c-demo-nav__btn {
   position: relative;
   border: 0;
@@ -243,9 +239,15 @@ button {
   text-align: left;
 }
 
-.c-demo-nav__btn {
+.c-demo-nav__btn,
+.c-demo-nav__item a {
   padding: 12px 20px;
   padding: .75rem 1.25rem;
+}
+
+.c-demo-nav__btn:focus,
+.c-demo-nav__item a:focus {
+  outline: 0;
 }
 
 .c-demo-nav__btn:hover {
