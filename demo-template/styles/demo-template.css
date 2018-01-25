@@ -213,11 +213,6 @@ button {
 }
 
 @media (min-width: 48em) {
-	/* Space for .c-demo-nav */
-	.c-nav-bar {
-		padding-right: 14em;
-	}
-
 	.c-nav-bar__context {
 		padding: .75rem 0;
 	}
@@ -228,10 +223,22 @@ button {
  *	---------------------------------------------
  */
 
+/* Space for .c-demo-nav */
+.c-nav-bar__context {
+	margin-right: 10em;
+}
+
+.c-demo-nav {
+	position: fixed;
+	z-index: 9000; /* Unnecessarily high just in case… */
+	top: 0;
+	right: 0;
+}
+
 .c-demo-nav__btn {
 	position: relative;
 	border: 0;
-	width: 100%;
+	width: 8em;
 	font: inherit;
 	text-align: left;
 }
@@ -282,15 +289,23 @@ button {
 	text-decoration: underline;
 }
 
-@media (min-width: 48em) {
-	.c-demo-nav {
-		position: fixed;
-		z-index: 9000; /* Unnecessarily high just in case… */
-		top: 0;
-		right: 2rem;
-		width: 12em;
+@media (min-width: 36em) {
+	/* Space for .c-demo-nav */
+	.c-nav-bar__context {
+		margin-right: 14em;
 	}
 
+	.c-demo-nav {
+		right: 3rem;
+		width: 12em;
+	}
+	
+	.c-demo-nav__btn {
+		width: 100%;
+	}
+}
+
+@media (min-width: 48em) {
 	.c-demo-nav__btn,
 	.c-demo-nav__item a {
 		padding: .75rem;
