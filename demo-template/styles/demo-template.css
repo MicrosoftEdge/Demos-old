@@ -42,11 +42,9 @@ a:hover {
 .l-contain {
 	margin-right: auto;
 	margin-left: auto;
-	padding-right: 20px;
-	padding-left: 20px;
 	padding-right: 1.25rem;
 	padding-left: 1.25rem;
-	max-width: 1600px;
+	max-width: 960px;
 	max-width: 100rem;
 }
 
@@ -192,7 +190,6 @@ button {
 }
 
 .c-nav-bar__context {
-	padding: 12px 16px;
 	padding: .75rem 1.25rem;
 	max-width: 100%;
 }
@@ -216,11 +213,6 @@ button {
 }
 
 @media (min-width: 48em) {
-	/* Space for .c-demo-nav */
-	.c-nav-bar {
-		padding-right: 14em;
-	}
-
 	.c-nav-bar__context {
 		padding: .75rem 0;
 	}
@@ -231,17 +223,28 @@ button {
  *	---------------------------------------------
  */
 
+/* Space for .c-demo-nav */
+.c-nav-bar__context {
+	margin-right: 10em;
+}
+
+.c-demo-nav {
+	position: fixed;
+	z-index: 9000; /* Unnecessarily high just in case… */
+	top: 0;
+	right: 0;
+}
+
 .c-demo-nav__btn {
 	position: relative;
 	border: 0;
-	width: 100%;
+	width: 8em;
 	font: inherit;
 	text-align: left;
 }
 
 .c-demo-nav__btn,
 .c-demo-nav__item a {
-	padding: 12px 20px;
 	padding: .75rem 1.25rem;
 }
 
@@ -258,7 +261,6 @@ button {
 	position: absolute;
 	top: 50%;
 	margin-top: -6px;
-	right: 20px;
 	right: 1.25rem;
 }
 
@@ -287,15 +289,23 @@ button {
 	text-decoration: underline;
 }
 
-@media (min-width: 48em) {
+@media (min-width: 36em) {
+	/* Space for .c-demo-nav */
+	.c-nav-bar__context {
+		margin-right: 14em;
+	}
+
 	.c-demo-nav {
-		position: fixed;
-		z-index: 9000; /* Unnecessarily high just in case… */
-		top: 0;
-		right: 2rem;
+		right: 3rem;
 		width: 12em;
 	}
 
+	.c-demo-nav__btn {
+		width: 100%;
+	}
+}
+
+@media (min-width: 48em) {
 	.c-demo-nav__btn,
 	.c-demo-nav__item a {
 		padding: .75rem;
