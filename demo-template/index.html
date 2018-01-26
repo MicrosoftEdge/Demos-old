@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>[Add a descriptive title here]</title>
+	<meta name="viewport" content="width=device-width">
 	<meta name="og:title" content="[Keep short; used as title in any teasers of this demo on dev.microsoftedge.com]">
 	<meta name="description" content="[Used as description in any teasers of this demo on dev.microsoftedge.com]">
 	<meta name="keywords" content="[First value is category for dev.microsoftedge.com/demos, following comma-separated values are tags]">
@@ -16,14 +17,13 @@
 	<nav class="c-nav-bar" data-menu>
 		<div class="l-contain c-nav-bar__content">
 			<p class="c-nav-bar__context">
-				<span class="c-nav-bar__index">Microsoft Edge <a href="https://developer.microsoft.com/en-us/microsoft-edge/testdrive/" class="c-nav-bar__more">Demos</a> \ </span>
-				<span class="c-nav-bar__title">Progressive Web Apps</span>
+				<span class="c-nav-bar__index">Microsoft Edge <a href="https://developer.microsoft.com/en-us/microsoft-edge/testdrive/" class="c-nav-bar__more">Demos</a></span><span class="c-nav-bar__title">Progressive Web Apps</span>
 			</p>
-			<div class="c-demo-nav">
-				<button class="c-demo-nav__btn" id="js-nav-btn" aria-haspopup="true" aria-expanded="false" aria-controls="js-nav-items">
-					Jump to <svg class="c-demo-nav__arrow" xmlns="http://www.w3.org/2000/svg" width="12" height="12"><path fill="none" stroke="#FFF" stroke-miterlimit="10" d="M12 3L6 9 0 3"/></svg>
+			<div class="c-toc">
+				<button class="c-toc__btn" id="js-nav-btn" aria-haspopup="true" aria-expanded="false" aria-controls="js-nav-items">
+					Contents <svg class="c-toc__arrow" xmlns="http://www.w3.org/2000/svg" width="12" height="12"><path fill="none" stroke="#FFF" stroke-miterlimit="10" d="M12 3L6 9 0 3"/></svg>
 				</button>
-				<ul class="c-demo-nav__items" id="js-nav-items"  role="group" aria-hidden="true"></ul>
+				<ul class="c-toc__items" id="js-nav-items"  role="group" aria-hidden="true"></ul>
 			</div>
 		</div>
 	</nav>
@@ -58,13 +58,11 @@
 					<p><strong>Overrideable styles</strong> can be found in the <code>COMPONENT: NAV BAR</code> section of <code>demo.css</code>. Do not override anything other than these styles, as it is very important this bar feels consistent from demo to demo. If you think you have a good idea for a universal change to this bar, <a href="https://github.com/MicrosoftEdge/Demos/issues">please file an issue</a>. The mechanism to explore more demos is likely to change.</p>
 				</section>
 				<section class="l-subsection">
-					<h3>Demo Navigation</h3>
+					<h3>Demo Contents</h3>
 					<p>This is the dropdown that lives in the nav bar. It is automagically populated with JavaScript based on the sections in your demo. For this to work, your section tags should be formed like this:</p>
-	<pre>
-	<code>
-	&lt;section id="your-hash" data-nav-label="Title for Nav" class="l-section">&lt;/section>
-	</code>
-	</pre>
+<pre><code>
+&lt;section id="your-hash" data-nav-label="Title for Nav" class="l-section">&lt;/section>
+</code></pre>
 					<p>The ID is used for the window hash location (jump link). The <code>data-nav-label</code> is used for the title of this section in the demo navigation. This doesn't have to perfectly match the title of the section, it can be a shorter version if that makes sense for the nav.</p>
 				</section>
 				<section class="l-subsection">

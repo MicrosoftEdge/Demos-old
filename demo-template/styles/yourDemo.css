@@ -97,30 +97,30 @@ a:hover {
  *	---------------------------------------------
  */
 
-.c-demo-nav__btn {
+.c-toc__btn {
 	background: #000;
 	color: #fff;
 }
 
-.c-demo-nav__btn:hover,
-.c-demo-nav__btn:focus {
+.c-toc__btn:hover,
+.c-toc__btn:focus {
 	background: #222;
 }
 
-.c-demo-nav__btn:active {
+.c-toc__btn:active {
 	background: #444;
 }
 
-.c-demo-nav__arrow path {
+.c-toc__arrow path {
 	stroke: #fff;
 }
 
-.c-demo-nav__items {
+.c-toc__items {
 	background: #444;
 }
 
-.c-demo-nav__item a:hover,
-.c-demo-nav__item a:focus {
+.c-toc__item a:hover,
+.c-toc__item a:focus {
 	background: #222;
 }
 

@@ -18,8 +18,8 @@
 	for (let i = 0; i < pageSections.length; i++) {
 		const section = pageSections[i];
 		const newLink = document.createElement('li');
-		newLink.className = 'c-demo-nav__item';
-		newLink.innerHTML = `<a href="#${section.getAttribute('id')}"><span class="c-demo-nav__item-flag">${section.getAttribute('data-nav-label')}</span></a>`;
+		newLink.className = 'c-toc__item';
+		newLink.innerHTML = `<a href="#${section.getAttribute('id')}"><span class="c-toc__item-flag">${section.getAttribute('data-nav-label')}</span></a>`;
 		demoNavItems.appendChild(newLink);
 	}
 }());
@@ -28,8 +28,8 @@
 (function () {
 	'use strict';
 
-	const menu = document.querySelector('.c-demo-nav__btn');
-	const items = menu.parentElement.querySelector('.c-demo-nav__items');
+	const menu = document.querySelector('.c-toc__btn');
+	const items = menu.parentElement.querySelector('.c-toc__items');
 
 	const collapse = function () {
 		items.setAttribute('aria-hidden', 'true');
