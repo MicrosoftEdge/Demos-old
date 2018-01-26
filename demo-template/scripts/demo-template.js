@@ -1,3 +1,7 @@
+/* eslint-env browser */
+/* eslint-disable no-var, prefer-template, strict, prefer-arrow-callback, object-shorthand, no-continue */
+/*globals event*/
+
 /*
  *	DEMO TEMPLATE SCRIPTS
  *	=============================================
@@ -41,8 +45,6 @@
 		evt.preventDefault();
 		evt.stopPropagation();
 		const expanded = evt.currentTarget.getAttribute('aria-expanded') === 'true';
-
-		// const expandedParent = isParentExpanded(evt.currentTarget.parentElement);
 
 		if (expanded) {
 			collapse();
@@ -104,9 +106,6 @@
 	}, true);
 }());
 
-/* eslint-env browser */
-/* eslint-disable no-var, prefer-template, strict, prefer-arrow-callback, object-shorthand, no-continue */
-/*globals event*/
 (function () {
 	'use strict';
 
@@ -175,7 +174,6 @@
 
 		var parent = source.parentElement;
 
-		//var elements = parent.querySelectorAll(':scope > ' + type);
 		var elements = topParent.querySelectorAll(type);
 
 		if (elements.length === 1) {
@@ -187,7 +185,6 @@
 
 	var arrowAction = function (action, container) {
 		var activeElement = document.activeElement;
-		//var elements = container.querySelectorAll(activeElement.tagName.toLowerCase());
 		var elements = findSiblings(activeElement, activeElement.tagName.toLowerCase(), container);
 		var nextElementTo = action(elements);
 

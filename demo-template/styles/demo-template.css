@@ -216,7 +216,7 @@ button {
 	text-align: left;
 }
 
-/* Focus styles are in yourDemo.css */
+/* Focus styles are in your-demo-name.css */
 .c-toc__btn:focus,
 .c-toc__item a:focus {
 	outline: 0;
