@@ -180,7 +180,7 @@ button {
 
 .c-nav-bar {
 	width: 100%;
-	font-size: .8125em;
+	font-size: .813em;
 	line-height: 1.5;
 }
 
@@ -310,7 +310,7 @@ button {
 
 @media (min-width: 48em) {
 	.c-nav-bar {
-		font-size: .9375em;
+		font-size: .938em;
 	}
 }
 
