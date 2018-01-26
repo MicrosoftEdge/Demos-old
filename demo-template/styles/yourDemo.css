@@ -79,12 +79,12 @@ a:hover {
 }
 
 /* DO NOT remove focus altogether, just style to your colors */
-.c-nav-bar__context a:focus {
+.c-nav-bar__breadcrumb a:focus {
 	outline: 1px dotted #fff;
 }
 
 /* Only used in mobile-first design */
-.c-nav-bar__context {
+.c-nav-bar__breadcrumb {
 	border-bottom-color: #444;
 }
 

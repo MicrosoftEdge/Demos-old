@@ -32,10 +32,8 @@ a:hover {
  *	@NOTE: The layout margins and paddings are in
  *	rem (mostly) so that changing the font size
  *	of a layout element doesn't change those
- *	measurements. However, in the mobile-first
- *	"breakpoint", the measurements are in px and
- *	em so that there is at least SOME spacing in
- *	browsers which don't support rem.
+ *	measurements. Vertical measurements in the
+ *	mobile-first experience are in em.
  *	---------------------------------------------
  */
 
@@ -186,14 +184,14 @@ button {
 	line-height: 1.5;
 }
 
-.c-nav-bar__context {
+.c-nav-bar__breadcrumb {
 	position: relative;
-	z-index: 9001; /* Higher than demo nav */
+	z-index: 9000; /* Higher than demo TOC */
 	margin-right: 9em;
 	padding: .75em 1.25rem;
 }
 
-.c-nav-bar__context span {
+.c-nav-bar__breadcrumb span {
 	display: block;
 	white-space: nowrap;
 	overflow: hidden;
@@ -206,7 +204,7 @@ button {
 
 .c-toc {
 	position: fixed;
-	z-index: 9000; /* Unnecessarily high just in case… */
+	z-index: 8890; /* Unnecessarily high just in case… */
 	top: 0;
 	right: 0;
 	width: 100%;
@@ -218,6 +216,7 @@ button {
 	text-align: left;
 }
 
+/* Focus styles are in yourDemo.css */
 .c-toc__btn:focus,
 .c-toc__item a:focus {
 	outline: 0;
@@ -262,13 +261,13 @@ button {
 }
 
 @media (max-width: 36em) {
-	.c-nav-bar__content {
+	.c-nav-bar__contain {
 		padding: 0;
 	}
 }
 
 @media (min-width: 36em) {
-	.c-nav-bar__context {
+	.c-nav-bar__breadcrumb {
 		margin-right: 13em;
 		padding: .75rem 0;
 		white-space: nowrap;
@@ -276,7 +275,7 @@ button {
 		text-overflow: ellipsis;
 	}
 
-	.c-nav-bar__context span {
+	.c-nav-bar__breadcrumb span {
 		display: inline;
 	}
 
@@ -313,15 +312,18 @@ button {
 	.c-nav-bar {
 		font-size: .9375em;
 	}
-
-	.c-nav-bar__context {
-		margin-right: 16em;
-	}
 }
 
 @media (min-width: 60em) {
 	.c-toc {
-		right: 5rem;
+		right: 6rem;
+	}
+}
+
+@media (min-width: 112em) {
+	/* Align toc to edge of contents whenever .l-contain maxes out */
+	.c-toc {
+		right: calc(50vw - 44rem);
 	}
 }
 
