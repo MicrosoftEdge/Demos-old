@@ -1,0 +1,377 @@
+/*
+ *	DEMO TEMPLATE STYLES
+ *	=============================================
+ */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font: 400 100%/1.4 base, "Segoe UI", Segoe, "Segoe WP", "Lucida Grande", "Lucida Sans", Verdana, sans-serif;
+}
+
+:focus {
+	outline-offset: 1px;
+}
+
+a:link, a:visited {
+	text-underline-offset: 1px;
+	text-decoration-skip: ink;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+/*
+ *	LAYOUT
+ *	---------------------------------------------
+ *	@NOTE: The layout margins and paddings are in
+ *	rem (mostly) so that changing the font size
+ *	of a layout element doesn't change those
+ *	measurements. Vertical measurements in the
+ *	mobile-first experience are in em.
+ *	---------------------------------------------
+ */
+
+.l-contain {
+	margin-right: auto;
+	margin-left: auto;
+	padding-right: 1.25rem;
+	padding-left: 1.25rem;
+	max-width: 960px;
+	max-width: 100rem;
+}
+
+.l-section {
+	margin-top: 3.5em;
+}
+
+.l-section--banner,
+.c-intro {
+	padding-top: 3.5em;
+	padding-bottom: 3.5em;
+	background: #f4f4f4;
+}
+
+.l-subsection {
+	margin-top: 2em;
+}
+
+.l-subsection--banner {
+	padding-top: 2em;
+	padding-bottom: 2em;
+	background: #f4f4f4;
+}
+
+.l-section--banner + .l-section--banner,
+.l-subsection--banner + .l-subsection--banner {
+	margin-top: 0;
+}
+
+@media (min-width: 36em) {
+	.l-contain {
+		padding-right: 3rem;
+		padding-left: 3rem;
+	}
+
+	.l-section {
+		margin-top: 6rem;
+	}
+
+	.l-subsection--banner,
+	.c-intro {
+		padding-top: 6rem;
+		padding-bottom: 6rem;
+	}
+
+	.l-subsection {
+		margin-top: 3rem;
+	}
+
+	.l-subsection--banner {
+		padding-top: 3rem;
+		padding-bottom: 3rem;
+	}
+
+	.l-section--banner + .l-section--banner,
+	.l-subsection--banner + .l-subsection--banner {
+		margin-top: 0;
+	}
+}
+
+@media (min-width: 60em) {
+	.l-contain {
+		padding-right: 6rem;
+		padding-left: 6rem;
+	}
+}
+
+/*
+ *	BODY TYPE
+ *	---------------------------------------------
+ */
+
+p, ul, ol {
+	margin-top: 1em;
+	max-width: 44rem;
+}
+
+ul, ol {
+	margin-left: 1em;
+}
+
+p:first-child, ul:first-child, ol:first-child {
+	margin-top: 0;
+}
+
+li + li {
+	margin-top: .625em;
+}
+
+pre {
+	white-space: pre-wrap;
+}
+
+/*
+ *	FORM ELEMENTS
+ *	---------------------------------------------
+ */
+
+button {
+	border: 0;
+	border-radius: 0;
+	font: inherit;
+	-webkit-appearance: none;
+}
+
+/*
+ *	UTILITIES
+ *	---------------------------------------------
+ */
+
+/* Clear floated elements */
+.u-clear::before,
+.u-clear::after {
+	content: "";
+	display: table;
+}
+
+.u-clear::after {
+	clear: both;
+}
+
+/* Hide element visually (not from screen reader) */
+.u-sr-only {
+	position: absolute;
+	clip: rect(0, 0, 0, 0);
+}
+
+/*
+ *	COMPONENT: NAV BAR
+ *	@NOTE: These styles are not intended to be
+ *	changed by demo authors. For those styles,
+ *	see demo.css
+ *	---------------------------------------------
+ */
+
+.c-nav-bar {
+	width: 100%;
+	font-size: .813em;
+	line-height: 1.5;
+}
+
+.c-nav-bar__breadcrumb {
+	position: relative;
+	z-index: 9000; /* Higher than demo TOC */
+	margin-right: 9em;
+	padding: .75em 1.25rem;
+}
+
+.c-nav-bar__breadcrumb span {
+	display: block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.c-nav-bar__title {
+	font-weight: 700;
+}
+
+.c-toc {
+	position: fixed;
+	z-index: 8890; /* Unnecessarily high just in case… */
+	top: 0;
+	right: 0;
+	width: 100%;
+}
+
+.c-toc__btn {
+	float: right;
+	padding: 1.5em 1.25rem;
+	text-align: left;
+}
+
+/* Focus styles are in your-demo-name.css */
+.c-toc__btn:focus,
+.c-toc__item a:focus {
+	outline: 0;
+}
+
+.c-toc__btn:hover {
+	cursor: pointer;
+}
+
+.c-toc__arrow {
+	margin-left: .5em;
+	transform: translateY(.1em);
+}
+
+.c-toc__items {
+	margin: 0;
+	width: 100%;
+	max-height: calc(100vh - 4.5em);
+	overflow: auto;
+	clear: both;
+	list-style: none;
+}
+
+.c-toc__items[aria-hidden="true"] {
+	display: none;
+}
+
+.c-toc__item {
+	margin-top: 0;
+}
+
+.c-toc__item a {
+	display: block;
+	padding: 1em 1.25rem;
+	text-decoration: none;
+	transition: background-color ease-out 400ms;
+}
+
+.c-toc__item a:hover,
+.c-toc__item a:focus {
+	text-decoration: underline;
+}
+
+@media (max-width: 36em) {
+	.c-nav-bar__contain {
+		padding: 0;
+	}
+}
+
+@media (min-width: 36em) {
+	.c-nav-bar__breadcrumb {
+		margin-right: 13em;
+		padding: .75rem 0;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.c-nav-bar__breadcrumb span {
+		display: inline;
+	}
+
+	.c-nav-bar__index::after {
+		padding: .5em;
+		content: "\005C"; /* Backslash */
+	}
+
+	.c-toc {
+		right: 3rem;
+		width: 12em;
+	}
+
+	.c-toc__btn,
+	.c-toc__items {
+		width: 100%;
+	}
+
+	.c-toc__btn,
+	.c-toc__item a {
+		padding: .75rem;
+	}
+
+	.c-toc__btn {
+		float: none;
+	}
+
+	.c-toc__items {
+		max-height: calc(100vh - 3em);
+	}
+}
+
+@media (min-width: 48em) {
+	.c-nav-bar {
+		font-size: .938em;
+	}
+}
+
+@media (min-width: 60em) {
+	.c-toc {
+		right: 6rem;
+	}
+}
+
+@media (min-width: 112em) {
+	/* Align toc to edge of contents whenever .l-contain maxes out */
+	.c-toc {
+		right: calc(50vw - 44rem);
+	}
+}
+
+/*
+ *	COMPONENT: OUTRO
+ *	---------------------------------------------
+ */
+
+.c-outro {
+	text-align: center;
+}
+
+.c-outro__byline p {
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 24em;
+	font-size: .875em;
+}
+
+.c-outro__byline p + p {
+	margin-top: .5em;
+}
+
+.c-outro__github {
+	display: inline-block;
+	margin-top: 2em;
+	padding: .5em .75em;
+	border: 1px solid transparent;
+	line-height: 1;
+	text-decoration: none;
+}
+
+.c-outro__github:hover,
+.c-outro__github:focus {
+	border-color: hsla(0, 0%, 0%, .4);
+}
+
+.c-outro__github svg,
+.c-outro__github span {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.c-outro__github svg {
+	width: 20px;
+	height: 20px;
+}
+
+.c-outro__github span {
+	margin-left: .5em;
+}

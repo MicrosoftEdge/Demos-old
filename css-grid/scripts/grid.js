@@ -10,8 +10,8 @@
 	let clickCount = 0;
 	let isDone = true;
 	let audio = false;
-	const success = new Audio('success.wav');
-	const fail = new Audio('failure.wav');
+	const success = new Audio('./sounds/success.wav');
+	const fail = new Audio('./sounds/failure.wav');
 
 	/// =============================================================================================
 	/// see https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array

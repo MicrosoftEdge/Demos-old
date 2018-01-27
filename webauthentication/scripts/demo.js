@@ -265,13 +265,13 @@
 				.then(function (credInfo) {
 					// Web developers can also store the credential id on their server.
 					localStorage.setItem('credentialId', credInfo.credential.id);
-						// The public key here is a JSON object.
+					// The public key here is a JSON object.
 					localStorage.setItem('publicKey', credInfo.publicKey);
 
 					gotoHome();
 				})
 				.catch(function(reason) {
-						// Windows Hello isn't setup, show dialog explaining how to set it up
+					// Windows Hello isn't setup, show dialog explaining how to set it up
 					helpSetup(reason.message);
 				});
 		} catch (ex) {
@@ -293,7 +293,7 @@
 
 			type: 'ScopedCred',
 
-				/* Because the current website only supports one user to login,
+			/* Because the current website only supports one user to login,
 				   there should only be one credential available to use. */
 			id: localStorage.getItem('acctId')
 		}];

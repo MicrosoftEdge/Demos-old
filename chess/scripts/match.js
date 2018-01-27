@@ -1,14 +1,14 @@
 (function(app, $) {
 	'use strict';
 
-	var roundToDecimals = function(val, n) {
-		var exponent = n || 2;
+	const roundToDecimals = function(val, n) {
+		const exponent = n || 2;
 		return Math.round(val * Math.pow(10, exponent)) / Math.pow(10, exponent);
 	};
 
-	var addCommasToNumber = function(n) {
+	const addCommasToNumber = function(n) {
 		if (n) {
-			var s = n.toString();
+			const s = n.toString();
 			return s.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 		}
 		return null;
@@ -195,8 +195,8 @@
 		$stats.empty();
 
 		// figure out the incremental changes since last update
-		var dNodes = info.nodes - stats.currentTurn.nodes;
-		var dTime = info.time - stats.currentTurn.time;
+		const dNodes = info.nodes - stats.currentTurn.nodes;
+		const dTime = info.time - stats.currentTurn.time;
 
 		stats.totalNodes += dNodes;
 		stats.totalTime += dTime;
@@ -218,7 +218,7 @@
 		$('<h5/>').text('Nodes Visited')
 			.appendTo($stats);
 
-		$('<div/>').text(addCommasToNumber(stats.totalTime) + ' ms')
+		$('<div/>').text(`${addCommasToNumber(stats.totalTime)} ms`)
 			.appendTo($stats);
 		$('<h5/>').text('Total Time')
 			.appendTo($stats);
@@ -231,8 +231,8 @@
 		this.$scoreP1Score.text(addCommasToNumber(this.p1Stats.score));
 		this.$scoreP2Score.text(addCommasToNumber(this.p2Stats.score));
 
-		this.$scoreP1Advantage.text(roundToDecimals(this.p1Stats.pWin * 100, 1) + '%');
-		this.$scoreP2Advantage.text(roundToDecimals(this.p2Stats.pWin * 100, 1) + '%');
+		this.$scoreP1Advantage.text(`${roundToDecimals(this.p1Stats.pWin * 100, 1)}%`);
+		this.$scoreP2Advantage.text(`${roundToDecimals(this.p2Stats.pWin * 100, 1)}%`);
 	};
 
 	Match.prototype.resize = function() {
@@ -242,7 +242,7 @@
 	};
 
 	Match.prototype.onPlayerMove = function(move) {
-		var result = this.game.move(move);
+		const result = this.game.move(move);
 
 		if (result && result.captured) {
 			this.onCapturedPiece(result);
@@ -258,10 +258,10 @@
 	};
 
 	Match.prototype.onGameOver = function() {
-		var message = '';
+		let message = '';
 
 		if (this.game.in_checkmate()) {
-			var history = this.game.history({ verbose: true }),
+			let history = this.game.history({ verbose: true }),
 				lastMove = history[history.length - 1];
 
 			if (lastMove) {
@@ -284,14 +284,14 @@
 	};
 
 	Match.prototype.onCapturedPiece = function(result) {
-		var piece;
+		let piece;
 		if (this.game.turn() === this.player1.color) {
 			piece = 'w';
 		} else {
 			piece = 'b';
 		}
 
-		$('#chess__none-captured-' + piece).hide();
+		$(`#chess__none-captured-${piece}`).hide();
 
 		switch (result.captured) {
 			case this.game.PAWN:
@@ -317,25 +317,25 @@
 				break;
 		}
 
-		$('.chess__holding-piece-' + piece).not('.chess__holding-captured')
+		$(`.chess__holding-piece-${piece}`).not('.chess__holding-captured')
 			.first()
 			.addClass('chess__holding-captured');
 	};
 
 	Match.prototype.startNextTurn = function() {
 		// get the moves for the entire game
-		var moves = '';
-		var history = this.game.history({ verbose: true });
-		for (var i = 0; i < history.length; ++i) {
-			var move = history[i];
-			moves += ' ' + move.from + move.to + (move.promotion ? move.promotion : '');
+		let moves = '';
+		const history = this.game.history({ verbose: true });
+		for (let i = 0; i < history.length; ++i) {
+			const move = history[i];
+			moves += ` ${move.from}${move.to}${move.promotion ? move.promotion : ''}`;
 		}
-		var mv = history[history.length - 1];
+		const mv = history[history.length - 1];
 
 		if (mv) {
 			$('<span/>')
-				.addClass('chess__color' + mv.color)
-				.html(history.length + '. ' + mv.piece.toUpperCase() + '' + mv.from + ' ' + mv.to)
+				.addClass(`chess__color${mv.color}`)
+				.html(`${history.length}. ${mv.piece.toUpperCase()}${mv.from} ${mv.to}`)
 				.appendTo(this.$gameHistory);
 		}
 
