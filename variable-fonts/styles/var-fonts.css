@@ -468,7 +468,7 @@ input:checked + label .c-toggle__hex path {
  */
 
 .c-nav-bar {
-  background: #1e2830;
+  background: #1f252c;
   color: #ccc;
 }
 
@@ -482,44 +482,36 @@ input:checked + label .c-toggle__hex path {
   border-bottom-color: rgba(255, 255, 255, .66);
 }
 
-/* Only used in mobile-first design */
-.c-nav-bar__context {
-  border-bottom-color: #444;
-}
-
 .c-nav-bar__title {
   color: #f4f4f4;
 }
 
-/*
- *	COMPONENT: GUIDE NAV
- *	---------------------------------------------
- */
+/* TABLE OF CONTENTS DROPDOWN */
 
-.c-guide-nav__btn {
-  background: #1e2830;
+.c-toc__btn {
+  background: #1f252c;
   color: #fff;
 }
 
-.c-guide-nav__btn:hover,
-.c-guide-nav__btn:focus {
-  background: #222;
+.c-toc__btn:hover,
+.c-toc__btn:focus {
+  background: #2d3640;
 }
 
-.c-guide-nav__btn:active {
-  background: #444;
+.c-toc__btn:active {
+  background: #424f5e;
 }
 
-.c-guide-nav__arrow path {
+.c-toc__arrow path {
   stroke: #fff;
 }
 
-.c-guide-nav__items {
-  background: #444;
+.c-toc__items {
+  background: #2d3640;
 }
 
-.c-guide-nav__item a:hover {
-  background: #222;
+.c-toc__item a:hover {
+  background: #1f252c;
 }
 
 /*
