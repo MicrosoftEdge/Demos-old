@@ -1,6 +1,12 @@
 /*
  *	=============================================
  *	VARIABLE FONTS
+ *	---------------------------------------------
+ *  Z-INDEX KEY
+ *  Increments of 10
+ *
+ *  Intro: 1-100
+ *  Other sections: 110-200
  *	=============================================
  */
 
@@ -33,7 +39,7 @@ a:hover {
 }
 
 /*
- *	UNIVERSAL GUIDE-SPECIFIC STYLES
+ *	UNIVERSAL STYLES
  *	=============================================
  */
 
@@ -46,6 +52,7 @@ h1, h2 {
   font-size: 2.75em;
   text-transform: uppercase;
   letter-spacing: .03em;
+  color: #424F5E;
 }
 
 h2 {
@@ -80,6 +87,11 @@ pre code {
   color: #424f5e;
 }
 
+.u-simple-list {
+  list-style: none;
+  max-width: 100%;
+}
+
 @media (min-width: 36em) {
   h1 {
     font-size: 5em;
@@ -88,6 +100,15 @@ pre code {
   h2 {
     font-size: 3.375em;
   }
+}
+
+/*
+ *	FORM ELEMENTS
+ *	---------------------------------------------
+ */
+
+button:hover {
+  cursor: pointer;
 }
 
 /*
@@ -134,6 +155,7 @@ img {
 .c-outro::before {
   display: block;
   position: absolute;
+  z-index: 110;
   content: '';
   left: 0;
   width: 0;
@@ -154,6 +176,11 @@ img {
   top: -15vmin;
   border-bottom: 15vmin solid #fff;
 }
+
+/*
+ *	LAYOUT
+ *	=============================================
+ */
 
 /*
  *  LAYOUT: GRID
@@ -256,6 +283,63 @@ img {
 }
 
 /*
+ *	REUSABLE OBJECTS / COMPONENTS
+ *	=============================================
+ */
+
+/*
+ *	COMPONENT: NAV BAR
+ *	---------------------------------------------
+ */
+
+.c-nav-bar {
+  background: #1f252c;
+  color: #ccc;
+}
+
+/* DO NOT remove focus altogether, just style to your colors */
+.c-nav-bar :focus {
+  outline: 1px dotted #fff;
+}
+
+.c-nav-bar a {
+  color: #f4f4f4;
+  border-bottom-color: rgba(255, 255, 255, .66);
+}
+
+.c-nav-bar__title {
+  color: #f4f4f4;
+}
+
+/* TABLE OF CONTENTS DROPDOWN */
+
+.c-toc__btn {
+  background: #1f252c;
+  color: #fff;
+}
+
+.c-toc__btn:hover,
+.c-toc__btn:focus {
+  background: #343e4a;
+}
+
+.c-toc__btn:active {
+  background: #424f5e;
+}
+
+.c-toc__arrow path {
+  stroke: #fff;
+}
+
+.c-toc__items {
+  background: #2d3640;
+}
+
+.c-toc__item a:hover {
+  background: #1f252c;
+}
+
+/*
  *	OBJECT: LONG TEXT
  *	---------------------------------------------
  */
@@ -341,9 +425,256 @@ input:checked + label .c-toggle__hex path {
 }
 
 /*
- *	GUIDE SECTIONS
+ *	DEMO SECTIONS
  *	=============================================
  */
+
+/*
+ *	INTRO / POEM
+ *	---------------------------------------------
+ */
+
+.intro {
+  display: flex;
+  align-items: center;
+  position: relative;
+  min-height: 100vh;
+  min-height: calc(100vh - 3em);
+  overflow: hidden;
+  background: #424f5e;
+  text-align: center;
+}
+
+.intro__masthead,
+.intro__actions {
+  position: relative;
+  z-index: 20;
+}
+
+.intro__masthead {
+  padding: 3em;
+  line-height: 1;
+  background: #fff;
+}
+
+.intro__subheading {
+  font-size: 1.25em;
+}
+
+.intro__actions {
+  display: inline-block;
+  margin: 4em auto 0;
+  background: hsla(0, 0%, 0%, .33);
+}
+
+.poem-start {
+  display: inline-block;
+  position: relative;
+  z-index: 10;
+  margin: .33em;
+  padding: .5em .75em;
+  font-size: 1.5em;
+  line-height: 1;
+  text-decoration: none;
+  background: #fff;
+  color: #424f5e;
+  box-shadow: 0 0 0 0 #fff;
+  transition: box-shadow 200ms ease-out;
+}
+
+.poem-start svg {
+  display: inline-block;
+  margin-left: .25em;
+  vertical-align: top;
+}
+
+.poem-start:hover {
+  color: #262d36;
+  box-shadow: 0 0 0 .33em #fff;
+}
+
+.poem-start:hover svg * {
+  stroke: #262d36; 
+}
+
+.poem-start:active,
+.poem-start:focus {
+  color: #000;
+}
+
+.poem-start:active svg *,
+.poem-start:focus svg * {
+  stroke: #000; 
+}
+
+.poem-start:focus {
+  outline: .33em solid hsla(0, 0%, 0%, .33);
+}
+
+.ice-floes {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  margin-top: -360px;
+  left: 50%;
+  margin-left: -683px;
+}
+
+.poem-viewer {
+  display: none;
+  position: absolute;
+  z-index: 30;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 32rem;
+  overflow: hidden;
+  background: #fff;
+}
+
+.poem {
+  display: flex;
+  width: 600%; /* Accommodate 6 slides */
+  transition: transform 400ms ease-out;
+}
+
+.poem__slide {
+  margin-top: 0;
+  padding: 1.5em;
+  width: 100%;
+}
+
+.poem__title {
+  font: 400 1.75em/1.1 base, "Segoe UI", Segoe, "Segoe WP", "Lucida Grande", "Lucida Sans", Verdana, sans-serif;
+  text-transform: none;
+  letter-spacing: 0;
+  color: #424f5e;
+}
+
+.poem__title-prefix {
+  display: block;
+  margin-bottom: .75rem;
+  font-size: .825rem;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+
+.poem__anchor {
+  margin: 2em auto;
+}
+
+.poem__description {
+  margin-top: 0;
+}
+
+.poem__stanza {
+  /* For indented wrapped lines of poetry */
+  margin-left: 1em;
+  text-align: left;
+}
+
+.poem__line {
+  display: block;
+  margin-top: .25em;
+
+  /* Indent wrapped lines of poetry */
+  text-indent: -1em;
+}
+
+.poem__line:first-child {
+  margin-top: 0;
+}
+
+/* These properties be animated */
+.poem__line em,
+.poem__line strong {
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poem__controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1em 1.75em;
+  border-top: 1px solid #c7cfd8;
+}
+
+.poem__controls li {
+  margin-top: .75em;
+}
+
+.poem__controls button {
+  padding: .75em;
+  line-height: 1;
+  background-color: transparent;
+  transition: background-color 200ms ease-out;
+}
+
+.poem__controls button:hover {
+  background-color: #eff1f4;
+}
+
+.poem__controls button:hover svg {
+  stroke: #2d3640;
+}
+
+.poem__controls button:active {
+  background-color: #c7cfd8;
+}
+
+.poem__controls button:disabled {
+  opacity: .4;
+}
+
+.poem__controls button:disabled:hover {
+  background: transparent;
+  cursor: not-allowed;
+}
+
+.poem__prev {
+  order: 1;
+}
+
+.poem__skip {
+  order: 2;
+  font-size: .75em;
+}
+
+.poem__next {
+  order: 3;
+}
+
+@media (min-width: 36em) {
+  .poem__slide {
+    padding: 4em;
+  }
+
+  .poem__title {
+    font-size: 2.75em;
+  }
+
+  .poem__stanza {
+    font-size: 1.25em;
+  }
+
+  .poem__controls {
+    margin: 0 4em 3.25em;
+  }
+}
+
+@media (min-width: 85em) and (min-height: 44em) {
+  .ice-floes {
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    margin: 0;
+    width: 100%;
+    height: auto;
+  }
+}
 
 /*
  *	SECTION: WHAT
@@ -458,95 +789,7 @@ input:checked + label .c-toggle__hex path {
 }
 
 /*
- *	SCHEME FOR UNIVERSAL COMPONENTS
- *	=============================================
- */
-
-/*
- *	COMPONENT: NAV BAR
- *	---------------------------------------------
- */
-
-.c-nav-bar {
-  background: #1f252c;
-  color: #ccc;
-}
-
-/* DO NOT remove focus altogether, just style to your colors */
-.c-nav-bar :focus {
-  outline: 1px dotted #fff;
-}
-
-.c-nav-bar a {
-  color: #f4f4f4;
-  border-bottom-color: rgba(255, 255, 255, .66);
-}
-
-.c-nav-bar__title {
-  color: #f4f4f4;
-}
-
-/* TABLE OF CONTENTS DROPDOWN */
-
-.c-toc__btn {
-  background: #1f252c;
-  color: #fff;
-}
-
-.c-toc__btn:hover,
-.c-toc__btn:focus {
-  background: #2d3640;
-}
-
-.c-toc__btn:active {
-  background: #424f5e;
-}
-
-.c-toc__arrow path {
-  stroke: #fff;
-}
-
-.c-toc__items {
-  background: #2d3640;
-}
-
-.c-toc__item a:hover {
-  background: #1f252c;
-}
-
-/*
- *	COMPONENT: INTRO
- *	---------------------------------------------
- */
-
-.c-intro {
-  display: flex;
-  align-items: center;
-  min-height: 100vh;
-  background: #424f5e;
-  text-align: center;
-}
-
-.c-intro__heading,
-.c-intro__subheading {
-  display: inline-block;
-  background: #fff;
-}
-
-.c-intro__heading {
-  padding: .25em .5em;
-  line-height: 1;
-}
-
-.c-intro__subheading {
-  margin-top: .5em;
-  padding: .5em .75em;
-  font-size: 2em;
-  color: #57687c;
-}
-
-/*
- *	COMPONENT: OUTRO
+ *	SECTION: OUTRO
  *	---------------------------------------------
  */
 
