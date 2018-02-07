@@ -26,18 +26,129 @@
 		</div>
 	</nav>
 
-	<section class="intro">
+	<div class="intro">
 		<div class="l-contain">
-			<div class="intro__masthead">
-				<h1 class="intro__heading">Variable Fonts</h1>
-				<p class="intro__subheading">An exploration of expressive, performant typography</p>
-			</div>
-			<div class="intro__actions">
-				<button class="poem-start">
-					Begin expedition
-					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><circle fill="none" stroke="#424F5E" stroke-width="2" stroke-miterlimit="10" cx="12" cy="12" r="11"/><path fill="none" stroke="#424F5E" stroke-width="2" stroke-miterlimit="10" d="M18.5 9.8L12 16.3 5.5 9.8"/></svg>
-				</button>
-			</div>
+			<section class="intro__section">
+				<div class="intro__masthead">
+					<h1 class="intro__heading">Variable Fonts</h1>
+					<p class="intro__subheading">An exploration of expressive, performant typography</p>
+				</div>
+				<div class="intro__actions">
+					<a class="poem-start" href="#poem">
+						Begin expedition
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><circle fill="none" stroke="#424F5E" stroke-width="2" stroke-miterlimit="10" cx="12" cy="12" r="11"/><path fill="none" stroke="#424F5E" stroke-width="2" stroke-miterlimit="10" d="M18.5 9.8L12 16.3 5.5 9.8"/></svg>
+					</a>
+				</div>
+			</section>
+
+			<!-- POEM: SPAN SOUP! :D -->
+			<section id="poem" data-nav-label="Poem demo" class="intro__section">
+				<div class="poem-viewer">
+					<div class="poem">
+						<div class="poem__slide">
+							<h2 class="poem__title">
+								<span class="poem__title-prefix">An excerpt from</span>
+								The Rime of the Ancient Mariner
+							</h2>
+							<p class="poem__byline">By Samuel Coleridge</p>
+							<svg class="poem__anchor" xmlns="http://www.w3.org/2000/svg" width="15" height="20"><g fill="none" stroke="#424F5E"><g stroke-miterlimit="10"><path d="M7.5 19.5v-16M2.5 7.5h10"/></g><path stroke-miterlimit="2" d="M11.4 14.1l2.8-1.1c0 4.4-2.9 6.6-6.5 6.6h-.4C3.7 19.6.8 17.5.8 13l2.8 1.1"/><circle stroke-miterlimit="2" cx="7.5" cy="2" r="1.5"/></g></svg>
+							<p class="poem__description">Need to write a little bit of content here to introduce this poem and give context to why we're showing it</p>
+						</div>
+						<div class="poem__slide">
+							<p class="poem__stanza">
+								<span class="poem__line">
+									<span>And</span> <span>now</span> <span>the</span> <em>STORM-BLAST</em> <span>came,</span> <span>and</span> <span>he</span>
+								</span>
+								<span class="poem__line">
+									<span>Was</span> <strong>tyrannous</strong> <span>and</span> <strong>strong:</strong>
+								</span>
+								<span class="poem__line">
+									<span>He</span> <span>struck</span> <span>with</span> <span>his</span> <span>o'ertaking</span> <span>wings,</span>
+								</span>
+								<span class="poem__line">
+									<span>And</span> <span>chased</span> <span>us</span> <span>south</span> <span>along.</span>
+								</span>
+							</p>
+						</div>
+						<div class="poem__slide">
+							<p class="poem__stanza">
+								<span class="poem__line">
+									<span>With</span> <span>sloping</span> <span>masts</span> <span>and</span> <span>dipping</span> <span>prow,</span>
+								</span>
+								<span class="poem__line">
+									<span>As</span> <span>who</span> <span>pursued</span> <span>with</span> <strong>yell</strong> <span>and</span> <span>blow</span>
+								</span>
+								<span class="poem__line">
+									<span>Still</span> <span>treads</span> <span>the</span> <span>shadow</span> <span>of</span> <span>his</span> <span>foe,</span>
+								</span>
+								<span class="poem__line">
+									<span>And</span> <span>forward</span> <span>bends</span> <span>his</span> <span>head,</span>
+								</span>
+								<span class="poem__line">
+									<span>The</span> <span>ship</span> <span>drove</span> <span>fast,</span> <span>loud</span> <strong>roared</strong> <span>the</span> <span>blast,</span>
+								</span>
+								<span class="poem__line">
+									<span>And</span> <span>southward</span> <span>aye</span> <span>we</span> <em>fled.</em>
+								</span>
+							</p>
+						</div>
+						<div class="poem__slide">
+							<p class="poem__stanza">
+								<span class="poem__line">
+									<span>And</span> <span>now</span> <span>there</span> <span>came</span> <span>both</span> <span class="poem__space-out">mist</span> <span>and</span> <span>snow,</span>
+								</span>
+								<span class="poem__line">
+									<span>And</span> <span>it</span> <span>grew</span> <em>wondrous cold:</em>
+								</span>
+								<span class="poem__line">
+									<span>And</span> <span>ice,</span> <span>mast-high,</span> <span>came</span> <span class="poem__space-out">floating</span> <span>by,</span>
+								</span>
+								<span class="poem__line">
+									<span>As</span> <span>green</span> <span>as</span> <span>emerald.</span>
+								</span>
+							</p>
+						</div>
+						<div class="poem__slide">
+							<p class="poem__stanza">
+								<span class="poem__line">
+									<span>The</span> <span>land</span> <span>of</span> <span>ice,</span> <span>and</span> <span>of</span> <span>fearful</span> <span>sounds</span> <span>where</span> <span>no</span> <span>living</span> <span>thing</span> <span>was</span> <span>to</span> <span>be</span> <span>seen.</span>
+								</span>
+							</p>
+							<p class="poem__stanza">
+								<span class="poem__line">
+									<span>And</span> <span>through</span> <span>the</span> <span>drifts</span> <span>the</span> <span>snowy</span> <span>clifts</span>
+								</span>
+								<span class="poem__line">
+									<span>Did</span> <span>send</span> <span>a</span> <span>dismal</span> <span>sheen:</span>
+								</span>
+								<span class="poem__line">
+									<span>Nor</span> <span>shapes</span> <span>of</span> <span>men</span> <span>nor</span> <span>beasts</span> <span>we</span> <span>ken—</span>
+								</span>
+								<span class="poem__line">
+									<span>The</span> <span>ice</span> <span>was</span> <span>all between.</span>
+								</span>
+							</p>
+						</div>
+						<div class="poem__slide">
+							<p class="poem__stanza">
+								<span class="poem__line">
+									<span>The</span> <span>ice</span> <span>was</span> <span>here,</span> <span>the</span> <span>ice</span> <span>was</span> <span>there,</span>
+								</span>
+								<span class="poem__line">
+									<span>The</span> <span>ice</span> <span>was</span> <span>all around:</span>
+								</span>
+								<span class="poem__line">
+									<span>It</span> <em>cracked</em> <span>and</span> <strong>growled,</strong> <span>and</span> <strong>roared</strong> <span>and</span> <em>howled,</em>
+								</span>
+								<span class="poem__line">
+									<span>Like</span> <span>noises</span> <span>in</span> <span>a</span> <span>swound!</span>
+								</span>
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
 			<svg class="ice-floes" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1366 700" width="1366" height="700">
 				<path fill="#F2F3F4" d="M1069.8 646.3l83.2-6.4 74.7-155.7-.2-2.4-174.5-76.6-163.2 100-31.5 157.9 74.7 13.7z"/>
 				<path fill="#E5EBF0" d="M1215.1 342.1l6.3-63.2 6.3-88.4-102.1-112.7-84.2-4.2 25.3 131.6-13.7 200 174.5 76.6z"/>
@@ -54,114 +165,8 @@
 				<path fill="#E5EBF0" d="M611.9 99.9l8.5-49.4L616.8.1 453 49.4l15.8 61.1-3.2 29.4-23.1 19-2.3 52.6h.2l23.1 22.1 14.8 2.1 88.1 66.5 14-110.7 10.5-44.2z"/>
 				<path fill="#C7D4DE" d="M838.3-.1H617.2l-.4.2 3.6 50.4-8.5 49.4-21 47.4-10.5 44.2 192.7-8.3z"/>
 			</svg>
-
-			<!-- POEM: SPAN SOUP! :D -->
-			<section class="poem-viewer">
-				<div class="poem">
-					<div class="poem__slide">
-						<h2 class="poem__title">
-							<span class="poem__title-prefix">An excerpt from</span>
-							The Rime of the Ancient Mariner
-						</h2>
-						<p class="poem__byline">By Samuel Coleridge</p>
-						<svg class="poem__anchor" xmlns="http://www.w3.org/2000/svg" width="15" height="20"><g fill="none" stroke="#424F5E"><g stroke-miterlimit="10"><path d="M7.5 19.5v-16M2.5 7.5h10"/></g><path stroke-miterlimit="2" d="M11.4 14.1l2.8-1.1c0 4.4-2.9 6.6-6.5 6.6h-.4C3.7 19.6.8 17.5.8 13l2.8 1.1"/><circle stroke-miterlimit="2" cx="7.5" cy="2" r="1.5"/></g></svg>
-						<p class="poem__description">Need to write a little bit of content here to introduce this poem and give context to why we're showing it</p>
-					</div>
-					<div class="poem__slide">
-						<p class="poem__stanza">
-							<span class="poem__line">
-								<span>And</span> <span>now</span> <span>the</span> <em>STORM-BLAST</em> <span>came,</span> <span>and</span> <span>he</span>
-							</span>
-							<span class="poem__line">
-								<span>Was</span> <strong>tyrannous</strong> <span>and</span> <strong>strong:</strong>
-							</span>
-							<span class="poem__line">
-								<span>He</span> <span>struck</span> <span>with</span> <span>his</span> <span>o'ertaking</span> <span>wings,</span>
-							</span>
-							<span class="poem__line">
-								<span>And</span> <span>chased</span> <span>us</span> <span>south</span> <span>along.</span>
-							</span>
-						</p>
-					</div>
-					<div class="poem__slide">
-						<p class="poem__stanza">
-							<span class="poem__line">
-								<span>With</span> <span>sloping</span> <span>masts</span> <span>and</span> <span>dipping</span> <span>prow,</span>
-							</span>
-							<span class="poem__line">
-								<span>As</span> <span>who</span> <span>pursued</span> <span>with</span> <strong>yell</strong> <span>and</span> <span>blow</span>
-							</span>
-							<span class="poem__line">
-								<span>Still</span> <span>treads</span> <span>the</span> <span>shadow</span> <span>of</span> <span>his</span> <span>foe,</span>
-							</span>
-							<span class="poem__line">
-								<span>And</span> <span>forward</span> <span>bends</span> <span>his</span> <span>head,</span>
-							</span>
-							<span class="poem__line">
-								<span>The</span> <span>ship</span> <span>drove</span> <span>fast,</span> <span>loud</span> <strong>roared</strong> <span>the</span> <span>blast,</span>
-							</span>
-							<span class="poem__line">
-								<span>And</span> <span>southward</span> <span>aye</span> <span>we</span> <em>fled.</em>
-							</span>
-						</p>
-					</div>
-					<div class="poem__slide">
-						<p class="poem__stanza">
-							<span class="poem__line">
-								<span>And</span> <span>now</span> <span>there</span> <span>came</span> <span>both</span> <span class="poem__space-out">mist</span> <span>and</span> <span>snow,</span>
-							</span>
-							<span class="poem__line">
-								<span>And</span> <span>it</span> <span>grew</span> <em>wondrous cold:</em>
-							</span>
-							<span class="poem__line">
-								<span>And</span> <span>ice,</span> <span>mast-high,</span> <span>came</span> <span class="poem__space-out">floating</span> <span>by,</span>
-							</span>
-							<span class="poem__line">
-								<span>As</span> <span>green</span> <span>as</span> <span>emerald.</span>
-							</span>
-						</p>
-					</div>
-					<div class="poem__slide">
-						<p class="poem__stanza">
-							<span class="poem__line">
-								<span>The</span> <span>land</span> <span>of</span> <span>ice,</span> <span>and</span> <span>of</span> <span>fearful</span> <span>sounds</span> <span>where</span> <span>no</span> <span>living</span> <span>thing</span> <span>was</span> <span>to</span> <span>be</span> <span>seen.</span>
-							</span>
-						</p>
-						<p class="poem__stanza">
-							<span class="poem__line">
-								<span>And</span> <span>through</span> <span>the</span> <span>drifts</span> <span>the</span> <span>snowy</span> <span>clifts</span>
-							</span>
-							<span class="poem__line">
-								<span>Did</span> <span>send</span> <span>a</span> <span>dismal</span> <span>sheen:</span>
-							</span>
-							<span class="poem__line">
-								<span>Nor</span> <span>shapes</span> <span>of</span> <span>men</span> <span>nor</span> <span>beasts</span> <span>we</span> <span>ken—</span>
-							</span>
-							<span class="poem__line">
-								<span>The</span> <span>ice</span> <span>was</span> <span>all between.</span>
-							</span>
-						</p>
-					</div>
-					<div class="poem__slide">
-						<p class="poem__stanza">
-							<span class="poem__line">
-								<span>The</span> <span>ice</span> <span>was</span> <span>here,</span> <span>the</span> <span>ice</span> <span>was</span> <span>there,</span>
-							</span>
-							<span class="poem__line">
-								<span>The</span> <span>ice</span> <span>was</span> <span>all around:</span>
-							</span>
-							<span class="poem__line">
-								<span>It</span> <em>cracked</em> <span>and</span> <strong>growled,</strong> <span>and</span> <strong>roared</strong> <span>and</span> <em>howled,</em>
-							</span>
-							<span class="poem__line">
-								<span>Like</span> <span>noises</span> <span>in</span> <span>a</span> <span>swound!</span>
-							</span>
-						</p>
-					</div>
-				</div>
-			</section>
 		</div>
-	</section>
+	</div>
 
 	<div class="guide-content">
 

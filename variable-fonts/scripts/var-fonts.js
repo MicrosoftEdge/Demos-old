@@ -22,14 +22,13 @@
 	let poemIndex = 1;
 	
 	// SET UP POEM CAROUSEL FUNCTIONALITY AND SHOW FIRST SLIDE
-	const startPoem = function() {
+	const setUpPoem = function() {
 		const poemControls = document.createElement('ul');
 
 		// Set up pagination
 		poemControls.className = 'u-simple-list poem__controls';
 		poemControls.innerHTML = '<li class="poem__prev"><button disabled class="poem__prev-btn"><svg xmlns="http://www.w3.org/2000/svg" width="14.5" height="29"><path fill="none" stroke="#424F5E" stroke-width="2" stroke-miterlimit="10" d="M13.6 2.5l-12 12 12 12"/></svg></button></li>' +
-								 '<li class="poem__next"><button class="poem__next-btn"><svg xmlns="http://www.w3.org/2000/svg" width="14.5" height="29"><path fill="none" stroke="#424F5E" stroke-width="2" stroke-miterlimit="10" d="M1 2.5l12 12-12 12"/></svg></button></li>' +
-								 '<li class="poem__skip"><a class="poem__skip-link" href="#">Skip to info</a></li>';
+								 '<li class="poem__next"><button class="poem__next-btn"><svg xmlns="http://www.w3.org/2000/svg" width="14.5" height="29"><path fill="none" stroke="#424F5E" stroke-width="2" stroke-miterlimit="10" d="M1 2.5l12 12-12 12"/></svg></button></li>';
 
 		poemViewer.appendChild(poemControls);
 		poemControls.querySelector('.poem__prev').addEventListener('click', function(){
@@ -57,6 +56,8 @@
 			poemSlides[i].setAttribute('aria-hidden', 'true');
 		}
 	};
+
+	setUpPoem();
 
 	// UPDATE SLIDE FROM POEM CONTROLS
 	const updateSlide = function(slideDir) {
@@ -106,6 +107,4 @@
 			}
 		}
 	};
-
-	document.querySelector('.poem-start').addEventListener('click', startPoem, false);
 }());

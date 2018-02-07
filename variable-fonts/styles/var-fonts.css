@@ -167,8 +167,11 @@ img {
  *	---------------------------------------------
  */
 
- .guide-content {
-  padding-top: 2vmin;
+/* Padding accounts for angled edges, z-index + bg to slide over the ice floes */
+.guide-content {
+  z-index: 100;
+  padding: 2vmin 0 25vmin;
+  background: #fff;
 }
 
 /* Angled edge */
@@ -258,7 +261,8 @@ img {
   display: block;
   content: '';
   position: absolute;
-  top: 0;
+  z-index: 120;
+  top: -1em;
   left: 50%;
   margin-left: -1px;
   width: 1px;
@@ -274,7 +278,7 @@ img {
 
 @media (min-width: 64em) {
   .l-section--timeline {
-    padding-top: 17em;
+    padding-top: 15em;
   }
   
   .l-section--timeline::before {
@@ -293,6 +297,8 @@ img {
  */
 
 .c-nav-bar {
+  position: relative;
+  z-index: 8000;
   background: #1f252c;
   color: #ccc;
 }
@@ -435,13 +441,19 @@ input:checked + label .c-toggle__hex path {
  */
 
 .intro {
-  display: flex;
-  align-items: center;
   position: relative;
-  min-height: 100vh;
-  min-height: calc(100vh - 3em);
   overflow: hidden;
   background: #424f5e;
+}
+
+.intro__section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  min-height: calc(100vh - 3em);
+  padding: 3em 0;
   text-align: center;
 }
 
@@ -513,7 +525,7 @@ input:checked + label .c-toggle__hex path {
 
 .ice-floes {
   display: block;
-  position: absolute;
+  position: fixed;
   z-index: 1;
   top: 50%;
   margin-top: -360px;
@@ -522,12 +534,9 @@ input:checked + label .c-toggle__hex path {
 }
 
 .poem-viewer {
-  display: none;
-  position: absolute;
-  z-index: 30;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
+  z-index: 20;
+  margin: 3em auto;
   width: 90%;
   max-width: 32rem;
   overflow: hidden;
@@ -634,20 +643,11 @@ input:checked + label .c-toggle__hex path {
   cursor: not-allowed;
 }
 
-.poem__prev {
-  order: 1;
-}
-
-.poem__skip {
-  order: 2;
-  font-size: .75em;
-}
-
-.poem__next {
-  order: 3;
-}
-
 @media (min-width: 36em) {
+  .intro__section {
+    padding: 6em 0;
+  }
+
   .poem__slide {
     padding: 4em;
   }
@@ -684,6 +684,10 @@ input:checked + label .c-toggle__hex path {
 /* Overlap the "timeline" on this section */ 
 .l-section--what {
   margin-top: -10vmin;
+}
+
+.l-section--what::before {
+  top: -2em;
 }
 
 /*
@@ -794,7 +798,8 @@ input:checked + label .c-toggle__hex path {
  */
 
 .c-outro {
-  margin-top: 25vmin;
+  margin: 0; /* Override .l-section margin */
+  z-index: 300;
   background: #424f5e;
   color: #efefef;
 }
