@@ -49,15 +49,18 @@ a:hover {
  */
 
 h1, h2 {
-  font-size: 2.75em;
+  font: 2.75em/1.2 "Bahnschrift";
   text-transform: uppercase;
   letter-spacing: .03em;
   color: #424F5E;
 }
 
+h1 {
+  font-weight: 700;
+}
+
 h2 {
-  font-size: 2em;
-  line-height: 1.2;
+  font-size: 2.25em;
 }
 
 h3, .h3 {
@@ -98,7 +101,7 @@ pre code {
   }
 
   h2 {
-    font-size: 3.375em;
+    font-size: 4em;
   }
 }
 
