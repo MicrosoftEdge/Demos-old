@@ -48,8 +48,12 @@ a:hover {
  *	---------------------------------------------
  */
 
+h1, h2, h3, .h3 {
+  font-family: "Variable Bahnschrift", "FF DIN", "Franklin Gothic", "Helvetica Neue", sans-serif;
+}
+
 h1, h2 {
-  font: 2.75em/1.2 "Bahnschrift";
+  line-height: 1.2;
   text-transform: uppercase;
   letter-spacing: .03em;
   color: #424F5E;
@@ -57,6 +61,7 @@ h1, h2 {
 
 h1 {
   font-weight: 700;
+  font-size: 2.75em;
 }
 
 h2 {
@@ -65,7 +70,7 @@ h2 {
 
 h3, .h3 {
   font-weight: 400;
-  font-size: 1.125em;
+  font-size: 1.25em;
   color: #57687c;
 }
 
@@ -136,8 +141,9 @@ img {
 .caption {
   margin: 1em auto 0;
   max-width: 24em;
-  font-size: .875em;
-  line-height: 1.3;
+  font: 350 1em/1.2 "Variable Bahnschrift", "FF DIN", "Franklin Gothic", "Helvetica Neue", sans-serif;
+  font-variation-settings: "wdth" 75;
+  letter-spacing: .01em;
   text-align: left;
   color: #666;
 }
@@ -390,6 +396,7 @@ img {
   position: relative;
   padding-left: 48px;
   color: #57687c;
+  font: 1em/1 "Variable Bahnschrift", "FF DIN", "Franklin Gothic", "Helvetica Neue", sans-serif;
 }
 
 .c-toggle label:hover {
@@ -402,11 +409,11 @@ img {
   content: '';
   position: absolute;
   top: 50%;
+  transform: translateY(-50%);
   left: 0;
 }
 
 .c-toggle label:before {
-  margin-top: -9px;
   border: 2px solid #57687c;
   border-radius: 18px;
   width: 36px;
@@ -414,7 +421,6 @@ img {
 }
 
 .c-toggle__hex {
-  margin-top: -3px;
   left: 6px;
   width: 12px;
   height: 10px;
@@ -473,7 +479,15 @@ input:checked + label .c-toggle__hex path {
 }
 
 .intro__subheading {
-  font-size: 1.25em;
+  margin-top: .5em;
+  font-size: 1.5em;
+  font-weight: 300;
+  font-variation-settings: "wdth" 85;
+}
+
+.intro__subheading span {
+  font-weight: 600;
+  font-variation-settings: "wdth" 100;
 }
 
 .intro__actions {
@@ -488,8 +502,7 @@ input:checked + label .c-toggle__hex path {
   z-index: 10;
   margin: .33em;
   padding: .5em .75em;
-  font-size: 1.5em;
-  line-height: 1;
+  font: 1.5em/1 "Variable Bahnschrift", "FF DIN", "Franklin Gothic", "Helvetica Neue", sans-serif;
   text-decoration: none;
   background: #fff;
   color: #424f5e;
@@ -556,21 +569,34 @@ input:checked + label .c-toggle__hex path {
   margin-top: 0;
   padding: 1.5em;
   width: 100%;
+  font-family: "Variable Sitka", Sitka, Georgia, serif;
 }
 
-.poem__title {
-  font: 400 1.75em/1.1 base, "Segoe UI", Segoe, "Segoe WP", "Lucida Grande", "Lucida Sans", Verdana, sans-serif;
-  text-transform: none;
-  letter-spacing: 0;
+.poem__masthead {
   color: #424f5e;
 }
 
-.poem__title-prefix {
+.poem__masthead-prefix {
   display: block;
   margin-bottom: .75rem;
+  font-weight: 400;
   font-size: .825rem;
   text-transform: uppercase;
   letter-spacing: .05em;
+}
+
+.poem__masthead-title {
+  font-weight: 350;
+  font-variation-settings: "wdth" 75;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.poem__byline {
+  font-size: .875em;
+  text-transform: uppercase;
+  letter-spacing: .25em;
 }
 
 .poem__anchor {
@@ -653,10 +679,6 @@ input:checked + label .c-toggle__hex path {
 
   .poem__slide {
     padding: 4em;
-  }
-
-  .poem__title {
-    font-size: 2.75em;
   }
 
   .poem__stanza {
@@ -830,6 +852,7 @@ a.c-outro__github {
   border: 0;
   background: #efefef;
   color: #424f5e;
+  font: 550 1em/1 "Variable Bahnschrift", "FF DIN", "Franklin Gothic", "Helvetica Neue", sans-serif;
   transition: transform 200ms ease-out;
 }
 
