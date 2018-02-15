@@ -448,10 +448,10 @@ input:checked + label .c-toggle__hex path {
 .poem__line > span,
 .jason-quote > span {
   color: transparent;
-  background: linear-gradient(to var(--demo-vf-reveal-direction), white 0%, white 100%, black 0px);
+  background: linear-gradient(to var(--demo-vf-reveal-direction), white 0%, white 100%, white 0px, darkgray 100%);
   background-clip: text;
   -webkit-background-clip: text;
-  animation: reveal-fade 750ms forwards;
+  animation: reveal-fade 1500ms forwards;
   animation-play-state: paused;
   
   --demo-vf-reveal-direction: left;
@@ -459,10 +459,10 @@ input:checked + label .c-toggle__hex path {
 
 @keyframes reveal-fade {
   from {
-    background-image: linear-gradient(to var(--demo-vf-reveal-direction), white 0%, white 100%, black 0px);
+    background-image: linear-gradient(to var(--demo-vf-reveal-direction), white 0%, white 100%, white 0px, darkgray 100%);
   }
   to {
-    background-image: linear-gradient(to var(--demo-vf-reveal-direction), white 0%, white 0%, black 0px);
+    background-image: linear-gradient(to var(--demo-vf-reveal-direction), white 0%, white 0%, black 0px, black 100%);
   }
 }
 
@@ -597,6 +597,7 @@ input:checked + label .c-toggle__hex path {
   padding: 1.5em;
   width: 100%;
   font-family: "Variable Sitka", Sitka, Georgia, serif;
+  position: relative;
 }
 
 .poem__masthead {
@@ -891,7 +892,6 @@ a.c-outro__github::after {
   position: absolute;
   z-index: 1;
   width: 0;
-  height
 }
 
 a.c-outro__github::before {

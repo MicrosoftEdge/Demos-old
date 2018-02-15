@@ -19,25 +19,15 @@
 	const poem = poemViewer.querySelector('.poem');
 	const poemSlides = poemViewer.querySelectorAll('.poem__slide');
 	const slidePaneWidth = 100 / poemSlides.length;
+	const poemStanzas = poemViewer.querySelectorAll('.poem__stanza');
+	let lineByLineSemiInterval = -125;
+	let lineByLineInterval = 100;
+	let wordByWordInterval = 16;
 	let poemIndex = 1;
 	
 	// SET UP POEM CAROUSEL FUNCTIONALITY AND SHOW FIRST SLIDE
 	const setUpPoem = function() {
 		const poemControls = document.createElement('ul');
-
-		// Assign animation offsets to each word of the poem; start at 2nd slide
-		for (var i = 1; i < poemSlides.length; i++) {
-			const phrases = poemSlides[i].querySelectorAll('.poem__line > span');
-			let phraseDelay = 0;
-			for (var w = 0; w < phrases.length; w++) {
-				const phraseInterval = phrases[w].textContent.length * 110;
-
-				// Animation timing + delays are based on character count
-				phrases[w].style.animationDuration = phraseInterval + 'ms';
-				phrases[w].style.animationDelay = phraseDelay + 'ms';
-				phraseDelay += phraseInterval;
-			}
-		}
 
 		// Set up pagination
 		poemControls.className = 'u-simple-list poem__controls';
@@ -69,6 +59,44 @@
 		for (var i = 1; i < poemSlides.length; i++) {
 			poemSlides[i].setAttribute('aria-hidden', 'true');
 		}
+
+		// wait for layout to happen
+		setTimeout(function() {
+			// Assign animation offsets to each word of the poem
+			for (var slide of poemSlides) {
+				var pendingDuration = 0;
+				for(var stanzaLine of slide.querySelectorAll('.poem__line')) {
+					var stanzaWords = stanzaLine.querySelectorAll('span');
+					var lines = [], current_line = null, lineDuration = 0, lastOffset = Number.NEGATIVE_INFINITY;
+					for(var word of stanzaWords) {
+						if(word.offsetLeft <= lastOffset || current_line == null) {
+							if(current_line) {
+								current_line.style.animationDuration = lineDuration + 'ms';
+								pendingDuration += lineDuration + lineByLineSemiInterval;
+								lineDuration = 0;
+							}
+							current_line = document.createElement('span');
+							current_line.style.animationDelay = (pendingDuration) + 'ms';
+							pendingDuration += lineByLineInterval;
+							lines.push(current_line);
+						}
+						lastOffset = word.offsetLeft + word.offsetWidth;
+						current_line.appendChild(word.cloneNode(true));
+						current_line.appendChild(document.createTextNode(' '));
+						lineDuration += word.offsetWidth * (200 / 50);
+						lineDuration += wordByWordInterval;
+					}
+					current_line.style.animationDuration = lineDuration + 'ms';
+					pendingDuration += lineDuration + lineByLineInterval;
+					lineDuration = 0;
+					stanzaLine.textContent = '';
+					for(var line of lines) {
+						stanzaLine.appendChild(line);
+					}
+				}
+			}
+		}, 100);
+
 	};
 
 	setUpPoem();
