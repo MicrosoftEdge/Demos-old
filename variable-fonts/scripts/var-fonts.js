@@ -19,20 +19,23 @@
 	const poem = poemViewer.querySelector('.poem');
 	const poemSlides = poemViewer.querySelectorAll('.poem__slide');
 	const slidePaneWidth = 100 / poemSlides.length;
-	const poemStanzas = poemViewer.querySelectorAll('.poem__stanza');
-	let wordByWordInterval = 500;
 	let poemIndex = 1;
 	
 	// SET UP POEM CAROUSEL FUNCTIONALITY AND SHOW FIRST SLIDE
 	const setUpPoem = function() {
 		const poemControls = document.createElement('ul');
 
-		// Assign animation offsets to each word of the poem
-		for (var i = 0; i < poemStanzas.length; i++) {
-			const stanzaWords = poemStanzas[i].querySelectorAll('.poem__line span');
-			for (var w = 0; w < stanzaWords.length; w++) {
-				console.log(stanzaWords[w]);
-				stanzaWords[w].style.animationDelay = w * wordByWordInterval + 'ms';
+		// Assign animation offsets to each word of the poem; start at 2nd slide
+		for (var i = 1; i < poemSlides.length; i++) {
+			const phrases = poemSlides[i].querySelectorAll('.poem__line > span');
+			let phraseDelay = 0;
+			for (var w = 0; w < phrases.length; w++) {
+				const phraseInterval = phrases[w].textContent.length * 110;
+
+				// Animation timing + delays are based on character count
+				phrases[w].style.animationDuration = phraseInterval + 'ms';
+				phrases[w].style.animationDelay = phraseDelay + 'ms';
+				phraseDelay += phraseInterval;
 			}
 		}
 
@@ -93,7 +96,7 @@
 
 				// Timeout = transition timing of the poem transform
 				setTimeout(function(){
-					const newWords = newSlide.querySelectorAll('.poem__line span');
+					const newWords = newSlide.querySelectorAll('.poem__line > span');
 					for (var i = 0; i < newWords.length; i++) {
 						newWords[i].style.animationPlayState = 'running';
 					}

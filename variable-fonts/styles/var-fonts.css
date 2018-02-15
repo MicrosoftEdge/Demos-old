@@ -451,7 +451,7 @@ input:checked + label .c-toggle__hex path {
   background: linear-gradient(to var(--demo-vf-reveal-direction), white 0%, white 100%, black 0px);
   background-clip: text;
   -webkit-background-clip: text;
-  animation: reveal-fade 300ms forwards;
+  animation: reveal-fade 750ms forwards;
   animation-play-state: paused;
   
   --demo-vf-reveal-direction: left;
