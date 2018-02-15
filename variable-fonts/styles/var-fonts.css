@@ -440,6 +440,33 @@ input:checked + label .c-toggle__hex path {
 }
 
 /*
+ *	WORD BY WORD ANIMATIONS
+ *  Used in the poem and in the Jason P. quote
+ *	---------------------------------------------
+ */
+
+.poem__line > span,
+.jason-quote > span {
+  color: transparent;
+  background: linear-gradient(to var(--demo-vf-reveal-direction), white 0%, white 100%, black 0px);
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: reveal-fade 300ms forwards;
+  animation-play-state: paused;
+  
+  --demo-vf-reveal-direction: left;
+}
+
+@keyframes reveal-fade {
+  from {
+    background-image: linear-gradient(to var(--demo-vf-reveal-direction), white 0%, white 100%, black 0px);
+  }
+  to {
+    background-image: linear-gradient(to var(--demo-vf-reveal-direction), white 0%, white 0%, black 0px);
+  }
+}
+
+/*
  *	DEMO SECTIONS
  *	=============================================
  */

@@ -19,11 +19,22 @@
 	const poem = poemViewer.querySelector('.poem');
 	const poemSlides = poemViewer.querySelectorAll('.poem__slide');
 	const slidePaneWidth = 100 / poemSlides.length;
+	const poemStanzas = poemViewer.querySelectorAll('.poem__stanza');
+	let wordByWordInterval = 500;
 	let poemIndex = 1;
 	
 	// SET UP POEM CAROUSEL FUNCTIONALITY AND SHOW FIRST SLIDE
 	const setUpPoem = function() {
 		const poemControls = document.createElement('ul');
+
+		// Assign animation offsets to each word of the poem
+		for (var i = 0; i < poemStanzas.length; i++) {
+			const stanzaWords = poemStanzas[i].querySelectorAll('.poem__line span');
+			for (var w = 0; w < stanzaWords.length; w++) {
+				console.log(stanzaWords[w]);
+				stanzaWords[w].style.animationDelay = w * wordByWordInterval + 'ms';
+			}
+		}
 
 		// Set up pagination
 		poemControls.className = 'u-simple-list poem__controls';
@@ -82,6 +93,11 @@
 
 				// Timeout = transition timing of the poem transform
 				setTimeout(function(){
+					const newWords = newSlide.querySelectorAll('.poem__line span');
+					for (var i = 0; i < newWords.length; i++) {
+						newWords[i].style.animationPlayState = 'running';
+					}
+
 					if (prevBtn.hasAttribute('disabled')) {
 						prevBtn.removeAttribute('disabled');
 					}
