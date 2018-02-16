@@ -101,6 +101,32 @@
 
 	setUpPoem();
 
+	{
+		//
+		// setup headings to animate font-weight when they appear
+		//
+
+		let animateHeader = function(guideHeader, ratio) {
+			if(ratio > 0) {
+				guideHeader.style.fontWeight = '900';
+				guideHeader.style.opacity = '0.99';
+				guideHeader.style.transform = 'scale(1)';
+			} else {
+				guideHeader.style.fontWeight = '';
+				guideHeader.style.opacity = '';
+				guideHeader.style.transform = '';
+				
+			}
+		};
+
+		let guideHeaders = document.querySelectorAll(".guide-content h2");
+		let observer = new IntersectionObserver(entries => entries.forEach(e => { animateHeader(e.target, e.intersectionRatio) }), { threshold: 0.1 });
+		for(let guideHeader of guideHeaders) {
+			observer.observe(guideHeader);
+		}
+		
+	}
+
 	// UPDATE SLIDE FROM POEM CONTROLS
 	const updateSlide = function(slideDir) {
 		const currentSlide = poemViewer.querySelector('.poem__slide[data-current]');

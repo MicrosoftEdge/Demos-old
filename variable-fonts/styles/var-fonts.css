@@ -68,6 +68,13 @@ h2 {
   font-size: 2.25em;
 }
 
+.guide-content h2 {
+  opacity: 0.8;
+  font-weight: 100;
+  transform: scale(0.8);
+  transition: font-weight 1s, opacity 1s, transform 1s;
+}
+
 h3, .h3 {
   font-weight: 400;
   font-size: 1.25em;
