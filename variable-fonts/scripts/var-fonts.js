@@ -110,7 +110,7 @@
 			if(ratio > 0) {
 				guideHeader.style.fontWeight = '900';
 				guideHeader.style.opacity = '0.99';
-				guideHeader.style.transform = 'scale(1)';
+				guideHeader.style.transform = 'scale(1) translateZ(1px)';
 			} else {
 				guideHeader.style.fontWeight = '';
 				guideHeader.style.opacity = '';
@@ -124,7 +124,7 @@
 		for(let guideHeader of guideHeaders) {
 			observer.observe(guideHeader);
 		}
-		
+
 	}
 
 	// UPDATE SLIDE FROM POEM CONTROLS

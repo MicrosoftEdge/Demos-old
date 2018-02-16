@@ -71,7 +71,7 @@ h2 {
 .guide-content h2 {
   opacity: 0.8;
   font-weight: 100;
-  transform: scale(0.8);
+  transform: scale(0.8)  translateZ(1px);
   transition: font-weight 1s, opacity 1s, transform 1s;
 }
 
