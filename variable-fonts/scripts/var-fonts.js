@@ -120,7 +120,7 @@
 		};
 
 		let guideHeaders = document.querySelectorAll(".guide-content h2");
-		let observer = new IntersectionObserver(entries => entries.forEach(e => { animateHeader(e.target, e.intersectionRatio) }), { threshold: 0.1 });
+		let observer = new IntersectionObserver(entries => entries.forEach(e => { animateHeader(e.target, e.intersectionRatio) }), { threshold: 0.3 });
 		for(let guideHeader of guideHeaders) {
 			observer.observe(guideHeader);
 		}
