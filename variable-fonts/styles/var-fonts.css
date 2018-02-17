@@ -455,21 +455,20 @@ input:checked + label .c-toggle__hex path {
 .poem__line > span,
 .jason-quote > span {
   color: transparent;
-  background: linear-gradient(to var(--demo-vf-reveal-direction), white 0%, white 100%, white 0px, darkgray 100%);
+  background: linear-gradient(to var(--demo-vf-reveal-direction), #444 0%, #444 50%, #fff 50%, #fff 100%);
+  background-size: 200%;
+  background-position-x: 100%;
   background-clip: text;
   -webkit-background-clip: text;
   animation: reveal-fade 1500ms forwards;
   animation-play-state: paused;
   
-  --demo-vf-reveal-direction: left;
+  --demo-vf-reveal-direction: right;
 }
 
 @keyframes reveal-fade {
-  from {
-    background-image: linear-gradient(to var(--demo-vf-reveal-direction), white 0%, white 100%, white 0px, darkgray 100%);
-  }
   to {
-    background-image: linear-gradient(to var(--demo-vf-reveal-direction), white 0%, white 0%, black 0px, black 100%);
+    background-position-x: 0%;
   }
 }
 
