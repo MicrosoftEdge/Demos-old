@@ -71,8 +71,14 @@ h2 {
 .guide-content h2 {
   opacity: 0.8;
   font-weight: 100;
-  transform: scale(0.8)  translateZ(1px);
+  transform: scale(0.8) translateZ(1px);
   transition: font-weight 1s, opacity 1s, transform 1s;
+}
+
+.guide-content h2.in-view {
+  opacity: 0.99;
+  font-weight: 900;
+  transform: scale(1.0) translateZ(1px);
 }
 
 h3, .h3 {
@@ -283,7 +289,17 @@ img {
   margin-left: -1px;
   width: 1px;
   height: 7em;
-  background: #424f5e;
+  background: linear-gradient(to bottom, #424f5e 0%, white 100%);
+  opacity: 0.01;
+  transform: scaleY(0.0) translateZ(1px);
+  transform-origin: 50% 0%;
+  transition: all 0.5s;
+}
+
+.l-section--timeline::before {
+  opacity: 0.99;
+  transform: scaleY(1.0) translateZ(1px);
+  background: linear-gradient(to bottom, #424f5e 0%, #424f5e 100%);
 }
 
 @media (min-width: 48em) {
@@ -464,6 +480,15 @@ input:checked + label .c-toggle__hex path {
   animation-play-state: paused;
   
   --demo-vf-reveal-direction: right;
+}
+
+.poem__line > span > span[class] {
+  animation: tempanim 300ms forwards;
+}
+
+@keyframes tempanim {
+  from { color: transparent; }
+  to { color: red; }
 }
 
 @keyframes reveal-fade {

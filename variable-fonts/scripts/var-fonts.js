@@ -20,6 +20,7 @@
 	const poemSlides = poemViewer.querySelectorAll('.poem__slide');
 	const slidePaneWidth = 100 / poemSlides.length;
 	const poemStanzas = poemViewer.querySelectorAll('.poem__stanza');
+	let timeReservedForAxisTransition = 300;
 	let lineByLineSemiInterval = -125;
 	let lineByLineInterval = 100;
 	let wordByWordInterval = 16;
@@ -67,13 +68,19 @@
 				var pendingDuration = 0;
 				for(var stanzaLine of slide.querySelectorAll('.poem__line')) {
 					var stanzaWords = stanzaLine.querySelectorAll('span');
-					var lines = [], current_line = null, lineDuration = 0, lastOffset = Number.NEGATIVE_INFINITY;
+					var lines = [], current_line = null, lineDuration = 0, lastOffset = Number.NEGATIVE_INFINITY, lastClass = '';
 					for(var word of stanzaWords) {
-						if(word.offsetLeft <= lastOffset || current_line == null) {
+						if(word.offsetLeft <= lastOffset || word.className != lastClass || current_line == null) {
 							if(current_line) {
 								current_line.style.animationDuration = lineDuration + 'ms';
-								pendingDuration += lineDuration + lineByLineSemiInterval;
+								pendingDuration += lineDuration;
 								lineDuration = 0;
+								if(word.offsetLeft <= lastOffset) {
+									pendingDuration += lineByLineSemiInterval;
+								}
+								if(lastClass) { 
+									pendingDuration += timeReservedForAxisTransition;
+								}
 							}
 							current_line = document.createElement('span');
 							current_line.style.animationDelay = (pendingDuration) + 'ms';
@@ -81,10 +88,14 @@
 							lines.push(current_line);
 						}
 						lastOffset = word.offsetLeft + word.offsetWidth;
-						current_line.appendChild(word.cloneNode(true));
+						lastClass = word.className;
+						let new_word = current_line.appendChild(word.cloneNode(true));
 						current_line.appendChild(document.createTextNode(' '));
-						lineDuration += word.offsetWidth * (200 / 50);
+						lineDuration += word.offsetWidth * (400 / 50);
 						lineDuration += wordByWordInterval;
+						if(lastClass) {
+							new_word.style.animationDelay = (pendingDuration + lineDuration) + 'ms';
+						}
 					}
 					current_line.style.animationDuration = lineDuration + 'ms';
 					pendingDuration += lineDuration + lineByLineInterval;
@@ -108,14 +119,21 @@
 
 		let animateHeader = function(guideHeader, ratio) {
 			if(ratio > 0) {
-				guideHeader.style.fontWeight = '900';
-				guideHeader.style.opacity = '0.99';
-				guideHeader.style.transform = 'scale(1) translateZ(1px)';
+				if(false && guideHeader.tagName == 'H2') {
+					setTimeout(function() {
+						guideHeader.classList.add('in-view');
+					}, 500);
+				} else {
+					guideHeader.classList.add('in-view');
+				}
 			} else {
-				guideHeader.style.fontWeight = '';
-				guideHeader.style.opacity = '';
-				guideHeader.style.transform = '';
-				
+				if(false && guideHeader.tagName == 'H2') {
+					setTimeout(function() {
+						guideHeader.classList.remove('in-view');
+					}, 500);
+				} else {
+					guideHeader.classList.remove('in-view');
+				}
 			}
 		};
 
@@ -123,6 +141,7 @@
 		let observer = new IntersectionObserver(entries => entries.forEach(e => { animateHeader(e.target, e.intersectionRatio) }), { threshold: 0.3 });
 		for(let guideHeader of guideHeaders) {
 			observer.observe(guideHeader);
+			observer.observe(guideHeader.closest('section'));
 		}
 
 	}
