@@ -28,6 +28,7 @@ body {
 
 ::selection {
   background: #c7d4de;
+  color: black;
 }
 
 a:link, a:visited {
@@ -482,15 +483,6 @@ input:checked + label .c-toggle__hex path {
   --demo-vf-reveal-direction: right;
 }
 
-.poem__line > span > span[class] {
-  animation: tempanim 300ms forwards;
-}
-
-@keyframes tempanim {
-  from { color: transparent; }
-  to { color: red; }
-}
-
 @keyframes reveal-fade {
   to {
     background-position-x: 0%;
@@ -627,8 +619,8 @@ input:checked + label .c-toggle__hex path {
   margin-top: 0;
   padding: 1.5em;
   width: 100%;
-  font-family: "Variable Sitka", Sitka, Georgia, serif;
   position: relative;
+  font-family: "Variable Sitka", Sitka, Georgia, serif;
 }
 
 .poem__masthead {
@@ -684,11 +676,65 @@ input:checked + label .c-toggle__hex path {
   margin-top: 0;
 }
 
-/* These properties be animated */
-.poem__line em,
-.poem__line strong {
+/* Don't break animated phrases between lines */
+.poem__line span[class] {
+  white-space: nowrap;
+}
+
+/* Phrase animations; have the end state set on page load (and reset on current slide) so layout calculates correctly */
+.poem__line > span > span[class] {
+  animation-play-state: paused;
+}
+
+.poem__line > span > .bolden {
+  font-weight: 700;
+  animation: bolden 300ms forwards;
+}
+
+.poem__line > span > .boldish {
+  font-weight: 600;
+  animation: boldish 300ms forwards;
+}
+
+.poem__slide[data-current] .poem__line > span > .bolden,
+.poem__slide[data-current] .poem__line > span > .boldish {
   font-weight: 400;
-  font-style: normal;
+}
+
+.poem__line > span > .space-out {
+  letter-spacing: .1em;
+  animation: spaceOut 300ms forwards;
+}
+
+.poem__slide[data-current] .poem__line > span > .space-out {
+  letter-spacing: 0;
+}
+
+@keyframes bolden {
+  from {
+    font-weight: 400;
+  }
+  to {
+    font-weight: 700;
+  }
+}
+
+@keyframes boldish {
+  from {
+    font-weight: 400;
+  }
+  to {
+    font-weight: 600;
+  }
+}
+
+@keyframes spaceOut {
+  from {
+    letter-spacing: 0;
+  }
+  to {
+    letter-spacing: .1em;
+  }
 }
 
 .poem__controls {

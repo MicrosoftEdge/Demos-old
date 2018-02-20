@@ -20,7 +20,7 @@
 	const poemSlides = poemViewer.querySelectorAll('.poem__slide');
 	const slidePaneWidth = 100 / poemSlides.length;
 	const poemStanzas = poemViewer.querySelectorAll('.poem__stanza');
-	let timeReservedForAxisTransition = 300;
+	let timeReservedForAxisTransition = 75;
 	let lineByLineSemiInterval = -125;
 	let lineByLineInterval = 100;
 	let wordByWordInterval = 16;
@@ -89,14 +89,15 @@
 						}
 						lastOffset = word.offsetLeft + word.offsetWidth;
 						lastClass = word.className;
-						let new_word = current_line.appendChild(word.cloneNode(true));
-						current_line.appendChild(document.createTextNode(' '));
+						let new_word = word.cloneNode(true);
+						if(lastClass) {
+							new_word.style.animationDelay = (pendingDuration + lineDuration + timeReservedForAxisTransition) + 'ms';
+						}
 						lineDuration += word.offsetWidth * (400 / 50);
 						lineDuration += wordByWordInterval;
-						if(lastClass) {
-							new_word.style.animationDelay = (pendingDuration + lineDuration) + 'ms';
-						}
-					}
+						current_line.appendChild(new_word);
+						current_line.appendChild(document.createTextNode(' '));
+				}
 					current_line.style.animationDuration = lineDuration + 'ms';
 					pendingDuration += lineDuration + lineByLineInterval;
 					lineDuration = 0;
@@ -169,7 +170,7 @@
 
 				// Timeout = transition timing of the poem transform
 				setTimeout(function(){
-					const newWords = newSlide.querySelectorAll('.poem__line > span');
+					const newWords = newSlide.querySelectorAll('.poem__line > span, .poem__line > span > span[class]');
 					for (var i = 0; i < newWords.length; i++) {
 						newWords[i].style.animationPlayState = 'running';
 					}
