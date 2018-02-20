@@ -2,41 +2,41 @@
  *	=============================================
  *	VARIABLE FONTS
  *	---------------------------------------------
- *  Z-INDEX KEY
- *  Increments of 10
+ *	Z-INDEX KEY
+ *	Increments of 10
  *
- *  Intro: 1-100
- *  Other sections: 110-200
+ *	Intro: 1-100
+ *	Other sections: 110-200
  *	=============================================
  */
 
 body {
-  color: #444;
+	color: #444;
 
-  /* Hide overflow from angled edges */
-  overflow-x: hidden;
+	/* Hide overflow from angled edges */
+	overflow-x: hidden;
 }
 
 /* DO NOT remove focus altogether, just style to your colors */
 :focus {
-  outline: 1px dotted #000;
+	outline: 1px dotted #000;
 }
 
 ::-moz-selection {
-  background: #c7d4de;
+	background: #c7d4de;
 }
 
 ::selection {
-  background: #c7d4de;
-  color: black;
+	background: #c7d4de;
+	color: #000;
 }
 
 a:link, a:visited {
-  color: #424f5e;
+	color: #424f5e;
 }
 
 a:hover {
-  color: #5e7186;
+	color: #5e7186;
 }
 
 /*
@@ -50,78 +50,84 @@ a:hover {
  */
 
 h1, h2, h3, .h3 {
-  font-family: "Variable Bahnschrift", "FF DIN", "Franklin Gothic", "Helvetica Neue", sans-serif;
+	font-family: "Variable Bahnschrift", "FF DIN", "Franklin Gothic", "Helvetica Neue", sans-serif;
 }
 
 h1, h2 {
-  line-height: 1.2;
-  text-transform: uppercase;
-  letter-spacing: .03em;
-  color: #424F5E;
+	line-height: 1.2;
+	text-transform: uppercase;
+	letter-spacing: .03em;
+	color: #424f5e;
 }
 
 h1 {
-  font-weight: 700;
-  font-size: 2.75em;
+	font-weight: 700;
+	font-size: 2.75em;
 }
 
 h2 {
-  font-size: 2.25em;
+	font-size: 2.25em;
 }
 
 .guide-content h2 {
-  opacity: 0.8;
-  font-weight: 100;
-  transform: scale(0.8) translateZ(1px);
-  transition: font-weight 1s, opacity 1s, transform 1s;
+	opacity: .8;
+	font-weight: 100;
+
+	/* TranslateZ sends el to its own rendering layer */
+	transform: scale(.8) translateZ(1px);
+	transition: font-weight 1s, opacity 1s, transform 1s;
 }
 
 .guide-content h2.in-view {
-  opacity: 0.99;
-  font-weight: 900;
-  transform: scale(1.0) translateZ(1px);
+	opacity: .99;
+	font-weight: 900;
+	transform: scale(1) translateZ(1px);
 }
 
-h3, .h3 {
-  font-weight: 400;
-  font-size: 1.25em;
-  color: #57687c;
+h3,
+.h3 {
+	font-weight: 400;
+	font-size: 1.25em;
+	color: #57687c;
 }
 
-h2, h3,
-p, ul, ol,
+h2,
+h3,
+p,
+ul,
+ol,
 pre {
-  margin-right: auto;
-  margin-left: auto;
-  max-width: 36rem;
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 36rem;
 }
 
 pre {
-  margin-top: 1.5em;
+	margin-top: 1.5em;
 }
 
 pre code {
-  display: block;
-  padding: 1em;
-  border: 3px solid #57687c;
-  font-size: 1.125em;
-  tab-size: 3;
-  color: #424f5e;
+	display: block;
+	padding: 1em;
+	border: 3px solid #57687c;
+	font-size: 1.125em;
+	tab-size: 3;
+	color: #424f5e;
 }
 
 .u-simple-list {
-  list-style: none;
-  max-width: 100%;
+	list-style: none;
+	max-width: 100%;
 }
 
 @media (min-width: 36em) {
-  h1 {
-    font-size: 5em;
-  }
+	h1 {
+		font-size: 5em;
+	}
 
-  h2 {
-    font-size: 4em;
-  }
+	h2 {
+		font-size: 4em;
+	}
 }
 
 /*
@@ -130,7 +136,7 @@ pre code {
  */
 
 button:hover {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 /*
@@ -139,27 +145,27 @@ button:hover {
  */
 
 figure {
-  text-align: center;
+	text-align: center;
 }
 
 figure + * {
-  margin-top: 2em;
+	margin-top: 2em;
 }
 
 img {
-  margin: 0 auto;
-  max-width: 100%;
-  height: auto;
+	margin: 0 auto;
+	max-width: 100%;
+	height: auto;
 }
 
 .caption {
-  margin: 1em auto 0;
-  max-width: 24em;
-  font: 350 1em/1.2 "Variable Bahnschrift", "FF DIN", "Franklin Gothic", "Helvetica Neue", sans-serif;
-  font-variation-settings: "wdth" 75;
-  letter-spacing: .01em;
-  text-align: left;
-  color: #666;
+	margin: 1em auto 0;
+	max-width: 24em;
+	font: 350 1em/1.2 "Variable Bahnschrift", "FF DIN", "Franklin Gothic", "Helvetica Neue", sans-serif;
+	font-variation-settings: "wdth" 75;
+	letter-spacing: .01em;
+	text-align: left;
+	color: #666;
 }
 
 /*
@@ -170,19 +176,19 @@ img {
 .guide-content,
 .c-ex:nth-child(even),
 .c-outro {
-  position: relative;
+	position: relative;
 }
 
 .guide-content::before,
 .c-ex:nth-child(even)::before,
 .c-outro::before {
-  display: block;
-  position: absolute;
-  z-index: 110;
-  content: '';
-  left: 0;
-  width: 0;
-  border-left: 100vw solid transparent;
+	display: block;
+	position: absolute;
+	z-index: 110;
+	content: "";
+	left: 0;
+	width: 0;
+	border-left: 100vw solid transparent;
 }
 
 /*
@@ -192,15 +198,15 @@ img {
 
 /* Padding accounts for angled edges, z-index + bg to slide over the ice floes */
 .guide-content {
-  z-index: 100;
-  padding: 2vmin 0 25vmin;
-  background: #fff;
+	z-index: 100;
+	padding: 2vmin 0 25vmin;
+	background: #fff;
 }
 
 /* Angled edge */
 .guide-content::before {
-  top: -15vmin;
-  border-bottom: 15vmin solid #fff;
+	top: -15vmin;
+	border-bottom: 15vmin solid #fff;
 }
 
 /*
@@ -209,51 +215,51 @@ img {
  */
 
 /*
- *  LAYOUT: GRID
+ *	LAYOUT: GRID
  *	---------------------------------------------
  */
 
 [class*="l-col-"] {
-  margin-top: 1.5em;
+	margin-top: 1.5em;
 }
 
 @media (min-width: 48em) {
-  .l-grid {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-gap: 3em;
-  }
+	.l-grid {
+		display: grid;
+		grid-template-columns: repeat(12, 1fr);
+		grid-gap: 3em;
+	}
 
-  .l-col-quarter {
-    -ms-grid-column-span: 3;
-    grid-column: span 3;
-  }
+	.l-col-quarter {
+		-ms-grid-column-span: 3;
+		grid-column: span 3;
+	}
 
-  .l-col-three-quarters {
-    -ms-grid-column-span: 9;
-    grid-column: span 9;
-  }
+	.l-col-three-quarters {
+		-ms-grid-column-span: 9;
+		grid-column: span 9;
+	}
 
-  .l-col-half {
-    -ms-grid-column-span: 6;
-    grid-column: span 6;
-  }
+	.l-col-half {
+		-ms-grid-column-span: 6;
+		grid-column: span 6;
+	}
 
-  .l-col-third {
-    -ms-grid-column-span: 4;
-    grid-column: span 4;
-  }
+	.l-col-third {
+		-ms-grid-column-span: 4;
+		grid-column: span 4;
+	}
 
-  .l-col-two-thirds {
-    -ms-grid-column-span: 8;
-    grid-column: span 8;
-  }
+	.l-col-two-thirds {
+		-ms-grid-column-span: 8;
+		grid-column: span 8;
+	}
 
-  @supports (display: grid) or (display: -ms-grid) {
-    [class*="l-col-"] {
-      margin-top: 0;
-    }
-  }
+	@supports (display: grid) or (display: -ms-grid) {
+		[class*="l-col-"] {
+			margin-top: 0;
+		}
+	}
 }
 
 /*
@@ -262,61 +268,61 @@ img {
  */
 
 .l-section__header {
-  text-align: center;
+	text-align: center;
 }
 
 .l-section__header > * {
-  margin-right: auto;
-  margin-left: auto;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 .l-section__body {
-  margin-top: 2em;
+	margin-top: 2em;
 }
 
 /* Special section that has the line leading to it */
 .l-section--timeline {
-  position: relative;
-  padding-top: 9em;
+	position: relative;
+	padding-top: 9em;
 }
 
 .l-section--timeline::before {
-  display: block;
-  content: '';
-  position: absolute;
-  z-index: 120;
-  top: -1em;
-  left: 50%;
-  margin-left: -1px;
-  width: 1px;
-  height: 7em;
-  background: linear-gradient(to bottom, #424f5e 0%, white 100%);
-  opacity: 0.01;
-  transform: scaleY(0.0) translateZ(1px);
-  transform-origin: 50% 0%;
-  transition: all 0.5s;
+	display: block;
+	content: "";
+	position: absolute;
+	z-index: 120;
+	top: -1em;
+	left: 50%;
+	margin-left: -1px;
+	width: 1px;
+	height: 7em;
+	background: linear-gradient(to bottom, #424f5e 0%, #fff 100%);
+	opacity: .01;
+	transform: scaleY(0) translateZ(1px);
+	transform-origin: 50% 0%;
+	transition: all .5s;
 }
 
 .l-section--timeline::before {
-  opacity: 0.99;
-  transform: scaleY(1.0) translateZ(1px);
-  background: linear-gradient(to bottom, #424f5e 0%, #424f5e 100%);
+	opacity: .99;
+	transform: scaleY(1) translateZ(1px);
+	background: linear-gradient(to bottom, #424f5e 0%, #424f5e 100%);
 }
 
 @media (min-width: 48em) {
-  .l-section__body {
-    margin-top: 3em;
-  }
+	.l-section__body {
+		margin-top: 3em;
+	}
 }
 
 @media (min-width: 64em) {
-  .l-section--timeline {
-    padding-top: 15em;
-  }
-  
-  .l-section--timeline::before {
-    height: 14em;  
-  }
+	.l-section--timeline {
+		padding-top: 15em;
+	}
+
+	.l-section--timeline::before {
+		height: 14em;
+	}
 }
 
 /*
@@ -330,52 +336,52 @@ img {
  */
 
 .c-nav-bar {
-  position: relative;
-  z-index: 8000;
-  background: #1f252c;
-  color: #ccc;
+	position: relative;
+	z-index: 8000;
+	background: #1f252c;
+	color: #ccc;
 }
 
 /* DO NOT remove focus altogether, just style to your colors */
 .c-nav-bar :focus {
-  outline: 1px dotted #fff;
+	outline: 1px dotted #fff;
 }
 
 .c-nav-bar a {
-  color: #f4f4f4;
-  border-bottom-color: rgba(255, 255, 255, .66);
+	color: #f4f4f4;
+	border-bottom-color: rgba(255, 255, 255, .66);
 }
 
 .c-nav-bar__title {
-  color: #f4f4f4;
+	color: #f4f4f4;
 }
 
 /* TABLE OF CONTENTS DROPDOWN */
 
 .c-toc__btn {
-  background: #1f252c;
-  color: #fff;
+	background: #1f252c;
+	color: #fff;
 }
 
 .c-toc__btn:hover,
 .c-toc__btn:focus {
-  background: #343e4a;
+	background: #343e4a;
 }
 
 .c-toc__btn:active {
-  background: #424f5e;
+	background: #424f5e;
 }
 
 .c-toc__arrow path {
-  stroke: #fff;
+	stroke: #fff;
 }
 
 .c-toc__items {
-  background: #2d3640;
+	background: #2d3640;
 }
 
 .c-toc__item a:hover {
-  background: #1f252c;
+	background: #1f252c;
 }
 
 /*
@@ -384,12 +390,12 @@ img {
  */
 
 .o-long-text {
-  -webkit-columns: 3 16em;
-  -moz-columns: 3 16em;
-  columns: 3 16em;
-  -webkit-column-gap: 2em;
-  -moz-column-gap: 2em;
-  column-gap: 2em;
+	-webkit-columns: 3 16em;
+	-moz-columns: 3 16em;
+	columns: 3 16em;
+	-webkit-column-gap: 2em;
+	-moz-column-gap: 2em;
+	column-gap: 2em;
 }
 
 /*
@@ -398,95 +404,95 @@ img {
  */
 
 .c-toggle {
-  display: inline-block;
-  margin: 1em auto 0;
-  position: relative;
+	display: inline-block;
+	margin: 1em auto 0;
+	position: relative;
 }
 
 .c-toggle input {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
 }
 
 .c-toggle label,
 .c-toggle__hex,
-.c-toggle__hex path  {
-  transition: all 200ms ease-out;
+.c-toggle__hex path {
+	transition: all 200ms ease-out;
 }
 
 .c-toggle label {
-  position: relative;
-  padding-left: 48px;
-  color: #57687c;
-  font: 1em/1 "Variable Bahnschrift", "FF DIN", "Franklin Gothic", "Helvetica Neue", sans-serif;
+	position: relative;
+	padding-left: 48px;
+	color: #57687c;
+	font: 1em/1 "Variable Bahnschrift", "FF DIN", "Franklin Gothic", "Helvetica Neue", sans-serif;
 }
 
 .c-toggle label:hover {
-  cursor: pointer;
+	cursor: pointer;
 }
 
-.c-toggle label:before,
+.c-toggle label::before,
 .c-toggle__hex {
-  display: block;
-  content: '';
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 0;
+	display: block;
+	content: "";
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 0;
 }
 
-.c-toggle label:before {
-  border: 2px solid #57687c;
-  border-radius: 18px;
-  width: 36px;
-  height: 18px;
+.c-toggle label::before {
+	border: 2px solid #57687c;
+	border-radius: 18px;
+	width: 36px;
+	height: 18px;
 }
 
 .c-toggle__hex {
-  left: 6px;
-  width: 12px;
-  height: 10px;
+	left: 6px;
+	width: 12px;
+	height: 10px;
 }
 
 /* Checked toggle */
-.c-toggle input:checked + label:before {
-  background: #57687c;
+.c-toggle input:checked + label::before {
+	background: #57687c;
 }
 
 input:checked + label .c-toggle__hex {
-  left: 24px;
+	left: 24px;
 }
 
 input:checked + label .c-toggle__hex path {
-  fill: #fff;
+	fill: #fff;
 }
 
 /*
  *	WORD BY WORD ANIMATIONS
- *  Used in the poem and in the Jason P. quote
+ *	Used in the poem and in the Jason P. quote
  *	---------------------------------------------
  */
 
 .poem__line > span,
 .jason-quote > span {
-  color: transparent;
-  background: linear-gradient(to var(--demo-vf-reveal-direction), #444 0%, #444 50%, #fff 50%, #fff 100%);
-  background-size: 200%;
-  background-position-x: 100%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  animation: reveal-fade 1500ms forwards;
-  animation-play-state: paused;
-  
-  --demo-vf-reveal-direction: right;
+	color: transparent;
+	background: linear-gradient(to var(--demo-vf-reveal-direction), #444 0%, #444 50%, #fff 50%, #fff 100%);
+	background-size: 200%;
+	background-position-x: 100%;
+	background-clip: text;
+	-webkit-background-clip: text;
+	animation: reveal-fade 1500ms forwards;
+	animation-play-state: paused;
+
+	--demo-vf-reveal-direction: right;
 }
 
 @keyframes reveal-fade {
-  to {
-    background-position-x: 0%;
-  }
+	to {
+		background-position-x: 0%;
+	}
 }
 
 /*
@@ -500,310 +506,310 @@ input:checked + label .c-toggle__hex path {
  */
 
 .intro {
-  position: relative;
-  overflow: hidden;
-  background: #424f5e;
+	position: relative;
+	overflow: hidden;
+	background: #424f5e;
 }
 
 .intro__section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  min-height: calc(100vh - 3em);
-  padding: 3em 0;
-  text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	min-height: calc(100vh - 3em);
+	padding: 3em 0;
+	text-align: center;
 }
 
 .intro__masthead,
 .intro__actions {
-  position: relative;
-  z-index: 20;
+	position: relative;
+	z-index: 20;
 }
 
 .intro__masthead {
-  padding: 3em;
-  line-height: 1;
-  background: #fff;
+	padding: 3em;
+	line-height: 1;
+	background: #fff;
 }
 
 .intro__subheading {
-  margin-top: .5em;
-  font-size: 1.5em;
-  font-weight: 300;
-  font-variation-settings: "wdth" 85;
+	margin-top: .5em;
+	font-size: 1.5em;
+	font-weight: 300;
+	font-variation-settings: "wdth" 85;
 }
 
 .intro__subheading span {
-  font-weight: 600;
-  font-variation-settings: "wdth" 100;
+	font-weight: 600;
+	font-variation-settings: "wdth" 100;
 }
 
 .intro__actions {
-  display: inline-block;
-  margin: 4em auto 0;
-  background: hsla(0, 0%, 0%, .33);
+	display: inline-block;
+	margin: 4em auto 0;
+	background: hsla(0, 0%, 0%, .33);
 }
 
 .poem-start {
-  display: inline-block;
-  position: relative;
-  z-index: 10;
-  margin: .33em;
-  padding: .5em .75em;
-  font: 1.5em/1 "Variable Bahnschrift", "FF DIN", "Franklin Gothic", "Helvetica Neue", sans-serif;
-  text-decoration: none;
-  background: #fff;
-  color: #424f5e;
-  box-shadow: 0 0 0 0 #fff;
-  transition: box-shadow 200ms ease-out;
+	display: inline-block;
+	position: relative;
+	z-index: 10;
+	margin: .33em;
+	padding: .5em .75em;
+	font: 1.5em/1 "Variable Bahnschrift", "FF DIN", "Franklin Gothic", "Helvetica Neue", sans-serif;
+	text-decoration: none;
+	background: #fff;
+	color: #424f5e;
+	box-shadow: 0 0 0 0 #fff;
+	transition: box-shadow 200ms ease-out;
 }
 
 .poem-start svg {
-  display: inline-block;
-  margin-left: .25em;
-  vertical-align: top;
+	display: inline-block;
+	margin-left: .25em;
+	vertical-align: top;
 }
 
 .poem-start:hover {
-  color: #262d36;
-  box-shadow: 0 0 0 .33em #fff;
+	color: #262d36;
+	box-shadow: 0 0 0 .33em #fff;
 }
 
 .poem-start:hover svg * {
-  stroke: #262d36; 
+	stroke: #262d36;
 }
 
 .poem-start:active,
 .poem-start:focus {
-  color: #000;
+	color: #000;
 }
 
 .poem-start:active svg *,
 .poem-start:focus svg * {
-  stroke: #000; 
+	stroke: #000;
 }
 
 .poem-start:focus {
-  outline: .33em solid hsla(0, 0%, 0%, .33);
+	outline: .33em solid hsla(0, 0%, 0%, .33);
 }
 
 .ice-floes {
-  display: block;
-  position: fixed;
-  z-index: 1;
-  top: 50%;
-  margin-top: -360px;
-  left: 50%;
-  margin-left: -683px;
+	display: block;
+	position: fixed;
+	z-index: 1;
+	top: 50%;
+	margin-top: -360px;
+	left: 50%;
+	margin-left: -683px;
 }
 
 .poem-viewer {
-  position: relative;
-  z-index: 20;
-  margin: 3em auto;
-  width: 90%;
-  max-width: 32rem;
-  overflow: hidden;
-  background: #fff;
+	position: relative;
+	z-index: 20;
+	margin: 3em auto;
+	width: 90%;
+	max-width: 32rem;
+	overflow: hidden;
+	background: #fff;
 }
 
 .poem {
-  display: flex;
-  width: 600%; /* Accommodate 6 slides */
-  transition: transform 400ms ease-out;
+	display: flex;
+	width: 600%; /* Accommodate 6 slides */
+	transition: transform 400ms ease-out;
 }
 
 .poem__slide {
-  margin-top: 0;
-  padding: 1.5em;
-  width: 100%;
-  position: relative;
-  font-family: "Variable Sitka", Sitka, Georgia, serif;
+	margin-top: 0;
+	padding: 1.5em;
+	width: 100%;
+	position: relative;
+	font-family: "Variable Sitka", Sitka, Georgia, serif;
 }
 
 .poem__masthead {
-  color: #424f5e;
+	color: #424f5e;
 }
 
 .poem__masthead-prefix {
-  display: block;
-  margin-bottom: .75rem;
-  font-weight: 400;
-  font-size: .825rem;
-  text-transform: uppercase;
-  letter-spacing: .05em;
+	display: block;
+	margin-bottom: .75rem;
+	font-weight: 400;
+	font-size: .825rem;
+	text-transform: uppercase;
+	letter-spacing: .05em;
 }
 
 .poem__masthead-title {
-  font-weight: 350;
-  font-variation-settings: "wdth" 75;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: 0;
+	font-weight: 350;
+	font-variation-settings: "wdth" 75;
+	line-height: 1;
+	text-transform: none;
+	letter-spacing: 0;
 }
 
 .poem__byline {
-  font-size: .875em;
-  text-transform: uppercase;
-  letter-spacing: .25em;
+	font-size: .875em;
+	text-transform: uppercase;
+	letter-spacing: .25em;
 }
 
 .poem__anchor {
-  margin: 2em auto;
+	margin: 2em auto;
 }
 
 .poem__description {
-  margin-top: 0;
+	margin-top: 0;
 }
 
 .poem__stanza {
-  /* For indented wrapped lines of poetry */
-  margin-left: 1em;
-  text-align: left;
+	/* For indented wrapped lines of poetry */
+	margin-left: 1em;
+	text-align: left;
 }
 
 .poem__line {
-  display: block;
-  margin-top: .25em;
+	display: block;
+	margin-top: .25em;
 
-  /* Indent wrapped lines of poetry */
-  text-indent: -1em;
+	/* Indent wrapped lines of poetry */
+	text-indent: -1em;
 }
 
 .poem__line:first-child {
-  margin-top: 0;
+	margin-top: 0;
 }
 
 /* Don't break animated phrases between lines */
 .poem__line span[class] {
-  white-space: nowrap;
+	white-space: nowrap;
 }
 
 /* Phrase animations; have the end state set on page load (and reset on current slide) so layout calculates correctly */
 .poem__line > span > span[class] {
-  animation-play-state: paused;
+	animation-play-state: paused;
 }
 
 .poem__line > span > .bolden {
-  font-weight: 700;
-  animation: bolden 300ms forwards;
+	font-weight: 700;
+	animation: bolden 300ms forwards;
 }
 
 .poem__line > span > .boldish {
-  font-weight: 600;
-  animation: boldish 300ms forwards;
+	font-weight: 600;
+	animation: boldish 300ms forwards;
 }
 
 .poem__slide[data-current] .poem__line > span > .bolden,
 .poem__slide[data-current] .poem__line > span > .boldish {
-  font-weight: 400;
+	font-weight: 400;
 }
 
 .poem__line > span > .space-out {
-  letter-spacing: .1em;
-  animation: spaceOut 300ms forwards;
+	letter-spacing: .1em;
+	animation: spaceOut 300ms forwards;
 }
 
 .poem__slide[data-current] .poem__line > span > .space-out {
-  letter-spacing: 0;
+	letter-spacing: 0;
 }
 
 @keyframes bolden {
-  from {
-    font-weight: 400;
-  }
-  to {
-    font-weight: 700;
-  }
+	from {
+		font-weight: 400;
+	}
+	to {
+		font-weight: 700;
+	}
 }
 
 @keyframes boldish {
-  from {
-    font-weight: 400;
-  }
-  to {
-    font-weight: 600;
-  }
+	from {
+		font-weight: 400;
+	}
+	to {
+		font-weight: 600;
+	}
 }
 
 @keyframes spaceOut {
-  from {
-    letter-spacing: 0;
-  }
-  to {
-    letter-spacing: .1em;
-  }
+	from {
+		letter-spacing: 0;
+	}
+	to {
+		letter-spacing: .1em;
+	}
 }
 
 .poem__controls {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 1em 1.75em;
-  border-top: 1px solid #c7cfd8;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 1em 1.75em;
+	border-top: 1px solid #c7cfd8;
 }
 
 .poem__controls li {
-  margin-top: .75em;
+	margin-top: .75em;
 }
 
 .poem__controls button {
-  padding: .75em;
-  line-height: 1;
-  background-color: transparent;
-  transition: background-color 200ms ease-out;
+	padding: .75em;
+	line-height: 1;
+	background-color: transparent;
+	transition: background-color 200ms ease-out;
 }
 
 .poem__controls button:hover {
-  background-color: #eff1f4;
+	background-color: #eff1f4;
 }
 
 .poem__controls button:hover svg {
-  stroke: #2d3640;
+	stroke: #2d3640;
 }
 
 .poem__controls button:active {
-  background-color: #c7cfd8;
+	background-color: #c7cfd8;
 }
 
 .poem__controls button:disabled {
-  opacity: .4;
+	opacity: .4;
 }
 
 .poem__controls button:disabled:hover {
-  background: transparent;
-  cursor: not-allowed;
+	background: transparent;
+	cursor: not-allowed;
 }
 
 @media (min-width: 36em) {
-  .intro__section {
-    padding: 6em 0;
-  }
+	.intro__section {
+		padding: 6em 0;
+	}
 
-  .poem__slide {
-    padding: 4em;
-  }
+	.poem__slide {
+		padding: 4em;
+	}
 
-  .poem__stanza {
-    font-size: 1.25em;
-  }
+	.poem__stanza {
+		font-size: 1.25em;
+	}
 
-  .poem__controls {
-    margin: 0 4em 3.25em;
-  }
+	.poem__controls {
+		margin: 0 4em 3.25em;
+	}
 }
 
 @media (min-width: 85em) and (min-height: 44em) {
-  .ice-floes {
-    top: 50%;
-    transform: translateY(-50%);
-    left: 0;
-    margin: 0;
-    width: 100%;
-    height: auto;
-  }
+	.ice-floes {
+		top: 50%;
+		transform: translateY(-50%);
+		left: 0;
+		margin: 0;
+		width: 100%;
+		height: auto;
+	}
 }
 
 /*
@@ -811,13 +817,13 @@ input:checked + label .c-toggle__hex path {
  *	---------------------------------------------
  */
 
-/* Overlap the "timeline" on this section */ 
+/* Overlap the "timeline" on this section */
 .l-section--what {
-  margin-top: -10vmin;
+	margin-top: -10vmin;
 }
 
 .l-section--what::before {
-  top: -2em;
+	top: -2em;
 }
 
 /*
@@ -826,69 +832,69 @@ input:checked + label .c-toggle__hex path {
  */
 
 .c-ex {
-  background: #fff;
+	background: #fff;
 }
 
 .c-ex__demo {
-  margin-top: 1.5em;
+	margin-top: 1.5em;
 }
 
 /* Every other example */
 .c-ex:nth-child(even) {
-  margin-top: 20vmin;
-  background: #f2f3f4;
+	margin-top: 20vmin;
+	background: #f2f3f4;
 }
 
 .c-ex:nth-child(even)::before {
-  top: -15vmin;
-  border-bottom: 15vmin solid #f2f3f4;
+	top: -15vmin;
+	border-bottom: 15vmin solid #f2f3f4;
 }
 
 @media (min-width: 48em) {
-  .c-ex__grid {
-    display: -ms-grid;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-  }
+	.c-ex__grid {
+		display: -ms-grid;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		align-items: center;
+	}
 
-  .c-ex__info {
-    padding: 0 0 0 2em;
-  }
+	.c-ex__info {
+		padding: 0 0 0 2em;
+	}
 
-  .c-ex__demo {
-    position: relative;
-    margin-top: 0;
-  }
+	.c-ex__demo {
+		position: relative;
+		margin-top: 0;
+	}
 
-  /* Don't want toggle to contribute height in grid calculations */
-  .c-ex .c-toggle {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-  }
+	/* Don't want toggle to contribute height in grid calculations */
+	.c-ex .c-toggle {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		width: 100%;
+	}
 
-  /* Every other example */
-  .c-ex:nth-child(even) .c-ex__demo {
-    grid-row: 1;
-    grid-column: 1;
-  }
+	/* Every other example */
+	.c-ex:nth-child(even) .c-ex__demo {
+		grid-row: 1;
+		grid-column: 1;
+	}
 
-  .c-ex:nth-child(even) .c-ex__info {
-    grid-row: 1;
-    grid-column: 2;
-  }
+	.c-ex:nth-child(even) .c-ex__info {
+		grid-row: 1;
+		grid-column: 2;
+	}
 }
 
 @media (min-width: 64em) {
-  .c-ex {
-    padding: 6.25em 0;
-  }
+	.c-ex {
+		padding: 6.25em 0;
+	}
 
-  .c-ex__info {
-    padding: 0 6em;
-  }
+	.c-ex__info {
+		padding: 0 6em;
+	}
 }
 
 /*
@@ -898,7 +904,7 @@ input:checked + label .c-toggle__hex path {
 
 /* Overlap the "timeline" on this section */
 .l-section--differentiation {
-  margin-top: -2em;
+	margin-top: -2em;
 }
 
 /*
@@ -907,19 +913,19 @@ input:checked + label .c-toggle__hex path {
  */
 
 .resources-grid {
-  grid-gap: 2em;
-  max-width: 64rem;
+	grid-gap: 2em;
+	max-width: 64rem;
 }
 
 .c-resource-list {
-  list-style: none;
+	list-style: none;
 }
 
 .snowflake {
-  display: inline-block;
-  margin-top: .2em;
-  height: 1em;
-  vertical-align: top;
+	display: inline-block;
+	margin-top: .2em;
+	height: 1em;
+	vertical-align: top;
 }
 
 /*
@@ -928,86 +934,86 @@ input:checked + label .c-toggle__hex path {
  */
 
 .c-outro {
-  margin: 0; /* Override .l-section margin */
-  z-index: 300;
-  background: #424f5e;
-  color: #efefef;
+	margin: 0; /* Override .l-section margin */
+	z-index: 300;
+	background: #424f5e;
+	color: #efefef;
 }
 
 /* Angled edge */
 .c-outro::before {
-  top: -15vmin;
-  border-bottom: 15vmin solid #424f5e;
+	top: -15vmin;
+	border-bottom: 15vmin solid #424f5e;
 }
 
 .c-outro :focus {
-  outline: 1px dotted #fff;
+	outline: 1px dotted #fff;
 }
 
 .c-outro a {
-  color: #efefef;
+	color: #efefef;
 }
 
 .c-outro a:hover {
-  color: #fff;
+	color: #fff;
 }
 
 a.c-outro__github {
-  position: relative;
-  border: 0;
-  background: #efefef;
-  color: #424f5e;
-  font: 550 1em/1 "Variable Bahnschrift", "FF DIN", "Franklin Gothic", "Helvetica Neue", sans-serif;
-  transition: transform 200ms ease-out;
+	position: relative;
+	border: 0;
+	background: #efefef;
+	color: #424f5e;
+	font: 550 1em/1 "Variable Bahnschrift", "FF DIN", "Franklin Gothic", "Helvetica Neue", sans-serif;
+	transition: transform 200ms ease-out;
 }
 
 /* Faux "cropped" corners */
 a.c-outro__github::before,
 a.c-outro__github::after {
-  display: block;
-  content: '';
-  position: absolute;
-  z-index: 1;
-  width: 0;
+	display: block;
+	content: "";
+	position: absolute;
+	z-index: 1;
+	width: 0;
 }
 
 a.c-outro__github::before {
-  left: 0;
-  top: 0;
-  border-top: 8px solid #424f5e;
-  border-right: 8px solid transparent;
+	left: 0;
+	top: 0;
+	border-top: 8px solid #424f5e;
+	border-right: 8px solid transparent;
 }
 
 a.c-outro__github::after {
-  right: 0;
-  bottom: 0;
-  border-bottom: 8px solid #424f5e;
-  border-left: 8px solid transparent;
+	right: 0;
+	bottom: 0;
+	border-bottom: 8px solid #424f5e;
+	border-left: 8px solid transparent;
 }
 
 a.c-outro__github path {
-  fill: #424f5e;
+	fill: #424f5e;
 }
 
 a.c-outro__github span {
-  position: relative;
-  z-index: 2;
+	position: relative;
+	z-index: 2;
 }
 
 a.c-outro__github:hover {
-  background: #fff;
-  color: #262d36;
-  transform: translateX(4px);
+	background: #fff;
+	color: #262d36;
+	transform: translateX(4px);
 }
 
 a.c-outro__github:hover path {
-  fill: #424f5e;
+	fill: #424f5e;
 }
 
 a.c-outro__github:active {
-  color: #000;
+	color: #000;
 }
 
 a.c-outro__github:active path {
-  fill: #000;
+	fill: #000;
 }

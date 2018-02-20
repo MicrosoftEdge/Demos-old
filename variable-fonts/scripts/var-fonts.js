@@ -15,17 +15,71 @@
 (function () {
 	'use strict';
 
-	const poemViewer = document.querySelector('.poem-viewer');
-	const poem = poemViewer.querySelector('.poem');
-	const poemSlides = poemViewer.querySelectorAll('.poem__slide');
-	const slidePaneWidth = 100 / poemSlides.length;
-	const poemStanzas = poemViewer.querySelectorAll('.poem__stanza');
-	let timeReservedForAxisTransition = 75;
-	let lineByLineSemiInterval = -125;
-	let lineByLineInterval = 100;
-	let wordByWordInterval = 16;
+	const poemViewer = document.querySelector('.poem-viewer'),
+		  poem = poemViewer.querySelector('.poem'),
+		  poemSlides = poemViewer.querySelectorAll('.poem__slide'),
+		  slidePaneWidth = 100 / poemSlides.length,
+		  timeReservedForAxisTransition = 75,
+		  lineByLineSemiInterval = -125,
+		  lineByLineInterval = 100,
+		  wordByWordInterval = 16;
+
 	let poemIndex = 1;
-	
+
+	// UPDATE SLIDE FROM POEM CONTROLS
+	const updateSlide = function(slideDir) {
+		const currentSlide = poemViewer.querySelector('.poem__slide[data-current]');
+		const prevBtn = poemViewer.querySelector('.poem__prev-btn');
+		const nextBtn = poemViewer.querySelector('.poem__next-btn');
+
+		const newSlide = slideDir === 'next' ?
+			currentSlide.nextElementSibling :
+			currentSlide.previousElementSibling;
+
+		if (newSlide) {
+			currentSlide.removeAttribute('data-current');
+			currentSlide.setAttribute('aria-hidden', 'true');
+
+			newSlide.setAttribute('data-current', 'true');
+			newSlide.removeAttribute('aria-hidden');
+
+			if (slideDir === 'next') {
+				poemIndex++;
+				poem.style.transform = `translateX(-${(poemIndex - 1) * slidePaneWidth}%)`;
+
+				// Timeout = transition timing of the poem transform
+				setTimeout(function(){
+					const newWords = newSlide.querySelectorAll('.poem__line > span, .poem__line > span > span[class]');
+					for (var i = 0; i < newWords.length; i++) {
+						newWords[i].style.animationPlayState = 'running';
+					}
+
+					if (prevBtn.hasAttribute('disabled')) {
+						prevBtn.removeAttribute('disabled');
+					}
+
+					if (!newSlide.nextElementSibling) {
+						nextBtn.setAttribute('disabled', 'true');
+					}
+				}, 400);
+			} else {
+				poemIndex--;
+				poem.style.transform = `translateX(-${(poemIndex - 1) * slidePaneWidth}%)`;
+
+				// Timeout = transition timing of the poem transform
+				setTimeout(function(){
+					if (nextBtn.hasAttribute('disabled')) {
+						nextBtn.removeAttribute('disabled');
+					}
+
+					if (!newSlide.previousElementSibling) {
+						prevBtn.setAttribute('disabled', 'true');
+					}
+				}, 400);
+			}
+		}
+	};
+
 	// SET UP POEM CAROUSEL FUNCTIONALITY AND SHOW FIRST SLIDE
 	const setUpPoem = function() {
 		const poemControls = document.createElement('ul');
@@ -42,7 +96,7 @@
 		poemControls.querySelector('.poem__next').addEventListener('click', function(){
 			updateSlide('next');
 		});
-		
+
 		// Set up visually-hidden div which announces new slides
 		const poemSlideIndex = document.createElement('p');
 		poemSlideIndex.setAttribute('aria-live', 'polite');
@@ -66,138 +120,79 @@
 			// Assign animation offsets to each word of the poem
 			for (var slide of poemSlides) {
 				var pendingDuration = 0;
-				for(var stanzaLine of slide.querySelectorAll('.poem__line')) {
+				for (var stanzaLine of slide.querySelectorAll('.poem__line')) {
 					var stanzaWords = stanzaLine.querySelectorAll('span');
-					var lines = [], current_line = null, lineDuration = 0, lastOffset = Number.NEGATIVE_INFINITY, lastClass = '';
-					for(var word of stanzaWords) {
-						if(word.offsetLeft <= lastOffset || word.className != lastClass || current_line == null) {
-							if(current_line) {
-								current_line.style.animationDuration = lineDuration + 'ms';
+					var lines = [], currentLine = null, lineDuration = 0, lastOffset = Number.NEGATIVE_INFINITY, lastClass = '';
+					for (var word of stanzaWords) {
+						if (word.offsetLeft <= lastOffset || word.className !== lastClass || currentLine === null) {
+							if (currentLine) {
+								currentLine.style.animationDuration = lineDuration + 'ms';
 								pendingDuration += lineDuration;
 								lineDuration = 0;
-								if(word.offsetLeft <= lastOffset) {
+								if (word.offsetLeft <= lastOffset) {
 									pendingDuration += lineByLineSemiInterval;
 								}
-								if(lastClass) { 
+								if (lastClass) {
 									pendingDuration += timeReservedForAxisTransition;
 								}
 							}
-							current_line = document.createElement('span');
-							current_line.style.animationDelay = (pendingDuration) + 'ms';
+							currentLine = document.createElement('span');
+							currentLine.style.animationDelay = (pendingDuration) + 'ms';
 							pendingDuration += lineByLineInterval;
-							lines.push(current_line);
+							lines.push(currentLine);
 						}
 						lastOffset = word.offsetLeft + word.offsetWidth;
 						lastClass = word.className;
-						let new_word = word.cloneNode(true);
-						if(lastClass) {
-							new_word.style.animationDelay = (pendingDuration + lineDuration + timeReservedForAxisTransition) + 'ms';
+						const newWord = word.cloneNode(true);
+						if (lastClass) {
+							newWord.style.animationDelay = (pendingDuration + lineDuration + timeReservedForAxisTransition) + 'ms';
 						}
 						lineDuration += word.offsetWidth * (400 / 50);
 						lineDuration += wordByWordInterval;
-						current_line.appendChild(new_word);
-						current_line.appendChild(document.createTextNode(' '));
-				}
-					current_line.style.animationDuration = lineDuration + 'ms';
+						currentLine.appendChild(newWord);
+						currentLine.appendChild(document.createTextNode(' '));
+					}
+					currentLine.style.animationDuration = lineDuration + 'ms';
 					pendingDuration += lineDuration + lineByLineInterval;
 					lineDuration = 0;
 					stanzaLine.textContent = '';
-					for(var line of lines) {
+					for (var line of lines) {
 						stanzaLine.appendChild(line);
 					}
 				}
 			}
 		}, 100);
-
 	};
 
 	setUpPoem();
 
-	{
-		//
-		// setup headings to animate font-weight when they appear
-		//
-
-		let animateHeader = function(guideHeader, ratio) {
-			if(ratio > 0) {
-				if(false && guideHeader.tagName == 'H2') {
-					setTimeout(function() {
-						guideHeader.classList.add('in-view');
-					}, 500);
-				} else {
+	// ANIMATE FONT-WEIGHT ON HEADINGS WHEN THEY ARE IN VIEW
+	const animateHeader = function(guideHeader, ratio) {
+		if (ratio > 0) {
+			if (false && guideHeader.tagName === 'H2') {
+				setTimeout(function() {
 					guideHeader.classList.add('in-view');
-				}
+				}, 500);
 			} else {
-				if(false && guideHeader.tagName == 'H2') {
-					setTimeout(function() {
-						guideHeader.classList.remove('in-view');
-					}, 500);
-				} else {
-					guideHeader.classList.remove('in-view');
-				}
+				guideHeader.classList.add('in-view');
 			}
-		};
-
-		let guideHeaders = document.querySelectorAll(".guide-content h2");
-		let observer = new IntersectionObserver(entries => entries.forEach(e => { animateHeader(e.target, e.intersectionRatio) }), { threshold: 0.3 });
-		for(let guideHeader of guideHeaders) {
-			observer.observe(guideHeader);
-			observer.observe(guideHeader.closest('section'));
-		}
-
-	}
-
-	// UPDATE SLIDE FROM POEM CONTROLS
-	const updateSlide = function(slideDir) {
-		const currentSlide = poemViewer.querySelector('.poem__slide[data-current]');
-		const prevBtn = poemViewer.querySelector('.poem__prev-btn');
-		const nextBtn = poemViewer.querySelector('.poem__next-btn');
-
-		const newSlide = slideDir === 'next' ?
-			currentSlide.nextElementSibling :
-			currentSlide.previousElementSibling;
-
-		if (newSlide) {
-			currentSlide.removeAttribute('data-current');
-			currentSlide.setAttribute('aria-hidden', 'true');
-
-			newSlide.setAttribute('data-current', 'true');
-			newSlide.removeAttribute('aria-hidden');
-
-			if (slideDir === 'next') {
-				poemIndex++;
-				poem.style.transform = 'translateX(-' + (poemIndex - 1) * slidePaneWidth + '%)';
-
-				// Timeout = transition timing of the poem transform
-				setTimeout(function(){
-					const newWords = newSlide.querySelectorAll('.poem__line > span, .poem__line > span > span[class]');
-					for (var i = 0; i < newWords.length; i++) {
-						newWords[i].style.animationPlayState = 'running';
-					}
-
-					if (prevBtn.hasAttribute('disabled')) {
-						prevBtn.removeAttribute('disabled');
-					}
-		
-					if (!newSlide.nextElementSibling) {
-						nextBtn.setAttribute('disabled', 'true');
-					}
-				}, 400);
-			} else {
-				poemIndex--;
-				poem.style.transform = 'translateX(-' + (poemIndex - 1) * slidePaneWidth + '%)';
-
-				// Timeout = transition timing of the poem transform
-				setTimeout(function(){
-					if (nextBtn.hasAttribute('disabled')) {
-						nextBtn.removeAttribute('disabled');
-					}
-		
-					if (!newSlide.previousElementSibling) {
-						prevBtn.setAttribute('disabled', 'true');
-					}
-				}, 400);
-			}
+		} else if (false && guideHeader.tagName === 'H2') {
+			setTimeout(function() {
+				guideHeader.classList.remove('in-view');
+			}, 500);
+		} else {
+			guideHeader.classList.remove('in-view');
 		}
 	};
+
+	const guideHeaders = document.querySelectorAll('.guide-content h2');
+	const observer = new IntersectionObserver((entries) => {
+		return entries.forEach((e) => {
+			animateHeader(e.target, e.intersectionRatio);
+		});
+	}, { threshold: 0.3 });
+	for (const guideHeader of guideHeaders) {
+		observer.observe(guideHeader);
+		observer.observe(guideHeader.closest('section'));
+	}
 }());

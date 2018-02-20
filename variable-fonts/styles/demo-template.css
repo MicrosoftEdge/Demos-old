@@ -3,7 +3,7 @@
  *	=============================================
  */
 
- * {
+* {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
@@ -187,8 +187,8 @@ button {
 .c-nav-bar__breadcrumb {
 	position: relative;
 	z-index: 9000; /* Higher than demo TOC */
-  margin-right: 9em;
-  max-width: none;
+	margin-right: 9em;
+	max-width: none;
 	padding: .75em 1.25rem;
 }
 
