@@ -311,7 +311,12 @@
                 this.sendMediaSegment();
                 return;
             }
-            if (this.vid.currentTime + this.MAX_BUFFER <= end) {
+            var maxBuffer = this.MAX_BUFFER;
+            if (this.vid.playbackRate > 1) {
+                maxBuffer *= this.vid.playbackRate;
+            }
+
+            if (this.vid.currentTime + maxBuffer <= end) {
                 return;
             }
             this.appending = true;
