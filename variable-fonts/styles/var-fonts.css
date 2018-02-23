@@ -478,18 +478,54 @@ input:checked + label .c-toggle__hex path {
 .poem__line > span,
 .jason-quote > span {
 	color: transparent;
-	background: linear-gradient(to var(--demo-vf-reveal-direction), #444 0%, #444 50%, #fff 50%, #fff 100%);
-	background-size: 200%;
-	background-position-x: 100%;
+	background: linear-gradient(to var(--demo-vf-reveal-direction), white 0%, white 100%, white 0px, darkgray 100%);
 	background-clip: text;
 	-webkit-background-clip: text;
 	animation: reveal-fade 1500ms forwards;
 	animation-play-state: paused;
 
-	--demo-vf-reveal-direction: right;
+	--demo-vf-reveal-direction: left;
 }
 
 @keyframes reveal-fade {
+	from {
+		background-image: linear-gradient(to var(--demo-vf-reveal-direction), white 0%, white 100%, white 0px, darkgray 100%);
+	}
+	to {
+		background-image: linear-gradient(to var(--demo-vf-reveal-direction), white 0%, white 0%, black 0px, black 100%);
+	}
+}
+
+#no-gradient-transition-test {
+	background: linear-gradient(to right, #444 0%, #444 50%, #fff 50%, #fff 100%);
+	animation: reveal-fade-test 2s infinite forwards;
+	animation-delay: -1s;
+	animation-play-state: paused;
+}
+
+@keyframes reveal-fade-test {
+	from {
+		background-image: linear-gradient(1deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
+	}
+	to {
+		background-image: linear-gradient(1deg, rgba(0, 0, 0, 0.5) 0%, rgba(128, 128, 128, 0.5) 100%);
+	}
+}
+
+.no-gradient-transition .poem__line > span,
+.no-gradient-transition .jason-quote > span {
+	background: linear-gradient(to right, #444 0%, #444 50%, #fff 50%, #fff 100%);
+	background-position-x: 100%;
+	background-size: 200%;
+	background-clip: text;
+	-webkit-background-clip: text;
+	animation-name: reveal-fade-fallback;
+}
+
+@keyframes reveal-fade-fallback {
+	from {
+		background-position-x: 100%;		
+	}
 	to {
 		background-position-x: 0%;
 	}

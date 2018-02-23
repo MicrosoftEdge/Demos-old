@@ -195,4 +195,17 @@
 		observer.observe(guideHeader);
 		observer.observe(guideHeader.closest('section'));
 	}
+
+	// DETECT GRADIENT TRANSITION SUPPORT
+	const detectGradientTransitionSupport = function() {
+		const gradientDetector = Object.assign(document.body.appendChild(document.createElement('div')), { id: 'no-gradient-transition-test' });
+		requestAnimationFrame(function() {
+			console.log(getComputedStyle(gradientDetector).backgroundImage);
+			if(getComputedStyle(gradientDetector).backgroundImage != 'linear-gradient(1deg, rgba(0, 0, 0, 0.5) 0%, rgba(102, 102, 102, 0.5) 100%)') {
+				document.documentElement.classList.add('no-gradient-transition');
+			}
+			gradientDetector.remove();
+		})
+	}
+	detectGradientTransitionSupport();
 }());
