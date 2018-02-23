@@ -224,7 +224,12 @@
 	}
 
 	// start directly on click
-	document.querySelector(".poem-start").addEventListener('click', startIceDriftAnimation);
+	document.querySelector(".poem-start").addEventListener('click', function(e) {
+		document.querySelector('#poem').scrollIntoView({block: 'center',  behavior: 'smooth'});
+		startIceDriftAnimation();
+		e.preventDefault();
+		return false;
+	});
 
 	// also start once scrolling has revealed 10% of the poem
 	const poemZoneObserver = new IntersectionObserver((entries) => {
