@@ -641,6 +641,11 @@ input:checked + label .c-toggle__hex path {
 	margin-left: -683px;
 }
 
+.ice-floes > path {
+	transform: translate(0, 0);
+	transition: transform 5s ease-out, opacity 5s  ease-in-out;
+}
+
 .poem-viewer {
 	position: relative;
 	z-index: 20;

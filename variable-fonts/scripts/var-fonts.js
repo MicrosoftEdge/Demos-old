@@ -186,14 +186,14 @@
 	};
 
 	const guideHeaders = document.querySelectorAll('.guide-content h2');
-	const observer = new IntersectionObserver((entries) => {
+	const guideHeadersObserver = new IntersectionObserver((entries) => {
 		return entries.forEach((e) => {
 			animateHeader(e.target, e.intersectionRatio);
 		});
 	}, { threshold: 0.3 });
 	for (const guideHeader of guideHeaders) {
-		observer.observe(guideHeader);
-		observer.observe(guideHeader.closest('section'));
+		guideHeadersObserver.observe(guideHeader);
+		guideHeadersObserver.observe(guideHeader.closest('section'));
 	}
 
 	// DETECT GRADIENT TRANSITION SUPPORT
@@ -208,4 +208,30 @@
 		})
 	}
 	detectGradientTransitionSupport();
+
+	// ICE DRIFT ANIMATION
+	const startIceDriftAnimation = function() {
+		var svgBox = document.querySelector('.ice-floes').getBBox();
+		var svgCenterX = svgBox.x + svgBox.width / 2;
+		var svgCenterY = svgBox.y + svgBox.height / 2;
+		for(var path of document.querySelectorAll('.ice-floes > path')) {
+			var box = path.getBBox();
+			var centerX = box.x + box.width / 2;
+			var centerY = box.y + box.height / 2;
+			path.style.transform = 'translate(' + (centerX - svgCenterX) + 'px, ' + (centerY - svgCenterY) + 'px)';
+			path.style.opacity = '0';
+		}
+	}
+
+	// start directly on click
+	document.querySelector(".poem-start").addEventListener('click', startIceDriftAnimation);
+
+	// also start once scrolling has revealed 10% of the poem
+	const poemZoneObserver = new IntersectionObserver((entries) => {
+		return entries.forEach((e) => {
+			if(e.intersectionRatio >= 0.1) startIceDriftAnimation();
+		});
+	}, { threshold: 0.1 });
+	poemZoneObserver.observe(document.querySelector('#poem'));
+
 }());
