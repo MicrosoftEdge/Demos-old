@@ -169,6 +169,16 @@ img {
 }
 
 /*
+ *	UTILITIES
+ *	=============================================
+ */
+
+.u-upper {
+	text-transform: uppercase;
+	letter-spacing: .02em;
+}
+
+/*
  *	ANGLED EDGES
  *	---------------------------------------------
  */
@@ -809,6 +819,172 @@ input:checked + label .c-toggle__hex path {
 		margin: 0;
 		width: 100%;
 		height: auto;
+	}
+}
+
+/*
+ *	TICKET
+ *	@TODO: Move this to appropriate section when
+ *	when know where it's going
+ *	---------------------------------------------
+ */
+
+.clip-area {
+	display: inline-block;
+	position: relative;
+	padding: 1.25em;
+	border: 1px dashed #666;
+	font-family: "Variable Bahnschrift", "FF DIN", "Franklin Gothic", "Helvetica Neue", sans-serif;
+}
+
+.clip-area__label {
+	position: absolute;
+	top: -.5em;
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 0 .5em;
+	background: #fff;
+	color: #666;
+	line-height: 1;
+}
+
+.ticket {
+	border: 2px solid #9facbc;
+	text-align: center;
+}
+
+.ticket > * {
+	margin-right: 1.25em;
+	margin-left: 1.25em;
+}
+
+.ticket__header {
+	margin: 0;
+	padding: 1.5em;
+	background: #f4f5f6;
+}
+
+.ticket__co span,
+.ticket__route span {
+	display: block;
+}
+
+.ticket__co {
+	display: inline-block;
+	position: relative;
+	padding-left: 5em;
+	line-height: 1;
+	color: #5e7186;
+}
+
+.ticket__co-icon {
+	position: absolute;
+	top: 50%;
+	margin-top: -2em;
+	left: 0;
+	width: 4em;
+	height: auto;
+}
+
+.ticket__co-name {
+	font-size: 2.5em;
+	font-weight: 500;
+	font-variation-settings: "wdth" 75;
+	letter-spacing: -.01em;
+}
+
+.ticket__co-subname {
+	font-weight: 700;
+	color: #506072;
+}
+
+.ticket__route {
+	margin-top: 3rem;
+	font-weight: 300;
+	font-size: 2em;
+}
+
+.ticket__description {
+	margin-top: 0;
+	font-weight: 350;
+	font-size: 1.125em;
+	color: #506072;
+}
+
+.ticket__timing {
+	display: flex;
+	align-items: center;
+	margin-top: 1rem;
+	padding: 1rem 0;
+	border-top: 2px solid #9facbc;
+	border-bottom: 2px solid #9facbc;
+	text-align: left;
+}
+
+.ticket__timing p {
+	margin: 0 1rem 0 0;
+	padding-right: 1rem;
+	border-right: 2px solid #9facbc;
+	line-height: 1;
+}
+
+.ticket__timing p:last-child {
+	margin: 0;
+	padding: 0;
+	border-right: 0;
+}
+
+.ticket__small-label {
+	display: block;
+	margin-bottom: .5em;
+	font-size: 300;
+	font-size: .875em;
+	color: #506072;
+}
+
+.ticket__detail {
+	font-weight: 700;
+	font-size: 1.75em;
+	color: #424f5e;
+}
+
+.ticket__admit {
+	margin-top: 3rem;
+	font-weight: 700;
+	font-size: 2.5em;
+	font-variation-settings: "wdth" 85;
+	color: #657990;
+}
+
+.ticket__fine-print {
+	margin-top: 1rem;
+	font-variation-settings: "wdth" 75;
+	color: #666;
+}
+
+.ticket__barcode {
+	margin: .75em 1.25em 1.25em;
+	width: 299px;
+	max-width: 100%;
+}
+
+@media (min-width: 36em) {
+	.clip-area {
+		padding: 2em;
+	}
+
+	.ticket > * {
+		margin-right: 2em;
+		margin-left: 2em;
+	}
+
+	.ticket__header {
+		margin: 0;
+		padding: 2em;
+	}
+
+	.ticket__barcode {
+		margin: .75em 2em 2em;
 	}
 }
 
