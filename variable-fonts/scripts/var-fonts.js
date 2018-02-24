@@ -186,13 +186,57 @@
 	};
 
 	const guideHeaders = document.querySelectorAll('.guide-content h2');
-	const observer = new IntersectionObserver((entries) => {
+	const guideHeadersObserver = new IntersectionObserver((entries) => {
 		return entries.forEach((e) => {
 			animateHeader(e.target, e.intersectionRatio);
 		});
 	}, { threshold: 0.3 });
 	for (const guideHeader of guideHeaders) {
-		observer.observe(guideHeader);
-		observer.observe(guideHeader.closest('section'));
+		guideHeadersObserver.observe(guideHeader);
+		guideHeadersObserver.observe(guideHeader.closest('section'));
 	}
+
+	// DETECT GRADIENT TRANSITION SUPPORT
+	const detectGradientTransitionSupport = function() {
+		const gradientDetector = Object.assign(document.body.appendChild(document.createElement('div')), { id: 'no-gradient-transition-test' });
+		requestAnimationFrame(function() {
+			console.log(getComputedStyle(gradientDetector).backgroundImage);
+			if(getComputedStyle(gradientDetector).backgroundImage != 'linear-gradient(1deg, rgba(0, 0, 0, 0.5) 0%, rgba(102, 102, 102, 0.5) 100%)') {
+				document.documentElement.classList.add('no-gradient-transition');
+			}
+			gradientDetector.remove();
+		})
+	}
+	detectGradientTransitionSupport();
+
+	// ICE DRIFT ANIMATION
+	const startIceDriftAnimation = function() {
+		var svgBox = document.querySelector('.ice-floes').getBBox();
+		var svgCenterX = svgBox.x + svgBox.width / 2;
+		var svgCenterY = svgBox.y + svgBox.height / 2;
+		for(var path of document.querySelectorAll('.ice-floes > path')) {
+			var box = path.getBBox();
+			var centerX = box.x + box.width / 2;
+			var centerY = box.y + box.height / 2;
+			path.style.transform = 'translate(' + (centerX - svgCenterX) + 'px, ' + (centerY - svgCenterY) + 'px)';
+			path.style.opacity = '0';
+		}
+	}
+
+	// start directly on click
+	document.querySelector(".poem-start").addEventListener('click', function(e) {
+		document.querySelector('#poem').scrollIntoView({block: 'center',  behavior: 'smooth'});
+		startIceDriftAnimation();
+		e.preventDefault();
+		return false;
+	});
+
+	// also start once scrolling has revealed 10% of the poem
+	const poemZoneObserver = new IntersectionObserver((entries) => {
+		return entries.forEach((e) => {
+			if(e.intersectionRatio >= 0.1) startIceDriftAnimation();
+		});
+	}, { threshold: 0.1 });
+	poemZoneObserver.observe(document.querySelector('#poem'));
+
 }());
