@@ -534,7 +534,7 @@ input:checked + label .c-toggle__hex path {
 
 @keyframes reveal-fade-fallback {
 	from {
-		background-position-x: 100%;		
+		background-position-x: 100%;
 	}
 	to {
 		background-position-x: 0%;
@@ -870,27 +870,11 @@ input:checked + label .c-toggle__hex path {
  *	---------------------------------------------
  */
 
-.clip-area {
-	display: inline-block;
-	position: relative;
-	padding: 1.25em;
-	border: 1px dashed #666;
-	font-family: "Variable Bahnschrift", "FF DIN", "Franklin Gothic", "Helvetica Neue", sans-serif;
-}
-
-.clip-area__label {
-	position: absolute;
-	top: -.5em;
-	left: 50%;
-	transform: translateX(-50%);
-	padding: 0 .5em;
-	background: #fff;
-	color: #666;
-	line-height: 1;
-}
-
 .ticket {
+	display: inline-block;
+	margin: 1.25em;
 	border: 2px solid #9facbc;
+	font-family: "Variable Bahnschrift", "FF DIN", "Franklin Gothic", "Helvetica Neue", sans-serif;
 	text-align: center;
 }
 
@@ -1010,8 +994,8 @@ input:checked + label .c-toggle__hex path {
 }
 
 @media (min-width: 36em) {
-	.clip-area {
-		padding: 2em;
+	.ticket {
+		transform: rotate(-6deg);
 	}
 
 	.ticket > * {
