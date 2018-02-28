@@ -580,22 +580,36 @@ input:checked + label .c-toggle__hex path {
 	background: #fff;
 }
 
-.intro__subheading {
-	margin-top: .5em;
-	font-size: 1.5em;
-	font-weight: 300;
-	font-variation-settings: "wdth" 85;
+.intro__heading {
+	font-variation-settings: "wdth" 90;
 }
 
-.intro__subheading span {
+.intro__var-1 {
+	font-weight: 300;
+	font-variation-settings: "wdth" 75;
+}
+
+.intro__var-2 {
+	font-weight: 450;
+	font-variation-settings: "wdth" 80;
+}
+
+.intro__var-3 {
 	font-weight: 600;
-	font-variation-settings: "wdth" 100;
+	font-variation-settings: "wdth" 85;
 }
 
 .intro__actions {
 	display: inline-block;
 	margin: 4em auto 0;
 	background: hsla(0, 0%, 0%, .33);
+}
+
+.intro__subheading {
+	margin-top: .5em;
+	font-size: 1.5em;
+	font-weight: 300;
+	font-variation-settings: "wdth" 85;
 }
 
 .poem-start {
