@@ -27,7 +27,7 @@
 			</div>
 		</div>
 	</nav>
-	<main role="main">
+	<main role="main" id="main">
 		<section class="c-intro">
 			<div class="l-contain">
 				<h1 class="c-intro__heading">[Your title]</h1>
@@ -44,8 +44,8 @@
 				<ol>
 					<li>Copy this entire <code>demo-template</code> directory and rename it for your demo.</li>
 					<li>Open the <code>config.json</code> in your new directory and delete the line that says <code>"skip": true</code>. This is the line that prevented the demo processor from running on the demo template itself.</li>
-					<li>Rename <code>styles/your-demo-name.css</code> and update the reference in this index file.</li>
-					<li>In the head of this file, fill out the title and metadata within the <code>&lt;head></code>.</li>
+					<li>Rename <code>styles/your-demo-name.css</code> and <code>scripts/your-demo-name.js</code> and update the references in this index file.</li>
+					<li>Fill out the title and metadata within the <code>&lt;head></code> of this index file.</li>
 					<li>See notes below on using the required components and (very light) included styles. Have fun!</li>
 				</ol>
 			</section>
@@ -56,6 +56,11 @@
 					<h3>Nav Bar</h3>
 					<p>This component appears at the very top of the page. It sets the context for the demo, and provides navigation back to other demos.</p>
 					<p><strong>Overrideable styles</strong> can be found in the <code>COMPONENT: NAV BAR</code> section of <code>demo.css</code>. Do not override anything other than these styles, as it is very important this bar feels consistent from demo to demo. If you think you have a good idea for a universal change to this bar, <a href="https://github.com/MicrosoftEdge/Demos/issues">please file an issue</a>. The mechanism to explore more demos is likely to change.</p>
+				</section>
+				<section class="l-subsection">
+					<h3>Feature-detection alert</h3>
+					<p>As we are providing an experience of new technologies, demos should be querying for feature support and exposing a standardized alert in the case that the feature is missing.</p>
+					<p>Inside the <code>checkFeatureSupport()</code> function in the <code>scripts/your-demo-name.js</code> file (whatever you named it to), update the placeholder content with the name(s) of your feature(s), and update the link to learn more. Then write your support query conditions such that the alert only appears when those conditions are false.</p>
 				</section>
 				<section class="l-subsection">
 					<h3>Demo Contents</h3>
@@ -129,5 +134,6 @@
 		</section>
 	</main>
 	<script src="scripts/demo-template.js"></script>
+	<script src="scripts/your-demo-name.js"></script>
 </body>
 </html>
