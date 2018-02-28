@@ -21,7 +21,7 @@
 	};
 
 	var checkFeatureSupport = function() {
-		var featureAlertMsg = 'This page demonstrates [feature], which is not supported in your browser. For the full experience, please view in Microsoft Edge [build #/version info] or another browser supporting [feature]. <a href="[caniuse link]">See browser support details</a>',
+		var featureAlertMsg = 'This page demonstrates [feature], which is not supported in your browser. For the full experience, please view in Microsoft Edge [build #/version info] or <a href="https://status.microsoftedge.com">any browser that supports [feature]</a>.',
 			featureAlert = document.createElement('div'),
 			pageContent = document.getElementById('main');
 
