@@ -170,6 +170,12 @@ button {
 	clip: rect(0, 0, 0, 0);
 }
 
+/* Simple list */
+.u-simple-list {
+	margin: 0;
+	list-style: none;
+}
+
 /*
  *	COMPONENT: NAV BAR
  *	@NOTE: These styles are not intended to be
@@ -194,8 +200,9 @@ button {
 	padding: .75em 1.25rem;
 }
 
-.c-nav-bar__breadcrumb span {
+.c-nav-bar__breadcrumb li {
 	display: block;
+	margin-top: 0;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -282,7 +289,7 @@ button {
 		text-overflow: ellipsis;
 	}
 
-	.c-nav-bar__breadcrumb span {
+	.c-nav-bar__breadcrumb li {
 		display: inline;
 	}
 
