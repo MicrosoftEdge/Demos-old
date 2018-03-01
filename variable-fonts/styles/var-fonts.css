@@ -346,7 +346,6 @@ img {
  */
 
 .c-nav-bar {
-	position: relative;
 	z-index: 8000;
 	background: #1f252c;
 	color: #ccc;
