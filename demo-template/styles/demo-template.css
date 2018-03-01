@@ -177,6 +177,7 @@ button {
  */
 
 .c-nav-bar {
+	position: relative;
 	width: 100%;
 	font-size: .813em;
 	line-height: 1.5;
@@ -206,6 +207,11 @@ button {
 	top: 0;
 	right: 0;
 	width: 100%;
+}
+
+/* If alert present above nav, change layout */
+.has-alert .c-toc {
+	position: absolute;
 }
 
 .c-toc__btn {
