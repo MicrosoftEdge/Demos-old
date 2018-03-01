@@ -179,6 +179,8 @@ button {
  */
 
 .c-nav-bar {
+	position: sticky;
+	top: 0;
 	width: 100%;
 	font-size: .813em;
 	line-height: 1.5;
@@ -203,7 +205,7 @@ button {
 }
 
 .c-toc {
-	position: fixed;
+	position: absolute;
 	z-index: 8890; /* Unnecessarily high just in case… */
 	top: 0;
 	right: 0;
@@ -267,6 +269,10 @@ button {
 }
 
 @media (min-width: 36em) {
+	.c-nav-bar {
+		position: relative;
+	}
+
 	.c-nav-bar__breadcrumb {
 		margin-right: 13em;
 		padding: .75rem 0;
@@ -285,6 +291,7 @@ button {
 	}
 
 	.c-toc {
+		position: fixed;
 		right: 3rem;
 		width: 12em;
 	}
