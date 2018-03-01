@@ -878,6 +878,36 @@ input:checked + label .c-toggle__hex path {
 }
 
 /*
+ *	SECTION: WHAT
+ *	---------------------------------------------
+ */
+
+/* Overlap the "timeline" on this section */
+.l-section--what {
+	margin-top: -10vmin;
+}
+
+.l-section--what::before {
+	top: -2em;
+}
+
+/* PULL QUOTE */
+quote-grid {
+	display: inline-grid;
+	grid-template-columns: [lm-start] auto [lm-end cl-start] auto [cl-end cm-start] auto [cm-end cr-start] auto [cr-end co-start] auto [co-end rm-start] auto [rm-end];
+	padding: 10px; padding-top: 20px;
+	background: white;
+	font-family: Bahnschrift;
+}
+
+quote-grid > span { display: block; line-height: 1em; }
+
+span[zw] {
+	font-size: 1px;
+}
+
+
+/*
  *	TICKET
  *	@TODO: Move this to appropriate section when
  *	when know where it's going
@@ -1025,20 +1055,6 @@ input:checked + label .c-toggle__hex path {
 	.ticket__barcode {
 		margin: .75em 2em 2em;
 	}
-}
-
-/*
- *	SECTION: WHAT
- *	---------------------------------------------
- */
-
-/* Overlap the "timeline" on this section */
-.l-section--what {
-	margin-top: -10vmin;
-}
-
-.l-section--what::before {
-	top: -2em;
 }
 
 /*

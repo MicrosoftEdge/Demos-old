@@ -196,51 +196,61 @@
 
 		<!-- WHAT ARE VARIABLE FONTS
 			 ------------------------------------------------------- -->
-		<section id="what" data-nav-label="What are variable fonts" class="l-section l-section--timeline">
+		<section id="what" data-nav-label="What are variable fonts" class="l-gridl-section l-section--timeline">
 			<div class="l-contain">
 				<header class="l-section__header">
 					<h2>What are variable fonts</h2>
 				</header>
-				<div class="l-section__body">
-					<p>Rich typography has for years been the envy of many web designers,
-						who long for the typographic variety, texture, and precision available in print media.
-						The first huge stride in typographic detail on the web was the introduction of web fonts,
-						which allowed designers and developers to use many other fonts besides the handful
-						generally available on user's operating systems.</p>
-					<p>Why were web fonts so exciting for designers? Jason Pamental put it eloquently<sup>[1]</sup>
-						"Typography is communication" but currently the web is "all system, no soul."
-						Web fonts teased the opportunity of bringing that "soul" to the web.
-						Unfortunately for web fonts, to provide this soul, it comes at an especially important cost.</p>
+				<div class="l-grid l-section__body">
+					<div class="l-col-two-thirds">
+						<p class="c-feature-para">Rich typography has for years been the envy of many web designers,
+								who long for the typographic variety, texture, and precision available in print media.
+								The first huge stride in typographic detail on the web was the introduction of web fonts,
+								which allowed designers and developers to use many other fonts besides the handful
+								generally available on user's operating systems.</p>
+
+						<p class="c-feature-para">Why were web fonts so exciting for designers? Jason Pamental put it eloquently<sup>[1]</sup>
+							"Typography is communication" but currently the web is "all system, no soul."
+							Web fonts teased the opportunity of bringing that "soul" to the web.
+							Unfortunately for web fonts, to provide this soul, it comes at an especially important cost.</p>
+
+						<div class="o-long-text">
+							<p>Delivering this “soul” using web fonts with regular OpenType fonts required web developers to
+									include every different font file for the various font variants the designer chose.
+									Take the following simple example:</p>
+
+							<p>To achieve the look in the previous sentence we had to download over 150Kb split across six
+								different files. As a result of needing to download every type face, web developers quickly
+								found that for every beautiful font that a designer added to a site it had a noticeable impact
+								on the performance and overall experience to the end user. So much to the point that font
+								services, such as Adobe’s TypeKit has added in heuristics to warn web developers about the
+								impact these fonts can have on their end users.</p>
+
+							<p>Similarly, many web developers have advocated a return to system font stacks, prioritizing
+								performance over brand cohesion or design differentiation. Performance has the potential
+								for major impact on user experience and a business's bottom line, and so the web community
+								needed to figure out how to balance this priority against the desire for beautiful typography.</p>
+						</div>
+					</div>
+
+
+					<!-- Pull quote demo -->
+					<figure role="img" class="l-col-third" aria-label="Currently, the web is all system, no soul. (Jason Pamental)">
+						<quote-grid aria-hidden="true" style="background-color: #E5EBF0; padding: 2em">
+							<span style="grid-column: lm; font-size: 700%; grid-row: 1 / span 6; line-height: 0em; position: relative; top: 0.35em; padding-right: 0.1em;">“</span>
+							<span style="grid-column: cl-start / span cr-end; font-size: 300%; font-weight: 600; text-align: right; line-height: 1em;">Currentl</span>
+							<span style="grid-column: co-start / span co-end; font-size: 300%; font-weight: 600; line-height: 1em;">y</span>
+							<span style="grid-column: cl-start / span cm-start; font-size: 125%; text-align: justify; text-align-last: justify;">the web</span>
+							<span style="grid-column: cl-start / span cm-start; background: linear-gradient(to bottom, #E5EBF0 0%, #E5EBF0 40%, black 40%, black 60%, #E5EBF0 60%, #E5EBF0 100%); text-align: center; text-align-last: center;"><span style="background: #E5EBF0; padding: 0px 5px;">is</span></span>
+							<span style="grid-column: cm-start / span cr-end; grid-row: 2 / span 2; align-self: center; position: relative; top: 0.1em; line-height: 0em; font-size: 275%; font-weight: 900; font-weight: 999; padding-left: 14px; text-align: justify; text-align-last: justify;"><span style="background-clip: text; -webkit-background-clip: text;">A<span zw> </span>L<span zw> </span>L</span></span>
+							<span style="grid-column: cl-start / span cr-end; font-size: 275%; font-weight: 900; font-weight: 999; text-align: justify; text-align-last: justify; text-justify: distribute; line-height: 1em;"><span style="background-clip: text; -webkit-background-clip: text;">S<span zw> </span>Y<span zw> </span>S<span zw> </span>T<span zw> </span>E<span zw> </span>M</span></span>
+							<span style="grid-column: cl-start / span cr-end; text-align: right; font-size: 200%; position: relative; top: -0.5em;"><span>no</span> <span>soul</span></span>
+							<span style="grid-column: co-start / span rm-end; font-size: 700%; grid-row: 5 / span 1; padding-left: 0.1em; line-height: 0em; position: relative; top: -0.1em;">„</span>
+							<span style="grid-column: cl-start / span rm-end; text-align: right; font-size: 150%; grid-row: 6 / span 1; border-top: 9px solid transparent;">- Jason Pamental</span>
+						</quote-grid>
+					</figure>
 				</div>
 			</div>
-		</section>
-
-		<!-- BRINGING SOUL TO THE WEB
-			 ------------------------------------------------------- -->
-			 <section id="bringing" data-nav-label="Bringing soul to the web" class="l-section l-section--timeline">
-				<div class="l-contain">
-					<header class="l-section__header">
-						<h2>Bringing "soul" to the web</h2>
-					</header>
-					<div class="l-section__body">
-						<p>Delivering this “soul” using web fonts with regular OpenType fonts required web developers to
-							include every different font file for the various font variants the designer chose.
-							Take the following simple example:</p>
-						<p><mark>insert example</mark></p>
-						<p>To achieve the look in the previous sentence we had to download over 150Kb split across six
-							different files. As a result of needing to download every type face, web developers quickly
-							found that for every beautiful font that a designer added to a site it had a noticeable impact
-							on the performance and overall experience to the end user. So much to the point that font
-							services, such as Adobe’s TypeKit has added in heuristics to warn web developers about the
-							impact these fonts can have on their end users.</p>
-
-						<p>Similarly, many web developers have advocated a return to system font stacks, prioritizing
-							performance over brand cohesion or design differentiation. Performance has the potential
-							for major impact on user experience and a business's bottom line, and so the web community
-							needed to figure out how to balance this priority against the desire for beautiful typography.</p>
-					</div>
-				</div>
-			</section>
 
 		<!-- Enter Variable Fonts
 			 ------------------------------------------------------- -->
@@ -266,11 +276,11 @@
 
 		<!-- Using Variable fonts: font-feature-settings
 			 ------------------------------------------------------- -->
-			 <section id="using" data-nav-label="Using variable fonts" class="l-section l-section--timeline">
+			 <section id="using" data-nav-label="font-variation-settings" class="l-section l-section--timeline">
 				<div class="l-contain">
 					<header class="l-section__header">
 						<p class="h3">Using Variable Fonts</p>
-						<h2>Using font-variation-settings</h2>
+						<h2 style="white-space: nowrap">font-variation-settings</h2>
 					</header>
 					<div class="l-section__body">
 						<p>So how exactly did we achieve the seemingly different type faces with a single font?
@@ -336,43 +346,53 @@
 						</ul>
 
 						<p>Because of this, the following two CSS declarations will produce identical results:</p>
-						<code>
-							.someClass {
-								font-variations-settings: ‘wght’ 300, ‘ital’ 1, ‘slnt’ 45, ‘wdth’ 50%, ‘opsz’ 25;
-							}
+						<pre><code>.someClass {
+	font-variations-settings: ‘wght’ 300, ‘ital’ 1, ‘slnt’ 45, ‘wdth’ 50%, ‘opsz’ 25;
+}
 
-							.someClass {
-								font-style: italic;
-								font-optical-sizing: 25;
-								font-style: oblique 45deg;
-								font-stretch: 50%;
-								font-weight: 300;
-							}
-						</code>
+.someClass {
+	font-style: italic;
+	font-optical-sizing: 25;
+	font-style: oblique 45deg;
+	font-stretch: 50%;
+	font-weight: 300;
+}</code></pre>
 
 						<p>Now that we’ve covered what variable fonts are and how they can be used, it’s important to
 							note that they can also be animated and interpolated. As you can see in the following example
 							using only the Decovar font and its astounding 15 different axes we created a rich animated experience:</p>
 
-						<p><mark>Insert example</mark></p>
+						<iframe src="one-font.html" style="width: 100%; height: 300px;"></iframe>
 					</div>
 				</div>
 			</section>
 
 		<!-- Using Variable fonts - font-optical-sizing
 			 ------------------------------------------------------- -->
-			 <section id="using" data-nav-label="Using variable fonts" class="l-section l-section--timeline">
+			 <section id="using" data-nav-label="font-optical-sizing" class="l-section l-section--timeline">
 					<div class="l-contain">
 						<header class="l-section__header">
 							<p class="h3">Using Variable Fonts</p>
-							<h2>Using font-optical-sizing</h2>
+							<h2>font-optical-sizing</h2>
 						</header>
 						<div class="l-section__body">
-							<p>So how exactly did we achieve the seemingly different type faces with a single font?
-								We utilized the variable font, “Bahnschrift” by Microsoft, and pivoted the various
-								axes to match that of sentence number one. To adjust an axis in CSS, you can utilize
-								font-variation-settings, like so:</p>
+							<p>In a font of standard construction, the same weight across varying sizes can look inconsistent.
+								A light weight might feel too wispy at a caption size; a bold weight commands a little too much
+								attention at heading sizes, or it looks clunky at a particular size. To help ensure that these
+								weights carry a consistent mood and bar of quality across sizes, some variable fonts support an
+								axis called optical size. This can be controlled via the font-optical-sizing property. It has
+								two values, auto and none. This is similar to what has been done in the printing industry for years,
+								the CSS Fonts specification has this great example of optical size adjustment in print as can
+								be seen here: </p>
 
+							<p><mark>Insert image</mark></p>
+
+							<p>In fonts with automatic optical sizing, this optimization comes for free, as auto is the initial value.
+								Sitka, a variable font created by Microsoft, automatically adjusts text between sizes 6px and 36px,
+								such that across this entire range, small optimizations are done to make sure the type always
+								looks its best. This behavior can be toggled using font-optical-sizing and setting the value to none.</p>
+
+							<p><mark>example of optical sizing</mark></p>
 						</div>
 					</div>
 				</section>
@@ -385,12 +405,132 @@
 						<h2>How to design with variable fonts</h2>
 					</header>
 					<div class="l-section__body">
+						<p>You may be asking yourself, “Ok, so if I’m using a font that has axes that aren’t reserved – how do I know
+							what they’re named in the font to control them via font-variation-settings.” That's a great question.
+							Luckily, common design tools and operating systems are stepping up to fill this gap. Here are just
+							a few ways you can inspect variable fonts for use in your websites.</p>
+
+						<p class="h3">The new font explorer in Windows 10</p>
+						<p>2018's Spring Windows 10 Update includes a new and improved font explorer. The new font explorer not only
+							provides a visual representation of the font, but also provides you with the various axes that the
+							variable font contains.</p>
+
 						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nisi bibendum arcu fringilla egestas. Donec elementum, odio in scelerisque ullamcorper, purus felis lobortis nisi, a cursus magna magna sed est. Integer volutpat urna pharetra.
+							<video controls style="width: 100%;">
+								<source src="video/new-font-explorer.mp4" type="video/mp4">
+							</video>
 						</p>
+
+						<p>To use the font explorer:</p>
+						<ol>
+							<li>Press the Windows Key, then type "Fonts" and select “Font Preview and related settings”</li>
+							<li>Search and select the variable font you want to inspect. In our video above we searched
+								for Microsoft’s Bahnschrift.</li>
+							<li>On the next screen you’ll see "instance view", which shows you the various instances the
+								font has defined. For example Bahnschrift has 15, including Light, Light Condensed, SemiLight,
+								Bold, and many others.</li>
+							<li>If you scroll down you’ll see a Metadata section with a label “Variable Font”. Clicking on
+								“Variable Font Properties” will take you to the page that details the various axes and
+								allows you to change them in real time.</li>
+						</ol>
+
+						<p class="h3">Adobe Photoshop and Illustrator in CC2018</p>
+						<p>Adobe originally shared this with everyone that it baked support for variable fonts right into the software.
+							For those who design in Adobe products, this allows you to modify the variable fonts right where you
+							normally build out your compositions. To do this:</p>
+
+						<ol>
+							<li>Select a text block that is using a variable font, in the typeface selection menu, variable fonts
+								are labelled with the <img src="images/photoshop-variable-font-icon.png" alt="Adobe variable font icon"/> icon.</li>
+							<li>In the Type panel (which you can get to using Window > Type > Characters), you’ll see that it now
+								lists out the various axes of the variable font (in Illustrator you need to click the
+								<img src="images/variable-axis-slider.png" alt="Adobe variable font slider icon"/> icon to open up
+								the window that contains the axes sliders).</li>
+							<li>Adjust the various axes sliders to update styles in the selected text block.</li>
+						</ol>
+
+						<p>Here is an example of using this on the quote by Jason Pamental in Photoshop:</p>
+
+						<p>
+							<video controls style="width: 100%;">
+								<source src="video/photoshop-variable-font-support.mp4" type="video/mp4">
+							</video>
+						</p>
+
+						<p class="h3">Axis-Praxis Variable Font Playground and CSS generation</p>
+						<p>Since variable fonts began to be standardized, Laurence Penney set up Axis-Praxis as a playground to test out various variable
+							fonts and a way to view them live in the browser. I used this site for the animation of Decovar above by adjusting the
+							Decovar axes and then clicking the “CSS” button, which shows you CSS you can use to reproduce the same result on your own page.
+							Axis-Praxis is also a great place to see some of the variable fonts that are available. Since variable fonts are new there
+							aren’t many here – but many foundries are ramping up their implementation of variable fonts, including Microsoft.</p>
+
+						<p>
+							<video controls style="width: 100%;">
+								<source src="video/axis-praxis.mp4" type="video/mp4">
+							</video>
+						</p>
+
+						<p class="h3">Good 'ol wireframes</p>
+						<p><mark>Insert Image</mark></p>
+						<p>No matter how many tools come out, sometimes it just helps to sketch out ideas while you’re in a room brainstorming.
+							That is exactly what Melanie and Greg did while coming up with the various ways to show practical and exciting ways
+							in which Variable Fonts can improve a site.</p>
+						<p>We then took these wireframes and moved into Adobe Illustrator and built them out, and then while coding it up we kept the spirit
+							of the design in place while still making subtle tweaks. The above shows the initial introduction of the poem that sets the theme
+							for the entire expedition.</p>
+
+						<p class="h3">Variable fonts work best in a progressively enhanced design</p>
+						<p>Variable fonts are new, so there will need to be things to consider when incorporating them into your site.
+							To see if a browser supports variable fonts, utilize the CSS @supports conditional check, like so:</p>
+						<pre><code>@supports(font-variation-settings: ‘wght’ 500) {
+	/* variable font code here */
+}</code></pre>
+
+						<p>While this will check if the CSS parser understands font-variation-settings,
+							it doesn’t necessarily ensure that the correct font is being selected. Take the following example:</p>
+
+						<pre><code>font-family: "Bahnschrift", sans-serif;
+font-variation-settings: ‘wght’ 600;</code></pre>
+
+						<p>This will result in users utilizing a Windows 10 device with the desired result, but unless you are providing a
+							fallback copy of Bahnschrift from the server, anyone accessing your site using a different OS will render without
+							any axis change. Because of this you should provide fallbacks and only utilize font-variation-settings for
+							non-reserved axes so that no matter the font they’ll be styled similarly. For example a better approach would be:</p>
+
+						<pre><code>font-family: "Bahnschrift", -apple-system, BlinkMacSystemFont, sans-serif;
+font-weight: 600;</code></pre>
+
+						<p>This will ensure that if the user is on Windows, Mac, iOS, Android result in grabbing their respective variable font.
+							When using this approach however, you need to ensure that your design doesn’t depend on certain font metrics. If
+							your design does depend on certain font metrics or a non-reserved axis then you should serve the font using @font-face, like so:</p>
+
+						<pre><code>@font-face {
+font-family: 'Decovar';
+src: url('fonts/DecovarAlpha-VF.ttf');
+}
+body {
+font-family: ‘Decovar’;
+font-variation-settings: ‘TRMD’ 400;
+}</code></pre>
+
 					</div>
 				</div>
 			</section>
+
+		<!-- Browser Support
+			 ------------------------------------------------------- -->
+			 <section id="support" data-nav-label="Browser Support" class="l-section l-section--timeline">
+					<div class="l-contain">
+						<header class="l-section__header">
+							<h2>Browser Support</h2>
+						</header>
+						<div class="l-section__body">
+							<p class="h3">Support for font-variation-settings</p>
+							<p>When EdgeHTML 17 ships, all modern desktop-based browsers will support Variable Fonts but Firefox (it is however behind a flag).
+								On mobile, as of this writing, Chrome and Safari 11.2 will support variable fonts but UC and Samsung Internet currently do not.</p>
+						</div>
+					</div>
+				</section>
 
 		<!-- Demos & further reading
 			 ------------------------------------------------------- -->
