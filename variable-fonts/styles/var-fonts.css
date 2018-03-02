@@ -115,11 +115,6 @@ pre code {
 	color: #424f5e;
 }
 
-.u-simple-list {
-	list-style: none;
-	max-width: 100%;
-}
-
 @media (min-width: 36em) {
 	h1 {
 		font-size: 5em;

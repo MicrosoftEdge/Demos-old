@@ -173,6 +173,7 @@ button {
 /* Simple list */
 .u-simple-list {
 	margin: 0;
+	max-width: 100%;
 	list-style: none;
 }
 
