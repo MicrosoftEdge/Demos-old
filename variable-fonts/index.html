@@ -49,7 +49,7 @@
 				</section>
 
 				<!-- POEM: SPAN SOUP! :D -->
-				<section id="poem" data-nav-label="Poem demo" class="intro__section">
+				<section id="poem" data-nav-label="Poem Demo" class="intro__section">
 					<div class="poem-viewer">
 						<div class="poem">
 							<div class="poem__slide">
@@ -197,61 +197,46 @@
 
 		<div class="guide-content">
 
-			<!-- WHAT ARE VARIABLE FONTS
-				------------------------------------------------------- -->
-			<section id="what" data-nav-label="What are variable fonts" class="l-gridl-section l-section--timeline">
+			<!-- WEB TYPOGRAPHY ====================================== -->
+			<section id="web-type" data-nav-label="Web Typography" class="l-section l-section--timeline l-section--web-type">
 				<div class="l-contain">
 					<header class="l-section__header">
-						<h2>What are variable fonts</h2>
+						<h2>Web Typography</h2>
+						<p class="h3">A brief history</p>
 					</header>
-					<div class="l-grid l-section__body">
-						<div class="l-col-two-thirds">
-							<p class="c-feature-para">Rich typography has for years been the envy of many web designers,
-									who long for the typographic variety, texture, and precision available in print media.
-									The first huge stride in typographic detail on the web was the introduction of web fonts,
-									which allowed designers and developers to use many other fonts besides the handful
-									generally available on user's operating systems.</p>
-
-							<p class="c-feature-para">Why were web fonts so exciting for designers? Jason Pamental put it eloquently<sup>[1]</sup>
-								"Typography is communication" but currently the web is "all system, no soul."
-								Web fonts teased the opportunity of bringing that "soul" to the web.
-								Unfortunately for web fonts, to provide this soul, it comes at an especially important cost.</p>
-
-							<div class="o-long-text">
-								<p>Delivering this “soul” using web fonts with regular OpenType fonts required web developers to
-										include every different font file for the various font variants the designer chose.
-										Take the following simple example:</p>
-
-								<p>To achieve the look in the previous sentence we had to download over 150Kb split across six
-									different files. As a result of needing to download every type face, web developers quickly
-									found that for every beautiful font that a designer added to a site it had a noticeable impact
-									on the performance and overall experience to the end user. So much to the point that font
-									services, such as Adobe’s TypeKit has added in heuristics to warn web developers about the
-									impact these fonts can have on their end users.</p>
-
-								<p>Similarly, many web developers have advocated a return to system font stacks, prioritizing
-									performance over brand cohesion or design differentiation. Performance has the potential
-									for major impact on user experience and a business's bottom line, and so the web community
-									needed to figure out how to balance this priority against the desire for beautiful typography.</p>
-							</div>
+					<div class="l-grid-web-type l-section__body">
+						<p class="c-feature-para">Rich typography has for years been the envy of many web designers, who long for the typographic variety, texture, and precision available in print media.</p>
+						<div>
+							<p>The first huge stride in typographic detail on the web was the introduction of web fonts, which allowed designers and developers to use many other fonts besides the handful generally available on user's operating systems.</p>
+							<p>Why were web fonts so exciting for designers? Jason Pamental put it eloquently<sup>[1]</sup> "Typography is communication" but currently the web is "all system, no soul." Web fonts teased the opportunity of bringing that "soul" to the web. Unfortunately for web fonts, to provide this soul, it comes at an especially important cost.</p>
 						</div>
 
-
 						<!-- Pull quote demo -->
-						<figure role="img" class="l-col-third" aria-label="Currently, the web is all system, no soul. (Jason Pamental)">
-							<quote-grid aria-hidden="true" style="background-color: #E5EBF0; padding: 2em">
-								<span style="grid-column: lm; font-size: 700%; grid-row: 1 / span 6; line-height: 0em; position: relative; top: 0.35em; padding-right: 0.1em;">“</span>
-								<span style="grid-column: cl-start / span cr-end; font-size: 300%; font-weight: 600; text-align: right; line-height: 1em;">Currentl</span>
-								<span style="grid-column: co-start / span co-end; font-size: 300%; font-weight: 600; line-height: 1em;">y</span>
-								<span style="grid-column: cl-start / span cm-start; font-size: 125%; text-align: justify; text-align-last: justify;">the web</span>
-								<span style="grid-column: cl-start / span cm-start; background: linear-gradient(to bottom, #E5EBF0 0%, #E5EBF0 40%, black 40%, black 60%, #E5EBF0 60%, #E5EBF0 100%); text-align: center; text-align-last: center;"><span style="background: #E5EBF0; padding: 0px 5px;">is</span></span>
-								<span style="grid-column: cm-start / span cr-end; grid-row: 2 / span 2; align-self: center; position: relative; top: 0.1em; line-height: 0em; font-size: 275%; font-weight: 900; font-weight: 999; padding-left: 14px; text-align: justify; text-align-last: justify;"><span style="background-clip: text; -webkit-background-clip: text;">A<span zw> </span>L<span zw> </span>L</span></span>
-								<span style="grid-column: cl-start / span cr-end; font-size: 275%; font-weight: 900; font-weight: 999; text-align: justify; text-align-last: justify; text-justify: distribute; line-height: 1em;"><span style="background-clip: text; -webkit-background-clip: text;">S<span zw> </span>Y<span zw> </span>S<span zw> </span>T<span zw> </span>E<span zw> </span>M</span></span>
-								<span style="grid-column: cl-start / span cr-end; text-align: right; font-size: 200%; position: relative; top: -0.5em;"><span>no</span> <span>soul</span></span>
-								<span style="grid-column: co-start / span rm-end; font-size: 700%; grid-row: 5 / span 1; padding-left: 0.1em; line-height: 0em; position: relative; top: -0.1em;">„</span>
-								<span style="grid-column: cl-start / span rm-end; text-align: right; font-size: 150%; grid-row: 6 / span 1; border-top: 9px solid transparent;">- Jason Pamental</span>
+						<figure class="soul-wrap" role="img" aria-label="Currently, the web is all system, no soul. (Jason Pamental)">
+							<quote-grid class="soul" aria-hidden="true">
+								<span class="soul__ldquo">“</span>
+								<span class="soul__currentl">Currentl</span>
+								<span class="soul__y">y</span>
+								<span class="soul__web">the web</span>
+								<span class="soul__is">
+									<span>is</span>
+								</span>
+								<span class="soul__all">
+									<span>A<span zw> </span>L<span zw> </span>L</span>
+								</span>
+								<span class="soul__system">
+									<span>S<span zw> </span>Y<span zw> </span>S<span zw> </span>T<span zw> </span>E<span zw> </span>M</span>
+								</span>
+								<span class="soul__no-soul"><span>no</span> <span>soul</span></span>
+								<span class="soul__rdquo">„</span>
+								<span class="soul__jason">- Jason Pamental</span>
 							</quote-grid>
 						</figure>
+						<div>
+							<p>Delivering this “soul” using web fonts with regular OpenType fonts required web developers to include every different font file for the various font variants the designer chose. Take the following simple example:</p>
+							<p>To achieve the look in the previous sentence we had to download over 150Kb split across six different files. As a result of needing to download every type face, web developers quickly found that for every beautiful font that a designer added to a site it had a noticeable impact on the performance and overall experience to the end user. So much to the point that font services, such as Adobe’s TypeKit has added in heuristics to warn web developers about the impact these fonts can have on their end users.</p>
+							<p>Similarly, many web developers have advocated a return to system font stacks, prioritizing performance over brand cohesion or design differentiation. Performance has the potential for major impact on user experience and a business's bottom line, and so the web community needed to figure out how to balance this priority against the desire for beautiful typography.</p>
+						</div>
 					</div>
 				</div>
 
