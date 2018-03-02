@@ -100,7 +100,7 @@ h3, .h3 {
 	font-size: 1.75em;
 }
 
-h3,
+h3, h4,
 p, ul, ol,
 pre {
 	margin-right: auto;
@@ -198,13 +198,14 @@ img {
  */
 
 .guide-content,
-.c-ex:nth-child(even),
+.c-tool:nth-child(even),
 .c-outro {
 	position: relative;
 }
 
 .guide-content::before,
-.c-ex:nth-child(even)::before,
+.c-tool:nth-child(even)::before,
+.c-tool:nth-child(even)::after,
 .c-outro::before {
 	display: block;
 	position: absolute;
@@ -1176,6 +1177,29 @@ span[zw] {
  *	=============================================
  */
 
+.c-tool:nth-child(even) {
+	margin: 10vmin 0;
+	background: #f2f3f4;
+}
+
+.c-tool:nth-child(even)::before {
+	top: -8vmin;
+	top: calc(-8vmin + 1px);
+	border-bottom: 8vmin solid #f2f3f4;
+}
+
+.c-tool:nth-child(even)::after {
+	bottom: -8vmin;
+	bottom: calc(-8vmin + 1px);
+	border-left: 0;
+	border-right: 100vw solid transparent;
+	border-top: 8vmin solid #f2f3f4;
+}
+
+.c-tool:nth-child(odd) {
+	background: #fff;
+}
+
 .c-tool__media {
 	margin-top: 1.25em;	
 }
@@ -1184,19 +1208,39 @@ span[zw] {
 	max-width: 100%;
 }
 
-@media (min-width: 80em) {
+@media (min-width: 48em) {
+	.c-tool:nth-child(even)::before {
+		top: -15vmin;
+		top: calc(-15vmin + 1px);
+		border-bottom: 15vmin solid #f2f3f4;
+	}
+	
+	.c-tool:nth-child(even)::after {
+		bottom: -15vmin;
+		bottom: calc(-15vmin + 1px);
+		border-top: 15vmin solid #f2f3f4;
+	}
+}
+
+@media (min-width: 72em) {
 	.c-tool__contain {
 		display: flex;
 	}
 	
 	.c-tool__info {
-		padding: 0 6em;
-		width: 40em;
+		margin-right: 3em;
+		width: 24em;
 	}
 
 	.c-tool__media {
 		margin-top: 0;
 		flex: 1;
+	}
+}
+
+@media (min-width: 80em) {
+	.c-tool__info {
+		margin: 0 6em;
 	}
 }
 
