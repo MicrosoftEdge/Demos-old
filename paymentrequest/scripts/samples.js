@@ -76,11 +76,8 @@
 
 	Global.startPaymentRequestStaticShipping = function() {
 		const methodData = [
-			//Older implementation (for some versions of Chrome on Android)
-			{supportedMethods: ['visa', 'mastercard', 'amex']},
-			//Newer implementation
 			{
-				supportedMethods: ['basic-card'],
+				supportedMethods: 'basic-card',
 				data: {
 					supportedNetworks: ['visa', 'mastercard', 'amex'],
 					supportedTypes: ['credit']
@@ -149,11 +146,8 @@
 
 	Global.startPaymentRequestDynamicShipping = function() {
 		const methodData = [
-			//Older implementation
-			{supportedMethods: ['visa', 'mastercard', 'amex']},
-			//Newer implementation
 			{
-				supportedMethods: ['basic-card'],
+				supportedMethods: 'basic-card',
 				data: {
 					supportedNetworks: ['visa', 'mastercard', 'amex'],
 					supportedTypes: ['credit']
@@ -216,11 +210,8 @@
 
 	Global.startPaymentRequestDigitalMerchandise = function() {
 		const methodData = [
-			//Older implementation
-			{supportedMethods: ['visa', 'mastercard', 'amex']},
-			//Newer implementation
 			{
-				supportedMethods: ['basic-card'],
+				supportedMethods: 'basic-card',
 				data: {
 					supportedNetworks: ['visa', 'mastercard', 'amex'],
 					supportedTypes: ['credit']
@@ -263,7 +254,7 @@
 
 	Global.startPaymentRequestWithContactInfo = function() {
 		const methodData = [{
-			supportedMethods: ['visa', 'mastercard', 'amex'],
+			supportedMethods: 'basic-card',
 			data: {
 				supportedNetworks: ['visa', 'mastercard', 'amex'],
 				supportedTypes: ['credit']
