@@ -108,6 +108,10 @@ pre {
 	max-width: 36rem;
 }
 
+ul, ol {
+	padding-left: 1.25em;
+}
+
 pre {
 	margin-top: 1.5em;
 }
@@ -233,54 +237,6 @@ img {
  *	LAYOUT
  *	=============================================
  */
-
-/*
- *	LAYOUT: GRID
- *	---------------------------------------------
- */
-
-[class*="l-col-"] {
-	margin-top: 1.5em;
-}
-
-@media (min-width: 48em) {
-	.l-grid {
-		display: grid;
-		grid-template-columns: repeat(12, 1fr);
-		grid-gap: 3em;
-	}
-
-	.l-col-quarter {
-		-ms-grid-column-span: 3;
-		grid-column: span 3;
-	}
-
-	.l-col-three-quarters {
-		-ms-grid-column-span: 9;
-		grid-column: span 9;
-	}
-
-	.l-col-half {
-		-ms-grid-column-span: 6;
-		grid-column: span 6;
-	}
-
-	.l-col-third {
-		-ms-grid-column-span: 4;
-		grid-column: span 4;
-	}
-
-	.l-col-two-thirds {
-		-ms-grid-column-span: 8;
-		grid-column: span 8;
-	}
-
-	@supports (display: grid) or (display: -ms-grid) {
-		[class*="l-col-"] {
-			margin-top: 0;
-		}
-	}
-}
 
 /*
  *	LAYOUT: SECTION, HEADER, BODY
@@ -1216,89 +1172,37 @@ span[zw] {
 }
 
 /*
- *	SECTION: RWD
- *	---------------------------------------------
+ *	SECTION: WEB TYPOGRAPHY
+ *	=============================================
  */
 
-.c-ex {
-	background: #fff;
+.c-tool__media {
+	margin-top: 1.25em;	
 }
 
-.c-ex__demo {
-	margin-top: 1.5em;
+.c-tool__media video {
+	max-width: 100%;
 }
 
-/* Every other example */
-.c-ex:nth-child(even) {
-	margin-top: 20vmin;
-	background: #f2f3f4;
-}
-
-.c-ex:nth-child(even)::before {
-	top: -15vmin;
-	border-bottom: 15vmin solid #f2f3f4;
-}
-
-@media (min-width: 48em) {
-	.c-ex__grid {
-		display: -ms-grid;
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		align-items: center;
+@media (min-width: 80em) {
+	.c-tool__contain {
+		display: flex;
 	}
-
-	.c-ex__info {
-		padding: 0 0 0 2em;
-	}
-
-	.c-ex__demo {
-		position: relative;
-		margin-top: 0;
-	}
-
-	/* Don't want toggle to contribute height in grid calculations */
-	.c-ex .c-toggle {
-		position: absolute;
-		top: 100%;
-		left: 0;
-		width: 100%;
-	}
-
-	/* Every other example */
-	.c-ex:nth-child(even) .c-ex__demo {
-		grid-row: 1;
-		grid-column: 1;
-	}
-
-	.c-ex:nth-child(even) .c-ex__info {
-		grid-row: 1;
-		grid-column: 2;
-	}
-}
-
-@media (min-width: 64em) {
-	.c-ex {
-		padding: 6.25em 0;
-	}
-
-	.c-ex__info {
+	
+	.c-tool__info {
 		padding: 0 6em;
+		width: 40em;
+	}
+
+	.c-tool__media {
+		margin-top: 0;
+		flex: 1;
 	}
 }
 
 /*
  *	SECTION: RESOURCES
- *	---------------------------------------------
- */
-
-/* Overlap the "timeline" on this section */
-.l-section--differentiation {
-	margin-top: -2em;
-}
-
-/*
- *	SECTION: RESOURCES
- *	---------------------------------------------
+ *	=============================================
  */
 
 .resources-grid {
@@ -1319,7 +1223,7 @@ span[zw] {
 
 /*
  *	SECTION: OUTRO
- *	---------------------------------------------
+ *	=============================================
  */
 
 .c-outro {

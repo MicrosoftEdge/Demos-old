@@ -385,90 +385,79 @@
 						</div>
 					</section>
 
-			<!-- How to design with variable fonts
-				------------------------------------------------------- -->
-				<section id="design" data-nav-label="How to design with variable fonts" class="l-section l-section--timeline">
-					<div class="l-contain">
-						<header class="l-section__header">
-							<h2>How to design with variable fonts</h2>
-						</header>
-						<div class="l-section__body">
-							<p>You may be asking yourself, “Ok, so if I’m using a font that has axes that aren’t reserved – how do I know
-								what they’re named in the font to control them via font-variation-settings.” That's a great question.
-								Luckily, common design tools and operating systems are stepping up to fill this gap. Here are just
-								a few ways you can inspect variable fonts for use in your websites.</p>
-
-							<p class="h4">The new font explorer in Windows 10</p>
-							<p>2018's Spring Windows 10 Update includes a new and improved font explorer. The new font explorer not only
-								provides a visual representation of the font, but also provides you with the various axes that the
-								variable font contains.</p>
-
-							<p>
-								<video controls style="width: 100%;">
+			<!-- How to design with variable fonts ====================================== -->
+			<section id="design" data-nav-label="Design Tools" class="l-section l-section--timeline">
+				<header class="l-contain l-section__header">
+					<h2>Design Tools</h2>
+				</header>
+				<div class="l-section__body">
+					<p class="c-feature-para">You may be asking yourself, “Ok, so if I’m using a font that has axes that aren’t reserved—how do I know what they’re named in the font to control them via font-variation-settings.” That's a great question. Luckily, common design tools and operating systems are stepping up to fill this gap. Here are just a few ways you can inspect variable fonts for use in your websites.</p>
+					<section class="l-subsection l-subsection--banner c-tool">
+						<div class="l-contain c-tool__contain">
+							<div class="c-tool__info">
+								<h4>The new font explorer in Windows 10</h4>
+								<p>2018's Spring Windows 10 Update includes a new and improved font explorer. The new font explorer not only provides a visual representation of the font, but also provides you with the various axes that the variable font contains.</p>
+								<p>To use the font explorer:</p>
+								<ol>
+									<li>Press the Windows Key, then type "Fonts" and select “Font Preview and related settings”</li>
+									<li>Search and select the variable font you want to inspect. In our video above we searched for Microsoft’s Bahnschrift.</li>
+									<li>On the next screen you’ll see "instance view", which shows you the various instances the font has defined. For example Bahnschrift has 15, including Light, Light Condensed, SemiLight, Bold, and many others.</li>
+									<li>If you scroll down you’ll see a Metadata section with a label “Variable Font”. Clicking on “Variable Font Properties” will take you to the page that details the various axes and allows you to change them in real time.</li>
+								</ol>
+							</div>
+							<div class="c-tool__media">
+								<video controls>
 									<source src="video/new-font-explorer.mp4" type="video/mp4">
 								</video>
-							</p>
-
-							<p>To use the font explorer:</p>
-							<ol>
-								<li>Press the Windows Key, then type "Fonts" and select “Font Preview and related settings”</li>
-								<li>Search and select the variable font you want to inspect. In our video above we searched
-									for Microsoft’s Bahnschrift.</li>
-								<li>On the next screen you’ll see "instance view", which shows you the various instances the
-									font has defined. For example Bahnschrift has 15, including Light, Light Condensed, SemiLight,
-									Bold, and many others.</li>
-								<li>If you scroll down you’ll see a Metadata section with a label “Variable Font”. Clicking on
-									“Variable Font Properties” will take you to the page that details the various axes and
-									allows you to change them in real time.</li>
-							</ol>
-
-							<p class="h4">Adobe Photoshop and Illustrator in CC2018</p>
-							<p>Adobe originally shared this with everyone that it baked support for variable fonts right into the software.
-								For those who design in Adobe products, this allows you to modify the variable fonts right where you
-								normally build out your compositions. To do this:</p>
-
-							<ol>
-								<li>Select a text block that is using a variable font, in the typeface selection menu, variable fonts
-									are labelled with the <img src="images/photoshop-variable-font-icon.png" alt="Adobe variable font icon"/> icon.</li>
-								<li>In the Type panel (which you can get to using Window > Type > Characters), you’ll see that it now
-									lists out the various axes of the variable font (in Illustrator you need to click the
-									<img src="images/variable-axis-slider.png" alt="Adobe variable font slider icon"/> icon to open up
-									the window that contains the axes sliders).</li>
-								<li>Adjust the various axes sliders to update styles in the selected text block.</li>
-							</ol>
-
-							<p>Here is an example of using this on the quote by Jason Pamental in Photoshop:</p>
-
-							<p>
-								<video controls style="width: 100%;">
+							</div>
+						</div>
+					</section>
+					<section class="l-subsection l-subsection--banner c-tool">
+						<div class="l-contain c-tool__contain">
+							<div class="c-tool__info">
+								<h4>Adobe Photoshop and Illustrator in CC2018</h4>
+								<p>Adobe originally shared this with everyone that it baked support for variable fonts right into the software. For those who design in Adobe products, this allows you to modify the variable fonts right where you normally build out your compositions. To do this:</p>
+								<ol>
+									<li>Select a text block that is using a variable font, in the typeface selection menu, variable fonts are labelled with the <img src="images/photoshop-variable-font-icon.png" alt="Adobe variable font icon"/> icon.</li>
+									<li>In the Type panel (which you can get to using Window > Type > Characters), you’ll see that it now lists out the various axes of the variable font (in Illustrator you need to click the <img src="images/variable-axis-slider.png" alt="Adobe variable font slider icon"/> icon to open up the window that contains the axes sliders).</li>
+									<li>Adjust the various axes sliders to update styles in the selected text block.</li>
+								</ol>
+							</div>
+							<div class="c-tool__media">
+								<video>
 									<source src="video/photoshop-variable-font-support.mp4" type="video/mp4">
 								</video>
-							</p>
-
-							<p class="h4">Axis-Praxis Variable Font Playground and CSS generation</p>
-							<p>Since variable fonts began to be standardized, Laurence Penney set up Axis-Praxis as a playground to test out various variable
-								fonts and a way to view them live in the browser. I used this site for the animation of Decovar above by adjusting the
-								Decovar axes and then clicking the “CSS” button, which shows you CSS you can use to reproduce the same result on your own page.
-								Axis-Praxis is also a great place to see some of the variable fonts that are available. Since variable fonts are new there
-								aren’t many here – but many foundries are ramping up their implementation of variable fonts, including Microsoft.</p>
-
-							<p>
-								<video controls style="width: 100%;">
+								<p>An example of using this on the quote by Jason Pamental in Photoshop</p>
+							</div>
+						</div>
+					</section>
+					<section class="l-subsection l-subsection--banner c-tool">
+						<div class="l-contain c-tool__contain">
+							<div class="c-tool__info">
+								<h4>Axis-Praxis Variable Font Playground and CSS generation</h4>
+								<p>Since variable fonts began to be standardized, Laurence Penney set up Axis-Praxis as a playground to test out various variable fonts and a way to view them live in the browser. I used this site for the animation of Decovar above by adjusting the Decovar axes and then clicking the “CSS” button, which shows you CSS you can use to reproduce the same result on your own page. Axis-Praxis is also a great place to see some of the variable fonts that are available. Since variable fonts are new there aren’t many here – but many foundries are ramping up their implementation of variable fonts, including Microsoft.</p>
+							</div>
+							<div class="c-tool__media">
+								<video>
 									<source src="video/axis-praxis.mp4" type="video/mp4">
 								</video>
-							</p>
-
-							<p class="h4">Good 'ol wireframes</p>
-							<p><mark>Insert Image</mark></p>
-							<p>No matter how many tools come out, sometimes it just helps to sketch out ideas while you’re in a room brainstorming.
-								That is exactly what Melanie and Greg did while coming up with the various ways to show practical and exciting ways
-								in which Variable Fonts can improve a site.</p>
-							<p>We then took these wireframes and moved into Adobe Illustrator and built them out, and then while coding it up we kept the spirit
-								of the design in place while still making subtle tweaks. The above shows the initial introduction of the poem that sets the theme
-								for the entire expedition.</p>
+							</div>
 						</div>
-					</div>
-				</section>
+					</section>
+					<section class="l-subsection l-subsection--banner c-tool">
+						<div class="l-contain c-tool__contain">
+							<div class="c-tool__info">
+								<h4>Good 'ol wireframes</h4>
+								<p>No matter how many tools come out, sometimes it just helps to sketch out ideas while you’re in a room brainstorming. That is exactly what Melanie and Greg did while coming up with the various ways to show practical and exciting ways in which Variable Fonts can improve a site.</p>
+								<p>We then took these wireframes and moved into Adobe Illustrator and built them out, and then while coding it up we kept the spirit of the design in place while still making subtle tweaks. The above shows the initial introduction of the poem that sets the theme for the entire expedition.</p>
+							</div>
+							<div class="c-tool__media">
+								<p><mark>Insert Image</mark></p>
+							</div>
+						</div>
+					</section>
+				</div>
+			</section>
 
 			<!-- Browser Support ====================================== -->
 			<section id="shipping" data-nav-label="Shipping Today" class="l-section l-section--timeline">
