@@ -49,7 +49,7 @@ a:hover {
  *	---------------------------------------------
  */
 
-h1, h2, h3, .h3 {
+h1, h2, h3, .h3, h4, .h4 {
 	font-family: "Variable Bahnschrift", "FF DIN", "Franklin Gothic", "Helvetica Neue", sans-serif;
 }
 
@@ -84,18 +84,24 @@ h2 {
 	transform: scale(1) translateZ(1px);
 }
 
-h3,
-.h3 {
+h3, .h3,
+h4, .h4 {
 	font-weight: 400;
 	font-variation-settings: "wdth" 85;
 	font-size: 1.25em;
 	color: #57687c;
 }
 
+h3 {
+	text-align: center;
+}
+
+h3, .h3 {
+	font-size: 1.75em;
+}
+
 h3,
-p,
-ul,
-ol,
+p, ul, ol,
 pre {
 	margin-right: auto;
 	margin-left: auto;
@@ -124,9 +130,13 @@ pre code {
 		font-size: 4em;
 	}
 
-	h3, .h3 {
+	h3, .h3, h4, .h4 {
 		font-weight: 350;
 		font-size: 1.75em;
+	}
+
+	h3, .h3 {
+		font-size: 2.25em;
 	}
 }
 

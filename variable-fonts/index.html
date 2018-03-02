@@ -38,7 +38,7 @@
 						<h1 class="intro__heading">
 							<span class="intro__var-1">Var</span><span class="intro__var-2">iab</span><span class="intro__var-3">le</span><span class="intro__600"></span> Fonts
 						</h1>
-						<p class="h3 intro__subheading">An exploration of expressive, performant typography</p>
+						<p class="h4 intro__subheading">An exploration of expressive, performant typography</p>
 					</div>
 					<div class="intro__actions">
 						<a class="poem-start" href="#poem">
@@ -202,7 +202,7 @@
 				<div class="l-contain">
 					<header class="l-section__header">
 						<h2>Web Typography</h2>
-						<p class="h3">A brief history</p>
+						<p class="h4">A brief history</p>
 					</header>
 					<div class="l-grid-web-type l-section__body">
 						<p class="c-feature-para">Rich typography has for years been the envy of many web designers, who long for the typographic variety, texture, and precision available in print media.</p>
@@ -267,7 +267,7 @@
 				<section id="using" data-nav-label="font-variation-settings" class="l-section l-section--timeline">
 					<div class="l-contain">
 						<header class="l-section__header">
-							<p class="h3">Using Variable Fonts</p>
+							<p class="h4">Using Variable Fonts</p>
 							<h2 style="white-space: nowrap">font-variation-settings</h2>
 						</header>
 						<div class="l-section__body">
@@ -360,7 +360,7 @@
 				<section id="using" data-nav-label="font-optical-sizing" class="l-section l-section--timeline">
 						<div class="l-contain">
 							<header class="l-section__header">
-								<p class="h3">Using Variable Fonts</p>
+								<p class="h4">Using Variable Fonts</p>
 								<h2>font-optical-sizing</h2>
 							</header>
 							<div class="l-section__body">
@@ -398,7 +398,7 @@
 								Luckily, common design tools and operating systems are stepping up to fill this gap. Here are just
 								a few ways you can inspect variable fonts for use in your websites.</p>
 
-							<p class="h3">The new font explorer in Windows 10</p>
+							<p class="h4">The new font explorer in Windows 10</p>
 							<p>2018's Spring Windows 10 Update includes a new and improved font explorer. The new font explorer not only
 								provides a visual representation of the font, but also provides you with the various axes that the
 								variable font contains.</p>
@@ -422,7 +422,7 @@
 									allows you to change them in real time.</li>
 							</ol>
 
-							<p class="h3">Adobe Photoshop and Illustrator in CC2018</p>
+							<p class="h4">Adobe Photoshop and Illustrator in CC2018</p>
 							<p>Adobe originally shared this with everyone that it baked support for variable fonts right into the software.
 								For those who design in Adobe products, this allows you to modify the variable fonts right where you
 								normally build out your compositions. To do this:</p>
@@ -445,7 +445,7 @@
 								</video>
 							</p>
 
-							<p class="h3">Axis-Praxis Variable Font Playground and CSS generation</p>
+							<p class="h4">Axis-Praxis Variable Font Playground and CSS generation</p>
 							<p>Since variable fonts began to be standardized, Laurence Penney set up Axis-Praxis as a playground to test out various variable
 								fonts and a way to view them live in the browser. I used this site for the animation of Decovar above by adjusting the
 								Decovar axes and then clicking the “CSS” button, which shows you CSS you can use to reproduce the same result on your own page.
@@ -458,7 +458,7 @@
 								</video>
 							</p>
 
-							<p class="h3">Good 'ol wireframes</p>
+							<p class="h4">Good 'ol wireframes</p>
 							<p><mark>Insert Image</mark></p>
 							<p>No matter how many tools come out, sometimes it just helps to sketch out ideas while you’re in a room brainstorming.
 								That is exactly what Melanie and Greg did while coming up with the various ways to show practical and exciting ways
@@ -466,59 +466,47 @@
 							<p>We then took these wireframes and moved into Adobe Illustrator and built them out, and then while coding it up we kept the spirit
 								of the design in place while still making subtle tweaks. The above shows the initial introduction of the poem that sets the theme
 								for the entire expedition.</p>
-
-							<p class="h3">Variable fonts work best in a progressively enhanced design</p>
-							<p>Variable fonts are new, so there will need to be things to consider when incorporating them into your site.
-								To see if a browser supports variable fonts, utilize the CSS @supports conditional check, like so:</p>
-							<pre><code>@supports(font-variation-settings: ‘wght’ 500) {
-		/* variable font code here */
-	}</code></pre>
-
-							<p>While this will check if the CSS parser understands font-variation-settings,
-								it doesn’t necessarily ensure that the correct font is being selected. Take the following example:</p>
-
-							<pre><code>font-family: "Bahnschrift", sans-serif;
-	font-variation-settings: ‘wght’ 600;</code></pre>
-
-							<p>This will result in users utilizing a Windows 10 device with the desired result, but unless you are providing a
-								fallback copy of Bahnschrift from the server, anyone accessing your site using a different OS will render without
-								any axis change. Because of this you should provide fallbacks and only utilize font-variation-settings for
-								non-reserved axes so that no matter the font they’ll be styled similarly. For example a better approach would be:</p>
-
-							<pre><code>font-family: "Bahnschrift", -apple-system, BlinkMacSystemFont, sans-serif;
-	font-weight: 600;</code></pre>
-
-							<p>This will ensure that if the user is on Windows, Mac, iOS, Android result in grabbing their respective variable font.
-								When using this approach however, you need to ensure that your design doesn’t depend on certain font metrics. If
-								your design does depend on certain font metrics or a non-reserved axis then you should serve the font using @font-face, like so:</p>
-
-							<pre><code>@font-face {
-	font-family: 'Decovar';
-	src: url('fonts/DecovarAlpha-VF.ttf');
-	}
-	body {
-	font-family: ‘Decovar’;
-	font-variation-settings: ‘TRMD’ 400;
-	}</code></pre>
-
 						</div>
 					</div>
 				</section>
 
-			<!-- Browser Support
-				------------------------------------------------------- -->
-				<section id="support" data-nav-label="Browser Support" class="l-section l-section--timeline">
-						<div class="l-contain">
-							<header class="l-section__header">
-								<h2>Browser Support</h2>
-							</header>
-							<div class="l-section__body">
-								<p class="h3">Support for font-variation-settings</p>
-								<p>When EdgeHTML 17 ships, all modern desktop-based browsers will support Variable Fonts but Firefox (it is however behind a flag).
-									On mobile, as of this writing, Chrome and Safari 11.2 will support variable fonts but UC and Samsung Internet currently do not.</p>
-							</div>
-						</div>
-					</section>
+			<!-- Browser Support ====================================== -->
+			<section id="shipping" data-nav-label="Shipping Today" class="l-section l-section--timeline">
+				<div class="l-contain">
+					<header class="l-section__header">
+						<h2>Shipping Today</h2>
+					</header>
+					<div class="l-section__body">
+						<section>
+							<h3>Support for font-variation-settings</h3>
+							<p>When EdgeHTML 17 ships, all modern desktop-based browsers will support Variable Fonts but Firefox (it is however behind a flag). On mobile, as of this writing, Chrome and Safari 11.2 will support variable fonts but UC and Samsung Internet currently do not. Luckily, we can embrace a progressive enhancement strategy.</p>
+						</section>
+						<section class="l-subsection">
+							<h3>Progressive Enhancement</h3>
+							<p>To see if a browser supports variable fonts, utilize the CSS @supports conditional check, like so:</p>
+<pre><code>@supports(font-variation-settings: ‘wght’ 500) {
+	/* variable font code here */
+}</code></pre>
+							<p>While this will check if the CSS parser understands font-variation-settings, it doesn’t necessarily ensure that the correct font is being selected. Take the following example:</p>
+<pre><code>font-family: "Bahnschrift", sans-serif;
+font-variation-settings: ‘wght’ 600;</code></pre>
+							<p>This will result in users utilizing a Windows 10 device with the desired result, but unless you are providing a fallback copy of Bahnschrift from the server, anyone accessing your site using a different OS will render without any axis change. Because of this you should provide fallbacks and only utilize font-variation-settings for non-reserved axes so that no matter the font they’ll be styled similarly. For example a better approach would be:</p>
+<pre><code>font-family: "Bahnschrift", -apple-system, BlinkMacSystemFont, sans-serif;
+font-weight: 600;</code></pre>
+							<p>This will ensure that if the user is on Windows, Mac, iOS, Android result in grabbing their respective variable font. When using this approach however, you need to ensure that your design doesn’t depend on certain font metrics. If your design does depend on certain font metrics or a non-reserved axis then you should serve the font using @font-face, like so:</p>
+<pre><code>@font-face {
+	font-family: 'Decovar';
+	src: url('fonts/DecovarAlpha-VF.ttf');
+}
+
+body {
+	font-family: ‘Decovar’;
+	font-variation-settings: ‘TRMD’ 400;
+}</code></pre>
+						</section>
+					</div>
+				</div>
+			</section>
 
 			<!-- Demos & further reading ====================================== -->
 			<section id="resources" data-nav-label="Resources" class="l-section l-section--timeline">
