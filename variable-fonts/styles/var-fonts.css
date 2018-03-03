@@ -222,14 +222,14 @@ caption {
  */
 
 .guide-content,
-.c-tool:nth-child(even),
+.l-subsection--banner,
 .c-outro {
 	position: relative;
 }
 
 .guide-content::before,
-.c-tool:nth-child(even)::before,
-.c-tool:nth-child(even)::after,
+.l-subsection--banner::before,
+.l-subsection--banner::after,
 .c-outro::before {
 	display: block;
 	position: absolute;
@@ -238,6 +238,39 @@ caption {
 	left: 0;
 	width: 0;
 	border-left: 100vw solid transparent;
+}
+
+.l-subsection--banner {
+	margin: 5rem 0 6rem;
+	background: #f2f3f4;
+}
+
+.l-subsection--banner::before {
+	top: -2rem;
+	border-bottom: 2rem solid #f2f3f4;
+}
+
+.l-subsection--banner::after {
+	bottom: -2rem;
+	border-left: 0;
+	border-right: 100vw solid transparent;
+	border-top: 2rem solid #f2f3f4;
+}
+
+@media (min-width: 48em) {
+	.l-subsection--banner {
+		margin: 7rem 0 8rem;
+	}
+	
+	.l-subsection--banner::before {
+		top: -4rem;
+		border-bottom: 4rem solid #f2f3f4;
+	}
+	
+	.l-subsection--banner::after {
+		bottom: -4rem;
+		border-top: 4rem solid #f2f3f4;
+	}
 }
 
 /*
@@ -333,12 +366,16 @@ caption {
 
 /* Match .l-contain */
 .l-grid {
-	padding: 1.25rem;
+	padding: 0 1.25rem;
 	max-width: 100rem;
 }
 
 .l-grid > [class*="l-col-"] {
 	margin-top: 1.5em;
+}
+
+.l-grid > [class*="l-col-"]:first-child {
+	margin-top: 0;
 }
 
 @supports (display: grid) {
@@ -1246,79 +1283,12 @@ span[zw] {
 }
 
 /*
- *	SECTION: WEB TYPOGRAPHY
+ *	SECTION: DESIGN TOOLS
  *	=============================================
  */
 
-.c-tool:nth-child(even) {
-	margin: 10vmin 0;
-	background: #f2f3f4;
-}
-
-.c-tool:nth-child(even)::before {
-	top: -8vmin;
-	top: calc(-8vmin + 1px);
-	border-bottom: 8vmin solid #f2f3f4;
-}
-
-.c-tool:nth-child(even)::after {
-	bottom: -8vmin;
-	bottom: calc(-8vmin + 1px);
-	border-left: 0;
-	border-right: 100vw solid transparent;
-	border-top: 8vmin solid #f2f3f4;
-}
-
 .c-tool:nth-child(odd) {
 	background: #fff;
-}
-
-.c-tool__media {
-	margin-top: 1.25em;	
-}
-
-.c-tool__media video {
-	max-width: 100%;
-}
-
-@media (min-width: 48em) {
-	.c-tool:nth-child(even) {
-		margin: 12vmin 0;
-	}
-	
-	.c-tool:nth-child(even)::before {
-		top: -12vmin;
-		top: calc(-12vmin + 1px);
-		border-bottom: 12vmin solid #f2f3f4;
-	}
-	
-	.c-tool:nth-child(even)::after {
-		bottom: -12vmin;
-		bottom: calc(-12vmin + 1px);
-		border-top: 12vmin solid #f2f3f4;
-	}
-}
-
-@media (min-width: 72em) {
-	.c-tool__contain {
-		display: flex;
-	}
-	
-	.c-tool__info {
-		margin-right: 3em;
-		width: 24em;
-	}
-
-	.c-tool__media {
-		margin-top: 0;
-		flex: 1;
-	}
-}
-
-@media (min-width: 80em) {
-	.c-tool__info {
-		margin-right: 6em;
-	}
 }
 
 /*
