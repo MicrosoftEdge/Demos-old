@@ -255,6 +255,7 @@ caption {
 /* Angled edge */
 .guide-content::before {
 	top: -15vmin;
+	top: calc(-15vmin + 1px);
 	border-bottom: 15vmin solid #fff;
 }
 
@@ -1356,6 +1357,7 @@ span[zw] {
 /* Angled edge */
 .c-outro::before {
 	top: -15vmin;
+	top: calc(-15vmin + 1px);
 	border-bottom: 15vmin solid #424f5e;
 }
 
