@@ -103,7 +103,8 @@ h3, .h3 {
 
 h3, h4,
 p, ul, ol,
-pre {
+pre,
+table {
 	margin-right: auto;
 	margin-left: auto;
 	max-width: 36rem;
@@ -113,17 +114,41 @@ ul, ol {
 	padding-left: 1.25em;
 }
 
+code {
+	padding: .25em;
+	background: #f2f3f4;
+	color: #424f5e;
+}
+
 pre {
 	margin-top: 1.5em;
 }
 
 pre code {
 	display: block;
-	padding: 1em;
-	border: 3px solid #57687c;
-	font-size: 1.125em;
+	padding: 1.25em;
 	tab-size: 3;
-	color: #424f5e;
+	background: #424f5e;
+	color: #f2f3f4;
+}
+
+table {
+	margin-top: 2.5em;
+	margin-bottom: 2.5em;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+td {
+	padding: .5em .75em;
+	border-bottom: 1px solid #bdc6d1;
+	border-left: 1px solid #bdc6d1;
+}
+
+td:first-child {
+	padding-left: 0;
+	border-left: 0;
+	width: 25%;
 }
 
 @media (min-width: 36em) {
@@ -165,7 +190,7 @@ img, video {
 	height: auto;
 }
 
-.caption, figcaption {
+caption, .caption, figcaption {
 	margin-top: 1em;
 	max-width: 24em;
 	font: 350 1em/1.2 "Variable Bahnschrift", "FF DIN", "Franklin Gothic", "Helvetica Neue", sans-serif;
@@ -173,6 +198,12 @@ img, video {
 	letter-spacing: .01em;
 	text-align: left;
 	color: #666;
+}
+
+caption {
+	margin: 0 0 .75em;
+	text-transform: uppercase;
+	letter-spacing: .05em;
 }
 
 /*
@@ -346,7 +377,7 @@ img, video {
 
 	@media (min-width: 72em) {
 		.l-grid {
-			grid-template-columns: 6rem 1fr 24rem minmax(4rem, 1fr) minmax(auto, 36rem) 1fr 6rem;
+			grid-template-columns: 6rem 1fr 22rem minmax(4rem, 1fr) minmax(auto, 36rem) 1fr 6rem;
 		}
 	}
 }

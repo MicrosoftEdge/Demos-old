@@ -311,21 +311,57 @@
 					<div class="l-col-right">
 						<p>While font designers can create as many axes as they desire using whatever
 							four-character tags they want; there are currently five reserved axis tags.</p>
-						<ul>
-							<li>ital - Italic</li>
-							<li>opsz - Optical Size</li>
-							<li>slnt - Slant</li>
-							<li>wdth - Width</li>
-							<li>wght - Weight</li>
-						</ul>
+						<table>
+							<caption>Reserved axes</caption>
+							<tbody>
+								<tr>
+									<td><code>ital</code></td>
+									<td>Italic</td>
+								</tr>
+								<tr>
+									<td><code>opsz</code></td>
+									<td>Optical Size</td>
+								</tr>
+								<tr>
+									<td><code>slnt</code></td>
+									<td>Slant</td>
+								</tr>
+								<tr>
+									<td><code>wdth</code></td>
+									<td>Width</td>
+								</tr>
+								<tr>
+									<td><code>wght</code></td>
+									<td>Weight</td>
+								</tr>
+							</tbody>
+						</table>
 						<p>Wait, what? “Now we have to manipulate a font’s weight using the ‘wght’ axis rather than using the font-weight property?”. Using the font-variation-settings property is just one method of controlling variable axes. These reserved axis tags can also be manipulated by familiar CSS properties:</p>
-						<ul>
-							<li>ital - font-style: italic</li>
-							<li>opsz - font-optical-sizing</li>
-							<li>slnt - font-style: oblique + angle</li>
-							<li>wdth - font-stretch</li>
-							<li>wght - font-weight</li>
-						</ul>
+						<table>
+							<caption>Font property equivalents of reserved axes</caption>
+							<tbody>
+								<tr>
+									<td><code>ital</code></td>
+									<td>font-style: italic</td>
+								</tr>
+								<tr>
+									<td><code>opsz</code></td>
+									<td>font-optical-sizing</td>
+								</tr>
+								<tr>
+									<td><code>slnt</code></td>
+									<td>font-style: oblique + angle</td>
+								</tr>
+								<tr>
+									<td><code>wdth</code></td>
+									<td>font-stretch</td>
+								</tr>
+								<tr>
+									<td><code>wght</code></td>
+									<td>font-weight</td>
+								</tr>
+							</tbody>
+						</table>
 						<p>Because of this, the following two CSS declarations will produce identical results:</p>
 <pre><code>.someClass {
 	font-variations-settings: ‘wght’ 300, ‘ital’ 1, ‘slnt’ 45, ‘wdth’ 50%, ‘opsz’ 25;
