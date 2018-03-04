@@ -499,6 +499,7 @@ caption {
 }
 
 .c-toc__items {
+	padding-left: 0;
 	background: #2d3640;
 }
 
