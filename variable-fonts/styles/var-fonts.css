@@ -191,7 +191,7 @@ img, video {
 }
 
 caption, .caption, figcaption {
-	margin-top: 1em;
+	margin: 1em 0 0;
 	max-width: 24em;
 	font: 350 1em/1.2 "Variable Bahnschrift", "FF DIN", "Franklin Gothic", "Helvetica Neue", sans-serif;
 	font-variation-settings: "wdth" 75;
