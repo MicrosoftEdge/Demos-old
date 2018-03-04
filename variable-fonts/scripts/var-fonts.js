@@ -225,9 +225,9 @@
 
 	// start directly on click
 	document.querySelector(".poem-start").addEventListener('click', function(e) {
+		e.preventDefault();
 		document.querySelector('#poem').scrollIntoView({block: 'center',  behavior: 'smooth'});
 		startIceDriftAnimation();
-		e.preventDefault();
 		return false;
 	});
 

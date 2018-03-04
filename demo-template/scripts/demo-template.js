@@ -23,8 +23,20 @@
 		const section = pageSections[i];
 		const newLink = document.createElement('li');
 		newLink.className = 'c-toc__item';
-		newLink.innerHTML = `<a href="#${section.getAttribute('id')}"><span class="c-toc__item-flag">${section.getAttribute('data-nav-label')}</span></a>`;
+		newLink.innerHTML = `<a href="#${section.getAttribute('id')}">${section.getAttribute('data-nav-label')}</a>`;
 		demoNavItems.appendChild(newLink);
+		
+		// Smooth scroll TOC links
+		newLink.addEventListener('click', function(e) {
+			const thisHash = e.target.hash,
+			      thisID = thisHash.replace('#', '');
+			if (thisID) {
+				e.preventDefault();
+				document.getElementById(thisID).scrollIntoView({block: 'start', behavior: 'smooth'});
+				history.replaceState({}, '', window.location.pathname + thisHash);
+				return false;
+			}
+		});
 	}
 }());
 
