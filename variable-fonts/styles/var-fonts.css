@@ -374,17 +374,36 @@ caption {
 	margin-top: 1.5em;
 }
 
+.l-grid--stack-med > .l-col-right--bleed {
+	margin-top: 2em;
+}
+
 .l-grid > [class*="l-col-"]:first-child {
 	margin-top: 0;
 }
 
+@media (min-width: 36rem) {
+	.l-grid {
+		padding: 0 3rem;
+	}
+}
+
+@media (min-width: 60rem) {
+	.l-grid {
+		padding: 0 6rem;
+	}
+}
+
 @supports (display: grid) {
 	@media (min-width: 60em) {
-		.l-grid {
+		.l-grid:not(.l-grid--stack-med) {
 			display: grid;
+			padding: 0;
+		}
+
+		.l-grid {
 			grid-template-columns: 6rem 1fr 18rem minmax(4rem, 1fr) minmax(auto, 36rem) 1fr 6rem;
 			grid-gap: 4rem 0;
-			padding: 0;
 		}
 
 		.l-col-left {
@@ -408,7 +427,7 @@ caption {
 			grid-column: 1 / -1;
 		}
 
-		.l-grid > [class*="l-col-"] {
+		.l-grid:not(.l-grid--stack-med) > [class*="l-col-"] {
 			margin: 0;
 		}
 	}
@@ -416,6 +435,15 @@ caption {
 	@media (min-width: 72em) {
 		.l-grid {
 			grid-template-columns: 6rem 1fr 22rem minmax(4rem, 1fr) minmax(auto, 36rem) 1fr 6rem;
+		}
+
+		.l-grid--stack-med {
+			display: grid;
+			padding: 0;
+		}
+
+		.l-grid--stack-med > [class*="l-col-"] {
+			margin: 0;
 		}
 	}
 }
@@ -479,18 +507,32 @@ caption {
 }
 
 /*
- *	OBJECT: LONG TEXT
+ *	COMPONENT: HEADINGS THAT ARE CSS PROPERTIES
  *	---------------------------------------------
  */
 
-.o-long-text {
-	-webkit-columns: 3 16em;
-	-moz-columns: 3 16em;
-	columns: 3 16em;
-	-webkit-column-gap: 2em;
-	-moz-column-gap: 2em;
-	column-gap: 2em;
+@media (min-width: 36em) {
+	.c-property-heading {
+		white-space: nowrap;
+	}
 }
+
+@media (min-width: 36em) and (max-width: 48em) {
+	.c-property-heading {
+		font-size: 2.5em;
+	}
+}
+
+@media (min-width: 48em) and (max-width: 64em) {
+	.c-property-heading {
+		font-size: 3em;
+	}
+}
+
+/*
+ *	COMPONENT: FEATURE PARAGRAPH
+ *	---------------------------------------------
+ */
 
 .c-feature-para {
 	font-size: 1.125em;
@@ -976,6 +1018,10 @@ input:checked + label .c-toggle__hex path {
 	top: -2em;
 }
 
+.soul-wrap {
+	text-align: center;
+}
+
 @media (min-width: 60em) {
 	.soul-wrap {
 		align-self: center;
@@ -990,6 +1036,7 @@ input:checked + label .c-toggle__hex path {
 .soul {
 	display: inline-grid;
 	grid-template-columns: [lm-start] auto [lm-end cl-start] auto [cl-end cm-start] auto [cm-end cr-start] auto [cr-end co-start] auto [co-end rm-start] auto [rm-end];
+	margin: 0 auto;
 	padding: 2em;
 	font-family: "Variable Bahnschrift", "FF DIN", "Franklin Gothic", "Helvetica Neue", sans-serif;
 	color: #424f5e;
@@ -1252,10 +1299,16 @@ span[zw] {
 	margin: .75em 1.25em 1.25em;
 	width: 299px;
 	max-width: 100%;
+	max-width: calc(100% - 2.5em);
 }
 
 @media (min-width: 36em) {
+	.ticket-wrap {
+		text-align: center;
+	}
+
 	.ticket {
+		margin: 0 auto;
 		transform: rotate(-6deg);
 	}
 
