@@ -219,7 +219,7 @@
 			var centerX = box.x + box.width / 2;
 			var centerY = box.y + box.height / 2;
 			path.style.transform = 'translate(' + (centerX - svgCenterX) + 'px, ' + (centerY - svgCenterY) + 'px)';
-			path.style.opacity = '0';
+			path.style.opacity = '.3';
 		}
 	}
 
