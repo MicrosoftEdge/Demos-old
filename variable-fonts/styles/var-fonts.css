@@ -541,139 +541,6 @@ caption {
 }
 
 /*
- *	COMPONENT: TOGGLE
- *	---------------------------------------------
- */
-
-.c-toggle {
-	display: inline-block;
-	margin: 1em auto 0;
-	position: relative;
-}
-
-.c-toggle input {
-	position: absolute;
-	top: 0;
-	left: 0;
-	opacity: 0;
-}
-
-.c-toggle label,
-.c-toggle__hex,
-.c-toggle__hex path {
-	transition: all 200ms ease-out;
-}
-
-.c-toggle label {
-	position: relative;
-	padding-left: 48px;
-	color: #57687c;
-	font: 1em/1 "Variable Bahnschrift", "FF DIN", "Franklin Gothic", "Helvetica Neue", sans-serif;
-}
-
-.c-toggle label:hover {
-	cursor: pointer;
-}
-
-.c-toggle label::before,
-.c-toggle__hex {
-	display: block;
-	content: "";
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	left: 0;
-}
-
-.c-toggle label::before {
-	border: 2px solid #57687c;
-	border-radius: 18px;
-	width: 36px;
-	height: 18px;
-}
-
-.c-toggle__hex {
-	left: 6px;
-	width: 12px;
-	height: 10px;
-}
-
-/* Checked toggle */
-.c-toggle input:checked + label::before {
-	background: #57687c;
-}
-
-input:checked + label .c-toggle__hex {
-	left: 24px;
-}
-
-input:checked + label .c-toggle__hex path {
-	fill: #fff;
-}
-
-/*
- *	WORD BY WORD ANIMATIONS
- *	Used in the poem and in the Jason P. quote
- *	---------------------------------------------
- */
-
-.poem__line > span,
-.jason-quote > span {
-	color: transparent;
-	background: linear-gradient(to var(--demo-vf-reveal-direction), white 0%, white 100%, white 0px, darkgray 100%);
-	background-clip: text;
-	-webkit-background-clip: text;
-	animation: reveal-fade 1500ms forwards;
-	animation-play-state: paused;
-
-	--demo-vf-reveal-direction: left;
-}
-
-@keyframes reveal-fade {
-	from {
-		background-image: linear-gradient(to var(--demo-vf-reveal-direction), white 0%, white 100%, white 0px, darkgray 100%);
-	}
-	to {
-		background-image: linear-gradient(to var(--demo-vf-reveal-direction), white 0%, white 0%, black 0px, black 100%);
-	}
-}
-
-#no-gradient-transition-test {
-	background: linear-gradient(to right, #444 0%, #444 50%, #fff 50%, #fff 100%);
-	animation: reveal-fade-test 2s infinite forwards;
-	animation-delay: -1s;
-	animation-play-state: paused;
-}
-
-@keyframes reveal-fade-test {
-	from {
-		background-image: linear-gradient(1deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
-	}
-	to {
-		background-image: linear-gradient(1deg, rgba(0, 0, 0, 0.5) 0%, rgba(128, 128, 128, 0.5) 100%);
-	}
-}
-
-.no-gradient-transition .poem__line > span,
-.no-gradient-transition .jason-quote > span {
-	background: linear-gradient(to right, #444 0%, #444 50%, #fff 50%, #fff 100%);
-	background-position-x: 100%;
-	background-size: 200%;
-	background-clip: text;
-	-webkit-background-clip: text;
-	animation-name: reveal-fade-fallback;
-}
-
-@keyframes reveal-fade-fallback {
-	from {
-		background-position-x: 100%;
-	}
-	to {
-		background-position-x: 0%;
-	}
-}
-
-/*
  *	INTRO / POEM
  *	=============================================
  */
@@ -782,21 +649,6 @@ input:checked + label .c-toggle__hex path {
 	outline: .33em solid hsla(0, 0%, 0%, .33);
 }
 
-.ice-floes {
-	display: block;
-	position: fixed;
-	z-index: 1;
-	top: 50%;
-	margin-top: -360px;
-	left: 50%;
-	margin-left: -683px;
-}
-
-.ice-floes > path {
-	transform: translate(0, 0);
-	transition: transform 5s ease-out, opacity 5s  ease-in-out;
-}
-
 .poem-viewer {
 	position: relative;
 	z-index: 20;
@@ -877,6 +729,60 @@ input:checked + label .c-toggle__hex path {
 /* Don't break animated phrases between lines */
 .poem__line span[class] {
 	white-space: nowrap;
+}
+
+.poem__line > span {
+	color: transparent;
+	background: linear-gradient(to var(--demo-vf-reveal-direction), white 0%, white 100%, white 0px, darkgray 100%);
+	background-clip: text;
+	-webkit-background-clip: text;
+	animation: reveal-fade 1500ms forwards;
+	animation-play-state: paused;
+
+	--demo-vf-reveal-direction: left;
+}
+
+@keyframes reveal-fade {
+	from {
+		background-image: linear-gradient(to var(--demo-vf-reveal-direction), white 0%, white 100%, white 0px, darkgray 100%);
+	}
+	to {
+		background-image: linear-gradient(to var(--demo-vf-reveal-direction), white 0%, white 0%, black 0px, black 100%);
+	}
+}
+
+#no-gradient-transition-test {
+	background: linear-gradient(to right, #444 0%, #444 50%, #fff 50%, #fff 100%);
+	animation: reveal-fade-test 2s infinite forwards;
+	animation-delay: -1s;
+	animation-play-state: paused;
+}
+
+@keyframes reveal-fade-test {
+	from {
+		background-image: linear-gradient(1deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
+	}
+	to {
+		background-image: linear-gradient(1deg, rgba(0, 0, 0, 0.5) 0%, rgba(128, 128, 128, 0.5) 100%);
+	}
+}
+
+.no-gradient-transition .poem__line > span {
+	background: linear-gradient(to right, #444 0%, #444 50%, #fff 50%, #fff 100%);
+	background-position-x: 100%;
+	background-size: 200%;
+	background-clip: text;
+	-webkit-background-clip: text;
+	animation-name: reveal-fade-fallback;
+}
+
+@keyframes reveal-fade-fallback {
+	from {
+		background-position-x: 100%;
+	}
+	to {
+		background-position-x: 0%;
+	}
 }
 
 /* Phrase animations; have the end state set on page load (and reset on current slide) so layout calculates correctly */
@@ -991,6 +897,21 @@ input:checked + label .c-toggle__hex path {
 	.poem__controls {
 		margin: 0 4em 3.25em;
 	}
+}
+
+.ice-floes {
+	display: block;
+	position: fixed;
+	z-index: 1;
+	top: 50%;
+	margin-top: -360px;
+	left: 50%;
+	margin-left: -683px;
+}
+
+.ice-floes > path {
+	transform: translate(0, 0);
+	transition: transform 5s ease-out, opacity 5s  ease-in-out;
 }
 
 @media (min-width: 85em) and (min-height: 44em) {
