@@ -107,7 +107,7 @@ pre,
 table {
 	margin-right: auto;
 	margin-left: auto;
-	max-width: 36rem;
+	max-width: 32rem;
 }
 
 code {
@@ -653,7 +653,7 @@ caption {
 	z-index: 20;
 	margin: 3em auto;
 	width: 90%;
-	max-width: 36rem;
+	max-width: 32rem;
 	overflow: hidden;
 	background: #fff;
 }
@@ -906,13 +906,6 @@ caption {
 
 	.poem__controls {
 		margin: 0 4em 3.25em;
-	}
-
-	/* When window is taller, force a taller aspect ratio on poem viewer */
-	@media (min-height: 64em) {
-		.poem__slide {
-			padding-bottom: 6em;
-		}
 	}
 }
 
