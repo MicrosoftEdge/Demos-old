@@ -269,7 +269,7 @@
 						<div class="l-col-right">
 							<p> We utilized the variable font, “Bahnschrift” by Microsoft, and pivoted the various axes to match that of sentence number one. To adjust an axis in CSS, you can utilize font-variation-settings, like so:</p>
 							<p><mark>Insert example</mark></p>
-							<p>What the above code does is modify the font’s weight axis to 400. If you want to adjust numerous axes at once, you can do that by simply adding additional axes separated by a comma. Here’s an example of manipulating multiple axes to create a beautifully designed ticket.</p>
+							<p>What the above code does is modify the font’s weight axis to 400.</p>
 						</div>
 					</div>
 					<div class="l-subsection l-subsection--banner l-subsection--banner-angled">
@@ -283,26 +283,36 @@
 											<span class="u-upper ticket__co-subname">Boating Adventures</span>
 										</div>
 									</div>
-									<p class="ticket__route">Winter Wonderland</p>
-									<p class="ticket__description">A four-hour tour of the Strait of Garamond</p>
-									<div class="ticket__timing">
-										<p>
-											<span class="u-upper ticket__small-label">Date</span>
-											<span class="ticket__detail">Jan 27</span>
-										</p>
-										<p>
-											<span class="u-upper ticket__small-label">Launch</span>
-											<span class="ticket__detail">10:30 am</span>
-										</p>
-										<p>
-											<span class="u-upper ticket__small-label">Boarding</span>
-											<span class="ticket__detail">10:00 am</span>
-										</p>
+									<div class="ticket__body">
+										<p class="ticket__route">Winter Wonderland</p>
+										<p class="ticket__description">A four-hour tour of the Strait of Garamond</p>
+										<div class="ticket__timing">
+											<p>
+												<span class="u-upper ticket__small-label">Date</span>
+												<span class="ticket__detail">Jan 27</span>
+											</p>
+											<p>
+												<span class="u-upper ticket__small-label">Launch</span>
+												<span class="ticket__detail">10:30 am</span>
+											</p>
+											<p>
+												<span class="u-upper ticket__small-label">Boarding</span>
+												<span class="ticket__detail">10:00 am</span>
+											</p>
+										</div>
+										<p class="ticket__fine-print">This ticket cannot be transferred to another voyage</p>
+										<p class="u-upper ticket__admit">Admit one adult</p>
+										<img class="ticket__barcode" src="images/barcode.png" alt="Fake barcode" />
 									</div>
-									<p class="ticket__fine-print">This ticket cannot be transferred to another voyage</p>
-									<p class="u-upper ticket__admit">Admit one adult</p>
-									<img class="ticket__barcode" src="images/barcode.png" alt="Fake barcode" />
 								</div>
+							</div>
+							<div class="l-col-left ticket-info">
+								<h3>Adjusting multiple axes</h3>
+								<p>If you want to adjust multiple axes on an element, you can do that by listing out axes separated by a comma. For example, the “Variable Tides” company name on this ticket has both a weight and a width adjustment:</p>
+<pre><code>.ticket__co-name {
+	font-variation-settings: "wght" 500, "wdth" 75;
+}
+</code></pre>
 							</div>
 						</div>
 					</div>
