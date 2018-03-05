@@ -362,8 +362,10 @@ caption {
 
 /* Match .l-contain */
 .l-grid {
-	padding: 0 1.25rem;
+	margin-right: auto;
+	margin-left: auto;
 	max-width: 100rem;
+	padding: 0 1.25rem;
 }
 
 .l-grid > [class*="l-col-"] {
