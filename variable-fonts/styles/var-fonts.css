@@ -653,7 +653,7 @@ caption {
 	z-index: 20;
 	margin: 3em auto;
 	width: 90%;
-	max-width: 32rem;
+	max-width: 36rem;
 	overflow: hidden;
 	background: #fff;
 }
@@ -708,17 +708,18 @@ caption {
 }
 
 .poem__stanza {
-	/* For indented wrapped lines of poetry */
-	margin-left: 1em;
+	margin-top: 1.5em;
 	text-align: left;
+}
+
+.poem__stanza:first-child {
+	margin-top: 0;
 }
 
 .poem__line {
 	display: block;
-	margin-top: .25em;
-
-	/* Indent wrapped lines of poetry */
-	text-indent: -1em;
+	margin-top: .5em;
+	line-height: 1.3;
 }
 
 .poem__line:first-child {
@@ -886,7 +887,7 @@ caption {
 	}
 
 	.poem__slide {
-		padding: 4em;
+		padding: 2.75em;
 	}
 
 	.poem__stanza {
@@ -894,7 +895,24 @@ caption {
 	}
 
 	.poem__controls {
+		margin: 0 2.75em 2em;
+	}
+}
+
+@media (min-width: 48em) {
+	.poem__slide {
+		padding: 4em;
+	}
+
+	.poem__controls {
 		margin: 0 4em 3.25em;
+	}
+
+	/* When window is taller, force a taller aspect ratio on poem viewer */
+	@media (min-height: 64em) {
+		.poem__slide {
+			padding-bottom: 6em;
+		}
 	}
 }
 
