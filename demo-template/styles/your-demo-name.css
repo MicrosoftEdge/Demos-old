@@ -127,8 +127,25 @@ a:hover {
  */
 
 .c-intro {
-	background: #f4f4f4;
+	background: #f9f9f9;
 	text-align: center;
+}
+
+/*
+ *	LAYOUT: "BANNER" SECTIONS
+ *	---------------------------------------------
+ */
+
+.l-section--banner,
+.l-subsection--banner {
+	background: #f2f2f2;
+}
+
+.l-section--bannert a:link,
+.l-section--banner a:visited,
+.l-subsection--banner a:link,
+.l-subsection--banner a:visited {
+	color: #0067b8;
 }
 
 /*
