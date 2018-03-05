@@ -123,24 +123,42 @@
 				for (var stanzaLine of slide.querySelectorAll('.poem__line')) {
 					var stanzaWords = stanzaLine.querySelectorAll('span');
 					var lines = [], currentLine = null, lineDuration = 0, lastOffset = Number.NEGATIVE_INFINITY, lastClass = '';
+
+					// divide the poem words into animated lines or semi-lines
 					for (var word of stanzaWords) {
 						if (word.offsetLeft <= lastOffset || word.className !== lastClass || currentLine === null) {
+
+							// finalize the current line, if any
 							if (currentLine) {
 								currentLine.style.animationDuration = lineDuration + 'ms';
 								pendingDuration += lineDuration;
 								lineDuration = 0;
+
+								// if the next line is a semi-line, add the special animation delay modifier
 								if (word.offsetLeft <= lastOffset) {
 									pendingDuration += lineByLineSemiInterval;
 								}
+
+								// if the previous line hadd to be axis-animated, we have to delay more
 								if (lastClass) {
 									pendingDuration += timeReservedForAxisTransition;
 								}
 							}
+
+							// create the next line
 							currentLine = document.createElement('span');
 							currentLine.style.animationDelay = (pendingDuration) + 'ms';
 							pendingDuration += lineByLineInterval;
 							lines.push(currentLine);
+
+							// if the current line is a semi-line, we want to indent it
+							if (word.offsetLeft <= lastOffset) {
+								currentLine.style.position = 'relative';
+								currentLine.style.left = '1em';
+							}
 						}
+
+						// add the current word to the current line
 						lastOffset = word.offsetLeft + word.offsetWidth;
 						lastClass = word.className;
 						const newWord = word.cloneNode(true);
@@ -152,9 +170,13 @@
 						currentLine.appendChild(newWord);
 						currentLine.appendChild(document.createTextNode(' '));
 					}
+
+					// finalize the last line
 					currentLine.style.animationDuration = lineDuration + 'ms';
 					pendingDuration += lineDuration + lineByLineInterval;
 					lineDuration = 0;
+
+					// replace the default content by the new lines
 					stanzaLine.textContent = '';
 					for (var line of lines) {
 						stanzaLine.appendChild(line);

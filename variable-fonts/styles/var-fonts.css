@@ -107,7 +107,7 @@ pre,
 table {
 	margin-right: auto;
 	margin-left: auto;
-	max-width: 36rem;
+	max-width: 32rem;
 }
 
 code {
@@ -362,8 +362,10 @@ caption {
 
 /* Match .l-contain */
 .l-grid {
-	padding: 0 1.25rem;
+	margin-right: auto;
+	margin-left: auto;
 	max-width: 100rem;
+	padding: 0 1.25rem;
 }
 
 .l-grid > [class*="l-col-"] {
@@ -706,17 +708,18 @@ caption {
 }
 
 .poem__stanza {
-	/* For indented wrapped lines of poetry */
-	margin-left: 1em;
+	margin-top: 1.5em;
 	text-align: left;
+}
+
+.poem__stanza:first-child {
+	margin-top: 0;
 }
 
 .poem__line {
 	display: block;
-	margin-top: .25em;
-
-	/* Indent wrapped lines of poetry */
-	text-indent: -1em;
+	margin-top: .5em;
+	line-height: 1.3;
 }
 
 .poem__line:first-child {
@@ -884,11 +887,21 @@ caption {
 	}
 
 	.poem__slide {
-		padding: 4em;
+		padding: 2.75em;
 	}
 
 	.poem__stanza {
 		font-size: 1.25em;
+	}
+
+	.poem__controls {
+		margin: 0 2.75em 2em;
+	}
+}
+
+@media (min-width: 48em) {
+	.poem__slide {
+		padding: 4em;
 	}
 
 	.poem__controls {
