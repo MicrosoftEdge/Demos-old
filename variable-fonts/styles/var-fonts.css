@@ -110,10 +110,6 @@ table {
 	max-width: 36rem;
 }
 
-ul, ol {
-	padding-left: 1.25em;
-}
-
 code {
 	padding: .25em;
 	background: #f2f3f4;

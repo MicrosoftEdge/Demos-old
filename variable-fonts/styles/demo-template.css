@@ -121,7 +121,7 @@ p, ul, ol {
 }
 
 ul, ol {
-	margin-left: 1em;
+	padding-left: 1.25em;
 }
 
 p:first-child, ul:first-child, ol:first-child {
@@ -173,6 +173,7 @@ button {
 /* Simple list */
 .u-simple-list {
 	margin: 0;
+	padding: 0;
 	max-width: 100%;
 	list-style: none;
 }
@@ -186,6 +187,7 @@ button {
  */
 
 .c-nav-bar {
+	position: fixed;
 	position: sticky;
 	top: 0;
 	width: 100%;
@@ -206,6 +208,10 @@ button {
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+}
+
+.c-nav-bar__breadcrumb li + li {
+	margin-top: 0;
 }
 
 .c-nav-bar__title {
