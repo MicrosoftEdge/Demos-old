@@ -850,12 +850,12 @@ main button {
 	animation: boldish 300ms forwards;
 }
 
-.poem__slide:not([data-current]) .poem__line > span > .bolden {
-	font-weight: 700 !important; animation: none !important;
+.poem__slide:not([data-current]) .bolden {
+	font-weight: 700 !important;
 }
 
-.poem__slide:not([data-current]) .poem__line > span > .boldish {
-	font-weight: 600 !important; animation: none !important;
+.poem__slide:not([data-current]) .boldish {
+	font-weight: 600 !important;
 }
 
 .poem__line > span > .space-out {
