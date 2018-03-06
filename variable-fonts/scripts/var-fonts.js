@@ -148,7 +148,7 @@
 				}, 400);
 			} else {
 				poemIndex--;
-				poem.style.transform = 'translateX(-' + ((poemIndex - 1) * slidePaneWidth) + ')';
+				poem.style.transform = 'translateX(-' + ((poemIndex - 1) * slidePaneWidth) + '%)';
 
 				// Timeout = transition timing of the poem transform
 				setTimeout(function(){
