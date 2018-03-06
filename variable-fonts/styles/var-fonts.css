@@ -913,10 +913,11 @@ caption {
 	display: block;
 	position: fixed;
 	z-index: 1;
-	top: 50%;
-	margin-top: -360px;
+	top: 0;
 	left: 50%;
 	margin-left: -683px;
+	width: 1366px;
+	height: 100%;
 }
 
 .ice-floes > path {
@@ -926,12 +927,9 @@ caption {
 
 @media (min-width: 85em) and (min-height: 44em) {
 	.ice-floes {
-		top: 50%;
-		transform: translateY(-50%);
 		left: 0;
 		margin: 0;
 		width: 100%;
-		height: auto;
 	}
 }
 
