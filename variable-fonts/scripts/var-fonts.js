@@ -1,5 +1,5 @@
 /* eslint-env browser */
-/* eslint-disable no-var, prefer-template, strict, prefer-arrow-callback, object-shorthand, no-continue */
+/* eslint-disable no-var, prefer-template, strict, prefer-arrow-callback, object-shorthand, no-continue, no-undefined, no-constant-condition */
 /*globals event*/
 
 /*
@@ -48,7 +48,7 @@
 	};
 
 	/* Render alert if font-variation-settings isn't supported */
-	if (window.CSS === undefined || !CSS.supports('font-variation-settings', '"wdth" 100')) {
+	if (window.CSS === undefined || !CSS.supports('font-variation-settings', '"wdth" 100')) { //no-undefined
 		insertAlert();
 	}
 }());
@@ -174,7 +174,6 @@
 					// divide the poem words into animated lines or semi-lines
 					for (var word of stanzaWords) {
 						if (word.offsetLeft <= lastOffset || word.className !== lastClass || currentLine === null) {
-
 							// finalize the current line, if any
 							if (currentLine) {
 								currentLine.style.animationDuration = lineDuration + 'ms';
@@ -270,32 +269,32 @@
 		const gradientDetector = Object.assign(document.body.appendChild(document.createElement('div')), { id: 'no-gradient-transition-test' });
 		requestAnimationFrame(function() {
 			console.log(getComputedStyle(gradientDetector).backgroundImage);
-			if(getComputedStyle(gradientDetector).backgroundImage != 'linear-gradient(1deg, rgba(0, 0, 0, 0.5) 0%, rgba(102, 102, 102, 0.5) 100%)') {
+			if (getComputedStyle(gradientDetector).backgroundImage !== 'linear-gradient(1deg, rgba(0, 0, 0, 0.5) 0%, rgba(102, 102, 102, 0.5) 100%)') {
 				document.documentElement.classList.add('no-gradient-transition');
 			}
 			gradientDetector.remove();
-		})
-	}
+		});
+	};
 	detectGradientTransitionSupport();
 
 	// ICE DRIFT ANIMATION
 	const startIceDriftAnimation = function() {
 		var svgBox = document.querySelector('.ice-floes').getBBox();
-		var svgCenterX = svgBox.x + svgBox.width / 2;
-		var svgCenterY = svgBox.y + svgBox.height / 2;
-		for(var path of document.querySelectorAll('.ice-floes > path')) {
+		var svgCenterX = (svgBox.x + svgBox.width) / 2;
+		var svgCenterY = (svgBox.y + svgBox.height) / 2;
+		for (var path of document.querySelectorAll('.ice-floes > path')) {
 			var box = path.getBBox();
-			var centerX = box.x + box.width / 2;
-			var centerY = box.y + box.height / 2;
+			var centerX = (box.x + box.width) / 2;
+			var centerY = (box.y + box.height) / 2;
 			path.style.transform = 'translate(' + (centerX - svgCenterX) + 'px, ' + (centerY - svgCenterY) + 'px)';
 			path.style.opacity = '.3';
 		}
-	}
+	};
 
 	// start directly on click
-	document.querySelector(".poem-start").addEventListener('click', function(e) {
+	document.querySelector('.poem-start').addEventListener('click', function(e) {
 		e.preventDefault();
-		document.querySelector('#poem').scrollIntoView({block: 'center',  behavior: 'smooth'});
+		document.querySelector('#poem').scrollIntoView({block: 'center', behavior: 'smooth'});
 		startIceDriftAnimation();
 		return false;
 	});
@@ -303,9 +302,10 @@
 	// also start once scrolling has revealed 10% of the poem
 	const poemZoneObserver = new IntersectionObserver((entries) => {
 		return entries.forEach((e) => {
-			if(e.intersectionRatio >= 0.1) startIceDriftAnimation();
+			if (e.intersectionRatio >= 0.1) {
+				startIceDriftAnimation();
+			}
 		});
 	}, { threshold: 0.1 });
 	poemZoneObserver.observe(document.querySelector('#poem'));
-
 }());
