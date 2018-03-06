@@ -323,7 +323,9 @@
 			var box = path.getBBox();
 			var centerX = box.x + (box.width / 2);
 			var centerY = box.y + (box.height / 2);
-			path.style.transform = 'translate(' + (centerX - svgCenterX)/2 + 'px, ' + (centerY - svgCenterY)/2 + 'px)';
+			var dx = (centerX - svgCenterX) / 2;
+			var dy = (centerY - svgCenterY) / 2;
+			path.style.transform = 'translate(' + dx + 'px, ' + dy + 'px)';
 			path.style.opacity = '.3';
 		}
 	};
