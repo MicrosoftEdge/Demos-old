@@ -793,18 +793,19 @@ caption {
 }
 
 .poem__line > span > .bolden {
-	font-weight: 700;
 	animation: bolden 300ms forwards;
 }
 
 .poem__line > span > .boldish {
-	font-weight: 600;
 	animation: boldish 300ms forwards;
 }
 
-.poem__slide[data-current] .poem__line > span > .bolden,
-.poem__slide[data-current] .poem__line > span > .boldish {
-	font-weight: 400;
+.poem__slide:not([data-current]) .poem__line > span > .bolden {
+	font-weight: 700 !important; animation: none !important;
+}
+
+.poem__slide:not([data-current]) .poem__line > span > .boldish {
+	font-weight: 600 !important; animation: none !important;
 }
 
 .poem__line > span > .space-out {

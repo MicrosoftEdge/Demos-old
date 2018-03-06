@@ -198,7 +198,7 @@
 							lines.push(currentLine);
 
 							// if the current line is a semi-line, we want to indent it
-							if (word.offsetLeft <= lastOffset) {
+							if (word.offsetLeft <= lastOffset || (word.className !== lastClass && lines.length > 1 && lines[lines.length - 2].style.left === '1em')) {
 								currentLine.style.position = 'relative';
 								currentLine.style.left = '1em';
 							}
