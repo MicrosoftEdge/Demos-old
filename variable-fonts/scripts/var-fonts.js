@@ -26,7 +26,7 @@
 	};
 
 	var insertAlert = function() {
-		var featureAlertMsg = '<strong>Notice:</strong> This page demonstrates Variable Fonts, which is not supported in your browser version. For the full experience, please view in Microsoft Edge build 17074+ or <a href="https://developer.microsoft.com/en-us/microsoft-edge/platform/status/fontvariationpropertieswithopentypevariablefontsupport/">any browser that supports Variable Fonts</a>.',
+		var featureAlertMsg = '<strong>Notice:</strong> This page demonstrates variable fonts, which is not supported in your browser version. For the full experience, please view in Microsoft Edge build 17074+ or <a href="https://developer.microsoft.com/en-us/microsoft-edge/platform/status/fontvariationpropertieswithopentypevariablefontsupport/">any browser that supports variable fonts</a>.',
 			featureAlert = document.createElement('div');
 
 		featureAlert.className = 'c-alert c-alert--error';
