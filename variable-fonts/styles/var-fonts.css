@@ -851,18 +851,19 @@ main button {
 }
 
 .poem__line > span > .bolden {
-	font-weight: 700;
 	animation: bolden 300ms forwards;
 }
 
 .poem__line > span > .boldish {
-	font-weight: 600;
 	animation: boldish 300ms forwards;
 }
 
-.poem__slide[data-current] .poem__line > span > .bolden,
-.poem__slide[data-current] .poem__line > span > .boldish {
-	font-weight: 400;
+.poem__slide:not([data-current]) .bolden {
+	font-weight: 700 !important;
+}
+
+.poem__slide:not([data-current]) .boldish {
+	font-weight: 600 !important;
 }
 
 .poem__line > span > .space-out {

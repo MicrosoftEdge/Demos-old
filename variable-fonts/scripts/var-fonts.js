@@ -129,7 +129,7 @@
 
 			if (slideDir === 'next') {
 				poemIndex++;
-				poem.style.transform = 'translateX(-' + ((poemIndex - 1) * slidePaneWidth) + ')';
+				poem.style.transform = 'translateX(-' + ((poemIndex - 1) * slidePaneWidth) + '%)';
 
 				// Timeout = transition timing of the poem transform
 				setTimeout(function(){
@@ -148,7 +148,7 @@
 				}, 400);
 			} else {
 				poemIndex--;
-				poem.style.transform = 'translateX(-' + ((poemIndex - 1) * slidePaneWidth) + ')';
+				poem.style.transform = 'translateX(-' + ((poemIndex - 1) * slidePaneWidth) + '%)';
 
 				// Timeout = transition timing of the poem transform
 				setTimeout(function(){
@@ -235,7 +235,7 @@
 							lines.push(currentLine);
 
 							// if the current line is a semi-line, we want to indent it
-							if (word.offsetLeft <= lastOffset) {
+							if (word.offsetLeft <= lastOffset || (word.className !== lastClass && lines.length > 1 && lines[lines.length - 2].style.left === '1em')) {
 								currentLine.style.position = 'relative';
 								currentLine.style.left = '1em';
 							}
@@ -317,12 +317,12 @@
 	// ICE DRIFT ANIMATION
 	const startIceDriftAnimation = function() {
 		var svgBox = document.querySelector('.ice-floes').getBBox();
-		var svgCenterX = (svgBox.x + svgBox.width) / 2;
-		var svgCenterY = (svgBox.y + svgBox.height) / 2;
+		var svgCenterX = svgBox.x + (svgBox.width / 2);
+		var svgCenterY = svgBox.y + (svgBox.height / 2);
 		for (var path of document.querySelectorAll('.ice-floes > path')) {
 			var box = path.getBBox();
-			var centerX = (box.x + box.width) / 2;
-			var centerY = (box.y + box.height) / 2;
+			var centerX = box.x + (box.width / 2);
+			var centerY = box.y + (box.height / 2);
 			path.style.transform = 'translate(' + (centerX - svgCenterX) + 'px, ' + (centerY - svgCenterY) + 'px)';
 			path.style.opacity = '.3';
 		}
