@@ -238,6 +238,7 @@ pre {
 }
 
 /* Focus styles are in your-demo-name.css */
+.c-toc__btn:hover,
 .c-toc__btn:focus,
 .c-toc__item a:focus {
 	outline: 0;
@@ -435,10 +436,7 @@ pre {
 	z-index: 8880;
 	right: 1em;
 	bottom: 1em;
-	padding: .5em .75em;
 	font-size: .875em;
-	opacity: 0;
-	transition: opacity 400ms ease-out;
 }
 
 .c-toggle-anim__state {
@@ -447,7 +445,6 @@ pre {
 
 body.has-js .c-toggle-anim {
 	display: block;
-	opacity: 1;
 }
 
 /*

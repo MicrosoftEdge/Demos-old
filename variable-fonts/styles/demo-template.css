@@ -154,11 +154,29 @@ pre {
  *	---------------------------------------------
  */
 
-button {
+ button {
+	padding: .5em .75em;
 	border: 0;
 	border-radius: 0;
 	font: inherit;
+	line-height: 1;
 	-webkit-appearance: none;
+	background-color: #ccc;
+	color: #000;
+}
+
+button:hover,
+button:focus {
+	outline: 2px solid hsla(0, 0%, 0%, .4);
+	outline-offset: 0;
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+button:active {
+	background-color: hsla(0, 0%, 0%, 0.4);
 }
 
 /*
@@ -251,6 +269,7 @@ button {
 }
 
 /* Focus styles are in your-demo-name.css */
+.c-toc__btn:hover,
 .c-toc__btn:focus,
 .c-toc__item a:focus {
 	outline: 0;
@@ -434,6 +453,28 @@ button {
 	.c-alert__dismiss {
 		margin-right: -1em;
 	}
+}
+
+/*
+ *	COMPONENT: TOGGLE ANIMATIONS BUTTON
+ *	---------------------------------------------
+ */
+
+.c-toggle-anim {
+	display: none;
+	position: fixed;
+	z-index: 8880;
+	right: 1em;
+	bottom: 1em;
+	font-size: .875em;
+}
+
+.c-toggle-anim__state {
+	font-weight: 700;
+}
+
+body.has-js .c-toggle-anim {
+	display: block;
 }
 
 /*
