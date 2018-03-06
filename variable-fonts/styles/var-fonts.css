@@ -980,6 +980,8 @@ main button {
 	margin-left: -683px;
 	width: 1366px;
 	height: 100%;
+	transform: translateZ(0);
+	will-change: transform;
 }
 
 .ice-floes > path {
