@@ -135,13 +135,21 @@ table {
 	width: 100%;
 }
 
+table:first-child {
+	margin-top: 0;
+}
+
+th, td {
+	padding: 10px;
+	padding: .5rem .75rem;
+}
+
 td {
-	padding: .5em .75em;
 	border-bottom: 1px solid #bdc6d1;
 	border-left: 1px solid #bdc6d1;
 }
 
-td:first-child {
+th, td:first-child {
 	padding-left: 0;
 	border-left: 0;
 	width: 25%;
@@ -183,7 +191,7 @@ img, video {
 	margin: 1em auto 0;
 }
 
-caption, .caption, figcaption {
+caption, thead, .caption, figcaption {
 	max-width: 34rem;
 	font-weight: 350;
 	font: 1em/1.2 "Variable Bahnschrift", "FF DIN", "Franklin Gothic", "Helvetica Neue", sans-serif;
@@ -193,7 +201,7 @@ caption, .caption, figcaption {
 	color: #666;
 }
 
-caption {
+caption, thead {
 	margin: 0 0 .75em;
 	text-transform: uppercase;
 	letter-spacing: .05em;
@@ -1404,8 +1412,24 @@ span[zw] {
  *	=============================================
  */
 
-.vf-optical-sizing {
+.vf-optical-sizing table {
+	max-width: 100%;
+}
+
+.vf-optical-sizing tbody {
 	font-family: "Variable Sitka";
+}
+
+.vf-optical-sizing th,
+.vf-optical-sizing td {
+	padding: 1rem 1.25rem;
+	line-height: 1;
+}
+
+.vf-optical-sizing th:first-child,
+.vf-optical-sizing td:first-child {
+	padding-left: 0;
+	width: auto;
 }
 
 .vf-optical-sizing__off {
