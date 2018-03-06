@@ -361,6 +361,8 @@ button {
  */
 
 .c-alert {
+	position: relative;
+	z-index: 9000;
 	background: #f2f2f2;
 }
 
@@ -384,6 +386,8 @@ button {
 }
 
 .c-alert__message {
+	margin: 0;
+	max-width: 44rem;
 	padding: 1em 0;
 	padding: 1rem 0;
 	font-size: .813em;

@@ -23,7 +23,7 @@
 		const section = pageSections[i];
 		const newLink = document.createElement('li');
 		newLink.className = 'c-toc__item';
-		newLink.innerHTML = `<a href="#${section.getAttribute('id')}">${section.getAttribute('data-nav-label')}</a>`;
+		newLink.innerHTML = '<a href="#' + section.getAttribute('id') + '">' + section.getAttribute('data-nav-label') + '</a>';
 		demoNavItems.appendChild(newLink);
 		
 		// Smooth scroll TOC links
