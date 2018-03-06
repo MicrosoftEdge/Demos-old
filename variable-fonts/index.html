@@ -9,6 +9,7 @@
 	<meta name="keywords" content="CSS, web typography">
 	<meta name="author" content="melanierichards, gregwhitworth, FremyCompany">
 
+	<link rel="stylesheet" href="https://use.typekit.net/gcs2hsx.css">
 	<link rel="stylesheet" href="https://az813057.vo.msecnd.net/testdrive/var-fonts/font-declarations.css">
 	<link rel="stylesheet" href="styles/demo-template.css">
 	<link rel="stylesheet" href="styles/var-fonts.css">
@@ -232,8 +233,19 @@
 					</figure>
 					<div class="l-col-right">
 						<p>Delivering this “soul” using web fonts with regular OpenType fonts required web developers to include every different font file for the various font variants the designer chose. Take the following simple example:</p>
+
+						<!-- DEMO -->
+						<p class="tk-europa">1. This
+								<span style="font-weight: 700">sentence</span><!-- bold -->
+								is <!-- Regular -->
+								<span style="font-weight: 300;">composed</span><!-- Light -->
+								from
+								<span style="font-weight: 300; font-style: italic;">six</span><!-- Light Italic -->
+								<span style="font-weight: 700; font-style: italic;">different</span><!-- Bold Italic -->
+								<span style="font-style: italic">non-variable</span><!-- Italic -->
+								font files.
+							</p>
 						<p>To achieve the look in the previous sentence we had to download over 150Kb split across six different files. As a result of needing to download every type face, web developers quickly found that for every beautiful font that a designer added to a site it had a noticeable impact on the performance and overall experience to the end user. So much to the point that font services, such as Adobe’s TypeKit has added in heuristics to warn web developers about the impact these fonts can have on their end users.</p>
-						<p>Similarly, many web developers have advocated a return to system font stacks, prioritizing performance over brand cohesion or design differentiation. Performance has the potential for major impact on user experience and a business's bottom line, and so the web community needed to figure out how to balance this priority against the desire for beautiful typography.</p>
 					</div>
 				</div>
 			</section>
@@ -245,13 +257,34 @@
 				</header>
 				<div class="l-grid l-section__body">
 					<figure class="l-col-left">
-						<mark>Insert Image</mark>
+						<img src="images/bahnschrift-letter-e-800.jpg" />
 					</figure>
 					<div class="l-col-right">
-						<p><mark>I think we could beef up this section more.</mark></p>
+						<p>Similarly, many web developers have advocated a return to system font stacks, prioritizing performance over brand cohesion or design differentiation. Performance has the potential for major impact on user experience and a business's bottom line, and so the web community needed to figure out how to balance this priority against the desire for beautiful typography.</p>
 						<p>To help solve this problem, one of the most impactful changes was made to the OpenType font format in collaboration by Adobe, Apple, Google, Microsoft and others. The solution was to enable font designers to provide various axes that could be adjusted dynamically by the software rendering the font, such as a web browser.</p>
 						<p>To show the beauty of this simple, but powerful capability; let’s achieve a similar designed sentence as our previous example, but this time using a single variable font.</p>
-						<p><mark>Insert Example</mark></p>
+
+						<!-- DEMO -->
+						<p class="tk-europa">1. This
+							<span style="font-weight: 700">sentence</span><!-- bold -->
+							is <!-- Regular -->
+							<span style="font-weight: 300;">composed</span><!-- Light -->
+							from
+							<span style="font-weight: 300; font-style: italic;">six</span><!-- Light Italic -->
+							<span style="font-weight: 700; font-style: italic;">different</span><!-- Bold Italic -->
+							<span style="font-style: italic">non-variable</span><!-- Italic -->
+							font files.
+						</p>
+						<p class="variable-font">2. This
+							<span style="font-weight: 700">sentence</span><!-- bold -->
+							is <!-- Regular -->
+							<span style="font-weight: 300;">composed</span><!-- Light -->
+							from
+							<span style="font-weight: 300; font-style: italic;">one</span><!-- Light Italic -->
+							<span style="font-weight: 700; font-style: italic;">variable</span><!-- Bold Italic -->
+							<span style="font-style: italic">variable</span><!-- Italic -->
+							font.
+						</p>
 					</div>
 				</div>
 			</section>
@@ -260,7 +293,7 @@
 			<section id="font-variation-settings" data-nav-label="font-variation-settings" class="l-section l-section--timeline">
 				<header class="l-contain l-section__header">
 					<p class="h4">Using Variable Fonts</p>
-					<h2 class="c-property-heading">font-variation-settings</h2>
+					<h2 class="c-property-heading" style="font-feature-settings: 'kern' 1, 'liga' 1;">font-variation-settings</h2>
 				</header>
 				<div class="l-section__body">
 					<div class="l-grid">
@@ -389,7 +422,9 @@
 					<h3 class="l-col-left">Animating axes</h3>
 					<p class="l-col-right">Now that we’ve covered what variable fonts are and how they can be used, it’s important to note that they can also be animated and interpolated. As you can see in the following example using only the Decovar font and its astounding 15 different axes we created a rich animated experience:</p>
 
-					<iframe class="l-col-full" src="one-font.html" style="width: 100%; height: 300px;"></iframe>
+					<div class="l-col-full vf-decovar">
+						<span class="vf-decovar__text">A single font</span>
+					</div>
 				</div>
 			</section>
 
@@ -402,13 +437,23 @@
 				<div class="l-grid l-section__body">
 					<p class="l-col-left">In a font of standard construction, the same weight across varying sizes can look inconsistent. A light weight might feel too wispy at a caption size; a bold weight commands a little too much attention at heading sizes, or it looks clunky at a particular size. To help ensure that these weights carry a consistent mood and bar of quality across sizes, some variable fonts support an axis called optical size. This can be controlled via the font-optical-sizing property. It has two values, auto and none. This is similar to what has been done in the printing industry for years.</p>
 					<figure class="l-col-right">
-						<p><mark>Insert image</mark></p>
-						<figcaption>An example of optical size adjustment in print from the CSS Fonts specification</figcaption>
+						<img src="images/Century_Expanded-a-normalized.jpg" />
+						<figcaption>An example of optical size adjustment in print on the letter 'a' created by Nick Sherman for his article titled "<a href="http://alistapart.com/column/font-hinting-and-the-future-of-responsive-typography" target="_blank">Font Hinting and the Future of Responsive Typography</a>"</figcaption>
 					</figure>
+
 					<p class="l-col-left">In fonts with automatic optical sizing, this optimization comes for free, as auto is the initial value. Sitka, a variable font created by Microsoft, automatically adjusts text between sizes 6px and 36px, such that across this entire range, small optimizations are done to make sure the type always looks its best. This behavior can be toggled using font-optical-sizing and setting the value to none.</p>
-					<figure class="l-col-right">
-						<p><mark>example of optical sizing</mark></p>
-						<figcaption>An example of optical sizing in a variable version of Sitka. No styles were needed on the part of the web dev.</figcaption>
+					<figure class="l-col-right vf-optical-sizing">
+							<table>
+								<thead>
+									<th>70pt</th>
+									<th>10pt (visually scaled)</th>
+								</thead>
+								<tbody>
+									<td class="vf-optical-sizing__sent1">Abcdef</td>
+									<td class="vf-optical-sizing__sent2">Abcdef</td>
+								</tbody>
+							</table>
+						<figcaption>The above example shows variable font Sitka, produced by Microsoft, at 70pt and 10pt with the 10pt version graphically scaled using a CSS transform. This allows you to see the difference between the twomake the increased size of the strokes and changes to the font, such as its x-height we have done a CSS transform to make it visually the same size<figcaption>
 					</figure>
 				</div>
 			</section>
@@ -482,7 +527,7 @@
 								<p>We then took these wireframes and moved into Adobe Illustrator and built them out, and then while coding it up we kept the spirit of the design in place while still making subtle tweaks. The above shows the initial introduction of the poem that sets the theme for the entire expedition.</p>
 							</div>
 							<figure class="l-col-right l-col-right--bleed">
-								<p><mark>Insert Image</mark></p>
+								<img src="images/wireframe.jpg" />
 							</figure>
 						</div>
 					</section>
@@ -496,10 +541,13 @@
 				</header>
 				<div class="l-grid l-section__body">
 					<h3 class="l-col-left">Browser support for font-variation-settings</h3>
-					<p class="l-col-right">When EdgeHTML 17 ships, all modern desktop-based browsers will support Variable Fonts but Firefox (it is however behind a flag). On mobile, as of this writing, Chrome and Safari 11.2 will support variable fonts but UC and Samsung Internet currently do not. Luckily, we can embrace a progressive enhancement strategy.</p>
+					<p class="l-col-right">When EdgeHTML 17 ships, all modern desktop-based browsers will support Variable Fonts but Firefox (it is however behind a flag). On mobile, as of this writing, Chrome and Safari 11.2 will support variable fonts but UC and Samsung Internet currently do not.</p>
+					<h3 class="l-col-left">Browser support for font-optical-sizing</h3>
+					<p class="l-col-right">When this guide was written, only EdgeHTML 17, Safari 11 on MacOS, Safari 11.2 on iOS are the only browsers that support font-optical-sizing.</p>
 					<h3 class="l-col-left">Progressive Enhancement</h3>
 					<div class="l-col-right">
-						<p>To see if a browser supports variable fonts, utilize the CSS @supports conditional check, like so:</p>
+						<p>As you can see, support for variable fonts is beginning to make its way into browsers as well as into fonts, so it's wise to use variable fonts in a progressive enhancements manner.
+							To see if a browser supports variable fonts, utilize the CSS @supports conditional check, like so:</p>
 <pre><code>@supports(font-variation-settings: ‘wght’ 500) {
 	/* variable font code here */
 }</code></pre>
@@ -529,10 +577,17 @@ body {
 					<header class="l-section__header">
 						<h2>More Resources</h2>
 					</header>
-					<div class="l-section__body">
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nisi bibendum arcu fringilla egestas. Donec elementum, odio in scelerisque ullamcorper, purus felis lobortis nisi, a cursus magna magna sed est. Integer volutpat urna pharetra.
-						</p>
+					<div class="l-section__body l-grid">
+						<h3 class="l-col-left">Further Reading</h3>
+						<ul class="l-col-right">
+							<li><a href="https://www.axis-praxis.org/specimens/__DEFAULT__" target="_blank">Axis-Rpaxis</a></li>
+							<li><a href="http://rwt.io/presentations/talk/variable-fonts-future-web-design" target="_blank">Jason Pemental's Variable Font Presentation</a></li>
+							<li><a href="https://docs.microsoft.com/en-us/typography/opentype/spec/">Open Type Specification</a></li>
+						</ul>
+						<h3 class="l-col-left">Additional Demos</h3>
+						<ul class="l-col-right">
+							<li><a href="https://codepen.io/mandymichael/pen/dJZQaz" target="_blank">Variable font "Hello" demo by Mandy Michael</a></li>
+						</ul>
 					</div>
 				</div>
 			</section>
