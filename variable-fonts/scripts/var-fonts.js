@@ -48,7 +48,7 @@
 	};
 
 	/* Render alert if font-variation-settings isn't supported */
-	if (window.css === undefined || !CSS.supports('font-variation-settings', '"wdth" 100')) {
+	if (window.CSS === undefined || !CSS.supports('font-variation-settings', '"wdth" 100')) {
 		insertAlert();
 	}
 }());
