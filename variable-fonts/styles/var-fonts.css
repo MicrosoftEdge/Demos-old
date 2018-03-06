@@ -212,6 +212,8 @@ caption {
 	letter-spacing: .02em;
 }
 
+
+
 /*
  *	ANGLED EDGES
  *	---------------------------------------------
@@ -1361,14 +1363,20 @@ span[zw] {
 	font-family: "Variable Sitka";
 }
 
-.vf-optical-sizing__sent1 {
+.vf-optical-sizing__off {
+	font-optical-sizing: none;
+}
+
+.vf-optical-sizing__72pt {
 	font-size: 72pt;
 }
 
-.vf-optical-sizing__sent2 {
-	font-size: 10pt;
-	transform: scale(7.2);
-	transform-origin: left;
+.vf-optical-sizing__36pt {
+	font-size: 36pt;
+}
+
+.vf-optical-sizing__12pt {
+	font-size: 12pt;
 }
 
 /*
