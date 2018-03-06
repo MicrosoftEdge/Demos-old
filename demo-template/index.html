@@ -34,6 +34,7 @@
 		<section class="c-intro">
 			<div class="l-contain">
 				<h1 class="c-intro__heading">[Your title]</h1>
+				<button id="toggle-anim" class="c-toggle-anim" aria-hidden="true" data-pressed-text="Play" data-unpressed-text="Pause"><span class="c-toggle-anim__state">Pause</span> animations</button>
 			</div>
 		</section>
 		<div class="l-contain">
@@ -51,6 +52,10 @@
 					<li>Fill out the title and metadata within the <code>&lt;head></code> of this index file.</li>
 					<li>See notes below on using the required components and (very light) included styles. Have fun!</li>
 				</ol>
+				<section class="l-subsection">
+					<h3>A note on separation of concerns</h3>
+					<p>Scripts and styles in <code>demo-template.*</code> are unlikely to change; code in <code>your-demo-name.*</code> is meant to be customized. If you find yourself wanting to change something in the demo-template files, there should be a good reason for that (bug fixes or meaningful UX improvements instead of preferential changes), and probably a PR so that future demos can get that update, too.</p>
+				</section>
 			</section>
 
 			<section id="components" data-nav-label="Required Components" class="l-section">
@@ -63,7 +68,7 @@
 				<section class="l-subsection">
 					<h3>Feature-detection alert</h3>
 					<p>As we are providing an experience of new technologies, demos should be querying for feature support and exposing a standardized alert in the case that the feature is missing.</p>
-					<p>Inside the <code>checkFeatureSupport()</code> function in the <code>scripts/your-demo-name.js</code> file (whatever you named it to), update the placeholder content with the name(s) of your feature(s), and update the link with the relevant Status URL. If you need to change the verbage slightly to support querying for more than one feature, feel free to do so (links should still have meaningful text, not "learn more" or similar). Then write your support query conditions such that the alert only appears when those conditions are false.</p>
+					<p>Inside the <code>insertAlert()</code> function in the <code>scripts/your-demo-name.js</code> file (whatever you named it to), update the placeholder content with the name(s) of your feature(s), and update the link with the relevant Status URL. If you need to change the verbage slightly to support querying for more than one feature, feel free to do so (links should still have meaningful text, not "learn more" or similar). Then write your support query conditions such that the alert only appears when those conditions are false.</p>
 				</section>
 				<section class="l-subsection">
 					<h3>Demo Contents</h3>
@@ -78,6 +83,9 @@
 					<p>The large area at the top of the demo. You might consider making this expand to fill the viewport height, but we have left that option open for you.</p>
 					<p><strong>Overrideable styles</strong> can be found in the <code>COMPONENT: INTRO</code> section of <code>demo.css</code>. It's pretty lightweight, so lots of flexibility here!</p>
 				</section>
+				<section class="l-subsection">
+					<h3>Toggle animations button</h3>
+					<p>At the end of the intro is a pause animations button that is affixed to the bottom right corner, which toggles a class of <code>.has-anim</code> on the body. You may remove the button/script in <code>your-demo-name.js</code> if you don't have any animations on your page. If you do have animations, you should add <code>body.has-anim</code> to the beginnings of CSS selectors which add CSS-only animations, or you may add to this function to control JS animations on the page.</p>
 				<section class="l-subsection">
 					<h3>Outro</h3>
 					<p>This is the bar at the bottom of the demo which provides credits for the demo, a link to Github, and will eventually be expanded to include related demos. Fill out the names and URLs (Github preferred) for the contributors, as well as the Github URL.</p>

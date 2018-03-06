@@ -30,6 +30,34 @@ a:hover {
 }
 
 /*
+ *	FORM ELEMENTS
+ *	---------------------------------------------
+ */
+
+button {
+	border: 0;
+	border-radius: 0;
+	font: inherit;
+	-webkit-appearance: none;
+	background-color: #ccc;
+	color: #000;
+}
+
+button:hover,
+button:focus {
+	outline: 2px solid hsla(0, 0%, 0%, .4);
+	outline-offset: 0;
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+button:active {
+	background-color: hsla(0, 0%, 0%, 0.4);
+}
+
+/*
  *	UNIVERSAL DEMO-SPECIFIC STYLES
  *	=============================================
  */

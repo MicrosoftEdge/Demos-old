@@ -148,18 +148,6 @@ pre {
 }
 
 /*
- *	FORM ELEMENTS
- *	---------------------------------------------
- */
-
-button {
-	border: 0;
-	border-radius: 0;
-	font: inherit;
-	-webkit-appearance: none;
-}
-
-/*
  *	UTILITIES
  *	---------------------------------------------
  */
@@ -266,6 +254,7 @@ button {
 
 .c-toc__items {
 	margin: 0;
+	padding-left: 0;
 	width: 100%;
 	max-height: calc(100vh - 4.5em);
 	overflow: auto;
@@ -433,6 +422,32 @@ button {
 	.c-alert__dismiss {
 		margin-right: -1em;
 	}
+}
+
+/*
+ *	COMPONENT: TOGGLE ANIMATIONS BUTTON
+ *	---------------------------------------------
+ */
+
+ .c-toggle-anim {
+	display: none;
+	position: fixed;
+	z-index: 8880;
+	right: 1em;
+	bottom: 1em;
+	padding: .5em .75em;
+	font-size: .875em;
+	opacity: 0;
+	transition: opacity 400ms ease-out;
+}
+
+.c-toggle-anim__state {
+	font-weight: 700;
+}
+
+body.has-js .c-toggle-anim {
+	display: block;
+	opacity: 1;
 }
 
 /*
