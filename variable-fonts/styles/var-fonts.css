@@ -172,15 +172,21 @@ td:first-child {
  */
 
 img, video {
+	display: block;
 	margin: 0 auto;
 	max-width: 100%;
 	height: auto;
 }
 
+.caption, figcaption {
+	display: block;
+	margin: 1em auto 0;
+}
+
 caption, .caption, figcaption {
-	margin: 1em 0 0;
 	max-width: 34rem;
-	font: 350 1em/1.2 "Variable Bahnschrift", "FF DIN", "Franklin Gothic", "Helvetica Neue", sans-serif;
+	font-weight: 350;
+	font: 1em/1.2 "Variable Bahnschrift", "FF DIN", "Franklin Gothic", "Helvetica Neue", sans-serif;
 	font-variation-settings: "wdth" 75;
 	letter-spacing: .01em;
 	text-align: left;
@@ -455,6 +461,11 @@ main button {
 		.l-grid:not(.l-grid--stack-med) > [class*="l-col-"] {
 			margin: 0;
 		}
+
+		.l-grid:not(.l-grid--stack-med) .caption, .l-grid:not(.l-grid--stack-med) figcaption {
+			margin-right: 0;
+			margin-left: 0;
+		}
 	}
 
 	@media (min-width: 72em) {
@@ -469,6 +480,11 @@ main button {
 
 		.l-grid--stack-med > [class*="l-col-"] {
 			margin: 0;
+		}
+
+		.caption, figcaption {
+			margin-right: 0;
+			margin-left: 0;
 		}
 	}
 }
@@ -1273,6 +1289,7 @@ span[zw] {
 
 @media (min-width: 36em) {
 	.ticket-wrap {
+		margin-bottom: 4em;
 		text-align: center;
 	}
 
@@ -1300,12 +1317,6 @@ span[zw] {
 }
 
 @supports (display: grid) {
-	@media (min-width: 36em) and (max-width: 72em) {
-		.ticket-wrap {
-			margin-bottom: 4em;
-		}
-	}
-
 	@media (min-width: 72em) {
 		.ticket-info,
 		.ticket-wrap {
@@ -1314,6 +1325,7 @@ span[zw] {
 
 		.ticket-wrap {
 			order: 2;
+			margin-bottom: 0;
 		}
 
 		.ticket-info {
