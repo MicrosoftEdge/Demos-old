@@ -107,7 +107,7 @@ pre,
 table {
 	margin-right: auto;
 	margin-left: auto;
-	max-width: 32rem;
+	max-width: 34rem;
 }
 
 code {
@@ -188,7 +188,7 @@ img, video {
 
 caption, .caption, figcaption {
 	margin: 1em 0 0;
-	max-width: 24em;
+	max-width: 34rem;
 	font: 350 1em/1.2 "Variable Bahnschrift", "FF DIN", "Franklin Gothic", "Helvetica Neue", sans-serif;
 	font-variation-settings: "wdth" 75;
 	letter-spacing: .01em;
@@ -382,13 +382,13 @@ caption {
 	margin-top: 0;
 }
 
-@media (min-width: 36rem) {
+@media (min-width: 36em) {
 	.l-grid {
 		padding: 0 3rem;
 	}
 }
 
-@media (min-width: 60rem) {
+@media (min-width: 60em) {
 	.l-grid {
 		padding: 0 6rem;
 	}
@@ -402,7 +402,7 @@ caption {
 		}
 
 		.l-grid {
-			grid-template-columns: 6rem 1fr 18rem minmax(4rem, 1fr) minmax(auto, 36rem) 1fr 6rem;
+			grid-template-columns: 6rem 1fr 18rem minmax(4rem, 1fr) minmax(auto, 34rem) 1fr 6rem;
 			grid-gap: 4rem 0;
 		}
 
@@ -434,7 +434,7 @@ caption {
 
 	@media (min-width: 72em) {
 		.l-grid {
-			grid-template-columns: 6rem 1fr 22rem minmax(4rem, 1fr) minmax(auto, 36rem) 1fr 6rem;
+			grid-template-columns: 6rem 1fr 22rem minmax(4rem, 1fr) minmax(auto, 34rem) 1fr 6rem;
 		}
 
 		.l-grid--stack-med {
@@ -915,10 +915,11 @@ caption {
 	display: block;
 	position: fixed;
 	z-index: 1;
-	top: 50%;
-	margin-top: -360px;
+	top: 0;
 	left: 50%;
 	margin-left: -683px;
+	width: 1366px;
+	height: 100%;
 }
 
 .ice-floes > path {
@@ -928,12 +929,9 @@ caption {
 
 @media (min-width: 85em) and (min-height: 44em) {
 	.ice-floes {
-		top: 50%;
-		transform: translateY(-50%);
 		left: 0;
 		margin: 0;
 		width: 100%;
-		height: auto;
 	}
 }
 
