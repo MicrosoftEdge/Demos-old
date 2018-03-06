@@ -34,6 +34,7 @@
 		<section class="c-intro">
 			<div class="l-contain">
 				<h1 class="c-intro__heading">[Your title]</h1>
+				<button id="toggle-anim" class="c-toggle-anim" aria-hidden="true" data-pressed-text="Play" data-unpressed-text="Pause"><span class="c-toggle-anim__state">Pause</span> animations</button>
 			</div>
 		</section>
 		<div class="l-contain">
@@ -78,6 +79,9 @@
 					<p>The large area at the top of the demo. You might consider making this expand to fill the viewport height, but we have left that option open for you.</p>
 					<p><strong>Overrideable styles</strong> can be found in the <code>COMPONENT: INTRO</code> section of <code>demo.css</code>. It's pretty lightweight, so lots of flexibility here!</p>
 				</section>
+				<section class="l-subsection">
+					<h3>Toggle animations button</h3>
+					<p>At the end of the intro is a pause animations button that is affixed to the bottom right corner, which toggles a class of <code>.has-anim</code> on the body. You may remove the button/script in <code>your-demo-name.js</code> if you don't have any animations on your page. If you do have animations, you should add <code>body.has-anim</code> to the beginnings of CSS selectors which add CSS-only animations, or you may add to this function to control JS animations on the page.</p>
 				<section class="l-subsection">
 					<h3>Outro</h3>
 					<p>This is the bar at the bottom of the demo which provides credits for the demo, a link to Github, and will eventually be expanded to include related demos. Fill out the names and URLs (Github preferred) for the contributors, as well as the Github URL.</p>

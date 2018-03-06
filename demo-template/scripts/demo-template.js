@@ -8,6 +8,15 @@
  */
 
 /*
+ *	GENERIC JS-ENABLED CLASS ON BODY
+ *	---------------------------------------------
+ */
+(function () {
+	'use strict';
+	document.body.classList.add('has-js');
+}());
+
+/*
  *	COMPONENT: DEMO NAV
  *	---------------------------------------------
  */
