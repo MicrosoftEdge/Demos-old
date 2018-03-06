@@ -13,6 +13,7 @@
  */
 (function () {
 	'use strict';
+
 	document.body.classList.add('has-js');
 }());
 
@@ -34,7 +35,7 @@
 		newLink.className = 'c-toc__item';
 		newLink.innerHTML = '<a href="#' + section.getAttribute('id') + '">' + section.getAttribute('data-nav-label') + '</a>';
 		demoNavItems.appendChild(newLink);
-		
+
 		// Smooth scroll TOC links
 		newLink.addEventListener('click', function(e) {
 			const thisHash = e.target.hash,

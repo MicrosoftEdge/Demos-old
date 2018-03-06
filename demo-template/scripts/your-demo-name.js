@@ -57,6 +57,7 @@
 
 (function () {
 	'use strict';
+
 	const animButton = document.getElementById('toggle-anim');
 
 	if (animButton) {
