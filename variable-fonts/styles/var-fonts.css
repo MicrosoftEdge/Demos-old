@@ -167,29 +167,26 @@ td:first-child {
 }
 
 /*
- *	FORM ELEMENTS
- *	---------------------------------------------
- */
-
-button:hover {
-	cursor: pointer;
-}
-
-/*
  *	MEDIA + CODE
  *	---------------------------------------------
  */
 
 img, video {
+	display: block;
 	margin: 0 auto;
 	max-width: 100%;
 	height: auto;
 }
 
+.caption, figcaption {
+	display: block;
+	margin: 1em auto 0;
+}
+
 caption, .caption, figcaption {
-	margin: 1em 0 0;
 	max-width: 34rem;
-	font: 350 1em/1.2 "Variable Bahnschrift", "FF DIN", "Franklin Gothic", "Helvetica Neue", sans-serif;
+	font-weight: 350;
+	font: 1em/1.2 "Variable Bahnschrift", "FF DIN", "Franklin Gothic", "Helvetica Neue", sans-serif;
 	font-variation-settings: "wdth" 75;
 	letter-spacing: .01em;
 	text-align: left;
@@ -200,6 +197,40 @@ caption {
 	margin: 0 0 .75em;
 	text-transform: uppercase;
 	letter-spacing: .05em;
+}
+
+/*
+ *	FORM ELEMENTS
+ *	---------------------------------------------
+ */
+
+button {
+	padding: .5em .75em;
+	border: 0;
+	border-radius: 0;
+	font: inherit;
+	-webkit-appearance: none;
+	background-color: #e5ebf0;
+	color: #000;
+}
+
+button:hover,
+button:focus {
+	outline: 2px solid hsla(0, 0%, 0%, .4);
+	outline-offset: 0;
+	background-color: #d5e3ee;
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+button:active {
+	background-color: #999;
+}
+
+main button {
+	font-family: "Variable Bahnschrift", "FF DIN", "Franklin Gothic", "Helvetica Neue", sans-serif;
 }
 
 /*
@@ -430,6 +461,11 @@ caption {
 		.l-grid:not(.l-grid--stack-med) > [class*="l-col-"] {
 			margin: 0;
 		}
+
+		.l-grid:not(.l-grid--stack-med) .caption, .l-grid:not(.l-grid--stack-med) figcaption {
+			margin-right: 0;
+			margin-left: 0;
+		}
 	}
 
 	@media (min-width: 72em) {
@@ -444,6 +480,11 @@ caption {
 
 		.l-grid--stack-med > [class*="l-col-"] {
 			margin: 0;
+		}
+
+		.caption, figcaption {
+			margin-right: 0;
+			margin-left: 0;
 		}
 	}
 }
@@ -505,6 +546,15 @@ caption {
 
 .c-toc__item a:hover {
 	background: #1f252c;
+}
+
+/*
+ *	COMPONENT: TOGGLE ANIMATIONS BUTTON
+ *	---------------------------------------------
+ */
+
+.c-toggle-anim {
+	padding: .75em .75em .625em;
 }
 
 /*
@@ -864,6 +914,7 @@ caption {
 }
 
 .poem__controls button:hover {
+	outline: 0;
 	background-color: #eff1f4;
 }
 
@@ -1239,6 +1290,7 @@ span[zw] {
 
 @media (min-width: 36em) {
 	.ticket-wrap {
+		margin-bottom: 4em;
 		text-align: center;
 	}
 
@@ -1266,12 +1318,6 @@ span[zw] {
 }
 
 @supports (display: grid) {
-	@media (min-width: 36em) and (max-width: 72em) {
-		.ticket-wrap {
-			margin-bottom: 4em;
-		}
-	}
-
 	@media (min-width: 72em) {
 		.ticket-info,
 		.ticket-wrap {
@@ -1280,6 +1326,7 @@ span[zw] {
 
 		.ticket-wrap {
 			order: 2;
+			margin-bottom: 0;
 		}
 
 		.ticket-info {
