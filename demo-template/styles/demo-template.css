@@ -254,6 +254,7 @@ pre {
 
 .c-toc__items {
 	margin: 0;
+	padding-left: 0;
 	width: 100%;
 	max-height: calc(100vh - 4.5em);
 	overflow: auto;
