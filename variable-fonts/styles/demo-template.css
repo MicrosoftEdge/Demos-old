@@ -9,7 +9,7 @@
 	box-sizing: border-box;
 }
 
-body {
+html {
 	font: 400 100%/1.4 base, "Segoe UI", Segoe, "Segoe WP", "Lucida Grande", "Lucida Sans", Verdana, sans-serif;
 }
 
@@ -24,6 +24,19 @@ a:link, a:visited {
 
 a:hover {
 	text-decoration: none;
+}
+
+@media (min-width: 80em) {
+	html {
+		font-size: 112.5%;
+	}
+}
+
+@media (min-width: 120em) {
+	html {
+		font-size: 118.75%;
+		line-height: 1.5;
+	}
 }
 
 /*
