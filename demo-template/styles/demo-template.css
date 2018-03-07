@@ -9,7 +9,7 @@
 	box-sizing: border-box;
 }
 
-html {
+body {
 	font: 400 100%/1.4 base, "Segoe UI", Segoe, "Segoe WP", "Lucida Grande", "Lucida Sans", Verdana, sans-serif;
 }
 
@@ -24,19 +24,6 @@ a:link, a:visited {
 
 a:hover {
 	text-decoration: none;
-}
-
-@media (min-width: 80em) {
-	html {
-		font-size: 112.5%;
-	}
-}
-
-@media (min-width: 120em) {
-	html {
-		font-size: 118.75%;
-		line-height: 1.5;
-	}
 }
 
 /*
@@ -132,7 +119,7 @@ p, ul, ol {
 }
 
 ul, ol {
-	padding-left: 1.25em;
+	margin-left: 1em;
 }
 
 p:first-child, ul:first-child, ol:first-child {
@@ -145,6 +132,18 @@ li + li {
 
 pre {
 	white-space: pre-wrap;
+}
+
+/*
+ *	FORM ELEMENTS
+ *	---------------------------------------------
+ */
+
+button {
+	border: 0;
+	border-radius: 0;
+	font: inherit;
+	-webkit-appearance: none;
 }
 
 /*
@@ -172,8 +171,6 @@ pre {
 /* Simple list */
 .u-simple-list {
 	margin: 0;
-	padding: 0;
-	max-width: 100%;
 	list-style: none;
 }
 
@@ -186,7 +183,7 @@ pre {
  */
 
 .c-nav-bar {
-	position: fixed;
+	position: relative;
 	position: sticky;
 	top: 0;
 	width: 100%;
@@ -198,7 +195,6 @@ pre {
 	position: relative;
 	z-index: 9000; /* Higher than demo TOC */
 	margin-right: 9em;
-	max-width: none;
 	padding: .75em 1.25rem;
 }
 
@@ -208,10 +204,6 @@ pre {
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
-}
-
-.c-nav-bar__breadcrumb li + li {
-	margin-top: 0;
 }
 
 .c-nav-bar__title {
@@ -238,7 +230,6 @@ pre {
 }
 
 /* Focus styles are in your-demo-name.css */
-.c-toc__btn:hover,
 .c-toc__btn:focus,
 .c-toc__item a:focus {
 	outline: 0;
@@ -255,7 +246,6 @@ pre {
 
 .c-toc__items {
 	margin: 0;
-	padding-left: 0;
 	width: 100%;
 	max-height: calc(100vh - 4.5em);
 	overflow: auto;
@@ -364,8 +354,6 @@ pre {
  */
 
 .c-alert {
-	position: relative;
-	z-index: 9000;
 	background: #f2f2f2;
 }
 
@@ -389,8 +377,6 @@ pre {
 }
 
 .c-alert__message {
-	margin: 0;
-	max-width: 44rem;
 	padding: 1em 0;
 	padding: 1rem 0;
 	font-size: .813em;
@@ -423,28 +409,6 @@ pre {
 	.c-alert__dismiss {
 		margin-right: -1em;
 	}
-}
-
-/*
- *	COMPONENT: TOGGLE ANIMATIONS BUTTON
- *	---------------------------------------------
- */
-
- .c-toggle-anim {
-	display: none;
-	position: fixed;
-	z-index: 8880;
-	right: 1em;
-	bottom: 1em;
-	font-size: .875em;
-}
-
-.c-toggle-anim__state {
-	font-weight: 700;
-}
-
-body.has-js .c-toggle-anim {
-	display: block;
 }
 
 /*
