@@ -30,6 +30,35 @@ a:hover {
 }
 
 /*
+ *	FORM ELEMENTS
+ *	---------------------------------------------
+ */
+
+button {
+	padding: .5em .75em;
+	border: 0;
+	border-radius: 0;
+	font: inherit;
+	-webkit-appearance: none;
+	background-color: #ccc;
+	color: #000;
+}
+
+button:hover,
+button:focus {
+	outline: 2px solid hsla(0, 0%, 0%, .4);
+	outline-offset: 0;
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+button:active {
+	background-color: #999;
+}
+
+/*
  *	UNIVERSAL DEMO-SPECIFIC STYLES
  *	=============================================
  */
@@ -92,10 +121,7 @@ a:hover {
 	color: #fff;
 }
 
-/*
- *	COMPONENT: DEMO NAV
- *	---------------------------------------------
- */
+/* TABLE OF CONTENTS DROPDOWN */
 
 .c-toc__btn {
 	background: #000;

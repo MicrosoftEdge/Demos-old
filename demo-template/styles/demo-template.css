@@ -9,7 +9,7 @@
 	box-sizing: border-box;
 }
 
-body {
+html {
 	font: 400 100%/1.4 base, "Segoe UI", Segoe, "Segoe WP", "Lucida Grande", "Lucida Sans", Verdana, sans-serif;
 }
 
@@ -24,6 +24,19 @@ a:link, a:visited {
 
 a:hover {
 	text-decoration: none;
+}
+
+@media (min-width: 80em) {
+	html {
+		font-size: 112.5%;
+	}
+}
+
+@media (min-width: 120em) {
+	html {
+		font-size: 118.75%;
+		line-height: 1.5;
+	}
 }
 
 /*
@@ -119,7 +132,7 @@ p, ul, ol {
 }
 
 ul, ol {
-	margin-left: 1em;
+	padding-left: 1.25em;
 }
 
 p:first-child, ul:first-child, ol:first-child {
@@ -132,18 +145,6 @@ li + li {
 
 pre {
 	white-space: pre-wrap;
-}
-
-/*
- *	FORM ELEMENTS
- *	---------------------------------------------
- */
-
-button {
-	border: 0;
-	border-radius: 0;
-	font: inherit;
-	-webkit-appearance: none;
 }
 
 /*
@@ -171,6 +172,8 @@ button {
 /* Simple list */
 .u-simple-list {
 	margin: 0;
+	padding: 0;
+	max-width: 100%;
 	list-style: none;
 }
 
@@ -183,7 +186,7 @@ button {
  */
 
 .c-nav-bar {
-	position: relative;
+	position: fixed;
 	position: sticky;
 	top: 0;
 	width: 100%;
@@ -195,6 +198,7 @@ button {
 	position: relative;
 	z-index: 9000; /* Higher than demo TOC */
 	margin-right: 9em;
+	max-width: none;
 	padding: .75em 1.25rem;
 }
 
@@ -204,6 +208,10 @@ button {
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+}
+
+.c-nav-bar__breadcrumb li + li {
+	margin-top: 0;
 }
 
 .c-nav-bar__title {
@@ -230,6 +238,7 @@ button {
 }
 
 /* Focus styles are in your-demo-name.css */
+.c-toc__btn:hover,
 .c-toc__btn:focus,
 .c-toc__item a:focus {
 	outline: 0;
@@ -246,6 +255,7 @@ button {
 
 .c-toc__items {
 	margin: 0;
+	padding-left: 0;
 	width: 100%;
 	max-height: calc(100vh - 4.5em);
 	overflow: auto;
@@ -354,6 +364,8 @@ button {
  */
 
 .c-alert {
+	position: relative;
+	z-index: 9000;
 	background: #f2f2f2;
 }
 
@@ -377,6 +389,8 @@ button {
 }
 
 .c-alert__message {
+	margin: 0;
+	max-width: 44rem;
 	padding: 1em 0;
 	padding: 1rem 0;
 	font-size: .813em;
@@ -409,6 +423,28 @@ button {
 	.c-alert__dismiss {
 		margin-right: -1em;
 	}
+}
+
+/*
+ *	COMPONENT: TOGGLE ANIMATIONS BUTTON
+ *	---------------------------------------------
+ */
+
+ .c-toggle-anim {
+	display: none;
+	position: fixed;
+	z-index: 8880;
+	right: 1em;
+	bottom: 1em;
+	font-size: .875em;
+}
+
+.c-toggle-anim__state {
+	font-weight: 700;
+}
+
+body.has-js .c-toggle-anim {
+	display: block;
 }
 
 /*

@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+	<meta charset="utf-8">
+	<title>Variable Fonts Demo | Microsoft Edge Demos</title>
+	<meta name="viewport" content="width=device-width">
+	<meta name="og:title" content="Variable Fonts">
+	<meta name="description" content="OpenType Font Variations make it possible to access multiple typefaces within a family from a single resource. Take an expedition into the typographical variety available via variable fonts">
+	<meta name="keywords" content="CSS, web typography">
+	<meta name="author" content="melanierichards, gregwhitworth, FremyCompany">
+
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@msedgedev">
+	<meta name="twitter:title" content="Variable Fonts Demo">
+	<meta name="twitter:description" content="OpenType Font Variations make it possible to access multiple typefaces within a family from a single resource. Take an expedition into the typographical variety available via variable fonts">
+	<meta name="twitter:image" content="images/social-image.jpg">
+
+	<meta property="og:title" content="Variable Fonts Demo">
+	<meta property="og:description" content="OpenType Font Variations make it possible to access multiple typefaces within a family from a single resource. Take an expedition into the typographical variety available via variable fonts">
+	<meta property="og:site_name" content="Microsoft Edge Demos">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:image" content="images/social-image.jpg">
+
+	<link rel="stylesheet" href="https://use.typekit.net/gcs2hsx.css">
+	<link rel="stylesheet" href="https://az813057.vo.msecnd.net/testdrive/var-fonts/font-declarations.css">
+	<link rel="stylesheet" href="styles/demo-template.css">
+	<link rel="stylesheet" href="styles/var-fonts.css">
+</head>
+<body>
+	<header class="c-nav-bar">
+		<div class="l-contain c-nav-bar__contain" data-menu>
+			<nav class="c-nav-bar__breadcrumb" aria-label="breadcrumbs">
+				<ul class="u-simple-list">
+					<li class="c-nav-bar__index"><a href="https://developer.microsoft.com/en-us/microsoft-edge/testdrive/" class="c-nav-bar__more">Microsoft Edge Demos</a></li>
+					<li class="c-nav-bar__title"><span class="u-sr-only">Current demo: </span>Variable Fonts</li>
+				</ul>
+			</nav>
+			<nav class="c-toc">
+				<button class="c-toc__btn" id="js-nav-btn" aria-haspopup="true" aria-expanded="false" aria-controls="js-nav-items" aria-label="Demo contents">
+					Contents <svg class="c-toc__arrow" xmlns="http://www.w3.org/2000/svg" width="12" height="12"><path fill="none" stroke="#FFF" stroke-miterlimit="10" d="M12 3L6 9 0 3"/></svg>
+				</button>
+				<ul class="c-toc__items" id="js-nav-items"  role="group" aria-hidden="true"></ul>
+			</nav>
+		</div>
+	</header>
+	<main role="main">
+		<div class="intro">
+			<div class="l-contain">
+				<section class="intro__section">
+					<div class="intro__masthead">
+						<h1 class="intro__heading">
+							<span aria-label="Variable Fonts">
+								<span aria-hidden="true" class="intro__var-1">Var</span><span aria-hidden="true" class="intro__var-2">iab</span><span aria-hidden="true" class="intro__var-3">le</span>
+								<span aria-hidden="true">Fonts</span>
+							</span>
+						</h1>
+						<p class="h4 intro__subheading">An exploration of expressive, performant typography</p>
+					</div>
+					<div class="intro__actions">
+						<a class="poem-start" href="#poem">
+							Begin expedition
+							<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><circle fill="none" stroke="#424F5E" stroke-width="2" stroke-miterlimit="10" cx="12" cy="12" r="11"/><path fill="none" stroke="#424F5E" stroke-width="2" stroke-miterlimit="10" d="M18.5 9.8L12 16.3 5.5 9.8"/></svg>
+						</a>
+					</div>
+				</section>
+
+				<button id="toggle-anim" class="c-toggle-anim" aria-hidden="true" data-pressed-text="Play" data-unpressed-text="Pause"><span class="c-toggle-anim__state">Pause</span> animations</button>
+				<!-- POEM: SPAN SOUP! :D -->
+				<section id="poem" data-nav-label="Poem demo" class="intro__section">
+					<div class="poem-viewer">
+						<div class="poem">
+							<div class="poem__slide">
+								<h2 class="poem__masthead">
+									<span class="poem__masthead-prefix">An excerpt from</span>
+									<span class="poem__masthead-title">The Rime of the Ancient Mariner</span>
+								</h2>
+								<p class="poem__byline">By Samuel Coleridge</p>
+								<svg aria-hidden="true" class="poem__anchor" xmlns="http://www.w3.org/2000/svg" width="15" height="20"><g fill="none" stroke="#424F5E"><g stroke-miterlimit="10"><path d="M7.5 19.5v-16M2.5 7.5h10"/></g><path stroke-miterlimit="2" d="M11.4 14.1l2.8-1.1c0 4.4-2.9 6.6-6.5 6.6h-.4C3.7 19.6.8 17.5.8 13l2.8 1.1"/><circle stroke-miterlimit="2" cx="7.5" cy="2" r="1.5"/></g></svg>
+								<p class="poem__description">Variable fonts open a wider range of typographic flexibility on the web. We can even animate typographic changes: for example, key words from this classic Arctic&nbsp;misadventure…</p>
+							</div>
+							<div class="poem__slide">
+								<p class="poem__stanza" aria-label="And now the STORM-BLAST came, and he was tyrannous and strong: he struck with his o’ertaking wings, and chased us south along.">
+									<span class="poem__line" aria-hidden="true">
+										<span>And</span> <span>now</span> <span>the</span>
+										<span class="boldish">STORM-BLAST</span>
+										<span>came,</span> <span>and</span> <span>he</span>
+									</span>
+									<span class="poem__line" aria-hidden="true">
+										<span>Was</span>
+										<span class="bolden">tyrannous</span>
+										<span>and</span>
+										<span class="bolden">strong:</span>
+									</span>
+									<span class="poem__line" aria-hidden="true">
+										<span>He</span> <span>struck</span> <span>with</span> <span>his</span> <span>o&rsquo;ertaking</span> <span>wings,</span>
+									</span>
+									<span class="poem__line" aria-hidden="true">
+										<span>And</span> <span>chased</span> <span>us</span> <span>south</span> <span>along.</span>
+									</span>
+								</p>
+							</div>
+							<div class="poem__slide">
+								<p class="poem__stanza" aria-label="With sloping masts and dipping prow, as who pursued with yell and blow, still treads the shadow of his foe, and forward bends his head, the ship drove fast, loud roared the blast, and southward aye we fled.">
+									<span class="poem__line" aria-hidden="true">
+										<span>With</span> <span>sloping</span> <span>masts</span> <span>and</span> <span>dipping</span> <span>prow,</span>
+									</span>
+									<span class="poem__line" aria-hidden="true">
+										<span>As</span> <span>who</span> <span>pursued</span> <span>with</span>
+										<span class="bolden">yell</span>
+										<span>and</span> <span>blow</span>
+									</span>
+									<span class="poem__line" aria-hidden="true">
+										<span>Still</span> <span>treads</span> <span>the</span> <span>shadow</span> <span>of</span> <span>his</span> <span>foe,</span>
+									</span>
+									<span class="poem__line" aria-hidden="true">
+										<span>And</span> <span>forward</span> <span>bends</span> <span>his</span> <span>head,</span>
+									</span>
+									<span class="poem__line" aria-hidden="true">
+										<span>The</span> <span>ship</span> <span>drove</span> <span>fast,</span> <span>loud</span>
+										<span class="bolden">roared</span>
+										<span>the</span> <span>blast,</span>
+									</span>
+									<span class="poem__line" aria-hidden="true">
+										<span>And</span> <span>southward</span> <span>aye</span> <span>we</span>
+										<span>fled.</span>
+									</span>
+								</p>
+							</div>
+							<div class="poem__slide">
+								<p class="poem__stanza" aria-label="And now there came both mist and snow, and it grew wondrous cold: and ice, mast-high, came floating by, as green as emerald.">
+									<span class="poem__line" aria-hidden="true">
+										<span>And</span> <span>now</span> <span>there</span> <span>came</span> <span>both</span>
+										<span>mist</span> <span>and</span> <span>snow,</span>
+									</span>
+									<span class="poem__line" aria-hidden="true">
+										<span>And</span> <span>it</span> <span>grew</span>
+										<span class="boldish">wondrous</span> <span>cold:</span>
+									</span>
+									<span class="poem__line" aria-hidden="true">
+										<span>And</span> <span>ice,</span> <span>mast-high,</span> <span>came</span> <span>floating</span> <span>by,</span>
+									</span>
+									<span class="poem__line" aria-hidden="true">
+										<span>As</span> <span>green</span> <span>as</span> <span>emerald.</span>
+									</span>
+								</p>
+							</div>
+							<div class="poem__slide">
+								<p class="poem__stanza" aria-label="The land of ice, and of fearful sounds where no living thing was to be seen.">
+									<span class="poem__line" aria-hidden="true">
+										<span>The</span> <span>land</span> <span>of</span> <span>ice,</span> <span>and</span> <span>of</span> <span>fearful</span> <span>sounds</span> <span>where</span> <span>no</span> <span>living</span> <span>thing</span> <span>was</span> <span>to</span> <span>be</span> <span>seen.</span>
+									</span>
+								</p>
+								<p class="poem__stanza" aria-label="And through the drifts the snowy clifts did send a dismal sheen: nor shapes of men nor beasts we ken—the ice was all between. The ice was here, the ice was there, the ice was all around: it cracked and growled, and roared and howled, like noises in a swound!">
+									<span class="poem__line" aria-hidden="true">
+										<span>And</span> <span>through</span> <span>the</span> <span>drifts</span> <span>the</span> <span>snowy</span> <span>clifts</span>
+									</span>
+									<span class="poem__line" aria-hidden="true">
+										<span>Did</span> <span>send</span> <span>a</span> <span>dismal</span> <span>sheen:</span>
+									</span>
+									<span class="poem__line" aria-hidden="true">
+										<span>Nor</span> <span>shapes</span> <span>of</span> <span>men</span> <span>nor</span> <span>beasts</span> <span>we</span> <span>ken—</span>
+									</span>
+									<span class="poem__line" aria-hidden="true">
+										<span>The</span> <span>ice</span> <span>was</span> <span>all</span> <span>between.</span>
+									</span>
+								</p>
+							</div>
+							<div class="poem__slide">
+								<p class="poem__stanza" aria-label="The ice was here, the ice was there, the ice was all around: it cracked and growled, and roared and howled, like noises in a swound!">
+									<span class="poem__line" aria-hidden="true">
+										<span>The</span> <span>ice</span> <span>was</span> <span>here,</span> <span>the</span> <span>ice</span> <span>was</span> <span>there,</span>
+									</span>
+									<span class="poem__line" aria-hidden="true">
+										<span>The</span> <span>ice</span> <span>was</span> <span>all</span> <span>around:</span>
+									</span>
+									<span class="poem__line" aria-hidden="true">
+										<span>It</span>
+										<span class="space-out">cracked</span>
+										<span>and</span>
+										<span class="bolden">growled,</span>
+										<span>and</span>
+										<span class="bolden">roared</span>
+										<span>and</span>
+										<span class="space-out">howled,</span>
+									</span>
+									<span class="poem__line" aria-hidden="true">
+										<span>Like</span> <span>noises</span> <span>in</span> <span>a</span> <span>swound!</span>
+									</span>
+								</p>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<svg aria-hidden="true" class="ice-floes" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1366 700" width="1366" height="700" preserveAspectRatio="xMidYMid meet">
+					<rect fill="transparent" stroke="transparent" x="0" y="0" width="1366" height="700" class="svg-center" />
+					<path fill="#F2F3F4" stroke="#F2F3F4" d="M1069.8 646.3l83.2-6.4 74.7-155.7-.2-2.4-174.5-76.6-163.2 100-31.5 157.9 74.7 13.7z"/>
+					<path fill="#E5EBF0" stroke="#E5EBF0" d="M1215.1 342.1l6.3-63.2 6.3-88.4-102.1-112.7-84.2-4.2 25.3 131.6-13.7 200 174.5 76.6z"/>
+					<path fill="#D5E3EE" stroke="#D5E3EE" d="M1062.5 266.3l4.2-61.1-25.3-131.6-129.5-56.8-29.4 12.6L838.3-.1l-94.8 266.4z"/>
+					<path fill="#E5EBF0" stroke="#E5EBF0" d="M890.9 504.6h-.6l.2.2zM890.3 504.6l-20.5-20.4-138.9 2.1-11.6-4.2-33.7-9.5-27.3-13.7-46.4 7.4 10.6 61 38.8 136.8 162.2 7.4 34.8-8.4 31.5-157.9.7-.4z"/>
+					<path fill="#E8E8E8" stroke="#E8E8E8" d="M890.9 504.6l162.1-99.4 9.5-138.9h-319l2.1 75.8-14.7 28.4v115.8l138.9-2.1 20.5 20.4"/>
+					<path fill="#F2F3F4" stroke="#F2F3F4" d="M685.6 472.6l33.7 9.5 11.6 4.2V370.5l14.7-28.4-2.1-75.8 29.6-83.1-192.7 8.3-23.2 183.2 54.7 91.6 46.4-7.4z"/>
+					<path fill="#C7D4DE" stroke="#C7D4DE" d="M500.4 432.6l-79 6.3 12.1 260.9.6.1 161-38.9 66.2 3.1-38.8-136.8-10.6-61-27.7-46.4-47 19z"/>
+					<path fill="#D5E3EE" stroke="#D5E3EE" d="M297.2 482.1l-92.2 9.7 25.9 38.7 60 123.1 142.6 46.2-9-194.6h-69.4z"/>
+					<path fill="#E5EBF0" stroke="#E5EBF0" d="M379.3 334.7l-88.4-56.9-43.2 11.6-76.2-8 .4.7 2.2 73.6-1.1 88.5 32 47.6 92.2-9.7 57.9 23.1h69.4l-3.1-66.3h.2l-19.1-93.7z"/>
+					<path fill="#F4F5F6" stroke="#F4F5F6" d="M463.5 233.6l-23.1-22.1-126.3-15.8-20.3 84 85.5 55 23.2 10.5 19.1 93.7 78.8-6.3 36.8 6.3 47-19-27-45.2 9.2-72.5-88.1-66.5z"/>
+					<path fill="#E8E8E8" stroke="#E8E8E8" d="M309.8 102.1L287.4 5.3l-.7-.1-141.1 68.4-7.3 21.1v131.6l33.2 55.1 76.2 8 43.2-11.6 2.9 1.9 20.2-83.9-9.4-49.5z"/>
+					<path fill="#D5E3EE" stroke="#D5E3EE" d="M465.6 139.9l3.2-29.4L453 49.4l-63.2-30.5L287.4 5.3l22.4 96.8-5.2 44.2 9.4 49.5.1-.1 126.1 15.8 2.3-52.6z"/>
+					<path fill="#E5EBF0" stroke="#E5EBF0" d="M611.9 99.9l8.5-49.4L616.8.1 453 49.4l15.8 61.1-3.2 29.4-23.1 19-2.3 52.6h.2l23.1 22.1 14.8 2.1 88.1 66.5 14-110.7 10.5-44.2z"/>
+					<path fill="#C7D4DE" stroke="#C7D4DE" d="M838.3-.1H617.2l-.4.2 3.6 50.4-8.5 49.4-21 47.4-10.5 44.2 192.7-8.3z"/>
+				</svg>
+			</div>
+		</div>
+
+		<div class="guide-content">
+
+			<!-- WEB TYPOGRAPHY ====================================== -->
+			<section id="web-type" data-nav-label="Web typography" class="l-section l-section--timeline l-section--web-type">
+				<header class="l-contain l-section__header">
+					<h2>Web typography</h2>
+					<p class="h4">A brief history</p>
+				</header>
+				<div class="l-grid l-section__body">
+					<p class="l-col-left c-feature-para">Rich typography has for years been the envy of many web designers, who long for the typographic variety, texture, and precision available in print media.</p>
+					<div class="l-col-right">
+						<p>The first huge stride in typographic detail on the web was the introduction of web fonts, which allowed designers and developers to use many other fonts besides the handful generally available on user’s operating systems.</p>
+						<p>Why were web fonts so exciting for designers? Jason Pamental put it <a href="http://rwt.io/presentations/talk/variable-fonts-future-web-design" target="_blank">eloquently</a> “Typography is communication” but currently the web is “all system, no soul.” Web fonts teased the opportunity of bringing that “soul” to the web. Unfortunately for web fonts, to provide this soul, it comes at an especially important cost.</p>
+					</div>
+
+					<!-- Pull quote demo -->
+					<figure class="l-col-left soul-wrap" role="img" aria-label="Currently, the web is all system, no soul. (Jason Pamental)">
+						<quote-grid class="soul" aria-hidden="true">
+							<span class="soul__ldquo">“</span>
+							<span class="soul__currentl">Currentl</span>
+							<span class="soul__y">y</span>
+							<span class="soul__web">the web</span>
+							<span class="soul__is">
+								<span>is</span>
+							</span>
+							<span class="soul__all">
+								<span>A<span zw> </span>L<span zw> </span>L</span>
+							</span>
+							<span class="soul__system">
+								<span>S<span zw> </span>Y<span zw> </span>S<span zw> </span>T<span zw> </span>E<span zw> </span>M</span>
+							</span>
+							<span class="soul__no-soul"><span>no</span> <span>soul</span></span>
+							<span class="soul__rdquo">„</span>
+							<span class="soul__jason">- Jason Pamental</span>
+						</quote-grid>
+					</figure>
+					<div class="l-col-right">
+						<p>Delivering this “soul” using web fonts with regular OpenType fonts required web developers to include every different font file for the various font variants the designer chose. Take the following simple example:</p>
+
+						<!-- DEMO -->
+						<p class="tk-europa">This
+								<span style="font-weight: 700">sentence</span><!-- bold -->
+								is <!-- Regular -->
+								<span style="font-weight: 300;">composed</span><!-- Light -->
+								from
+								<span style="font-weight: 300; font-style: italic;">six</span><!-- Light Italic -->
+								<span style="font-weight: 700; font-style: italic;">different</span><!-- Bold Italic -->
+								<span style="font-style: italic">non-variable</span><!-- Italic -->
+								font files.
+							</p>
+						<p>To achieve the look in the previous sentence we had to download over 150Kb split across six different files. As a result of needing to download every type face, web developers quickly found that for every beautiful font that a designer added to a site it had a noticeable impact on the performance and overall experience to the end user. So much to the point that font services, such as Adobe&rsquo;s TypeKit has added in heuristics to warn web developers about the impact these fonts can have on their end users.</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- ENTER VARIABLE FONTS ====================================== -->
+			<section id="enter" data-nav-label="Variable fonts" class="l-section l-section--timeline">
+				<header class="l-contain l-section__header">
+					<h2>Enter variable fonts</h2>
+				</header>
+				<div class="l-grid l-section__body">
+					<img class="l-col-left" src="images/bahnschrift-letter-e-800.jpg" alt="Showing the letter E in font Bahnshrift in a font design tool." />
+					<div class="l-col-right">
+						<p>Similarly, many web developers have advocated a return to system font stacks, prioritizing performance over brand cohesion or design differentiation. Performance has the potential for major impact on user experience and a business’s bottom line, and so the web community needed to figure out how to balance this priority against the desire for beautiful typography.</p>
+						<p>To help solve this problem, one of the most impactful changes was made to the OpenType font format in collaboration by Adobe, Apple, Google, Microsoft and others. The solution was to enable font designers to provide various axes that could be adjusted dynamically by the software rendering the font, such as a web browser.</p>
+						<p>To show the beauty of this simple, but powerful capability; let&rsquo;s achieve a similar designed sentence as our previous example, but this time using a single variable font.</p>
+
+						<!-- DEMO -->
+						<p class="tk-europa">This
+							<span style="font-weight: 700">sentence</span><!-- bold -->
+							is <!-- Regular -->
+							<span style="font-weight: 300;">composed</span><!-- Light -->
+							from
+							<span style="font-weight: 300; font-style: italic;">six</span><!-- Light Italic -->
+							<span style="font-weight: 700; font-style: italic;">different</span><!-- Bold Italic -->
+							<span style="font-style: italic">non-variable</span><!-- Italic -->
+							font files.
+						</p>
+						<p class="variable-font">This
+							<span style="font-weight: 700">sentence</span><!-- bold -->
+							is <!-- Regular -->
+							<span style="font-weight: 300;">composed</span><!-- Light -->
+							from
+							<span style="font-weight: 300; font-style: italic;">one</span><!-- Light Italic -->
+							<span style="font-weight: 700; font-style: italic;">variable</span><!-- Bold Italic -->
+							<span style="font-style: italic">font</span><!-- Italic -->
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- FONT-VARIATION-SETTINGS ====================================== -->
+			<section id="font-variation-settings" data-nav-label="font-variation-settings" class="l-section l-section--timeline">
+				<header class="l-contain l-section__header">
+					<p class="h4">Using variable fonts</p>
+					<h2 class="c-property-heading" style="font-feature-settings: 'kern' 1, 'liga' 1;">font-variation-settings</h2>
+				</header>
+				<div class="l-section__body">
+					<div class="l-grid">
+						<p class="l-col-left c-feature-para">So how exactly did we achieve the seemingly different typefaces with a single font?</p>
+						<div class="l-col-right">
+							<p> We utilized the variable font, “Bahnschrift” by Microsoft, and pivoted the various axes to match that of sentence number one. To adjust an axis in CSS, you can utilize font-variation-settings, like so:</p>
+							<p><code>font-variation-settings: normal | [&lt;string&gt; &lt;number&gt;]#</code></p>
+							<p>For example, all of the following are valid values for font-variation-settings.</p>
+							<pre><code>font-variation-settings: "wght" 400;
+font-variation-settings: "wght" 400, "ital" 1;
+font-variation-settings: normal;</code></pre>
+						</div>
+					</div>
+					<div class="l-subsection l-subsection--banner l-subsection--banner-angled">
+						<div class="l-grid l-grid--stack-med">
+							<div class="l-col-right ticket-wrap" aria-label="A fake boat ticket demonstrating mixing font weights and widths">
+								<div class="ticket" aria-hidden="true">
+									<div class="ticket__header">
+										<div class="ticket__co">
+											<svg class="ticket__co-icon" xmlns="http://www.w3.org/2000/svg" width="64" height="64"><circle fill="#506072" cx="32" cy="32" r="32"/><path fill="#F4F5F6" d="M17.8 23.7c.5.2 1.1.1 1.4.2.6.1 1.3.1 1.8-.1.2-.1.5-.3.8-.5.3-.3.6-.6 1.1-1 .4-.4.9-.8 1.5-1.2.6-.4 1.3-.7 2.1-.8.4-.1.7-.1 1.1-.1h1c.7.1 1.4.3 2 .6 1.3.7 2.2 1.7 2.8 2.4.6.7 1.1 1.2 1.7 1.4.7.2 1.5.3 2.2.1.7-.2 1.4-.7 2.3-1.5.5-.4 1-.8 1.6-1.1.6-.3 1.2-.5 1.9-.6 1.2-.1 2.5.1 3.6.8 1 .7 1.7 1.6 2.5 2.3.8.7 1.8 1.2 2.9 1.2-.6 0-1.2-.1-1.8-.4-.5-.3-1-.6-1.5-1-1-.7-2-1.7-3.2-1.9-.6-.1-1.2-.1-1.7 0-.6.1-1.1.3-1.5.6-.8.5-1.3 1.6-2.4 2.8-.6.6-1.3 1.1-2.2 1.4-.9.3-1.7.3-2.6.1-1.1-.2-2-.7-2.7-1.3-.7-.6-1.1-1.1-1.5-1.5-.8-.8-1.3-1.1-1.8-1.2-.5-.1-.8-.1-.9 0-.1 0 0 .1.3.1-.2 0-.4 0-.6.1-.2.1-.3.1-.5.3-.3.2-.4.5-.6.6-.3.2-.6.5-.8.7-.4.3-.7.6-1.2 1-1 .7-2.4 1.3-3.6 1.4-.2.1-.5.1-.9.2h-.9c-.8-.2-1.6-.6-2.2-1.1-.6-.5-1-1.1-1.4-1.6-.7-1.1-1.4-2.1-2.8-2.4.3 0 .5-.1.5-.1l-.6-.3c-.5-.3-.7-.3-1-.4.2-.1.4-.1.7-.1h.8c.5 0 1.1.2 1.7.4 1 .4 1.9 1.2 2.6 1.5z"/><g opacity=".85" fill="#F4F5F6"><path d="M48.9 40.3l-.3-.3c0 .1.1.1.1.2s.1.1.2.1zM48.3 39.7l-.1-.1h-.1zM47.6 39.1l.3.3c0-.1-.1-.2-.3-.3zM48 39.6s.1-.1 0 0l.1-.1-.2-.1c.1.1.1.2.1.2zM48 39.6v.2c.1 0 .1-.1 0-.2zM47.1 40.3c-.1 0 .1-.2 0-.3-.3-.2-.6-.3-.9-.4-.1 0-.1-.4-.3-.4-.4-.1-1.2.1-.8.2.6.2 1 .4 1.6.8.5.3 1 .6 1.6 1 .1.1.3.2.4.4-.2-.2-.3-.4-.5-.6-.1-.4-.7-.4-1.1-.7zM51.6 41.8c-.1 0-.2.1-.2.1-.3-.3-.7-.2-1-.3l.1.2c.2.1.3 0 .1-.1.3.3.8.4 1.2.4-.1-.2-.1-.3-.2-.3zM52 42h-.2.2z"/><path d="M46 38.4c-1-.5-2.1-.5-3.1-.4-.1.1-.1.2-.2.1h-.3l-.4.1-.1.1c-.1.1 0 .1 0 .1h0-.2c-.1.1-.2.2-.4.2.1-.1.2-.2.4-.2l.2-.2.1-.1c-.3.1-.6.3-.9.5-.1 0-.1.1-.2.1-.2.2-.3.4-.5.4l-.1.1h-.1l-.6.5c-.1.2-.1.3-.2.5h-.2c0 .1 0 .2-.1.3.2 0 .3 0 .4-.1.2 0 0-.5.4-.4-.3-.1-.2.4-.4.4-.1 0-.3 0-.4.1-.1.3-.4.5-.6.5.2-.3.4-.3.7-.3.1-.1.1-.2.1-.3h.2c.1-.1.2-.3.2-.5-.4.3-.7.6-1.1.9-.6.4-1.3.6-2 .7-.7.1-1.4 0-2-.3-.6-.2-1.2-.7-1.7-1.2s-1.1-1.2-1.8-1.8c-.8-.6-1.9-1-2.9-1.1-1-.1-2.1.1-3.1.5-.9.5-1.6 1.2-2.2 1.7-.6.5-1.1.9-1.6 1.1-.5.2-1.2.2-1.7.1-.6-.2-1-.5-1.3-1-.3-.4-.8-1-1.7-1.8-.5-.4-1-.8-1.5-1-.6-.3-1.1-.4-1.6-.5-.6 0-1 .2-1.2.4-.3.2-.3.4-.3.6 0 .4.3.8.3.8.5.6.8.8 1.2 1 .4.3.9.6 1.4 1.6-.4-.6-.1-.6.4-.2.5.4 1.1 1.2 1.6 2 .4.6 1.1 1.1 1.9 1.3.8.2 1.6.2 2.5 0 .9-.2 1.7-.6 2.4-1.1.7-.5 1.2-1 1.7-1.4.5-.4.8-.8 1.2-1 .5-.2 1-.2 1.6-.2.6.1 1 .2 1.5.5.5.4 1.1 1 2.1 1.8.4.4 1 .7 1.7 1 .6.3 1.3.4 2 .5 1.4.1 2.7-.5 3.6-1.2.7-.5 1.4-.9 1.8-1.3.6-.6 1-1.1 1.3-1.5-.5.4-.7.8-1.3 1.4-.4.4 0-.6.2-.9.1-.2.5-.1.5-.2.2-.2.3-.5.6-.7.1-.1.2.2.3.1l.4-.4c.1-.2.3-.3.4-.2.2 0 .4 0 .6.1h.4l.2-.1c-.1-.1-.1-.2-.1-.3.1 0 .3.1.4.1-.1 0-.3-.1-.4-.1 0 .1 0 .2.1.3.6-.2 1.3-.1 2 .1-.4-.2-.7-.3-1-.6.2.1.1.2-.1.2l-.4-.4c.4 0 .8 0 1 .4h.3c.1.1 0 .2 0 .3.1 0 .1.1.2.1-.1-.2-.5-.6-.5-.6z"/><path d="M41.7 38.5c.1 0 .1-.1.2-.1-.3.1-.5.2-.7.4.2 0 .3-.2.5-.3z"/></g><path fill="#F4F5F6" d="M12 28.7c.4.2 1 .3 1.8.6.7.3 1.5.9 2 1.5.6.6 1 1.2 1.5 1.7s.9.8 1.3 1c.6.3 1.2.3 1.6.4.4 0-.5.1-1.6-.4-.5-.2-1-.5-1.5-1 .5.8 1.2 1.4 1.9 1.7.5.1 1 .1 1.5.1 1.2 0 2.3-.6 3.1-1.4.8-.7 1.6-1.6 2.5-1.9.3-.1.9-.3 1.5-.3s1.1.1 1.4.2c-.7-.2-1.4-.2-2.1-.1-.7.1-1.3.5-1.9 1-.6.5-1.1 1.1-1.8 1.7-.7.5-1.6.9-2.5 1h.3c.9-.1 1.9-.6 2.6-1.2.7-.6 1.3-1.2 1.9-1.6.2-.1.4-.3.7-.4-.2.1-.4.2-.7.4-.5.4-1 1-1.6 1.6-.4.4-1 .7-1.5 1-.4.2-.9.2-1.4.3-.3.1-.6.1-.8.1h-.3c.2.1.8.3 1.6.2.9-.1 1.9-.6 2.7-1.3.8-.6 1.4-1.1 1.9-1.4.5-.2.8-.3 1-.3.5-.2 1.2-.6 1.9-.4.2.1.4.2.6.2h.3c.5.2.7.8 1.2 1 .1.1.2.5.3.9.1.4.2.7.3.7.7-.3.1-.1 1 .6.1.1.6 0 .8.2.7.5 1.1.4 2 .4.3 0 .6 0 .9-.1h.6c.2 0 .4-.1.6-.1.2-.1.4-.2.7-.5.1-.1.5-.3.8-.7.3-.3.6-.7.6-.7 1-.8 1.2-1.7 2.2-1.7.3-.4.8-.6 1.4-.7.6 0 1.1.1 1.6.2 1 .2 1.1.7 1.5 1.5.2.2.3.3.4.5 0 .2.5.3.7.6l-.2.1c.1.1.2.3.3.3.1.1 0 .1-.1.1-.1.1-.3.1-.2.3.3.4.8.9 1.3 1.2.6.2 1.3.3 1.9.3.1-.1.1-.2.2-.2.2 0 .3 0 .5-.1.1-.2.1-.4.2-.5.1-.5.6-1 .5-1.5 0-.2-.7-.2-.9-.5 0-.1.1-.2.2-.4-.3-.1-.3-.3-.1-.4-.1 0-.1-.1-.1-.1 0-.1.1-.2.1-.2-.5-.4-.6-1-1.5-1.6-.2-.1-.5-.3-.8-.4-.1-.1-.3-.4-.4-.5-.3 0-.4.2-.6.3-.1-.2-.4-.4-.7-.6-.3-.2-.6-.4-1-.6-.7-.3-1.2-.2-1.3.1-.8-.1-.9.2-1.7.3-.5.1-1.1.2-1.7.5-.6.3-1.1.7-1.5 1.1L38.7 32l-.4.4c-.7.6-1.3.9-2.1.9s-1.5-.1-2-.5c-.6-.3-1.1-.9-1.8-1.6-.7-.7-1.7-1.4-2.9-1.7-1.2-.2-2.4-.1-3.5.4s-1.9 1.3-2.6 2c-.7.7-1.4 1.3-2.2 1.4-.8.2-1.7.1-2.3-.1-1.3-.5-2-1.9-3-2.9-.5-.5-1.1-1-1.7-1.2-.3-.1-.5-.2-.8-.3-.2-.1-.4-.1-.6-.1H12z" opacity=".8"/></svg>
+											<span class="ticket__co-name">Variable Tides</span>
+											<span class="u-upper ticket__co-subname">Boating Adventures</span>
+										</div>
+									</div>
+									<div class="ticket__body">
+										<p class="ticket__route">Winter Wonderland</p>
+										<p class="ticket__description">A four-hour tour of the Strait of Garamond</p>
+										<div class="ticket__timing">
+											<p>
+												<span class="u-upper ticket__small-label">Date</span>
+												<span class="ticket__detail">Jan 27</span>
+											</p>
+											<p>
+												<span class="u-upper ticket__small-label">Launch</span>
+												<span class="ticket__detail">10:30 am</span>
+											</p>
+											<p>
+												<span class="u-upper ticket__small-label">Boarding</span>
+												<span class="ticket__detail">10:00 am</span>
+											</p>
+										</div>
+										<p class="ticket__fine-print">This ticket cannot be transferred to another voyage</p>
+										<p class="u-upper ticket__admit">Admit one adult</p>
+										<img class="ticket__barcode" src="images/barcode.png" alt="Fake barcode" />
+									</div>
+								</div>
+							</div>
+							<div class="l-col-left ticket-info">
+								<h3>Adjusting multiple axes</h3>
+								<p>If you want to adjust multiple axes on an element, you can do that by listing out axes separated by a comma. For example, the “Variable Tides” company name on this ticket has both a weight and a width adjustment:</p>
+<pre><code>.ticket__co-name {
+	font-variation-settings: "wght" 500, "wdth" 75;
+}
+</code></pre>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="l-subsection l-grid">
+					<h3 class="l-col-left">Reserved axis tags</h3>
+					<div class="l-col-right">
+						<p>While font designers can create as many axes as they desire using whatever
+							four-character tags they want; there are currently five reserved axis tags.</p>
+						<table>
+							<thead>
+								<th>Reserved axis</th>
+								<th>Used for</th>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>ital</code></td>
+									<td>Italic</td>
+								</tr>
+								<tr>
+									<td><code>opsz</code></td>
+									<td>Optical Size</td>
+								</tr>
+								<tr>
+									<td><code>slnt</code></td>
+									<td>Slant</td>
+								</tr>
+								<tr>
+									<td><code>wdth</code></td>
+									<td>Width</td>
+								</tr>
+								<tr>
+									<td><code>wght</code></td>
+									<td>Weight</td>
+								</tr>
+							</tbody>
+						</table>
+						<p>Wait, what? Now we have to manipulate a font&rsquo;s weight using the ‘wght’ axis rather than using the font-weight property? Using the font-variation-settings property is just one method of controlling variable axes. These reserved axis tags can also be manipulated by familiar CSS properties:</p>
+						<table>
+							<thead>
+								<th>Reserved axis</th>
+								<th>Font property equivalent</th>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>ital</code></td>
+									<td>font-style: italic</td>
+								</tr>
+								<tr>
+									<td><code>opsz</code></td>
+									<td>font-optical-sizing</td>
+								</tr>
+								<tr>
+									<td><code>slnt</code></td>
+									<td>font-style: oblique + angle</td>
+								</tr>
+								<tr>
+									<td><code>wdth</code></td>
+									<td>font-stretch</td>
+								</tr>
+								<tr>
+									<td><code>wght</code></td>
+									<td>font-weight</td>
+								</tr>
+							</tbody>
+						</table>
+						<p>Because of this, the following two CSS declarations will produce identical results:</p>
+<pre><code>.someClass {
+	font-variations-settings: "wght" 300, "ital" 1, "slnt" 45, "wdth" 50%, "opsz" 25;
+}
+
+.someClass {
+	font-style: italic;
+	font-optical-sizing: auto;
+	font-size: 25;
+	font-style: oblique 45deg;
+	font-stretch: 50%;
+	font-weight: 300;
+}</code></pre>
+					</div>
+					<h3 class="l-col-left">Animating axes</h3>
+					<div class="l-col-right">
+						<p>Now that we&rsquo;ve covered what variable fonts are and how they can be used, it&rsquo;s important to note that they can also be animated and interpolated.
+						<p>One thing to keep in mind when animating axes, according to the spec you can interpolate between two declarations that are “like”. So what does this mean? The following animation will not work:</p>
+						<pre><code>from {
+  font-variation-settings: "wght" 300;
+}
+
+to {
+  font-variation-settings: "slnt" 45;
+}</code></pre>
+						<p>The reason this doesn’t work is because the engine doesn’t know what to interpolate to, does it keep “wght” at 300 or interpolate it to 0. So in order for it to work we need to have both axes represented so the engine can interpolate them, or in the words of the spec - make the declarations become “like”.</p>
+						<pre><code>from {
+  font-variation-settings: "wght" 300, "slnt", 0;
+}
+
+to {
+  font-variation-settings: "wght" 300, "slnt" 45;
+}</code></pre>
+						<p>We took this and had a little fun with the Decovar font and animated some of its astounding 15 different axes to create a rich animated experience:</p>
+					</div>
+
+					<div class="l-col-full vf-decovar">
+						<span class="vf-decovar__text" aria-label="A single font">
+							<span aria-hidden="true">A single</span>
+							<span aria-hidden="true">font</span>
+						</span>
+					</div>
+				</div>
+			</section>
+
+			<!-- FONT-OPTICAL-SIZING ====================================== -->
+			<section id="font-optical-sizing" data-nav-label="font-optical-sizing" class="l-section l-section--timeline">
+				<header class="l-contain l-section__header">
+					<p class="h4">Using variable fonts</p>
+					<h2 class="c-property-heading">font-optical-sizing</h2>
+				</header>
+				<div class="l-grid l-grid--stack-med l-section__body">
+					<p class="l-col-left">In a font of standard construction, the same weight across varying sizes can look inconsistent. A light weight might feel too wispy at a caption size; a bold weight commands a little too much attention at heading sizes, or it looks clunky at a particular size. To help ensure that these weights carry a consistent mood and bar of quality across sizes, some variable fonts support an axis called optical size. This can be controlled via the font-optical-sizing property. It has two values, auto and none. This is similar to what has been done in the printing industry for years.</p>
+					<figure class="l-col-right">
+						<img src="images/Century_Expanded-a-normalized.jpg" />
+						<figcaption>An example of optical size adjustment in print on the letter “a” created by Nick Sherman for his article titled “<a href="http://alistapart.com/column/font-hinting-and-the-future-of-responsive-typography" target="_blank">Font Hinting and the Future of Responsive Typography</a>”</figcaption>
+					</figure>
+
+					<p class="l-col-left">In fonts with automatic optical sizing, this optimization comes for free, as auto is the initial value. Sitka, a variable font created by Microsoft, automatically adjusts text between sizes 6px and 36px, such that across this entire range, small optimizations are done to make sure the type always looks its best. This behavior can be toggled using font-optical-sizing and setting the value to none.</p>
+					<figure class="l-col-right vf-optical-sizing">
+							<table>
+								<thead>
+									<th>Automatic optical sizing</th>
+									<th>font-optical-sizing: none;</th>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="vf-optical-sizing__72pt">Abcdef</td>
+										<td class="vf-optical-sizing__72pt vf-optical-sizing__off">Abcdef</td>
+									</tr>
+									<tr>
+										<td class="vf-optical-sizing__36pt">Abcdef</td>
+										<td class="vf-optical-sizing__36pt vf-optical-sizing__off">Abcdef</td>
+									</tr>
+									<tr>
+										<td class="vf-optical-sizing__12pt">Abcdef</td>
+										<td class="vf-optical-sizing__12pt vf-optical-sizing__off">Abcdef</td>
+									</tr>
+								</tbody>
+							</table>
+						<figcaption>This table shows variable font Sitka, produced by Microsoft, at 72pt, 36pt and 12pt with and without font-optical-sizing. As the font gets smaller the stroke widths are increased and the x-height gets taller to improve legibility.</figcaption>
+					</figure>
+				</div>
+			</section>
+
+			<!-- How to design with variable fonts ====================================== -->
+			<section id="design" data-nav-label="Design tools" class="l-section l-section--timeline">
+				<header class="l-contain l-section__header">
+					<h2>Design tools</h2>
+				</header>
+				<div class="l-section__body">
+					<div class="l-contain">
+						<p class="c-feature-para">You may be asking yourself, “Ok, so if I’m using a font that has axes that aren&rsquo;t reserved—how do I know what they&rsquo;re named in the font to control them via font-variation-settings.” That’s a great question. Luckily, common design tools and operating systems are stepping up to fill this gap. Here are just a few ways you can inspect variable fonts for use in your websites.</p>
+					</div>
+					<section class="l-subsection l-subsection--banner l-subsection--banner-angled c-tool">
+						<div class="l-grid l-grid--stack-med">
+							<div class="l-col-left">
+								<h4>The new font explorer in Windows&nbsp;10</h4>
+								<p>2018’s Spring Windows 10 Update includes a new and improved font explorer. The new font explorer not only provides a visual representation of the font, but also provides you with the various axes that the variable font contains.</p>
+								<p>To use the font explorer:</p>
+								<ol>
+									<li>Press the Windows Key, then type “Fonts” and select “Font Preview and related settings”</li>
+									<li>Search and select the variable font you want to inspect. In our video we search for Microsoft&rsquo;s Bahnschrift.</li>
+									<li>On the next screen you&rsquo;ll see “instance view”, which shows you the various instances the font has defined. For example Bahnschrift has 15, including Light, Light Condensed, SemiLight, Bold, and many others.</li>
+									<li>If you scroll down you&rsquo;ll see a Metadata section with a label “Variable Font”. Clicking on “Variable Font Properties” will take you to the page that details the various axes and allows you to change them in real time.</li>
+								</ol>
+							</div>
+							<div class="l-col-right l-col-right--bleed">
+								<video controls>
+									<source src="video/new-font-explorer.mp4" type="video/mp4">
+								</video>
+							</div>
+						</div>
+					</section>
+					<section class="l-subsection c-tool">
+						<div class="l-grid l-grid--stack-med">
+							<div class="l-col-left">
+								<h4>Adobe Photoshop and Illustrator in Creative Cloud 2018</h4>
+								<p>For those who design in Adobe products, an update in CC 2018 allows you to modify the variable fonts right where you normally build out your compositions. To do this:</p>
+								<ol>
+									<li>Select a text block that is using a variable font, in the typeface selection menu, variable fonts are labelled with the <img class="inline-media" src="images/photoshop-variable-font-icon.png" alt="Adobe variable font"/> icon.</li>
+									<li>In the Type panel (which you can get to using Window > Type > Characters), you&rsquo;ll see that it now lists out the various axes of the variable font (in Illustrator you need to click the <img class="inline-media" src="images/variable-axis-slider.png" alt="Adobe variable font slider"/> icon to open up the window that contains the axes sliders).</li>
+									<li>Adjust the various axes sliders to update styles in the selected text block.</li>
+								</ol>
+							</div>
+							<div class="l-col-right l-col-right--bleed">
+								<video controls>
+									<source src="video/photoshop-variable-font-support.mp4" type="video/mp4">
+								</video>
+								<p class="caption">An example of using built-in variable fonts controls on the quote by Jason Pamental in Photoshop</p>
+							</div>
+						</div>
+					</section>
+					<section class="l-subsection l-subsection--banner l-subsection--banner-angled c-tool">
+						<div class="l-grid l-grid--stack-med">
+							<div class="l-col-left">
+								<h4>Axis-Praxis Variable Font Playground and CSS generation</h4>
+								<p>Since variable fonts began to be standardized, Laurence Penney set up <a href="http://axis-praxis.org">Axis-Praxis</a> as a playground to test out various variable fonts and a way to view them live in the browser. We used this site for the animation of Decovar by adjusting the Decovar axes and then clicking the “CSS” button, which shows you CSS you can use to reproduce the same result on your own page. Axis-Praxis is also a great place to see some of the variable fonts that are available. Since variable fonts are new there aren&rsquo;t many here – but many foundries are ramping up their implementation of variable fonts, including Microsoft.</p>
+							</div>
+							<div class="l-col-right l-col-right--bleed">
+								<video controls>
+									<source src="video/axis-praxis.mp4" type="video/mp4">
+								</video>
+							</div>
+						</div>
+					</section>
+					<section class="l-subsection">
+						<div class="l-grid l-grid--stack-med">
+							<div class="l-col-left">
+								<h4>Good ’ol wireframes</h4>
+								<p>No matter how many tools come out, sometimes it just helps to sketch out ideas while you&rsquo;re in a room brainstorming. That is exactly what Melanie and Greg did while coming up with the various ways to show practical and exciting ways in which Variable Fonts can improve a site.</p>
+								<p>We then took these wireframes and moved into Adobe Illustrator and built them out, and then while coding it up we kept the spirit of the design in place while still making subtle tweaks. Our sketch shows the initial introduction of the poem that sets the theme for the entire expedition.</p>
+							</div>
+							<img class="l-col-right l-col-right--bleed" src="images/wireframe.jpg" alt="Wireframes of text animating showing how the text gets thicker from frame to frame" />
+						</div>
+					</section>
+				</div>
+			</section>
+
+			<!-- Browser Support ====================================== -->
+			<section id="shipping" data-nav-label="Shipping today" class="l-section l-section--timeline">
+				<header class="l-contain l-section__header">
+					<h2>Shipping today</h2>
+				</header>
+				<div class="l-grid l-section__body">
+					<h3 class="l-col-left">Browser support</h3>
+					<div class="l-col-right">
+						<p>When EdgeHTML 17 ships, all modern desktop-based browsers will support <code>font-variation-settings</code>, except for Firefox, where it is behind a flag. On mobile, currently, Chrome and Safari 11.2 will support variable fonts, but UC Browser and Samsung Internet do not.</p>
+						<p>At time of writing, only EdgeHTML 17, Safari 11 on MacOS, and Safari 11.2 on iOS support <code>font-optical-sizing</code>.</p>
+					</div>
+					<h3 class="l-col-left">Progressive enhancement</h3>
+					<div class="l-col-right">
+						<p>As you can see, support for variable fonts is beginning to make its way into browsers as well as into fonts, so it’s wise to use variable fonts in a progressive enhancements manner.
+							To see if a browser supports variable fonts, utilize the CSS @supports conditional check, like so:</p>
+<pre><code>@supports(font-variation-settings: "wght" 500) {
+	/* variable font code here */
+}</code></pre>
+							<p>While this will check if the CSS parser understands font-variation-settings, it doesn&rsquo;t necessarily ensure that the correct font is being selected. Take the following example:</p>
+<pre><code>font-family: "Bahnschrift", sans-serif;
+font-variation-settings: "wght" 600;</code></pre>
+						<p>This will result in users utilizing a Windows 10 device with the desired result, but unless you are providing a fallback copy of Bahnschrift from the server, anyone accessing your site using a different OS will render without any axis change. Because of this you should provide fallbacks and only utilize font-variation-settings for non-reserved axes so that no matter the font they&rsquo;ll be styled similarly. For example a better approach would be:</p>
+<pre><code>font-family: "Bahnschrift", -apple-system, BlinkMacSystemFont, sans-serif;
+font-weight: 600;</code></pre>
+						<p>This will ensure that if the user is on Windows, Mac, iOS, Android result in grabbing their respective variable font. When using this approach however, you need to ensure that your design doesn&rsquo;t depend on certain font metrics. If your design does depend on certain font metrics or a non-reserved axis then you should serve the font using @font-face, like so:</p>
+<pre><code>@font-face {
+	font-family: "Decovar";
+	src: url("fonts/DecovarAlpha-VF.ttf");
+}
+
+body {
+	font-family: "Decovar";
+	font-variation-settings: "TRMD" 400;
+}</code></pre>
+					</div>
+				</div>
+			</section>
+
+			<!-- Demos & further reading ====================================== -->
+			<section id="resources" data-nav-label="Resources" class="l-section l-section--timeline">
+				<div class="l-contain">
+					<header class="l-section__header">
+						<h2>More resources</h2>
+					</header>
+					<div class="l-section__body">
+						<ul>
+							<li><a href="https://www.axis-praxis.org/specimens/__DEFAULT__" target="_blank">Test-drive variable font specimens on Axis-Praxis</a></li>
+							<li><a href="http://rwt.io/presentations/talk/variable-fonts-future-web-design" target="_blank">Jason Pamental’s Variable Font Presentation</a></li>
+							<li><a href="https://docs.microsoft.com/en-us/typography/opentype/spec/">Open Type Specification</a></li>
+							<li><a href="https://twitter.com/variablefonts">Variable fonts news</a></li>
+							<li><a href="https://codepen.io/mandymichael/pen/dJZQaz" target="_blank">Variable font "Hello" demo by Mandy Michael</a></li>
+						</ul>
+						<p>We'd love to see what you come up with using variable fonts; please do share your experiments and production implementations with us at <a href="https://twitter.com/MSEdgeDev">@MSEdgeDev</a>. Happy coding! <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="15" height="15"><g fill="none" stroke="#424F5E" stroke-miterlimit="10"><path d="M2.2 7.5h10.5M.5 5.7l1.8 1.8L.5 9.3M14.5 5.7l-1.8 1.8 1.8 1.8"/><path d="M4.9 12.1L10.1 3M2.4 12.7l2.5-.7.7 2.5M9.4.5l.7 2.5 2.5-.7"/><path d="M10.1 12.1L4.9 3M12.6 12.7l-2.5-.7-.7 2.5M5.6.5L4.9 3l-2.5-.7"/></g></svg></p>
+					</div>
+				</div>
+			</section>
+		</div>
+	</main>
+	<footer class="l-section l-section--banner c-outro" role="contentinfo" aria-label="Demo credits">
+		<div class="l-contain">
+			<div class="c-outro__byline">
+				<p><a href="https://developer.microsoft.com/en-us/microsoft-edge/testdrive/" class="c-nav-bar__more">A demo</a> by Microsoft Edge</p>
+				<p>Contributors: <a href="https://github.com/gregwhitworth">Greg Whitworth</a>, <a href="https://github.com/melanierichards">Melanie Richards</a>, <a href="https://github.com/FremyCompany">Francois Remy</a></p>
+				<p>Copyright Bahnschrift and Sitka fonts by Microsoft</p>
+				<p>Copyright TypeNetwork Decovar, font by David Berlow</p>
+			</div>
+			<a href="https://github.com/MicrosoftEdge/Demos" class="c-outro__github" aria-label="Explore code on Github">
+				<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path fill-rule="evenodd" clip-rule="evenodd" fill="#FFF" d="M10 .2C4.5.2 0 4.7 0 10.2c0 4.4 2.9 8.2 6.8 9.5.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.4-1.1-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.2 2.9.9.1-.6.3-1.1.6-1.3-2.1-.3-4.5-1.1-4.5-5 0-1.1.4-2 1-2.7-.1-.2-.4-1.2.1-2.6 0 0 .8-.3 2.7 1 .9-.2 1.8-.3 2.6-.3s1.7.1 2.5.3c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.6.6.7 1 1.6 1 2.7 0 3.8-2.3 4.7-4.6 4.9.4.3.7.9.7 1.9v2.7c0 .3.2.6.7.5 4-1.3 6.8-5.1 6.8-9.5.1-5.5-4.4-10-9.9-10z"/></svg><span>Explore code</span>
+			</a>
+		</div>
+	</footer>
+
+	<script src="scripts/demo-template.js"></script>
+	<script src="scripts/var-fonts.js"></script>
+</body>
+</html>
