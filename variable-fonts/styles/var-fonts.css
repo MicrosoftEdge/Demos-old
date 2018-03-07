@@ -193,8 +193,8 @@ img, video {
 
 caption, thead, .caption, figcaption {
 	max-width: 34rem;
-	font-weight: 350;
 	font: 1em/1.2 "Variable Bahnschrift", "FF DIN", "Franklin Gothic", "Helvetica Neue", sans-serif;
+	font-weight: 350;
 	font-variation-settings: "wdth" 75;
 	letter-spacing: .01em;
 	text-align: left;
@@ -250,8 +250,6 @@ main button {
 	text-transform: uppercase;
 	letter-spacing: .02em;
 }
-
-
 
 /*
  *	ANGLED EDGES
@@ -789,7 +787,7 @@ body.has-anim .poem {
 
 body.has-anim .poem__line > span {
 	color: transparent;
-	background: linear-gradient(to var(--demo-vf-reveal-direction), white 0%, white 100%, white 0px, darkgray 100%);
+	background: linear-gradient(to var(--demo-vf-reveal-direction), #fff 0%, #fff 100%, #fff 0, #444 100%);
 	background-clip: text;
 	-webkit-background-clip: text;
 	animation: reveal-fade 1500ms forwards;
@@ -800,10 +798,10 @@ body.has-anim .poem__line > span {
 
 @keyframes reveal-fade {
 	from {
-		background-image: linear-gradient(to var(--demo-vf-reveal-direction), white 0%, white 100%, white 0px, darkgray 100%);
+		background-image: linear-gradient(to var(--demo-vf-reveal-direction), #fff 0%, #fff 100%, #fff 0, #444 100%);
 	}
 	to {
-		background-image: linear-gradient(to var(--demo-vf-reveal-direction), white 0%, white 0%, black 0px, black 100%);
+		background-image: linear-gradient(to var(--demo-vf-reveal-direction), #fff 0%, #fff 0%, #000 0, #000 100%);
 	}
 }
 
@@ -816,10 +814,10 @@ body.has-anim #no-gradient-transition-test {
 
 @keyframes reveal-fade-test {
 	from {
-		background-image: linear-gradient(1deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
+		background-image: linear-gradient(1deg, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .5) 100%);
 	}
 	to {
-		background-image: linear-gradient(1deg, rgba(0, 0, 0, 0.5) 0%, rgba(128, 128, 128, 0.5) 100%);
+		background-image: linear-gradient(1deg, rgba(0, 0, 0, .5) 0%, rgba(128, 128, 128, .5) 100%);
 	}
 }
 
@@ -1352,12 +1350,6 @@ span[zw] {
  *	---------------------------------------------
  */
 
-/*REMOVE THIS ONCE IT IS ADDED TO THE CDN*/
-@font-face {
-	font-family:'Decovar Regular24';
-	src:url('https://www.axis-praxis.org/fonts/webfonts/DecovarAlpha-VF.ttf');
-}
-
 .vf-decovar {
 	line-height: 5em;
 	font-size: 5em;
@@ -1369,7 +1361,7 @@ span[zw] {
 }
 
 .vf-decovar__text {
-	font-family: 'Decovar Regular24';
+	font-family: "Decovar Regular24";
 	line-height: 1em;
 }
 
@@ -1392,37 +1384,37 @@ body.has-anim .vf-decovar__text {
 
 @keyframes variationSettings {
 	0% {
-		font-variation-settings: 'BLDA' 0, 'TRMD' 0, 'TRMC' 0, 'SKLD' 0, 'TRML' 0, 'SKLA' 0, 'TRMF' 0, 'TRMK' 0, 'BLDB' 0, 'WMX2' 0, 'TRMB' 0, 'TRMA' 0, 'SKLB' 0, 'TRMG' 0, 'TRME' 0;
+		font-variation-settings: "BLDA" 0, "TRMD" 0, "TRMC" 0, "SKLD" 0, "TRML" 0, "SKLA" 0, "TRMF" 0, "TRMK" 0, "BLDB" 0, "WMX2" 0, "TRMB" 0, "TRMA" 0, "SKLB" 0, "TRMG" 0, "TRME" 0;
 	}
 	10% {
-		font-variation-settings: 'BLDA' 500, 'TRMD' 0, 'TRMC' 0, 'SKLD' 0, 'TRML' 0, 'SKLA' 0, 'TRMF' 0, 'TRMK' 0, 'BLDB' 0, 'WMX2' 0, 'TRMB' 0, 'TRMA' 0, 'SKLB' 0, 'TRMG' 0, 'TRME' 0;
+		font-variation-settings: "BLDA" 500, "TRMD" 0, "TRMC" 0, "SKLD" 0, "TRML" 0, "SKLA" 0, "TRMF" 0, "TRMK" 0, "BLDB" 0, "WMX2" 0, "TRMB" 0, "TRMA" 0, "SKLB" 0, "TRMG" 0, "TRME" 0;
 	}
 	20% {
-		font-variation-settings: 'BLDA' 0, 'TRMD' 0, 'TRMC' 1000, 'SKLD' 326.389, 'TRML' 0, 'SKLA' 0, 'TRMF' 0, 'TRMK' 0, 'BLDB' 0, 'WMX2' 0, 'TRMB' 0, 'TRMA' 0, 'SKLB' 0, 'TRMG' 0, 'TRME' 0;
+		font-variation-settings: "BLDA" 0, "TRMD" 0, "TRMC" 1000, "SKLD" 326.389, "TRML" 0, "SKLA" 0, "TRMF" 0, "TRMK" 0, "BLDB" 0, "WMX2" 0, "TRMB" 0, "TRMA" 0, "SKLB" 0, "TRMG" 0, "TRME" 0;
 	}
 	30% {
-		font-variation-settings: 'BLDA' 0, 'TRMD' 0, 'TRMC' 0, 'SKLD' 0, 'TRML' 1000, 'SKLA' 0, 'TRMF' 0, 'TRMK' 0, 'BLDB' 0, 'WMX2' 0, 'TRMB' 0, 'TRMA' 0, 'SKLB' 0, 'TRMG' 0, 'TRME' 0;
+		font-variation-settings: "BLDA" 0, "TRMD" 0, "TRMC" 0, "SKLD" 0, "TRML" 1000, "SKLA" 0, "TRMF" 0, "TRMK" 0, "BLDB" 0, "WMX2" 0, "TRMB" 0, "TRMA" 0, "SKLB" 0, "TRMG" 0, "TRME" 0;
 	}
 	40% {
-		font-variation-settings: 'BLDA' 0, 'TRMD' 0, 'TRMC' 0, 'SKLD' 0, 'TRML' 0, 'SKLA' 784.722, 'TRMF' 0, 'TRMK' 0, 'BLDB' 0, 'WMX2' 303.241, 'TRMB' 0, 'TRMA' 0, 'SKLB' 0, 'TRMG' 0, 'TRME' 0;
+		font-variation-settings: "BLDA" 0, "TRMD" 0, "TRMC" 0, "SKLD" 0, "TRML" 0, "SKLA" 784.722, "TRMF" 0, "TRMK" 0, "BLDB" 0, "WMX2" 303.241, "TRMB" 0, "TRMA" 0, "SKLB" 0, "TRMG" 0, "TRME" 0;
 	}
 	50% {
-		font-variation-settings: 'BLDA' 0, 'TRMD' 0, 'TRMC' 0, 'SKLD' 0, 'TRML' 0, 'SKLA' 0, 'TRMF' 0, 'TRMK' 0, 'BLDB' 0, 'WMX2' 303.241, 'TRMB' 0, 'TRMA' 0, 'SKLB' 0, 'TRMG' 0, 'TRME' 0;
+		font-variation-settings: "BLDA" 0, "TRMD" 0, "TRMC" 0, "SKLD" 0, "TRML" 0, "SKLA" 0, "TRMF" 0, "TRMK" 0, "BLDB" 0, "WMX2" 303.241, "TRMB" 0, "TRMA" 0, "SKLB" 0, "TRMG" 0, "TRME" 0;
 	}
 	60% {
-		font-variation-settings: 'BLDA' 0, 'TRMD' 1000, 'TRMC' 0, 'SKLD' 0, 'TRML' 0, 'SKLA' 0, 'TRMF' 372.685, 'TRMK' 0, 'BLDB' 1000, 'WMX2' 0, 'TRMB' 0, 'TRMA' 0, 'SKLB' 0, 'TRMG' 1000, 'TRME' 0;
+		font-variation-settings: "BLDA" 0, "TRMD" 1000, "TRMC" 0, "SKLD" 0, "TRML" 0, "SKLA" 0, "TRMF" 372.685, "TRMK" 0, "BLDB" 1000, "WMX2" 0, "TRMB" 0, "TRMA" 0, "SKLB" 0, "TRMG" 1000, "TRME" 0;
 	}
 	70% {
-		font-variation-settings: 'BLDA' 0, 'TRMD' 1000, 'TRMC' 0, 'SKLD' 0, 'TRML' 0, 'SKLA' 0, 'TRMF' 372.685, 'TRMK' 0, 'BLDB' 0, 'WMX2' 0, 'TRMB' 0, 'TRMA' 0, 'SKLB' 761.574, 'TRMG' 1000, 'TRME' 0;
+		font-variation-settings: "BLDA" 0, "TRMD" 1000, "TRMC" 0, "SKLD" 0, "TRML" 0, "SKLA" 0, "TRMF" 372.685, "TRMK" 0, "BLDB" 0, "WMX2" 0, "TRMB" 0, "TRMA" 0, "SKLB" 761.574, "TRMG" 1000, "TRME" 0;
 	}
 	80% {
-		font-variation-settings: 'BLDA' 0, 'TRMD' 0, 'TRMC' 0, 'SKLD' 0, 'TRML' 0, 'SKLA' 0, 'TRMF' 0, 'TRMK' 0, 'BLDB' 275.463, 'WMX2' 344.907, 'TRMB' 0, 'TRMA' 1000, 'SKLB' 761.574, 'TRMG' 0, 'TRME' 0;
+		font-variation-settings: "BLDA" 0, "TRMD" 0, "TRMC" 0, "SKLD" 0, "TRML" 0, "SKLA" 0, "TRMF" 0, "TRMK" 0, "BLDB" 275.463, "WMX2" 344.907, "TRMB" 0, "TRMA" 1000, "SKLB" 761.574, "TRMG" 0, "TRME" 0;
 	}
 	90% {
-		font-variation-settings: 'BLDA' 0, 'TRMD' 548.611, 'TRMC' 298.611, 'SKLD' 173.611, 'TRML' 1000, 'SKLA' 0, 'TRMF' 0, 'TRMK' 0, 'BLDB' 0, 'WMX2' 0, 'TRMB' 409.722, 'TRMA' 53.241, 'SKLB' 594.907, 'TRMG' 0, 'TRME' 0;
+		font-variation-settings: "BLDA" 0, "TRMD" 548.611, "TRMC" 298.611, "SKLD" 173.611, "TRML" 1000, "SKLA" 0, "TRMF" 0, "TRMK" 0, "BLDB" 0, "WMX2" 0, "TRMB" 409.722, "TRMA" 53.241, "SKLB" 594.907, "TRMG" 0, "TRME" 0;
 	}
 	100% {
-		font-variation-settings: 'BLDA' 0, 'TRMD' 0, 'TRMC' 0, 'SKLD' 0, 'TRML' 0, 'SKLA' 0, 'TRMF' 0, 'TRMK' 0, 'BLDB' 0, 'WMX2' 0, 'TRMB' 0, 'TRMA' 0, 'SKLB' 0, 'TRMG' 0, 'TRME' 0;
+		font-variation-settings: "BLDA" 0, "TRMD" 0, "TRMC" 0, "SKLD" 0, "TRML" 0, "SKLA" 0, "TRMF" 0, "TRMK" 0, "BLDB" 0, "WMX2" 0, "TRMB" 0, "TRMA" 0, "SKLB" 0, "TRMG" 0, "TRME" 0;
 	}
 }
 
@@ -1478,11 +1470,11 @@ body.has-anim .vf-decovar__text {
 	font-size: 12pt;
 }
 
-@media (max-width: 36em) {	
+@media (max-width: 36em) {
 	.vf-optical-sizing__72pt {
 		font-size: 48pt;
 	}
-	
+
 	.vf-optical-sizing__36pt {
 		font-size: 24pt;
 	}

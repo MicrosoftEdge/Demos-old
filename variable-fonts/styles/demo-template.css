@@ -154,7 +154,7 @@ pre {
  *	---------------------------------------------
  */
 
- button {
+button {
 	padding: .5em .75em;
 	border: 0;
 	border-radius: 0;
@@ -176,7 +176,7 @@ button:hover {
 }
 
 button:active {
-	background-color: hsla(0, 0%, 0%, 0.4);
+	background-color: hsla(0, 0%, 0%, .4);
 }
 
 /*
@@ -393,7 +393,7 @@ button:active {
  *	---------------------------------------------
  */
 
- .c-alert {
+.c-alert {
 	position: relative;
 	z-index: 9000;
 	background: #f2f2f2;
