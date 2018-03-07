@@ -1026,139 +1026,145 @@ body:not(.has-anim) .ice-floes:not(.drift-started) > path {
  */
 
 .soul {
-	display: inline-grid;
-	grid-template-columns: [lm-start] auto [lm-end cl-start] auto [cl-end cm-start] auto [cm-end cr-start] auto [cr-end co-start] auto [co-end rm-start] auto [rm-end];
-	margin: 0 auto;
-	padding: 2em;
-	font-family: "Variable Bahnschrift", "FF DIN", "Franklin Gothic", "Helvetica Neue", sans-serif;
-	color: #424f5e;
+	display: none;
 }
 
-.soul > span {
-	display: block;
-	line-height: 1;
-}
+@supports (display: inline-grid) {
+	.soul {
+		display: inline-grid;
+		grid-template-columns: [lm-start] auto [lm-end cl-start] auto [cl-end cm-start] auto [cm-end cr-start] auto [cr-end co-start] auto [co-end rm-start] auto [rm-end];
+		margin: 0 auto;
+		padding: 2em;
+		font-family: "Variable Bahnschrift", "FF DIN", "Franklin Gothic", "Helvetica Neue", sans-serif;
+		color: #424f5e;
+	}
 
-.soul > .soul__ldquo,
-.soul > .soul__rdquo {
-	line-height: 0;
-}
+	.soul > span {
+		display: block;
+		line-height: 1;
+	}
 
-.soul__ldquo {
-	position: relative;
-	top: .35em;
-	grid-row: 1 / span 6;
-	grid-column: lm;
-	padding-right: .1em;
-	font-size: 700%;
-}
+	.soul > .soul__ldquo,
+	.soul > .soul__rdquo {
+		line-height: 0;
+	}
 
-.soul__currentl,
-.soul__y {
-	font-weight: 600;
-	font-size: 300%;
-}
+	.soul__ldquo {
+		position: relative;
+		top: .35em;
+		grid-row: 1 / span 6;
+		grid-column: lm;
+		padding-right: .1em;
+		font-size: 700%;
+	}
 
-.soul__currentl {
-	grid-column: cl-start / span cr-end;
-	text-align: right;
-}
+	.soul__currentl,
+	.soul__y {
+		font-weight: 600;
+		font-size: 300%;
+	}
 
-.soul__y {
-	grid-column: co-start / span co-end;
-}
+	.soul__currentl {
+		grid-column: cl-start / span cr-end;
+		text-align: right;
+	}
 
-.soul__web {
-	grid-column: cl-start / span cm-start;
-	font-size: 125%;
-	text-align: justify;
-	text-align-last: justify;
-}
+	.soul__y {
+		grid-column: co-start / span co-end;
+	}
 
-.soul__is {
-	position: relative;
-	grid-column: cl-start / span cm-start;
-	text-align: center;
-	text-align-last: center;
-	background: linear-gradient(to bottom, #fff 0%, #fff 45%, #424f5e 45%, #424f5e 55%, #fff 55%, #fff 100%);
-}
-
-.soul__is span {
-	padding: 0 .5em;
-	background: #fff;
-}
-
-.soul__all,
-.soul__system {
-	font-weight: 900;
-	font-weight: 999;
-	font-size: 275%;
-	text-align: justify;
-	text-align-last: justify;
-}
-
-.soul__all {
-	position: relative;
-	top: .1em;
-	grid-row: 2 / span 2;
-	grid-column: cm-start / span cr-end;
-	align-self: center;
-	padding-left: 14px;
-	line-height: 0;
-}
-
-.soul__all:first-child,
-.soul__system:first-child {
-	background-clip: text;
-	-webkit-background-clip: text;
-}
-
-span[zw] {
-	font-size: 1px;
-}
-
-.soul__system {
-	grid-column: cl-start / span cr-end;
-	text-justify: distribute;
-}
-
-.soul__no-soul {
-	position: relative;
-	grid-column: cl-start / span cr-end;
-	font-size: 200%;
-	text-align: right;
-}
-
-.soul__rdquo {
-	position: relative;
-	top: -.1em;
-	grid-row: 5 / span 1;
-	grid-column: co-start / span rm-end;
-	padding-left: .1em;
-	font-size: 700%;
-}
-
-.soul__jason {
-	grid-row: 6 / span 1;
-	grid-column: cl-start / span rm-end;
-	padding-top: .33em;
-	font-size: 150%;
-	text-align: right;
-}
-
-@media (max-width: 48em) {
-	.soul-wrap {
-		margin: 3em auto 1em;
-		background: #e5ebf0;
+	.soul__web {
+		grid-column: cl-start / span cm-start;
+		font-size: 125%;
+		text-align: justify;
+		text-align-last: justify;
 	}
 
 	.soul__is {
-		background: linear-gradient(to bottom, #e5ebf0 0%, #e5ebf0 45%, #424f5e 45%, #424f5e 55%, #e5ebf0 55%, #e5ebf0 100%);
+		position: relative;
+		grid-column: cl-start / span cm-start;
+		text-align: center;
+		text-align-last: center;
+		background: linear-gradient(to bottom, #fff 0%, #fff 45%, #424f5e 45%, #424f5e 55%, #fff 55%, #fff 100%);
 	}
 
 	.soul__is span {
 		padding: 0 .5em;
-		background: #e5ebf0;
+		background: #fff;
+	}
+
+	.soul__all,
+	.soul__system {
+		font-weight: 900;
+		font-weight: 999;
+		font-size: 275%;
+		text-align: justify;
+		text-align-last: justify;
+	}
+
+	.soul__all {
+		position: relative;
+		top: .1em;
+		grid-row: 2 / span 2;
+		grid-column: cm-start / span cr-end;
+		align-self: center;
+		padding-left: 14px;
+		line-height: 0;
+	}
+
+	.soul__all:first-child,
+	.soul__system:first-child {
+		background-clip: text;
+		-webkit-background-clip: text;
+	}
+
+	span[zw] {
+		font-size: 1px;
+	}
+
+	.soul__system {
+		grid-column: cl-start / span cr-end;
+		text-justify: distribute;
+	}
+
+	.soul__no-soul {
+		position: relative;
+		grid-column: cl-start / span cr-end;
+		font-size: 200%;
+		text-align: right;
+	}
+
+	.soul__rdquo {
+		position: relative;
+		top: -.1em;
+		grid-row: 5 / span 1;
+		grid-column: co-start / span rm-end;
+		padding-left: .1em;
+		font-size: 700%;
+	}
+
+	.soul__jason {
+		grid-row: 6 / span 1;
+		grid-column: cl-start / span rm-end;
+		padding-top: .33em;
+		font-size: 150%;
+		text-align: right;
+	}
+
+	@media (max-width: 48em) {
+		.soul-wrap {
+			margin: 3em auto 1em;
+			background: #e5ebf0;
+		}
+
+		.soul__is {
+			background: linear-gradient(to bottom, #e5ebf0 0%, #e5ebf0 45%, #424f5e 45%, #424f5e 55%, #e5ebf0 55%, #e5ebf0 100%);
+		}
+
+		.soul__is span {
+			padding: 0 .5em;
+			background: #e5ebf0;
+		}
 	}
 }
 
