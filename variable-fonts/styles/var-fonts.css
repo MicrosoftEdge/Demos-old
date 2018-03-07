@@ -208,6 +208,11 @@ caption, thead {
 	letter-spacing: .05em;
 }
 
+.inline-media {
+	display: inline;
+	margin: 0;
+}
+
 /*
  *	FORM ELEMENTS
  *	---------------------------------------------
