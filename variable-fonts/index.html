@@ -209,8 +209,8 @@
 				<div class="l-grid l-section__body">
 					<p class="l-col-left c-feature-para">Rich typography has for years been the envy of many web designers, who long for the typographic variety, texture, and precision available in print media.</p>
 					<div class="l-col-right">
-						<p>The first huge stride in typographic detail on the web was the introduction of web fonts, which allowed designers and developers to use many other fonts besides the handful generally available on user's operating systems.</p>
-						<p>Why were web fonts so exciting for designers? Jason Pamental put it <a href="http://rwt.io/presentations/talk/variable-fonts-future-web-design" target="_blank">eloquently</a> "Typography is communication" but currently the web is "all system, no soul." Web fonts teased the opportunity of bringing that "soul" to the web. Unfortunately for web fonts, to provide this soul, it comes at an especially important cost.</p>
+						<p>The first huge stride in typographic detail on the web was the introduction of web fonts, which allowed designers and developers to use many other fonts besides the handful generally available on user’s operating systems.</p>
+						<p>Why were web fonts so exciting for designers? Jason Pamental put it <a href="http://rwt.io/presentations/talk/variable-fonts-future-web-design" target="_blank">eloquently</a> “Typography is communication” but currently the web is “all system, no soul.” Web fonts teased the opportunity of bringing that “soul” to the web. Unfortunately for web fonts, to provide this soul, it comes at an especially important cost.</p>
 					</div>
 
 					<!-- Pull quote demo -->
@@ -263,7 +263,7 @@
 						<img src="images/bahnschrift-letter-e-800.jpg" alt="Showing the letter E in font Bahnshrift in a font design tool." />
 					</figure>
 					<div class="l-col-right">
-						<p>Similarly, many web developers have advocated a return to system font stacks, prioritizing performance over brand cohesion or design differentiation. Performance has the potential for major impact on user experience and a business's bottom line, and so the web community needed to figure out how to balance this priority against the desire for beautiful typography.</p>
+						<p>Similarly, many web developers have advocated a return to system font stacks, prioritizing performance over brand cohesion or design differentiation. Performance has the potential for major impact on user experience and a business’s bottom line, and so the web community needed to figure out how to balance this priority against the desire for beautiful typography.</p>
 						<p>To help solve this problem, one of the most impactful changes was made to the OpenType font format in collaboration by Adobe, Apple, Google, Microsoft and others. The solution was to enable font designers to provide various axes that could be adjusted dynamically by the software rendering the font, such as a web browser.</p>
 						<p>To show the beauty of this simple, but powerful capability; let&rsquo;s achieve a similar designed sentence as our previous example, but this time using a single variable font.</p>
 
@@ -304,8 +304,8 @@
 							<p> We utilized the variable font, “Bahnschrift” by Microsoft, and pivoted the various axes to match that of sentence number one. To adjust an axis in CSS, you can utilize font-variation-settings, like so:</p>
 							<p><code>font-variation-settings: normal | [&lt;string&gt; &lt;number&gt;]#</code></p>
 							<p>For example, all of the following are valid values for font-variation-settings.</p>
-							<pre><code>font-variation-settings: 'wght' 400;
-font-variation-settings: 'wght' 400, 'ital' 1;
+							<pre><code>font-variation-settings: "wght" 400;
+font-variation-settings: "wght" 400, "ital" 1;
 font-variation-settings: normal;</code></pre>
 						</div>
 					</div>
@@ -385,7 +385,7 @@ font-variation-settings: normal;</code></pre>
 								</tr>
 							</tbody>
 						</table>
-						<p>Wait, what? “Now we have to manipulate a font&rsquo;s weight using the 'wght' axis rather than using the font-weight property?”. Using the font-variation-settings property is just one method of controlling variable axes. These reserved axis tags can also be manipulated by familiar CSS properties:</p>
+						<p>Wait, what? “Now we have to manipulate a font&rsquo;s weight using the ‘wght’ axis rather than using the font-weight property?”. Using the font-variation-settings property is just one method of controlling variable axes. These reserved axis tags can also be manipulated by familiar CSS properties:</p>
 						<table>
 							<caption>Font property equivalents of reserved axes</caption>
 							<tbody>
@@ -413,7 +413,7 @@ font-variation-settings: normal;</code></pre>
 						</table>
 						<p>Because of this, the following two CSS declarations will produce identical results:</p>
 <pre><code>.someClass {
-	font-variations-settings: 'wght' 300, 'ital' 1, 'slnt' 45, 'wdth' 50%, 'opsz' 25;
+	font-variations-settings: "wght" 300, "ital" 1, "slnt" 45, "wdth" 50%, "opsz" 25;
 }
 
 .someClass {
@@ -428,21 +428,21 @@ font-variation-settings: normal;</code></pre>
 					<h3 class="l-col-left">Animating axes</h3>
 					<div class="l-col-right">
 						<p>Now that we&rsquo;ve covered what variable fonts are and how they can be used, it&rsquo;s important to note that they can also be animated and interpolated.
-						<p>One thing to keep in mind when animating axes, according to the spec you can interpolate between two declarations that are "like". So what does this mean? The following animation will not work:</p>
+						<p>One thing to keep in mind when animating axes, according to the spec you can interpolate between two declarations that are “like”. So what does this mean? The following animation will not work:</p>
 						<pre><code>from {
-  font-variation-settings: 'wght' 300;
+  font-variation-settings: "wght" 300;
 }
 
 to {
-  font-variation-settings: 'slnt' 45;
+  font-variation-settings: "slnt" 45;
 }</code></pre>
-						<p>The reason this doesn't work is because the engine doesn't know what to interpolate to, does it keep 'wght' at 300 or interpolate it to 0. So in order for it to work we need to have both axes represented so the engine can interpolate them, or in the words of the spec - make the declarations become "like".</p>
+						<p>The reason this doesn’t work is because the engine doesn’t know what to interpolate to, does it keep “wght” at 300 or interpolate it to 0. So in order for it to work we need to have both axes represented so the engine can interpolate them, or in the words of the spec - make the declarations become “like”.</p>
 						<pre><code>from {
-  font-variation-settings: 'wght' 300, 'slnt', 0;
+  font-variation-settings: "wght" 300, "slnt", 0;
 }
 
 to {
-  font-variation-settings: 'wght' 300, 'slnt' 45;
+  font-variation-settings: "wght" 300, "slnt" 45;
 }</code></pre>
 						<p>We took this and had a little fun with the Decovar font and animated some of its astounding 15 different axes to create a rich animated experience:</p>
 					</div>
@@ -466,7 +466,7 @@ to {
 					<p class="l-col-left">In a font of standard construction, the same weight across varying sizes can look inconsistent. A light weight might feel too wispy at a caption size; a bold weight commands a little too much attention at heading sizes, or it looks clunky at a particular size. To help ensure that these weights carry a consistent mood and bar of quality across sizes, some variable fonts support an axis called optical size. This can be controlled via the font-optical-sizing property. It has two values, auto and none. This is similar to what has been done in the printing industry for years.</p>
 					<figure class="l-col-right">
 						<img src="images/Century_Expanded-a-normalized.jpg" />
-						<figcaption>An example of optical size adjustment in print on the letter 'a' created by Nick Sherman for his article titled "<a href="http://alistapart.com/column/font-hinting-and-the-future-of-responsive-typography" target="_blank">Font Hinting and the Future of Responsive Typography</a>"</figcaption>
+						<figcaption>An example of optical size adjustment in print on the letter “a” created by Nick Sherman for his article titled “<a href="http://alistapart.com/column/font-hinting-and-the-future-of-responsive-typography" target="_blank">Font Hinting and the Future of Responsive Typography</a>”</figcaption>
 					</figure>
 
 					<p class="l-col-left">In fonts with automatic optical sizing, this optimization comes for free, as auto is the initial value. Sitka, a variable font created by Microsoft, automatically adjusts text between sizes 6px and 36px, such that across this entire range, small optimizations are done to make sure the type always looks its best. This behavior can be toggled using font-optical-sizing and setting the value to none.</p>
@@ -503,18 +503,18 @@ to {
 				</header>
 				<div class="l-section__body">
 					<div class="l-contain">
-						<p class="c-feature-para">You may be asking yourself, “Ok, so if I&rsquo;m using a font that has axes that aren&rsquo;t reserved—how do I know what they&rsquo;re named in the font to control them via font-variation-settings.” That's a great question. Luckily, common design tools and operating systems are stepping up to fill this gap. Here are just a few ways you can inspect variable fonts for use in your websites.</p>
+						<p class="c-feature-para">You may be asking yourself, “Ok, so if I’m using a font that has axes that aren&rsquo;t reserved—how do I know what they&rsquo;re named in the font to control them via font-variation-settings.” That’s a great question. Luckily, common design tools and operating systems are stepping up to fill this gap. Here are just a few ways you can inspect variable fonts for use in your websites.</p>
 					</div>
 					<section class="l-subsection l-subsection--banner l-subsection--banner-angled c-tool">
 						<div class="l-grid l-grid--stack-med">
 							<div class="l-col-left">
 								<h4>The new font explorer in Windows&nbsp;10</h4>
-								<p>2018's Spring Windows 10 Update includes a new and improved font explorer. The new font explorer not only provides a visual representation of the font, but also provides you with the various axes that the variable font contains.</p>
+								<p>2018’s Spring Windows 10 Update includes a new and improved font explorer. The new font explorer not only provides a visual representation of the font, but also provides you with the various axes that the variable font contains.</p>
 								<p>To use the font explorer:</p>
 								<ol>
-									<li>Press the Windows Key, then type "Fonts" and select “Font Preview and related settings”</li>
+									<li>Press the Windows Key, then type “Fonts” and select “Font Preview and related settings”</li>
 									<li>Search and select the variable font you want to inspect. In our video above we searched for Microsoft&rsquo;s Bahnschrift.</li>
-									<li>On the next screen you&rsquo;ll see "instance view", which shows you the various instances the font has defined. For example Bahnschrift has 15, including Light, Light Condensed, SemiLight, Bold, and many others.</li>
+									<li>On the next screen you&rsquo;ll see “instance view”, which shows you the various instances the font has defined. For example Bahnschrift has 15, including Light, Light Condensed, SemiLight, Bold, and many others.</li>
 									<li>If you scroll down you&rsquo;ll see a Metadata section with a label “Variable Font”. Clicking on “Variable Font Properties” will take you to the page that details the various axes and allows you to change them in real time.</li>
 								</ol>
 							</div>
@@ -560,7 +560,7 @@ to {
 					<section class="l-subsection">
 						<div class="l-grid l-grid--stack-med">
 							<div class="l-col-left">
-								<h4>Good 'ol wireframes</h4>
+								<h4>Good ’ol wireframes</h4>
 								<p>No matter how many tools come out, sometimes it just helps to sketch out ideas while you&rsquo;re in a room brainstorming. That is exactly what Melanie and Greg did while coming up with the various ways to show practical and exciting ways in which Variable Fonts can improve a site.</p>
 								<p>We then took these wireframes and moved into Adobe Illustrator and built them out, and then while coding it up we kept the spirit of the design in place while still making subtle tweaks. The above shows the initial introduction of the poem that sets the theme for the entire expedition.</p>
 							</div>
@@ -585,26 +585,26 @@ to {
 					</div>
 					<h3 class="l-col-left">Progressive enhancement</h3>
 					<div class="l-col-right">
-						<p>As you can see, support for variable fonts is beginning to make its way into browsers as well as into fonts, so it's wise to use variable fonts in a progressive enhancements manner.
+						<p>As you can see, support for variable fonts is beginning to make its way into browsers as well as into fonts, so it’s wise to use variable fonts in a progressive enhancements manner.
 							To see if a browser supports variable fonts, utilize the CSS @supports conditional check, like so:</p>
-<pre><code>@supports(font-variation-settings: 'wght' 500) {
+<pre><code>@supports(font-variation-settings: "wght" 500) {
 	/* variable font code here */
 }</code></pre>
 							<p>While this will check if the CSS parser understands font-variation-settings, it doesn&rsquo;t necessarily ensure that the correct font is being selected. Take the following example:</p>
 <pre><code>font-family: "Bahnschrift", sans-serif;
-font-variation-settings: 'wght' 600;</code></pre>
+font-variation-settings: "wght" 600;</code></pre>
 						<p>This will result in users utilizing a Windows 10 device with the desired result, but unless you are providing a fallback copy of Bahnschrift from the server, anyone accessing your site using a different OS will render without any axis change. Because of this you should provide fallbacks and only utilize font-variation-settings for non-reserved axes so that no matter the font they&rsquo;ll be styled similarly. For example a better approach would be:</p>
 <pre><code>font-family: "Bahnschrift", -apple-system, BlinkMacSystemFont, sans-serif;
 font-weight: 600;</code></pre>
 						<p>This will ensure that if the user is on Windows, Mac, iOS, Android result in grabbing their respective variable font. When using this approach however, you need to ensure that your design doesn&rsquo;t depend on certain font metrics. If your design does depend on certain font metrics or a non-reserved axis then you should serve the font using @font-face, like so:</p>
 <pre><code>@font-face {
-	font-family: 'Decovar';
-	src: url('fonts/DecovarAlpha-VF.ttf');
+	font-family: "Decovar";
+	src: url("fonts/DecovarAlpha-VF.ttf");
 }
 
 body {
-	font-family: 'Decovar';
-	font-variation-settings: 'TRMD' 400;
+	font-family: "Decovar";
+	font-variation-settings: "TRMD" 400;
 }</code></pre>
 					</div>
 				</div>
@@ -620,7 +620,7 @@ body {
 						<h3 class="l-col-left">Further reading</h3>
 						<ul class="l-col-right">
 							<li><a href="https://www.axis-praxis.org/specimens/__DEFAULT__" target="_blank">Axis-Praxis</a></li>
-							<li><a href="http://rwt.io/presentations/talk/variable-fonts-future-web-design" target="_blank">Jason Pemental's Variable Font Presentation</a></li>
+							<li><a href="http://rwt.io/presentations/talk/variable-fonts-future-web-design" target="_blank">Jason Pemental’s Variable Font Presentation</a></li>
 							<li><a href="https://docs.microsoft.com/en-us/typography/opentype/spec/">Open Type Specification</a></li>
 						</ul>
 						<h3 class="l-col-left">Additional demos</h3>
