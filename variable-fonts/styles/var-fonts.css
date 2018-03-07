@@ -1478,6 +1478,24 @@ body.has-anim .vf-decovar__text {
 	font-size: 12pt;
 }
 
+@media (max-width: 36em) {	
+	.vf-optical-sizing__72pt {
+		font-size: 48pt;
+	}
+	
+	.vf-optical-sizing__36pt {
+		font-size: 24pt;
+	}
+}
+
+@media (max-width: 80em) {
+	.vf-optical-sizing th,
+	.vf-optical-sizing td {
+		width: 50%;
+		word-break: break-all;
+	}
+}
+
 /*
  *	SECTION: DESIGN TOOLS
  *	=============================================
