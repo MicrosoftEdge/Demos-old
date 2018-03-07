@@ -1378,7 +1378,7 @@ body:not(.has-anim) .vf-decovar__text::before {
 	text-align: center;
 }
 
-body.has-anim .vf-decovar__text {
+body.has-anim .vf-decovar.is-in-view .vf-decovar__text {
 	animation: variationSettings 10s infinite;
 }
 

@@ -352,6 +352,26 @@
 	poemZoneObserver.observe(document.querySelector('#poem'));
 }());
 
+/*
+ *	DECOVAR ANIMATION
+ *	---------------------------------------------
+ */
+
+(function () {
+	'use strict';
+
+	const decovarObserver = new IntersectionObserver((entries) => {
+		return entries.forEach((e) => {
+			if (e.intersectionRatio >= 0.1) {
+				e.target.classList.add('is-in-view');
+			} else {
+				e.target.classList.remove('is-in-view');
+			}
+		});
+	}, { threshold: 0.1 });
+	decovarObserver.observe(document.querySelector('.vf-decovar'));
+}());
+
 /* eslint-disable */
 
 /**
