@@ -142,6 +142,7 @@ table:first-child {
 th, td {
 	padding: 10px;
 	padding: .5rem .75rem;
+	text-align: left;
 }
 
 td {
