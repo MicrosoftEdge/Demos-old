@@ -18,6 +18,52 @@
 }());
 
 /*
+ *	FEATURE SUPPORT ALERT
+ *	---------------------------------------------
+ */
+
+(function () {
+	'use strict';
+
+	/* These scripts are written old-school so that they work on older browsers */
+	var closeAlert = function(e) {
+		if (e.target.id === 'dismissFeatureAlert') {
+			var featureAlert = document.getElementById('featureAlert');
+			document.body.removeChild(featureAlert);
+			document.body.classList.remove('has-alert');
+			document.querySelector('.c-nav-bar').focus();
+		}
+	};
+
+	var insertAlert = function() {
+		var featureAlertMsg = '<strong>Notice:</strong> This page demonstrates variable fonts, which is not supported in your browser version. For the full experience, please view in Microsoft Edge build 17074+ or <a href="https://developer.microsoft.com/en-us/microsoft-edge/platform/status/fontvariationpropertieswithopentypevariablefontsupport/">any browser that supports variable fonts</a>.',
+			featureAlert = document.createElement('div');
+
+		featureAlert.className = 'c-alert c-alert--error';
+		featureAlert.setAttribute('role', 'alert');
+		featureAlert.setAttribute('aria-live', 'polite');
+		featureAlert.setAttribute('id', 'featureAlert');
+
+		document.body.insertBefore(featureAlert, document.body.querySelector(':first-child'));
+		document.body.className += 'has-alert';
+
+		/* Set trivial timeout to trigger aria-live readout cross-browser */
+		setTimeout(function(){
+			featureAlert.innerHTML = '<div class="l-contain c-alert__contain"><p class="c-alert__message">' + featureAlertMsg + '</p><button class="c-alert__dismiss" aria-label="Close alert" aria-controls="featureAlert" id="dismissFeatureAlert"></button></div>';
+		}, 10);
+
+		/* Makes heading focusable by JS, for when alert is cleared */
+		document.querySelector('.c-nav-bar').setAttribute('tabindex', '-1');
+		window.addEventListener('click', closeAlert, false);
+	};
+
+	/* Render alert if font-variation-settings isn't supported */
+	if (window.CSS === undefined || !CSS.supports('font-variation-settings', '"wdth" 100')) { //no-undefined
+		insertAlert();
+	}
+}());
+
+/*
  *	COMPONENT: DEMO NAV
  *	---------------------------------------------
  */
