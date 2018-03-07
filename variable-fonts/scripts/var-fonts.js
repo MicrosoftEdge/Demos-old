@@ -324,8 +324,8 @@
 				var box = path.getBBox();
 				var centerX = box.x + (box.width / 2);
 				var centerY = box.y + (box.height / 2);
-				var dx = (centerX - svgCenterX) / 2;
-				var dy = (centerY - svgCenterY) / 2;
+				var dx = (centerX - svgCenterX) / 1.25;
+				var dy = (centerY - svgCenterY) / 1.25;
 				path.style.transform = 'translate(' + dx + 'px, ' + dy + 'px)';
 				path.style.opacity = '.3';
 			}
