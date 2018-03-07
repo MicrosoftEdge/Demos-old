@@ -115,6 +115,7 @@
 		const currentSlide = poemViewer.querySelector('.poem__slide[data-current]');
 		const prevBtn = poemViewer.querySelector('.poem__prev-btn');
 		const nextBtn = poemViewer.querySelector('.poem__next-btn');
+		const slideAnnouncer = document.getElementById('slideAnnouncer');
 
 		const newSlide = slideDir === 'next' ?
 			currentSlide.nextElementSibling :
@@ -161,6 +162,7 @@
 					}
 				}, 400);
 			}
+			slideAnnouncer.innerText = 'Slide ' + poemIndex + ' of ' + poemSlides.length;
 		}
 	};
 
@@ -170,8 +172,8 @@
 
 		// Set up pagination
 		poemControls.className = 'u-simple-list poem__controls';
-		poemControls.innerHTML = '<li class="poem__prev"><button disabled class="poem__prev-btn"><svg xmlns="http://www.w3.org/2000/svg" width="14.5" height="29"><path fill="none" stroke="#424F5E" stroke-width="2" stroke-miterlimit="10" d="M13.6 2.5l-12 12 12 12"/></svg></button></li>' +
-								 '<li class="poem__next"><button class="poem__next-btn"><svg xmlns="http://www.w3.org/2000/svg" width="14.5" height="29"><path fill="none" stroke="#424F5E" stroke-width="2" stroke-miterlimit="10" d="M1 2.5l12 12-12 12"/></svg></button></li>';
+		poemControls.innerHTML = '<li class="poem__prev"><button disabled class="poem__prev-btn"><span class="u-sr-only">Previous slide</span><svg xmlns="http://www.w3.org/2000/svg" width="14.5" height="29"><path fill="none" stroke="#424F5E" stroke-width="2" stroke-miterlimit="10" d="M13.6 2.5l-12 12 12 12"/></svg></button></li>' +
+								 '<li class="poem__next"><button class="poem__next-btn"><span class="u-sr-only">Next slide</span><svg xmlns="http://www.w3.org/2000/svg" width="14.5" height="29"><path fill="none" stroke="#424F5E" stroke-width="2" stroke-miterlimit="10" d="M1 2.5l12 12-12 12"/></svg></button></li>';
 
 		poemViewer.appendChild(poemControls);
 		poemControls.querySelector('.poem__prev').addEventListener('click', function(){
@@ -182,12 +184,13 @@
 		});
 
 		// Set up visually-hidden div which announces new slides
-		const poemSlideIndex = document.createElement('p');
-		poemSlideIndex.setAttribute('aria-live', 'polite');
-		poemSlideIndex.setAttribute('aria-atomic', 'true');
-		poemSlideIndex.setAttribute('class', 'u-sr-only');
-		poemSlideIndex.innerText = 'Slide ' + poemIndex + ' of ' + poemSlides.length;
-		poemViewer.appendChild(poemSlideIndex);
+		const slideAnnouncer = document.createElement('p');
+		slideAnnouncer.setAttribute('id', 'slideAnnouncer');
+		slideAnnouncer.setAttribute('aria-live', 'polite');
+		slideAnnouncer.setAttribute('aria-atomic', 'true');
+		slideAnnouncer.setAttribute('class', 'u-sr-only');
+		slideAnnouncer.innerText = 'Slide ' + poemIndex + ' of ' + poemSlides.length;
+		poemViewer.appendChild(slideAnnouncer);
 
 		// Show first slide
 		poemSlides[0].style.display = 'block';
