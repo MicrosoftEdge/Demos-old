@@ -69,7 +69,7 @@ h2 {
 	font-size: 2.25em;
 }
 
-.guide-content h2 {
+body.has-anim .guide-content h2 {
 	opacity: .8;
 	font-weight: 100;
 
@@ -78,7 +78,7 @@ h2 {
 	transition: font-weight 1s, opacity 1s, transform 1s;
 }
 
-.guide-content h2.in-view {
+body.has-anim .guide-content h2.in-view {
 	opacity: .99;
 	font-weight: 900;
 	transform: scale(1) translateZ(1px);
@@ -367,17 +367,7 @@ main button {
 	margin-left: -1px;
 	width: 1px;
 	height: 7em;
-	background: linear-gradient(to bottom, #424f5e 0%, #fff 100%);
-	opacity: .01;
-	transform: scaleY(0) translateZ(1px);
-	transform-origin: 50% 0%;
-	transition: all .5s;
-}
-
-.l-section--timeline::before {
-	opacity: .99;
-	transform: scaleY(1) translateZ(1px);
-	background: linear-gradient(to bottom, #424f5e 0%, #424f5e 100%);
+	background: #424f5e;
 }
 
 @media (min-width: 48em) {
@@ -676,6 +666,9 @@ main button {
 	background: #fff;
 	color: #424f5e;
 	box-shadow: 0 0 0 0 #fff;
+}
+
+body.has-anim .poem-start {
 	transition: box-shadow 200ms ease-out;
 }
 
@@ -721,6 +714,9 @@ main button {
 .poem {
 	display: flex;
 	width: 600%; /* Accommodate 6 slides */
+}
+
+body.has-anim .poem {
 	transition: transform 400ms ease-out;
 }
 
@@ -791,7 +787,7 @@ main button {
 	white-space: nowrap;
 }
 
-.poem__line > span {
+body.has-anim .poem__line > span {
 	color: transparent;
 	background: linear-gradient(to var(--demo-vf-reveal-direction), white 0%, white 100%, white 0px, darkgray 100%);
 	background-clip: text;
@@ -811,7 +807,7 @@ main button {
 	}
 }
 
-#no-gradient-transition-test {
+body.has-anim #no-gradient-transition-test {
 	background: linear-gradient(to right, #444 0%, #444 50%, #fff 50%, #fff 100%);
 	animation: reveal-fade-test 2s infinite forwards;
 	animation-delay: -1s;
@@ -827,7 +823,7 @@ main button {
 	}
 }
 
-.no-gradient-transition .poem__line > span {
+body.has-anim .no-gradient-transition .poem__line > span {
 	background: linear-gradient(to right, #444 0%, #444 50%, #fff 50%, #fff 100%);
 	background-position-x: 100%;
 	background-size: 200%;
@@ -850,11 +846,11 @@ main button {
 	animation-play-state: paused;
 }
 
-.poem__line > span > .bolden {
+body.has-anim .poem__line > span > .bolden {
 	animation: bolden 300ms forwards;
 }
 
-.poem__line > span > .boldish {
+body.has-anim .poem__line > span > .boldish {
 	animation: boldish 300ms forwards;
 }
 
@@ -866,7 +862,7 @@ main button {
 	font-weight: 600 !important;
 }
 
-.poem__line > span > .space-out {
+body.has-anim .poem__line > span > .space-out {
 	letter-spacing: .1em;
 	animation: spaceOut 300ms forwards;
 }
@@ -984,9 +980,14 @@ main button {
 	will-change: transform;
 }
 
-.ice-floes > path {
+body.has-anim .ice-floes > path {
 	transform: translate(0, 0);
 	transition: transform 5s ease-out, opacity 5s  ease-in-out;
+}
+
+body:not(.has-anim) .ice-floes:not(.drift-started) > path {
+	transform: none !important;
+	opacity: 1 !important;
 }
 
 @media (min-width: 85em) and (min-height: 44em) {
@@ -1358,19 +1359,34 @@ span[zw] {
 }
 
 .vf-decovar {
-	line-height: 10em;
-	font-size: 10em;
+	line-height: 5em;
+	font-size: 5em;
 	text-align: center;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	height: 100%;
-	font-family: 'Decovar Regular24';
 }
 
 .vf-decovar__text {
 	font-family: 'Decovar Regular24';
 	line-height: 1em;
+}
+
+/* So that animating axes doesn't bounce from one line to another on narrow viewports */
+.vf-decovar__text span {
+	display: block;
+}
+
+body:not(.has-anim) .vf-decovar__text::before {
+	display: block;
+	content: "(Will not work right now, as animations are turned off)";
+	margin-bottom: .5em;
+	font: .875rem/1 base, "Segoe UI", Segoe, "Segoe WP", "Lucida Grande", "Lucida Sans", Verdana, sans-serif;
+	text-align: center;
+}
+
+body.has-anim .vf-decovar__text {
 	animation: variationSettings 10s infinite;
 }
 
@@ -1407,6 +1423,17 @@ span[zw] {
 	}
 	100% {
 		font-variation-settings: 'BLDA' 0, 'TRMD' 0, 'TRMC' 0, 'SKLD' 0, 'TRML' 0, 'SKLA' 0, 'TRMF' 0, 'TRMK' 0, 'BLDB' 0, 'WMX2' 0, 'TRMB' 0, 'TRMA' 0, 'SKLB' 0, 'TRMG' 0, 'TRME' 0;
+	}
+}
+
+@media (min-width: 48em) {
+	.vf-decovar {
+		line-height: 10em;
+		font-size: 10em;
+	}
+
+	.vf-decovar__text span {
+		display: inline;
 	}
 }
 
@@ -1518,6 +1545,9 @@ a.c-outro__github {
 	background: #efefef;
 	color: #424f5e;
 	font: 550 1em/1 "Variable Bahnschrift", "FF DIN", "Franklin Gothic", "Helvetica Neue", sans-serif;
+}
+
+body.has-anim a.c-outro__github {
 	transition: transform 200ms ease-out;
 }
 

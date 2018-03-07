@@ -316,17 +316,20 @@
 
 	// ICE DRIFT ANIMATION
 	const startIceDriftAnimation = function() {
-		var svgBox = document.querySelector('.ice-floes > .svg-center').getBBox();
-		var svgCenterX = svgBox.x + (svgBox.width / 2);
-		var svgCenterY = svgBox.y + (svgBox.height / 2);
-		for (var path of document.querySelectorAll('.ice-floes > path')) {
-			var box = path.getBBox();
-			var centerX = box.x + (box.width / 2);
-			var centerY = box.y + (box.height / 2);
-			var dx = (centerX - svgCenterX) / 2;
-			var dy = (centerY - svgCenterY) / 2;
-			path.style.transform = 'translate(' + dx + 'px, ' + dy + 'px)';
-			path.style.opacity = '.3';
+		if (document.body.classList.contains('has-anim')) {
+			var svgBox = document.querySelector('.ice-floes > .svg-center').getBBox();
+			var svgCenterX = svgBox.x + (svgBox.width / 2);
+			var svgCenterY = svgBox.y + (svgBox.height / 2);
+			for (var path of document.querySelectorAll('.ice-floes > path')) {
+				var box = path.getBBox();
+				var centerX = box.x + (box.width / 2);
+				var centerY = box.y + (box.height / 2);
+				var dx = (centerX - svgCenterX) / 2;
+				var dy = (centerY - svgCenterY) / 2;
+				path.style.transform = 'translate(' + dx + 'px, ' + dy + 'px)';
+				path.style.opacity = '.3';
+			}
+			document.querySelector('.ice-floes').classList.add('drift-started');
 		}
 	};
 
