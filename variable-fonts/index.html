@@ -317,7 +317,7 @@
 							<p><code>font-variation-settings: normal | [&lt;string&gt; &lt;number&gt;]#</code></p>
 							<p>For example, all of the following are valid values for font-variation-settings.</p>
 							<pre><code>font-variation-settings: "wght" 400;
-font-variation-settings: "wght" 400, "ital" 1;
+font-variation-settings: "wght" 400, "wdth" 80;
 font-variation-settings: normal;</code></pre>
 						</div>
 					</div>
@@ -456,7 +456,7 @@ to {
 }</code></pre>
 						<p>The reason this doesn’t work is because the engine doesn’t know what to interpolate to: does it keep “wght” at 300 or interpolate it to 0? We need to have all the relevant axes represented so the engine can interpolate them, or in the words of the spec—make the declarations become “like”:</p>
 <pre><code>from {
-  font-variation-settings: "wght" 300, "wdth" 100, "slnt", 0;
+  font-variation-settings: "wght" 300, "wdth" 100, "slnt" 0;
 }
 
 to {
