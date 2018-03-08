@@ -846,6 +846,14 @@ body.has-anim.no-gradient-transition .poem__line > span {
 }
 
 /* Phrase animations; have the end state set on page load (and reset on current slide) so layout calculates correctly */
+.poem__slide:not([data-current]) .bolden {
+	font-weight: 700 !important;
+}
+
+.poem__slide:not([data-current]) .boldish {
+	font-weight: 600 !important;
+}
+
 body.has-anim .poem__line > span > span[class] {
 	animation-play-state: paused;
 }
@@ -856,14 +864,6 @@ body.has-anim .poem__line > span > .bolden {
 
 body.has-anim .poem__line > span > .boldish {
 	animation: boldish 300ms forwards;
-}
-
-.poem__slide:not([data-current]) .bolden {
-	font-weight: 700 !important;
-}
-
-.poem__slide:not([data-current]) .boldish {
-	font-weight: 600 !important;
 }
 
 body.has-anim .poem__line > span > .space-out {

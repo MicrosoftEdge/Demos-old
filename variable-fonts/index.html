@@ -262,7 +262,7 @@
 								<span style="font-style: italic">non-variable</span><!-- Italic -->
 								font files.
 							</p>
-						<p>To achieve the look in the previous sentence we had to download over 150Kb split across six different files. As a result of needing to download every type face, web developers quickly found that for every beautiful font that a designer added to a site it had a noticeable impact on the performance and overall experience to the end user. So much to the point that font services, such as Adobe&rsquo;s TypeKit has added in heuristics to warn web developers about the impact these fonts can have on their end users.</p>
+						<p>To achieve the look in the previous sentence we had to download over 150Kb split across six different files. As a result of needing to download every type face, web developers quickly found that for every beautiful font that a designer added to a site, it had a noticeable impact on the performance and overall experience to the end user. To help surface potential perf impacts, font services such as Adobe&rsquo;s TypeKit have added in heuristics to warn web developers about the size and number of requests in their font selections.</p>
 					</div>
 				</div>
 			</section>
@@ -338,7 +338,7 @@ font-variation-settings: normal;</code></pre>
 										<div class="ticket__timing">
 											<p>
 												<span class="u-upper ticket__small-label">Date</span>
-												<span class="ticket__detail">Jan 27</span>
+												<span class="ticket__detail">Feb 27</span>
 											</p>
 											<p>
 												<span class="u-upper ticket__small-label">Launch</span>
@@ -487,7 +487,7 @@ to {
 						<figcaption>An example of optical size adjustment in print on the letter “a” created by Nick Sherman for his article titled “<a href="http://alistapart.com/column/font-hinting-and-the-future-of-responsive-typography" target="_blank">Font Hinting and the Future of Responsive Typography</a>”</figcaption>
 					</figure>
 
-					<p class="l-col-left">In fonts with automatic optical sizing, this optimization comes for free, as auto is the initial value. Sitka, a variable font created by Microsoft, automatically adjusts text between sizes 6px and 36px, such that across this entire range, small optimizations are done to make sure the type always looks its best. This behavior can be toggled using font-optical-sizing and setting the value to none.</p>
+					<p class="l-col-left">In fonts with automatic optical sizing, this optimization comes for free, as auto is the initial value. Sitka, a variable font created by Microsoft, automatically adjusts text between sizes 6pt and 36pt, such that across this entire range, small optimizations are done to make sure the type always looks its best. This behavior can be toggled using font-optical-sizing and setting the value to none.</p>
 					<figure class="l-col-right vf-optical-sizing">
 							<table>
 								<thead>
@@ -603,7 +603,7 @@ to {
 					<div class="l-col-right">
 						<p>As you can see, support for variable fonts is beginning to make its way into browsers as well as into fonts, so it’s wise to use variable fonts in a progressive enhancements manner.
 							To see if a browser supports variable fonts, utilize the CSS @supports conditional check, like so:</p>
-<pre><code>@supports(font-variation-settings: "wght" 500) {
+<pre><code>@supports (font-variation-settings: "wght" 500) {
 	/* variable font code here */
 }</code></pre>
 							<p>While this will check if the CSS parser understands font-variation-settings, it doesn&rsquo;t necessarily ensure that the correct font is being selected. Take the following example:</p>
@@ -651,8 +651,8 @@ body {
 			<div class="c-outro__byline">
 				<p><a href="https://developer.microsoft.com/en-us/microsoft-edge/testdrive/" class="c-nav-bar__more">A demo</a> by Microsoft Edge</p>
 				<p>Contributors: <a href="https://github.com/gregwhitworth">Greg Whitworth</a>, <a href="https://github.com/melanierichards">Melanie Richards</a>, <a href="https://github.com/FremyCompany">Francois Remy</a></p>
-				<p>Copyright Bahnschrift and Sitka fonts by Microsoft</p>
-				<p>Copyright TypeNetwork Decovar, font by David Berlow</p>
+				<p>Bahnschrift and Sitka fonts by Microsoft</p>
+				<p>Decovar font by David Berlow at TypeNetwork</p>
 			</div>
 			<a href="https://github.com/MicrosoftEdge/Demos" class="c-outro__github" aria-label="Explore code on Github">
 				<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path fill-rule="evenodd" clip-rule="evenodd" fill="#FFF" d="M10 .2C4.5.2 0 4.7 0 10.2c0 4.4 2.9 8.2 6.8 9.5.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.4-1.1-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.2 2.9.9.1-.6.3-1.1.6-1.3-2.1-.3-4.5-1.1-4.5-5 0-1.1.4-2 1-2.7-.1-.2-.4-1.2.1-2.6 0 0 .8-.3 2.7 1 .9-.2 1.8-.3 2.6-.3s1.7.1 2.5.3c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.6.6.7 1 1.6 1 2.7 0 3.8-2.3 4.7-4.6 4.9.4.3.7.9.7 1.9v2.7c0 .3.2.6.7.5 4-1.3 6.8-5.1 6.8-9.5.1-5.5-4.4-10-9.9-10z"/></svg><span>Explore code</span>
