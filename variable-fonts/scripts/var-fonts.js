@@ -7,6 +7,36 @@
  *	=============================================
  */
 
+ /*
+ *	FONT LOADING POLYFILL
+ *	---------------------------------------------
+ */
+
+var wait_for_fonts = document.fonts && document.fonts.ready ? document.fonts.ready : null;
+(function() {
+	'use strict';
+
+	if(!wait_for_fonts) {
+		let onready = function(){};
+		wait_for_fonts = new Promise(ready => (onready = ready));
+		let span = document.createElement("span");
+		span.setAttribute('role','none');
+		span.setAttribute('aria-hidden','true');
+		span.setAttribute('style','position:fixed;top:-100px;left:-100px;pointer-events:none;');
+		span.textContent = "Aaaaaaaaaaaaaaaaa";
+		document.body.insertBefore(span, document.body.firstChild);
+		let span_natural_width = span.offsetWidth;
+		span.style.fontFamily = '"Variable Sitka"';
+		let readiness_timer = setInterval(time => {
+			if(span.offsetWidth != span_natural_width) {
+				clearInterval(readiness_timer);
+				onready();
+			}
+		}, 333);
+	}
+
+})();
+
 /*
  *	COMPONENT: PAUSE ANIMATIONS BUTTON
  *	Toggles "has-anim" class; CSS selectors and JS
@@ -157,7 +187,7 @@
 		}
 
 		// wait for layout to happen
-		setTimeout(function() {
+		wait_for_fonts.then(function() {
 			// Assign animation offsets to each word of the poem
 			for (var slide of poemSlides) {
 				var pendingDuration = 0;
@@ -223,7 +253,7 @@
 					}
 				}
 			}
-		}, 100);
+		});
 	};
 
 	setUpPoem();
