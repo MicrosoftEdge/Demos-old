@@ -827,7 +827,7 @@ body.has-anim #no-gradient-transition-test {
 	}
 }
 
-body.has-anim .no-gradient-transition .poem__line > span {
+body.has-anim.no-gradient-transition .poem__line > span {
 	background: linear-gradient(to right, #444 0%, #444 50%, #fff 50%, #fff 100%);
 	background-position-x: 100%;
 	background-size: 200%;
@@ -846,7 +846,7 @@ body.has-anim .no-gradient-transition .poem__line > span {
 }
 
 /* Phrase animations; have the end state set on page load (and reset on current slide) so layout calculates correctly */
-.poem__line > span > span[class] {
+body.has-anim .poem__line > span > span[class] {
 	animation-play-state: paused;
 }
 
