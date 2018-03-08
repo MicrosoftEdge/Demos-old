@@ -431,38 +431,39 @@ font-variation-settings: normal;</code></pre>
 						</table>
 						<p>Because of this, the following two CSS declarations will produce identical results:</p>
 <pre><code>.someClass {
-	font-variations-settings: "wght" 300, "ital" 1, "slnt" 45, "wdth" 50%, "opsz" 25;
+  font-variations-settings: "wght" 300, "ital" 1, "slnt" 45, "wdth" 50%, "opsz" 25;
 }
 
 .someClass {
-	font-style: italic;
-	font-optical-sizing: auto;
-	font-size: 25;
-	font-style: oblique 45deg;
-	font-stretch: 50%;
-	font-weight: 300;
+  font-style: italic;
+  font-optical-sizing: auto;
+  font-size: 25;
+  font-style: oblique 45deg;
+  font-stretch: 50%;
+  font-weight: 300;
 }</code></pre>
 					</div>
 					<h3 class="l-col-left">Animating axes</h3>
 					<div class="l-col-right">
 						<p>Now that we&rsquo;ve covered what variable fonts are and how they can be used, it&rsquo;s important to note that they can also be animated and interpolated.
 						<p>One thing to keep in mind when animating axes, according to the spec you can interpolate between two declarations that are “like”. So what does this mean? The following animation will not work:</p>
-						<pre><code>from {
+<pre><code>from {
   font-variation-settings: "wght" 300;
 }
 
 to {
-  font-variation-settings: "slnt" 45;
+  font-variation-settings: "wdth" 80, "slnt" 45;
 }</code></pre>
-						<p>The reason this doesn’t work is because the engine doesn’t know what to interpolate to, does it keep “wght” at 300 or interpolate it to 0. So in order for it to work we need to have both axes represented so the engine can interpolate them, or in the words of the spec - make the declarations become “like”.</p>
-						<pre><code>from {
-  font-variation-settings: "wght" 300, "slnt", 0;
+						<p>The reason this doesn’t work is because the engine doesn’t know what to interpolate to: does it keep “wght” at 300 or interpolate it to 0? We need to have all the relevant axes represented so the engine can interpolate them, or in the words of the spec—make the declarations become “like”:</p>
+<pre><code>from {
+  font-variation-settings: "wght" 300, "wdth" 100, "slnt", 0;
 }
 
 to {
-  font-variation-settings: "wght" 300, "slnt" 45;
+  font-variation-settings: "wght" 300, "wdth" 80, "slnt" 45;
 }</code></pre>
-						<p>We took this and had a little fun with the Decovar font and animated some of its astounding 15 different axes to create a rich animated experience:</p>
+						<p>Because the font weight doesn't change in this example, we could instead simply set the weight via <code>font-weight</code>, and use <code>font-variation-settings</code> for only the properties that will animate to different values.</p>
+						<p>We took this ability to animate variable fonts and had a little fun with some of Decovar’s astounding 15 different axes to create this animation:</p>
 					</div>
 
 					<div class="l-col-full vf-decovar">
