@@ -51,6 +51,7 @@ a:hover {
 
 h1, h2, h3, .h3, h4, .h4, .variable-font {
 	font-family: "Variable Bahnschrift", "FF DIN", "Franklin Gothic", "Helvetica Neue", sans-serif;
+	font-feature-settings: "kern" 1;
 }
 
 h1, h2 {
@@ -1042,6 +1043,7 @@ body:not(.has-anim) .ice-floes:not(.drift-started) > path {
 		margin: 0 auto;
 		padding: 2em;
 		font-family: "Variable Bahnschrift", "FF DIN", "Franklin Gothic", "Helvetica Neue", sans-serif;
+		font-feature-settings: "kern" 1;
 		color: #424f5e;
 	}
 
@@ -1193,6 +1195,7 @@ body:not(.has-anim) .ice-floes:not(.drift-started) > path {
 	margin: 0 auto;
 	border: 2px solid #9facbc;
 	font-family: "Variable Bahnschrift", "FF DIN", "Franklin Gothic", "Helvetica Neue", sans-serif;
+	font-feature-settings: "kern" 1;
 	background: #fff;
 }
 
