@@ -1017,7 +1017,8 @@ body:not(.has-anim) .ice-floes:not(.drift-started) > path {
 	top: -2em;
 }
 
-.soul-wrap {
+.soul-wrap,
+.soul-caption {
 	text-align: center;
 }
 
@@ -1032,11 +1033,17 @@ body:not(.has-anim) .ice-floes:not(.drift-started) > path {
  *	---------------------------------------------
  */
 
-.soul {
+.soul-wrap,
+.soul-caption {
 	display: none;
 }
 
 @supports (display: inline-grid) {
+	.soul-wrap,
+	.soul-caption {
+		display: block;
+	}
+
 	.soul {
 		display: inline-grid;
 		grid-template-columns: [lm-start] auto [lm-end cl-start] auto [cl-end cm-start] auto [cm-end cr-start] auto [cr-end co-start] auto [co-end rm-start] auto [rm-end];
@@ -1165,6 +1172,10 @@ body:not(.has-anim) .ice-floes:not(.drift-started) > path {
 			background: #e5ebf0;
 		}
 
+		.soul-caption {
+			margin-bottom: 3rem;
+		}
+
 		.soul__is {
 			background: linear-gradient(to bottom, #e5ebf0 0%, #e5ebf0 45%, #424f5e 45%, #424f5e 55%, #e5ebf0 55%, #e5ebf0 100%);
 		}
@@ -1172,6 +1183,18 @@ body:not(.has-anim) .ice-floes:not(.drift-started) > path {
 		.soul__is span {
 			padding: 0 .5em;
 			background: #e5ebf0;
+		}
+	}
+
+	@media (min-width: 48em) {
+		.soul-wrap {
+			margin-bottom: 2em;
+		}
+	}
+
+	@media (min-width: 60em) {
+		.soul {
+			padding: 0;
 		}
 	}
 }
