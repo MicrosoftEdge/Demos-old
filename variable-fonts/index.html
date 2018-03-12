@@ -250,24 +250,26 @@
 							</quote-grid>
 						</figure>
 						<p class="caption soul-caption">
-							See variable fonts in action in the <br /><a href="https://codepen.io/MSEdgeDev/pen/34ee6c6e3732e35cf48c67753b80f0d3" target="_blank">pull quote code on Codepen</a>
+							Multi-type quotes like this used to only be performant in images or SVG; until variable fonts. View this <br /><a href="https://codepen.io/MSEdgeDev/pen/34ee6c6e3732e35cf48c67753b80f0d3" target="_blank">pull quote code on Codepen</a>
 						</p>
 					</div>
 					<div class="l-col-right">
 						<p>Delivering this “soul” using web fonts with regular OpenType fonts required web developers to include every different font file for the various font variants the designer chose. Take the following simple example:</p>
 
 						<!-- DEMO -->
-						<p class="tk-korolev-compressed">This
-							<span style="font-weight: 700" class="tk-korolev">sentence</span><!-- bold -->
-							is <!-- Regular -->
-							<span style="font-weight: 500;" class="tk-korolev">composed</span><!-- Light -->
-							from
-							<span style="font-weight: 900;" class="tk-korolev-condensed">six</span>
-							<span style="font-weight: 200;" class="tk-korolev-condensed">different</span><!-- Bold Italic -->
-							<span>non-variable</span><!-- Italic -->
-							font files.
+						<p class="tk-korolev-compressed">
+							<span style="font-weight: 500" class="tk-korolev">1. This</span>
+							<span style="font-weight: 300">sentence</span>
+							is
+							<span style="font-weight: 350;" class="tk-korolev-condensed">composed</span>
+							<span style="font-weight: 600" class="tk-korolev-condensed">from</span>
+							<span style="font-weight: 900;" class="tk-korolev-condensed">three</span>
+							<span style="font-weight: 700;" class="tk-korolev">different</span>
+							<span style="font-weight: 900;" class="tk-korolev">non-variable</span>
+							<span style="font-weight: 700;">font</span>
+							<span style="font-weight: 900;">files</span>.
 						</p>
-						<p>To achieve the look in the previous sentence we had to download over 150Kb split across six different files. As a result of needing to download every type face, web developers quickly found that for every beautiful font that a designer added to a site, it had a noticeable impact on the performance and overall experience to the end user. To help surface potential perf impacts, font services such as Adobe&rsquo;s TypeKit have added in heuristics to warn web developers about the size and number of requests in their font selections.</p>
+						<p>To achieve the look in the previous sentence we had to download three different font files. As a result of needing to download every type face, web developers quickly found that for every beautiful font that a designer added to a site, it had a noticeable impact on the performance and overall experience to the end user. To help surface potential perf impacts, font services such as Adobe&rsquo;s TypeKit have added in heuristics to warn web developers about the size and number of requests in their font selections.</p>
 					</div>
 				</div>
 			</section>
@@ -285,25 +287,28 @@
 						<p>To show the beauty of this simple, but powerful capability; let&rsquo;s achieve a similar designed sentence as our previous example, but this time using a single variable font.</p>
 
 						<!-- DEMO -->
-						<p class="tk-korolev-compressed">This
-							<span style="font-weight: 700" class="tk-korolev">sentence</span><!-- bold -->
-							is <!-- Regular -->
-							<span style="font-weight: 500;" class="tk-korolev">composed</span><!-- Light -->
-							from
-							<span style="font-weight: 900;" class="tk-korolev-condensed">six</span>
-							<span style="font-weight: 200;" class="tk-korolev-condensed">different</span><!-- Bold Italic -->
-							<span>non-variable</span>
-							font files.
+						<p class="tk-korolev-compressed">
+							<span style="font-weight: 500" class="tk-korolev">1. This</span>
+							<span style="font-weight: 300">sentence</span>
+							is
+							<span style="font-weight: 350;" class="tk-korolev-condensed">composed</span>
+							<span style="font-weight: 600" class="tk-korolev-condensed">from</span>
+							<span style="font-weight: 900;" class="tk-korolev-condensed">three</span>
+							<span style="font-weight: 700;" class="tk-korolev">different</span>
+							<span style="font-weight: 900;" class="tk-korolev">non-variable</span>
+							<span style="font-weight: 700;">font</span>
+							<span style="font-weight: 900;">files</span>.
 						</p>
 						<!-- TODO// Need to add in correct weights for Bahnschrift but I need the new font viewer to match up with Korelev -->
-						<p class="variable-font">This
-							<span style="font-weight: 700">sentence</span><!-- bold -->
-							is <!-- Regular -->
-							<span style="font-weight: 300;">composed</span><!-- Light -->
-							from
-							<span style="font-weight: 300;">one</span>
-							<span style="font-weight: 700;">variable</span><!-- Bold Italic -->
-							<span>font</span>
+						<p class="variable-font">
+							<span style="font-weight: 300; font-variation-settings: 'wdth' 100">2. This</span><!-- Light -->
+							<span style="font-weight: 300; font-variation-settings: 'wdth' 75">sentence</span><!-- light condensed -->
+							<span style="font-weight: 350; font-variation-settings: 'wdth' 100">is</span> <!-- SemiLight -->
+							<span style="font-weight: 350; font-variation-settings: 'wdth' 75">composed</span><!-- SemiLight Condensed -->
+							<span style="font-weight: 400; font-variation-settings: 'wdth' 100">from</span><!-- Regular -->
+							<span style="font-weight: 600; font-variation-settings: 'wdth' 100">one</span><!-- SemiBold -->
+							<span style="font-weight: 700; font-variation-settings: 'wdth' 100">variable</span><!-- Bold -->
+							<span style="font-weight: 700; font-variation-settings: 'wdth' 75">font</span><!-- Bold Condensed -->
 						</p>
 					</div>
 				</div>
@@ -317,7 +322,7 @@
 				</header>
 				<div class="l-section__body">
 					<div class="l-grid">
-						<p class="l-col-left c-feature-para">So how exactly did we achieve the seemingly different typefaces with a single font?</p>
+						<p class="l-col-left c-feature-para">So how exactly did we achieve the seemingly different typefaces in the, previous example, with a single font?</p>
 						<div class="l-col-right">
 							<p> We utilized the variable font, “Bahnschrift” by Microsoft, and pivoted the various axes to match that of sentence number one. To adjust an axis in CSS, you can utilize font-variation-settings, like so:</p>
 							<p><code>font-variation-settings: normal | [&lt;string&gt; &lt;number&gt;]#</code></p>
@@ -380,7 +385,7 @@ font-variation-settings: normal;</code></pre>
 					<h3 class="l-col-left">Reserved axis tags</h3>
 					<div class="l-col-right">
 						<p>While font designers can create as many axes as they desire using whatever
-							four-character tags they want; there are currently five reserved axis tags.</p>
+							four-character tags (eg: <code>'wdth'</code>) they want; there are currently five reserved axis tags.</p>
 						<table>
 							<thead>
 								<th>Reserved axis</th>
@@ -457,11 +462,11 @@ font-variation-settings: normal;</code></pre>
 						<video autoplay loop>
 							<source src="video/animating-headers-intersection-observer.mp4" type="video/mp4">
 						</video>
-						<figcaption>A practical example of animating headers as they scroll into view using IntersectionObserver. View the “<a href="https://codepen.io/MSEdgeDev/pen/e1d7a7a20330af0e99d133ec46b95619" target="_blank">Codepen</a>”</figcaption>
+						<figcaption>A practical example of animating the font-weight on headers as they scroll into view using IntersectionObserver. View the “<a href="https://codepen.io/MSEdgeDev/pen/e1d7a7a20330af0e99d133ec46b95619" target="_blank">Codepen</a>”</figcaption>
 					</figure>
 					<div class="l-col-right">
-						<p>Now that we&rsquo;ve covered what variable fonts are and how they can be used, it&rsquo;s important to note that they can also be animated and interpolated. You may have noticed as you scroll down this page that the section headings animate in scale and font weight as they scroll into view; you can peruse <a href="https://codepen.io/MSEdgeDev/pen/e1d7a7a20330af0e99d133ec46b95619">that headings code on Codepen</a>.</a></p>
-						<p>One thing to keep in mind when animating axes, according to the spec you can interpolate between two declarations that are “like”. So what does this mean? The following animation will not work:</p>
+						<p>Now that we&rsquo;ve covered what variable fonts are and how they can be used, it&rsquo;s important to note that they can also be animated and interpolated. You may have noticed as you scroll down this page that the section headings animate in scale and font weight as they scroll into view; this is a very practical and compelling use case for variable fonts. If you're curious how we did this - take a peek at the <a href="https://codepen.io/MSEdgeDev/pen/e1d7a7a20330af0e99d133ec46b95619">Codepen</a>.</p>
+						<p>One thing to keep in mind when animating axes, according to the spec you can interpolate between two declarations that are “like”. So what does this mean? The following animation will <em>not</em> work:</p>
 <pre><code>from {
   font-variation-settings: "wght" 300;
 }
@@ -649,6 +654,7 @@ body {
 					</header>
 					<div class="l-section__body">
 						<ul>
+							<li><a href="https://codepen.io/collection/938731d2762f40387ee8668de6c664f2/#" target="_blank">All Codepen demos used in this guide</a></li>
 							<li><a href="https://www.axis-praxis.org/specimens/__DEFAULT__" target="_blank">Test-drive variable font specimens on Axis-Praxis</a></li>
 							<li><a href="http://rwt.io/presentations/talk/variable-fonts-future-web-design" target="_blank">Jason Pamental’s Variable Font Presentation</a></li>
 							<li><a href="https://docs.microsoft.com/en-us/typography/opentype/spec/">Open Type Specification</a></li>
