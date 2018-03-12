@@ -9,7 +9,7 @@ too sentimental). Some others are new. In any case, we are working on adding mor
 
 ## Contributing
 
-Please see our [contribution guidelines](CONTRIBUTING.md) before submitting a PR.
+Thanks for contributing! Please see the [Contributing](.github/CONTRIBUTING.md) file for process details and requirements.
 
 ## Code of Conduct
 

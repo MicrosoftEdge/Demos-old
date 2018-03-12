@@ -1,0 +1,497 @@
+/*
+ *	DEMO TEMPLATE STYLES
+ *	=============================================
+ */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font: 400 100%/1.4 base, "Segoe UI", Segoe, "Segoe WP", "Lucida Grande", "Lucida Sans", Verdana, sans-serif;
+}
+
+:focus {
+	outline-offset: 1px;
+}
+
+a:link, a:visited {
+	text-underline-offset: 1px;
+	text-decoration-skip: ink;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+@media (min-width: 80em) {
+	html {
+		font-size: 112.5%;
+	}
+}
+
+@media (min-width: 120em) {
+	html {
+		font-size: 118.75%;
+		line-height: 1.5;
+	}
+}
+
+/*
+ *	LAYOUT
+ *	---------------------------------------------
+ *	@NOTE: The layout margins and paddings are in
+ *	rem (mostly) so that changing the font size
+ *	of a layout element doesn't change those
+ *	measurements. Vertical measurements in the
+ *	mobile-first experience are in em.
+ *	---------------------------------------------
+ */
+
+.l-contain {
+	margin-right: auto;
+	margin-left: auto;
+	padding-right: 1.25rem;
+	padding-left: 1.25rem;
+	max-width: 960px;
+	max-width: 100rem;
+}
+
+.l-section {
+	margin-top: 3.5em;
+}
+
+.l-section--banner,
+.c-intro {
+	padding-top: 3.5em;
+	padding-bottom: 3.5em;
+}
+
+.l-subsection {
+	margin-top: 2em;
+}
+
+.l-subsection--banner {
+	padding-top: 2em;
+	padding-bottom: 2em;
+}
+
+.l-section--banner + .l-section--banner,
+.l-subsection--banner + .l-subsection--banner {
+	margin-top: 0;
+}
+
+@media (min-width: 36em) {
+	.l-contain {
+		padding-right: 3rem;
+		padding-left: 3rem;
+	}
+
+	.l-section {
+		margin-top: 6rem;
+	}
+
+	.l-subsection--banner,
+	.c-intro {
+		padding-top: 6rem;
+		padding-bottom: 6rem;
+	}
+
+	.l-subsection {
+		margin-top: 3rem;
+	}
+
+	.l-subsection--banner {
+		padding-top: 3rem;
+		padding-bottom: 3rem;
+	}
+
+	.l-section--banner + .l-section--banner,
+	.l-subsection--banner + .l-subsection--banner {
+		margin-top: 0;
+	}
+}
+
+@media (min-width: 60em) {
+	.l-contain {
+		padding-right: 6rem;
+		padding-left: 6rem;
+	}
+}
+
+/*
+ *	BODY TYPE
+ *	---------------------------------------------
+ */
+
+p, ul, ol {
+	margin-top: 1em;
+	max-width: 44rem;
+}
+
+ul, ol {
+	padding-left: 1.25em;
+}
+
+p:first-child, ul:first-child, ol:first-child {
+	margin-top: 0;
+}
+
+li + li {
+	margin-top: .625em;
+}
+
+pre {
+	white-space: pre-wrap;
+}
+
+/*
+ *	UTILITIES
+ *	---------------------------------------------
+ */
+
+/* Clear floated elements */
+.u-clear::before,
+.u-clear::after {
+	content: "";
+	display: table;
+}
+
+.u-clear::after {
+	clear: both;
+}
+
+/* Hide element visually (not from screen reader) */
+.u-sr-only {
+	position: absolute;
+	clip: rect(0, 0, 0, 0);
+}
+
+/* Simple list */
+.u-simple-list {
+	margin: 0;
+	padding: 0;
+	max-width: 100%;
+	list-style: none;
+}
+
+/*
+ *	COMPONENT: NAV BAR
+ *	@NOTE: These styles are not intended to be
+ *	changed by demo authors. For those styles,
+ *	see demo.css
+ *	---------------------------------------------
+ */
+
+.c-nav-bar {
+	position: fixed;
+	position: sticky;
+	top: 0;
+	width: 100%;
+	font-size: .813em;
+	line-height: 1.5;
+}
+
+.c-nav-bar__breadcrumb {
+	position: relative;
+	z-index: 9000; /* Higher than demo TOC */
+	margin-right: 9em;
+	max-width: none;
+	padding: .75em 1.25rem;
+}
+
+.c-nav-bar__breadcrumb li {
+	display: block;
+	margin-top: 0;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.c-nav-bar__breadcrumb li + li {
+	margin-top: 0;
+}
+
+.c-nav-bar__title {
+	font-weight: 700;
+}
+
+.c-toc {
+	position: absolute;
+	z-index: 8890; /* Unnecessarily high just in case… */
+	top: 0;
+	right: 0;
+	width: 100%;
+}
+
+/* If alert present above nav, change layout */
+.has-alert .c-toc {
+	position: absolute;
+}
+
+.c-toc__btn {
+	float: right;
+	padding: 1.5em 1.25rem;
+	text-align: left;
+}
+
+/* Focus styles are in your-demo-name.css */
+.c-toc__btn:hover,
+.c-toc__btn:focus,
+.c-toc__item a:focus {
+	outline: 0;
+}
+
+.c-toc__btn:hover {
+	cursor: pointer;
+}
+
+.c-toc__arrow {
+	margin-left: .5em;
+	transform: translateY(.1em);
+}
+
+.c-toc__items {
+	margin: 0;
+	padding-left: 0;
+	width: 100%;
+	max-height: calc(100vh - 4.5em);
+	overflow: auto;
+	clear: both;
+	list-style: none;
+}
+
+.c-toc__items[aria-hidden="true"] {
+	display: none;
+}
+
+.c-toc__item {
+	margin-top: 0;
+}
+
+.c-toc__item a {
+	display: block;
+	padding: 1em 1.25rem;
+	text-decoration: none;
+	transition: background-color ease-out 400ms;
+}
+
+.c-toc__item a:hover,
+.c-toc__item a:focus {
+	text-decoration: underline;
+}
+
+@media (max-width: 36em) {
+	.c-nav-bar__contain {
+		padding: 0;
+	}
+}
+
+@media (min-width: 36em) {
+	.c-nav-bar {
+		position: relative;
+	}
+
+	.c-nav-bar__breadcrumb {
+		margin-right: 13em;
+		padding: .75rem 0;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.c-nav-bar__breadcrumb li {
+		display: inline;
+	}
+
+	.c-nav-bar__index::after {
+		padding: .5em;
+		content: "\005C"; /* Backslash */
+	}
+
+	.c-toc {
+		position: fixed;
+		right: 3rem;
+		width: 12em;
+	}
+
+	.c-toc__btn,
+	.c-toc__items {
+		width: 100%;
+	}
+
+	.c-toc__btn,
+	.c-toc__item a {
+		padding: .75rem;
+	}
+
+	.c-toc__btn {
+		float: none;
+	}
+
+	.c-toc__items {
+		max-height: calc(100vh - 3em);
+	}
+}
+
+@media (min-width: 48em) {
+	.c-nav-bar {
+		font-size: .938em;
+	}
+}
+
+@media (min-width: 60em) {
+	.c-toc {
+		right: 6rem;
+	}
+}
+
+@media (min-width: 112em) {
+	/* Align toc to edge of contents whenever .l-contain maxes out */
+	.c-toc {
+		right: calc(50vw - 44rem);
+	}
+}
+
+/*
+ *	COMPONENT: ALERT
+ *	Only used for the feature-detection area for
+ *	now, but built as a component in case we want
+ *	to allow for reuse elsewhere
+ *	---------------------------------------------
+ */
+
+.c-alert {
+	position: relative;
+	z-index: 9000;
+	background: #f2f2f2;
+}
+
+.c-alert__contain {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0 auto;
+	max-width: 100rem;
+}
+
+/* Add side padding if not already on the element from .l-contain */
+.c-alert__contain:not(.l-contain) {
+	padding: 0 1em;
+}
+
+.c-alert a:link,
+.c-alert a:visited {
+	display: inline-block;
+	color: #0067b8;
+}
+
+.c-alert__message {
+	margin: 0;
+	max-width: 44rem;
+	padding: 1em 0;
+	padding: 1rem 0;
+	font-size: .813em;
+}
+
+.c-alert--error a:link,
+.c-alert--error a:visited {
+	color: #005da6;
+}
+
+.c-alert__dismiss {
+	margin-left: 1em;
+	width: 3em;
+	height: 3em;
+	background: url("../images/x.svg") no-repeat center;
+	cursor: pointer;
+}
+
+.c-alert__dismiss:hover,
+.c-alert__dismiss:focus {
+	outline: 2px solid hsla(0, 0%, 0%, .4);
+	outline-offset: -2px;
+}
+
+.c-alert__dismiss:active {
+	background-color: hsla(0, 0%, 0%, .2);
+}
+
+@media (min-width: 36em) {
+	.c-alert__dismiss {
+		margin-right: -1em;
+	}
+}
+
+/*
+ *	COMPONENT: TOGGLE ANIMATIONS BUTTON
+ *	---------------------------------------------
+ */
+
+ .c-toggle-anim {
+	display: none;
+	position: fixed;
+	z-index: 8880;
+	right: 1em;
+	bottom: 1em;
+	font-size: .875em;
+}
+
+.c-toggle-anim__state {
+	font-weight: 700;
+}
+
+body.has-js .c-toggle-anim {
+	display: block;
+}
+
+/*
+ *	COMPONENT: OUTRO
+ *	---------------------------------------------
+ */
+
+.c-outro {
+	text-align: center;
+}
+
+.c-outro__byline p {
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 24em;
+	font-size: .875em;
+}
+
+.c-outro__byline p + p {
+	margin-top: .5em;
+}
+
+.c-outro__github {
+	display: inline-block;
+	margin-top: 2em;
+	padding: .5em .75em;
+	border: 1px solid transparent;
+	line-height: 1;
+	text-decoration: none;
+}
+
+.c-outro__github:hover,
+.c-outro__github:focus {
+	border-color: hsla(0, 0%, 0%, .4);
+}
+
+.c-outro__github svg,
+.c-outro__github span {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.c-outro__github svg {
+	width: 20px;
+	height: 20px;
+}
+
+.c-outro__github span {
+	margin-left: .5em;
+}

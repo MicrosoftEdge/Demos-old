@@ -1,0 +1,205 @@
+/*
+ *	NAME OF YOUR DEMO
+ *	=============================================
+ *	@Dependencies:
+ *	@Note:
+ *	@TODO:
+ */
+
+/* DO NOT remove focus altogether, just style to your colors */
+:focus {
+	outline: 1px dotted #000;
+}
+
+::-moz-selection {
+	background: #0078d7;
+	color: #fff;
+}
+
+::selection {
+	background: #0078d7;
+	color: #fff;
+}
+
+a:link, a:visited {
+	color: #0078d7;
+}
+
+a:hover {
+	color: #666;
+}
+
+/*
+ *	FORM ELEMENTS
+ *	---------------------------------------------
+ */
+
+button {
+	padding: .5em .75em;
+	border: 0;
+	border-radius: 0;
+	font: inherit;
+	-webkit-appearance: none;
+	background-color: #ccc;
+	color: #000;
+}
+
+button:hover,
+button:focus {
+	outline: 2px solid hsla(0, 0%, 0%, .4);
+	outline-offset: 0;
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+button:active {
+	background-color: #999;
+}
+
+/*
+ *	UNIVERSAL DEMO-SPECIFIC STYLES
+ *	=============================================
+ */
+
+/*
+ *	A SECTION OF YOUR STYLES
+ *	---------------------------------------------
+ */
+
+/* Short Comment */
+
+/*
+	Long form Comment
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+*/
+
+/*
+ *	DEMO SECTION STYLES
+ *	=============================================
+ */
+
+/* Short Comment */
+
+/*
+	Long form Comment
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+*/
+
+/*
+ *	UNIVERSAL COMPONENTS
+ *	=============================================
+ */
+
+/*
+ *	COMPONENT: NAV BAR
+ *	---------------------------------------------
+ */
+
+.c-nav-bar {
+	background: #000;
+	color: #ccc;
+}
+
+.c-nav-bar a {
+	color: #fff;
+	border-bottom-color: rgba(255, 255, 255, .66);
+}
+
+/* DO NOT remove focus altogether, just style to your colors */
+.c-nav-bar__breadcrumb a:focus {
+	outline: 1px dotted #fff;
+}
+
+/* Only used in mobile-first design */
+.c-nav-bar__breadcrumb {
+	border-bottom-color: #444;
+}
+
+.c-nav-bar__title {
+	color: #fff;
+}
+
+/* TABLE OF CONTENTS DROPDOWN */
+
+.c-toc__btn {
+	background: #000;
+	color: #fff;
+}
+
+.c-toc__btn:hover,
+.c-toc__btn:focus {
+	background: #222;
+}
+
+.c-toc__btn:active {
+	background: #444;
+}
+
+.c-toc__arrow path {
+	stroke: #fff;
+}
+
+.c-toc__items {
+	background: #444;
+}
+
+.c-toc__item a:hover,
+.c-toc__item a:focus {
+	background: #222;
+}
+
+/*
+ *	COMPONENT: INTRO
+ *	---------------------------------------------
+ */
+
+.c-intro {
+	background: #f9f9f9;
+	text-align: center;
+}
+
+/*
+ *	LAYOUT: "BANNER" SECTIONS
+ *	---------------------------------------------
+ */
+
+.l-section--banner,
+.l-subsection--banner {
+	background: #f2f2f2;
+}
+
+.l-section--bannert a:link,
+.l-section--banner a:visited,
+.l-subsection--banner a:link,
+.l-subsection--banner a:visited {
+	color: #0067b8;
+}
+
+/*
+ *	COMPONENT: OUTRO
+ *	---------------------------------------------
+ */
+
+.c-outro a {
+	color: #006fc6;
+}
+
+.c-outro a:hover {
+	color: #555;
+}
+
+a.c-outro__github {
+	background: #0078d7;
+	color: #fff;
+}
+
+a.c-outro__github:hover {
+	background: #006cc2;
+	color: #fff;
+}
+
+a.c-outro__github:active {
+	background: #005497;
+}
