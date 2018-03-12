@@ -228,26 +228,31 @@
 					</div>
 
 					<!-- Pull quote demo -->
-					<figure class="l-col-left soul-wrap" role="img" aria-label="Currently, the web is all system, no soul. (Jason Pamental)">
-						<quote-grid class="soul" aria-hidden="true">
-							<span class="soul__ldquo">“</span>
-							<span class="soul__currentl">Currentl</span>
-							<span class="soul__y">y</span>
-							<span class="soul__web">the web</span>
-							<span class="soul__is">
-								<span>is</span>
-							</span>
-							<span class="soul__all">
-								<span>A<span zw> </span>L<span zw> </span>L</span>
-							</span>
-							<span class="soul__system">
-								<span>S<span zw> </span>Y<span zw> </span>S<span zw> </span>T<span zw> </span>E<span zw> </span>M</span>
-							</span>
-							<span class="soul__no-soul"><span>no</span> <span>soul</span></span>
-							<span class="soul__rdquo">„</span>
-							<span class="soul__jason">- Jason Pamental</span>
-						</quote-grid>
-					</figure>
+					<div class="l-col-left">
+						<figure class="soul-wrap" role="img" aria-label="Currently, the web is all system, no soul. (Jason Pamental)">
+							<quote-grid class="soul" aria-hidden="true">
+								<span class="soul__ldquo">“</span>
+								<span class="soul__currentl">Currentl</span>
+								<span class="soul__y">y</span>
+								<span class="soul__web">the web</span>
+								<span class="soul__is">
+									<span>is</span>
+								</span>
+								<span class="soul__all">
+									<span>A<span zw> </span>L<span zw> </span>L</span>
+								</span>
+								<span class="soul__system">
+									<span>S<span zw> </span>Y<span zw> </span>S<span zw> </span>T<span zw> </span>E<span zw> </span>M</span>
+								</span>
+								<span class="soul__no-soul"><span>no</span> <span>soul</span></span>
+								<span class="soul__rdquo">„</span>
+								<span class="soul__jason">- Jason Pamental</span>
+							</quote-grid>
+						</figure>
+						<p class="caption soul-caption">
+							See variable fonts in action in the <br /><a href="">pull quote code on Codepen</a>
+						</p>
+					</div>
 					<div class="l-col-right">
 						<p>Delivering this “soul” using web fonts with regular OpenType fonts required web developers to include every different font file for the various font variants the designer chose. Take the following simple example:</p>
 
@@ -363,6 +368,9 @@ font-variation-settings: normal;</code></pre>
 	font-variation-settings: "wght" 500, "wdth" 75;
 }
 </code></pre>
+								<p>
+									<a href="https://codepen.io/MSEdgeDev/pen/34ee6c6e3732e35cf48c67753b80f0d3">View ticket example on Codepen</a>
+								</p>
 							</div>
 						</div>
 					</div>
@@ -446,7 +454,7 @@ font-variation-settings: normal;</code></pre>
 					</div>
 					<h3 class="l-col-left">Animating axes</h3>
 					<div class="l-col-right">
-						<p>Now that we&rsquo;ve covered what variable fonts are and how they can be used, it&rsquo;s important to note that they can also be animated and interpolated.
+						<p>Now that we&rsquo;ve covered what variable fonts are and how they can be used, it&rsquo;s important to note that they can also be animated and interpolated. You may have noticed as you scroll down this page that the section headings animate in scale and font weight as they scroll into view; you can peruse <a href="https://codepen.io/MSEdgeDev/pen/e1d7a7a20330af0e99d133ec46b95619">that headings code on Codepen</a>.</a></p>
 						<p>One thing to keep in mind when animating axes, according to the spec you can interpolate between two declarations that are “like”. So what does this mean? The following animation will not work:</p>
 <pre><code>from {
   font-variation-settings: "wght" 300;
