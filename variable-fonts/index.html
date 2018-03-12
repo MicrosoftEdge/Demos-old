@@ -252,16 +252,16 @@
 						<p>Delivering this “soul” using web fonts with regular OpenType fonts required web developers to include every different font file for the various font variants the designer chose. Take the following simple example:</p>
 
 						<!-- DEMO -->
-						<p class="tk-europa">This
-								<span style="font-weight: 700">sentence</span><!-- bold -->
-								is <!-- Regular -->
-								<span style="font-weight: 300;">composed</span><!-- Light -->
-								from
-								<span style="font-weight: 300; font-style: italic;">six</span><!-- Light Italic -->
-								<span style="font-weight: 700; font-style: italic;">different</span><!-- Bold Italic -->
-								<span style="font-style: italic">non-variable</span><!-- Italic -->
-								font files.
-							</p>
+						<p class="tk-korolev-compressed">This
+							<span style="font-weight: 700" class="tk-korolev">sentence</span><!-- bold -->
+							is <!-- Regular -->
+							<span style="font-weight: 500;" class="tk-korolev">composed</span><!-- Light -->
+							from
+							<span style="font-weight: 900;" class="tk-korolev-condensed">six</span>
+							<span style="font-weight: 200;" class="tk-korolev-condensed">different</span><!-- Bold Italic -->
+							<span>non-variable</span><!-- Italic -->
+							font files.
+						</p>
 						<p>To achieve the look in the previous sentence we had to download over 150Kb split across six different files. As a result of needing to download every type face, web developers quickly found that for every beautiful font that a designer added to a site, it had a noticeable impact on the performance and overall experience to the end user. To help surface potential perf impacts, font services such as Adobe&rsquo;s TypeKit have added in heuristics to warn web developers about the size and number of requests in their font selections.</p>
 					</div>
 				</div>
@@ -280,24 +280,25 @@
 						<p>To show the beauty of this simple, but powerful capability; let&rsquo;s achieve a similar designed sentence as our previous example, but this time using a single variable font.</p>
 
 						<!-- DEMO -->
-						<p class="tk-europa">This
-							<span style="font-weight: 700">sentence</span><!-- bold -->
+						<p class="tk-korolev-compressed">This
+							<span style="font-weight: 700" class="tk-korolev">sentence</span><!-- bold -->
 							is <!-- Regular -->
-							<span style="font-weight: 300;">composed</span><!-- Light -->
+							<span style="font-weight: 500;" class="tk-korolev">composed</span><!-- Light -->
 							from
-							<span style="font-weight: 300; font-style: italic;">six</span><!-- Light Italic -->
-							<span style="font-weight: 700; font-style: italic;">different</span><!-- Bold Italic -->
-							<span style="font-style: italic">non-variable</span><!-- Italic -->
+							<span style="font-weight: 900;" class="tk-korolev-condensed">six</span>
+							<span style="font-weight: 200;" class="tk-korolev-condensed">different</span><!-- Bold Italic -->
+							<span>non-variable</span>
 							font files.
 						</p>
+						<!-- TODO// Need to add in correct weights for Bahnschrift but I need the new font viewer to match up with Korelev -->
 						<p class="variable-font">This
 							<span style="font-weight: 700">sentence</span><!-- bold -->
 							is <!-- Regular -->
 							<span style="font-weight: 300;">composed</span><!-- Light -->
 							from
-							<span style="font-weight: 300; font-style: italic;">one</span><!-- Light Italic -->
-							<span style="font-weight: 700; font-style: italic;">variable</span><!-- Bold Italic -->
-							<span style="font-style: italic">font</span><!-- Italic -->
+							<span style="font-weight: 300;">one</span>
+							<span style="font-weight: 700;">variable</span><!-- Bold Italic -->
+							<span>font</span>
 						</p>
 					</div>
 				</div>
