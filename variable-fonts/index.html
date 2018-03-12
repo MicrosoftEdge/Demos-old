@@ -445,6 +445,12 @@ font-variation-settings: normal;</code></pre>
 }</code></pre>
 					</div>
 					<h3 class="l-col-left">Animating axes</h3>
+					<figure class="l-col-left">
+						<video autoplay loop>
+							<source src="video/animating-headers-intersection-observer.mp4" type="video/mp4">
+						</video>
+						<figcaption>A practical example of animating headers as they scroll into view using IntersectionObserver. View the “<a href="https://codepen.io/MSEdgeDev/pen/e1d7a7a20330af0e99d133ec46b95619" target="_blank">Codepen</a>”</figcaption>
+					</figure>
 					<div class="l-col-right">
 						<p>Now that we&rsquo;ve covered what variable fonts are and how they can be used, it&rsquo;s important to note that they can also be animated and interpolated.
 						<p>One thing to keep in mind when animating axes, according to the spec you can interpolate between two declarations that are “like”. So what does this mean? The following animation will not work:</p>
@@ -453,17 +459,16 @@ font-variation-settings: normal;</code></pre>
 }
 
 to {
-  font-variation-settings: "wdth" 80, "slnt" 45;
+  font-variation-settings: "wdth" 80;
 }</code></pre>
 						<p>The reason this doesn’t work is because the engine doesn’t know what to interpolate to: does it keep “wght” at 300 or interpolate it to 0? We need to have all the relevant axes represented so the engine can interpolate them, or in the words of the spec—make the declarations become “like”:</p>
 <pre><code>from {
-  font-variation-settings: "wght" 300, "wdth" 100, "slnt" 0;
+  font-variation-settings: "wght" 300;
 }
 
 to {
-  font-variation-settings: "wght" 300, "wdth" 80, "slnt" 45;
+  font-variation-settings: "wght" 0, "wdth" 80;
 }</code></pre>
-						<p>Because the font weight doesn't change in this example, we could instead simply set the weight via <code>font-weight</code>, and use <code>font-variation-settings</code> for only the properties that will animate to different values.</p>
 						<p>We took this ability to animate variable fonts and had a little fun with some of Decovar’s astounding 15 different axes to create this animation:</p>
 					</div>
 
