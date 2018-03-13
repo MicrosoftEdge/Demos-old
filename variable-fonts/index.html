@@ -476,11 +476,11 @@ to {
 }</code></pre>
 						<p>The reason this doesn’t work is because the engine doesn’t know what to interpolate to: does it keep “wght” at 300 or interpolate it to 0? We need to have all the relevant axes represented so the engine can interpolate them, or in the words of the spec—make the declarations become “like”:</p>
 <pre><code>from {
-  font-variation-settings: "wght" 300;
+  font-variation-settings: "wght" 700, "wdth" 100;
 }
 
 to {
-  font-variation-settings: "wght" 0, "wdth" 80;
+  font-variation-settings: "wght" 300, "wdth" 80;
 }</code></pre>
 						<p>We took this ability to animate variable fonts and had a little fun with some of Decovar’s astounding 15 different axes to create this animation:</p>
 					</div>
