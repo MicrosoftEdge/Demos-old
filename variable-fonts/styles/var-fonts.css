@@ -1499,6 +1499,9 @@ body.has-anim .vf-decovar.is-in-view .vf-decovar__text {
 	.vf-optical-sizing th,
 	.vf-optical-sizing td {
 		width: 50%;
+	}
+
+	.vf-optical-sizing td {
 		word-break: break-all;
 	}
 }
