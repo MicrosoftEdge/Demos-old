@@ -278,15 +278,17 @@ let waitForFonts = document.fonts && document.fonts.ready ? document.fonts.ready
 		}
 	};
 
-	const guideHeaders = document.querySelectorAll('.guide-content h2');
-	const guideHeadersObserver = new IntersectionObserver((entries) => {
-		return entries.forEach((e) => {
-			animateHeader(e.target, e.intersectionRatio);
-		});
-	}, { threshold: 0.3 });
-	for (const guideHeader of guideHeaders) {
-		guideHeadersObserver.observe(guideHeader);
-		guideHeadersObserver.observe(guideHeader.closest('section'));
+	if ('IntersectionObserver' in window && 'IntersectionObserverEntry' in window && 'intersectionRatio' in window.IntersectionObserverEntry.prototype) {
+		const guideHeaders = document.querySelectorAll('.guide-content h2');
+		const guideHeadersObserver = new IntersectionObserver((entries) => {
+			return entries.forEach((e) => {
+				animateHeader(e.target, e.intersectionRatio);
+			});
+		}, { threshold: 0.3 });
+		for (const guideHeader of guideHeaders) {
+			guideHeadersObserver.observe(guideHeader);
+			guideHeadersObserver.observe(guideHeader.closest('section'));
+		}
 	}
 
 	// DETECT GRADIENT TRANSITION SUPPORT
@@ -329,14 +331,16 @@ let waitForFonts = document.fonts && document.fonts.ready ? document.fonts.ready
 	});
 
 	// also start once scrolling has revealed 10% of the poem
-	const poemZoneObserver = new IntersectionObserver((entries) => {
-		return entries.forEach((e) => {
-			if (e.intersectionRatio >= 0.1) {
-				startIceDriftAnimation();
-			}
-		});
-	}, { threshold: 0.1 });
-	poemZoneObserver.observe(document.querySelector('#poem'));
+	if ('IntersectionObserver' in window && 'IntersectionObserverEntry' in window && 'intersectionRatio' in window.IntersectionObserverEntry.prototype) {
+		const poemZoneObserver = new IntersectionObserver((entries) => {
+			return entries.forEach((e) => {
+				if (e.intersectionRatio >= 0.1) {
+					startIceDriftAnimation();
+				}
+			});
+		}, { threshold: 0.1 });
+		poemZoneObserver.observe(document.querySelector('#poem'));
+	}
 }());
 
 /*
