@@ -122,6 +122,12 @@ let waitForFonts = document.fonts && document.fonts.ready ? document.fonts.ready
 					const newWords = newSlide.querySelectorAll('.poem__line > span, .poem__line > span > span[class]');
 					for (var i = 0; i < newWords.length; i++) {
 						newWords[i].style.animationPlayState = 'running';
+						// Safari seems to forget to recompute the animation state otherwise
+						if (navigator.vendor === 'Apple Computer, Inc.') {
+							newWords[i].style.animationName = 'safari-workaround';
+							window.getComputedStyle(newWords[i]).getPropertyValue('animation-name');
+							newWords[i].style.animationName = '';
+						}
 					}
 
 					if (prevBtn.hasAttribute('disabled')) {
