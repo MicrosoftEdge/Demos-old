@@ -21,9 +21,9 @@ if (window.MSApp) {
 
     var suggestionList = {};
     suggestionList[Windows.ApplicationModel.Package.current.displayName + " Test Drive"] = Windows.ApplicationModel.Package.current.description;
-    suggestionList["Download Internet Explorer 11"] = "http://windows.microsoft.com/en-us/internet-explorer/download-ie";
-    suggestionList["Internet Explorer Team Blog"] = "http://blogs.msdn.com/b/ie";
-    suggestionList["Internet Explorer Test Drive Site"] = "http://ie.microsoft.com/testdrive";
+    suggestionList["Download Internet Explorer 11"] = "https://windows.microsoft.com/en-us/internet-explorer/download-ie";
+    suggestionList["Internet Explorer Team Blog"] = "https://blogs.msdn.com/b/ie";
+    suggestionList["Internet Explorer Test Drive Site"] = "https://ie.microsoft.com/testdrive";
 
     var searchPane = Windows.ApplicationModel.Search.SearchPane.getForCurrentView();
 

@@ -9,7 +9,7 @@ if(typeof($FeatureDetectVideoCodecH264) == 'undefined')
             if (!video.canPlayType) {
                 $FeatureDetect.fail("Your browser doesn't support the HTML5 VIDEO tag, which is needed to run this demo.");
             } else if (!video.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"')) {
-                //$FeatureDetect.fail("Your browser doesn't support the h264 VIDEO codec, which is needed to run this demo. For more information on why IE9 supports h264, please see our earlier <a href='http://blogs.msdn.com/b/ie/archive/2010/04/29/html5-video.aspx'>blog post</a>.");
+                //$FeatureDetect.fail("Your browser doesn't support the h264 VIDEO codec, which is needed to run this demo. For more information on why IE9 supports h264, please see our earlier <a href='https://blogs.msdn.com/b/ie/archive/2010/04/29/html5-video.aspx'>blog post</a>.");
                 $FeatureDetect.fail("Your browser doesn't support the h264 VIDEO codec, which is needed to run this demo.");
             }
         }

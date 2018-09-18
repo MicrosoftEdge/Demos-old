@@ -285,8 +285,8 @@ if(isGetUserMediaSupported()){
 						<div class="layout layout--basic">
 							<div class="module module--secondary">
 								<p>There is a variety of methods to detect the pitch of a sound, some work in the frequency domain (like <em>HPS</em>, or <em>Harmonic Product Spectrum</em>), while some others do in the time domain (like <em>Autocorrelation</em>). With such a high sampling rate, we can only fit a small fraction of a second in the buffer used by the AnalyserNode. In these conditions, the latter algorithm usually does a better job than the former, and this is why we chose it for this demo.</p>
-								<p>Autocorrelation is the process of cross-correlating a signal with a time-delayed version of itself. In other words, we will be comparing a signal at two different points in time. As <a href="http://en.wikipedia.org/wiki/Autocorrelation" target="_blank">Wikipedia</a> puts it:</p>
-								<blockquote cite="http://en.wikipedia.org/wiki/Autocorrelation">
+								<p>Autocorrelation is the process of cross-correlating a signal with a time-delayed version of itself. In other words, we will be comparing a signal at two different points in time. As <a href="https://en.wikipedia.org/wiki/Autocorrelation" target="_blank">Wikipedia</a> puts it:</p>
+								<blockquote cite="https://en.wikipedia.org/wiki/Autocorrelation">
 									<p>It is a mathematical tool for finding repeating patterns, such as the presence of a periodic signal obscured by noise, or identifying the missing fundamental frequency in a signal implied by its harmonic frequencies.</p>
 								</blockquote>
 								<p>Given a delay time \(k\) we:</p>
@@ -297,7 +297,7 @@ if(isGetUserMediaSupported()){
 										<li>Accumulate those products over a series of times (1000 in our code)</li>
 										<li>Divide by the number of samples to get the average</li>
 									</ol>
-								<p>As seen on <a href="http://www.phy.mtu.edu/~suits/autocorrelation.html" target="_blank">this page about autocorrelation</a>, the resulting formula would be something like this:</p>
+								<p>As seen on <a href="https://www.phy.mtu.edu/~suits/autocorrelation.html" target="_blank">this page about autocorrelation</a>, the resulting formula would be something like this:</p>
 								<p>\[ R(k) = \frac{1}{t_{max} - t_{min}} \int_{t_{min}}^{t_{max}}s(t)s(t+k)dt \]</p>
 								<p>In addition, as you can see in the example, we also normalize the data. Since we are working with an array of bytes (0-255), we subtract 128 and divide by the same value.</p>
 								<p>Remember that we are working with periodic signals. As you may imagine, the highest correlation will happen once that signal "repeats itself", i.e. that \(bestK\) will match the period (in frames) of the fundamental frequency. In order to get that frequency we just need to divide the sampling rate by that distance \(bestK\).</p>

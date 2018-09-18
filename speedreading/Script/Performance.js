@@ -98,7 +98,7 @@ function Performance() {
         //
         // For more information on how to calculate how much CPU and GPU time IE9 requires on your own machine
         // we recomend reading the following blog post:
-        // http://blogs.msdn.com/b/ie/archive/2010/06/21/measuring-browser-performance-with-the-windows-performance-tools.aspx
+        // https://blogs.msdn.com/b/ie/archive/2010/06/21/measuring-browser-performance-with-the-windows-performance-tools.aspx
         //
         // This approach applies to all browsers (harware accelerated or note) and works well to take advantage
         // of the unused CPU time. Firefox 4 with hardware acceleration appears to be much less efficent
