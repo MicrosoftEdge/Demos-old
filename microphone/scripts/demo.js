@@ -91,6 +91,9 @@ Microsoft Corporation
 	//==============================
 	var runRecorder = function() {
 		if (navigator.getUserMedia) {
+			if (audioContext.state === 'suspended') {
+				audioContext.resume();
+			}
 			navigator.getUserMedia(
 				{
 					'audio': true
