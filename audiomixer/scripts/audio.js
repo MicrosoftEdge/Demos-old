@@ -143,6 +143,9 @@
 		},
 
 		toggle: function() {
+			if (this.context.state === 'suspended') {
+				this.context.resume();
+			}
 			if (this.playing) {
 				this.pause();
 			} else {
