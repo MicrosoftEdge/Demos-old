@@ -218,6 +218,9 @@ $(document).ready(function () {
 	};
 
 	var toggleMicrophone = function () {
+		if (audioContext.state === 'suspended') { 	
+			audioContext.resume(); 
+		}
 		if (isRefSoundPlaying) {
 			turnOffReferenceSound();
 		}
@@ -251,6 +254,9 @@ $(document).ready(function () {
 	};
 
 	var toggleReferenceSound = function () {
+		if (audioContext.state === 'suspended') { 	
+			audioContext.resume(); 
+		} 
 		if (isMicrophoneInUse) {
 			toggleMicrophone();
 		}
