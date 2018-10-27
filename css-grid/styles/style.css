@@ -38,6 +38,7 @@ body {
 	margin: 0;
 	outline: 1px solid #000;
 	outline-offset: -1px;
+	padding: 0;
 }
 
 .hidden-piece {
