@@ -37,7 +37,7 @@
 		while (selectObject.length > 0) {
 			selectObject.remove(selectObject.length - 1);
 		}
-	}
+	};
 
 	// Clear combobox then add voice options
 	const displayVoices = function(voices) {
@@ -48,7 +48,7 @@
 			option.innerHTML = voice.name;
 			voiceSelect.appendChild(option);
 		});
-	}
+	};
 
 	// Loading available voices for this browser/platform
 	// And displaying them into the combobox
