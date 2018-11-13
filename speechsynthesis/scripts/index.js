@@ -37,18 +37,24 @@
 		while (selectObject.length > 0) {
 			selectObject.remove(selectObject.length - 1);
 		}
-	}
+	};
 
 	// Clear combobox then add voice options
 	const displayVoices = function(voices) {
+		const lastSelectedVoiceName = voiceSelect.value;
 		clearSelect(voiceSelect);
 		voices.forEach((voice) => {
 			const option = document.createElement('option');
 			option.value = voice.name;
 			option.innerHTML = voice.name;
+			option.id = voice.name;
 			voiceSelect.appendChild(option);
 		});
-	}
+
+		if (lastSelectedVoiceName && voiceSelect.options.namedItem(lastSelectedVoiceName)) {
+			voiceSelect.value = lastSelectedVoiceName;
+		}
+	};
 
 	// Loading available voices for this browser/platform
 	// And displaying them into the combobox
