@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+	<meta charset="utf-8">
+	<title>Learn how to use WebAudio, WebGL and pointer events thanks to Babylon.js</title>
+	<meta name="og:title" content="Music Lounge">
+	<meta name="description" content="Music Lounge is an interactive demo that showcase WebGL audio positioning within a minimalistic UI based on babylon.js">
+	<meta name="keywords" content="Graphics, webgl, webaudio, pointer events">
+	<meta name="author" content="deltakosh, meulta, davrous">
+	<link href="styles/redgl.css" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TimelineMax.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+	<script src="https://redcamel.github.io/Alucard/release/0.8/min/Alucard.min.js"></script>
+	<script src="https://redcamel.github.io/RedGL2/release/RedGL.min.js"></script>
+	<script src="https://lo-th.github.io/Oimo.js/build/oimo.js"></script>
+	<script src="scripts/redgl.js"></script>
+</head>
+<body>
+<canvas></canvas>
+<script>
+	var assetPath = 'https://redcamel.github.io/RedGL2/asset/'
+	var tEffect, tEffect2
+	RedGL(document.querySelector('canvas'), function (v) {
+		if (v) {
+			console.log('초기화 성공!')
+			var tWorld, tView, tScene, tCamera, tRenderer;
+
+
+			var setBase = function (redGL) {
+				// 월드 생성
+				redGL['world'] = tWorld = RedWorld();
+
+				// 카메라 생성
+				tCamera = RedCamera();
+				// 렌더러 생성
+				tRenderer = RedRenderer();
+				// 씬 생성
+				tScene = RedScene(redGL);
+				// 뷰생성 및 적용
+				tView = RedView('HelloRedGL', redGL, tScene, tCamera);
+				tWorld.addView(tView);
+
+				tEffect = RedPostEffect_HueSaturation(redGL)
+				tEffect2 = RedPostEffect_ZoomBlur(redGL)
+				if (!Alucard.DETECT.isMobile) {
+					tView.postEffectManager.addEffect(tEffect = RedPostEffect_HueSaturation(redGL))
+					tView.postEffectManager.addEffect(tEffect2 = RedPostEffect_ZoomBlur(redGL))
+				}
+				tEffect2.amount = 0
+
+
+			};
+			setBase(this);
+
+			var self = this;
+			var test = setInterval(function () {
+				if (window['index_demo']) {
+					clearInterval(test);
+					var tRoot = Alucard.Dom('button').S(
+						'position', 'fixed',
+						'bottom', 0, 'right', 10,
+						'height',50,
+						'outline', 'none',
+						'background', 'transparent',
+						'border',0,
+						'z-index', 2,
+						'<', 'body'
+					);
+					['index_demo','index_demo2'].forEach(
+						function (v,idx) {
+							window[v].init(self, tView, tRenderer, tCamera)
+							Alucard.Dom('button').S(
+								'html', 'BG Demo'+(idx+1),
+								'background', '#594665',
+								'border-radius', 5,
+								'font-size',9,
+								'outline', 'none',
+								'padding', 5,
+								'cursor','pointer',
+								'color','#fff',
+								'margin-left',idx ? 5 : 0,
+								'border',0,
+								'click',function(){
+									window[v].start(self, tView, tRenderer, tCamera)
+								},
+								'<', tRoot
+							)
+						}
+					);
+					index_demo.start(self, tView, tRenderer, tCamera)
+				}
+			}, 16)
+
+		} else {
+			console.log('초기화 실패!')
+		}
+	})
+</script>
+</body>
+
+</html>
