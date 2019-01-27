@@ -12,4 +12,4 @@ Intersection Observor Polyfill
 
 Decovar Font
 -------------------------------
-Copyright TypeNetwork by David Berlow
+[Decovar](https://github.com/TypeNetwork/Decovar) was designed by David Berlow, and is available under the [SIL Open Font License](https://github.com/TypeNetwork/Decovar/blob/master/LICENSE.txt).
