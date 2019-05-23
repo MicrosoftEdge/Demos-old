@@ -84,7 +84,7 @@
 		const eventList = ['start', 'end', 'mark', 'pause', 'resume', 'error', 'boundary'];
 		eventList.forEach((event) => {
 			synUtterance.addEventListener(event, (speechSynthesisEvent) => {
-				log(`Fired '${speechSynthesisEvent.type}' event at time '${speechSynthesisEvent.elapsedTime}' and character '${speechSynthesisEvent.charIndex}'.`);
+				log(`Fired '${speechSynthesisEvent.type}' event named '${speechSynthesisEvent.name}' at time '${speechSynthesisEvent.elapsedTime}' and character '${speechSynthesisEvent.charIndex} of length '${speechSynthesisEvent.charLength}.`);
 			});
 		});
 
